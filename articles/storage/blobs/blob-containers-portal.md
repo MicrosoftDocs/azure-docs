@@ -90,9 +90,9 @@ Although anonymous read access for containers is supported, it is disabled by de
 
 Read about enabling public access level in the [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal) article.
 
-### Generate an SAS token
+### Generate a shared access signature
 
-Shared access signature (SAS) tokens permit secure, delegated access to resources in your Azure storage account. The token itself is a series of HTTP query string values that specify the conditions for access to a resource. The token is appended to the storage resource Uniform Resource Identifier (URI) when a request is made.
+A shared access signature (SAS) provides temporary, secure, delegated access to a client who wouldn't normally have permissions. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the interval over which the SAS is valid.
 
 Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with blob storage service.
 
@@ -101,7 +101,7 @@ When you create a SAS, you may choose to set access limitations based on permiss
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
-To generate an SAS token using the Azure portal, follow these steps:
+To generate an SAS token using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
 1. Select the checkbox next to the name of the container for which you will generate an SAS token.
@@ -132,9 +132,9 @@ A **stored access policy** gives you additional server-side control over one or 
 #### Create a stored access policy
 
 <!--
-A shared access signature (SAS) provides delegated access to Azure resources. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the interval over which the SAS is valid.
 
-A SAS is commonly used to provide temporary and secure access to a client who wouldn't normally have permissions. To generate either a service or account SAS, you'll need to supply values for the `–-account-name` and `-–account-key` parameters. An example of this scenario would be a service that allows users read and write their own data to your storage account.
+
+To generate either a service or account SAS, you'll need to supply values for the `–-account-name` and `-–account-key` parameters. An example of this scenario would be a service that allows users read and write their own data to your storage account.
 
 Azure Storage supports three types of shared access signatures: user delegation, service, and account SAS. For more information on shared access signatures, see the [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md) article.
 
