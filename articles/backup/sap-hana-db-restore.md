@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 03/31/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -117,7 +117,6 @@ To restore the backup data as files instead of a database, choose **Restore as F
     The files that are dumped are:
 
     * Database backup files
-    * Catalog files
     * JSON metadata files (for each backup file that's involved)
 
     Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
@@ -147,7 +146,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         su - <sid>adm
         ```
 
-    1. Generate the catalog file for restore. Extract the **BackupId** from the JSON metadata file for the full backup, which will be used later in the restore operation. Make sure that the full and log backups are in different folders and delete the catalog files and JSON metadata files in these folders.
+    1. Generate the catalog file for restore. Extract the **BackupId** from the JSON metadata file for the full backup, which will be used later in the restore operation. Make sure that the full and log backups (not present for Full Backup Recovery) are in different folders and delete the JSON metadata files in these folders.
 
         ```bash
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
@@ -155,20 +154,26 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         In the command above:
 
-        * `<DataFileDir>` - the folder that contains the full backups
-        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
-        * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed
+        * `<DataFileDir>` - the folder that contains the full backups.
+        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups. For Full BackUp Restore, Log folder isn't created. Add an empty directory in that case.
+        * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed.
 
     1. Restore using the newly generated catalog file through HANA Studio or run the HDBSQL restore query with this newly generated catalog. HDBSQL queries are listed below:
 
-    * To restore to a point in time:
+     * To open hdsql prompt, run the following command:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
+        ```bash
+        hdbsql -U AZUREWLBACKUPHANAUSER -d systemDB
+        ```
+
+     * To restore to a point-in-time:
+
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
 
         Then run the following command to restore the database:
 
         ```hdbsql
-        RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
+        RECOVER DATABASE FOR <db> UNTIL TIMESTAMP <t1> USING CATALOG PATH <path> USING LOG PATH <path> USING DATA PATH <path> USING BACKUP_ID <bkId> CHECK ACCESS USING FILE
         ```
 
         * `<DatabaseName>` - Name of the new database or existing database that you want to restore
@@ -181,7 +186,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * To restore to a particular full or differential backup:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
@@ -194,6 +199,37 @@ To restore the backup data as files instead of a database, choose **Restore as F
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
+    * To restore using backup ID:
+
+        ```hdbsql
+        RECOVER DATA FOR <db> USING BACKUP_ID <bkId> USING CATALOG PATH <path> USING LOG PATH <path> USING DATA PATH <path>  CHECK ACCESS USING FILE
+        ```
+ 
+      Examples:
+
+      SAP HANA SYSTEM restoration on same server
+
+        ```hdbsql
+        RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA tenant restoration on same server
+
+        ```hdbsql
+        RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA SYSTEM restoration on different server
+
+        ```hdbsql
+        RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA tenant restoration on different server
+
+        ```hdbsql
+        RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
 
 ### Restore to a specific point in time
 
