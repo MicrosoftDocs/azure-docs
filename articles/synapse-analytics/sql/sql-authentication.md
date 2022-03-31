@@ -59,7 +59,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 
-Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
+Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a user, you can use the following syntax:
 
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
