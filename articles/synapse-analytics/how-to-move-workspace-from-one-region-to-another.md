@@ -6,8 +6,8 @@ ms.service:  synapse-analytics
 ms.subservice: 
 ms.topic: how-to
 ms.date: 03/30/2022
-author: phanir
-ms.author: phanir
+author: matt1883
+ms.author: mahi
 ms.reviewer: wiassaf
 ---
 
