@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ---
 
-# Partner Events in Azure Event Grid (preview)
+# Partner Events overview for partners - Azure Event Grid (preview)
 Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners". Partner Events also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams. They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few. Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them. With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
 
 > [!NOTE]
@@ -29,7 +29,7 @@ For either publishing events or receiving events, you create the same kind of Ev
 8. If you created a partner topic, start publishing events to your partner namespace. If you created a partner destination, expect events coming to your system endpoints defined in the partner definition.
 
 >![Note]
-> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#subscribe-to-partner-events.md#register-the-event-grid-resource-provider) to every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
+> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md##register-the-event-grid-resource-provider) to every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
 
 
 ## Why should I use Partner Events?
@@ -68,7 +68,7 @@ A Channel is a nested resource to a Partner Namespace. A channel has two main pu
 
       A channel of type ``partner destination`` is used to route events to a partner system. When creating a channel of this type you provide your webhook URL where you receive the events published by Azure Event Grid. Once the channel is created, a customer can use his partner destination resource when creating an [event subscription](subscribe-through-portal.md) as the destination to deliver events to the partner system. Event Grid publishes events with the request including an http header ``aeg-channel-name`` too. Its value can be used to associate the incoming events with an specific user who in the first place requested the partner destination.
  
-      A customer can use your partner destination to send your service any kind of events available to [Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview).
+      A customer can use your partner destination to send your service any kind of events available to [Event Grid](overview.md).
 
 ### Partner namespace
 A partner namespace is a regional resource that has an endpoint to publish events to Azure Event Grid. Partner namespaces contain either channels or event channels (legacy resource). You must create partner namespaces in regions where customers request partner topics or destinations because channels and their corresponding partner resources must reside in the same region. You cannot have a channel in a given region with its related partner topic, for example, located in a different region. 
@@ -101,7 +101,7 @@ Customer activate the partner topic or destination you have created for them. At
 
 You have two options:
 1. Read (poll) the channel state periodically to check if the activation status has transitioned from **NeverActivated** to **Activated**. This can be computationally intensive.
-2. Create an [event subscription](subscribe-through-portal.md)  for the [Azure subscription](event-schema-subscriptions.md#available-event-types) or [resource group](event-schema-resource-groups#available-event-types) that contains the channel(s) you want to monitor. You will receive `Microsoft.Resources.ResourceWriteSuccess` events whenever a channel is updated. You will then need to read the state of the channel with the Azure Resource Manager ID provided in the event to ascertain that the update is related to a change in the activation status to **Activated**.
+2. Create an [event subscription](subscribe-through-portal.md)  for the [Azure subscription](event-schema-subscriptions.md#available-event-types) or [resource group](event-schema-resource-groups.md#available-event-types) that contains the channel(s) you want to monitor. You will receive `Microsoft.Resources.ResourceWriteSuccess` events whenever a channel is updated. You will then need to read the state of the channel with the Azure Resource Manager ID provided in the event to ascertain that the update is related to a change in the activation status to **Activated**.
 
 ## References
 
