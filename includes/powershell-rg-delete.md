@@ -2,11 +2,10 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 07/20/2020
-ms.author: msmbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/25/2022
+ms.author: msmbaldwin
 
-# Used by Key Vault CLI quickstarts.
+# Generic PowerShell delete resource group include for quickstarts.
 
 ---
 

@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -28,7 +28,7 @@ However, you can map multiple NetApp accounts that are under the same subscripti
 
 ## Does Azure NetApp Files support Azure Active Directory? 
 
-Both [Azure Active Directory (AD) Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files does not support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
+Both [Azure Active Directory (AD) Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
 
 If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
@@ -44,13 +44,13 @@ As a best practice, set the maximum tolerance for computer clock synchronization
 
 Azure NetApp Files supports modifying `SMB Shares` by using MMC. However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
-Azure NetApp Files does not support using MMC to manage `Sessions` and `Open Files`.
+Azure NetApp Files doesn't support using MMC to manage `Sessions` and `Open Files`.
 
 ## How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
 
-## Can an Azure NetApp Files SMB share act as an DFS Namespace (DFS-N) root?
+## Can an Azure NetApp Files SMB share act as a DFS Namespace (DFS-N) root?
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
@@ -63,7 +63,9 @@ You can change the NTFS permissions of the root volume by using [NTFS file and f
 
 ## Can I change the SMB share name after the SMB volume has been created?
 
-No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.
+No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.   
+
+Alternatively, you can use [Windows Server DFS Namespace](/windows-server/storage/dfs-namespaces/dfs-overview) where a DFS Namespace with the new share name can point to the Azure NetApp Files SMB volume with the old share name.
 
 ## Next steps  
 
