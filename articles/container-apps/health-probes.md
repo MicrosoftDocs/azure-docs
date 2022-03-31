@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Health probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S) exclusively. Probe results are available as events in Kubernetes.
+Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S) exclusively.
 
 Container Apps support the following probes:
 
@@ -48,7 +48,7 @@ app.get('/liveness', (req, res) => {
 
 ## TCP probes
 
-TCP probes listen for a response from the server. If no response is recognized, then the probe returns a failure.
+TCP probes wait for a connection to be established with the server to indicate success. A probe failure is registered if no connection is made.
 
 ## Restrictions
 
