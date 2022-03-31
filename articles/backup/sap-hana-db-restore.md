@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 03/31/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -166,9 +166,9 @@ To restore the backup data as files instead of a database, choose **Restore as F
         hdbsql -U AZUREWLBACKUPHANAUSER -d systemDB
         ```
 
-     * To restore to a point in time:
+     * To restore to a point-in-time:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
 
         Then run the following command to restore the database:
 
@@ -186,7 +186,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * To restore to a particular full or differential backup:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
@@ -229,18 +229,6 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         ```hdbsql
         RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
-        ```
-
-     * To stop a database:
-
-        ```hdbsql
-        ALTER SYSTEM STOP DATABASE {db} IMMEDIATE
-        ```
-
-       Example:
-
-        ```hdbsql
-        ALTER SYSTEM STOP DATABASE HXE IMMEDIATE
         ```
 
 ### Restore to a specific point in time
