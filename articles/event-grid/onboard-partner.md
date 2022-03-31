@@ -30,7 +30,7 @@ For step #4, you should decide what kind of user experience you want to provide.
 This article shows you how to onboard as an Azure Event Grid partner using the Azure portal. 
 
 > [!NOTE]
-> Registering a partner topic type is an optional step. To help you decide if you should create a partner topic type, see [Resources managed by event publisher](partner-events-overview.md#resources-managed-by-event-publishers).
+> Registering a partner topic type is an optional step. To help you decide if you should create a partner topic type, see [Resources managed by event publisher](partner-events-overview-for-partners.md#resources-managed-by-partners).
 
 ## Communicate your interest in becoming a partner
 Fill out [this form](https://aka.ms/gridpartnerform) and contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
