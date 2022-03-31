@@ -62,12 +62,6 @@ Common clients:
 - [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): A BlobServiceClient represents a Client to the Azure Storage Blob service allowing you to manipulate blob containers. 
 - [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): A ContainerClient represents a URL to the Azure Storage container allowing you to manipulate its blobs.
 
-Types of Blob:
-
-- [Block](/javascript/api/@azure/storage-blob/blockblobclient): 
-- [Append](/javascript/api/@azure/storage-blob/appendblobclient):
-- [Page](/javascript/api/@azure/storage-blob/pageblobclient):
-
 ## Differences between Node.js and browsers
 
 There are differences between Node.js and browsers runtime. When getting started with this library, pay attention to APIs or classes marked with:
@@ -284,19 +278,19 @@ The following guides show you how to use each of these classes to build your app
 
 | Guide | Description |
 |--|---|
-| [Create a container](storage-blob-container-create.md) | Create containers. |
-| [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
-| [Create and manage leases](storage-blob-container-lease.md) | Establish and manage a lock on a container or the blobs in a container. |
-| [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
-| [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy.md) | Copy a blob from one account to another account. |
-| [List blobs](storage-blobs-list.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags then use tags to find blobs. |
-| [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
+| [Create a container](storage-blob-container-create-javascript.md) | Create containers. |
+| [Delete and restore containers](storage-blob-container-delete-javascript.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list-javascript.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata](storage-blob-container-properties-metadata-javascript.md) | Get and set properties and metadata for containers. |
+| [Create and manage leases](storage-blob-container-lease-javascript.md) | Establish and manage a lock on a container or the blobs in a container. |
+| [Append data to blobs](storage-blob-append-javascript.md) | Learn how to create an append blob and then append data to that blob. |
+| [Upload blobs](storage-blob-upload-javascript.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+| [Download blobs](storage-blob-download-javascript.md) | Download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy-javascript.md) | Copy a blob from one account to another account. |
+| [List blobs](storage-blobs-list-javascript.md) | List blobs in different ways. |
+| [Delete and restore](storage-blob-delete-javascript.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags-javascript.md) | Set and retrieve tags then use tags to find blobs. |
+| [Manage properties and metadata](storage-blob-properties-metadata-javascript.md) | Get and set properties and metadata for blobs. |
 
 ## See also
 
