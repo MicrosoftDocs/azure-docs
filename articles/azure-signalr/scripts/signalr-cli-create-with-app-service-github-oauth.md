@@ -28,38 +28,37 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Enable Github authentication and Git deployment for web app
 
-1. Update the values in the following script for the desired deployment username and its password.
+1. Update the values in the following script for the desired deployment username and its passwor
 
-```azurecli
-deploymentUser=<Replace with your desired username>
-deploymentUserPassword=<Replace with your desired password>
-```
+   ```azurecli
+   deploymentUser=<Replace with your desired username>
+   deploymentUserPassword=<Replace with your desired password>
+   ```
 
 2. Update the values in the following script based on your GitHub OAuth App registration.
 
-```azurecli
-GitHubClientId=<Replace with your GitHub OAuth app Client ID>
-GitHubClientSecret=<Replace with your GitHub OAuth app Client Secret>
-```
+   ```azurecli
+   GitHubClientId=<Replace with your GitHub OAuth app Client ID>
+   GitHubClientSecret=<Replace with your GitHub OAuth app Client Secret>
+   ```
 
 3. Add app settings to use with GitHub authentication
 
-```Azure CLI
-az webapp config appsettings set --name $webApp --resource-group $resourceGroup --settings "GitHubClientSecret=$GitHubClientSecret" 
-```
+   ```Azure CLI
+   az webapp config appsettings set --name $webApp --resource-group $resourceGroup --settings "GitHubClientSecret=$GitHubClientSecret" 
+   ```
 
 4. Update the webapp with the desired deployment user name and password
 
-```Azure CLI
-az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
-```
+   ```Azure CLI
+   az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
+   ```
 
 5. Configure Git deployment and return the deployment URL.
 
-```Azure CLI
-az webapp deployment source config-local-git --name $webAppName --resource-group $resourceGroupName
- --query [url] -o tsv
-```
+   ```Azure CLI
+   az webapp deployment source config-local-git --name $webAppName --resource-group $resourceGroupName --query [url] -o tsv
+   ```
 
 ## Clean up resources
 
