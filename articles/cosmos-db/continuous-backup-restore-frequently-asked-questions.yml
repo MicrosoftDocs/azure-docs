@@ -33,7 +33,7 @@ sections:
         answer: |
           After you submit the restore command and wait on the page, the status bar shows a message about a successfully restored account when the operation finishes. You can also search for the restored account and [track its status](restore-account-continuous-backup.md#track-restore-status). While the restore is in progress, the account status is **Creating**. After the restore operation finishes, the account status changes to **Online**.
           
-          For PowerShell and the Azure CLI, you can track the progress of restore operation by using the `az cosmosdb show` command as follows:
+          For PowerShell and the Azure CLI, you can track the progress of a restore operation by using the `az cosmosdb show` command:
           
           ```azurecli-interactive
           az cosmosdb show --name "accountName" --resource-group "resourceGroup"
@@ -63,7 +63,7 @@ sections:
           You can identify whether an account is restored and get the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).
           
       - question: |
-          What is the use of `instanceID` in the account definition?
+          What is the use of instanceId in the account definition?
         answer: |
           At any point in time, an Azure Cosmos DB account's `accountName` property is globally unique while it's alive. After the account is deleted, it's possible to create another account with the same name. If that happens, `accountName` is no longer enough to identify an instance of an account. 
           
