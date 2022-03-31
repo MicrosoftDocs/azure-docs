@@ -34,7 +34,7 @@ The following steps can be completed to create a new subnet:
 
 [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
 
-**Configure Private Link Service**
+**Configure Private Link**
 
 The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. To create the Private link configuration, complete the following steps:
 
