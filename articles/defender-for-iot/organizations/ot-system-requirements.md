@@ -47,13 +47,13 @@ The following tables describe supported deployment options for your OT sensors a
 
 ## Supported hardware
 
-The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support. The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
+The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support. 
 
 ### Required operating systems
 
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
 
-### Central Processing Unit (CPU)
+### Central processing unit (CPU)
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -114,7 +114,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ## Corporate deployment: HPE ProLiant DL360
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360" border="false":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -134,11 +134,6 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Memory	| 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM|
 |Storage|	6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5|
 |Network controller|	On-board: 2 x 1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
-
-### Corporate deployment: HPE ProLiant DL360
-
-|Component |Technical Specifications  |
-|---------|---------|
 |Management     |HPE iLO Advanced         |
 |Device access     | Two rear USB 3.0        |
 |One front    | USB 2.0        |
@@ -152,10 +147,6 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 | ------------------------- | ---------------------- | ----------------------------------------------- |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
 | PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
- ### Optional modules for port expansion:
-
-|Location|Type|Specification|
-|-----|-----|-----|
 |PCI Slot 1 (Low profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
 |PCI Slot 1 (Low profile)|Quad Port Eth NIC|Broadcom 5719 Quad Port 540-BBHB|
 |PCI Slot 1 (Low profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
@@ -165,6 +156,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10Gb-1Gb|
 |SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10GbE|
 
+### Port expansion BOM
 |Description|SKU|Qty|
 |:----|:----|:----|
 |OEM PowerEdge R340 XL|210-ARGO|1|
@@ -205,10 +197,8 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Enterprise Program Management Support |973-3700|1|
 
 
-### SMB Deployment: HPE ProLiant DL20+
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+":::
-
-### SMB Deployment: HPE ProLiant DL20
+### SMB deployment: HPE ProLiant DL20+
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
 |Component|Technical specifications|
 |----|----|
@@ -244,3 +234,11 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
+
+## Next Steps
+
+For more information, see:
+
+- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](how-to-install-software.md)
