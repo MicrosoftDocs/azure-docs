@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/25/2022
+ms.date: 03/31/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -230,14 +230,11 @@ This query should be executed in the user database, not in the master database. 
 > [!IMPORTANT]
 > In Premium and Business Critical service tiers, if the workload attempts to increase combined local storage consumption by data files, transaction log files, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
 
-As databases are created, deleted, and increase or decrease in size, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low, and a database or an elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
+Local SSD storage is also used by databases in service tiers other than Premium and Business Critical for the tempdb database and Hyperscale RBPEX cache. As databases are created, deleted, and increase or decrease in size, total local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low, and a database or an elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
-Because all data is copied to local storage volumes on different machines, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a database or an elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
-
-> [!NOTE]
-> Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
+Because all data is copied to local storage volumes on different machines, moving larger databases in Premium and Business Critical service tiers may require a substantial amount of time. During that time, if local space consumption by a database or an elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
 
 ## Tempdb sizes
 
