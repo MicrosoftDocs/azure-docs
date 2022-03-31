@@ -101,13 +101,7 @@ Enter **Chicago** in the query results search box and click the arrows to find a
 
 :::image type="content" source="media/log-analytics-tutorial/search-query-results.png" alt-text="Screenshot the search box at the top right of the result pane." lightbox="media/log-analytics-tutorial/search-query-results.png":::
 
-Instead of filtering the results, you can group records by a particular column. Clear the filter that you just created and then turn on the **Group columns** toggle. 
-
-:::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Screenshot that shows turning on grouping of columns." lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
-
-Drag the **Url** column into the grouping row. Results are now organized by that column, and you can collapse each group to help you with your analysis.
-
-:::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
+summarize, aggregate, compare and analyze.
 
 ## Work with charts
 Let's look at a query that uses numerical data that we can view in a chart. Instead of building a query, we'll select an example query.
