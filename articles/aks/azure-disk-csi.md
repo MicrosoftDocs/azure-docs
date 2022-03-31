@@ -211,7 +211,7 @@ test.txt
 
 ## Resize a persistent volume without downtime
 
-You can instead request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
+You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
@@ -228,6 +228,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 > [!IMPORTANT]
 > Currently, Azure disk CSI driver supports resizing PVCs without downtime on specific regions.
 > Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
+> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
 
 Let's expand the PVC by increasing the `spec.resources.requests.storage` field:
 

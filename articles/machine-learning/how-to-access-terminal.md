@@ -107,4 +107,5 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 
  Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
 
-Close any unused sessions to preserve your compute instance's resources.
+> [!WARNING]
+>  Make sure you close any unused sessions to preserve your compute instance's resources. Idle terminals may impact performance of compute instances.
