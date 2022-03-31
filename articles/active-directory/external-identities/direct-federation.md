@@ -208,7 +208,7 @@ Now test your federation setup by inviting a new B2B guest user. For details, se
  
 ## How do I manage a SAML/WS-Fed IdP federation relationship?
 
-On the All identity providers page, you can view the list of SAML/WS-Fed identity providers you've configured, along with details such as the protocol configuration, domain name of the IdP, and the date of certificate expiration.
+On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured, including the number of domains configured and the date the certificate will expire. You can also modify identity provider configuration values. 
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/saml-ws-fed-identity-provider-list.png)
 
@@ -217,10 +217,9 @@ To modify the configuration:
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
 1. Select **External Identities**.
 1. Select **All identity providers**.
-1. Under **SAML/WS-Fed identity providers**, view details for an identity provider, including the certificate expiration date. You can update the configuration:
-   - To update the certificate, select the link in the **Certificate expiration** column.
-   - To update the domain name of the identity provider, select the link in the Domains column.
-   - To update other details, select the link in the Configuration column.
+1. Under **SAML/WS-Fed identity providers**, view details for an identity provider, including the certificate expiration date.
+   - To update the certificate or other configuration values, select the **Edit** link in the **Configuration** column.
+   - To update the domain names for the identity provider, select the link in the **Domains** column.
  1. Select **Save**.
 
 ## How do I remove federation?
