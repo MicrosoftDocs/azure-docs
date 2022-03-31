@@ -21,8 +21,8 @@ In the Azure portal, do the following steps:
 1. Search for **Microsoft.EventGrid**, and select it in the provider list. 
 1. Select **Register** on the command bar. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/register-event-grid-provider.png" alt-text="Image showing the registration of Microsoft.EventGrid provider with the Azure subscription.":::
+    :::image type="content" source="./media/register-event-grid-provider/register-event-grid-provider.png" alt-text="Image showing the registration of Microsoft.EventGrid provider with the Azure subscription.":::
 1. Refresh to make sure the status of **Microsoft.EventGrid** is changed to **Registered**. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/event-grid-registered.png" alt-text="Image showing the successful registration of Microsoft.EventGrid provider with the Azure subscription.":::
+    :::image type="content" source="./media/register-event-grid-provider/event-grid-registered.png" alt-text="Image showing the successful registration of Microsoft.EventGrid provider with the Azure subscription.":::
 
