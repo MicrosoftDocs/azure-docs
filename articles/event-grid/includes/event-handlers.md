@@ -16,3 +16,4 @@
 - [Service Bus queues and topics](../handler-service-bus.md)
 - [Relay hybrid connections](../handler-relay-hybrid-connections.md)
 - [Storage queues](../handler-storage-queues.md)
+- [Partner destinations](deliver-events-to-partner-destinations.md)

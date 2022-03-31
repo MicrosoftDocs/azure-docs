@@ -2,7 +2,7 @@
 title: Azure Event Grid concepts
 description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/20/2022
 ---
 
 # Concepts in Azure Event Grid
@@ -37,7 +37,7 @@ There is another type of topic: **partner topic**. The [Partner Events](partner-
 
 ## Event subscriptions
 
-A subscription tells Event Grid which events on a topic you're interested in receiving. When creating the subscription, you provide an endpoint for handling the event. You can filter the events that are sent to the endpoint. You can filter by event type, or subject pattern. For more information, see [Event Grid subscription schema](subscription-creation-schema.md).
+A subscription tells Event Grid which events on a topic you're interested in receiving. When creating the subscription, you provide an endpoint for handling the event. You can filter the events that are sent to the endpoint. You can filter by event type, or subject pattern. For more information, see [event subscription schema](subscription-creation-schema.md).
 
 For examples of creating subscriptions, see:
 
