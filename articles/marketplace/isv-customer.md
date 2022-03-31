@@ -88,15 +88,15 @@ Use this page to define private offer terms, notification contacts, and pricing 
 
     :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
-1. **Private Offer terms** – Specify the duration, accept-by date, and terms:
+1. **Private offer terms** – Specify the duration, accept-by date, and terms:
 
     - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
     - **End date** – Choose the month for your private offer's **End date**. This will always be the last day of the selected month.
     - **Accept by** – Choose the expiration date for your private offer. Your customer must accept the private offer prior to this date.
     - **Terms and conditions** – Optionally, upload a PDF with terms and conditions your customer must accept as part of the private offer.
 
-    > [!NOTE]
-    > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](https://aka.ms/PrivateOfferPublisherAgreement).
+        > [!NOTE]
+        > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](https://aka.ms/PrivateOfferPublisherAgreement).
 
 1. **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
 
@@ -107,8 +107,8 @@ Use this page to define private offer terms, notification contacts, and pricing 
     - Choose up to ten offers/plans and select **Add**.
     - Enter the discount percentage or configure the absolute price for each item in the pricing table.
 
-    > [!NOTE]
-    > Only public offers/plans that are transactable in Microsoft Azure Marketplace appear in the selection menu.
+        > [!NOTE]
+        > Only public offers/plans that are transactable in Microsoft Azure Marketplace appear in the selection menu.
 
 ### Review and submit
 
