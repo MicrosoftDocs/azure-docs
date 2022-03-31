@@ -119,7 +119,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
-  - name: Operations
+  - name: FHIR operations
     expanded: false
     items:
     - name: $validate
