@@ -21,6 +21,7 @@ The B-series comes in the following VM sizes:
 [Azure Compute Unit (ACU)](./acu.md): Varies*<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>

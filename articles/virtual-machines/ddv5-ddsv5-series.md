@@ -57,6 +57,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>

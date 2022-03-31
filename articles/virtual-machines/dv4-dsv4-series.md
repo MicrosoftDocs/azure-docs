@@ -25,7 +25,7 @@ The Dv4 and Dsv4-series run on the 3rd Generation Intel® Xeon® Platinum 8370C 
 Dv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
 
-Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv4 sizes. The pricing and billing meters for Dsv4 sizes are the same as Dv4-series.
+Dv4-series virtual machines do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs and Standard HDDs disk storage to these virtual machines. To use Premium SSD or Ultra disk storage, select Dsv4-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!NOTE]
 > After a restart, a file named *Data_loss_warning.txt* might be appear beside drive C (the first data disk attached from the Azure portal). In this scenario, despite the file name, no data loss has occurred on the disk. In general, the *Data_loss_warning.txt* file usually is copied on the temporary drive. If you're using a VM that doesn't have a temp drive, WindowsAzureGuestAgent incorrectly copies the file to the first drive letter. In v4 VMs, the first drive letter is a data disk.
@@ -58,11 +58,14 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 ## Dsv4-series
 
-Dsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dsv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Remote Data disk storage is billed separately from virtual machines.
+Dsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dsv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+
+Dsv4-series virtual machines do not have any temporary storage thus lowering the price of entry.  You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these virtual machines. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>

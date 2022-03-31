@@ -28,6 +28,7 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
@@ -64,6 +65,7 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>

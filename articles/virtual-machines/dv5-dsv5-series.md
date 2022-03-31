@@ -24,10 +24,11 @@ The Dv5 and Dsv5-series virtual machines run on the 3rd Generation Intel&reg; Xe
 
 Dv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 96 vCPU and 384 GiB of RAM.  Dv5-series virtual machines provide a better value proposition for most general-purpose workloads compared to the prior generation (for example, increased scalability and an upgraded CPU class).
 
-Dv5-series virtual machines do not have any temporary storage thus lowering the price of entry.  You can attach Standard SSDs, and Standard HDDs disk storage to these virtual machines. To use Premium SSD or Ultra Disk storage, select Dsv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Dv5-series virtual machines do not have any temporary storage thus lowering the price of entry.  You can attach Standard SSDs, Standard HDDs disk storage to these virtual machines. You can also attach Ultra Disk storage based on its regional availability. To use Premium SSD storage, select Dsv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
@@ -58,6 +59,7 @@ Dsv5-series virtual machines do not have any temporary storage thus lowering the
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
