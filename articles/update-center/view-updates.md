@@ -8,10 +8,11 @@ author: SGSneha
 ms.author: v-ssudhir
 ---
 
-# How to check update compliance with update management center (Preview)
+# Check update compliance with update management center (Preview)
 
-This article details on how to view compliance for your machine(s)
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
+This article details on how to check the status of available updates on all agent machines and manage the process of installing required updates.
 
 ## Check updates
 
