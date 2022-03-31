@@ -13,7 +13,7 @@ You can expand the cluster by adding more nodes to the cluster and you can also 
 Ensure the following before you expand the cluster.
 
   - Your cluster is at least a three-node cluster.
-  - Your cluster is in a Cluster Ready state.
+  - Your cluster is in an active state.
 
 You can add nodes of the same bare metal type to your cluster.
 
@@ -22,6 +22,9 @@ You can add nodes of the same bare metal type to your cluster.
 Support is not available to update the cluster capacity by using the Prism Element web console.
 
 Perform the following to update the capacity in your cluster.
+
+![Update the cluster capacity](media/update-the-cluster-capacity/update-the-cluster-capacity.png)
+
 1. Log on to Nutanix Clusters from the My Nutanix dashboard.
 1. In the drop-down list in the center of the screen, select Clusters.
 1. In the Clusters page, click the name of the cluster.

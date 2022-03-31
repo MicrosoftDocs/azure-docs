@@ -36,8 +36,8 @@
   - name: Nutanix Clusters Console Workflow
     href: nutanix-clusters-console-workflow.md
     items:
-    - name: Enable Asure in Nutanix Clusters Console
-      href: enable-azure-in-nutanix-clusters-console.md
+    - name: Enable Asure
+      href: enable-azure.md
     - name: Create an Organization in the Nutanix Clusters Console
       href: create-an-org-in-the-nutanix-clusters-console.md
     - name: Add an Azure Cloud Account to Nutanix Clusters
@@ -70,8 +70,8 @@
       href: manually-condemn-a-node.md
     - name: Delete a Cluster
       href: delete-a-cluster.md
-- name: Cluster Administration
-  href: cluster-administration.md
+- name: Cluster Account Administration
+  href: cluster-account-administration.md
   items:
   - name: User Management
     href: user-management.md    

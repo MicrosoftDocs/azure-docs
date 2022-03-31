@@ -35,20 +35,20 @@ organization can have multiple Azure cloud accounts.
 
 The following table identifies the permissions of the user roles in the Nutanix Clusters console.
 
-|Permissions Account |Administrator|Admin| 
-|----------|-----------|------------|
-User Management in My Nutanix|Yes |Yes|
-Billing Management in My Nutanix |Yes |Yes|
-Access to Nutanix Clusters |Yes |Yes|
-Customers
-Analytics and Monitoring of Customers |Yes |Yes|
-Organizations
-Create Organizations |Yes |Yes|
-Analytics and Monitoring of Organizations |Yes |Yes|
-Clusters
-Create Clusters |Yes |Yes|
-Analytics and Monitoring of Clusters |Yes |Yes|
-View and Manage Clusters |Yes |Yes|
+|Permissions Account |Administrator|Admin|  
+|----------|-----------|------------|  
+User Management in My Nutanix|Yes |Yes|  
+Billing Management in My Nutanix |Yes |Yes|  
+Access to Nutanix Clusters |Yes |Yes|  
+Customers  
+Analytics and Monitoring of Customers |Yes |Yes|  
+Organizations  
+Create Organizations |Yes |Yes|  
+Analytics and Monitoring of Organizations |Yes |Yes|  
+Clusters | | |  
+Create Clusters |Yes |Yes|  
+Analytics and Monitoring of Clusters |Yes |Yes|  
+View and Manage Clusters |Yes |Yes|  
 
 See the Local User Management section of the Xi Cloud Services Administration Guide to invite 
 and manage local users.

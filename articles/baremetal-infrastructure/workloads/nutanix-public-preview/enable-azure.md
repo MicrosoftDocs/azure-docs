@@ -6,7 +6,7 @@ ms.subservice:
 ms.date: 03/31/2021
 ---
 
-# Enable Azure in Nutanix Clusters Console
+# Enable Azure
 
 > [!Note]
 > You must have a Nutanix Cluster free trial before Nutanix enables Azure on the Nutanix Clusters console.
