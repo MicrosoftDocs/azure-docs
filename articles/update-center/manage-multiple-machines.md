@@ -146,7 +146,7 @@ Update management center (preview) enables you to browse information about your 
 
 ## Update deployment history by machines
 
-:::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Update Center History page in the Azure portal." lightbox="/media/manage-multiple-machines/update-center-history-page-expanded.png":::
+:::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Update Center History page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-page-expanded.png":::
 
 Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a machine specifics to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
 

@@ -1,5 +1,5 @@
 ---
-title: Logging in Azure Resource Graph from Update management center (preview)
+title: Logging in Azure Resource Graph from update management center (preview)
 description: The article describes the structure of the logs from Update management center (preview) and how you can use Azure Resource Graph Explorer
 ms.service: update-management-center
 author: SGSneha
@@ -8,7 +8,7 @@ ms.date: 03/07/2022
 ms.topic: conceptual
 ---
 
-# Overview of Query update management center (preview) logs
+# Overview of query update management center (preview) logs
 
 Logs created from operations like update assessments and installations are stored by Update management center (preview) in [Azure Resource Graph](/azure/governance/resource-graph/overview). Azure Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update management center (preview) uses Azure Resource Graph to store its results, and you can view the last 30 days of update history from the resources.
 

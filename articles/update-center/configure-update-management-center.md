@@ -1,5 +1,5 @@
 ---
-title: Configure Update management center (preview)
+title: Configure update management center (preview)
 description: The article describes how to enable update management center (preview) for Windows and Linux machines running on Azure and Azure Arc-enabled servers
 ms.service: update-management-center
 author: SGSneha
