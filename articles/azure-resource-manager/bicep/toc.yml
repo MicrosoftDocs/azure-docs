@@ -41,6 +41,10 @@
     href: learn-bicep.md
 - name: Samples - Azure Services
   items:
+  - name: Advisor
+    items:
+    - name: Alerts
+      href: ../../advisor/advisor-alerts-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
