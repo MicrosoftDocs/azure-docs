@@ -7,6 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
+ms.custom: references_regions
 ms.date: 03/31/2022
 ms.author: alkohli
 

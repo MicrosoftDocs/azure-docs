@@ -7,7 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.custom: references_regions
+ms.date: 03/31/2022
 ms.author: alkohli
 ---
 
