@@ -47,7 +47,7 @@ Private offers can be created for all transactable marketplace offer types. This
 
 Create and manage private offers from the **Private offers** dashboard in Partner Center’s left-nav menu. This dashboard has two tabs:
 
-- **Customers**: Create a private offer for a customer in Azure Marketplace. See [ISV to customer private offers](isv-customer-private-offer.md).
+- **Customers**: Create a private offer for a customer in Azure Marketplace. See [ISV to customer private offers](isv-customer.md).
 - **CSP partners**: Create a private offer for a CSP partner in Azure Marketplace. This opens the **CSP Partner** private offer dashboard, which lets you:
     - Create new private offers
     - View the status of all your private offers
