@@ -56,4 +56,4 @@ There are additional Log Analytics limits, some of which depend on the Log Analy
 
 ## Next steps
 
-- See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
+- See [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
