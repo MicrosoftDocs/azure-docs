@@ -40,8 +40,8 @@ Your Azure resources could be protected using any number of the network isolatio
 
 | Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
-| Azure Storage for text-based indexing (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions. Also, the connection must be made using either a full access connection string that includes a key or a system-assigned managed identity. | Unsupported |
+| Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
+| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions. | Unsupported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -50,13 +50,13 @@ Your Azure resources could be protected using any number of the network isolatio
 | SQL Managed Instance | Supported | N/A |
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
 
-If Azure Storage and Azure Cognitive Search are in the same region, and network security is a requirement, you have two options for setting up access:
+If Azure Storage and Azure Cognitive Search are in the same region, and network security is a requirement, you have two options for setting up data access:
 
 - Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md). The search request can bypass the  virtual network or IP restrictions on the storage account and access data under the system identity of the search service. For more information about this capability in Azure Storage, see [Trusted access based on a managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
 
-- Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource having a system managed identity.
+- Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource.
 
-The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a system-assigned managed identity is supported for same-region connections through a firewall. The Azure AD login must have a role assignment in the storage account that grants read or write permissions.
+The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a system-assigned managed identity is supported for same-region connections through a firewall. Any Azure AD login that's used for a connection must have a role assignment that grants the appropriate permissions.
 
 ## Indexer execution environment
 

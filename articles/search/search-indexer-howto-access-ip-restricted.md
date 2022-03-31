@@ -19,9 +19,7 @@ This article explains how to find the IP address of your search service and conf
 
 ## Prerequisites
 
-The storage account and the search service must be in different regions. 
-
-If your setup does not permit this, we recommend the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) as alternatives.
+The storage account and the search service must be in different regions. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview).
 
 ## Get a search service IP address
 
@@ -97,8 +95,6 @@ Now that you have the necessary IP addresses, you can set up the inbound rule. T
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
 It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access the data in the storage account.
-
-## 
 
 ## Next Steps
 

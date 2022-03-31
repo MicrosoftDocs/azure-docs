@@ -36,11 +36,9 @@ Cognitive Search can use a system-assigned or user-assigned managed identity on 
 
 <sup>1</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user managed identity, and then rerun the indexer.
 
-Cognitive Search uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. 
+Cognitive Search uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
-+ For search features that write back to storage, you'll need Contributor role assignments as described in the [Assign a role](#assign-a-role) section. 
-
-+ Network configuration imposes constraints on which type of managed identity you use. In general, a system managed identity supports more networking scenarios. A user managed identity is viable if Azure Storage accepts requests from any public IP address. See [Allow firewall access](#allow-firewall-access) for details.
+For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. In Cognitive Search, a system managed identity supports more network scenarios, whereas a user managed identity is viable only if Azure Storage accepts requests from any public IP address. See ["Allow firewall access"](#allow-firewall-access) for details.
 
 ## Create a system managed identity
 
@@ -170,9 +168,9 @@ You can use the Management REST API instead of the portal to assign a user manag
 
 If your Azure resource is behind a firewall, make sure there's an inbound rule that admits requests from your search service. 
 
-+ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) to admit requests.
++ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md). Optionally, you can configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) to admit requests.
 
-+ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
++ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for details.
 
 ## Assign a role
 
