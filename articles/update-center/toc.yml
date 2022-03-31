@@ -8,7 +8,7 @@
     href: support-matrix.md
 - name: Quickstarts
   items:
-  - name: Check and install on-demand updates - Azure portal
+  - name: Check and install on-demand updates
     href: quickstart-on-demand.md
 name: Concepts
   items:
