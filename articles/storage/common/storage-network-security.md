@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -60,10 +60,10 @@ By default, storage accounts accept connections from clients on any network. You
 
 3. Choose which type of public network access you want to allow.
 
-   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
-   
    - To allow traffic from all networks, select **Enabled from all networks**.
    
+   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
+    
    - To block traffic from all networks, use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.  
 
 4. Select **Save** to apply your changes.
@@ -76,24 +76,22 @@ By default, storage accounts accept connections from clients on any network. You
 
 2. Choose which type of public network access you want to allow.
 
+    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
+
+      ```powershell
+      Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+      ```
+  
    - To allow traffic only from specific virtual networks, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`.
 
      ```powershell
      Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
      ```
 
-   - To block traffic from all networks, use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`.
+   - To block traffic from all networks, use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
    
      ```powershell
      Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
-     ```
-     
-     With allow traffic only through a [private endpoint](storage-private-endpoints.md)
-
-   - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
-
-     ```powershell
-     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
      ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -102,23 +100,23 @@ By default, storage accounts accept connections from clients on any network. You
 
 2. Choose which type of public network access you want to allow.
 
+    - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
+
+      ```azurecli
+      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
+      ```
+   
    - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
 
      ```azurecli
      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
      ```
 
-    - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`.
+   - To block traffic from all networks, use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
 
-      ```azurecli
-      az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
-      ```
-
-    - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
-
-      ```azurecli
-      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
-      ```
+     ```azurecli
+     az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
+     ```
 
 ---
 
