@@ -70,8 +70,6 @@
           href: security-best-practices-for-app-registration.md
         - name: Secure access control using groups in Azure AD
           href: secure-group-access-control.md
-    - name: Workload identity federation
-      href: workload-identity-federation.md
     - name: Identity platform best practices
       href: identity-platform-integration-checklist.md
 - name: How-to
@@ -139,6 +137,8 @@
           href: v2-saml-bearer-assertion.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
+        - name: Workload identity federation
+          href: workload-identity-federation.md
         - name: Trust an external identity provider (federation)
           href: workload-identity-federation-create-trust.md
     - name: Deploy
@@ -233,9 +233,6 @@
       href: index-spa.yml
     - name: Quickstart
       href: single-page-app-quickstart.md
-    - name: Samples
-      displayName: code samples, example code, code snippets
-      href: sample-v2-code.md#single-page-applications
     - name: Tutorials
       items:
         - name: Angular
@@ -246,24 +243,25 @@
           href: tutorial-v2-javascript-auth-code.md
         - name: React
           href: tutorial-v2-react.md
-    - name: Reference
+    - name: Samples
+      displayName: code samples, example code, code snippets
+      href: sample-v2-code.md#single-page-applications
+    - name:  How-to
       items:
-        - name: "Scenario: single-page app (SPA)"
-          items:
-            - name: Overview
-              href: scenario-spa-overview.md
-            - name: App registration
-              href: scenario-spa-app-registration.md
-            - name: Code configuration
-              href: scenario-spa-app-configuration.md
-            - name: Sign in and sign out
-              href: scenario-spa-sign-in.md
-            - name: Acquire token for an API
-              href: scenario-spa-acquire-token.md
-            - name: Call a web API
-              href: scenario-spa-call-api.md
-            - name: Move to production
-              href: scenario-spa-production.md
+        - name: Overview
+          href: scenario-spa-overview.md
+        - name: App registration
+          href: scenario-spa-app-registration.md
+        - name: Code configuration
+          href: scenario-spa-app-configuration.md
+        - name: Sign in and sign out
+          href: scenario-spa-sign-in.md
+        - name: Acquire token for an API
+          href: scenario-spa-acquire-token.md
+        - name: Call a web API
+          href: scenario-spa-call-api.md
+        - name: Move to production
+          href: scenario-spa-production.md
 - name: Web app
   items:
     - name: Web app documentation
@@ -281,9 +279,9 @@
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#web-applications
-    - name: Reference
+    - name: How-to
       items:
-        - name: "Scenario: Web app with user sign-in"
+        - name: Web app that signs in users
           items:
             - name: Overview
               href: scenario-web-app-sign-user-overview.md
@@ -295,7 +293,7 @@
               href: scenario-web-app-sign-user-sign-in.md
             - name: Move to production
               href: scenario-web-app-sign-user-production.md
-        - name: "Scenario: Web app that calls an API"
+        - name: Web app that calls an API
           items:
             - name: Overview
               href: scenario-web-app-call-api-overview.md
@@ -320,9 +318,9 @@
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#web-api
-    - name: Reference
+    - name: How-to
       items:
-        - name: "Scenario: Protected web API"
+        - name: Protected web API
           items:
             - name: Overview
               href: scenario-protected-web-api-overview.md
@@ -334,7 +332,7 @@
               href: scenario-protected-web-api-verification-scope-app-roles.md
             - name: Move to production
               href: scenario-protected-web-api-production.md
-        - name: "Scenario: Web API that calls an API"
+        - name:  Web API that calls an API
           items:
             - name: Overview
               href: scenario-web-api-call-api-overview.md
@@ -348,6 +346,8 @@
               href: scenario-web-api-call-api-call-api.md
             - name: Move to production
               href: scenario-web-api-call-api-production.md
+    - name: Reference
+      items:
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
 - name: Desktop
@@ -368,9 +368,9 @@
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#desktop
-    - name: Reference
+    - name: How-to
       items:
-        - name: "Scenario: Desktop app that calls an API"
+        - name: Desktop app that calls an API
           items:
             - name: Overview
               href: scenario-desktop-overview.md
@@ -421,7 +421,7 @@
         - name: Shared devices
           displayName: shared device mode, firstline worker, frontline worker, flw
           href: msal-shared-devices.md
-    - name: Reference
+    - name: How-to
       items:
         - name: "Scenario: Mobile app that calls an API"
           items:
@@ -431,31 +431,61 @@
               href: scenario-mobile-app-registration.md
             - name: Code configuration
               href: scenario-mobile-app-configuration.md
-            - name: Mobile platforms specific config
+            - name: "Code configuration: Android and iOS"
               items:
-                - name: Microsoft Enterprise SSO plug-in for Apple devices
-                  href: apple-sso-plugin.md
-                - name: Shared device mode for Android devices
-                  href: msal-android-shared-devices.md
-                - name: Shared device mode for iOS devices
-                  href: msal-ios-shared-devices.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: System browser on Android
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Use brokers with Xamarin iOS and Android
-                  displayName: Microsoft Authenticator Microsoft Intune, Authenticator
-                  href: msal-net-use-brokers-with-xamarin-apps.md
-                - name: Universal Windows Platform
-                  href: msal-net-uwp-considerations.md
-            - name: Acquire a token for the app
+                - name: Android
+                  items:
+                    - name: Shared device mode for Android devices
+                      href: msal-android-shared-devices.md
+                    - name: System browser on Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                - name: iOS
+                  items:
+                    - name: Microsoft Enterprise SSO plug-in for Apple devices
+                      href: apple-sso-plugin.md
+                    - name: Shared device mode for iOS devices
+                      href: msal-ios-shared-devices.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+            - name: Acquire token
               href: scenario-mobile-acquire-token.md
+            - name: Acquire token with broker
+              displayName: Microsoft Authenticator Microsoft Intune, Authenticator
+              href: msal-net-use-brokers-with-xamarin-apps.md
             - name: Calling a web API
               href: scenario-mobile-call-api.md
             - name: Move to production
               href: scenario-mobile-production.md
+        - name: Migrate Xamarin Android app using broker to MSAL.NET
+          href: msal-net-migration-android-broker.md
+        - name: Migrate Xamarin iOS app using broker to MSAL.NET
+          href: msal-net-migration-ios-broker.md
+    - name: Reference
+      items:
+        - name: MSAL Android
+          items:
+            - name: Android MSAL configuration file
+              href: msal-configuration.md
+            - name: Accounts and tenant profiles
+              href: accounts-overview.md
+            - name: SSO with MSAL Android
+              href: msal-android-single-sign-on.md
+            - name: Migrate to MSAL.Android
+              href: migrate-android-adal-msal.md
+            - name: Integrate with Azure AD B2C
+              href: msal-android-b2c.md
+            - name: Shared device mode
+              displayName: firstline worker, frontline worker, flw
+              href: msal-android-shared-devices.md
+            - name: Single and multi account public client apps
+              href: single-multi-account.md
+            - name: Handle errors and exceptions in MSAL for Android
+              displayName: android, mobile, handling, catch
+              href: msal-android-handling-exceptions.md
+            - name: Logging in MSAL for Android
+              href: msal-logging-android.md
 - name: Service, daemon, script
   items:
     - name: Service, daemon, and script documentation
@@ -470,9 +500,9 @@
           href: tutorial-v2-nodejs-console.md
     - name: Samples
       href: sample-v2-code.md#service--daemon
-    - name: Reference
+    - name: How-to
       items:
-        - name: "Scenario: Non-interactive app that calls a web API"
+        - name: Non-interactive app that calls a web API
           items:
             - name: Overview
               href: scenario-daemon-overview.md
@@ -500,28 +530,6 @@
         - name: National clouds and MSAL
           displayName: china, germany, gov, 21vianet
           href: msal-national-cloud.md
-        - name: MSAL Android
-          items:
-            - name: Android MSAL configuration file
-              href: msal-configuration.md
-            - name: Accounts and tenant profiles
-              href: accounts-overview.md
-            - name: SSO with MSAL Android
-              href: msal-android-single-sign-on.md
-            - name: Integrate with Azure AD B2C
-              href: msal-android-b2c.md
-            - name: Migrate to MSAL.Android
-              href: migrate-android-adal-msal.md
-            - name: Shared device mode
-              displayName: firstline worker, frontline worker, flw
-              href: msal-android-shared-devices.md
-            - name: Single and multi account public client apps
-              href: single-multi-account.md
-            - name: Handle errors and exceptions in MSAL for Android
-              displayName: android, mobile, handling, catch
-              href: msal-android-handling-exceptions.md
-            - name: Logging in MSAL for Android
-              href: msal-logging-android.md
         - name: MSAL iOS and macOS
           items:
             - name: MSAL for iOS and macOS differences
@@ -655,22 +663,20 @@
                   href: msal-net-migration-confidential-client.md
                 - name: Migrate public client apps to MSAL.NET
                   href: msal-net-migration-public-client.md
-                - name: Migrate Xamarin Android app using broker to MSAL.NET
-                  href: msal-net-migration-android-broker.md
-                - name: Migrate Xamarin iOS app using broker to MSAL.NET
-                  href: msal-net-migration-ios-broker.md
                 - name: Differences between ADAL.NET and MSAL.NET
                   href: msal-net-differences-adal-net.md
             - name: Microsoft.Identity.Web (MSAL wrapper)
               displayName: auth, library, .NET Core, msal
               href: microsoft-identity-web.md
+            - name: Universal Windows Platform
+              href: msal-net-uwp-considerations.md
         - name: MSAL Python
           items:
             - name: Custom token cache serialization
               href: msal-python-token-cache-serialization.md
             - name: Migrate to MSAL Python
               href: migrate-python-adal-msal.md
-            - name: ADFS support in MSAL for Python
+            - name: AD FS support in MSAL Python
               href: msal-python-adfs-support.md
             - name: Handle errors and exceptions in MSAL for Python
               displayName: handling, catch
