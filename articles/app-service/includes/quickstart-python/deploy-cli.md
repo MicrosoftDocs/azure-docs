@@ -68,4 +68,4 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 }
 </pre>
 
-[!INCLUDE [az webapp up command note](../../../../includes/app-service-web-az-webapp-up-note.md)
+[!INCLUDE [az webapp up command note](../app-service-web-az-webapp-up-note.md)
