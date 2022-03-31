@@ -11,9 +11,11 @@ ms.author: v-bcatherine
 
 # Observability in Container Apps
 
-Observability features in Azure Container Apps provide a holistic view of the behavior and health of your container apps.  This information helps you understand how your applications are performing so you proactively identify and address issues. 
+Observability features in Azure Container Apps provide a holistic view of the behavior and health of your container apps.  There are many methods to observe running applications, Azure Monitor offers a few work with Azure Container Apps. Metrics collect numeric data from your container app, Log Analytics which stores and displays your application logs (stdout/stderr), and Alerts which allow you to be proactively notified when certain thresholds or conditions are met.
 
-<!-- Diagram here  - I think we should save this for when we have everything inabled. -->
+This information helps you understand how your applications are performing so you proactively identify and address issues. 
+
+<!-- Diagram here  - I think we should save this for when we have everything enabled. -->
 
 Container Apps offers the following features:
 <!-- 
@@ -33,7 +35,7 @@ Container Apps offers the following features:
 
 There are many methods to observe running application.  Azure Monitor offers features to view your log and metrics data. Two primary features are Metrics, that displays information automatically gathered information from your container app, and Log Analytics to display your your application log data.  Through these features, you can configure alerts to send notifications based on metrics and log data.
 
-Application Insights is a powerful tools to monitor your web and background application.  While Container Apps doesn't support Application Insights auto-instrumentation agent to monitor your application, you can instrument your application code using Application Insights SDKS.  For more information see [Application Insights overview](_../azure-monitor/app-insights-overview)
+Application Insights is a powerful tool to monitor your web and background application.  While Container Apps doesn't support Application Insights auto-instrumentation agent to monitor your application, you can instrument your application code using Application Insights SDKS.  For more information see [Application Insights overview](_../azure-monitor/app-insights-overview.md)
 
 <!--  
 ### Container details and state
@@ -67,7 +69,7 @@ What events are available.  Is there a list?  Does the user have to enable them?
 
 ### Metrics
 
-Metrics are collected by Azure Monitor and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.  For more information about how to use the metrics explorer, goto [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+Metrics are collected by Azure Monitor and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage, network activity, and the requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded.  These metrics can be viewed using both and Azure portal and the Azure CLI.   For more information about how to use the metrics explorer, goto [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 
 <!--
@@ -101,7 +103,7 @@ From this view you can pin one or more charts to your dashboard.  You can select
 
 The Metrics explorer can be accessed from Azure Monitor or resource page for your container app.
  
-:::image type="content" source="media/observability/metrics-main-page.png" alt-text="Container Apps metrics main page":::
+:::image type="content" source="media/observability/metrics-page.png" alt-text="Container Apps metrics main page":::
 
 The Metric page allows you to select the metric, filter and split the information by revision and replica.    Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
@@ -170,7 +172,7 @@ You can monitor the performance and resource utilization and  set up notificatio
 
 * Metrics
 * Alerts
-<!-- * Log Analytics -->
+* Log Analytics
 <!-- * Events -->
 * Other Azure Monitor features
 
