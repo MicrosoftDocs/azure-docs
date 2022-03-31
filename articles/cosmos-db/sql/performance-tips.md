@@ -239,6 +239,27 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
     }).AsDocumentQuery();
 ```
 
+**Avoid recreating the query unnecessarily**
+
+When all the query results are consumed by the current component, you do not need to re-create the query with the continuation for every page. Always prefer to drain the query fully unless the pagination is controlled by another calling component:
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        PartitionKey = new PartitionKey("Washington")
+    }).AsDocumentQuery();
+while (query.HasMoreResults) 
+{
+    foreach(Document document in await queryable.ExecuteNextAsync())
+    {
+        // Iterate through documents
+    }
+}
+```
+
 ### Tune the degree of parallelism
 For queries, tune the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxdegreeofparallelism) property in `FeedOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism` controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel.
 

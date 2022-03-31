@@ -230,6 +230,23 @@ using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem
 }
 ```
 
+**Avoid recreating the iterator unnecessarily**
+
+When all the query results are consumed by the current component, you do not need to re-create the iterator with the continuation for every page. Always prefer to drain the query fully unless the pagination is controlled by another calling component:
+
+```cs
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle'",
+    requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("Washington")}))
+while (feedIterator.HasMoreResults) 
+{
+    foreach(MyItem document in await feedIterator.ReadNextAsync())
+    {
+        // Iterate through documents
+    }
+}
+```
+
 ### Tune the degree of parallelism
 For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel.
 
