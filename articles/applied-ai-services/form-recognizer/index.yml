@@ -45,6 +45,8 @@ landingContent:
         links:
           - text: 🆕General document model (preview)
             url: concept-general-document.md
+          - text: 🆕Read model (preview)
+            url: concept-read.md
           - text: Layout model
             url: concept-layout.md
           - text: Custom model
@@ -155,6 +157,19 @@ landingContent:
           - text: Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 7
+   - title: Try Read model
+     linkLists:
+     - linkListType: overview
+       links:
+        - text: Model overview
+          url: concept-read.md
+     - linkListType: get-started
+       links:
+        - text: REST API (cURL)
+          url: quickstarts/try-v3-rest-api.md#
+        - text: Form Recognizer Studio
+          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"      
+#Card 8
    - title: Try Layout model
      linkLists:
      - linkListType: overview
@@ -177,7 +192,7 @@ landingContent:
           url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
         - text: Sample Labeling tool
           url: "concept-layout.md#sample-labeling-tool"
-# Card 8
+# Card 9
    - title: Try Custom model
      linkLists:
       - linkListType: overview
@@ -200,7 +215,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
           - text: Sample Labeling tool
             url: "concept-custom.md"
-#Card 9
+#Card 10
    - title: Try Invoice model
      linkLists:
       - linkListType: overview
@@ -223,7 +238,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
-#Card 10
+#Card 11
    - title: Try Receipt model
      linkLists:
       - linkListType: overview
@@ -246,7 +261,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
           - text:  Sample Labeling tool
             url: "concept-receipt.md#sample-labeling-tool"
-#Card 11
+#Card 12
    - title: Try  ID document model
      linkLists:
       - linkListType: overview
@@ -269,7 +284,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
           - text:  Sample Labeling tool
             url: "concept-id-document.md#sample-labeling-tool"
- #Card 12
+ #Card 13
    - title: Try Business Card model
      linkLists:
       - linkListType: overview
@@ -293,7 +308,7 @@ landingContent:
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 
-# # Card 13
+# # Card 14
 #    - title: Responsible AI and Community Support
 #      linkLists:
 #       - linkListType: reference
