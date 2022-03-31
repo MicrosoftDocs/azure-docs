@@ -38,7 +38,7 @@ To learn how to configure the admin consent workflow, see [configure-admin-conse
 
 When you configure the admin consent workflow, your end users can request for consent directly through the prompt. The users may see a consent prompt like the one in the following screenshot:
 
-:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-on.png" alt-text="Screenshot of consent prompt when workflow is enabled.":::
+:::image type="content" source="media/configure-admin-consent-workflow/consent prompt-workflow-on.png" alt-text="Screenshot of consent prompt when workflow is enabled.":::
 
 When an administrator responds to a request, the user receives an email alert informing them that the request has been processed.
 
