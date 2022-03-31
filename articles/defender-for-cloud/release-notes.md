@@ -46,7 +46,7 @@ The Recommendations page has also been redesigned to provide new capabilities su
 
 ### Deprecated the recommendations to install the network traffic data collection agent
 
-Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. Consequently, the following two recommendations and their related policies were deprecated.  
+Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. The following two recommendations and their related policies were deprecated.  
 
 |Recommendation |Description |Severity |
 |---|---|---|
@@ -95,7 +95,7 @@ See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanage
 
 The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
 
-The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We are working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
+The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We're working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
 
 ### Deprecated the recommendation to use service principals to protect your subscriptions
 
@@ -136,7 +136,7 @@ The following recommendations are deprecated:
 
 ### Deprecated Microsoft Defender for IoT device alerts
 
-All Microsoft Defender for IoT device alerts are  no longer visible in Microsoft Defender for Cloud. These alerts are still available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
+All Microsoft Defenders for IoT device alerts are no longer visible in Microsoft Defender for Cloud. These alerts are still available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
 
 ### Posture management and threat protection for AWS and GCP released for general availability (GA)
 
@@ -213,7 +213,7 @@ Updates in January include:
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
 
-The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it's also a potential target for attackers. Consequently, we recommend security operations teams closely monitor the resource management layer.
+The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it's also a potential target for attackers. We recommend security operations teams closely monitor the resource management layer.
 
 Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Defender for Cloud runs advanced security analytics to detect threats and alerts you about suspicious activity.
 
@@ -273,7 +273,7 @@ The two recommendations, which both offer automated remediation (the 'Fix' actio
 
 Defender for Cloud uses the Log Analytics agent to gather security-related data from machines. The agent reads various security-related configurations and event logs and copies the data to your workspace for analysis.
 
-Defender for Cloud's auto provisioning settings have a toggle for each type of supported extension, including the Log Analytics agent. 
+Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension, including the Log Analytics agent. 
 
 In a further expansion of our hybrid cloud features, we've added an option to auto provision the Log Analytics agent to machines connected to Azure Arc. 
 
@@ -375,7 +375,7 @@ With this release, the availability and presentation of Defender for Kubernetes 
 - Existing subscriptions - Wherever they appear in the Azure portal, the plans are shown as **Deprecated** with instructions for how to upgrade to the newer plan
     :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more details on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
+The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more information on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
 
 For more information, see:
 
