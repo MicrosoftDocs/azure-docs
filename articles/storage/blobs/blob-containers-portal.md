@@ -167,14 +167,13 @@ A container lease is used to establish or manage a lock for delete operations. W
 
 There are five different lease operation modes, though only two are available within the Azure portal:
 
-> [!div class="mx-tdCol2BreakAll"]
-> |                 | Use case                            | <nobr>Available in Azure portal</nobr>|
-> |-----------------|-------------------------------------|:--------------------------:|
-> |<nobr>**Acquire mode**</nobr> | Request a new lease.                |&check;                     |
-> |<nobr>**Renew mode**</nobr>   | Renew an existing lease.            |                            |
-> |<nobr>**Change mode**</nobr>  | Change the ID of an existing lease. |                            |
-> |<nobr>**Release mode**</nobr> | End the current lease; allows other clients to acquire a new lease |&check; |
-> |<nobr>**Break mode**</nobr>   | End the current lease; prevents other clients from acquiring a new lease during the current lease period |        |
+|Mode                 | Use case                   |<nobr>Available in Azure portal</nobr>|
+|---------------------|----------------------------|:--------------------------:|
+|**Acquire** | Request a new lease.                |&check;                     |
+|**Renew**   | Renew an existing lease.            |                            |
+|**Change**  | Change the ID of an existing lease. |                            |
+|**Release** | End the current lease; allows other clients to acquire a new lease |&check; |
+|**Break**   | End the current lease; prevents other clients from acquiring a new lease during the current lease period|        |
 
 ### Acquire a lease
 
