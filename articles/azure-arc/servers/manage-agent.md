@@ -14,35 +14,23 @@ After initial deployment of the Azure Connected Machine agent, you may need to r
 The azcmagent tool is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. azcmagent.exe provides the following command-line parameters to customize the agent and view its status:
 
 * **check** - Troubleshoot network connectivity issues.
-
 * **connect** - Connect the machine to Azure Arc.
-
 * **disconnect** - Disconnect the machine from Azure Arc.
-
 * **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
-
 * **config** - View and change settings to enable features and control agent behavior.
-
 * **check** - Validate network connectivity.
-
 * **logs** - Create a .zip file in the current directory containing logs to assist you while troubleshooting.
-
 * **version** - Show the Connected Machine agent version.
-
 * **-useStderr** - Direct error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
-
-* **-h or --help** - Show available command-line parameters.
-
-    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`.
-
+* **-h or --help** - Show available command-line parameters. For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`.
 * **-v or --verbose** - Enable verbose logging.
 
-You can perform a **Connect** and **Disconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you didn't use a service principal to register the machine with Azure Arc-enabled servers, you can [create a service principal now](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
+You can perform a **connect** and **disconnect** manually while logged on interactively, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md), or by using the same service principal you used to onboard multiple agents. If you didn't use a service principal to register the machine with Azure Arc-enabled servers, you can [create a service principal now](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 >[!NOTE]
 >You must have *Administrator* permissions on Windows or *root* access permissions on Linux machines to run **azcmagent**.
 
-### Check
+### check
 
 This parameter allows you to run the network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
 
@@ -50,7 +38,7 @@ When running a network connectivity check, you must provide the name of the Azur
 
 `azcmagent check --location <regionName> --verbose`
 
-### Connect
+### connect
 
 This parameter specifies a resource in Azure Resource Manager to create the machine in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine unless otherwise specified.
 
@@ -68,7 +56,7 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-### Disconnect
+### disconnect
 
 This parameter specifies a resource in Azure Resource Manager to delete the machine in Azure. It doesn't remove the agent from the machine; you must uninstall the agent separately. After the machine is disconnected, you can re-register it with Azure Arc-enabled servers using `azcmagent connect` so a new resource is created for it in Azure.
 
@@ -87,7 +75,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 `azcmagent disconnect`
 
-### Config
+### config
 
 This parameter allows you to view and configure settings that control agent behavior.
 
@@ -156,25 +144,25 @@ For Windows Servers that belong to a domain and connect to the Internet to check
 
 1. Sign into a computer used for server administration with an account that can manage Group Policy Objects (GPO) for your organization.
 
-2. Open the **Group Policy Management Console**.
+1. Open the **Group Policy Management Console**.
 
-3. Expand the forest, domain, and organizational unit(s) to select the appropriate scope for your new GPO. If you already have a GPO you wish to modify, skip to step 6.
+1. Expand the forest, domain, and organizational unit(s) to select the appropriate scope for your new GPO. If you already have a GPO you wish to modify, skip to step 6.
 
-4. Right click the container and select **Create a GPO in this domain, and Link it here...**.
+1. Right click the container and select **Create a GPO in this domain, and Link it here...**.
 
-5. Provide a name for your policy such as "Enable Microsoft Update".
+1. Provide a name for your policy such as "Enable Microsoft Update".
 
-6. Right click the policy and select **Edit**.
+1. Right click the policy and select **Edit**.
 
-7. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Windows Update**.
+1. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Windows Update**.
 
-8. Select the **Configure Automatic Updates** setting to edit it.
+1. Select the **Configure Automatic Updates** setting to edit it.
 
-9. Select the **Enabled** radio button to allow the policy to take effect.
+1. Select the **Enabled** radio button to allow the policy to take effect.
 
-10. In the Options section, check the box for **Install updates for other Microsoft products** at the bottom.
+1. In the Options section, check the box for **Install updates for other Microsoft products** at the bottom.
 
-11. Select **OK**.
+1. Select **OK**.
 
 The next time computers in your selected scope refresh their policy, they will start to check for updates in both Windows Update and Microsoft Update.
 
@@ -189,11 +177,11 @@ Once the updates are being synchronized, you can optionally add the Azure Connec
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
+1. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
 
-3. Run **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
+1. Run **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
 
-If the Setup Wizard discovers a previous version of the agent, it will automatically perform an upgrade of it. When the upgrade completes, the Setup Wizard will close automatically.
+If the Setup Wizard discovers a previous version of the agent, it will upgrade it automatically. When the upgrade completes, the Setup Wizard closes automatically.
 
 #### To upgrade from the command line
 
@@ -201,9 +189,9 @@ If you're unfamiliar with the command-line options for Windows Installer package
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
+1. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
 
-3. To upgrade the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command:
+1. To upgrade the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command:
 
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\azcmagentupgradesetup.log"
@@ -216,7 +204,7 @@ Updating the agent on a Linux machine involves two commands; one command to upda
 You can download the latest agent package from Microsoft's [package repository](https://packages.microsoft.com/).
 
 > [!NOTE]
-> To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
+> To upgrade the agent, you must have *root* access permissions or an account that has elevated rights using Sudo.
 
 #### Upgrade the agent on Ubuntu
 
@@ -487,9 +475,9 @@ If you're already using environment variables to configure the proxy server for 
 
 1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings.
 
-2. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`.
+1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`.
 
-3. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables).
+1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables).
 
 ## Next steps
 
