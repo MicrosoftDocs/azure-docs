@@ -337,6 +337,13 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
     * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
     * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
 
+## Troubleshooting
+
+* **Kernel not found** or **Kernel operations were disabled**: When using the default Python 3.8 kernel on a compute instance, you may get an error such as "Kernel not found" or "Kernel operations were disabled". To fix, use one of the following methods:
+    * Create a new compute instance. This will use a new image where this problem has been resolved.
+    * Use the Py 3.6 kernel on the existing compute instance.
+    * From a terminal in the default py38 environment, run  ```pip install ipykernel==6.6.0``` OR ```pip install ipykernel==6.0.3```
+
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
