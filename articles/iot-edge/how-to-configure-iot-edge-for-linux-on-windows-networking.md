@@ -53,10 +53,10 @@ By default, if no **Static IP** address is set up, the EFLOW VM will try to allo
     ```cmd
     ipconfig /all
     ```
-1. If you are using an **external** virtual switch, check the network interface used for creating the virtual switch. If you are using **internal** virtual swich, just look for the name used for the switch. Once the switch is located, check if `DHCP Enabled` say **Yes** or **No**, and check the `DCHP Server` address. 
+1. If you're using an **external** virtual switch, check the network interface used for creating the virtual switch. If you're using **internal** virtual switch, just look for the name used for the switch. Once the switch is located, check if `DHCP Enabled` say **Yes** or **No**, and check the `DCHP Server` address. 
 
 
-If you are using **Static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#deploy-eflow). For example,  if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
+If you're using **Static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#deploy-eflow). For example,  if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
 
 ```powershell
 Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.168.0.2" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
@@ -102,7 +102,7 @@ To check the DNS servers used by the default interface (*eth0*), you can use the
 resolvectl | grep eth0 -A 8
 ```
 
-The output should be something similar to the following. Check the IP addresses of the "Current DNS Servers" and "DNS Servers" fields of the list. If there's no IP, or the IP is not a valid DNS server IP address, then the DNS service won't work.
+The output should be something similar to the following. Check the IP addresses of the "Current DNS Servers" and "DNS Servers" fields of the list. If there's no IP, or the IP isn't a valid DNS server IP address, then the DNS service won't work.
 
 ```output
 Link 2 (eth0)
