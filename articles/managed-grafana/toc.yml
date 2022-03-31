@@ -20,3 +20,7 @@ items:
     href: how-to-share-grafana-workspace.md
   - name: Call APIs in your automation
     href: how-to-api-calls.md
+- name: Reference
+  items:
+  - name: Grafana Application UI
+    href: grafana-app-ui.md
