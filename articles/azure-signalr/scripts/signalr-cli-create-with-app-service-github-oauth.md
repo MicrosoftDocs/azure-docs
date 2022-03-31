@@ -18,51 +18,43 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Sample script to create a SignalR Service with an App Service
+## Sample script to create a SignalR Service with an App service and GitHub authentication
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### Run the script
+### Run the script to create a SignalR service with an App service
 
 :::code language="azurecli" source="~/azure_cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh" id="FullScript":::
 
-## Enable Github authentication and Git deployment
+### Enable Github authentication and Git deployment
 
-### Add additional variables
-
-Update the values in the following script for the desired deployment username and its password.
+1. Update the values in the following script for the desired deployment username and its password.
 
 ```azurecli
 deploymentUser=<Replace with your desired username>
 deploymentUserPassword=<Replace with your desired password>
 ```
 
-Update Update the values in the following script based on your GitHub OAuth App registration.
+1. Update Update the values in the following script based on your GitHub OAuth App registration.
 
 ```azurecli
 GitHubClientId=<Replace with your GitHub OAuth app Client ID>
 GitHubClientSecret=<Replace with your GitHub OAuth app Client Secret>
 ```
 
-### Add app settings to use with GitHub authentication
-
-Set webapp appsettings to use with GitHub authentication
+1. Add app settings to use with GitHub authentication
 
 ```Azure CLI
 az webapp config appsettings set --name $webApp --resource-group $resourceGroup --settings "GitHubClientSecret=$GitHubClientSecret" 
 ```
 
-### Add the desired deployment user name and password
-
-Update the webapp with the desired deployment user name and password
+1. Update the webapp with the desired deployment user name and password
 
 ```Azure CLI
 az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
 ```
 
-### Configure Git deployment and note the deployment URL in the output
-
-Configure Git deployment and return the deployment URL.
+1. Configure Git deployment and return the deployment URL.
 
 ```Azure CLI
 az webapp deployment source config-local-git --name $webAppName --resource-group $resourceGroupName
