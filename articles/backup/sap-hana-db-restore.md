@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 04/01/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -132,6 +132,10 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
 1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
+
+   >[!Note]
+   >If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
+
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
