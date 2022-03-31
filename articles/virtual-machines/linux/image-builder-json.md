@@ -232,7 +232,7 @@ You can also specify plan information, for example:
 Sets the source image as an existing managed image of a generalized VHD or VM.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template. 
+> The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
 
 ```json
         "source": { 
@@ -245,10 +245,10 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in an Azure Compute Gallery.
+Sets the source image as an existing image version in an Azure Compute Gallery.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
 
 
 ```json
