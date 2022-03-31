@@ -17,12 +17,12 @@ You can use Azure Active Directory (Azure AD) integration to control export and 
 ## Pre-requisites
 
 1. Enable the feature on your subscription, reach out to AzureDisks@microsoft .com to have the feature enabled.
-1. Install the latest Azure PowerShell module.
-1. Install this pre-release version of the Az.Storage PowerShell module.
+1. Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
+1. Install this [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
 
 ## Restrictions
 
-- You cannot upload a VHD to an empty snapshot, only empty disks.
+- You can't upload a VHD to an empty snapshot, only empty disks.
 - 
 
 ## Export a disk
