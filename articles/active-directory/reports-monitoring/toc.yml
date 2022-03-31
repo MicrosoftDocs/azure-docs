@@ -141,7 +141,7 @@
 - name: Recommendations
   items:
     - name: Convert to conditional access MFA
-      href: recommendation-convert-to-conditional-access-mfa.md
+      href: recommendation-turn-off-per-user-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
