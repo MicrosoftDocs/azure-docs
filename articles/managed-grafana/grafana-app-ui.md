@@ -56,7 +56,7 @@ Grafana [panels](#panels) support various visualizations, which are visual repre
 
 ## Dashboards
 
-A Grafana dashboard is a collection of [panels](#panels) arranged in rows and columns. Typically panels in a dashboard show datasets that are related. You can create multiple dashboards in Grafana. Refer to the following for more information about dashboards:
+A Grafana dashboard is a collection of [panels](#panels) arranged in rows and columns. Panels typically show datasets that are related. You can create multiple dashboards in Grafana. For more information about dashboards, refer to the following links:
 
 * [Working with Grafana dashboard UI](https://grafana.com/docs/grafana/latest/dashboards/dashboard-ui/)
 * [Dashboard folders](https://grafana.com/docs/grafana/latest/dashboards/)
