@@ -68,13 +68,17 @@ The rest of this section walks you through these steps.
     
 5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
 
-This will take you to an Overview page tracking deployment status of the instance.
+This will take you to an Overview page tracking the deployment status of the instance.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-in-progress.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is in progress.":::
+
+Wait for the page to say that your deployment is complete.
 
 ### Open instance in Azure Digital Twins Explorer
 
-When the instance is finished deploying, use the **Go to resource** button to navigate to the instance's Overview page in the portal.
+After deployment completes, use the **Go to resource** button to navigate to the instance's Overview page in the portal.
 
-:::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
 
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
@@ -84,7 +88,7 @@ Next, you'll import the sample models and graph into Azure Digital Twins Explore
 
 ### Models
 
-The first step in an Azure Digital Twins solution is to define the vocabulary for your environment. You'll create custom [models](concepts-models.md) that describe the types of entity that exist in your environment.
+The first step in an Azure Digital Twins solution is to define the vocabulary for your environment. You'll create custom *models* that describe the types of entity that exist in your environment.
 
 Each model is written in a language like [JSON-LD](https://json-ld.org/) called *Digital Twin Definition Language (DTDL)*. Each model describes a single type of entity in terms of its properties, telemetry, relationships, and components. Later, you'll use these models as the basis for digital twins that represent specific instances of these types.
 
@@ -126,7 +130,7 @@ You can select **View Model** for either model to see the DTDL code behind it.
 
 ### Twins and the twin graph
 
-Now that some models have been uploaded to your Azure Digital Twins instance, you can add [digital twins](concepts-twins-graph.md) that follow the model definitions.
+Now that some models have been uploaded to your Azure Digital Twins instance, you can add *digital twins* based on the model definitions.
 
 *Digital twins* represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the Room model. You connect them with relationships into a *twin graph* that represents the full environment.
 
@@ -153,7 +157,7 @@ Follow these steps to import the graph (the *.xlsx* file you downloaded earlier)
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
-4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. A dialog box appears when it's finished. Select **Close**.
+4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. Make sure you see the following dialog box indicating that the import was successful before moving on. Select **Close**.
 
    :::row:::
     :::column:::
@@ -211,7 +215,7 @@ Room1 has a temperature of 80.
 
 ### Query the graph
 
-A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment.
+In Azure Digital Twins, you can query your twin graph to answer questions about your environment, using the SQL-style *Azure Digital Twins query language*.
 
 One way to query the twins in your graph is by their properties. Querying based on properties can help answer questions about your environment. For example, you can find outliers in your environment that might need attention.
 
@@ -230,15 +234,17 @@ Recall from viewing the twin properties earlier that Room0 has a temperature of 
 
 ## Edit data in the graph
 
-You can use Azure Digital Twins Explorer to edit the properties of the twins represented in your graph. In this section, we'll raise the temperature of Room0 to 76.
+In a fully connected Azure Digital Twins solution, the twins in your graph can receive live updates from real IoT devices and update their properties to stay synchronized with your real-world environment. You can also manually set the properties of the twins in your graph, using Azure Digital Twins Explorer or another development interface (like the APIs or Azure CLI).
 
-To start, rerun the following query to select all digital twins. This will display the full graph once more in the **Twin Graph** panel.
+For simplicity, you'll use Azure Digital Twins Explorer here to manually set the temperature of Room0 to 76.
+
+First, rerun the following query to select all digital twins. This will display the full graph once more in the **Twin Graph** panel.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 Select **Room0** to bring up its property list in the **Twin Properties** panel.
 
-The properties in this list are editable. Select the temperature value of **70** to enable entering a new value. Enter *76*, and select the **Save** icon to update the temperature to 76.
+The properties in this list are editable. Select the temperature value of **70** to enable entering a new value. Enter *76* and select the **Save** icon to update the temperature.
 
 :::row:::
     :::column:::
@@ -248,7 +254,19 @@ The properties in this list are editable. Select the temperature value of **70**
     :::column-end:::
 :::row-end:::
 
-Now, you'll see a **Patch Information** window where the patch code appears that was used behind the scenes with the Azure Digital Twins [APIs](concepts-apis-sdks.md) to make the update. Select **Close**.
+After a successful property update, you'll see a **Patch Information** box showing the patch code that was used behind the scenes with the [Azure Digital Twins APIs](concepts-apis-sdks.md) to make the update.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/patch-information.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing Patch Information for the temperature update." lightbox="media/quickstart-azure-digital-twins-explorer/patch-information.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+**Close** the patch information.
+
+Although 
 
 ### Query to see the result
 
