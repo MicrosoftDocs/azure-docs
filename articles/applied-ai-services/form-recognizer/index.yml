@@ -40,7 +40,7 @@ landingContent:
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 #Card 2
-   - title: Features and Quickstarts
+   - title: Features and quickstarts
      linkLists:
       - linkListType: concept
         links:
@@ -134,7 +134,57 @@ landingContent:
           - text: Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 5
-   
+   - title: Layout model
+     linkLists:
+     - linkListType: overview
+       links:
+        - text: Model overview
+          url: concept-layout.md
+     - linkListType: get-started
+       links:
+        - text: .NET SDK
+          url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
+        - text: Python SDK
+          url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
+        - text: Java SDK
+          url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
+        - text: JavaScript SDK
+          url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
+        - text: REST API (cURL)
+          url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
+        - text: Form Recognizer Studio
+          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+        - text: Sample Labeling tool
+          url: "concept-layout.md#sample-labeling-tool"
+#Card 6
+   - title: 🆕Read model
+     linkLists:
+     - linkListType: overview
+       links:
+        - text: Model overview
+          url: concept-read.md
+     - linkListType: get-started
+       links:
+        - text: REST API (cURL)
+          url: quickstarts/try-v3-rest-api.md
+        - text: Form Recognizer Studio
+          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+
+#Card 7
+   - title: 🆕W-2 Form model
+     linkLists:
+     - linkListType: overview
+       links:
+       - text: Model overview
+         url: concept-w2.md
+     - linkListType: get-started
+       links:
+       - text: REST API (cURL)
+         url: quickstarts/try-v3-rest-api.md#
+       - text: Form Recognizer Studio
+         url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+
+  #Card 8
    - title: Custom model
      linkLists:
       - linkListType: overview
@@ -158,58 +208,6 @@ landingContent:
           - text: Sample Labeling tool
             url: "concept-custom.md"
 
- #Card 6
-   - title: Layout model
-     linkLists:
-     - linkListType: overview
-       links:
-        - text: Model overview
-          url: concept-layout.md
-     - linkListType: get-started
-       links:
-        - text: .NET SDK
-          url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
-        - text: Python SDK
-          url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
-        - text: Java SDK
-          url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
-        - text: JavaScript SDK
-          url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
-        - text: REST API (cURL)
-          url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
-        - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-        - text: Sample Labeling tool
-          url: "concept-layout.md#sample-labeling-tool"
-
-# Card 7
-  
-   - title: 🆕Read model
-     linkLists:
-     - linkListType: overview
-       links:
-        - text: Model overview
-          url: concept-read.md
-     - linkListType: get-started
-       links:
-        - text: REST API (cURL)
-          url: quickstarts/try-v3-rest-api.md
-        - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-   
-#Card 8
-   - title: 🆕W-2 Form model
-     linkLists:
-     - linkListType: overview
-       links:
-       - text: Model overview
-         url: concept-w2.md
-     - linkListType: get-started
-       links:
-       - text: REST API (cURL)
-         url: quickstarts/try-v3-rest-api.md#
-       - text: Form Recognizer Studio
-         url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 9
    - title: Invoice model
      linkLists:
