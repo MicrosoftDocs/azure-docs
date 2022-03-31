@@ -67,7 +67,7 @@ The following are some of the known issues and limitations of scheduled patching
 	- Invalid input configuration
 	- Machine isn't in running state.
 
-- If machine is newly created, ensure that you keep the Azure and Arc machine(s) in running state for at least 40 minutes else,it must have been in running state in the past for at least 40 minutes. For Azure machine, you must keep it running for at least 40 minutes after enabling **Azure Orchestrated (Automatic By Platform)** patch orchestration mode. For Arc-enabled servers, machine must have been in running state at least for last 40 minutes.
+- If machine is newly created, ensure that you keep the Azure and Arc machine(s) in running state for at least 40 minutes else, it must have been in running state in the past for at least 40 minutes. For Azure machine, you must keep it running for at least 40 minutes after enabling **Azure Orchestrated (Automatic By Platform)** patch orchestration mode. For Arc-enabled servers, machine must have been in running state at least for last 40 minutes.
 
 ### Types of workloads
 
