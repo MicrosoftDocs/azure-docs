@@ -40,7 +40,7 @@ landingContent:
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 #Card 2
-   - title: View Form Recognizer Features
+   - title: Features and Quickstarts
      linkLists:
       - linkListType: concept
         links:
@@ -86,7 +86,7 @@ landingContent:
             url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 #Card 3
-   - title: 🆕Try Form Recognizer Studio
+   - title: 🆕Form Recognizer Studio
      linkLists:
       - linkListType: overview
         links:
@@ -113,7 +113,7 @@ landingContent:
           - text: Use the Business Card model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
 #Card 4
-   - title: 🆕Try General document model
+   - title: 🆕General document model
      linkLists:
       - linkListType: overview
         links:
@@ -134,21 +134,32 @@ landingContent:
           - text: Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 5
-   - title: 🆕Try Read model
+   
+   - title: Custom model
      linkLists:
-     - linkListType: overview
-       links:
-        - text: Model overview
-          url: concept-read.md
-     - linkListType: get-started
-       links:
-        - text: REST API (cURL)
-          url: quickstarts/try-v3-rest-api.md
-        - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+      - linkListType: overview
+        links:
+          - text: Model overview
+            url: concept-custom.md
+      - linkListType: get-started
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+          - text: Form Recognizer Studio
+            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
+          - text: Sample Labeling tool
+            url: "concept-custom.md"
 
  #Card 6
-   - title: Try Layout model
+   - title: Layout model
      linkLists:
      - linkListType: overview
        links:
@@ -172,30 +183,22 @@ landingContent:
           url: "concept-layout.md#sample-labeling-tool"
 
 # Card 7
-   - title: Try Custom model
+  
+   - title: 🆕Read model
      linkLists:
-      - linkListType: overview
-        links:
-          - text: Model overview
-            url: concept-custom.md
-      - linkListType: get-started
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
-          - text: Sample Labeling tool
-            url: "concept-custom.md"
+     - linkListType: overview
+       links:
+        - text: Model overview
+          url: concept-read.md
+     - linkListType: get-started
+       links:
+        - text: REST API (cURL)
+          url: quickstarts/try-v3-rest-api.md
+        - text: Form Recognizer Studio
+          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+   
 #Card 8
-   - title: 🆕Try W-2 Form model
+   - title: 🆕W-2 Form model
      linkLists:
      - linkListType: overview
        links:
@@ -208,7 +211,7 @@ landingContent:
        - text: Form Recognizer Studio
          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 9
-   - title: Try Invoice model
+   - title: Invoice model
      linkLists:
       - linkListType: overview
         links:
@@ -231,7 +234,7 @@ landingContent:
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 #Card 10
-   - title: Try Receipt model
+   - title: Receipt model
      linkLists:
       - linkListType: overview
         links:
@@ -254,7 +257,7 @@ landingContent:
           - text:  Sample Labeling tool
             url: "concept-receipt.md#sample-labeling-tool"
 #Card 11
-   - title: Try  ID document model
+   - title: ID document model
      linkLists:
       - linkListType: overview
         links:
@@ -277,7 +280,7 @@ landingContent:
           - text:  Sample Labeling tool
             url: "concept-id-document.md#sample-labeling-tool"
  #Card 12
-   - title: Try Business Card model
+   - title: Business Card model
      linkLists:
       - linkListType: overview
         links:
