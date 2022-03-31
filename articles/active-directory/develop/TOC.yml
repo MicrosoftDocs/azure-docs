@@ -229,6 +229,8 @@
           href: ./howto-restore-app.md
 - name: Single-page app (SPA)
   items:
+    - name: Single-page app documentation
+      href: index-spa.yml
     - name: Quickstart
       href: single-page-app-quickstart.md
     - name: Samples
@@ -264,6 +266,8 @@
               href: scenario-spa-production.md
 - name: Web app
   items:
+    - name: Web app documentation
+      href: index-web-app.yml
     - name: Quickstart
       href: web-app-quickstart.md
     - name: Tutorials
@@ -309,6 +313,8 @@
               href: scenario-web-app-call-api-production.md
 - name: Web API
   items:
+    - name: Web API documentation
+      href: index-web-api.yml
     - name: Quickstart
       href: web-api-quickstart.md
     - name: Samples
@@ -346,6 +352,8 @@
           href: msal-v1-app-scopes.md
 - name: Desktop
   items:
+    - name: Desktop app documentation
+      href: index-desktop.yml
     - name: Quickstart
       href: desktop-app-quickstart.md
     - name: Tutorials
@@ -390,6 +398,8 @@
               href: scenario-desktop-production.md
 - name: Mobile
   items:
+    - name: Mobile app documentation
+      href: index-mobile.yml
     - name: Quickstart
       href: mobile-app-quickstart.md
     - name: Tutorials
@@ -448,6 +458,8 @@
               href: scenario-mobile-production.md
 - name: Service, daemon, script
   items:
+    - name: Service, daemon, and script documentation
+      href: index-service.yml
     - name: Quickstart
       href: console-app-quickstart.md
     - name: Tutorials
