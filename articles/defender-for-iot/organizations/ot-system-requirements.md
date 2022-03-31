@@ -21,7 +21,7 @@ The following tables describe supported deployment options for your OT sensors a
 
 ### Corporate IT/OT hybrid networks
 
-|Name  |Max Throughput (OT Traffic) |Max Monitored Assets  |Deployment |
+|Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
 |C5600 (Corporate)    | 3 Gbps        | 12K        |Physical / Virtual         |
 
@@ -138,8 +138,6 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Optional modules for port expansion
 
-### Optional modules for port expansion:
-
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
 | PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |
@@ -151,7 +149,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
 
-### Enterprise deployment: HPE ProLiant DL20+
+## Enterprise deployment: HPE ProLiant DL20+
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="HPE ProLiant D120+ View" border="false":::
 
@@ -178,14 +176,21 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |3|P28610-B21|HPE 1TB SATA 7.2K SFF BC HDD|
 |2|P43019-B21|HPE 16GB 1Rx8 PC4-3200AA-E STND Kit|
 
-Optional modules for port expansion:
+### Optional modules for port expansion
+
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |
+| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr| 
+| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|
+| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
+| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|
+| SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
+| SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
 :::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20" border="false":::
 
-### Enterprise deployment: HPE ProLiant DL20
+## Enterprise deployment: HPE ProLiant DL20
 
 |Component|Technical specifications|
 |----|----|
@@ -224,7 +229,7 @@ Optional modules for port expansion:
 |P06722-B21|HPE DL20 Gen10 RPS Enablement FIO Kit|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-Enterprise Deployment: Dell PowerEdge R340 XL
+## Enterprise Deployment: Dell PowerEdge R340 XL
 
 |Component |Technical Specifications|
 |----|----|
@@ -246,7 +251,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340" border="false":::
 
 
- ### Optional modules for port expansion:
+ ### Optional modules for port expansion
 
 |Location|Type|Specification|
 |-----|-----|-----|
@@ -261,6 +266,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 
 
 ### Deployment BOM
+
 |Description|SKU|Qty|
 |:----|:----|:----|
 |OEM PowerEdge R340 XL|210-ARGO|1|
@@ -301,7 +307,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |Enterprise Program Management Support |973-3700|1|
 
 
-### SMB Deployment: HPE ProLiant DL20+
+## SMB Deployment: HPE ProLiant DL20+
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
 |Component|Technical specifications|
