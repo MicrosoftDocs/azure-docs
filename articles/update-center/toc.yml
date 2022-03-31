@@ -4,7 +4,7 @@
   items:
   - name: About Azure Update management center
     href: overview.md
-  - name: Update management center support
+  - name: Support matrix
     href: support-matrix.md
 - name: Quickstarts
   items:
