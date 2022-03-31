@@ -143,7 +143,7 @@ items:
       items:
       - name: $convert-data and FHIR Converter Extension Templates
         href: convert-data.md
-    - name: Patient-$everything
+    - name: Patient-everything
       href: patient-everything.md
     - name: $member-match
       href: tutorial-member-match.md
