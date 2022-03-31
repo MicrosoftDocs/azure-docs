@@ -14,17 +14,17 @@ ms.subservice: data
 ---
 # Metrics overview
 
-Azure Communication Services currently provides metrics for Chat and SMS. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
+Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
 ## Where to find Metrics
 
-Chat and SMS services in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
+Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
 
 ## Metric definitions
 
-There are two types of requests that are represented within Communication Services metrics: **Chat API requests** and **SMS API requests**.
+Today there are various types of requests that are represented within Communication Services metrics: **Chat API requests** , **SMS API requests** , **Authentication API requests** and **Network Traversal API requests**.
 
-Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
+All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
 More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
@@ -85,6 +85,16 @@ The following operations are available on Authentication API request metrics:
 | RevokeToken          | Revokes all access tokens created for an identity before a time given. |
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+
+### Network Traversal API requests
+
+The following operations are available on Network Traversal API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
+
+:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric.":::
 
 ## Next Steps
 
