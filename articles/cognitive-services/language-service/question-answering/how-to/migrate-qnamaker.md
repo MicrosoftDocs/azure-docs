@@ -22,6 +22,8 @@ To successfully migrate knowledge bases, **the account performing the migration 
 
 Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
 
+If you're migrating the SDK, check out the [SDK Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md)
+
 ## Steps to migrate
 
 You can follow the steps below to migrate knowledge bases:
