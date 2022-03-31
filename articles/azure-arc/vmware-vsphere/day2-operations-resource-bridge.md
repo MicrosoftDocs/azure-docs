@@ -10,15 +10,15 @@ ms.date: 03/28/2022
 
 In this article, you'll learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
 
-- Upgrading the Arc resource bridge
+1. Upgrading the Arc resource bridge
 
-- Updating the credentials
+2. Updating the credentials
 
-- Collecting logs from the Arc resource bridge
+3. Collecting logs from the Arc resource bridge
 
-Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM
+Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
 
-## Upgrading the Arc resource bridge and other components
+## Upgrading the Arc resource bridge
 
 Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
 
@@ -84,7 +84,7 @@ az connectedvmware vcenter connect --custom-location <name of the custom locatio
 
 ## Collecting logs from the Arc resource bridge
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](https://docs.microsoft.com/cli/azure/arcappliance/logs?view=azure-cli-latest#az-arcappliance-logs-vmware) command.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](cli/azure/arcappliance/logs?view=azure-cli-latest#az-arcappliance-logs-vmware) command.
 
 The `az arcappliance log` command must be run from a workstation that can communicate with the Arc resource bridge either via the cluster configuration IP address or the IP address of the Arc resource bridge VM.
 
