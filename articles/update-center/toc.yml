@@ -18,8 +18,6 @@
     href: query-logs-resource-graph.md 
   - name: Manage multiple machines
     href: manage-multiple-machines.md  
-  - name: Update management support
-    href: support-matrix.md
 - name: How-to guides
   items:
   - name: Deploy
