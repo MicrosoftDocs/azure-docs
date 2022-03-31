@@ -811,7 +811,7 @@ Server-side programming mappings
 
 ## Security
 
-Data security is a shared responsibility of the customer and the database provider. For on-premises solutions, customers have to provide everything from endpoint protection to physical hardware security, which is not an easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, customer involvement will be reduced. For Microsoft's security shared responsibility model, see [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91). Cosmos DB runs on the Azure platform, so it can be enhanced in a different way than HBase. Cosmos DB does not require any extra components to be installed for security. We recommend that you consider migrating your database system security implementation using the following checklist:
+Data security is a shared responsibility of the customer and the database provider. For on-premises solutions, customers have to provide everything from endpoint protection to physical hardware security, which is not an easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, customer involvement will be reduced. For Microsoft's security shared responsibility model, see [Shared Responsibilities for Cloud Computing](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility). Cosmos DB runs on the Azure platform, so it can be enhanced in a different way than HBase. Cosmos DB does not require any extra components to be installed for security. We recommend that you consider migrating your database system security implementation using the following checklist:
 
 |   **Security control**           | **HBase**        | **Azure Cosmos DB**    |
 | -------- | ----- | ------- |
