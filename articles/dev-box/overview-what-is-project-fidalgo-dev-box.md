@@ -14,7 +14,7 @@ adobe-target: true
 
 Project Fidalgo Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.  
 
-Using the Dev Box service, users can select a dev box appropriate for their project from a pool of dev boxes. Several roles within an organization collaborate to successfully deploy, manage, and operate resources to make this possible. 
+Using the Dev Box service, users can select a workstation, or dev box, appropriate for their project from a pool of dev boxes. Several roles within an organization should collaborate to successfully deploy, manage, and operate resources to make this possible. 
 
 > [!IMPORTANT]
 > Project Fidalgo Dev Box is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -23,7 +23,7 @@ Using the Dev Box service, users can select a dev box appropriate for their proj
 
 <!-- :::image type="content" source="./media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png" alt-text="Diagram that shows the Project Fidalgo Dev Box service structure."::: -->
 
-![Diagram that shows the Project Fidalgo Dev Box service structure.](./media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png)
+![Diagram that shows the Project Fidalgo Dev Box service structure.](gi./media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png)
 
 > [!NOTE]
 > This image shows the Project Fidalgo Dev Box service structure.
@@ -36,7 +36,7 @@ The DevCenter owner creates projects within the DevCenter and assigns permission
 
 Dev box users, who might be developers, testers, or QA professionals, select a dev box from the project pool according to their needs. 
 
-## Self-service scenarios
+### Self-service scenarios
 Fidalgo Dev Box enables users to be productive on a project very quickly. Dev Box users can:
 
 - Create and manage their own dev boxes.
@@ -44,7 +44,7 @@ Fidalgo Dev Box enables users to be productive on a project very quickly. Dev Bo
 - Create a dev box for each project on which they are working. 
 
 
-## Cost control scenarios
+### Cost control scenarios
 To help control the cost of running dev boxes across projects:
 
 - DevCenter owners can set cost control and alerts policies for their DevCenters.
@@ -71,13 +71,10 @@ A dev box definition is a resource associated with a DevCenter. Dev box definiti
 A network connection is a top-level resource. It associates a given VNet with a region, as well as domain join credentials, firewall configuration, and so on. 
 
 ### Dev box pool (AKA: Pool) 
-A dev box pool is a resource associated with a Project. It defines configuration, pool limits and network settings for a given group of dev boxes. Technically defines role-based access control (RBAC), but this will usually be inherited from the Project. 
+A dev box pool is a resource associated with a project. It defines configuration, pool limits and network settings for a given group of dev boxes. Technically defines role-based access control (RBAC), but this will usually be inherited from the Project. 
 
 ### Dev box 
 A dev box is an instance of a virtual machine configured for developer use. It is based on a dev box definition.
-
-
-<!-- From https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md -->
 
 ## Next steps
 
