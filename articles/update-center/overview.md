@@ -10,7 +10,7 @@ ms.topic: overview
 
 # Update management center (Preview) overview
 
-You can use Update management center (preview) in Azure to centrally manage manage operating system updates for your Linux machines in Azure. Operating system updates, update configuration settings, and manage the process of installing required updates for your Windows and Linux virtual machines (VMs) in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to update management center (preview). 
+You can use Update management center (preview) in Azure to centrally manage operating system updates for your Linux machines in Azure. Operating system updates, update configuration settings, and manage the process of installing required updates for your Windows and Linux virtual machines (VMs) in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to update management center (preview). 
 
 Microsoft offers other capabilities to help you manage updates for your Azure VMs or Azure virtual machine scale sets that you should consider as part of your overall update management strategy. Review the Azure VM [Update options](/azure/virtual-machines/updates-maintenance-overview) to learn more about the options available.
 
