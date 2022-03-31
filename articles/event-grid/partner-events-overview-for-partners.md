@@ -29,7 +29,7 @@ For either publishing events or receiving events, you create the same kind of Ev
 8. If you created a partner topic, start publishing events to your partner namespace. If you created a partner destination, expect events coming to your system endpoints defined in the partner definition.
 
 >![Note]
-> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md##register-the-event-grid-resource-provider) to every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
+> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) to every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
 
 
 ## Why should I use Partner Events?

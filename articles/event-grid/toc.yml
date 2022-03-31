@@ -271,10 +271,10 @@
       href: onboard-partner.md
     - name: Subscribe to partner events
       href: subscribe-to-partner-events.md
-    - name: Deliver events to partner destinations
-      href: deliver-events-to-partner-destinations.md
     - name: Subscribe to Auth0 events
       href: auth0-how-to.md
+    - name: Deliver events to partner destinations
+      href: deliver-events-to-partner-destinations.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
   - name: Publish events custom topics using access keys
