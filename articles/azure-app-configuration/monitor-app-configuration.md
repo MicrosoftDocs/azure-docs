@@ -57,7 +57,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
     az account set --subscription <your-subscription-id>
     ```
 
-1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
+1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
     ```Azure CLI
     az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'

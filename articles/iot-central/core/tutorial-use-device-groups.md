@@ -119,7 +119,7 @@ To analyze the telemetry for a device group:
 
     :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
 
-To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
+To learn more about analytics, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 ## Clean up resources
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
 
 There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
-- Use your corporate AD credentials to login to Windows VMs in Azure.
+- Use your corporate Azure AD credentials to login to Windows VMs in Azure.
 - Reduce your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
 - Password complexity and password lifetime policies configured for your Azure AD directory help secure Windows VMs as well.
 - With Azure role-based access control (Azure RBAC), specify who can login to a VM as a regular user or with administrator privileges. When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
@@ -109,8 +109,8 @@ Azure Cloud Shell is a free, interactive shell that you can use to run the steps
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.31 or later. Run az --version to find the version. If you need to install or upgrade, see the article [Install Azure CLI](/cli/azure/install-azure-cli).
 
-1. Create a resource group with [az group create](/cli/azure/group#az_group_create). 
-1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create) using a supported distribution in a supported region. 
+1. Create a resource group with [az group create](/cli/azure/group#az-group-create). 
+1. Create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distribution in a supported region. 
 1. Install the Azure AD login VM extension. 
 
 The following example deploys a VM named myVM that uses Win2019Datacenter, into a resource group named myResourceGroup, in the southcentralus region. In the following examples, you can provide your own resource group and VM names as needed.
@@ -132,7 +132,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources.
 
-Finally, install the Azure AD login VM extension to enable Azure AD login for Windows VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension](/cli/azure/vm/extension#az_vm_extension_set) set to install the AADLoginForWindows extension on the VM named `myVM` in the `myResourceGroup` resource group:
+Finally, install the Azure AD login VM extension to enable Azure AD login for Windows VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension](/cli/azure/vm/extension#az-vm-extension-set) set to install the AADLoginForWindows extension on the VM named `myVM` in the `myResourceGroup` resource group:
 
 > [!NOTE]
 > You can install AADLoginForWindows extension on an existing Windows Server 2019 or Windows 10 1809 and later VM to enable it for Azure AD authentication. An example of AZ CLI is shown below.
@@ -184,7 +184,7 @@ To configure role assignments for your Azure AD enabled Windows Server 2019 Data
 
 ### Using the Azure Cloud Shell experience
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az_account_show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az_vm_show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -197,7 +197,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az_ad_user_list).
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
@@ -256,9 +256,9 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
    | Command to run | Expected output |
    | --- | --- |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `oid` in the access token matches the managed identity assigned to the VM.
@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
@@ -306,7 +306,7 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/> Attempt to connect to `enterpriseregistration.windows.net` may return 404 Not Found, which is expected behavior.<br/> Attempt to connect to `pas.windows.net` may prompt for pin credentials (you do not need to enter the pin) or may return 404 Not Found. Either one is sufficient to verify the URL is reachable.
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    

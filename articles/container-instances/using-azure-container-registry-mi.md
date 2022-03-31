@@ -180,8 +180,8 @@ az group delete --name myResourceGroup
 <!-- Links Internal -->
 
 [use-service-principal]: ./container-instances-using-azure-container-registry.md
-[az-identity-show]: /cli/azure/identity#az_identity_show
-[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az-identity-create
 [acr-overview]: ../container-registry/container-registry-intro.md
 [acr-get-started]: ../container-registry/container-registry-get-started-azure-cli.md
 [private-dns-zones]: ../dns/private-dns-privatednszone.md

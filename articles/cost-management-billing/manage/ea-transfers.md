@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/24/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -66,7 +66,7 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 
 ### Effective transfer date
 
-The effective transfer day can be on or after the start date of the target enrollment.
+The effective transfer day can be on or after the start date of the target enrollment. Transfers can only be backdated till the first day of the month in which request is made. 
 
 The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
 
@@ -76,7 +76,7 @@ When you request an enrollment transfer, provide the following information:
 
 - For the source enrollment, the enrollment number.
 - For the target enrollment, the enrollment number to transfer to.
-- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't affect usage for any overage invoice already issued.
+- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment but no earlier than the first day of the month in which the request is made. The chosen date can't affect usage for any overage invoice already issued.
 
 Other points to keep in mind before an enrollment transfer:
 

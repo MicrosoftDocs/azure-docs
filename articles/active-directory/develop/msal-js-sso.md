@@ -30,6 +30,7 @@ When your application is open in multiple tabs and you first sign in the user on
 By default, MSAL.js uses `sessionStorage`, which doesn't allow the session to be shared between tabs. To get SSO between tabs, make sure to set the `cacheLocation` in MSAL.js to `localStorage` as shown below.
 
 ```javascript
+
 const config = {
   auth: {
     clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg",
@@ -39,7 +40,7 @@ const config = {
   },
 };
 
-const myMSALObj = new UserAgentApplication(config);
+const msalInstance = new msal.PublicClientApplication(config);
 ```
 
 ## SSO between apps
@@ -72,8 +73,7 @@ var request = {
   sid: sid,
 };
 
-userAgentApplication
-  .acquireTokenSilent(request)
+ msalInstance.acquireTokenSilent(request)
   .then(function (response) {
     const token = response.accessToken;
   })
@@ -95,7 +95,7 @@ var request = {
   extraQueryParameters: { domain_hint: "organizations" },
 };
 
-userAgentApplication.loginRedirect(request);
+ msalInstance.loginRedirect(request);
 ```
 
 To get the values for login_hint and domain_hint by reading the claims returned in the ID token for the user.
@@ -104,7 +104,7 @@ To get the values for login_hint and domain_hint by reading the claims returned 
 
 - **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
-For more information about **login_hint** and **domain_hint**, see  [Implicit grant flow](v2-oauth2-implicit-grant-flow.md).
+For more information about **login_hint** and **domain_hint**, see [auth code grant](v2-oauth2-auth-code-flow.md).
 
 ## SSO without MSAL.js login
 
@@ -125,8 +125,7 @@ var request = {
   extraQueryParameters: { domain_hint: "organizations" },
 };
 
-userAgentApplication
-  .acquireTokenSilent(request)
+msalInstance.acquireTokenSilent(request)
   .then(function (response) {
     const token = response.accessToken;
   })
@@ -142,6 +141,7 @@ MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios
 To take advantage of the SSO behavior when updating from ADAL.js, you'll need to ensure the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
 
 ```javascript
+
 // In ADAL.js
 window.config = {
   clientId: "g075edef-0efa-453b-997b-de1337c29185",
@@ -160,7 +160,7 @@ const config = {
   },
 };
 
-const myMSALObj = new UserAgentApplication(config);
+const msalInstance = new msal.PublicClientApplication(config);
 ```
 
 Once the `cacheLocation` is configured, MSAL.js can read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.

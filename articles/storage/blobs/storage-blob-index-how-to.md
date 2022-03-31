@@ -73,35 +73,29 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 The following example shows how to create an append blob with tags set during creation.
 
 ```csharp
-static async Task BlobIndexTagsOnCreate()
-   {
-      BlobServiceClient serviceClient = new BlobServiceClient(ConnectionString);
-      BlobContainerClient container = serviceClient.GetBlobContainerClient("mycontainer");
+static async Task BlobIndexTagsOnCreateAsync()
+{
+    var serviceClient = new BlobServiceClient(ConnectionString);
+    var container = serviceClient.GetBlobContainerClient("mycontainer");
 
-      try
-      {
-          // Create a container
-          await container.CreateIfNotExistsAsync();
+    // Create a container
+    await container.CreateIfNotExistsAsync();
 
-          // Create an append blob
-          AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
+    // Create an append blob
+    AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob index tags to upload
-          AppendBlobCreateOptions appendOptions = new AppendBlobCreateOptions();
-          appendOptions.Tags = new Dictionary<string, string>
-          {
-              { "Sealed", "false" },
-              { "Content", "logs" },
-              { "Date", "2020-04-20" }
-          };
+    // Blob index tags to upload
+    AppendBlobCreateOptions appendOptions = new AppendBlobCreateOptions();
+    appendOptions.Tags = new Dictionary<string, string>
+    {
+        { "Sealed", "false" },
+        { "Content", "logs" },
+        { "Date", "2020-04-20" }
+    };
 
-          // Upload data with tags set on creation
-          await appendBlobWithTags.CreateAsync(appendOptions);
-      }
-      finally
-      {
-      }
-   }
+    // Upload data with tags set on creation
+    await appendBlobWithTags.CreateAsync(appendOptions);
+}
 ```
 
 ---
@@ -132,55 +126,48 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 ```csharp
 static async Task BlobIndexTagsExample()
-   {
-      BlobServiceClient serviceClient = new BlobServiceClient(ConnectionString);
-      BlobContainerClient container = serviceClient.GetBlobContainerClient("mycontainer");
+{
+    var serviceClient = new BlobServiceClient(ConnectionString);
+    var container = serviceClient.GetBlobContainerClient("mycontainer");
 
-      try
-      {
-          // Create a container
-          await container.CreateIfNotExistsAsync();
+    // Create a container
+    await container.CreateIfNotExistsAsync();
 
-          // Create a new append blob
-          AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
-          await appendBlob.CreateAsync();
+    // Create a new append blob
+    AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
+    await appendBlob.CreateAsync();
 
-          // Set or update blob index tags on existing blob
-          Dictionary<string, string> tags = new Dictionary<string, string>
-          {
-              { "Project", "Contoso" },
-              { "Status", "Unprocessed" },
-              { "Sealed", "true" }
-          };
-          await appendBlob.SetTagsAsync(tags);
+    // Set or update blob index tags on existing blob
+    Dictionary<string, string> tags = new Dictionary<string, string>
+    {
+        { "Project", "Contoso" },
+        { "Status", "Unprocessed" },
+        { "Sealed", "true" }
+    };
+    await appendBlob.SetTagsAsync(tags);
 
-          // Get blob index tags
-          Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
-          Console.WriteLine(appendBlob.Name);
-          foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
-          {
-              Console.WriteLine($"{tag.Key}={tag.Value}");
-          }
+    // Get blob index tags
+    Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
+    Console.WriteLine(appendBlob.Name);
+    foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
+    {
+        Console.WriteLine($"{tag.Key} = {tag.Value}");
+    }
 
-          // List blobs with all options returned including blob index tags
-          await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
-          {
-              Console.WriteLine(Environment.NewLine + blobItem.Name);
-              foreach (KeyValuePair<string, string> tag in blobItem.Tags)
-              {
-                  Console.WriteLine($"{tag.Key}={tag.Value}");
-              }
-          }
+    // List blobs with all options returned including blob index tags
+    await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
+    {
+        Console.WriteLine(Environment.NewLine + blobItem.Name);
+        foreach (KeyValuePair<string, string> tag in blobItem.Tags)
+        {
+            Console.WriteLine($"{tag.Key} = {tag.Value}");
+        }
+    }
 
-          // Delete existing blob index tags by replacing all tags
-          Dictionary<string, string> noTags = new Dictionary<string, string>();
-          await appendBlob.SetTagsAsync(noTags);
-
-      }
-      finally
-      {
-      }
-   }
+    // Delete existing blob index tags by replacing all tags
+    var noTags = new Dictionary<string, string>();
+    await appendBlob.SetTagsAsync(noTags);
+}
 ```
 
 ---
@@ -212,78 +199,71 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 ```csharp
 static async Task FindBlobsByTagsExample()
-   {
-      BlobServiceClient serviceClient = new BlobServiceClient(ConnectionString);
-      BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
-      BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
+{
+    var serviceClient = new BlobServiceClient(ConnectionString);
+    var container1 = serviceClient.GetBlobContainerClient("mycontainer");
+    var container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob index queries and selection
-      String singleEqualityQuery = @"""Archive"" = 'false'";
-      String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
-      String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
-      String containerScopedQuery = @"@container = 'mycontainer' AND ""Archive"" = 'false'";
+    // Blob index queries and selection
+    var singleEqualityQuery = @"""Archive"" = 'false'";
+    var andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
+    var rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
+    var containerScopedQuery = @"@container = 'mycontainer' AND ""Archive"" = 'false'";
 
-      String queryToUse = containerScopedQuery;
+    var queryToUse = containerScopedQuery;
 
-      try
-      {
-          // Create a container
-          await container1.CreateIfNotExistsAsync();
-          await container2.CreateIfNotExistsAsync();
+    // Create a container
+    await container1.CreateIfNotExistsAsync();
+    await container2.CreateIfNotExistsAsync();
 
-          // Create append blobs
-          AppendBlobClient appendBlobWithTags0 = container1.GetAppendBlobClient("myAppendBlob00.logs");
-          AppendBlobClient appendBlobWithTags1 = container1.GetAppendBlobClient("myAppendBlob01.logs");
-          AppendBlobClient appendBlobWithTags2 = container1.GetAppendBlobClient("myAppendBlob02.logs");
-          AppendBlobClient appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
-          AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
-          AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
+    // Create append blobs
+    var appendBlobWithTags0 = container1.GetAppendBlobClient("myAppendBlob00.logs");
+    var appendBlobWithTags1 = container1.GetAppendBlobClient("myAppendBlob01.logs");
+    var appendBlobWithTags2 = container1.GetAppendBlobClient("myAppendBlob02.logs");
+    var appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
+    var appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
+    var appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
 
-          // Blob index tags to upload
-          CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
-          appendOptions.Tags = new Dictionary<string, string>
-          {
-              { "Archive", "false" },
-              { "Priority", "01" },
-              { "Date", "2020-04-20" }
-          };
+    // Blob index tags to upload
+    CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
+    appendOptions.Tags = new Dictionary<string, string>
+    {
+        { "Archive", "false" },
+        { "Priority", "01" },
+        { "Date", "2020-04-20" }
+    };
 
-          CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
-          appendOptions2.Tags = new Dictionary<string, string>
-          {
-              { "Archive", "true" },
-              { "Priority", "02" },
-              { "Date", "2020-04-24" }
-          };
+    CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
+    appendOptions2.Tags = new Dictionary<string, string>
+    {
+        { "Archive", "true" },
+        { "Priority", "02" },
+        { "Date", "2020-04-24" }
+    };
 
-          // Upload data with tags set on creation
-          await appendBlobWithTags0.CreateAsync(appendOptions);
-          await appendBlobWithTags1.CreateAsync(appendOptions);
-          await appendBlobWithTags2.CreateAsync(appendOptions2);
-          await appendBlobWithTags3.CreateAsync(appendOptions);
-          await appendBlobWithTags4.CreateAsync(appendOptions2);
-          await appendBlobWithTags5.CreateAsync(appendOptions2);
+    // Upload data with tags set on creation
+    await appendBlobWithTags0.CreateAsync(appendOptions);
+    await appendBlobWithTags1.CreateAsync(appendOptions);
+    await appendBlobWithTags2.CreateAsync(appendOptions2);
+    await appendBlobWithTags3.CreateAsync(appendOptions);
+    await appendBlobWithTags4.CreateAsync(appendOptions2);
+    await appendBlobWithTags5.CreateAsync(appendOptions2);
 
-          // Find Blobs given a tags query
-          Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
+    // Find Blobs given a tags query
+    Console.WriteLine($"Find Blob by Tags query: {queryToUse}");
 
-          List<TaggedBlobItem> blobs = new List<TaggedBlobItem>();
-          await foreach (TaggedBlobItem taggedBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
-          {
-              blobs.Add(taggedBlobItem);
-          }
+    var blobs = new List<TaggedBlobItem>();
+    await foreach (TaggedBlobItem taggedBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
+    {
+        blobs.Add(taggedBlobItem);
+    }
 
-          foreach (var filteredBlob in blobs)
-          {
-              Console.WriteLine($"BlobIndex result: ContainerName= {filteredBlob.ContainerName}, " +
-                  $"BlobName= {filteredBlob.Name}");
-          }
-
-      }
-      finally
-      {
-      }
-   }
+    foreach (var filteredBlob in blobs)
+    {
+        Console.WriteLine($"BlobIndex result: ContainerName= {filteredBlob.ContainerName}, " +
+            $"BlobName= {filteredBlob.Name}");
+    }
+}
 ```
 
 ---

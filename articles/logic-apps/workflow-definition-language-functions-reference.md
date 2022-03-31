@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 02/18/2022
+ms.date: 03/01/2022
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -178,6 +178,7 @@ To change a value's type or format, you can use these conversion functions. For 
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Return the data URI for an input value. |
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Return the binary version for a data URI. |
 | [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Return the string version for a data URI. |
+| [decimal](../logic-apps/workflow-definition-language-functions-reference.md#decimal) | Return the decimal number for a decimal string. |
 | [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Return the string version for a base64-encoded string. |
 | [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Return the binary version for a data URI. |
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Return a string that replaces escape characters with decoded versions. |
@@ -1684,6 +1685,61 @@ dayOfYear('2018-03-15T13:27:36Z')
 ```
 
 And returns this result: `74`
+
+<a name="decimal"></a>
+
+### decimal
+
+Returns a decimal number in a string as a decimal number. You can use this function when you're working with data that requires decimal precision and also as input for [logical comparison functions](#logical-comparison-functions) and [math functions](#math-functions). To capture and preserve precision when you use the result from the **decimal()** function, wrap any decimal output with the [string function](#string). This usage is shown in the following examples below where you can lose precision if you use the decimal result as a number.
+
+> [!NOTE]
+> The decimal precision that's discussed in the context for this function and the Azure Logic Apps runtime is the same as the [.NET decimal precision](/dotnet/api/system.decimal?view=netframework-4.7.1&preserve-view=true).
+
+```
+decimal('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The decimal number in a string |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*decimal*> | Decimal Number | The decimal number for the input string |
+||||
+
+*Example 1*
+
+This example creates a decimal that's used as a number:
+
+```
+decimal('1.2345678912312131') // Returns 1.234567891231213.
+```
+
+*Example 2*
+
+This example creates a decimal and then converts the result to a string for precision preservation:
+
+```
+string(decimal('1.2345678912312131')) // Returns "1.2345678912312131".
+```
+
+*Example 3*
+
+This example uses a math function on two decimal numbers and uses the result as a number:
+
+```
+add(decimal('1.2345678912312131'), decimal('1.2345678912312131')) // Returns 2.469135782462426.
+```
+
+*Example 4*
+
+This example uses a math function on two decimal numbers and converts the result to a string for precision preservation:
+
+```
+string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))) // Returns "2.4691357824624262".
+```
 
 <a name="decodeBase64"></a>
 

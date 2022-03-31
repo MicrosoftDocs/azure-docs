@@ -82,7 +82,7 @@ An individual or group in charge of managing a data asset.
 ## Pattern rule
 A configuration that overrides how Azure Purview groups assets as resource sets and displays them within the catalog.
 ## Azure Purview instance
-A single Azure Purview resource.
+A single Azure Purview account.
 ## Registered source
 A source that has been added to an Azure Purview instance and is now managed as a part of the Data catalog.
 ## Related terms

@@ -2,10 +2,15 @@
 title: Defender for IoT azureiotsecurity for IoT Edge
 description: Understand the architecture and capabilities of Microsoft Defender for IoT azureiotsecurity for IoT Edge.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Microsoft Defender for IoT Edge azureiotsecurity
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md).
+>
+
 
 [Azure IoT Edge](../../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge. The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
