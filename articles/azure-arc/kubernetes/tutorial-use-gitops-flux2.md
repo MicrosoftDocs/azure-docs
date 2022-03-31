@@ -47,7 +47,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### Common to both cluster types
 
-* Azure CLI version 2.15 or later. [Install the Azure CLI](/azure/install-azure-cli) or use the following commands to update to the latest version:
+* Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
   ```console
   az version
