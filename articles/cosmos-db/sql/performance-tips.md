@@ -274,7 +274,10 @@ When you do a bulk read of documents by using read feed functionality (for examp
 You can also set the page size by using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) property in `FeedOptions` allows you to set the maximum number of items to be returned in the enumeration operation. When `MaxItemCount` is set to -1, the SDK automatically finds the optimal value, depending on the document size. For example:
 
 ```csharp
-IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", 
+    new FeedOptions { MaxItemCount = 1000 });
 ```
 
 When a query is executed, the resulting data is sent within a TCP packet. If you specify too low a value for `MaxItemCount`, the number of trips required to send the data within the TCP packet is high, which affects performance. So if you're not sure what value to set for the `MaxItemCount` property, it's best to set it to -1 and let the SDK choose the default value.
