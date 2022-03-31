@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/15/2022
-ms.author: gwallace
+ms.date: 03/10/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 
@@ -169,3 +169,4 @@ For more information about this compliance standard, see
 |Control Measures on Cybersecurity |RMiT Appendix 5.6 |Control Measures on Cybersecurity - Appendix 5.6 |[MariaDB server should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdfbd9a64-6114-48de-a47d-90574dc2e489) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_VirtualNetworkServiceEndpoint_Audit.json) |
 |Control Measures on Cybersecurity |RMiT Appendix 5.6 |Control Measures on Cybersecurity - Appendix 5.6 |[Public network access should be disabled for MariaDB servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffdccbe47-f3e3-4213-ad5d-ea459b2fa077) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_DisablePublicNetworkAccess_Audit.json) |
 |Control Measures on Cybersecurity |RMiT Appendix 5.7 |Control Measures on Cybersecurity - Appendix 5.7 |[Private endpoint should be enabled for MariaDB servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a1302fb-a631-4106-9753-f3d494733990) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_EnablePrivateEndPoint_Audit.json) |
+

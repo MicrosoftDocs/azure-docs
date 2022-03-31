@@ -3,6 +3,8 @@ title: Microsoft Defender for servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for servers.
 ms.date: 03/08/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 # Introduction to Microsoft Defender for servers
 

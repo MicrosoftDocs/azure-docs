@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure Kubernetes Service - Azure Database for PostgreSQL - Single Server
 description: Learn about connecting Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Single Server
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
 ms.subservice: single-server
-ms.date: 07/14/2020
 ms.topic: conceptual
+ms.author: sumuth
+author: mksuni
+ms.date: 07/14/2020
 ---
 
 # Connecting Azure Kubernetes Service and Azure Database for PostgreSQL - Single Server

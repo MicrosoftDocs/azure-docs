@@ -125,6 +125,13 @@ $importRequest = New-AzSqlDatabaseExport -ResourceGroupName "<resourceGroupName>
 ### Create Import-Export Private link using REST API
 Existing APIs to perform Import and Export jobs have been enhanced to support Private Link. Refer to [Import Database API](/rest/api/sql/2021-08-01-preview/servers/import-database)
 
+## Limitations
+
+- Import using Private Link does not support specifying a backup storage redundancy while creating a new database and creates with the default geo-redundant backup storage redundancy. As a work around, first create an empty database with desired backup storage redundancy using Azure portal or PowerShell and then import the BACPAC into this empty database.
+- Import and Export operations are not supported in Azure SQL DB Hyperscale tier yet.
+- Import using REST API with private link can only be done to existing database since the API uses database extensions. To workaround this create an empty database with desired name and call Import REST API with Private link.
+
+
 ## Next steps
 - [Import or Export Azure SQL Database without allowing Azure services to access the server](database-import-export-azure-services-off.md)
 - [Import a database from a BACPAC file](database-import.md) 

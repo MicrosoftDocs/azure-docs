@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 03/10/2022
 ms.author: v-ydequadros
 ---
 
@@ -17,9 +17,6 @@ ms.author: v-ydequadros
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-> [!Note]
-> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
 
 This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). Onboarding a subscription creates a new authorization system to represent the Azure subscription in CloudKnox. 
 
@@ -31,8 +28,7 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 To add CloudKnox to your Azure AD tenant:
 - You must have an Azure AD user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
-- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
-- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
+
 
 ## View a training video on enabling CloudKnox in your Azure AD tenant
 

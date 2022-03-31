@@ -67,7 +67,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted secret
 
-For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
+For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
 How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)

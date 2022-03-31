@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 03/09/2022
+ms.date: 03/27/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -23,7 +23,7 @@ To protect your GCP-based resources, you can connect an account in two different
 
     - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
     - **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds-servers.md)
-    - **Microsoft Defender for Containers** - Microsoft Defender for Containers brings threat detection and advanced defenses to your Google's Kubernetes Engine (GKE) Standard clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more.
+    - **Microsoft Defender for Containers** - Microsoft Defender for Containers brings threat detection and advanced defenses to your Google's Kubernetes Engine (GKE) Standard clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more. You can view the full list of available features in [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -37,7 +37,7 @@ To protect your GCP-based resources, you can connect an account in two different
 |Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
-|||
+
 
 ## Remove 'classic' connectors
 
@@ -82,6 +82,8 @@ Follow the steps below to create your GCP cloud connector.
 1. Select the **Next: Select Plans**.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
+
+1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
 1. Select the **Next: Configure access**.
 
@@ -186,6 +188,9 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
     - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
     - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
 
+> [!Note]
+> If you choose to disable the available configuration options, no agents, or components will be deployed to your clusters. Learn more about the [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
 **To configure the Containers plan**:
 
 1. Follow the steps to [Connect your GCP project](#connect-your-gcp-project).
@@ -214,7 +219,7 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## Connect your GCP project
 

@@ -26,7 +26,7 @@ You can determine the version of ADE with which a VM was encrypted via Azure CLI
 
 # [CLI](#tab/CLI)
 
-To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) command.
+To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) command.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group  <ResourceGroupName> --name <VMName> 

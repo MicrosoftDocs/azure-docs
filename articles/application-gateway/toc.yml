@@ -6,6 +6,8 @@
     href: overview.md
   - name: Application Gateway v2
     href: overview-v2.md
+  - name: Well-Architected review of Application Gateway
+    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -18,6 +20,8 @@
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Create Application Gateway - Terraform
+    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -108,8 +112,6 @@
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md
-  - name: App service webapp and multi-tenant support
-    href: application-gateway-web-app-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
   - name: Understanding pricing
@@ -248,12 +250,8 @@
       items:
         - name: Azure portal
           href: rewrite-url-portal.md
-  - name: Configure App service webapp and multi-tenant service
-    items:
-    - name: Portal
-      href: configure-web-app-portal.md
-    - name: Azure PowerShell
-      href: create-web-app.md
+  - name: Configure App Service
+    href: configure-web-app.md
   - name: Configure custom probes
     items:
       - name: Portal

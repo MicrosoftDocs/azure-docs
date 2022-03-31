@@ -4,9 +4,9 @@ description: Configure Azure Container offer properties on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Configure Azure Container offer properties
