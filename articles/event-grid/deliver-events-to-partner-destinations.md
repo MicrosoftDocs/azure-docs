@@ -9,7 +9,7 @@ ms.date: 03/31/2022
 In the Azure portal, when creating an event subscription for a topic (system topic, custom topic, domain, domain topic, or partner topic) or a domain, you can specify a partner destination as an endpoint. This article shows you how to create an event subscription using a partner destination so that events are delivered to a partner destination.
 
 ## Overview
-As a end user, you give your partner the authorization to create a partner destination in a resource group within your Azure subscription. For details, see [Authorize partner to create a partner destination](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic). 
+As an end user, you give your partner the authorization to create a partner destination in a resource group within your Azure subscription. For details, see [Authorize partner to create a partner destination](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic). 
 
 A partner creates a channel that in turn creates a partner destination in a resource group in end user's subscription. 
 
