@@ -44,7 +44,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
+<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index. You might find some variation in maximum limits for Basic if your service is provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications will be portable across service tiers in any region.
 
 <sup>2</sup> The upper limit on fields includes both first-level fields and nested subfields in a complex collection. For example, if an index contains 15 fields and has two complex collections with 5 subfields each, the field count of your index is 25.
 
