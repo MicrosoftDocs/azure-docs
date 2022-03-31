@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Clouds impacted:** Public (Microsoft 365, GCC)
  
 
-We announced in April 2020 General Availability of our new combined registration experience, enabling users to register security information for multi-factor authentication and self-service password reset at the same time, which was available for existing customers to opt in. We're happy to announce the combined security information registration experience will be enabled to all non-enabled customers after September 30th, 2022. This change does not impact tenants created after August 15th, 2020, or tenants located in the China region. For more information, see:[Combined security information registration for Azure Active Directory overview](../authentication/concept-registration-mfa-sspr-combined.md).
+We announced in April 2020 General Availability of our new combined registration experience, enabling users to register security information for multi-factor authentication and self-service password reset at the same time, which was available for existing customers to opt in. We're happy to announce the combined security information registration experience will be enabled to all non-enabled customers after September 30th, 2022. This change does not impact tenants created after August 15th, 2020, or tenants located in the China region. For more information, see: [Combined security information registration for Azure Active Directory overview](../authentication/concept-registration-mfa-sspr-combined.md).
  
 
 ---
