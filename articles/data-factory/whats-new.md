@@ -36,7 +36,7 @@ This page is updated monthly, so revisit it regularly.
  
 <tr><td>SFTP connector for Mapping Data Flow</td><td>The SFTP connector is now available for Mapping Data Flows.<br><a href="connector-sftp.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
  
-<tr><td><b>Data Movement</b></td><td>Support for Always Encrypted for the Lookup activity under managed VNET</td><td>The Lookup activity now supports Always Encrypted under managed VNET.</td></tr>
+<tr><td><b>Data Movement</b></td><td>Support Always Encrypted for SQL related connectors in Lookup Activity under Managed VNET</td><td>Always Encrypted is supported for SQL Server, Azure SQL DB, Azure SQL MI, Azure Synapse Analytics in Lookup Activity under Managed VNET.<br><a href="control-flow-lookup-activity.md">Learn more</a></td></tr>
  
 <tr><td><b>Integration Runtime</b></td><td>New UI layout in Azure integration runtime creation and edit page</td><td>The UI layout of the integration runtime creation/edit page has been changed to tab style including Settings, Virtual Network and Data flow runtime.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-ui-layout-in-azure-integration-runtime-creation-and-edit/ba-p/3248237">Learn more</a></td></tr>
  
