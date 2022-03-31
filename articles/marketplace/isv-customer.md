@@ -39,7 +39,7 @@ Private offers provide new deal-making capabilities to the marketplace that can'
 
 Creating a private offer for a customer has these prerequisites:
 
-- You have created a [commercial marketplace account](https://docs.microsoft.com/en-us/azure/marketplace/create-account) in Partner Center.
+- You have created a [commercial marketplace account](create-account.md) in Partner Center.
 - Your account is enrolled in the commercial marketplace program.
 - The offer you want to sell privately has been published to the marketplace and is publicly transactable.
 

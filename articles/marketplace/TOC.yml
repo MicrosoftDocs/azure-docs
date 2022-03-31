@@ -56,7 +56,7 @@
   - name: Private offers
     items:
       - name: For customers
-        href: isv-customer-private-offer.md
+        href: isv-customer.md
       - name: FAQs
         href: isv-customer-faq.yml
       - name: For CSP partners
