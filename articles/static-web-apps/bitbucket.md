@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: cshoe
 ---
 
@@ -64,7 +64,7 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps**.
 1. Select **Create**.
-1. In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
+1. In the _Basics_ section, begin by configuring your new app.
 
     | Setting | Value |
     |--|--|
@@ -72,7 +72,7 @@ Now that the repository is created, you can create a static web app from the Azu
     | Resource Group | Select the **Create new** link and enter **static-web-apps-bitbucket**. |
     | Name | Enter **my-first-static-web-app**. |
     | Plan type | Select **Free**. |
-    | Region for Azure Functions API and staging environments | Select the region closet to you. |
+    | Region for Azure Functions API and staging environments | Select the region closest to you. |
     | Source | Select **Other**. |
 
 1. Select **Review + create**.
@@ -83,8 +83,6 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Select the **Close** button on the *Manage deployment token* window.
 
 ## Create the pipeline task in Bitbucket
-
-### Add deployment token
 
 1. Navigate to the repository in Bitbucket.
 1. Select **Pipelines**.
@@ -186,17 +184,29 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Select **Commit**
 
-### Configuration properties
+### Properties reference
 
-The following configuration properties are used in the *.gitlab-cli.yml* file to configure your static web app.
+The following configuration properties are used in the configuration file for your static web app.
 
-The `$CI_PROJECT_DIR` variable maps to the repository's root folder location during the build process.
+The `$BITBUCKET_CLONE_DIR` variable maps to the repository's root folder location during the build process.
 
 | Property | Description | Example | Required |
 |--|--|--|--|
 | app_location | Location of your application code. Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
 | api_location | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
 | output_location | Location of the build output directory relative to the app_location. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the output_location value. | No |
+
+### Add deployment token
+
+Next, define value for the `API_TOKEN` variable.
+
+1. Select **Add variables**.
+1. Add a new variable in *Deployments* section.
+1. Name the variable **deployment_token**, which matches the name in the workflow.
+1. In the *Value* box, paste in the deployment token value you set aside in a previous step.
+1. Check the **Secured** checkbox.
+1. Select **Add**.
+1. Select **Commit file** and return to your pipelines tab.
 
 ## View the website
 
@@ -214,9 +224,9 @@ The Static Web Apps overview window displays a series of links that help you int
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance and all the associated services by removing the resource group.
 
-1. Select the **static-web-apps-gitlab** resource group from the *Overview* section.
+1. Select the **static-web-apps-bitbucket** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name **static-web-apps-gitlab** in the *Are you sure you want to delete "static-web-apps-gitlab"?* confirmation dialog.
+1. Enter the resource group name **static-web-apps-bitbucket** in the *Are you sure you want to delete "static-web-apps-bitbucket"?* confirmation dialog.
 1. Select **Delete**.
 
 The process to delete the resource group may take a few minutes to complete.
