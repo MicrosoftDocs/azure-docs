@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -63,7 +63,9 @@ You can change the NTFS permissions of the root volume by using [NTFS file and f
 
 ## Can I change the SMB share name after the SMB volume has been created?
 
-No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.
+No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.   
+
+Alternatively, you can use [Windows Server DFS Namespace](/windows-server/storage/dfs-namespaces/dfs-overview) where a DFS Namespace with the new share name can point to the Azure NetApp Files SMB volume with the old share name.
 
 ## Next steps  
 
