@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: elkrieger
 author: ElazarK
 ms.custom: mvc
-ms.date: 03/28/2022
+ms.date: 03/31/2022
 ---
 # What is Microsoft Defender for Cloud?
 
