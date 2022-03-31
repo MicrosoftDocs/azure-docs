@@ -40,12 +40,14 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset.
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
 
+Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset:
+
++ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 + Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
-+ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
