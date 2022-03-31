@@ -55,7 +55,7 @@ The rest of this section walks you through these steps.
 
 [!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-3. Fill in the fields on the **Basics** tab of setup, including your Subscription, Resource group, Location, and a Resource name for your new instance. Check the **Assign Azure Digital Twins Data Owner Role** box to give yourself permissions to manage data in the instance.
+3. Fill in the fields on the **Basics** tab of setup, including your Subscription, Resource group, a Resource name for your new instance, and Region. Check the **Assign Azure Digital Twins Data Owner Role** box to give yourself permissions to manage data in the instance.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
 
@@ -157,7 +157,7 @@ Follow these steps to import the graph (the *.xlsx* file you downloaded earlier)
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
-4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. Make sure you see the following dialog box indicating that the import was successful before moving on. Select **Close**.
+4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. Make sure you see the following dialog box indicating that the import was successful before moving on.
 
    :::row:::
     :::column:::
@@ -166,6 +166,8 @@ Follow these steps to import the graph (the *.xlsx* file you downloaded earlier)
     :::column:::
     :::column-end:::
    :::row-end:::
+
+    Select **Close**.
 
     The graph has now been uploaded to Azure Digital Twins Explorer, and the **Twin Graph** panel will reload. It will appear empty.
  
@@ -183,7 +185,7 @@ Now you can see the uploaded graph of the sample scenario.
 
 The circles (graph "nodes") represent digital twins. The lines represent relationships. The Floor0 twin contains Room0, and the Floor1 twin contains Room1.
 
-If you're using a mouse, you can click and drag pieces of the graph to move them around.
+If you're using a mouse, you can click and drag in the graph to move elements around.
 
 ### View twin properties
 
@@ -264,9 +266,7 @@ After a successful property update, you'll see a **Patch Information** box showi
     :::column-end:::
 :::row-end:::
 
-**Close** the patch information.
-
-Although 
+**Close** the patch information. 
 
 ### Query to see the result
 
@@ -304,7 +304,7 @@ To clean up after this quickstart, choose which resources you want to remove bas
     
     Navigate back to the instance's **Overview** page in the portal. (If you've already closed that tab, you can find the instance again by searching for its name in the Azure portal search bar and selecting it from the search results.)
 
-    Select **Delete** to delete the instance, along with all of its models and twins.
+    Select **Delete** to delete the instance, including all of its models and twins.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/delete-instance.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The Delete button is highlighted.":::
 
