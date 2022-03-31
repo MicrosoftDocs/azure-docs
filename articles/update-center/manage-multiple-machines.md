@@ -85,7 +85,7 @@ Update management center (Preview) in Azure enables you to browse information ab
    - **Patch orchestration**—
    - **Periodic assessment**—
    - **Maintenance configuration**— 
-    - **Status**—
+   - **Status**—
 
 The column **Patch Orchestration**, the machine's patch mode. Values are:
 
