@@ -5,7 +5,7 @@ author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 03/31/2022
 ms.author: jawilley
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
@@ -211,40 +211,95 @@ Enable *Bulk* for scenarios where the workload requires a large amount of throug
 
 Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) is 50. To change the value, you can set [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.gatewaymodemaxconnectionlimit) to a higher value.
 
-**Tune parallel queries for partitioned collections**
-
-SQL .NET SDK supports parallel queries, which enable you to query a partitioned container in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. 
-
-Parallel queries provide two parameters that you can tune to fit your requirements: 
-
-- **MaxConcurrency**: Controls the maximum number of partitions that can be queried in parallel.
-
-   Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxConcurrency` in [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
-
-    Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
-   
-- **MaxBufferedItemCount**: Controls the number of pre-fetched results.
-
-   Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
-
-   Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
-
-**Implement backoff at RetryAfter intervals**
-
-During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off throttling for the server-specified retry interval. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries. 
-
-For more information, see [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
-    
-There's a mechanism for logging additional diagnostics information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostics string for requests that have a higher read latency. The captured diagnostics string will help you understand how many times you received a *429* error for a given request.
-
-```csharp
-ItemResponse<Book> readItemResponse = await this.cosmosContainer.ReadItemAsync<Book>("ItemId", new PartitionKey("PartitionKeyValue"));
-readItemResponse.Diagnostics.ToString(); 
-```
-
 **Increase the number of threads/tasks**
 
 See [Increase the number of threads/tasks](#increase-threads) in the Networking section of this article.
+
+## Query operations
+
+### Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway which adds to the latency of the query operation. There are two ways to remove this request and reduce the latency of the query operation:
+
+**Leverage local Query Plan generation**
+
+The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the **Windows x64** platform. The following types of applications use 32-bit host processing by default. To change host processing to 64-bit processing, follow these steps, based on the type of your application:
+
+- For executable applications, you can change host processing by setting the [platform target](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true) to **x64**  in the **Project Properties** window, on the **Build** tab.
+
+- For VSTest-based test projects, you can change host processing by selecting **Test** > **Test Settings** > **Default Processor Architecture as X64** on the Visual Studio **Test** menu.
+
+- For locally deployed ASP.NET web applications, you can change host processing by selecting **Use the 64-bit version of IIS Express for web sites and projects** under **Tools** > **Options** > **Projects and Solutions** > **Web Projects**.
+
+- For ASP.NET web applications deployed on Azure, you can change host processing by selecting the **64-bit** platform in **Application settings** in the Azure portal.
+
+> [!NOTE] 
+> By default, new Visual Studio projects are set to **Any CPU**. We recommend that you set your project to **x64** so it doesn't switch to **x86**. A project set to **Any CPU** can easily switch to **x86** if an x86-only dependency is added.<br/>
+> ServiceInterop.dll needs to be in the folder that the SDK DLL is being executed from. This should be a concern only if you manually copy DLLs or have custom build/deployment systems.
+
+**Prefer queries that target a Partition Key**
+
+For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By):
+
+```cs
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle'",
+    requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("Washington")}))
+{
+    // ...
+}
+```
+
+### Tune the degree of parallelism
+For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel.
+
+```cs
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle'",
+    requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("Washington")}))
+{
+    // ...
+}
+```
+
+Let's assume that
+* D = Default Maximum number of parallel tasks (= total number of processor in the client machine)
+* P = User-specified maximum number of parallel tasks
+* N = Number of partitions that needs to be visited for answering a query
+
+Following are implications of how the parallel queries would behave for different values of P.
+* (P == 0) => Serial Mode
+* (P == 1) => Maximum of one task
+* (P > 1) => Min (P, N) parallel tasks
+* (P < 1) => Min (N, D) parallel tasks
+
+### Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+
+> [!NOTE] 
+> The `MaxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
+
+You can also set the page size by using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxitemcount) property in `QueryRequestOptions` allows you to set the maximum number of items to be returned in the enumeration operation. When `MaxItemCount` is set to -1, the SDK automatically finds the optimal value, depending on the document size. For example:
+
+```cs
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle'",
+    requestOptions: new QueryRequestOptions() { 
+        PartitionKey = new PartitionKey("Washington"),
+        MaxItemCount = 1000}))
+{
+    // ...
+}
+```
+
+When a query is executed, the resulting data is sent within a TCP packet. If you specify too low a value for `MaxItemCount`, the number of trips required to send the data within the TCP packet is high, which affects performance. So if you're not sure what value to set for the `MaxItemCount` property, it's best to set it to -1 and let the SDK choose the default value.
+
+### Tune the buffer size
+
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The [MaxBufferedItemCount](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxbuffereditemcount) property in `QueryRequestOptions` limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
+
+Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
 
 ## <a id="indexing-policy"></a> Indexing policy
  
