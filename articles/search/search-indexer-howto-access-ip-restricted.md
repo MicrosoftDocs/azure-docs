@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 02/02/2022
 ---
 
 # Configure IP firewall rules to allow indexer connections from Azure Cognitive Search

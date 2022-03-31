@@ -40,13 +40,9 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-<<<<<<< HEAD
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. 
-=======
 Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
->>>>>>> e41ca957a6d12083b89b7de7b5eab6f1a64cccbc
 
-Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset:
+Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or custom skill:
 
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 + Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.

@@ -55,21 +55,23 @@ Your Azure resources could be protected using any number of the network isolatio
 
 ### Access to a network-protected storage account
 
-The storage capacity of your search service is reserved for indexes and synonym lists. Other features within Cognitive Search that have storage requirements take a dependency on Azure Storage. Enrichment caching, debug sessions, and knowledge stores fall into this category. The location of each service and network security requirements will determine your data access strategy.
+A search service stores indexes and synonym lists. For other features that require storage, Cognitive Search takes a dependency on Azure Storage. Enrichment caching, debug sessions, and knowledge stores fall into this category. The location of each service, and any network protections in place for storage, will determine your data access strategy.
 
 #### Same-region services
 
-If Azure Storage and Azure Cognitive Search are in the same region, and network security is a requirement, you have two options for setting up data access:
+In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure Cognitive Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
 
-- Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md). The search request can bypass the  virtual network or IP restrictions on the storage account and access data under the system identity of the search service. For more information about this capability in Azure Storage, see [Trusted access based on a managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
+There are two options for supporting data access in a same-region scenario:
+
+- Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md) and use the [trusted service exception](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) in Azure Storage.
 
 - Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource.
 
-The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall. Any Azure AD login that's used for a connection must have a role assignment that grants the appropriate permissions.
+The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall.
 
 #### Services in different regions
 
-When search and storage are in different regions, you can use the previous options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments.
+When search and storage are in different regions, you can use the previously mentioned options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments as described in the next section.
 
 ## Indexer execution environment
 
