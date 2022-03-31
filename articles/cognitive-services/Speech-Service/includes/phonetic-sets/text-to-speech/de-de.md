@@ -108,3 +108,4 @@
 
 > [!NOTE]
 > We need to add a [gs\] phone between two distinct vowels, except when the two vowels are a genuine diphthong. This oral consonant is a glottal stop. For more information, see [glottal stop](http://en.wikipedia.org/wiki/Glottal_stop).
+> `en-CA` locale doesn't support SAPI phones now.
