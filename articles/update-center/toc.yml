@@ -10,7 +10,7 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
-name: Concepts
+- name: Concepts
   items:
   - name: Updates and maintenance
     href: updates-maintenance-schedules.md
