@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 2/23/2022
 
 ---
-
 # Manage alert instances with unified alerts
 
 With the [unified alerts experience](./alerts-overview.md) in Azure Monitor, you can see all your different types of alerts across Azure. Unified alerts span multiple subscriptions in a single pane. This article shows how you can view your alert instances, and how to find specific alert instances for troubleshooting.
@@ -25,13 +24,17 @@ You can go to the alerts page in any of the following ways:
 
      ![Screenshot of resource Monitoring Alerts](media/alerts-managing-alert-instances/alert-resource.JPG)
 
-- Use the context of a specific resource group. Open a resource group, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource group.    
-
-     ![Screenshot of resource group Monitoring Alerts](media/alerts-managing-alert-instances/alert-rg.JPG)
-
 ## The alerts page
 
-The **Alerts** page summarizes all your alert instances across Azure. You can modify the results by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more. You can select an alert instance to open the **Alert Details** page and see more details about the specific alert instance.
+The **Alerts** page summarizes all your alert instances across Azure.
+### Alert Recommendations (preview)
+If you don't have any alerts defined for the selected resource, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable our recommended out-of-the-box alert rules](alerts-log.md#enable-our-recommended-alert-rules-in-the-azure-portal-preview). 
+
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
+### Alerts summary
+In the alerts summary pane, you can modify the list of alert instances by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more. Select an alert instance.
+
+To see more details about a specific alert instance, select the alerts instance to open the **Alert Details** page. 
 > [!NOTE]
 > If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.   
 
