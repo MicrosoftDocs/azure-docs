@@ -7,15 +7,15 @@ ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 02/24/2022
+ms.date: 03/31/2022
 ms.topic: how-to
 ---
 
-# Maintenance window
+# Maintenance window - Azure Arc-enabled data services
 
-A maintenance window can be configured on a data controller to define a time period in which upgrades will take place. In this time period, the Arc-enabled SQL Managed Instances on that data controller which have the "desiredVersion" property set to "auto" will be upgraded.
+Configure a maintenance window on a data controller to define a time period for upgrades. In this time period, the Arc-enabled SQL Managed Instances on that data controller which have the `desiredVersion` property set to `auto` will be upgraded.
 
-During setup, a duration, recurrence, and start date and time are specified. After the maintenance window starts, it will run for the period of time set in the duration. The instances attached to the data controller will begin upgrades (in parallel). At the end of the set duration, any upgrades that are in progress will continue to completion. Any instances that did not begin upgrading in the window will begin upgrading in the following recurrence.
+During setup, specify a duration, recurrence, and start date and time. After the maintenance window starts, it will run for the period of time set in the duration. The instances attached to the data controller will begin upgrades (in parallel). At the end of the set duration, any upgrades that are in progress will continue to completion. Any instances that did not begin upgrading in the window will begin upgrading in the following recurrence.
 
 ## Prerequisites
 
@@ -30,22 +30,23 @@ Only one maintenance window can be set per data controller.
 ## Configure a maintenance window
 
 The maintenance window has these settings:
-- Duration - the length of time the window will run, expressed in hours and minutes (HH:mm).
+
+- Duration - The length of time the window will run, expressed in hours and minutes (HH:mm).
 - Recurrence - how often the window will occur. All words are case sensitive and must be capitalized. You can set weekly or monthly windows.
     - Weekly
         - [Week | Weekly][day of week]
         - Examples:
-            - --recurrence "Week Thursday"
-            - --recurrence "Weekly Saturday"
+            - `--recurrence "Week Thursday"`
+            - `--recurrence "Weekly Saturday"`
 	- Monthly
 		- [Month | Monthly] [First | Second | Third | Fourth | Last] [day of week]
 		- Examples:
-			- --recurrence "Month Fourth Saturday"
-			- --recurrence "Monthly Last Monday"
-	- If recurrence is not specified, it will be a one-time maintenance window.
-- Start - the date and time the first window will occur, in the format YYYY-MM-ddTHH:mm (24-hour format).
+			- `--recurrence "Month Fourth Saturday"`
+			- `--recurrence "Monthly Last Monday"`
+	- If recurrence isn't specified, it will be a one-time maintenance window.
+- Start - the date and time the first window will occur, in the format `YYYY-MM-DDThh:mm` (24-hour format).
 	- Example:
-		- --start "2022-02-01T23:00"
+		- `--start "2022-02-01T23:00"`
 - Time Zone - the [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) associated with the maintenance window.
 
 #### CLI
@@ -70,11 +71,11 @@ During the maintenance window, you can view the status of upgrades.
 kubectl -n <namespace> get sqlmi -o yaml 
 ```
 
-The ```status.runningVersion``` and ```status.lastUpdateTime``` fields will show the latest version and when the status changed.
+The `status.runningVersion` and `status.lastUpdateTime` fields will show the latest version and when the status changed.
 
 ## View existing maintenance window
 
-You can view the maintenance window in the datacontroller spec. 
+You can view the maintenance window in the `datacontroller` spec. 
 
 ```kubectl
 kubectl describe datacontroller -n <namespace>
@@ -94,7 +95,7 @@ Spec:
 
 ## Failed upgrades
 
-There is no automatic rollback for failed upgrades. If an instance failed to upgrade automatically, manual intervention will be needed to pin the instance to its current running version, using ```az sql mi-arc update```. After the issue is resolved, the version can be set back to "auto".
+There is no automatic rollback for failed upgrades. If an instance failed to upgrade automatically, manual intervention will be needed to pin the instance to its current running version, using `az sql mi-arc update`. After the issue is resolved, the version can be set back to "auto".
 
 ```cli
 az sql mi-arc upgrade --name <instance name> --desired-version <version> 
@@ -104,3 +105,7 @@ Example:
 ```cli
 az sql mi-arc upgrade --name sql01 --desired-version v1.2.0_2021-12-15
 ```
+
+## Next steps
+
+[Enable automatic upgrades of a SQL Managed Instance](upgrade-sql-managed-instance-auto.md)
