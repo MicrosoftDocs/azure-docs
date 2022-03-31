@@ -98,7 +98,7 @@ The resource troubleshooting log files are stored in a storage account after res
 
 > [!NOTE]
 > 1. In some cases, only a subset of the logs files is written to storage.
-> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by a IkeLogs.txt file that contains the whole IKE activity (not just errors).
+> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
@@ -228,5 +228,5 @@ Elapsed Time            330 sec
 To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
-[1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[1]: ./media/network-watcher-troubleshoot-overview/gateway-tenant-worker-logs-new.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png

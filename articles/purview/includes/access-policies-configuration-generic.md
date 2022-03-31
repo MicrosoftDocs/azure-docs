@@ -40,5 +40,13 @@ Check the section on managing Azure Purview role assignments in this [guide](../
 >[!WARNING]
 > **Known issues** related to permissions
 > - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../../active-directory/roles/permissions-reference.md#directory-readers)
-> - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
-> - An issues has been reported when IAM Owner, which is required to enable Data use governance, is not directly applied to the data resource but instead inherited from a management group or a subscription. This issue is currently under investigation.
+> - An issue reported where role IAM Owner, which is required to enable Data use governance, is not directly assigned to the data resource but instead inherited from a management group or a subscription. Fix is being deployed to production regions. Updated: March 29, 2022.
+
+#### Delegation of access control responsibility to Azure Purview
+**Note:**
+1.	Once a resource has been enabled for *Data use Governance*, **any** Azure Purview root-collection *policy author* will be able to create access policies against it, and **any** Azure Purview root-collection *Data source admin* will be able to publish those policies at **any point afterwards**.
+1.	**Any** Azure Purview root *Collection admin* can assign **new** root-collection *Data Source Admin* and *Policy author* roles.
+
+**Suggested best practices for permissions:**
+- Minimize the number of people that hold Azure Purview root *Collection admin*, root *Data Source Admin* or root *Policy author* roles.
+- To ensure check and balances, assign the Azure Purview *Policy author* and *Data source admin* roles to different people in the organization. With this, before a data policy takes effect, a second person (the *Data source admin*) must review it and explicitly approve it by publishing it.
