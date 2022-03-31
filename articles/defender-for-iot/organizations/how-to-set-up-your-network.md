@@ -8,7 +8,9 @@ ms.topic: how-to
 
 # Prepare your OT network for Microsoft Defender for IoT
 
-This article describes how to set up your network to work with Microsoft Defender for IoT components, including the network sensors, the Azure portal, and an on-premises management console.
+This article describes how to set up your OT network to work with Microsoft Defender for IoT components, including the OT network sensors, the Azure portal, and an optional on-premises management console.
+
+OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into OT/ICS/IoT risks. Sensors carry out data collection, analysis and alerting on-site, making them ideal for locations with low bandwidth or high latency.
 
 This article is intended for personnel experienced in operating and managing OT and IoT networks, such as automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, and CIOs.
 
