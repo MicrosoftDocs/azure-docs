@@ -40,7 +40,7 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
 1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 1. Select **Create** to create the container.
 
-    :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container within the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
 
 ## Read container properties and metadata
 
@@ -50,13 +50,13 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 
 ### Container properties
 
-To display the properties of a container in the Azure portal, follow these steps:
+To display the properties of a container within the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the list of containers within your storage account.
 1. Select the checkbox next to the name of the container whose properties you want to view.
 1. Select the container's **More** button (**...**), and select **Container properties** to display the container's **Properties** page.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-properties-sml.png" alt-text="Screenshot showing how to display container properties in the Azure portal" lightbox="media/blob-containers-portal/select-container-properties-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-properties-sml.png" alt-text="Screenshot showing how to display container properties within the Azure portal" lightbox="media/blob-containers-portal/select-container-properties-lrg.png":::
 
 ### Read and write container metadata
 
@@ -68,11 +68,11 @@ To manage a container's metadata, follow these steps:
 1. Select the checkbox next to the name of the container whose metadata you want to manage.
 1. Select the container's **More** button (**...**), and then select **Edit metadata** to display the **Container metadata** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-metadata-sml.png" alt-text="Screenshot showing how to access container metadata in the Azure portal" lightbox="media/blob-containers-portal/select-container-metadata-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-metadata-sml.png" alt-text="Screenshot showing how to access container metadata within the Azure portal" lightbox="media/blob-containers-portal/select-container-metadata-lrg.png":::
 
 1. The **Container metadata** pane will display existing metadata key-value pairs. Existing data can be edited by selecting the existing key or value and overwriting the data. You can add additional metadata by and supplying data in the empty fields provided. Finally, select **Save** to commit your data.
 
-    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata in the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata within the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
 
 ## Manage container and blob access
 
@@ -107,7 +107,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 1. Select the checkbox next to the name of the container for which you will generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
 
 1. Within the **Generate SAS** pane, select the **Account key** value for the **Signing method** field.
 1. In the **Signing method** field, select **Account key**.
@@ -119,7 +119,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 1. Optionally, specify the protocol permitted for requests made with the SAS in the **Allowed protocols** field. The default value is HTTPS.
 1. Review your settings for accuracy and then select **Generate SAS token and URL** to display the **Blob SAS token** and **Blob SAS URL** query strings.
 
-    :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container in the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container within the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
 
 1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and cannot be retrieved after the window is closed. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
 
@@ -131,34 +131,17 @@ A **stored access policy** gives you additional server-side control over one or 
 
 #### Create a stored access policy
 
-<!--
-
-
-To generate either a service or account SAS, you'll need to supply values for the `–-account-name` and `-–account-key` parameters. An example of this scenario would be a service that allows users read and write their own data to your storage account.
-
-Azure Storage supports three types of shared access signatures: user delegation, service, and account SAS. For more information on shared access signatures, see the [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md) article.
-
-> [!CAUTION]
-> Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
-
-The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it's generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
-
-The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `--permissions` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
-
-Copy and paste the Blob SAS token value in a secure location. It will only be displayed once and can’t be retrieved once Bash is closed. To construct the SAS URL, append the SAS token (URI) to the URL for the storage service.
--->
-
 Configuring a stored access policy is a two-step process: the policy must first be defined, and then subsequently applied to the container. To configure a stored access policy, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
 1. Select the checkbox next to the name of the container for which you will generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Access policy** to display the **Access policy** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
 
 1. Within the **Access policy** pane, select **+ Add policy** in the **Stored access policies** section to display the **Add policy** pane. Any existing policies will be displayed in either the appropriate section.
 
-    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to add a stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to add a stored access policy settings within the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
 
 1. Within the **Add policy** pane, select the **Identifier** box and add a name for your new policy.
 1. Select the **Permissions** field, then select the check boxes corresponding to the permissions desired for your new policy.
@@ -168,11 +151,11 @@ Configuring a stored access policy is a two-step process: the policy must first 
     > [!CAUTION]
     > Although your policy is now displayed in the **Stored access policy** table, it is still not applied to the container. If you navigate away from the **Access policy** pane at this point, the policy will *not* be saved or applied and you will lose your work.
 
-    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy within the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
 
 1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy the the container. After creating at least one stored access policy, you will be able to associate other secure access signatures (SAS) with it.
 
-    :::image type="content" source="media/blob-containers-portal/apply-policy-sml.png" alt-text="Screenshot showing how to apply a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/apply-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/apply-policy-sml.png" alt-text="Screenshot showing how to apply a stored access policy within the Azure portal" lightbox="media/blob-containers-portal/apply-policy-lrg.png":::
 
 #### Create an immutability policy
 
@@ -180,7 +163,7 @@ Read more about how to [Configure immutability policies for containers](immutabl
 
 ## Manage leases
 
-A container lease is used to establish or manage a lock for delete operations. When a lease is acquired in the Azure portal, the lock can only be created with an infinite duration. When created programmatically, the lock duration can range from 15 to 60 seconds, or it can be infinite.
+A container lease is used to establish or manage a lock for delete operations. When a lease is acquired within the Azure portal, the lock can only be created with an infinite duration. When created programmatically, the lock duration can range from 15 to 60 seconds, or it can be infinite.
 
 There are five different lease operation modes, though only two are available within the Azure portal:
 
@@ -201,7 +184,7 @@ To acquire a lease using the Azure portal, follow these steps:
 1. Select the checkbox next to the name of the container for which you will acquire a lease.
 1. Select the container's **More** button (**...**), and select **Acquire lease** to request a new lease and display the details in the **Lease status** pane.
 
-    :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings within the Azure portal" lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
 
 1. The **Container** and **Lease ID** property values of the newly-requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and cannot be retrieved after the pane is closed.
 
@@ -223,27 +206,41 @@ To break a lease using the Azure portal, follow these steps:
 
 ## Delete containers
 
-When you delete a container in the Azure portal, all blobs within the container will also be deleted.
+When you delete a container within the Azure portal, all blobs within the container will also be deleted.
 
 > [!WARNING]
 > Following the steps below may permanently delete containers and any blobs within them. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-container-overview.md).
 
-To delete a container in the Azure portal, follow these steps:
+To delete a container within the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
 1. Select the container to delete.
 1. Select the **More** button (**...**), and select **Delete**.
 
-    :::image type="content" source="media/blob-containers-portal/delete-container-sml.png" alt-text="Screenshot showing how to delete a container in the Azure portal" lightbox="media/blob-containers-portal/delete-container-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/delete-container-sml.png" alt-text="Screenshot showing how to delete a container within the Azure portal" lightbox="media/blob-containers-portal/delete-container-lrg.png":::
 
 1. In the **Delete container(s)** dialog, confirm that you want to delete the container.
 
 In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, you can access containers deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
+## View soft-deleted containers
+
+When soft delete is enabled, you can view soft-deleted containers within the Azure portal. Soft-deleted containers are visible during the specified retention period. After the retention period expires, a soft-deleted container is permanently deleted and is no longer visible.
+
+To view soft-deleted containers within the [Azure portal](https://portal.azure.com), follow these steps:
+
+1. Navigate to your storage account within the Azure portal and view the list of your containers.
+1. Toggle the **Show deleted containers** switch to include deleted containers in the list.
+
+    :::image type="content" source="media/blob-containers-portal/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft deleted containers within the Azure portal":::
+
 ## Restore a soft-deleted container
 
-View deleted containers: /azure/storage/blobs/soft-delete-container-enable?tabs=azure-portal#view-soft-deleted-containers.
+You can restore a soft-deleted container and its contents within the retention period. To restore a soft-deleted container within the [Azure portal](https://portal.azure.com), follow these steps:
 
-## Restore a container
+1. Navigate to your storage account within the Azure portal and view the list of your containers.
+1. Display the context menu for the container you wish to restore, and choose **Undelete** from the menu.
 
-Point-in-time restore (which is different from soft delete): /azure/storage/blobs/point-in-time-restore-manage?tabs=portal
+    :::image type="content" source="media/blob-containers-portal/soft-delete-container-portal-restore.png" alt-text="Screenshot showing how to restore a soft-deleted container in Azure portal":::
+
+<!--Point-in-time restore (which is different from soft delete): /azure/storage/blobs/point-in-time-restore-manage?tabs=portal-->
