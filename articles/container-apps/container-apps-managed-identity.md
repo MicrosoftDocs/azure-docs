@@ -1,5 +1,5 @@
 ---
-title: Managed identity in Azure Container Apps
+title: Managed identities in Azure Container Apps
 description: Using Managed identity in Container Apps
 services: container-apps
 author: cebundy
