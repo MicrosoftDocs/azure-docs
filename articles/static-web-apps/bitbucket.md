@@ -125,7 +125,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                     API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
-                    OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR'
+                    OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                     API_TOKEN: $deployment_token​
     ```
 
@@ -141,7 +141,7 @@ Now that the repository is created, you can create a static web app from the Azu
             script:
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
-                    APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
+                    APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/angular-basic'
                     API_TOKEN: $deployment_token​
@@ -209,11 +209,9 @@ Now that the repository is created, you can create a static web app from the Azu
 
     | Property | Description | Example | Required |
     |--|--|--|--|
-    | app_location | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
-    | api_location | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
-    | output_location | Location of the build output directory relative to the app_location. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the output_location value. | No |
-
-### Add deployment token
+    | `app_location` | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
+    | `api_location` | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
+    | `output_location` | Location of the build output directory relative to the `app_location`. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the `output_location` value. | No |
 
 Next, define value for the `API_TOKEN` variable.
 
