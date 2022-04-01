@@ -129,7 +129,7 @@ items:
         href: store-profiles-in-fhir.md
       - name: Use $validate
         href: validation-against-profiles.md
-    - name: Export data
+    - name: $export
       expanded: false
       items:
       - name: Configure Export
@@ -138,12 +138,12 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
+    - name: Patient/$everything
+      href: patient-everything.md
+    - name: $member-match
+      href: tutorial-member-match.md
   - name: How to convert data to FHIR 
     href: convert-data.md
-  - name: Patient/$everything
-    href: patient-everything.md
-  - name: $member-match
-    href: tutorial-member-match.md
   - name: Copy data to Synapse
     href: copy-to-synapse.md
   - name: Find identity object IDs
