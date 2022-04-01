@@ -138,15 +138,12 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-    - name: Convert data
-      expanded: false
-      items:
-      - name: $convert-data and FHIR Converter Extension Templates
-        href: convert-data.md
-    - name: Patient-everything
-      href: patient-everything.md
-    - name: $member-match
-      href: tutorial-member-match.md
+  - name: How to convert data to FHIR 
+    href: convert-data.md
+  - name: Patient/$everything
+    href: patient-everything.md
+  - name: $member-match
+    href: tutorial-member-match.md
   - name: Copy data to Synapse
     href: copy-to-synapse.md
   - name: Find identity object IDs

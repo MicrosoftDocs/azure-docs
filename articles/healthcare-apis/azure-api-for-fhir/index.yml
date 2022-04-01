@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: ginalee-dotcom
   ms.author: ginle
-  ms.date: 03/30/2022
+  ms.date: 04/01/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -47,7 +47,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Over of FHIR search
+          - text: Overview of FHIR search
             url: overview-of-search.md
       - linkListType: how-to-guide
         links:
