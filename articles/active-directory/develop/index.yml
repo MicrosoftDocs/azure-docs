@@ -18,7 +18,7 @@ metadata:
   author: mmacy
   ms.author: marsma
   manager: CelesteDG
-  ms.date: 03/31/2022
+  ms.date: 04/01/2022
 ## FRONT MATTER END
 
 
@@ -64,8 +64,8 @@ productDirectory:
           summary: A RESTful web service accessed by applications or other web APIs, typically to work with data served by the API.
         ## ROW 2 ######################
         - title: Desktop app
-          #url: index-desktop.yml
-          url: desktop-app-quickstart.md
+          url: index-desktop.yml
+          #url: desktop-app-quickstart.md
           imageSrc: ./media/hub/app-type-desktop.svg
           summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer.
         - title: Mobile app
