@@ -88,7 +88,7 @@ To view additional information about a specific VM instance, add the `-InstanceI
 ```azurepowershell-interactive
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
-## Allow Remote Desktop Traffic
+## Allow remote desktop traffic
 
 >[!IMPORTANT]
 >Exposing the RDP port 3389 is only recommended for testing. For production environments, we recommend using a VPN or private connection.
@@ -134,7 +134,7 @@ To allow access using remote desktop, create a network security group with [New-
 
  Set-AzVirtualNetwork -VirtualNetwork $vnet
 
- # Update the scale set and apply the changesthe Custom Script Extension to the VM instances
+ # Update the scale set and apply the changes
  Update-AzVmss `
      -ResourceGroupName "myResourceGroup" `
      -Name "myScaleSet" `
