@@ -318,7 +318,7 @@
             - name: Use Azure-CNI
               href: configure-azure-cni.md
         - name: Bring your own CNI
-          href: byocni.md
+          href: use-byo-cni.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
