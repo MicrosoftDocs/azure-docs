@@ -309,7 +309,7 @@ items:
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Swagger documentation
+    - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest
     - name: Speech containers
