@@ -201,7 +201,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -210,7 +210,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    > [!NOTE]
    > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
 
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
    ```azurecli
    az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -223,7 +223,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 
