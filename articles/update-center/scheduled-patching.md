@@ -37,40 +37,41 @@ Update management center (preview) uses maintenance control schedule instead of 
 To create a schedule from a single VM, use the following steps:
 
 1. In **Update management center (Preview)**, **Overview** and select your **Subscription**.
-2. Select **Check for updates** to add machines and resources.
-3. Select the machine to view all the available updates and to create a recurring schedule.
+1. Select **Check for updates** to add machines and resources.
+1. Select the machine to view all the available updates and to create a recurring schedule.
 
-   :::image type="content" source="./media/scheduled-updates/scheduling-tab-inline.png" alt-text="screenshot on create maintenance configuration." lightbox="./media/scheduled-updates/scheduling-tab-expanded.png":::
+	:::image type="content" source="./media/scheduled-updates/scheduling-tab-inline.png" alt-text="screenshot on create maintenance configuration." lightbox="./media/scheduled-updates/scheduling-tab-expanded.png":::
 
-4. In **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration to the scheduled recurring updates.
-  - In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
-  - Select **Add a schedule** and specify the schedule details such as 
-	- Start on
-	- Maintenance window (in hours)
-	- Repeats(monthly, daily or weekly)
-	- Add end date
-	- Schedule summary
+1. In **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration to the scheduled recurring updates.
 
-	>[!NOTE]
-	>The hourly option is currently not supported in the portal, but can be used through the [API](./manage-vms-programmatically.md#create-a-maintenance-configuration-schedule). 
-
-
-    ![Scheduled patching basics page](./media/scheduled-updates/scheduled-patching-basics-page.png)
+	- In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
+	- Select **Add a schedule** and specify the schedule details such as:
 	
-   For the monthly option, there are two options: 
+		- Start on
+		- Maintenance window (in hours)
+		- Repeats(monthly, daily or weekly)
+		- Add end date
+		- Schedule summary
 
-   - Repeat on a calendar date (optionally run on last date of the month)
-   - Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally you can also specify an end date when you want the schedule to expire.
+	> [!NOTE]
+	> The hourly option is currently not supported in the portal, but can be used through the [API](./manage-vms-programmatically.md#create-a-maintenance-configuration-schedule). 
 
-5. In the **Machines**, verify the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
-6. In the **Updates** page, specify the updates to include in the deployment:
+	:::image type="content" source="./media/scheduled-updates/scheduled-patching-basics-page.png" alt-text="Scheduled patching basics page.":::
+ 
+	
+	For the monthly option, there are two options: 
+
+	- Repeat on a calendar date (optionally run on last date of the month)
+	- Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally you can also specify an end date when you want the schedule to expire.
+
+1. In the **Machines**, verify the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
+1. In the **Updates** page, specify the updates to include in the deployment:
 
    * Update classification(s)
    * Include updates by specific KB IDs or package names. 
 	![Scheduled patching updates page](./media/scheduled-updates/scheduled-patching-updates-page.png)
-7. In the **Tags** page, assign tags to maintenance configurations.
-8. In the **Review + Create** page, verify your update deployment options and then select **Create**.
-
+1. In the **Tags** page, assign tags to maintenance configurations.
+1. In the **Review + Create** page, verify your update deployment options and then select **Create**.
 A notification appears that the deployment is created.
 
 
