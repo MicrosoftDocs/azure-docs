@@ -240,7 +240,7 @@ To specify an environment variable to the load test by using the Azure portal, d
     
 If you run your load test in a CI/CD workflow, you can define environment variables in the YAML test configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
-Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the GitHub Actions or Azure Pipelines task to pass environment variables to the Apache JMeter script.
+Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the Azure Load Testing action or Azure Pipelines task to pass environment variables to the Apache JMeter script.
 
 The following YAML snippet shows a GitHub Actions example:
 
