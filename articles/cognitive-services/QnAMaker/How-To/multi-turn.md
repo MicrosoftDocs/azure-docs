@@ -17,6 +17,8 @@ To see how multi-turn works, view the following demonstration video:
 
 [![Multi-turn conversation in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## What is a multi-turn conversation?
 
 Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user might ask a question that needs to be filtered or refined to determine the correct answer. You make this flow through the questions possible by presenting the user with *follow-up prompts*.
