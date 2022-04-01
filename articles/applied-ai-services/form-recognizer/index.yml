@@ -121,18 +121,11 @@ landingContent:
             url: concept-general-document.md
       - linkListType: get-started
         links:
-          - text: .NET SDK
-            url: "quickstarts/try-v3-csharp-sdk.md#general-document-model"
-          - text: Python SDK
-            url: "quickstarts/try-v3-python-sdk.md#general-document-model"
-          - text: Java SDK
-            url: "quickstarts/try-v3-java-sdk.md#general-document-model"
-          - text: JavaScript SDK
-            url: "quickstarts/try-v3-javascript-sdk.md#general-document-model"
-          - text: REST API (cURL)
-            url: "quickstarts/try-v3-rest-api.md#reference-table"
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: https://formrecognizer.appliedai.azure.com/studio/document
+          - text: REST API (cURL)
+            url: quickstarts/try-v3-rest-api.md
+
 #Card 5
    - title: Layout model
      linkLists:
@@ -142,20 +135,12 @@ landingContent:
           url: concept-layout.md
      - linkListType: get-started
        links:
-        - text: .NET SDK
-          url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
-        - text: Python SDK
-          url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
-        - text: Java SDK
-          url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
-        - text: JavaScript SDK
-          url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
-        - text: REST API (cURL)
-          url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
         - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+          url: https://formrecognizer.appliedai.azure.com/studio/layout
         - text: Sample Labeling tool
           url: "concept-layout.md#sample-labeling-tool"
+        - text: REST API (cURL)
+          url: quickstarts/try-v3-rest-api.md
 #Card 6
    - title: 🆕Read model
      linkLists:
@@ -165,10 +150,10 @@ landingContent:
           url: concept-read.md
      - linkListType: get-started
        links:
+        - text: Form Recognizer Studio
+          url: https://formrecognizer.appliedai.azure.com/studio/read
         - text: REST API (cURL)
           url: quickstarts/try-v3-rest-api.md
-        - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
 #Card 7
    - title: 🆕W-2 Form model
@@ -179,10 +164,10 @@ landingContent:
          url: concept-w2.md
      - linkListType: get-started
        links:
+       - text: Form Recognizer Studio
+         url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
        - text: REST API (cURL)
          url: quickstarts/try-v3-rest-api.md#
-       - text: Form Recognizer Studio
-         url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
   #Card 8
    - title: Invoice model
@@ -193,20 +178,12 @@ landingContent:
             url: concept-invoice.md
       - linkListType: get-started
         links:
-          - text:  .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-          - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-          - text:  Sample Labeling tool
-            url: "concept-business-card.md#sample-labeling-tool"
+         - text: Form Recognizer Studio
+           url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
+         - text: REST API (cURL)
+           url: quickstarts/try-v3-rest-api.md#
+         - text:  Sample Labeling tool
+           url: "concept-invoice.md#sample-labeling-tool"
    #Card 9
    - title: Custom model
      linkLists:
@@ -216,20 +193,12 @@ landingContent:
             url: concept-custom.md
       - linkListType: get-started
         links:
-          - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-          - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
+            url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
+          - text: REST API (cURL)
+            url: quickstarts/try-v3-rest-api.md#
           - text: Sample Labeling tool
-            url: "concept-custom.md"
+            url: "concept-custom.md#sample-labeling-tool"
 
 #Card 10
    - title: Receipt model
@@ -240,18 +209,10 @@ landingContent:
             url: concept-receipt.md
       - linkListType: get-started
         links:
-          - text:  .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
-          - text:  Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
-          - text:  Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
-          - text:  JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
-          - text:  REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt
+          - text: REST API (cURL)
+            url: quickstarts/try-v3-rest-api.md#
           - text:  Sample Labeling tool
             url: "concept-receipt.md#sample-labeling-tool"
 #Card 11
@@ -263,18 +224,10 @@ landingContent:
             url: concept-id-document.md
       - linkListType: get-started
         links:
-          - text:  .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
-          - text:  Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
-          - text:  Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
-          - text:  JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
-          - text:  REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument
+          - text: REST API (cURL)
+            url: quickstarts/try-v3-rest-api.md#
           - text:  Sample Labeling tool
             url: "concept-id-document.md#sample-labeling-tool"
  #Card 12
@@ -286,18 +239,10 @@ landingContent:
             url: concept-business-card.md
       - linkListType: get-started
         links:
-          - text:  .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
-          - text:  Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-          - text:  Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-          - text:  JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
-          - text:  REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
+          - text: REST API (cURL)
+            url: quickstarts/try-v3-rest-api.md#
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 
