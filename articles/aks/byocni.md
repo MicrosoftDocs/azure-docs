@@ -18,7 +18,7 @@ This article shows how to deploy an AKS cluster with no CNI plugin pre-installed
 
 ## Support
 
-BYOCNI has support implications - Microsoft support will not be able to assist with CNI-related issues in clusters deployed with BYOCNI. For example, CNI-related issues would cover most east/west (pod to pod) traffic, along with `kubectl proxy` and similar commands. If CNI-related support is desired, there are third-party vendors that provide support for open-source or enterprise CNI plugins.
+BYOCNI has support implications - Microsoft support will not be able to assist with CNI-related issues in clusters deployed with BYOCNI. For example, CNI-related issues would cover most east/west (pod to pod) traffic, along with `kubectl proxy` and similar commands. If CNI-related support is desired, a supported AKS network plugin can be used or support could be procured for the BYOCNI plugin from a third-party vendor.
 
 Support will still be provided for non-CNI-related issues.
 
