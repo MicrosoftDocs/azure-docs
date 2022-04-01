@@ -26,11 +26,18 @@ Communication between Azure VMware Solution and the on-premises network will typ
 
 ## Communication between Azure VMware Solution and the on-premises network via NVA
 
-If not only the Internet traffic should be inspected by the NVA, but also traffic between AVS and the on-premises network instead of being sent over ExpressRoute Global Reach, an additional transit VNet is required to avoid potential routing loops, which would be originated since a single ExpressRoute gateway wouldn't be able to route packets properly (more specifically, the User Defined Routes in the GatewaySubnet can either point to the NVA or to on-premises, but not to both).
+There are two main scenarios for this pattern:
 
-An additional NVA would be required in this transit VNet, and both NVAs would exchange the routes they learn from their respective Azure Route Servers via BGP and some sort of encapsulation protocol such as VXLAN or IPsec, as the following diagram shows.
+- ExpressRoute Global Reach might not be available on a particular region to interconnect the ExpressRoute circuits of AVS and the on-premises network.
+- Some organizations might have the requirement to send traffic between AVS and the on-premises network through an NVA (typically a firewall).
 
-:::image type="content" source="./media/scenarios/vmware-solution-to-on-premises.png" alt-text="Diagram of AVS to on-premises communication with Route Server.":::
+If both ExpressRoute circuits (to AVS and to on-premises) are terminated in the same ExpressRoute gateway, you could think that the gateway is going to route packets across them. However, an ExpressRoute gateway is not designed to do that. Instead, you need to hairpin the traffic to a Network Virtual Appliance that is able to route the traffic. To that purpose, the NVA should advertise a superset of the AVS and on-premises prefixes, as the following diagram shows:
+
+:::image type="content" source="./media/scenarios/vmware-solution-to-on-premises-hairpin.png" alt-text="Diagram of AVS to on-premises communication with Route Server in a single region.":::
+
+If two regions are involved, you would need an  NVA would in each region, and both NVAs would exchange the routes they learn from their respective Azure Route Servers via BGP and some sort of encapsulation protocol such as VXLAN or IPsec, as the following diagram shows.
+
+:::image type="content" source="./media/scenarios/vmware-solution-to-on-premises.png" alt-text="Diagram of AVS to on-premises communication with Route Server in two regions.":::
 
 The reason why encapsulation is needed is because the NVA NICs would learn the routes from ExpressRoute or from the Route Server, so they would send packets that need to be routed to the other NVA in the wrong direction (potentially creating a routing loop returning the packets to the local NVA).
 
