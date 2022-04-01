@@ -8,12 +8,9 @@ ms.date: 3/30/2022
 
 # Bring your own Container Network Interface (CNI) plugin with Azure Kubernetes Service (AKS) (PREVIEW)
 
-Kubernetes does not provide a network interface system by default; this functionality is provided by [network plugins][kubernetes-cni]. Azure Kubernetes Service provides two supported CNI plugins:
+Kubernetes does not provide a network interface system by default; this functionality is provided by [network plugins][kubernetes-cni]. Azure Kubernetes Service provides several supported CNI plugins. Documentation for supported plugins can be found from the [networking concepts page][aks-network-concepts].
 
-- [Azure Container Networking Interface (CNI)][cni-networking], which provides VNet IP addresses directly to pods
-- [kubenet][kubenet], which functions in an overlay manner where pod IPs come from a secondary address range and are not directly part of the virtual network
-
-While these plugins meet most networking needs in Kubernetes, there are situations that fall outside their scope. There may also be a desire to maintain the same CNI plugin between on-premises Kubernetes environments and AKS environments, or to make use of specific advanced functionality available in other CNI plugins.
+While the supported plugins meet most networking needs in Kubernetes, advanced users of AKS may desire to utilize the same CNI plugin used in on-premises Kubernetes environments or to make use of specific advanced functionality available in other CNI plugins.
 
 This article shows how to deploy an AKS cluster with no CNI plugin pre-installed, which allows for installation of any third-party CNI plugin that works in Azure.
 
@@ -21,13 +18,13 @@ This article shows how to deploy an AKS cluster with no CNI plugin pre-installed
 
 ## Support
 
-BYOCNI has support implications - Microsoft support will not be able to assist with CNI-related issues in clusters deployed with . Support will still be provided for non-CNI-related issues.
+BYOCNI has support implications - Microsoft support will not be able to assist with CNI-related issues in clusters deployed with BYOCNI. For example, CNI-related issues would cover most east/west (pod to pod) traffic, along with `kubectl proxy` and similar commands. If CNI-related support is desired, there are third-party vendors that provide support for open-source or enterprise CNI plugins.
 
-If support is desired, there are third-party vendors that provide support for open-source or enterprise CNI plugins.
+Support will still be provided for non-CNI-related issues.
 
 ## Prerequisites
 
-* For ARM/Bicep, use at least template version 2022-02-02-preview
+* For ARM/Bicep, use at least template version 2022-01-02-preview
 * For Azure CLI, use at least version 0.5.55 of the `aks-preview` extension
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
@@ -62,7 +59,7 @@ Deploying a BYOCNI cluster requires passing the `--network-plugin` parameter wit
 
 1. Then create the cluster itself:
     ```azurecli-interactive
-    az aks create -l <Region> -g <ResourceGroupName> -n <ClusterName> --ip-families ipv4,ipv6
+    az aks create -l <Region> -g <ResourceGroupName> -n <ClusterName> --network-plugin none
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -126,7 +123,7 @@ When using an Azure Resource Manager template to deploy, pass `none` to the `net
 
 # [Bicep](#tab/bicep)
 
-When using a Bicep template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object. See the [Bicep template documentation][deploy-bicep-template] for help with deploying this template, if needed.
+When using a Bicep template to deploy, pass `none` to the `networkPlugin` parameter to the `networkProfile` object. See the [Bicep template documentation][deploy-bicep-template] for help with deploying this template, if needed.
 
 ```bicep
 param clusterName string = 'aksbyocni'
@@ -174,8 +171,6 @@ aks-nodepool1-23902496-vmss000000   container runtime network not ready: Network
 ```
 
 At this point, the cluster is ready for installation of a CNI plugin.
-
-
 
 ## Next steps
 
