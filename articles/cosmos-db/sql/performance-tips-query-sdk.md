@@ -230,7 +230,7 @@ IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
 
-::: zone-end
+
 
 ## Next steps
 
@@ -238,7 +238,7 @@ To learn more about performance using the .NET SDK:
 
 * [Performance tips for Azure Cosmos DB .NET V3 SDK](performance-tips-dotnet-sdk-v3-sql.md)
 * [Performance tips for Azure Cosmos DB .NET V2 SDK](performance-tips.md)
-
+::: zone-end
 ::: zone pivot="programming-language-java"
 
 ## Reduce Query Plan calls
@@ -247,13 +247,7 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 ### Use Query Plan caching
 
-The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for version 4.20.0 or above**.
-
-Every time there is a cache hit for a query plan you will see the following message in the logs:
-
-```bash
-"Skipping query plan round trip by using the cached plan"
-```
+The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for version 4.20.0 and above**.
 
 Query plan caching currently works for queries with filters. This feature can also be leveraged from the Spring connector when using method derived queries. Currently, queries defined with `@Query` spring data annotation, do not take advantage of Query plan caching.
 
@@ -280,23 +274,19 @@ CosmosPagedIterable<MyItem> filteredItems =
 
 ## Tune the degree of parallelism
 
-Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned container is fetched serially with respect to the query. So, use [setMaxDegreeOfParallelism](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxdegreeofparallelism) on `CosmosQueryRequestOptions` to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use `setMaxDegreeOfParallelism` to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. Setting the value to -1 will let the SDK decided the optimal concurrency.
+Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned container is fetched serially with respect to the query. So, use [setMaxDegreeOfParallelism](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxdegreeofparallelism) on `CosmosQueryRequestOptions` to set the value to the number of partitions you have. If you don't know the number of partitions, you can use `setMaxDegreeOfParallelism` to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. Setting the value to -1 will let the SDK decide the optimal concurrency.
 
-It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned container is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be affected.
+It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned container is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be degraded.
 
 ```java
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
 options.setPartitionKey(new PartitionKey("Washington"));
 options.setMaxDegreeOfParallelism(-1);
 
-ArrayList<SqlParameter> paramList = new ArrayList<SqlParameter>();
-paramList.add(new SqlParameter("@city", "Seattle"));
-SqlQuerySpec querySpec = new SqlQuerySpec(
-        "SELECT * FROM c WHERE c.city = @city",
-        paramList);
+// Define the query
 
 CosmosPagedIterable<MyItem> filteredItems = 
-    container.queryItems(querySpec, options, MyItem.class);
+    container.queryItems(query, options, MyItem.class);
 ```
 
 Let's assume that
@@ -308,11 +298,11 @@ Following are implications of how the parallel queries would behave for differen
 * (P == 0) => Serial Mode
 * (P == 1) => Maximum of one task
 * (P > 1) => Min (P, N) parallel tasks
-* (P < 1) => Min (N, D) parallel tasks
+* (P == -1) => Min (N, D) parallel tasks
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first.
 
 You can use the `pageSize` parameter in `iterableByPage` to define a page size:
 
@@ -336,14 +326,10 @@ CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
 options.setPartitionKey(new PartitionKey("Washington"));
 options.setMaxBufferedItemCount(-1);
 
-ArrayList<SqlParameter> paramList = new ArrayList<SqlParameter>();
-paramList.add(new SqlParameter("@city", "Seattle"));
-SqlQuerySpec querySpec = new SqlQuerySpec(
-        "SELECT * FROM c WHERE c.city = @city",
-        paramList);
+// Define the query
 
 CosmosPagedIterable<MyItem> filteredItems = 
-    container.queryItems(querySpec, options, MyItem.class);
+    container.queryItems(query, options, MyItem.class);
 ```
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
