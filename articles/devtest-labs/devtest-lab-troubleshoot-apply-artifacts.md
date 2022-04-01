@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 This article guides you through possible causes and troubleshooting steps for artifact failures on Azure DevTest Labs virtual machines (VMs).
 
-Artifacts are tools, actions, or software you can install on lab VMs during or after VM creation. Lab owners can preselect mandatory artifacts to apply to all lab VMs at creation, and lab users can apply artifacts to VMs they own.
+Artifacts are tools, actions, or software you can install on lab VMs during or after VM creation. Lab owners can [preselect mandatory artifacts](devtest-lab-mandatory-artifacts.md) to apply to all lab VMs at creation, and lab users can [apply artifacts to VMs](add-artifact-vm.md) that they own.
 
 There are several possible causes for artifacts failing to install or run correctly. When an artifact appears to stop responding, first try to determine where it's stuck. Artifact installation can be blocked during the initial request, or fail during request execution.
 
@@ -40,11 +40,11 @@ $vm = Get-AzResource `
 $vm.Properties.canApplyArtifacts
 ```
 
-### Investigate failed artifacts
+### Investigate the failed artifact
 
-An artifact can appear to stop responding until a pre-defined timeout period expires, and the artifact then appears as **Failed**. To investigate failed artifacts:
+An artifact can stop responding, and finally appear as **Failed**. To investigate failed artifacts:
 
-1. On your lab **Overview** page, from the list under **My virtual machines**, select the VM that includes the artifact that you want to investigate.
+1. On your lab **Overview** page, from the list under **My virtual machines**, select the VM that has the artifact you want to investigate.
 1. On the VM **Overview** page, select **Artifacts** in the left navigation. The **Artifacts** page lists artifacts associated with the VM, and their status.
 
    ![Screenshot showing the list of artifacts and their status.](./media/devtest-lab-troubleshoot-apply-artifacts/artifact-list.png)
@@ -55,7 +55,7 @@ An artifact can appear to stop responding until a pre-defined timeout period exp
 
 ### Inspect the Activity logs
 
-DevTest Labs creates and deploys an Azure Resource Manager (ARM) template that requests use of the Custom Script Extension (CSE). An error at this level shows up in the **Activity logs** for the subscription and for the VM's resource group.
+To install artifacts, DevTest Labs creates and deploys an Azure Resource Manager (ARM) template that requests use of the Custom Script Extension (CSE). An error at this level shows up in the **Activity logs** for the subscription and for the VM's resource group.
 
 If an artifact failed to install, inspect the **Activity log** entries for either **Create or Update Virtual Machine Extension**, if you applied the artifact directly, or **Create or Update Virtual Machine**, if the artifact was being applied as part of VM creation. Look for failures under these entries. Sometimes you have to expand the entry to see the failure.
 
@@ -65,7 +65,7 @@ Select the failed entry to see the error details. On the failure page, select **
 
 When DevTest Labs applies an artifact, it reads the artifact configuration and files from connected repositories. By default, DevTest Labs has access to the DevTest Labs [public Artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). You can also connect a lab to a private repository to access custom artifacts. If a custom artifact fails to install, make sure the personal access token (PAT) for the private repository hasn't expired. If the PAT is expired, the artifact won't be listed, and any scripts that refer to artifacts from that repository will fail.
 
-Depending on configuration, lab VMs might not have direct access to the artifact repository. DevTest Labs caches the artifacts in a storage account that's created when the lab first initializes. If access to this storage account is blocked, such as when traffic is blocked from the VM to the Azure Storage service, you might see an error similar to this:
+Depending on configuration, lab VMs might not have direct access to the artifact repository. DevTest Labs caches the artifacts in a lab storage account that's created when the lab first initializes. If access to this storage account is blocked, such as when traffic is blocked from the VM to the Azure Storage service, you might see an error similar to this:
 
 ```shell
 CSE Error: Failed to download all specified files. Exiting. Exception: Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (403) Forbidden. ---> System.Net.WebException: The remote server returned an error: (403) Forbidden.
@@ -82,7 +82,7 @@ To troubleshoot connectivity issues to the Azure Storage account:
 - Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number, such as a\<labname>#.
 
   1. Navigate to the lab's resource group.
-  1. Locate the resource of type **Storage account**, whose name matches the convention.
+  1. Locate the resource of type **Storage account** whose name matches the convention.
   1. On the storage account **Overview** page, select **Firewalls and virtual networks** in the left navigation.
   1. Ensure that **Firewalls and virtual networks** is set to **All networks**. Or, if the **Selected networks** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
 
@@ -94,13 +94,13 @@ You can connect to the lab VM where the artifact failed, and investigate the iss
 
 ### Inspect the Custom Script Extension log file
 
-1. Go to *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\1.10.12\\Status\\*, where *1.10.12* is the Azure Custom Script Extension version number.
+1. On the lab VM, go to *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\\*1.10.12\*\\Status\\*, where *1.10.12* is the Azure Custom Script Extension version number.
 
    ![Screenshot of the Status folder on the lab V M.](./media/devtest-lab-troubleshoot-apply-artifacts/status-folder.png)
 
 1. Open and inspect the *STATUS* file to view the error.
 
-For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](/azure/virtual-machines/extensions/custom-script-linux#troubleshooting)
+For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](/azure/virtual-machines/extensions/custom-script-linux#troubleshooting).
 
 ### Check the VM Agent
 
@@ -146,7 +146,7 @@ To troubleshoot whether the script is causing the artifact to appear to stop res
 > You can submit proposed script corrections for artifacts hosted in the DevTest Labs [public repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). For details, see the **Contributions** section in the [README](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/README.md) document.
 
 > [!NOTE]
-> To correctly identify and explain failures, a custom artifact needs to have the proper structure. For information about how to correctly construct an artifact, see [Create custom artifacts](devtest-lab-artifact-author.md). For an example of a properly structured artifact, see the [Test parameter types](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artifact.
+> A custom artifact needs to have the proper structure. For information about how to correctly construct an artifact, see [Create custom artifacts](devtest-lab-artifact-author.md). For an example of a properly structured artifact, see the [Test parameter types](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artifact.
 > 
 > For more information about writing and correcting artifact scripts, see [AUTHORING](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md).
 
