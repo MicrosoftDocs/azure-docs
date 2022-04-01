@@ -186,23 +186,21 @@ Next you add a workflow task responsible for building and deploying your site as
 
     ---
 
+    The following configuration properties are used in the *.gitlab-ci.yml* file to configure your static web app.
+
+    The `$CI_PROJECT_DIR` variable maps to the repository's root folder location during the build process.
+
+    | Property | Description | Example | Required |
+    |--|--|--|--|
+    | `APP_PATH` | Location of your application code. | Enter `$CI_PROJECT_DIR/` if your application source code is at the root of the repository, or `$CI_PROJECT_DIR/app` if your application code is in a folder named `app`. | Yes |
+    | `API_PATH` | Location of your Azure Functions code. | Enter `$CI_PROJECT_DIR/api` if your app code is in a folder named `api`. | No |
+    | `OUTPUT_PATH` | Location of the build output folder relative to the `APP_PATH`. | If your application source code is located at `$CI_PROJECT_DIR/app`, and the build script outputs files to the `$CI_PROJECT_DIR/app/build` folder, then set `$CI_PROJECT_DIR/app/build` as the `OUTPUT_PATH` value. | No |
+    | `API_TOKEN` | API token for deployment. | `API_TOKEN: $DEPLOYMENT_TOKEN` | Yes |
+
 1. Select the **Commit changes** button.
 1. Select the **CI/CD** then **Pipelines** menu items to view the progress of your deployment.
 
 Once the deployment is complete, you can view your website.
-
-### Properties reference
-
-The following configuration properties are used in the *.gitlab-ci.yml* file to configure your static web app.
-
-The `$CI_PROJECT_DIR` variable maps to the repository's root folder location during the build process.
-
-| Property | Description | Example | Required |
-|--|--|--|--|
-| `APP_PATH` | Location of your application code. | Enter `$CI_PROJECT_DIR/` if your application source code is at the root of the repository, or `$CI_PROJECT_DIR/app` if your application code is in a folder named `app`. | Yes |
-| `API_PATH` | Location of your Azure Functions code. | Enter `$CI_PROJECT_DIR/api` if your app code is in a folder named `api`. | No |
-| `OUTPUT_PATH` | Location of the build output folder relative to the `APP_PATH`. | If your application source code is located at `$CI_PROJECT_DIR/app`, and the build script outputs files to the `$CI_PROJECT_DIR/app/build` folder, then set `$CI_PROJECT_DIR/app/build` as the `OUTPUT_PATH` value. | No |
-| `API_TOKEN` | API token for deployment. | `API_TOKEN: $DEPLOYMENT_TOKEN` | Yes |
 
 ## View the website
 
