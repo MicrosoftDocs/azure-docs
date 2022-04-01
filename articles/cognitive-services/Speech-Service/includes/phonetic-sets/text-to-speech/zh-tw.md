@@ -2,7 +2,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 ### Bopomofo Initials
 
-| Bopomofo | Pinyin | Example  <br> (Bopomofo, Pinyin) |
+| Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
 | ㄅ        | b      | 玻 (**ㄅ**ㄛ, **b**o 1)             |
 | ㄆ        | p      | 坡 (**ㄆ**ㄛ, **p**o 1)             |
@@ -30,7 +30,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 ### Bopomofo Finals
 
-| Bopomofo | Pinyin | Example  <br> (Bopomofo, Pinyin) |
+| Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
 | ㄚ        | a        | 法 (ㄈ**ㄚ**ˇ, f**a** 3)            |
 | ㄛ        | o        | 潑 (ㄆ**ㄛ**, p**o** 1)             |
@@ -67,7 +67,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 ### Bopomofo Whole syllable
 
-| Bopomofo | Pinyin | Example  <br> (Bopomofo, Pinyin) |
+| Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
 | ㄓ        | zhi      | 知 (**ㄓ**, **zhi** 1)             |
 | ㄔ        | chi      | 吃 (**ㄔ**, **chi** 1)             |
@@ -103,7 +103,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 ### Bopomofo tone
 
-| Bopomofo | Tone number | Example <br> (Bopomofo, Pinyin)|
+| Bopomofo | Tone number | `sapi` Example <br> (Bopomofo, Pinyin)|
 |----------|-------------|--------------------------------|
 | ˉ       | 1           | 八 (ㄅㄚ or ㄅㄚ**ˉ**, ba **1**)      |
 | ˊ       | 2           | 拔 (ㄅㄚ**ˊ**, ba **2**)            |
