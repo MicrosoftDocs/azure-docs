@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 
 The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your client application or chat bot's end users.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Extraction
 
 The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-and-content.md) for data extraction based on your document type.

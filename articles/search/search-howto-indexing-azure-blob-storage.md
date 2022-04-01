@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/30/2022
 ---
 
 # Index data from Azure Blob Storage
@@ -26,7 +26,7 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob Storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blobs containing text. If blobs contain binary data or unstructured text, consider adding [AI enrichment](cognitive-search-concept-intro.md) for image and natural language processing. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles instead, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
 
