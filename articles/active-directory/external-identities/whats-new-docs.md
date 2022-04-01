@@ -1,6 +1,6 @@
 ---
-title: "What's new in Azure Active Directory external identities"
-description: "New and updated documentation for the Azure Active Directory external identities."
+title: "What's new in Azure Active Directory External Identities"
+description: "New and updated documentation for the Azure Active Directory External Identities."
 ms.date: 03/31/2022
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,9 +11,9 @@ author: msmimart
 manager: CelesteDG
 ---
 
-# Azure Active Directory external identities: What's new
+# Azure Active Directory External Identities: What's new
 
-Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
 ## March 2022
 
