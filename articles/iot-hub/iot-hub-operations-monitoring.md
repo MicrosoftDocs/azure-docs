@@ -11,12 +11,12 @@ ms.author: kgremban
 ms.custom: "amqp, devx-track-csharp"
 ---
 
-# IoT Hub operations monitoring (deprecated)
+# IoT Hub operations monitoring (retired)
 
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
->[!NOTE]
->IoT Hub **operations monitoring is deprecated and has been removed from IoT Hub on March 10, 2019**. For monitoring the operations and health of IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md). For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>[!IMPORTANT]
+>**IoT Hub operations monitoring is retired and was removed from IoT Hub on March 10, 2019.** Accordingly, this article is no longer being updated. IoT Hub operations monitoring was replaced by Azure Monitor. To learn about monitoring the operations and health of IoT Hub with Azure Monitor, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 IoT Hub monitors six categories of events:
 

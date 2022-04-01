@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Experian for Identification verification and proofing based on user attributes to prevent fraud.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity

@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 12/06/2021
+ms.date: 04/06/2022
 ---
 
 # Revenue dashboard in commercial marketplace analytics
@@ -197,6 +197,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Asset Id | An identifier for the software assets. Same as the `order id` in the orders report in Partner Center. |
 | Offer type | Type of offer, such as SaaS, VM, and so on. |
 | Offer name | Display name of the offer |
+| Is Private Offer | Indicates whether a marketplace offer is a private or a public offer.<br><ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>
 | Offer plan | Specific offer plan, also referred to as SKU |
 | Trial deployment | Denotes whether the offer was in trial deployment at the time of billing |
 | Service Start Date | The start date of the order subscription term |

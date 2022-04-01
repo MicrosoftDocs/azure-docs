@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 03/24/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -31,6 +31,8 @@ To get deployment scope values, see [Scope functions](template-functions-scope.m
 `extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md). An extension resource is a resource type that's applied to another resource to add to its capabilities.
+
+In Bicep, use the [extensionResourceId](../bicep/bicep-functions-resource.md#extensionresourceid) function.
 
 ### Parameters
 
@@ -101,6 +103,8 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
 The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list` and may have a suffix. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`.
+
+In Bicep, use the [list*](../bicep/bicep-functions-resource.md#list) function.
 
 ### Parameters
 
@@ -328,6 +332,8 @@ The next example shows a `list` function that takes a parameter. In this case, t
 
 Determines whether a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
+In Bicep, use the [pickZones](../bicep/bicep-functions-resource.md#pickzones) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -393,7 +399,7 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-The following example shows how to use the `pickZones` function to enable zone redundancy for Cosmos DB.
+Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
@@ -401,11 +407,15 @@ The following example shows how to use the `pickZones` function to enable zone r
 
 **The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
+In Bicep, the [providers](../bicep/bicep-functions-resource.md#providers) function is deprecated.
+
 ## reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
+
+In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
 
 ### Parameters
 
@@ -598,11 +608,15 @@ The following example template references a storage account that isn't deployed 
 
 See the [resourceGroup scope function](template-functions-scope.md#resourcegroup).
 
+In Bicep, use the [resourcegroup](../bicep/bicep-functions-scope.md#resourcegroup) scope function.
+
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+In Bicep, use the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function.
 
 ### Parameters
 
@@ -697,11 +711,15 @@ The output from the preceding example with the default values is:
 
 See the [subscription scope function](template-functions-scope.md#subscription).
 
+In Bicep, use the [subscription](../bicep/bicep-functions-scope.md#subscription) scope function.
+
 ## subscriptionResourceId
 
 `subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the subscription level.
+
+In Bicep, use the [subscriptionResourceId](../bicep/bicep-functions-resource.md#subscriptionresourceid) function.
 
 ### Parameters
 
@@ -737,6 +755,8 @@ The following template assigns a built-in role. You can deploy it to either a re
 `tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the tenant level.
+
+In Bicep, use the [tenantResourceId](../bicep/bicep-functions-resource.md#tenantresourceid) function.
 
 ### Parameters
 

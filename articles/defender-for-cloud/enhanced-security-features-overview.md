@@ -2,6 +2,8 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
+ms.author: elkrieger
+author: ElazarK
 ms.date: 02/24/2022
 ---
 
@@ -12,8 +14,6 @@ ms.date: 02/24/2022
 The enhanced security features are free for the first 30 days. At the end of 30 days, if you decide to continue using the service, we'll automatically start charging for usage.
 
 You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-
-:::image type="content" source="media/enhanced-security-features-overview/defender-plans-top.png" alt-text="Enabling Microsoft Defender for Cloud's enhanced security features.":::
 
 ## What are the benefits of enabling enhanced security features?
 
@@ -72,12 +72,12 @@ You can use any of the following ways to enable enhanced security for your subsc
 | Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
 | PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
 | Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
-|                                                 |                                                                                                                                                    |
+
 
 ### Can I enable Microsoft Defender for servers on a subset of servers in my subscription?
 No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for servers.
 
-An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/ Qualys), just-in-time VM access, and more. 
+An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?
 If you've already got a license for **Microsoft Defender for Endpoint for Servers**, you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).

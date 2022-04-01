@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 10/21/2021
+ms.date: 03/14/2022
 ms.custom: references_regions
 ---
 
@@ -51,7 +51,7 @@ The information in the rest of this document provides information on what featur
 | **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
-| Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
+| Virtual Network (VNet) support                                             | GA       | YES                | YES         |
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
@@ -161,7 +161,7 @@ The information in the rest of this document provides information on what featur
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
-| Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
+| Virtual Network (VNet) support                                             | GA   | YES       | N/A        |
 | **SDK support** |    | | |
 | Python SDK support                                                         | GA               | YES       | N/A        |
 | **Security** |   | | |

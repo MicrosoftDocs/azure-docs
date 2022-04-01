@@ -219,7 +219,7 @@ Preconditions can check multiple preconditions. The following example checks whe
 Identity provider selection lets users select an action from a list of options. The identity provider selection consists of a pair of two orchestration  steps: 
 
 1. **Buttons** - It starts with type of `ClaimsProviderSelection`, or `CombinedSignInAndSignUp` that contains a list of options a user can choose from. The order of the options inside the `ClaimsProviderSelections` element controls the order of the buttons presented to the user.
-2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). The When a user clicks on one of the buttons, the corresponding action is executed.
+2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). When a user clicks on one of the buttons, the corresponding action is executed.
 
 The **ClaimsProviderSelections** element contains the following element:
 

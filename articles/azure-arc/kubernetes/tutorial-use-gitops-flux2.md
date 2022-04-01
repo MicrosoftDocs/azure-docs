@@ -4,7 +4,7 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 2/22/2022
+ms.date: 03/09/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -18,7 +18,7 @@ This tutorial describes how to use GitOps in a Kubernetes cluster. Before you di
 General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
 
 >[!IMPORTANT]
->GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could be a breaking change for some users.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
+>GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could affect some users when it is released.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * An Azure Arc-enabled Kubernetes connected cluster that's up and running.
   
-  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+  [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 * Read and write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type.
 
 ### For Azure Kubernetes Service clusters
@@ -86,7 +86,6 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 | `https://<region>.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information. Depends on `<region>` (the supported regions mentioned earlier). |
 | `https://login.microsoftonline.com` | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com` | Required to pull container images for Flux controllers. |
-| `https://azurearcfork8s.azurecr.io` | Required to pull container images for GitOps agents. |
 
 ## Enable CLI extensions
 
@@ -118,6 +117,9 @@ False          whl             connectedk8s           C:\Users\somename\.azure\c
 False          whl             k8s-configuration      C:\Users\somename\.azure\cliextensions\k8s-configuration    False     1.4.1
 False          whl             k8s-extension          C:\Users\somename\.azure\cliextensions\k8s-extension        False     1.0.4
 ```
+
+> [!TIP]
+> For help resolving any errors, see the Flux v2 suggestions in [Azure Arc-enabled Kubernetes and GitOps troubleshooting](troubleshooting.md#flux-v2---general).
 
 ## Apply a Flux configuration by using the Azure CLI
 
@@ -654,7 +656,7 @@ Arguments
     --timeout                      : Maximum time to reconcile the source before timing out.
 
 Auth Arguments
-    --local-auth-ref --local-ref   : Local reference to a kubernetes secret in the configuration
+    --local-auth-ref --local-ref   : Local reference to a Kubernetes secret in the configuration
                                      namespace to use for communication to the source.
 
 Bucket Auth Arguments
@@ -801,7 +803,7 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://, s3://. |
+| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://. |
 | `--bucket-name` | String | Name of the `bucket` to sync. |
 | `--bucket-access-key` | String | Access Key ID used to authenticate with the `bucket`. |
 | `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |
@@ -962,7 +964,7 @@ For usage details, see the following documents:
 * [Flux Kustomize controller](https://fluxcd.io/docs/components/kustomize/)
 * [Kustomize reference documents](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [The kustomization file](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
-* [Kustomize project](https://kubernetes-sigs.github.io/kustomize/)
+* [Kustomize project](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [Kustomize guides](https://kubectl.docs.kubernetes.io/guides/config_management/)
 
 ## Manage Helm chart releases by using the Flux Helm controller
@@ -1000,11 +1002,11 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
 
 >[!NOTE]
->This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
+>You need to prepare for the multi-tenancy feature release if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
 >
->* Upgrade to Kubernetes version 1.20.6 or greater.
->* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
->    * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
+> * Upgrade to Kubernetes version 1.20.6 or greater.
+> * In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
+>   * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
 
 ### Update manifests for multi-tenancy
 
