@@ -85,7 +85,7 @@ Dimensions also have two special concepts, "enabled" and "infinite":
 
 ### Locking behavior
 
-A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published.  Before publishing your offer, it's important that you have your dimensions fully defined.
+A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published. Before publishing your offer, it's important that you have your dimensions fully defined.
 
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -95,7 +95,6 @@ Once an offer is published with a dimension, the offer-level details for that di
 
 Once a plan is published, the plan-level details can no longer be changed:
 
-* Price per unit
 * Included quantity for monthly term
 * Whether the dimension is enabled for the plan
 
