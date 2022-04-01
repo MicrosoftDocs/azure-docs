@@ -48,7 +48,7 @@ curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
 az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
 
-* Check expiration date of certificate on one VMSS agent node
+* Check expiration date of certificate on one virtual machine scale set agent node
 ```azurecli
 az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
