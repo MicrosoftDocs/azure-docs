@@ -267,15 +267,16 @@ POST /cognitiveservices/v1 HTTP/1.1
 X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
-Content-Length: <Use your own content-length> (In most cases, this value is calculated automatically. For more information, please refer to HTTP protocol.)
+Content-Length: <Length><sup>*</sup> 
 Authorization: Bearer [Base64 access_token]
-User-Agent: <Your resource name>
+User-Agent: <Your application name>
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
     name='en-US-ChristopherNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
+<sup>*</sup> For the Content-Length, you should use your own content length. In most cases, this value is calculated automatically.
 
 ### HTTP status codes
 
