@@ -81,14 +81,11 @@ Azure Active Directory based authentication is an integrated authentication appr
 
 #### SQL Basic Authentication
 
-The basic authentication credentials include `username` and `password`. These are used to authenticate with Azure Synapse Dedicated SQL Pool. Additional configurations as described below are necessary to interact with storage where data is sourced:
+The basic authentication credentials include `username` and `password`. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and do not apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
 
-* Write Data to Azure Synapse Dedicated SQL Pool
-  * When reading data from the data source by initializing a DataFrame object:
-    * Consider an example, where the workspace user does not have read permissions to the Storage Account.
-    * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
+Following code sample describes how to pass credentials to connect and read data from the source:
 
-       ```Scala
+ ```Scala
        //Specify options that Spark runtime must support when interfacing and consuming source data
        val storageAccountName="<storageAccountName>"
        val storageContainerName="<storageContainerName>"
@@ -116,19 +113,7 @@ The basic authentication credentials include `username` and `password`. These ar
                     limit(100)
        ```
 
-    * Similar to above snippet, the DataFrame over the source data must have credentials to meet the requirement to perform read from some other source you would like fetch data!
-  
-  * When staging the source data to the temporary folders:
-    * Connector expects the workspace user is granted permission to connect and successfully write to the staging folders (i..e, temporary folders).
-  
-  * Writing to Azure Synapse Dedicated SQL Pool table:
-    * To successfully connect to Azure Synapse Dedicated SQL Pool table, the Connector expects the `user` and `password` option parameters.
-    * Committing data to SQL occurs in two forms depending on type of the target table that the user's request requires:
-      * Internal Table Type - the Connector requires the option `staging_storage_acount_key` set on the DataFrameWriter[Row] before invoking the method `synapsesql`.
-      * External Table Type - the Connector expects the workspace user has access to read/write access to the target storage location where external table's data is staged.
-
-* Reading from Azure Synapse Dedicated SQL Pool table:
-  * To read data from a table in Azure Synapse Dedicated SQL Pool table the configuration option `Constants.DATA_SOURCE` must be specified on the DataFrameReader's options.
+Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters to write to the target tables.
   
 ### Authorization
 
