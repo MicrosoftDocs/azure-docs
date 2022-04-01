@@ -25,6 +25,6 @@ items:
   - name: Grafana Application UI
     href: grafana-app-ui.md
   - name: Control Plane
-    href: /rest/api/managed-grafana
+    href: /rest/api/managed-grafana.md
   - name: Data Plane
     href: https://aka.ms/managed-grafana-dataplane
