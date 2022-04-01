@@ -229,6 +229,10 @@ Yes, but you must configure BGP on both tunnels to the same location.
 
 Yes, Azure VPN gateway will honor AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path will be preferred in BGP path selection.
 
+### Can I use the RoutingWeight property when creating a new VPN VirtualNetworkGateway connection?
+
+No, such setting is reserved for ExpressRoute gateway connections. If you want to influence routing decisions between multiple connections you need to use AS Path prepending.
+
 ### Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 
 Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
