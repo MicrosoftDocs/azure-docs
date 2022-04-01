@@ -69,7 +69,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | --- | ---------- | ------------- |
 | [Delete device](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-deletedevice) | Yes | Yes |
 | Get device | Yes | Yes |
-| [Delete module](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Yes | Yes |
+| Delete module | Yes | Yes |
 | [Get module](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule) | Yes | Yes |
 | [Get registry statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getdevicestatistics) | Yes | Yes |
 | [Get services statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getservicestatistics) | Yes | Yes |
@@ -88,10 +88,10 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get import export jobs](/rest/api/iothub/service/jobs/getimportexportjobs) | Yes | Yes |
 | [Purge command queue](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-purgecommandqueue) |   | Yes |
 | [Get device twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) |   | Yes |
-| [Get module twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Yes |
+| Get module twin |   | Yes |
 | [Invoke device method](./iot-hub-devguide-direct-methods.md) |   | Yes |
 | [Update device twin](./iot-hub-devguide-device-twins.md) |   | Yes |
-| [Update module twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Yes |
+| Update module twin |   | Yes |
 | [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
 | [Cancel job](/rest/api/media/jobs/canceljob) |   | Yes |
