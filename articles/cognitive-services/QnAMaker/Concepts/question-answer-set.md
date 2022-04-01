@@ -11,6 +11,8 @@ ms.date: 01/27/2020
 
 A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Question and answer pairs
 
 The **required** settings in a question-and-answer (QnA) pair are:
