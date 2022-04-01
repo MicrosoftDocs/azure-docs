@@ -28,6 +28,7 @@ This article describes how to set up federation with any organization whose iden
 >
 >- We no longer support an allowlist of IdPs for new SAML/WS-Fed IdP federations. When you're setting up a new external federation, refer to [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
 >- In the SAML request sent by Azure AD for external federations, the Issuer URL is a tenanted endpoint. For any new federations, we recommend that all our partners set the audience of the SAML or WS-Fed based IdP to a tenanted endpoint. Refer to the [SAML 2.0](#required-saml-20-attributes-and-claims) and [WS-Fed](#required-ws-fed-attributes-and-claims) required attributes and claims sections below. Any existing federations configured with the global endpoint will continue to work, but new federations will stop working if your external IdP is expecting a global issuer URL in the SAML request.
+> - Currently, you can add only one domain to your external federation. We're actively working on allowing additional domains.
 > - We've removed the limitation that required the authentication URL domain to match the target domain or be from an allowed IdP. For details, see [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
 
 ## When is a guest user authenticated with SAML/WS-Fed IdP federation?
@@ -208,7 +209,7 @@ Now test your federation setup by inviting a new B2B guest user. For details, se
  
 ## How do I manage a SAML/WS-Fed IdP federation relationship?
 
-On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured, including the number of domains configured and the date the certificate will expire. You can also modify identity provider configuration values. 
+On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured, including the domain configuration and the date the certificate will expire. You can also modify identity provider configuration values.
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/saml-ws-fed-identity-provider-list.png)
 
@@ -219,12 +220,12 @@ To modify the configuration:
 1. Select **All identity providers**.
 1. Under **SAML/WS-Fed identity providers**, view details for an identity provider, including the certificate expiration date.
    - To update the certificate or other configuration values, select the **Edit** link in the **Configuration** column.
-   - To update the domain names for the identity provider, select the link in the **Domains** column.
+   - To update the domain for the identity provider, select the link in the **Domains** column.
  1. Select **Save**.
 
 ## How do I remove federation?
 
-You can remove your federation setup. If you do, federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md). 
+You can remove your federation setup. If you do, federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
 To remove federation with an IdP in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
