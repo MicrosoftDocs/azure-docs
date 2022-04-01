@@ -128,8 +128,7 @@ An alternative to Azure Active Directory based authentication is to use SQL basi
       * External Table Type - the Connector expects the workspace user has access to read/write access to the target storage location where external table's data is staged.
 
 * Reading from Azure Synapse Dedicated SQL Pool table:
-  * With SQL basic authentication approach, in order to read data from the source tables, Connector's ability to write to staging table must met.
-  * This requirement can be made possible by providing the `data_source` configuration option on the DataFrameReader reference, prior to invoking the `synapsesql` method.
+  * To read data following the SQL basic authentication approach, user must provide `Constants.DATA_SOURCE` configuration option.
   
 ### Authorization
 
