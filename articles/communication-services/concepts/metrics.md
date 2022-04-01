@@ -16,7 +16,7 @@ ms.subservice: data
 
 Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
-## Where to find Metrics
+## Where to find metrics
 
 Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
 
@@ -94,8 +94,8 @@ The following operations are available on Network Traversal API request metrics:
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
-:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric.":::
+:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
 
-## Next Steps
+## Next steps
 
 - Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)
