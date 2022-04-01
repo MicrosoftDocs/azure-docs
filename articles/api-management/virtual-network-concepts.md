@@ -105,7 +105,7 @@ Learn more about the [IP addresses of API Management](api-management-howto-ip-ad
 
 For more information, see the DNS guidance when deploying your API Management instance into an [external VNet](./api-management-using-with-vnet.md#routing) or [internal VNet](./api-management-using-with-internal-vnet.md#routing).
 
-For more information, see: 
+Related information: 
 * [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
