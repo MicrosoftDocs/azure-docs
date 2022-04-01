@@ -146,7 +146,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 ## Create a network security group
 
-For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
+For a standard load balancer, the VMs in the backend pool are required to have network interfaces that belong to a network security group. 
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the network security group:
 

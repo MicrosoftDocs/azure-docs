@@ -31,8 +31,6 @@ Three Azure resources are defined in the Bicep file:
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates the subnet.
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): Deploys an instance of the Azure Database Migration Service.
 
-More Azure Database Migration Services templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
-
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
@@ -79,7 +77,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 

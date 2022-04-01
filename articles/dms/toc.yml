@@ -28,6 +28,8 @@
     href: migration-using-azure-data-studio.md
   - name: Get Azure recommendation for migration using Azure Data Studio
     href: ads-sku-recommend.md  
+  - name: Migrate databases at scale using automation
+    href: migration-dms-powershell-cli.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status

@@ -10,7 +10,7 @@ author: amibp
 ms.author: amipatel
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, cliv2
 ---
 
 # Train models with the CLI (v2) (preview)

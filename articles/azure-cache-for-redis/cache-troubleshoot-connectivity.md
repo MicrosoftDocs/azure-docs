@@ -6,8 +6,9 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual 
-ms.date: 12/31/2021
+ms.date: 03/22/2022
 ms.custom: template-concept
+
 ---
 
 # Connectivity troubleshooting
