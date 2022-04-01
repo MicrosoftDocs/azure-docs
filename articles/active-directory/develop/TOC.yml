@@ -114,20 +114,20 @@
               href: support-fido2-authentication.md
         - name: Customize tokens and claims
           items:
-            - name: Configure role claim
-              href: active-directory-enterprise-app-role-management.md
+            - name: Configure optional claims
+              href: active-directory-optional-claims.md
+            - name: Claims mapping policy type
+              href: reference-claims-mapping-policy-type.md
+            - name: Use directory schema extension attributes in claims
+              href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
             - name: Customize claims using PowerShell
               href: active-directory-claims-mapping.md
-            - name: Configure optional claims
-              href: active-directory-optional-claims.md
-            - name: Use directory schema extension attributes in claims
-              href: active-directory-schema-extensions.md
             - name: Configure token lifetimes
               href: configure-token-lifetimes.md
-            - name: Claims mapping policy type
-              href: reference-claims-mapping-policy-type.md
+            - name: Configure role claim
+              href: active-directory-enterprise-app-role-management.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -235,6 +235,8 @@
           href: ./howto-restore-app.md
 - name: Single-page app (SPA)
   items:
+    - name: SPA authentication documentation
+      href: index-spa.yml
     - name: Quickstart
       href: single-page-app-quickstart.md
     - name: Tutorials
@@ -309,6 +311,8 @@
                   href: msal-js-known-issues-ie-edge-browsers.md
 - name: Web app
   items:
+    - name: Web app authentication documentation
+      href: index-web-app.yml
     - name: Quickstart
       href: web-app-quickstart.md
     - name: Tutorials
@@ -354,6 +358,8 @@
               href: scenario-web-app-call-api-production.md
 - name: Web API
   items:
+    - name: Web API authentication documentation
+      href: index-web-api.yml
     - name: Quickstart
       href: web-api-quickstart.md
     - name: Samples
@@ -393,6 +399,8 @@
           href: msal-v1-app-scopes.md
 - name: Desktop
   items:
+    - name: Desktop app authentication documentation
+      href: index-desktop.yml
     - name: Quickstart
       href: desktop-app-quickstart.md
     - name: Tutorials
@@ -437,6 +445,8 @@
               href: scenario-desktop-production.md
 - name: Mobile
   items:
+    - name: Mobile app authentication documentation
+      href: index-mobile.yml
     - name: Quickstart
       href: mobile-app-quickstart.md
     - name: Tutorials
@@ -531,6 +541,8 @@
               href: migrate-android-adal-msal.md
 - name: Service, daemon, script
   items:
+    - name: Service/daemon authentication documentation
+      href: index-service.yml
     - name: Quickstart
       href: console-app-quickstart.md
     - name: Tutorials
