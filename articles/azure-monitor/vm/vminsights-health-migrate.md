@@ -1,19 +1,19 @@
 ---
 title: Migrate from VM insights guest health (preview) to Azure Monitor log alerts
-description: Describes how to migrate from VM insights guest health to Azure Monitor Log alerts.
+description: Describes how to migrate from VM insights guest health to Azure Monitor log alerts.
 ms.topic: conceptual
 ms.date: 03/01/2022
 
 ---
 
-# Migrate from VM guest health to Azure Monitor Log alerts
-This article walks through migrating from the VM guest health (preview) to Azure Monitor Log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on VM metrics (CPU utilization, Available memory, Free disk space), make sure to transition to Azure Monitor Log alerts before this date. 
+# Migrate from VM guest health to Azure Monitor log alerts
+This article walks through migrating from the VM guest health (preview) to Azure Monitor log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on VM metrics (CPU utilization, Available memory, Free disk space), make sure to transition to Azure Monitor log alerts before this date. 
 
 ## Configure Azure Monitor log alerts
 Before you remove VM guest health, you should create alert rules to replace its alerting functionality. See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md#log-alerts) for instructions on creating Azure Monitor log alerts. 
 
 > [!IMPORTANT]
-> Transitioning to Log alerts will result in charges according to Azure Monitor log alert rates. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
+> Transitioning to log alerts will result in charges according to Azure Monitor log alert rates. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
 
 
 Alert rules for the key metrics used by VM health include the following:
