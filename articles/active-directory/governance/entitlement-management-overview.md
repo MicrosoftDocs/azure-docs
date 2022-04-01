@@ -173,5 +173,4 @@ Here are some example license scenarios to help you determine the number of lice
 
 - If you are interested in using the Azure portal to manage access to resources, see [Tutorial: Manage access to resources - Azure portal](entitlement-management-access-package-first.md).
 - if you are interested in using Microsoft Graph to manage access to resources, see [Tutorial: manage access to resources - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
-- If you are interested in using Microsoft PowerShell to manage access to resources, see [Tutorial: manage access to resources - PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta)
 - [Common scenarios](entitlement-management-scenarios.md)
