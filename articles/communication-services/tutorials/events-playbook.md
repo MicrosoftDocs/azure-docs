@@ -46,3 +46,57 @@ For event attendees, they are presented with an experience that enables them to 
 For event hosts and organizers, they can join a virtual experience that enables them to present content, manage attendees (mute, change roles, etc.) and manage the event (start, end, etc.).
 
 - Teams Client (Web or Desktop): Presenters can join using the fully fledged Teams client for web or mobile. The Teams client provides presenters a full set of capabilities to deliver their content. Learn more about [presenter capabilities for Teams](https://support.microsoft.com/office/present-in-a-live-event-in-teams-d58fc9db-ff5b-4633-afb3-b4b2ddef6c0a). 
+
+## Leveraging Microsoft Graph to schedule events and register attendees
+
+Microsoft Graph enables event management platforms to empower organizers to schedule and manage their events directly through the event management platform. For attendees, event management platforms can build custom registration flows right on their platform that register the attendee for the event and generates unique credentials for them to join the Teams hosted event.
+
+>[!Note] For each required Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
+
+### Scheduling with Microsoft Graph
+
+1.	Authorize Graph APIs to act on their behalf:
+
+    a.	IT Admin runs a PowerShell script that authorizes scopes. [Need a link to existing documentation or it needs to be created.]
+
+    b.	Event Management Company publishes an App that the Microsoft Teams customer installs and runs. [Need link to an example.]
+
+>[!Note] Authorization is required by both developers for testing and organizers who will be using your event platform to set up their events.
+
+2.	Organizer logins to Contoso platform to create an event and generate a registration URL. To enable these capabilities developers should use:
+
+    a.	The [Create Calendar Event API](https://docs.microsoft.com/graph/api/user-post-events?view=graph-rest-1.0&tabs=http) to POST the new event to be created. The Event object returned will contain the join URL required for the next step.
+        i.	Need to set the following parameter: `isonlinemeeting: true` and `onlineMeetingProvider: "teamsForBusiness"`.
+        ii.	Set a time zone for the event, using the `Prefer` header
+
+    b.	Next, use the [Create Online Meeting API](https://docs.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-beta&tabs=http) to `GET` the online meeting information using the join URL generated from the step above. The `OnlineMeeting` object will contain the `meetingId` required for the registration steps.
+
+    c.	By using these APIs, developers are creating a calendar event to show up in the Organizer’s calendar and the Teams online meeting where attendees will join.
+
+>[!Note] Known issue with double calendar entries for organizers when using the Calendar and Online Meeting APIs.
+
+3.	To enable registration for an event, Contoso can use the [External Meeting Registration API](https://docs.microsoft.com/graph/api/resources/externalmeetingregistration?view=graph-rest-beta) to POST. The API requires Contoso to pass in the `meetingId` of the `OnlineMeeting` created above. Registration is optional. You can set options on who can register.
+
+### Register attendees with Microsoft Graph
+
+Event management platforms can use a custom registration flow to register attendees. This flow is powered by the [External Meeting Registrant API](https://docs.microsoft.com/graph/api/externalmeetingregistrant-post?view=graph-rest-beta&tabs=http). By using the API Contoso will receive a unique `Teams Join URL` for each attendee.  This URL will be used as part of the attendee experience either through Teams or Azure Communication Services to have the attendee join the meeting.
+
+## Leverage Azure Communication Services to build a custom attendee experience
+
+Attendee experience can be directly embedded into an application or platform using [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview) so that your attendees never need to leave your platform. It provides low-level calling and chat SDKs which support [interoperability with Teams Events](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), as well as a turn-key UI Library which can be leveraged to reduce development time and easily embed communications. Azure Communication Services enables developers to have flexibility with the type of solution they need. Review [limitations](https://docs.microsoft.com/azure/communication-services/concepts/join-teams-meeting#limitations-and-known-issues) of using Azure Communication Services for webinar scenarios.
+
+1.	To start, developers can leverage Microsoft Graph APIs to retrieve the join URL. This URL is provided uniquely per attendee during [registration](https://docs.microsoft.com/graph/api/externalmeetingregistrant-post?view=graph-rest-beta&tabs=http). Alternatively, it can be [requested for a given meeting](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http).
+
+2.	Before diving into using [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview), developers must [create a resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+
+3.	Once a resource is created, developers must [generate access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](https://docs.microsoft.com/azure/communication-services/concepts/client-and-server-architecture).
+
+4.	Developers can leverage [headless SDKs](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop) or [UI Library](aka.ms/acsstorybook) using the join link URL to join the Teams meeting through [Teams Interoperability](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop). Details below:
+
+|Headless SDKs                           | UI Library                            |
+|----------------------------------------|---------------------------------------|
+| Developers can leverage the [calling](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-interop?pivots=platform-javascript) and [chat](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/meeting-interop?pivots=platform-javascript) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-meeting-basicexample--basic-example) or pure [call](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example) composites to build their experience. Alternatively, developers can leverage [composable components](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-uicomponents--page) to build a custom Teams interop experience.|
+
+
+>[!Note] Azure Communication Services is a consumption-based service billed through Azure. For more information on pricing visit our resources.
+
