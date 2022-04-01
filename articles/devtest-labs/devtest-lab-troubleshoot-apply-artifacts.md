@@ -47,11 +47,11 @@ An artifact can appear to stop responding until a pre-defined timeout period exp
 1. On your lab **Overview** page, from the list under **My virtual machines**, select the VM that includes the artifact that you want to investigate.
 1. On the VM **Overview** page, select **Artifacts** in the left navigation. The **Artifacts** page lists artifacts associated with the VM, and their status.
 
-   ![Artifact status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure-new.png)
+   ![Screenshot showing the list of artifacts and their status.](./media/devtest-lab-troubleshoot-apply-artifacts/artifact-list.png)
 
 1. Select the artifact that shows a **Failed** status. The artifact opens with an extension message that includes details about the artifact failure.
 
-   ![Artifact error message](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+   ![Screenshot of the error message for a failed artifact.](./media/devtest-lab-troubleshoot-apply-artifacts/artifact-failure.png)
 
 ### Inspect the Activity logs
 
@@ -71,7 +71,7 @@ Depending on configuration, lab VMs might not have direct access to the artifact
 CSE Error: Failed to download all specified files. Exiting. Exception: Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (403) Forbidden. ---> System.Net.WebException: The remote server returned an error: (403) Forbidden.
 ```
 
-This error appears in the **Deployment Message** section in the **Artifact results** page under **Manage artifacts**. The error also appear in the **Activity log** of the VM's resource group.
+This error appears in the **Deployment Message** section in the **Artifact results** page under **Manage artifacts**. The error also appears in the **Activity log** of the VM's resource group.
 
 To troubleshoot connectivity issues to the Azure Storage account:
 
@@ -79,9 +79,9 @@ To troubleshoot connectivity issues to the Azure Storage account:
 
 - Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](/azure/virtual-network/diagnose-network-traffic-filter-problem).
 
-- Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number that is, a\<labname>#).
+- Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number, such as a\<labname>#.
 
-  1. Navigate to the lab’s resource group.
+  1. Navigate to the lab's resource group.
   1. Locate the resource of type **Storage account**, whose name matches the convention.
   1. On the storage account **Overview** page, select **Firewalls and virtual networks** in the left navigation.
   1. Ensure that **Firewalls and virtual networks** is set to **All networks**. Or, if the **Selected networks** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
@@ -113,7 +113,7 @@ When the VM first starts, or when the CSE first installs to serve the request to
 To verify if the artifact appeared to stop responding because of the VM Agent:
 
 1. Sign in to the VM.
-1. Using File Explorer, navigate to *C:\\WindowsAzure\\logs**.*
+1. Using File Explorer, navigate to *C:\\WindowsAzure\\logs*.
 1. Open the file *WaAppAgent.log*.
 1. Look for entries that show the VM Agent starting, finishing initialization, and the first sent heartbeat, around the time you experienced the artifact issue.
 
@@ -129,8 +129,7 @@ To verify if the artifact appeared to stop responding because of the VM Agent:
 
 In the previous example, the VM Agent took 10 minutes and 20 seconds to start. The cause was the OOBE service taking a long time to start.
 
-> [!TIP]
-> For general information about Azure extensions, see [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview).
+For general information about Azure extensions, see [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview).
 
 ### Investigate script issues
 
@@ -143,7 +142,7 @@ The artifact installation could fail because of the way the artifact installatio
 To troubleshoot whether the script is causing the artifact to appear to stop responding:
 
 1. Sign in to the VM where the artifact installation failed.
-1. Copy the script to the VM, or locate it on the VM under the artifact script download location, *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\<version>*.
+1. Copy the script to the VM, or locate it on the VM under the artifact script download location, *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\\<version>*.
 1. Using an administrative command prompt, run the script on the VM, providing the same parameter values that caused the issue.
 1. Determine if the script shows any unwanted behavior. If so, request an update or correct the script.
 
