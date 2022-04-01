@@ -15,7 +15,7 @@
   - name: Update options
     href: updates-maintenance-schedules.md
   - name: Query resources with Azure Resource Graph
-    href: query-logs-resource-graph.md 
+    href: query-logs.md 
   - name: Manage multiple machines
     href: manage-multiple-machines.md  
 - name: How-to guides
@@ -32,8 +32,6 @@
       href: deploy-updates.md
     - name: Set update schedules
       href: scheduled-patching.md
-    - name: Query update logs
-      href: query-logs.md 
     - name: Manage updates for Azure VMs using REST API
       href: manage-vms-programmatically.md
     - name: Manage updates for Arc-enabled servers using REST API
