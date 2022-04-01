@@ -4,7 +4,7 @@
 title: Microsoft identity platform documentation
 summary: >
   Use the Microsoft identity platform and our open-source authentication libraries to sign in users with Azure AD accounts, Microsoft accounts, and social accounts like Facebook and Google.
-  Protect your web APIs and access other protected APIs like Microsoft Graph to work with your users' and organization's data.
+  Protect your web APIs and access protected APIs like Microsoft Graph to work with your users' and organization's data.
 brand: azure
 
 metadata:
@@ -75,8 +75,8 @@ productDirectory:
           imageSrc: ./media/hub/app-type-mobile.svg
           summary: Applications with a UI whose code runs on a user's phone, tablet, or other mobile device.
         - title: Background service, daemon, or script
-          #url: index-service.yml
-          url: console-app-quickstart.md
+          url: index-service.yml
+          #url: console-app-quickstart.md
           imageSrc: ./media/hub/app-type-daemon-console.svg
           summary: An application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
