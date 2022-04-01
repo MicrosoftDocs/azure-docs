@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/27/2019
+ms.date: 03/10/2022
 ms.author: mathoma
 ---
 # What is SQL Server on Windows Azure Virtual Machines?
@@ -21,40 +21,59 @@ ms.author: mathoma
 > * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 
-[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) also simplify licensing costs when you pay as you go.
-
-Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
+This article provides an overview of SQL Server on Azure Virtual Machines (VMs) on the Windows platform. 
 
 If you're new to SQL Server on Azure VMs, check out the *SQL Server on Azure VM Overview* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
-## Automated updates
 
-SQL Server on Azure Virtual Machines can use [Automated Patching](automated-patching.md) to schedule a maintenance window for installing important Windows and SQL Server updates automatically.
+## Overview
 
-## Automated backups
+[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) also simplify licensing costs when you pay as you go.
 
-SQL Server on Azure Virtual Machines can take advantage of [Automated Backup](automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](azure-storage-sql-server-backup-restore-use.md).
+Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
 
-Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. A fully-managed backup solution, it supports Always On availability groups, long-term retention, point-in-time recovery, and central management and monitoring. For more information, see [Azure Backup for SQL Server in Azure VMs](../../../backup/backup-azure-sql-database.md).
-  
 
-## High availability
+## Feature benefits
 
-If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple instances of SQL Server on Azure Virtual Machines in a virtual network. You can configure your high-availability solution manually, or you can use templates in the Azure portal for automatic configuration. For an overview of all high-availability options, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md).
+When you register your SQL Server on Azure VM with the [SQL IaaS agent extension](sql-server-iaas-agent-extension-automate-management.md) you unlock a number of feature benefits. You can register your SQL Server VM in lightweight management mode, which unlocks a few of the benefits, or in full management mode, which unlocks all available benefits. Registering with the extension is completely free. 
 
-## Performance
+The following table details the benefits unlocked by the extension: 
 
-Azure virtual machines offer different machine sizes to meet various workload demands. SQL Server VMs also provide automated storage configuration, which is optimized for your performance requirements. For more information about configuring storage for SQL Server VMs, see [Storage configuration for SQL Server VMs](storage-configuration.md). To fine-tune performance, see the [Performance best practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
+[!INCLUDE [SQL VM feature benefits](../../includes/sql-vm-feature-benefits.md)]
 
-## Get started with SQL Server VMs
+
+## Getting started
+
+To get started with SQL Server on Azure VMs, review the following resources:
+
+- **Create SQL VM**: To create your SQL Server on Azure VM, review the Quickstarts using the [Azure portal](sql-vm-create-portal-quickstart.md), [Azure PowerShell](sql-vm-create-powershell-quickstart.md) or an [ARM template](create-sql-vm-resource-manager-template.md). For more thorough guidance, review the [Provisioning guide](create-sql-vm-portal.md). 
+- **Connect to SQL VM**: To connect to your SQL Server on Azure VMs, review the [ways to connect](ways-to-connect-to-sql.md). 
+- **Migrate data**: Migrate your data to SQL Server on Azure VMs from [SQL Server](../../migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md), [Oracle](../../migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md), or [Db2](../../migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md). 
+- **Storage configuration**: For information about configuring storage for your SQL Server on Azure VMs, review [Storage configuration](storage-configuration.md). 
+- **Performance**: Fine-tune the performance of your SQL Server on Azure VM by reviewing the [Performance best practices checklist](performance-guidelines-best-practices-checklist.md).
+- **Pricing**: For information about the pricing structure of your SQL Server on Azure VM, review the [Pricing guidance](pricing-guidance.md).
+- **Frequently asked questions**: For commonly asked questions, and scenarios, review the [FAQ](frequently-asked-questions-faq.yml).
+
+## High availability & disaster recovery
+
+On top of the built-in [high availability provided by Azure virtual machines](../../../virtual-machines/availability.md), you can also leverage the high availability and disaster recovery features provided by SQL Server. 
+
+To learn more, see the overview of [Always On availability groups](availability-group-overview.md), and [Always On failover cluster instances](failover-cluster-instance-overview.md). For more details, see the [business continuity overview](business-continuity-high-availability-disaster-recovery-hadr-overview.md). 
+
+To get started, see the tutorials for [availability groups](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) or [preparing your VM for a failover cluster instance](failover-cluster-instance-prepare-vm.md). 
+
+## Licensing
 
 To get started, choose a SQL Server virtual machine image with your required version, edition, and operating system. The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images.
+
+Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](./frequently-asked-questions-faq.yml).
 
 > [!TIP]
 > For more information about how to understand pricing for SQL Server images, see [Pricing guidance for SQL Server on Azure Virtual Machines](pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Pay as you go
+
 The following table provides a matrix of pay-as-you-go SQL Server images.
 
 | Version | Operating system | Edition |
@@ -69,9 +88,10 @@ The following table provides a matrix of pay-as-you-go SQL Server images.
 To see the available SQL Server on Linux virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Linux)](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 > [!NOTE]
-> It is now possible to change the licensing model of a pay-per-usage SQL Server VM to use your own license. For more information, see [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+> Change the licensing model of a pay-per-usage SQL Server VM to use your own license. For more information, see [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ### <a id="BYOL"></a> Bring your own license
+
 You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing.  Bringing your own license can save you money over time for continuous production workloads. For requirements to use this option, see [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md#byol).
 
 To bring your own license, you can either convert an existing pay-per-usage SQL Server VM, or you can deploy an image with the prefixed **{BYOL}**. For more information about switching your licensing model between pay-per-usage and BYOL, see [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
@@ -93,59 +113,20 @@ It is possible to deploy an older image of SQL Server that is not available in t
 For more information about deploying SQL Server VMs using PowerShell, view [How to provision SQL Server virtual machines with Azure PowerShell](create-sql-vm-powershell.md).
 
 
-### Connect to the VM
-After creating your SQL Server VM, connect to it from applications or tools, such as SQL Server Management Studio (SSMS). For instructions, see [Connect to a SQL Server virtual machine on Azure](ways-to-connect-to-sql.md).
-
-### Migrate your data
-If you have an existing database, you'll want to move that to the newly provisioned SQL Server VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](migrate-to-vm-from-sql-server.md).
-
-## Create and manage Azure SQL resources with the Azure portal
-
-The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) including your SQL virtual machines.
-
-To access the **Azure SQL resources** page, select **Azure SQL** in the Azure portal menu, or search for and select **Azure SQL** from any page.
-
-![Search for Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
-
-> [!NOTE]
-> Azure SQL provides a quick and easy way to access all of your Azure SQL databases, elastic pools, logical servers, managed instances, and virtual machines. Azure SQL is not a service or resource. 
-
-To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
-
-![Create Azure SQL resource](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
-
-After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
-
-![databases tile details](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
-
-For details, see:
-
-- [Create a single database](../../database/single-database-create-quickstart.md)
-- [Create an elastic pool](../../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
-- [Create a managed instance](../../managed-instance/instance-create-quickstart.md)
-- [Create a SQL Server virtual machine](sql-vm-create-portal-quickstart.md)
-
-## <a id="lifecycle"></a> SQL Server VM image refresh policy
-Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](./frequently-asked-questions-faq.yml).
 
 ## Customer experience improvement program (CEIP)
+
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](/sql/sql-server/sql-server-privacy).
 
 ## Related products and services
-### Windows virtual machines
-* [Azure Virtual Machines overview](../../../virtual-machines/windows/overview.md)
 
-### Storage
-* [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
+Since SQL Server on Azure VMs is integrated into the Azure platform, review resources from related products and services that interact with the SQL Server on Azure VM ecosystem: 
 
-### Networking
-* [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../../virtual-network/ip-services/public-ip-addresses.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
+- **Windows virtual machines**: [Azure Virtual Machines overview](../../../virtual-machines/windows/overview.md)
+- **Storage**: [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
+- **Networking**: [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md), [IP addresses in Azure](../../../virtual-network/ip-services/public-ip-addresses.md), [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
+- **SQL**: [SQL Server documentation](/sql/index), [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
-### SQL
-* [SQL Server documentation](/sql/index)
-* [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## Next steps
 

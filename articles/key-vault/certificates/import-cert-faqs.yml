@@ -8,10 +8,9 @@ metadata:
   
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 07/20/2020
   ms.author: sebansal
-    
 title: Importing Azure Key Vault certificates FAQ
 summary: This article answers frequently asked questions about importing Azure Key Vault certificates.
 
@@ -22,7 +21,7 @@ sections:
       - question: |
           How can I import a certificate in Azure Key Vault?
         answer: |
-          For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
+          For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md).
           
       - question: |
           After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?

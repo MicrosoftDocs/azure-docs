@@ -77,7 +77,7 @@ Service Bus enables clients to send and receive messages via one of three protoc
 AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements [batching](#batching-store-access) and [prefetching](#prefetching). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 > [!IMPORTANT]
-> The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
+> The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
 
 ## Choosing the appropriate Service Bus .NET SDK
 

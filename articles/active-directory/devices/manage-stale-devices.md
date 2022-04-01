@@ -153,7 +153,10 @@ Using the same commands we can pipe the output to the set command to disable the
 
 ```powershell
 $dt = (Get-Date).AddDays(-90)
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
+$Devices = Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt}
+foreach ($Device in $Devices) {
+Set-AzureADDevice -ObjectId $Device.ObjectId -AccountEnabled $false
+}
 ```
 
 ### Delete devices
@@ -167,8 +170,10 @@ Building on the [disable devices example](#disable-devices) we look for disabled
 
 ```powershell
 $dt = (Get-Date).AddDays(-120)
-$state = $false
-Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -le $state)} | Remove-AzureADDevice
+$Devices = Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -eq $false)}
+foreach ($Device in $Devices) {
+Remove-AzureADDevice -ObjectId $Device.ObjectId
+}
 ```
 
 ## What you should know

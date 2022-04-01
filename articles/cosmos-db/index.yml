@@ -51,7 +51,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Data modeling - improve your application's speed and performance
-            url: https://www.youtube.com/watch?v=wOWa8ecFo88
+            url: https://aka.ms/docs.modeling-data
 
   # Card
   - title: Use Azure Cosmos DB SQL API 

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/14/2022
 ms.author: ryanwi
-ms.reviewer: hirsin, phsignor
+ms.reviewer: ludwignick, phsignor
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 

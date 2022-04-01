@@ -39,7 +39,7 @@ ms.date: 02/02/2022
 |Compute size (service objective) ||Compute size (service objective) is the amount of CPU, memory, and storage resources available for a single database or elastic pool. Compute size also defines resource consumption limits, such as maximum IOPS, maximum log rate, etc.
 ||vCore-based sizing options| Configure the compute size for your database or elastic pool by selecting the appropriate service tier, compute tier, and hardware generation for your workload. When using an elastic pool, configure the reserved vCores for the pool, and optionally configure per-database settings. For sizing options and resource limits in the vCore-based purchasing model, see [vCore single databases](database/resource-limits-vcore-single-databases.md), and [vCore elastic pools](database/resource-limits-vcore-elastic-pools.md).|
 ||DTU-based sizing options| Configure the compute size for your database or elastic pool by selecting the appropriate service tier and selecting the maximum data size and number of DTUs. When using an elastic pool, configure the reserved eDTUs for the pool, and optionally configure per-database settings. For sizing options and resource limits in the DTU-based purchasing model, see [DTU single databases](database/resource-limits-dtu-single-databases.md) and [DTU elastic pools](database/resource-limits-dtu-elastic-pools.md).
-||||
+
 
 ## Azure SQL Managed Instance
 
@@ -56,7 +56,7 @@ ms.date: 02/02/2022
 |Compute|Provisioned compute| SQL Managed Instance provides a specific amount of [compute resources](managed-instance/service-tiers-managed-instance-vcore.md#compute)  that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour. |
 |Hardware generation|Available hardware configurations| SQL Managed Instance [hardware generations](managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations) include standard-series (Gen5), premium-series, and memory optimized premium-series hardware generations. |
 |Compute size | vCore-based sizing options | Compute size (service objective) is the maximum amount of CPU, memory, and storage resources available for a single managed instance or instance pool. Configure the compute size for your managed instance by selecting the appropriate service tier and hardware generation for your workload. Learn about [resource limits for managed instances](managed-instance/resource-limits.md). |
-||||
+
 
 ## SQL Server on Azure VMs
 |Context|Term|More information|
@@ -74,4 +74,3 @@ ms.date: 02/02/2022
 | SQL IaaS Agent extension | | The [SQL IaaS Agent extension](virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) (SqlIaasExtension) runs on SQL Server VMs to automate management and administration tasks. There's no extra cost associated with the extension. |
 | | Automated patching | [Automated Patching](virtual-machines/windows/automated-patching.md) establishes a maintenance window for a SQL Server VM when security updates will be automatically applied by the SQL IaaS Agent extension. Note that there may be other mechanisms for applying Automatic Updates. If you configure automated patching using the SQL IaaS Agent extension you should ensure that there are no other conflicting update schedules.  |
 | | Automated backup | [Automated Backup v2](virtual-machines/windows/automated-backup.md) automatically configures Managed Backup to Microsoft Azure for all existing and new databases on a SQL Server VM running SQL Server 2016 or later Standard, Enterprise, or Developer editions. |
-||||

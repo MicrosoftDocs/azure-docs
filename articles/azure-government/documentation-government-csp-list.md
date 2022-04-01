@@ -144,7 +144,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
-|[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
@@ -383,7 +382,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[South River Technologies](https://southrivertech.com)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
-|[Static Networks, LLC](https://staticnetworks.com)|
+|Static Networks, LLC|
 |[Steel Root](https://steelroot.us)|
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
@@ -472,6 +471,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
+|[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
 |[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|

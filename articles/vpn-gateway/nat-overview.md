@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 12/02/2021
+ms.date: 03/15/2022
 ms.author: cherylmc
 
 ---
@@ -33,6 +33,9 @@ NAT on a gateway device translates the source and/or destination IP addresses, b
 * **Static NAT**: Static rules define a fixed address mapping relationship. For a given IP address, it will be mapped to the same address from the target pool. The mappings for static rules are stateless because the mapping is fixed.
 
 * **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time.
+
+> [!NOTE]
+> When Dynamic NAT rules are used, traffic is unidirectional which means communication must be initiated from the site that is represented in the Internal Mapping field of the rule. If traffic is initiated from the External Mapping, the connection will not be established. If you require bidirectional traffic initiation, then use a static NAT rule to define a 1:1 mapping.
 
 Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
 
@@ -63,8 +66,8 @@ Once a NAT rule is defined for a connection, the effective address space for the
 * Advertised routes: Azure VPN gateway will advertise the External Mapping (post-NAT) prefixes of the EgressSNAT rules for the VNet address space, and the learned routes with post-NAT address prefixes from other connections.
 
 * BGP peer IP address consideration for a NAT'ed on-premises network:
-   * APIPA (169.254.0.1 to 169.254.255.254) address: No NAT rule is required; specify the APIPA address in the Local Network Gateway directly.
-   * Non-APIPA address: Specify the **translated** or **post-NAT** IP address on the Local Network Gateway. Use the **translated** or **post-NAT** Azure BGP IP address(es) to configure the on-premises VPN routers. Ensure the NAT rules are defined for the intended translation.
+   * APIPA (169.254.0.1 to 169.254.255.254) address: NAT is not supported with BGP APIPA addresses.
+   * Non-APIPA address: Exclude the BGP Peer IP addresses from the NAT range.
 
 > [!NOTE]
 > The learned routes on connections without IngressSNAT rules will not be converted. The VNet routes advertised to connections without EgressSNAT rules will also not be converted.
