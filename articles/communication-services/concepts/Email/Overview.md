@@ -12,14 +12,13 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
+# Email Overview
+
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-# Email Overview
-
-
-Azure Communication Services Email is a new primitive that facilitates high volume transactional, bulk and marketing emails on the Azure Communication Services platform and will enable Application-to-Person (A2P) use cases. Azure Communication Services Email is going to simplify the integration of email capabilities to your applications using production-ready email SDK options. Email enables rich collaboration in communication modalities combining with SMS and other communication channels to build collaborative application to help reach your customers in their preferred communication channel.
+Azure Communication Services Email is a new primitive that facilitates high volume transactional, bulk and marketing emails on the Azure Communication Services platform and will enable Application-to-Person (A2P) use cases. Azure Communication Services Email is going to simplify the integration of email capabilities to your applications using production-ready email SDK options. Email enables rich collaboration in communication modalities combining with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
 
 Azure Communication Services Email offers will improve your time-to-market with scalable, reliable email capabilities with your own SMTP domains. Like other communication modalities Email offering has the benefit of only paying for what you use.
 
@@ -42,10 +41,9 @@ Key features include:
 - **Custom Domain** - 	Customers will be able to send mail from the domain(notify.contoso.com) where mail from domain will also from the verified domain (notify.contoso.com).
 - **Sender Authentication Support** - 	Platform Enables support for SPF(Sender Policy Framework) and DKIM(Domain Keys Identified Mail) settings for both Azure managed and Custom Domains with ARC (Authenticated Received Chain) support which preserves the Email authentication result during transitioning.
 
-- **Email Spam Protection and Fraud Detection** - 
-	Platform performs email hygiene for all messages and offers comprehensive email protection leveraging Microsoft Defender components by enabling the existing transport rules for detecting Malwares, URL Blocking and Content Heuristic. 
+- **Email Spam Protection and Fraud Detection** - Platform performs email hygiene for all messages and offers comprehensive email protection leveraging Microsoft Defender components by enabling the existing transport rules for detecting Malwares, URL Blocking and Content Heuristic. 
 - **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements we will emit logs at the request level which will contain messageId and recipient information for diagnostic and auditing purposes. 
-- **Engagement Tracking** - 	Bounce, Blocked, Open and Click Tracking.
+- **Engagement Tracking** - Bounce, Blocked, Open and Click Tracking.
 
 
 ## Next steps
