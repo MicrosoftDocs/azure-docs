@@ -38,7 +38,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download and open the Unity sample project
+## Download sample project and import SDK
 
 ### Clone Samples Repository
 
@@ -48,7 +48,7 @@ To complete this quickstart, make sure you have:
 
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the iOS platform.
 
-### Configure Unity
+## Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

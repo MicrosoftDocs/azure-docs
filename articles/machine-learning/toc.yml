@@ -821,6 +821,8 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
+    - name: Machine learning CLI (v1) pipeline YAML reference
+      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

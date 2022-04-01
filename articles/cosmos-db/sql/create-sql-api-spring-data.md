@@ -22,6 +22,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
+> * [Go](create-sql-api-go.md)
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Spring Data Azure Cosmos DB v3 app cloned from GitHub. First, you create an Azure Cosmos DB SQL API account using the Azure portal, then create a Spring Boot app using the Spring Data Azure Cosmos DB v3 connector, and then add resources to your Cosmos DB account by using the Spring Boot application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 

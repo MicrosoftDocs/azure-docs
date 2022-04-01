@@ -18,9 +18,6 @@ This article shows you how to create and manage log alerts. Azure Monitor log al
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
-
-> [!NOTE]
-> [This page](alerts-unified-log.md) explains all of the concepts behind each setting used when setting up a log alert rule.
 ## Create a log alert rule in the Azure portal
 > [!NOTE]
 > This article describes creating alert rules using the new alert rule wizard. 

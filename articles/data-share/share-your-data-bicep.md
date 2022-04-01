@@ -36,23 +36,6 @@ The following resources are defined in the Bicep file:
 * [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
 * [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
-The Bicep file performs the following tasks:
-
-* Create a storage account and a container used as the Data share data source.
-* Create a Data share account and a Data share.
-* Create a role assignment to grant the Storage Blob Data Reader role to the source data share resource. See [Roles and requirements for Azure Data Share](./concepts-roles-permissions.md).
-* Add a dataset to the Date share.
-* Add recipients to the Data share.
-* Enable a snapshot schedule for the Data share.
-
-This Bicep file is created for learning purposes. In practice, you usually have some data in an existing storage account. You would need to create the role assignment before running a Bicep file or a script to create the dataset. Sometimes, you might get the following error message when you deploy the Bicep file:
-
-```plaintext
-"Missing permissions for DataShareAccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
-```
-
-It's because the deployment is trying to create the dataset before the Azure role assignment gets finalized. Despite the error message, the deployment could be successful. You would still be able to walk through [Review deployed resources](#review-deployed-resources).
-
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
@@ -99,7 +82,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete all of the resources in the resource group.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 
