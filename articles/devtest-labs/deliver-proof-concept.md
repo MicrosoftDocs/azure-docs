@@ -2,6 +2,8 @@
 title: Deliver a proof of concept
 description: Use a proof of concept or pilot deployment to investigate incorporating Azure DevTest Labs into an enterprise environment.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/22/2022
 ---
 
