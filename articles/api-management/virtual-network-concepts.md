@@ -5,8 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms
-.date: 03/31/2022
+ms.date: 03/31/2022
 ms.author: danlep
 ms.custom: 
 ---
@@ -20,7 +19,7 @@ API Management provides several options to secure access to your API Management 
 
 * **Enabling secure and private connectivity** to the API Management gateway using a *private endpoint* (preview).
 
-The following table compares these options. For more information, see later sections of this article and links to detailed guidance.
+The following table compares virtual networking options. For more information, see later sections of this article and links to detailed guidance.
 
 |Networking model  |Supported tiers  |Supported components  |Supported traffic  |Usage scenario |
 |---------|---------|---------|---------|----|
@@ -125,7 +124,7 @@ Some virtual network limitations differ depending on the version (`stv2` or `stv
 
 #### [stv1](#tab/stv1)
 
-* A subnet containing API Management instances can't be movacross subscriptions.
+* A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNet mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 * To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
 * Due to platform limitations, connectivity between a resource in a globally peered VNet in another region and an API Management service in internal mode won't work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
@@ -134,7 +133,7 @@ Some virtual network limitations differ depending on the version (`stv2` or `stv
 
 ## Private endpoint
 
-API Management also supports [private endpoints](../private-link/private-endpoint-overview.md). A private endpoint enables secure client connectivity to your API Management instance using a private IP address from your virtual network and Azure Private Link. 
+API Management supports [private endpoints](../private-link/private-endpoint-overview.md). A private endpoint enables secure client connectivity to your API Management instance using a private IP address from your virtual network and Azure Private Link. 
 
 :::image type="content" source="media/virtual-network-concepts/api-management-private-endpoint.png" alt-text="Secure connection to API Management using private endpoint":::
 
@@ -147,22 +146,21 @@ With a private endpoint and Private Link, you can:
 
 > [!IMPORTANT]
 > * API Management support for private endpoints is currently in preview.
-> * During the preview period, a private endpoint connection supports only incoming traffic to the API Management instance.
+> * During the preview period, a private endpoint connection supports only incoming traffic to the API Management managed gateway.
 
-[Learn more](private-endpoint.md) about using private endpoints with API Management.
+For more information, see [Connect privately to API Management using a private endpoint](private-endpoint.md).
 
 ## Advanced networking configurations
 
 ### Secure API Management endpoints with a web application firewall
 
-You may have scenarios where you need both secure external and internal access to your API Management instance and flexibility to reach private and on-premises backends. For these scenarios, you may choose to manage external access to the endpoints of an API Management instance with a web application firewall (WAF). 
+You may have scenarios where you need both secure external and internal access to your API Management instance, and flexibility to reach private and on-premises backends. For these scenarios, you may choose to manage external access to the endpoints of an API Management instance with a web application firewall (WAF). 
 
-One example is to deploy an API Management instance in an internal virtual network, and route public access to it using Azure Application Gateway:
+One example is to deploy an API Management instance in an internal virtual network, and route public access to it using an internet-facing Azure Application Gateway:
 
 :::image type="content" source="media/virtual-network-concepts/api-management-application-gateway.png" alt-text="Application Gateway in front of API Management instance":::
 
 For more information, see [Integrate API Management in an internal virtual network with Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md).
-
 
 
 ## Next steps
