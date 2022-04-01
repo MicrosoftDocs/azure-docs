@@ -72,13 +72,13 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 
-2. In the navigation pane, select **Azure Active Directory**.
+1. In the navigation pane, select **Azure Active Directory**.
 
-3. Select **External Identities** > **All identity providers**.
+1. Select **External Identities** > **All identity providers**.
 
-4. Select **Email one-time passcode** to open the configuration pane.
+1. Select **Email one-time passcode** to open the configuration pane.
 
-5. Under **Email one-time passcode for guests**, select one of the following:
+1. Under **Email one-time passcode for guests**, select one of the following:
 
    - **Automatically enable email one-time passcode for guests starting \<date\>** if you don't want to enable the feature immediately and want to wait for the automatic enablement date.
    - **Enable email one-time passcode for guests effective now** to enable the feature now.
@@ -86,7 +86,7 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
 
    ![Email one-time passcode toggle enabled](media/one-time-passcode/enable-email-otp-options.png)
 
-5. Select **Save**.
+1. Select **Save**.
 
 ## Disable email one-time passcode
 
@@ -100,11 +100,11 @@ We've begun rolling out a change to turn on the email one-time passcode feature 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 
-2. In the navigation pane, select **Azure Active Directory**.
+1. In the navigation pane, select **Azure Active Directory**.
 
-3. Select **External Identities** > **All identity providers**.
+1. Select **External Identities** > **All identity providers**.
 
-4. Select **Email one-time passcode**, and then under **Email one-time passcode for guests**, select **Disable email one-time passcode for guests** (or **No** if the feature was previously enabled, disabled, or opted into during preview).
+1. Select **Email one-time passcode**, and then under **Email one-time passcode for guests**, select **Disable email one-time passcode for guests** (or **No** if the feature was previously enabled, disabled, or opted into during preview).
 
    ![Email one-time passcode toggle disabled](media/one-time-passcode/disable-email-otp-options.png)
 
@@ -112,7 +112,7 @@ We've begun rolling out a change to turn on the email one-time passcode feature 
    > Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
    > If you see a toggle instead of the email one-time passcode options, this means you've previously enabled, disabled, or opted into the preview of the feature. Select **No** to disable the feature.
 
-5. Select **Save**.
+1. Select **Save**.
 
 ## Note for public preview customers
 
