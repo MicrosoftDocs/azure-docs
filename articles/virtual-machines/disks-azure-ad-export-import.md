@@ -4,7 +4,7 @@ description: Learn how to use Azure AD to securely import/export a disk.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 04/01/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -12,7 +12,6 @@ ms.subservice: disks
 # Use Azure AD to securely import/export a managed disk (preview)
 
 You can use Azure Active Directory (Azure AD) integration to control export and import of data to Azure managed disks. You do this with the **DataAccessAuthMode** property of disks called DataAccessAuthMode to AzureActiveDirectory to ensure the system validates the identity of users in Azure AD and that the user has the necessary permissions to export or import data from a disk. Moreover, a system administrator can set a policy at the Azure account or subscription level to enforce that DataAccessAuthMode is set to AzureActiveDirectory for disks and snapshots. 
-
 
 ## Pre-requisites
 
@@ -23,9 +22,9 @@ You can use Azure Active Directory (Azure AD) integration to control export and 
 ## Restrictions
 
 - You can't upload a VHD to an empty snapshot, only empty disks.
-- 
+- Only currently available in xyz regions.
 
-## Export a disk
+## Get started
 
 First, make sure the disk you're importing to or exporting from has its dataAccessAuthMode set to AzureActiveDirectory.
 
@@ -57,7 +56,7 @@ $role.AssignableScopes = '/subscriptions/'+$subscriptionId
 New-AzRoleDefinition -Role $role 
 ```
 
-Then, assign RBAC permissions.
+After that, assign RBAC permissions, to allow the role to access your disk.
 
 ```azurepowershell
 $myDisk=Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroup
@@ -67,9 +66,7 @@ New-AzRoleAssignment -SignInName <email address of the user> `
 -Scope $myDisk.Id
 ```
 
-Generate SAS
-
-Download VHD.
+To download the underlying VHD of your disk, generate the disk's SAS URI and then authenticate yourself using Azure AD.
 
 ```azurepowershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName $resourceGroup -DiskName
@@ -82,6 +79,6 @@ $localFolder = "desiredFilePath"
 $blob = Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $localFolder -Force
 ```
 
-## Import a disk
+## Next steps
 
-
+[Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md)
