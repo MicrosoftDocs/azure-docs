@@ -2,6 +2,8 @@
 title: Set up an app for testing on a lab VM
 description: Learn how to publish an app to an Azure file share for testing from a DevTest Labs virtual machine.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/29/2022
 ---
 

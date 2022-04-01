@@ -83,7 +83,7 @@ If you've [published a module to a registry](bicep-cli.md#publish), you can link
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br** is the schema name for a Bicep registry.
+- **br** is the scheme name for a Bicep registry.
 - **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
@@ -99,7 +99,7 @@ The full path for a module in a registry can be long. Instead of providing the f
 
 ### File in template spec
 
-After creating a [template spec](../templates/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
+After creating a [template spec](../bicep/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
 
 ```bicep
 module <symbolic-name> 'ts:<sub-id>/<rg-name>/<template-spec-name>:<version>' = {

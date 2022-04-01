@@ -31,7 +31,7 @@ Main changes:
 - Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved `log4j` version 2.0 jars.
 - Azure CLI to version 2.33.1
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
   - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
