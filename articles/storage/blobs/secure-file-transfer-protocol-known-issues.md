@@ -74,8 +74,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
-  
-  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
