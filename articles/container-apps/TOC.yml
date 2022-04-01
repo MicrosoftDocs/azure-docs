@@ -26,6 +26,8 @@
           href: get-started-existing-container-image-portal.md
         - name: Azure CLI
           href: get-started-existing-container-image.md
+        - name: Deploy using Visual Studio
+          href: deploy-visual-studio.md
 - name: Concepts
   items:
     - name: Environment
@@ -42,8 +44,6 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Deploy using Visual Studio
-      href: deploy-visual-studio.md
     - name: Manage secrets
       href: manage-secrets.md
     - name: Monitor an app
