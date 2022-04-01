@@ -9,8 +9,7 @@ ms.date: 04/01/2022
 
 Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, create a [template spec](../templates/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions. To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
-
+To share modules with other people in your organization, create a [template spec](../templates/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
 >
@@ -79,11 +78,13 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 #### Public module registry
 
-The public module registry are store in [GitHub](https://github.com/azure/bicep-registry-modules). The README file lists the available modules and their latest versions:
+The public module registry are hosted by Microsoft Container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The README file in the GitHub repo lists the available modules and their latest versions:
 
 ![Bicep public module registry modules](./media/modules/bicep-public-module-registry-modules.png)
 
-Select the version to see the available versions. You can also select **Code** to see the main.bicep file, and open the Readme file.
+Select the versions to see the available versions. You can also select **Code** to see the main.bicep file, and open the Readme file.
+
+There are only a few published modules. More are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
 To link to a public registry module, specify the module path with the following syntax:
 
@@ -92,7 +93,7 @@ module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {
 ```
 
 - **br** is the scheme name for a Bicep registry.
-- **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
+- **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
 For example:
