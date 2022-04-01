@@ -19,6 +19,8 @@ Container Apps support the following probes:
 - [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness or readiness state for slower apps with a startup probe.
 - [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
 
+For a full listing of the specification supported in Azure Container Apps, refer to [Azure Rest API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
+
 ## HTTP probes
 
 HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside this range indicates a failure.
