@@ -78,7 +78,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 #### Public module registry
 
-The public module registry are hosted by Microsoft Container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The README file in the GitHub repo lists the available modules and their latest versions:
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The README file in the GitHub repo lists the available modules and their latest versions:
 
 ![Bicep public module registry modules](./media/modules/bicep-public-module-registry-modules.png)
 
