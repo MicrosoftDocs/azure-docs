@@ -400,7 +400,7 @@ Following is a sample JSON string with post-write metrics:
    }
    ```
 
-### Read Scenario
+### Read from Azure Synapse Dedicated SQL Pool
 
 #### Read Request - `synapsesql` Method Signature
 
