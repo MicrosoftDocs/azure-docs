@@ -21,7 +21,7 @@ An indexer makes outbound calls in three situations:
 
 - Connecting to external data sources during indexing
 - Connecting to external, encapsulated code through a skillset
-- Connecting to Azure Storage during indexing to cache enrichments, save debug session state, and write to a knowledge store
+- Connecting to Azure Storage during skillset execution to cache enrichments, save debug session state, or write to a knowledge store
 
 A list of all possible resource types that an indexer might access in a typical run are listed in the table below.
 
@@ -33,7 +33,7 @@ A list of all possible resource types that an indexer might access in a typical 
 | Azure SQL Database | Data source |
 | SQL Server on Azure virtual machines | Data source |
 | SQL Managed Instance | Data source |
-| Azure Functions | Attached to a skillset and used to host for custom web api skills |
+| Azure Functions | Attached to a skillset and used to host for custom web API skills |
 
 > [!NOTE]
 > An indexer also connects to Cognitive Services for built-in skills. However, that connection is made over the internal network and isn't subject to any network provisions under your control.
@@ -60,7 +60,7 @@ A search service stores indexes and synonym lists. For other features that requi
 
 In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure Cognitive Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
 
-There are two options for supporting data access in a same-region scenario:
+There are two options for supporting data access using the system identity:
 
 - Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md) and use the [trusted service exception](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) in Azure Storage.
 
