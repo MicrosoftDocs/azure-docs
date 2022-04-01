@@ -34,7 +34,7 @@ To verify the Microsoft Azure Virtual Machine Agent (VM Agent) is running, has t
 To review the logs related to all actions performed by the extension, check for more details in `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following two log files of interest:
 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
-* `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This logs contains details about the wrapper. For AutoPatching, the log has details on whether the specific patch operation was invoked.
+* `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For AutoPatching, the log has details on whether the specific patch operation was invoked.
 
 ### Arc-enabled servers
 
@@ -43,7 +43,7 @@ For Arc-enabled servers, review the [troubleshoot VM extensions](/azure-arc/serv
 To review the logs related to all actions performed by the extension, on Windows check for more details in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
-* `cmd_execution_<numeric>_stdout.txt`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This logs contains details about the wrapper. For AutoPatching, the log has details on whether the specific patch operation was invoked.
+* `cmd_execution_<numeric>_stdout.txt`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For AutoPatching, the log has details on whether the specific patch operation was invoked.
 * `cmd_excution_<numeric>_stderr.txt`: 
 
 ## Known issues
@@ -61,7 +61,7 @@ When you view an update deployment in **Update History**, the property **Failed 
 #### Cause
 
 During an update deployment, it checks for maintenance window utilization at multiple steps. Ten mins of the maintenance window is reserved for reboot at any point. Before getting a list of missing updates or downloading/installing any update (except Windows service pack updates), it checks to verify if there is 15 minutes + 10 minutes for reboot (that is, 25 mins left in maintenance window). 
-For  Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficent left, then it skips the scan/download/install of updates. The deployment run then checks if a reboot is needed and there is ten minutes left in the maintenance window. If there is, the deployment triggers a reboot, otherwise the reboot is skipped. In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to ***true**. For cases where time left is less than 25 minutes, updates are not scanned or attempted for installation. 
+For  Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficient left, then it skips the scan/download/install of updates. The deployment run then checks if a reboot is needed and there is ten minutes left in the maintenance window. If there is, the deployment triggers a reboot, otherwise the reboot is skipped. In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to ***true**. For cases where time left is less than 25 minutes, updates are not scanned or attempted for installation. 
 
 More details can be found by reviewing the logs in the file path provided in the error message of the deployment run.
 
