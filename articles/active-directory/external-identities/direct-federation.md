@@ -189,7 +189,7 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 
     ![Screenshot showing parse button on the SAML or WS-Fed IdP page](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
-5. Enter your partner organization’s domain name, which will be the target domain name for federation
+5. Enter your partner organization’s domain name, which will be the target domain name for federation. Currently, one domain name is supported, but we're working on allowing more.
 6. You can upload a metadata file to populate metadata details. If you choose to input metadata manually, enter the following information:
    - Domain name of partner IdP
    - Entity ID of partner IdP
