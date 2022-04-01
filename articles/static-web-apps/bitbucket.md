@@ -203,17 +203,15 @@ Now that the repository is created, you can create a static web app from the Azu
 
     ---
 
-### Properties reference
+    The following configuration properties are used in the configuration file for your static web app.
 
-The following configuration properties are used in the configuration file for your static web app.
+    The `$BITBUCKET_CLONE_DIR` variable maps to the repository's root folder location during the build process.
 
-The `$BITBUCKET_CLONE_DIR` variable maps to the repository's root folder location during the build process.
-
-| Property | Description | Example | Required |
-|--|--|--|--|
-| app_location | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
-| api_location | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
-| output_location | Location of the build output directory relative to the app_location. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the output_location value. | No |
+    | Property | Description | Example | Required |
+    |--|--|--|--|
+    | app_location | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
+    | api_location | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
+    | output_location | Location of the build output directory relative to the app_location. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the output_location value. | No |
 
 ### Add deployment token
 
