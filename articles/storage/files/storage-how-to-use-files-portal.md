@@ -138,11 +138,11 @@ To create an Azure file share:
 	
     ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-1. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
-1. In **Name** type *myshare*, enter a quota, and leave **Transaction optimized** selected for **Tiers**.
+1. On the menu at the top of the **File service** page, click **+ File share**. The **New file share** page drops down.
+1. In **Name** type *myshare*. Leave **Transaction optimized** selected for **Tier**.
 1. Select **Create** to create the Azure file share.
 
-Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names must be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -182,7 +182,7 @@ az storage share-rm create \
 
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
-1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
+1. On the **File share settings** page, select the **myshare** file share. The page for your file share opens, indicating *no files found*.
 1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
 1. Type *myDirectory* and then click **OK**.
 
@@ -217,7 +217,7 @@ az storage directory create \
 # [Portal](#tab/azure-portal)
 
 
-To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
+To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've decided on the file you would like to upload:
 
 1. Select the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
@@ -295,7 +295,7 @@ az storage file list \
 #### Download a file
 # [Portal](#tab/azure-portal)
 
-You can download a copy of the file you uploaded by right-clicking on the file. After selecting the download button, the exact experience will depend on the operating system and browser you're using.
+You can download a copy of the file you uploaded by right-clicking on the file and selecting **Download**. The exact experience will depend on the operating system and browser you're using.
 
 
 # [PowerShell](#tab/azure-powershell)
