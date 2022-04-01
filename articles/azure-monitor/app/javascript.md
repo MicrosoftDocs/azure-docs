@@ -17,9 +17,6 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ## Adding the JavaScript SDK
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=js) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
 1. First you need an Application Insights resource. If you don't already have a resource and connection string, follow the [create a new resource instructions](create-new-resource.md).
 2. Copy the [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1.) You'll add it to the `connectionString` setting of the Application Insights JavaScript SDK.
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
