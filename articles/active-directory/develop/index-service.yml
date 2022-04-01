@@ -24,11 +24,11 @@ landingContent:
           - text: .NET Core
             url: console-app-quickstart.md?pivots=devlang-dotnet-core
           - text: Java
-            url: console-app-quickstart.md?pivots=devlang-dotnet-java
+            url: console-app-quickstart.md?pivots=devlang-java
           - text: Node.js
-            url: console-app-quickstart.md?pivots=devlang-dotnet-nodejs
+            url: console-app-quickstart.md?pivots=devlang-nodejs
           - text: Python
-            url: console-app-quickstart.md?pivots=devlang-dotnet-python
+            url: console-app-quickstart.md?pivots=devlang-python
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial
