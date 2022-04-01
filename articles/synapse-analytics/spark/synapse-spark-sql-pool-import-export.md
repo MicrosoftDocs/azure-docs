@@ -75,43 +75,43 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Azure Active Directory based Authentication
+#### Authentication using Azure Active Directory Credentials
 
 Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
 
-#### SQL Basic Authentication
+#### Authentication using username and password
 
-The basic authentication credentials include `username` and `password`. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and do not apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
+A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and do not apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
 
 Following code sample describes how to pass credentials to connect and read data from the source:
 
  ```Scala
-       //Specify options that Spark runtime must support when interfacing and consuming source data
-       val storageAccountName="<storageAccountName>"
-       val storageContainerName="<storageContainerName>"
-       val subscriptionId="<AzureSubscriptionID>"
-       val spnClientId="<ServicePrincipalClientID>"
-       val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
-       val dfReadOptions:Map[String, String]=Map("header"->"true",
-                                        "delimiter"->",", 
-                                        "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
-                                        s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
-                                        s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
-                                            "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-                                        "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
-                                        "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
-                                        "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
-                                        "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
-                                        "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
-        //Initialize the Storage Path string, where source data is maintained/kept.
-        val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
-        //Define data frame to interface with the data source
-        val df:DataFrame = spark.
-                    read.
-                    options(dfReadOptions).
-                    csv(pathToInputSource).
-                    limit(100)
-       ```
+//Specify options that Spark runtime must support when interfacing and consuming source data
+val storageAccountName="<storageAccountName>"
+val storageContainerName="<storageContainerName>"
+val subscriptionId="<AzureSubscriptionID>"
+val spnClientId="<ServicePrincipalClientID>"
+val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
+val dfReadOptions:Map[String, String]=Map("header"->"true",
+                                "delimiter"->",", 
+                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
+                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
+                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
+                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
+                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
+                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
+                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
+                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
+//Initialize the Storage Path string, where source data is maintained/kept.
+val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
+//Define data frame to interface with the data source
+val df:DataFrame = spark.
+            read.
+            options(dfReadOptions).
+            csv(pathToInputSource).
+            limit(100)
+```
 
 Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters to write to the target tables.
   
@@ -228,8 +228,6 @@ synapsesql(tableName:String,
            location:Option[String] = None,
            callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
-
-## Code Templates
 
 ### Write using AAD based Authentication
 
@@ -475,25 +473,25 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 
 * Cell where data is fetched (say with Notebook language preference as `Scala`)
 
-    ```Scala
-        //Necessary implicits
-        import org.apache.spark.sql.DataFrame
-        import org.apache.spark.sql.SaveMode
-        import com.microsoft.spark.sqlanalytics.utils.Constants
-        import org.apache.spark.sql.SqlAnalyticsConnector._
-        
-        //Append to an existing Synapse Dedicated SQL Pool table
-        val readDF = spark.read.
-            option(Constants.SERVER, "<synapse-dedicated-sql-end-point>.sql.azuresynapse.net").
-            option(Constants.USER, "<username-as-defined-in-database>").
-            option(Constants.PASSWORD, "<password-as-defined-in-database>").
-            option(Constants.DATA_SOURCE,"<data_source_name-as-defined-in-database-with-appropriate-database-scoped-credentials>").
-            synapsesql("<database_name>.<schema_name>.<table_name>").
-            //For the sample reference, will fetch 10 records from the table
-            limit(10)
-        //Register the temporary view (scope - current active Spark Session)
-        readDF.createOrReplaceTempView("<temporary_view_name>")
-    ```
+```Scala
+    //Necessary implicits
+    import org.apache.spark.sql.DataFrame
+    import org.apache.spark.sql.SaveMode
+    import com.microsoft.spark.sqlanalytics.utils.Constants
+    import org.apache.spark.sql.SqlAnalyticsConnector._
+    
+    //Append to an existing Synapse Dedicated SQL Pool table
+    val readDF = spark.read.
+        option(Constants.SERVER, "<synapse-dedicated-sql-end-point>.sql.azuresynapse.net").
+        option(Constants.USER, "<username-as-defined-in-database>").
+        option(Constants.PASSWORD, "<password-as-defined-in-database>").
+        option(Constants.DATA_SOURCE,"<data_source_name-as-defined-in-database-with-appropriate-database-scoped-credentials>").
+        synapsesql("<database_name>.<schema_name>.<table_name>").
+        //For the sample reference, will fetch 10 records from the table
+        limit(10)
+    //Register the temporary view (scope - current active Spark Session)
+    readDF.createOrReplaceTempView("<temporary_view_name>")
+```
 
 * Now, change the language preference on the Notebook to `PySpark (Python)` and fetch data from the registered view `<temporary_view_name>`
 
