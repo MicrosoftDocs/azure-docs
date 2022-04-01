@@ -106,6 +106,48 @@ Example:
 az sql mi-arc upgrade --name sql01 --desired-version v1.2.0_2021-12-15
 ```
 
+## Disable Maintenance Window
+
+When the maintenance window is disabled, automatic upgrades will not run. 
+
+```cli
+az arcdata dc update --maintenance-enabled false --k8s-namespace <namespace> --use-k8s
+```
+
+Example:
+
+```cli
+az arcdata dc update --maintenance-enabled false --k8s-namespace arc --use-k8s
+```
+
+## Enable Maintenance Window
+
+When the maintenance window is enabled, automatic upgrades will resume. 
+
+```cli
+az arcdata dc update --maintenance-enabled true --k8s-namespace <namespace> --use-k8s
+```
+
+Example:
+
+```cli
+az arcdata dc update --maintenance-enabled true --k8s-namespace arc --use-k8s
+```
+
+## Change Maintenance Window Start Time 
+
+The update command can be used to change the maintenance start time.
+
+```cli
+az arcdata dc update --maintenance-start <date and time> --k8s-namespace arc --use-k8s
+```
+
+Example:
+
+```cli
+az arcdata dc update --maintenance-start "2022-04-15T23:00" --k8s-namespace arc --use-k8s
+```
+
 ## Next steps
 
 [Enable automatic upgrades of a SQL Managed Instance](upgrade-sql-managed-instance-auto.md)
