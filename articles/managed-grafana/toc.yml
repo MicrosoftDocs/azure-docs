@@ -20,6 +20,8 @@ items:
     href: how-to-share-grafana-workspace.md
   - name: Call APIs in your automation
     href: how-to-api-calls.md
+  - name: Monitor your Managed Grafana workspace
+    href: how-to-monitor-managed-grafana-workspace.md
 - name: Reference
   items:
   - name: Grafana Application UI
