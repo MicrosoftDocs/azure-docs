@@ -33,8 +33,9 @@ The following steps show how to deploy a new Data Share account using a Resource
 1. Select **All resources** and then select your Data Share account
 1. Select **Automation** > **Export template**
 1. Choose **Deploy** in the **Export template** blade.
-1. Click **Edit parameters** to open the **parameters.json** file in the online editor.
+1. Select **Edit parameters** to open the **parameters.json** file in the online editor.
 1. To edit the parameter of the Data Share account name, change the property under **parameters** > **value** from the source Data Share Account's name to the name of the Data Share Account you want to create in a new region, ensure the name is in quotes:
+
     ```json
             {
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -47,9 +48,9 @@ The following steps show how to deploy a new Data Share account using a Resource
             }
     ```
 
-1.  Click **Save** in the editor.
+1.  Select **Save** in the editor.
 
-1.  Click **Edit template** to open the **template.json** file in the online editor.
+1.  Select **Edit template** to open the **template.json** file in the online editor.
 
 1. To edit the target region where the Data Share account will be moved, change the **location** property under **resources** in the online editor:
 
@@ -111,7 +112,8 @@ The following steps show how to deploy a new Data Share account using a Resource
     
     * If you are also moving the resources contained in the datasets to a new region, you will have to remove the datasets from the **template.json** file and manually re-add them once the Data Share account and resources referenced in the datasets are moved to the new region.
     
-    * **Important:**  Datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
+    >[!IMPORTANT]
+    >* Datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
   
         ```json
               "resources": [
