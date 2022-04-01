@@ -103,24 +103,29 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 
 :::image type="content" source="media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
 
-1. Select your _Azure subscription_.
-1. Next to _Resource Group_, select the **Create new** link.
-1. Enter **static-web-apps-test** in the textbox.
-1. Under to _Static Web App details_, enter **my-first-static-web-app** in the textbox.
-1. Under _Azure Functions and staging details_, select a region closest to you.
-1. Under _Deployment details_, select **GitHub**.
-1. Select the **Sign-in with GitHub** button and authenticate with GitHub.
+| Setting | Value |
+|--|--|
+| Subscription | Select your Azure subscription. |
+| Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
+| Name | Enter **my-first-static-web-app** in the textbox. |
+| Plan type | Select **Free**. |
+| Azure Functions and staging details | Select a region closest to you. |
+| Source | Select **GitHub**. |
+
+Select the **Sign-in with GitHub** button and authenticate with GitHub.
 
 After you sign in with GitHub, enter the repository information.
 
+| Setting | Value |
+|--|--|
+| Organization | Select your organization. |
+| Repository| Select **my-first-web-static-app**. |
+| Branch | Select **main**. |
+
 :::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
 
-1. Select your preferred _Organization_ name.
-1. Select **my-first-web-static-app** from the _Repository_ drop-down.
-1. Select **main** from the _Branch_ drop-down.
-
-   > [!NOTE]
-   > If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+> [!NOTE]
+> If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
 ::: zone-end
 
@@ -128,16 +133,18 @@ After you sign in with GitHub, enter the repository information.
 
 In the _Basics_ section, begin by configuring your new app and linking it to an Azure DevOps repository.
 
-1. Select your _Azure subscription_.
-1. Next to _Resource Group_, select the **Create new** link.
-1. Enter **static-web-apps-test** in the textbox.
-1. Under to _Static Web App details_, enter **my-first-static-web-app** in the textbox.
-1. Under _Azure Functions and staging details_, select a region closest to you.
-1. Under _Deployment details_, select **DevOps**.
-1. From the *Organization* drop down, select your organization name.
-1. From the *Project* drop down, select your project.
-1. From the *Repository* drop down, select **my-first-web-static-app**.
-1. From the *Branch* drop down, select **main**.
+| Setting | Value |
+|--|--|
+| Subscription | Select your Azure subscription. |
+| Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
+| Name | Enter **my-first-static-web-app** in the textbox. |
+| Plan type | Select **Free**. |
+| Azure Functions and staging details | Select a region closest to you. |
+| Source | Select **DevOps**. |
+| Organization | Select your organization. |
+| Project | Select your project. |
+| Repository| Select **my-first-web-static-app**. |
+| Branch | Select **main**. |
 
 ::: zone-end
 
@@ -186,8 +193,8 @@ Select **Review + create**.
 
 ::: zone pivot="github"
 
-    > [!NOTE]
-    > You can edit the [workflow file](build-configuration.md) to change these values after you create the app.
+> [!NOTE]
+> You can edit the [workflow file](build-configuration.md) to change these values after you create the app.
 
 ::: zone-end
 
