@@ -267,7 +267,7 @@ POST /cognitiveservices/v1 HTTP/1.1
 X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
-Content-Length: <Length><sup>*</sup> 
+Content-Length: <Length>
 Authorization: Bearer [Base64 access_token]
 User-Agent: <Your application name>
 
