@@ -7,7 +7,7 @@ author: anikaz
 manager: johndeu
 ms.topic: article
 ms.subservice: azu-video-analyzer-media
-ms.date: 05331/2022
+ms.date: 05/31/2022
 ms.author: kumud
 ---
 
