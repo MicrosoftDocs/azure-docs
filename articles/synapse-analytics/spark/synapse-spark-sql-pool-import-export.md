@@ -75,11 +75,11 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Authentication using Azure Active Directory Credentials
+#### Azure Active Directory based Authentication
 
 Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
 
-#### Authentication using username and password
+#### Basic Authentication
 
 A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and do not apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
 
@@ -166,24 +166,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
-## Processing the Response
 
-Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
-
-### Read Request Response
-
-Upon completion, in either case of a success or a failure the result is rendered below the respective cell. Detailed information can be obtained from the application logs.
-
-### Write Request Response
-
-The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
-
-Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
-
-* Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
-* Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
-  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](#write-request-callback-handle).
-* Recommend to review and leverage the [Write to Azure Synapse Dedicated SQL Pool - Code Template](#write-to-azure-synapse-dedicated-sql-pool) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
 
 ## Connector API Documentation
 
@@ -498,6 +481,25 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
     ```Python
         spark.sql("select * from <temporary_view_name>").show()
     ```
+
+## Processing the Response
+
+Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
+
+### Read Request Response
+
+Upon completion, in either case of a success or a failure the result is rendered below the respective cell. Detailed information can be obtained from the application logs.
+
+### Write Request Response
+
+The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
+
+Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
+
+* Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
+* Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
+  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](#write-request-callback-handle).
+* Recommend to review and leverage the [Write to Azure Synapse Dedicated SQL Pool - Code Template](#write-to-azure-synapse-dedicated-sql-pool) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
 
 ## Things to Note
 
