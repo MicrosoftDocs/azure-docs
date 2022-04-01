@@ -19,11 +19,11 @@ Update management center (Preview) relies on the [Windows Update client](/window
 
 Update management center (Preview) respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update management center (Preview) will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
-For additional recommendations on setting up WSUS in your Azure subscription and securely keep your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
+For additional recommendations on setting up WSUS in your Azure subscription and to secure your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, update management center (preview) remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in update management center (preview).
+To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, update management center (Preview) remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in update management center (preview).
 
 You can enable this setting in PowerShell:
 
@@ -52,9 +52,9 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## Make WSUS configuration settings
 
-Update management center (preview) supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
+Update management center (Preview) supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
 
-To restrict machines to the internal update service, set [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
+To restrict machines to the internal update service, see [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
 
 ## Next steps
 
