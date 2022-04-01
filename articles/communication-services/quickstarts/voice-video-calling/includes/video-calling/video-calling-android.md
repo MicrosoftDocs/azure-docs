@@ -554,7 +554,7 @@ public void switchSource() {
 
 ## Accept an incoming call
 
-The incoming call can be obtained by subscribe to the `addOnIncomingCallListener` on `callAgent`. 
+You can obtain an incoming call by subscribing to `addOnIncomingCallListener` on `callAgent`. 
 
 ```java
 private void handleIncomingCall() {
@@ -565,7 +565,8 @@ private void handleIncomingCall() {
 }
 ```
 
-To accept a call with video camera on, enumerate local cameras using the deviceManager getCameras API, pick a camera and construct a `LocalVideoStream` instance and pass it into `acceptCallOptions` before calling the 'accept' method on a `call` object. 
+To accept a call with the video camera on, enumerate the local cameras by using the `deviceManager` `getCameras` API. Pick a camera, and construct a `LocalVideoStream` instance. Pass it into `acceptCallOptions` before calling the `accept` method on a `call` object. 
+
 ```java
 private void answerIncomingCall() {
     Context context = this.getApplicationContext();
@@ -591,7 +592,7 @@ private void answerIncomingCall() {
         e.printStackTrace();
     }
 
-    //Subcribe to events on updates of call state and remote participants
+    //Subscribe to events on updates of call state and remote participants
     remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
     onStateChangedListener = this::handleCallOnStateChanged;
     call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
@@ -601,19 +602,20 @@ private void answerIncomingCall() {
 
 ## Remote participant and remote video streams
 
-When we start a call or answer an incoming call we need to subscribe to `addOnRemoteParticipantsUpdatedListener` event to handle remote participants. 
+When you start a call or answer an incoming call, you need to subscribe to the `addOnRemoteParticipantsUpdatedListener` event to handle remote participants. 
 
 ```java
 remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
 call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 ```
+
 When you use event listeners that are defined within the same class, bind the listener to a variable. Pass the variable in as an argument to add and remove listener methods.
 
-If you try to pass the listener in directly as an argument, you'll lose the reference to that listener. Java is creating new instances of these listeners and not referencing previously created ones. They'll still fire off properly but can’t be removed because you won’t have a reference to them anymore.
+If you try to pass the listener in directly as an argument, you'll lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you won’t have a reference to them anymore.
 
-### Remote participant and remote video stream update
+### Remote video stream updates
 
-1:1 calling just requires to handle added participants. When the remote participant is removed the call will be ended. For added participant we subscribe to `addOnVideoStreamsUpdatedListener` to handle video stream updates.
+For 1:1 calling, you need to handle added participants. When you remove the remote participant, the call ends. For added participants, you subscribe to `addOnVideoStreamsUpdatedListener` to handle video stream updates.
 
 ```java
 public void handleRemoteParticipantsUpdate(ParticipantsUpdatedEvent args) {
@@ -669,7 +671,7 @@ public String getId(final RemoteParticipant remoteParticipant) {
 
 ### Render remote videos
 
-Create a renderer of remote video stream and attach it to the view to start rendering remote view. Dispose the view to stop rendering it. 
+Create a renderer of the remote video stream, and attach it to the view to start rendering the remote view. Dispose of the view to stop rendering it. 
 
 ```java
 void startRenderingVideo(StreamData data){
@@ -736,7 +738,8 @@ static class StreamData {
 ```
 
 ## Call state update
-In this quickstart we will handle the changes of `CallState`. When the call is connected we handle the remote participant and when the call is disconnected we dispose the `previewRenderer` to stop local video. 
+
+The state of a call can change from connected to disconnected. When the call is connected, you handle the remote participant, and when the call is disconnected, you dispose of `previewRenderer` to stop local video. 
 
 ```groovy
 private void handleCallOnStateChanged(PropertyChangedEvent args) {
@@ -755,7 +758,9 @@ private void handleCallOnStateChanged(PropertyChangedEvent args) {
 ```
 
 ## End a call
-End the call by calling the `hangUp()` function on call instance and dispose the `previewRenderer` to stop local video. 
+
+End the call by calling the `hangUp()` function on the call instance. Dispose of `previewRenderer` to stop local video. 
+
 ```java
 private void hangUp() {
     try {
@@ -770,10 +775,9 @@ private void hangUp() {
 }
 ```
 
-
 ## Hide and show local video
-Once the call has started, local video render and stream can be stopped with  `turnOffLocalVideo()`, this method will remove the view that wraps the local render and dispose the current stream. To resume the stream and render again the local preview use `turnOnLocalVideo()` which will show the video preview and start streaming.
 
+When the call has started, you can stop local video rendering and streaming with  `turnOffLocalVideo()`. This method removes the view that wraps the local render, and disposes of the current stream. To resume the stream and render the local preview again, use `turnOnLocalVideo()`. This shows the video preview and starts streaming.
 
 ```java
 public void turnOnLocalVideo() {
@@ -815,18 +819,19 @@ public void turnOffLocalVideo() {
 
 ## Run the code
 
-The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
+You can now launch the app by using the `Run 'App'` button on the toolbar of Android Studio. 
 
-Completed application             |  1:1 Call
+Completed application             |  1:1 call
 :-------------------------:|:-------------------------:
 :::image type="content" source="../../media/android/video-quickstart-1-1-screen.png" alt-text="Screenshot showing the completed application.":::  |  :::image type="content" source="../../media/android/video-quickstart-1-1-call.png" alt-text="Screenshot showing the application on a call.":::
 
 ## Add group call capability 
 
-Now app will be updated to let the user choose between 1:1 calls or group calls.
+Now you can update your app to let the user choose between 1:1 calls or group calls.
+
 ### Update layout
 
-It's going to use RadioButtons to select if the SDK needs to create a 1:1 call or if it should join a group call. Those will be at the top, so the first section of `app/src/main/res/layout/activity_main.xml` will end this way.
+Use radio buttons to select if the SDK creates a 1:1 call or joins a group call. The radio buttons will be at the top, so the first section of *app/src/main/res/layout/activity_main.xml* will end as follows.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -880,7 +885,7 @@ It's going to use RadioButtons to select if the SDK needs to create a 1:1 call o
 
 ### Update MainActivity.Java
 
-Now is time to update the elements and logic to decide when to create a 1:1 call and when to join a group call first portion of code will require updates to add dependencies, items and additional configurations.
+You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and additional configurations.
 
 Dependencies
 
@@ -1015,7 +1020,7 @@ public void onCallTypeSelected(View view) {
 
 ## Run the upgraded app
 
-The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
+At this point, you can launch the app by using the `Run 'App'` button on the toolbar of Android Studio. 
 
 Screen update             |  Group call
 :-------------------------:|:-------------------------:
