@@ -17,7 +17,7 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate FactSet with Azure Active Directory (Azure AD). When you integrate FactSet with Azure AD, you can:
 
-* Control in Azure AD who has access to FactSet.
+* Control in Azure AD who has access to FactSet URLs via the Federation.
 * Enable your users to be automatically signed-in to FactSet with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* FactSet supports **IDP** initiated SSO.
+* FactSet supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
