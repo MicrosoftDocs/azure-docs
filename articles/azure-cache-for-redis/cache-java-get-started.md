@@ -49,17 +49,13 @@ Replace the placeholders with the following values:
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
 
-## Create a new Java app
+## Understanding the Java sample
 
-Using Maven, generate a new quickstart app:
+In this sample, you use Maven to run the quickstart app. 
 
-```CMD
-mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
-```
+1. Change to the new *redistest* project directory.
 
-Change to the new *redistest* project directory.
-
-Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https://github.com/xetorthio/jedis):
+1. Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
 ```xml
     <dependency>
@@ -71,81 +67,88 @@ Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https:
     </dependency>
 ```
 
-Save the *pom.xml* file.
+1. Close the *pom.xml* file.
 
-Open *App.java* and replace the code with the following code:
+1. Open *App.java* and see the code with the following code:
 
-```java
-package example.demo;
-
-import redis.clients.jedis.DefaultJedisClientConfig;
-import redis.clients.jedis.Jedis;
-
-/**
- * Redis test
- *
- */
-public class App 
-{
-    public static void main( String[] args )
+    ```java
+    package example.demo;
+    
+    import redis.clients.jedis.DefaultJedisClientConfig;
+    import redis.clients.jedis.Jedis;
+    
+    /**
+     * Redis test
+     *
+     */
+    public class App 
     {
-
-        boolean useSsl = true;
-        String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
-        String cachekey = System.getenv("REDISCACHEKEY");
-
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-        Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
-            .password(cachekey)
-            .ssl(useSsl)
-            .build());
-
-        // Perform cache operations using the cache connection object...
-
-        // Simple PING command
-        System.out.println( "\nCache Command  : Ping" );
-        System.out.println( "Cache Response : " + jedis.ping());
-
-        // Simple get and put of integral data types into the cache
-        System.out.println( "\nCache Command  : GET Message" );
-        System.out.println( "Cache Response : " + jedis.get("Message"));
-
-        System.out.println( "\nCache Command  : SET Message" );
-        System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
-
-        // Demonstrate "SET Message" executed as expected...
-        System.out.println( "\nCache Command  : GET Message" );
-        System.out.println( "Cache Response : " + jedis.get("Message"));
-
-        // Get the client list, useful to see if connection list is growing...
-        System.out.println( "\nCache Command  : CLIENT LIST" );
-        System.out.println( "Cache Response : " + jedis.clientList());
-
-        jedis.close();
+        public static void main( String[] args )
+        {
+    
+            boolean useSsl = true;
+            String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
+            String cachekey = System.getenv("REDISCACHEKEY");
+    
+            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
+            Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+                .password(cachekey)
+                .ssl(useSsl)
+                .build());
+    
+            // Perform cache operations using the cache connection object...
+    
+            // Simple PING command
+            System.out.println( "\nCache Command  : Ping" );
+            System.out.println( "Cache Response : " + jedis.ping());
+    
+            // Simple get and put of integral data types into the cache
+            System.out.println( "\nCache Command  : GET Message" );
+            System.out.println( "Cache Response : " + jedis.get("Message"));
+    
+            System.out.println( "\nCache Command  : SET Message" );
+            System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
+    
+            // Demonstrate "SET Message" executed as expected...
+            System.out.println( "\nCache Command  : GET Message" );
+            System.out.println( "Cache Response : " + jedis.get("Message"));
+    
+            // Get the client list, useful to see if connection list is growing...
+            System.out.println( "\nCache Command  : CLIENT LIST" );
+            System.out.println( "Cache Response : " + jedis.clientList());
+    
+            jedis.close();
+        }
     }
-}
-```
+    ```
 
-This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. 
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. 
 
-Save *App.java*.
+1. Close the *App.java*.
 
 ## Build and run the app
 
-Execute the following Maven command to build and run the app:
+1. First, you must set the environment variables as noted.
 
-```CMD
-mvn compile
-mvn exec:java -D exec.mainClass=example.demo.App
+```CMD 
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
 
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+1. Execute the following Maven command to build and run the app:
 
-![Azure Cache for Redis app completed](./media/cache-java-get-started/azure-cache-redis-complete.png)
+    ```CMD
+    mvn compile
+    mvn exec:java -D exec.mainClass=example.demo.App
+    ```
+    
+In the example below, you see the `Message` key previously had a cached value. The value was updated  to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+
+:::image type="content" source="./media/cache-java-get-started/azure-cache-redis-complete.png" alt-text="Azure Cache for Redis app completed":::
 
 ## Clean up resources
 
-If you'll be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you continue to use the quickstart code, you can keep the resources created in this quickstart and reuse them.
 
 Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
 
@@ -157,7 +160,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-   ![Azure resource group deleted](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
+   :::image type="content" source="./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Azure resource group deleted"::: 
 
 1. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
