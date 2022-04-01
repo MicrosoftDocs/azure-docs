@@ -12,20 +12,21 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
+# Email Authentication Best Practices
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-# Email Authentication Best Practices
+
 
 ## Email Authentication
-Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc..Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
+Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc.. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
 
 
 ### SPF (Sender Policy Framework)
 SPF  [RFC 7208](https://tools.ietf.org/html/rfc7208)  is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf.
 
 ### DKIM (Domain Keys Identified Mail)
-DKIM  RFC 6376(https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient
+DKIM  [RFC 6376](https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient
 
 ### DMARC (Domain-based Message Authentication, Reporting, and Conformance)
 DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by which a mail-originating organization can express domain-level policies and preferences for message validation, disposition, and reporting that a mail-receiving organization can use to improve mail handling.
@@ -36,7 +37,7 @@ The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an au
 
 ### How Email Authentication works
 
-Email authentication verifies that email messages from a sender (for example, notification@contoso.com) are legitimate and come from expected sources for that email domain (for example, contoso.com.). 
+Email authentication verifies that email messages from a sender (for example, notification@contoso.com) is legitimate and come from expected sources for that email domain (for example, contoso.com.). 
 
 An email message may contain multiple originator or sender addresses. These addresses are used for different purposes. For example, consider these addresses:
 
@@ -64,7 +65,11 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 - 
 ## Next steps
 
-> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+>  [Best practices for implementing DMARC](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
+  
+>  [Troubleshooting your DMARC implementation](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
+
+>  [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
 
