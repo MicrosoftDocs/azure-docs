@@ -47,7 +47,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Application Monitoring for Azure App Service and Node.js](./app/azure-web-apps-nodejs.md)
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](./app/snapshot-debugger-appservice.md)
 - [Profile live Azure App Service apps with Application Insights](./app/profiler.md)
-- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
+- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations)
 
 ### Autoscale
 
