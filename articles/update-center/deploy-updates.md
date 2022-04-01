@@ -60,8 +60,6 @@ To create a new update deployment, perform the following steps.
        * Any remaining updates that are not yet installed aren't attempted. We recommend that you reevaluate the maintenance window if this is consistently encountered.
        * If the limit is exceeded on Windows, it's often because of a service pack update that is taking a long time to install.
 
-    :::image type="content" source="./media/deploy-updates/install-updates-now-basics-inline.png" alt-text="Screenshot showing the reboot and maintenance window options." lightbox="./media/deploy-updates/install-updates-now-basics-expanded.png":::
-
 1. When you're finished configuring the deployment, verify the summary in **Review + install** and select **Install**. 
 A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in the **History** The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
 
