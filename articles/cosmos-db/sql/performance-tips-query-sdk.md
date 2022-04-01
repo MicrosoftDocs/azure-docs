@@ -5,9 +5,9 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/01/2022
 ms.author: maquaran
-ms.devlang:  csharp, java
+ms.devlang: csharp, java
 ms.custom: devx-track-dotnet, devx-track-java
 zone_pivot_groups: programming-languages-set-cosmos
 ---
@@ -120,7 +120,7 @@ while (query.HasMoreResults)
 
 # [V3 .NET SDK](#tab/v3)
 
-For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel.
+For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel. Setting the value to -1 will let the SDK decided the optimal concurrency.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
@@ -135,7 +135,7 @@ using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem
 
 # [V2 .NET SDK](#tab/v2)
 
-For queries, tune the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxdegreeofparallelism) property in `FeedOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel.
+For queries, tune the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxdegreeofparallelism) property in `FeedOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel. Setting the value to -1 will let the SDK decided the optimal concurrency.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -241,6 +241,117 @@ To learn more about performance using the .NET SDK:
 
 ::: zone pivot="programming-language-java"
 
-TBD
+## Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation.
+
+### Use Query Plan caching
+
+The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for version 4.20.0 or above**.
+
+Every time there is a cache hit for a query plan you will see the following message in the logs:
+
+```bash
+"Skipping query plan round trip by using the cached plan"
+```
+
+Query plan caching currently works for queries with filters. This feature can also be leveraged from the Spring connector when using method derived queries. Currently, queries defined with `@Query` spring data annotation, do not take advantage of Query plan caching.
+
+### Use parametrized single partition queries
+
+For parametrized queries that are scoped to a partition key with [setPartitionKey](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setpartitionkey) in `CosmosQueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By), the query plan can be avoided:
+
+```java
+CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+options.setPartitionKey(new PartitionKey("Washington"));
+
+ArrayList<SqlParameter> paramList = new ArrayList<SqlParameter>();
+paramList.add(new SqlParameter("@city", "Seattle"));
+SqlQuerySpec querySpec = new SqlQuerySpec(
+        "SELECT * FROM c WHERE c.city = @city",
+        paramList);
+
+CosmosPagedIterable<MyItem> filteredItems = 
+    container.queryItems(querySpec, options, MyItem.class);
+```
+
+> [!NOTE]
+> Cross-partition queries require the SDK to visit all existing partitions to check for results. The more [physical partitions](../partitioning-overview.md#physical-partitions) the container has, the slowed they can potentially be.
+
+## Tune the degree of parallelism
+
+Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned container is fetched serially with respect to the query. So, use [setMaxDegreeOfParallelism](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxdegreeofparallelism) on `CosmosQueryRequestOptions` to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use `setMaxDegreeOfParallelism` to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. Setting the value to -1 will let the SDK decided the optimal concurrency.
+
+It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned container is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be affected.
+
+```java
+CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+options.setPartitionKey(new PartitionKey("Washington"));
+options.setMaxDegreeOfParallelism(-1);
+
+ArrayList<SqlParameter> paramList = new ArrayList<SqlParameter>();
+paramList.add(new SqlParameter("@city", "Seattle"));
+SqlQuerySpec querySpec = new SqlQuerySpec(
+        "SELECT * FROM c WHERE c.city = @city",
+        paramList);
+
+CosmosPagedIterable<MyItem> filteredItems = 
+    container.queryItems(querySpec, options, MyItem.class);
+```
+
+Let's assume that
+* D = Default Maximum number of parallel tasks (= total number of processors in the client machine)
+* P = User-specified maximum number of parallel tasks
+* N = Number of partitions that needs to be visited for answering a query
+
+Following are implications of how the parallel queries would behave for different values of P.
+* (P == 0) => Serial Mode
+* (P == 1) => Maximum of one task
+* (P > 1) => Min (P, N) parallel tasks
+* (P < 1) => Min (N, D) parallel tasks
+
+## Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+
+You can use the `pageSize` parameter in `iterableByPage` to define a page size:
+
+```java
+Iterable<FeedResponse<MyItem>> filteredItemsAsPages = 
+    container.queryItems(querySpec, options, MyItem.class).iterableByPage(continuationToken,pageSize);
+
+for (FeedResponse<MyItem> page : filteredItemsAsPages) {
+    for (MyItem item : page.getResults()) {
+        //...
+    }
+}
+```
+
+## Tune the buffer size
+
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
+
+```java
+CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+options.setPartitionKey(new PartitionKey("Washington"));
+options.setMaxBufferedItemCount(-1);
+
+ArrayList<SqlParameter> paramList = new ArrayList<SqlParameter>();
+paramList.add(new SqlParameter("@city", "Seattle"));
+SqlQuerySpec querySpec = new SqlQuerySpec(
+        "SELECT * FROM c WHERE c.city = @city",
+        paramList);
+
+CosmosPagedIterable<MyItem> filteredItems = 
+    container.queryItems(querySpec, options, MyItem.class);
+```
+
+Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
+
+## Next steps
+
+To learn more about performance using the Java SDK:
+
+* [Performance tips for Azure Cosmos DB Java V4 SDK](performance-tips-java-sdk-v4-sql.md)
 
 ::: zone-end
