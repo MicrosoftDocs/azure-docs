@@ -30,7 +30,7 @@
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
-    - name: Set update schedules
+    - name: Schedule updates
       href: scheduled-patching.md
     - name: Manage updates for Azure VMs using REST API
       href: manage-vms-programmatically.md
