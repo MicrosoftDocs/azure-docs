@@ -45,16 +45,16 @@ You can also obtain list of `languageCode` by the static function `LanguageCode.
 
 To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we'll  localize the composite to French.
 
-```java
-val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(LocalizationConfiguration(LanguageCode.FRENCH)).build()
+```Kotlin
+val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH)).build()
 ```
 
 ### Layout Direction
 
 Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
-```java
-val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(LocalizationConfiguration(LanguageCode.FRENCH,LaytouDirection.RTL)).build()
+```Koltin
+val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH,LaytoutDirection.RTL)).build()
 ```
 
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
