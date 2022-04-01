@@ -23,7 +23,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **App** template. We will be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
+In Xcode, create a new iOS project and select the **App** template. We'll be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
 
 ![Screenshot showing the New Project template selection within Xcode.](../../media/xcode-new-project-template-select.png)
 
@@ -165,7 +165,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 
 ### Setup group call or Teams meeting options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
+Depending on what type of Call/Meeting you would like to set up, use the appropriate options object.
 
 #### Group call
 
