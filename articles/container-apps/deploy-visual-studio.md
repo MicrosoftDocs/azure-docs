@@ -26,15 +26,15 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 
 Begin by creating the containerized ASP.NET Core application to deploy to Azure.
 
-Inside Visual Studio, select **File** and then choose **New => Project**.
+1) Inside Visual Studio, select **File** and then choose **New => Project**.
 
-In the dialog window, search for *ASP.NET*, and then choose **ASP.NET Core Web App** and select **Next**.
+2) In the dialog window, search for *ASP.NET*, and then choose **ASP.NET Core Web App** and select **Next**.
 
-In the **Project Name** field, name the application *MyContainerApp* and then select **Next**.
+3) In the **Project Name** field, name the application *MyContainerApp* and then select **Next**.
 
-On the **Additional Information** screen, make sure to select **Enable Docker**, and then make sure **Linux** is selected for the **Docker OS** setting. Azure Container Apps currently do not support Windows containers. This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building. 
+4) On the **Additional Information** screen, make sure to select **Enable Docker**, and then make sure **Linux** is selected for the **Docker OS** setting. Azure Container Apps currently do not support Windows containers. This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building. 
 
-Click **Create** and Visual Studio creates and loads the project.
+5) Click **Create** and Visual Studio creates and loads the project.
 
 :::image type="content" source="media/visual-studio/container-apps-enable-docker.png" alt-text="A screenshot showing to enable docker.":::
 
@@ -57,17 +57,17 @@ You are now ready to deploy to the application to Azure Containers Apps.
 
 The Visual Studio publish dialogs will help you choose existing Azure resources, or create new ones to be used to deploy your applications to. It will also build the container image using the Dockerfile in the project, push this image to ACR, and finally deploy the new image to the container app selected.
 
-Right click on the **MyContainerApp** project node and select **Publish**.
+1) Right click on the **MyContainerApp** project node and select **Publish**.
 
-In the dialog, choose **Azure** from the list of publishing options, and then select **Next**.
+2) In the dialog, choose **Azure** from the list of publishing options, and then select **Next**.
 
 :::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
-On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
+3) On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
 
 :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 
-Next, create an Azure Container App to host the project.  Select the the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
+5) Next, create an Azure Container App to host the project.  Select the the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
 
 - **Container App name**: Enter a name of `msdocscontainerapp`.
 - **Subscription name**: Choose the subscription where you would like to host your app.
@@ -77,12 +77,11 @@ Next, create an Azure Container App to host the project.  Select the the **green
 
 :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
 
-Select **Create** to finalize the creation or your container app. Visual Studio and Azure create the needed resources on your behalf.  This process may take a couple minutes, so allow it to run to completion before moving on.
+6) Select **Create** to finalize the creation or your container app. Visual Studio and Azure create the needed resources on your behalf.  This process may take a couple minutes, so allow it to run to completion before moving on.
 
-Once the resources are created, choose **Next**.
+7) Once the resources are created, choose **Next**.
 
-
-On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
+8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
 - **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
 - **Subscription Name**: Select the subscription you want to use - you may only have one to choose from.
@@ -92,9 +91,9 @@ On the **Registry** screen, you can either select an existing Registry if you ha
 
 :::image type="content" source="media/visual-studio/container-apps-registry.png" alt-text="A screenshot showing how to create the container registry.":::
 
-After you have populated these values, select **Create**. Visual Studio and Azure will take a moment to create the registry.
+9) After you have populated these values, select **Create**. Visual Studio and Azure will take a moment to create the registry.
 
-Once the container registry is created, make sure it is selected, and then choose Finish. Visual Studio will take a moment to create the publish profile. This publish profile is where VS stores the publish options and resources you chose so you can quickly publish again whenever you want. You can close the dialog once it finishes.
+10) Once the container registry is created, make sure it is selected, and then choose **Finish**. Visual Studio will take a moment to create the publish profile. This publish profile is where VS stores the publish options and resources you chose so you can quickly publish again whenever you want. You can close the dialog once it finishes.
 
 :::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
 
