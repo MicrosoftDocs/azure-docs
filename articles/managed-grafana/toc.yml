@@ -14,7 +14,7 @@ items:
   items:
   - name: Configure Permissions for Managed Grafana
     href: how-to-permissions.md
-  - name: Configure data source for Managed Grafana with Managed Identity
+  - name: Configure data sources for Managed Grafana with Managed Identity
     href: how-to-data-source-plugins-managed-identity.md
   - name: Share your Managed Grafana workspace
     href: how-to-share-grafana-workspace.md
