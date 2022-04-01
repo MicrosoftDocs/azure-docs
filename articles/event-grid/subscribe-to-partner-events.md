@@ -6,13 +6,11 @@ ms.date: 03/31/2022
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
-This article describes steps that an end user should take to subscribe to events that originate in a system owned or managed by a partner (SaaS, ERP, and so on.). 
+This article describes steps that an end user should take to subscribe to events that originate in a system owned or managed by a partner (SaaS, ERP, etc.). 
 
 > [!IMPORTANT]
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md) to understand the rationale of the steps in this article.
 
-> [!NOTE]
-> Event Grid's CLI and PowerShell extension support for the operations shown in this article is being released and may not be yet available. As an alternative approach, this article shows a way to execute operations using either [az resource](/cli/azure/resource) cli commands or an Azure Resource Manager client. For Resource Manager client options, check out [ARMClient for Windows](https://github.com/projectkudu/ARMClient?msclkid=2e158d8cad4b11ecb4ad09b1ca1151d7) for Windows. For Linux-based OS, try [ARMClient for Linux](https://github.com/yangl900/armclient-go?msclkid=8ce873c7ad4e11eca5a4826b726766fa). 
 
 ## High-level steps
 
@@ -75,33 +73,6 @@ Following example shows the way to create a partner configuration resource that 
 1. On the **Review** page, review all settings, and then select **Create** to create the partner registration. 
 
 
-### Azure CLI
-
-```azurecli-interactive
-az resource create \
-    -g {resource-group} \
-    -n default/AuthorizePartner \
-    --resource-type Microsoft.EventGrid/partnerconfigurations \
-    --properties "{ \"partnerRegistrationImmutableId\":\"{partner-registration-immutable-ID-obtained-from-partner}\", \
-    \"authorizationExpirationTimeInUtc\": \"2022-03-26T14:33:47Z\"	"}
-```
-
-### ARMClient
-
-```bash
-armclient post https://centralus.management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/myazresourcegroup/providers/Microsoft.EventGrid/partnerConfigurations/default/AuthorizePartner?api-version=2021-10-15-preview @ap-1.json
-```
-
-**ap-1.json**:
-
-```json
-{
-    "partnerRegistrationImmutableId": "partner-registration-immutable-ID-obtained-from-partner",
-	"partnerName": "partner-registration-resource-name-obtained-from-partner",
-    "authorizationExpirationTimeInUtc": "2022-05-10T04:02:10.044Z"
-}
-
-```
 ## Request partner to enable events flow to a partner topic
 
 Here's the list of partners and a link to submit a request to enable events flow to a partner topic.

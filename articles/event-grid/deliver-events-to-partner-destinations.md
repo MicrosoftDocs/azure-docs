@@ -6,14 +6,12 @@ ms.date: 03/31/2022
 ---
 
 # Deliver events to a partner destination (Azure Event Grid)
-In the Azure portal, when creating an event subscription for a topic (system topic, custom topic, domain, domain topic, or partner topic) or a domain, you can specify a partner destination as an endpoint. This article shows you how to create an event subscription using a partner destination so that events are delivered to a partner destination.
+In the Azure portal, when creating an event subscription for a topic (system topic, custom topic, domain topic, or partner topic) or a domain, you can specify a partner destination as an endpoint. This article shows you how to create an event subscription using a partner destination so that events are delivered to a partner system.
 
 ## Overview
 As an end user, you give your partner the authorization to create a partner destination in a resource group within your Azure subscription. For details, see [Authorize partner to create a partner destination](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic). 
 
-A partner creates a channel that in turn creates a partner destination in a resource group in end user's subscription. 
-
-Then, you as an end user, can create event subscriptions to topics or domains using the partner destination as an endpoint. 
+A partner creates a channel that in turn creates a partner destination in the Azure subscription and a resource group you provided to the partner. Prior to using it, you must activate the partner destination. Once activated, you can select the partner destination as a delivery endpoint when creating or updating event subscriptions.
 
 ## Activate a partner destination
 Before you can use a partner destination as an endpoint for an event subscription, you need to activate the partner destination. 
@@ -26,7 +24,7 @@ Before you can use a partner destination as an endpoint for an event subscriptio
 
 ## Create an event subscription using partner destination
 
-In the Azure portal, when creating an event subscription, follow these steps: 
+In the Azure portal, when creating an [event subscription](subscribe-through-portal.md), follow these steps:
 
 1. In the **Endpoint details** section, select **Partner Destination** for **Endpoint Type**. 
 1. Click **Select an endpoint**.
