@@ -21,7 +21,7 @@ You can use Azure Active Directory (Azure AD) to secure the export and import of
 
 ## Restrictions
 
-- You can't upload a VHD to an empty snapshot, only empty disks.
+- VHDs can't be uploaded to empty snapshots.
 - Only currently available in xyz regions.
 
 ## Get started
