@@ -1,14 +1,15 @@
 ---
-title: Azure Cosmos DB performance tips for queries using .NET SDK
-description: Learn client configuration options to help improve Azure Cosmos DB .NET v3 SDK performance.
+title: Azure Cosmos DB performance tips for queries using the Azure Cosmos DB SDK
+description: Learn query configuration options to help improve performance using the Azure Cosmos DB SDK.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: maquaran
-ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.devlang:  csharp, java
+ms.custom: devx-track-dotnet, devx-track-java
+zone_pivot_groups: programming-languages-set-cosmos
 ---
 
 # Query performance tips for Azure Cosmos DB and .NET
@@ -16,13 +17,14 @@ ms.custom: devx-track-dotnet
 
 Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
 
+::: zone pivot="programming-language-csharp"
 Because Azure Cosmos DB is accessed via network calls, you can make client-side optimizations to achieve peak performance when you use the [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 ## Reduce Query Plan calls
 
-To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway which adds to the latency of the query operation. There are two ways to remove this request and reduce the latency of the query operation:
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There are two ways to remove this request and reduce the latency of the query operation:
 
-### Leverage local Query Plan generation
+### Use local Query Plan generation
 
 The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the **Windows x64** platform. The following types of applications use 32-bit host processing by default. To change host processing to 64-bit processing, follow these steps, based on the type of your application:
 
@@ -74,7 +76,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 
 ### Avoid recreating the iterator unnecessarily
 
-When all the query results are consumed by the current component, you do not need to re-create the iterator with the continuation for every page. Always prefer to drain the query fully unless the pagination is controlled by another calling component:
+When all the query results are consumed by the current component, you don't need to re-create the iterator with the continuation for every page. Always prefer to drain the query fully unless the pagination is controlled by another calling component:
 
 # [V3 .NET SDK](#tab/v3)
 
@@ -118,7 +120,7 @@ while (query.HasMoreResults)
 
 # [V3 .NET SDK](#tab/v3)
 
-For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel.
+For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxconcurrency) property in `QueryRequestOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxConcurrency` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
@@ -133,7 +135,7 @@ using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem
 
 # [V2 .NET SDK](#tab/v2)
 
-For queries, tune the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxdegreeofparallelism) property in `FeedOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism` controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel.
+For queries, tune the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxdegreeofparallelism) property in `FeedOptions` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism` controls the maximum number of parallel tasks, that is, the maximum of partitions to be visited in parallel.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -149,7 +151,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ---
 
 Let's assume that
-* D = Default Maximum number of parallel tasks (= total number of processor in the client machine)
+* D = Default Maximum number of parallel tasks (= total number of processors in the client machine)
 * P = User-specified maximum number of parallel tasks
 * N = Number of partitions that needs to be visited for answering a query
 
@@ -226,4 +228,19 @@ IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
 
 ---
 
-Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
+Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
+
+::: zone-end
+
+## Next steps
+
+To learn more about performance using the .NET SDK:
+
+* [Performance tips for Azure Cosmos DB .NET V3 SDK](performance-tips-dotnet-sdk-v3-sql.md)
+* [Performance tips for Azure Cosmos DB .NET V2 SDK](performance-tips.md)
+
+::: zone pivot="programming-language-java"
+
+TBD
+
+::: zone-end
