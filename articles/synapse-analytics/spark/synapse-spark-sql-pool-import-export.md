@@ -155,7 +155,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-This section details authorization settings necessary to interact with Azure Synapse Dedicated SQL Pool. This step can be skipped, if the User Identity used to log in to Azure Synapse Analytics Workspace is also configured as an `Active Directory Admin`, for the database in the target Synapse Dedicated SQL Pool.
+To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization are necessary unless you are a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
@@ -185,7 +185,7 @@ This section details authorization settings necessary to interact with Azure Syn
 
 ## Processing the Response
 
-Invoking `synapsesql` has two possible end states - Successful completion of the request (write or read) or a Failure state. In this section we'll review how to handle each of these states with respect to a write and read use case.
+Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
 
 ### Read Request Response
 
