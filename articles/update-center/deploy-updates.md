@@ -40,7 +40,7 @@ To create a new update deployment, perform the following steps.
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
    
-    :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
+   :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
    - Select **Include KB ID/package** to include in the updates. enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
 
@@ -58,9 +58,9 @@ To create a new update deployment, perform the following steps.
        * New updates will continue to install if the maintenance window limit is approaching.
        * In-progress updates aren't terminated if the maintenance window limit is exceeded
        * Any remaining updates that are not yet installed aren't attempted. We recommend that you reevaluate the maintenance window if this is consistently encountered.
-      * If the limit is exceeded on Windows, it's often because of a service pack update that is taking a long time to install.
+       * If the limit is exceeded on Windows, it's often because of a service pack update that is taking a long time to install.
 
-      :::image type="content" source="./media/deploy-updates/install-updates-now-basics-inline.png" alt-text="Screenshot showing the reboot and maintenance window options." lightbox="./media/deploy-updates/install-updates-now-basics-expanded.png":::
+    :::image type="content" source="./media/deploy-updates/install-updates-now-basics-inline.png" alt-text="Screenshot showing the reboot and maintenance window options." lightbox="./media/deploy-updates/install-updates-now-basics-expanded.png":::
 
 1. When you're finished configuring the deployment, verify the summary in **Review + install** and select **Install**. 
 A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in the **History** The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
