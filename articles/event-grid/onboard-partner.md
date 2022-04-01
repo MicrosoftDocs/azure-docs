@@ -198,7 +198,7 @@ If you selected **Source attribute in event** for **Partner topic routing mode**
 ## Activate partner topics and partner destinations
 Before your users can subscribe to partner topics you create in their Azure subscriptions, they will have activate partner topics first. For details, see [Activate a partner topic](subscribe-to-partner-events.md#activate-a-partner-topic). 
 
-Similarly, before your user can use the partner destinations you create in their subscriptions, they will have to activate partner destinations first. 
+Similarly, before your user can use the partner destinations you create in their subscriptions, they will have to activate partner destinations first. For details, see [Activate a partner destination](deliver-events-to-partner-destinations.md#activate-a-partner-destination).
    
 ## Next steps
 - [Partner topics overview](./partner-events-overview.md)

@@ -21,7 +21,7 @@ Here are the steps that a subscriber needs to perform to receive events from a p
 1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
 2. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 3. [Request partner to enable events flow to a partner topic](#request-partner-to-enable-events-flow-to-a-partner-topic).
-4. [Activate partner topic](#activate-partner-topic) so that your events start flowing to your partner topic.
+4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 5. [Subscribe to events](#subscribe-to-events).
 
 [!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
@@ -109,7 +109,7 @@ Here's the list of partners and a link to submit a request to enable events flow
 - [Auth0](auth0-how-to.md)
 
 
-## Activate partner topic
+## Activate a partner topic
 
 1. In the search bar of the Azure portal, search for and select **Event Grid Partner Topics**.
 1. On the **Event Grid Partner Topics** page, select the partner topic in the list. 
