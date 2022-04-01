@@ -63,6 +63,10 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Databases
+    items:
+    - name: Database Migration Service
+      href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: DevOps
     items:
     - name: DevTest Labs
