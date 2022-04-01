@@ -5,7 +5,7 @@ author: wanlwanl
 ms.author: wanl
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 11/08/2021
+ms.date: 04/01/2022
 ---
 
 # How to troubleshoot with resource logs
@@ -50,7 +50,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
 
-> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
+> Azure Active Directory access to live trace tool is not yet supported, please enable `Access Key` in `Keys` menu.
 
 ### Capture the resource logs
 
