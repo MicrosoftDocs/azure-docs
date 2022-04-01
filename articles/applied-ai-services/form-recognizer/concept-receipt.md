@@ -62,7 +62,7 @@ See how data, including time and date of transactions, merchant information, and
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-#### Sample Labeling tool (API 2.1)
+#### Sample Labeling tool (API v2.1)
 
 You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 
