@@ -26,7 +26,7 @@ You can use a managed identity in a running container app to authenticate to any
 With managed identities:
 
 - You don't need to manage credentials.
-- You can grant role-based access control to grant permissions.
+- You can use role-based access control to grant specific permissions to a managed identity.
 - User-assigned credentials, you can create, read, update and delete the identities and assign them to multiple resources.
 - System-assigned identities are deleted with your container app is deleted.
 - User-assigned identities are independent of the life cycle of your container app.
