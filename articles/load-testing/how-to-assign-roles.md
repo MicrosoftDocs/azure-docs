@@ -35,7 +35,7 @@ Azure Load Testing resources have three built-in roles that are available by def
 
 If you have the **Owner**, **Contributor**, or **Load Test Owner** role at the subscription level, you automatically have the same permissions as the **Load Test Owner** at the resource level.
 
-You'll encounter this message, if your account doesn't have the necessary permissions to manage tests.
+You'll encounter this message if your account doesn't have the necessary permissions to manage tests.
 
 :::image type="content" source="media/how-to-assign-roles/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
 
