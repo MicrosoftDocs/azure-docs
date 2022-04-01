@@ -17,7 +17,7 @@ A managed identity from Azure Active Directory (Azure AD) allows your container 
 Your container app can be granted two types of identities:
 
 - A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted/deactivated. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app as well as multiple resources. A container app can have multiple user-assigned identities. The identity exist until you delete them.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app as well as other resources. A container app can have multiple user-assigned identities. The identity exists until you delete them.
 
 ## Why use a managed identity?
 
