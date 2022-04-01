@@ -77,7 +77,7 @@ landingContent:
             url: store-profiles-in-fhir.md
           - text: Use $validate
             url: validation-against-profiles.md
-          - text: Patient-everything in FHIR
+          - text: Patient/$everything in FHIR
             url: patient-everything.md  
           - text: $member-match operation
             url: tutorial-member-match.md
