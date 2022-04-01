@@ -136,6 +136,8 @@
       items:
         - name: Bitbucket
           href: bitbucket.md
+        - name: GitLab
+          href: gitlab.md
 - name: Samples
   items:
     - name: Serverless app with Azure SQL
