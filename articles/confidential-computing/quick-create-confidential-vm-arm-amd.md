@@ -168,7 +168,11 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     ```azurecli
     az account set --subscription <subscription-id>
     ```
-
+1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
+    ```azurecli
+    Connect-AzureAD -Tenant "your tenant ID"
+    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+    ```
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
 
     1. Create a resource group for your key vault. Your key vault instance and your confidential VM must be in the same Azure region.
@@ -188,7 +192,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
     1. Make sure that you have an **owner** role in this key vault.
     
-    1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
+    1. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
     
         ```azurecli
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
@@ -206,7 +210,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
 
-    1. Give `Confidential Guest VM Agent` permissions to managed HSM.
+    1. Give `Confidential VM Orchestrator` permissions to managed HSM.
     
         ```azurecli
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
@@ -228,8 +232,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Get information about the key that you created.
         
         ```azurecli
-        $encryptionKeyVaultId = ((az keyvault show -n $KeyVault -g
-        $resourceGroup) | ConvertFrom-Json).id
+        $encryptionKeyVaultId = ((az keyvault show -n $KeyVault -g $resourceGroup) | ConvertFrom-Json).id
         $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid        
         ```
        
@@ -275,8 +278,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Get information about the key that you created.
     
           ```azurecli
-          $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name 
-          $KeyName) | ConvertFrom-Json).key.kid      
+          $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name $KeyName) | ConvertFrom-Json).key.kid      
           ```
  
     1. Deploy a DES.
