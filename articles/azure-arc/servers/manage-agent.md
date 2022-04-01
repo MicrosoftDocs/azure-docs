@@ -101,7 +101,7 @@ To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
 
-## Upgrading the agent
+## Upgrade the agent
 
 The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
@@ -473,7 +473,7 @@ sudo /opt/azcmagent/bin/azcmagent_proxy remove
 
 If you're already using environment variables to configure the proxy server for the Azure Connected Machine agent and want to migrate to the agent-specific proxy configuration based on local agent settings, follow these steps:
 
-1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings.
+1. [Upgrade the Azure Connected Machine agent](#upgrade-the-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings.
 
 1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`.
 
