@@ -35,7 +35,7 @@ To upload your data:
 
 ### Upload data by using Speech-to-text REST API v3.0
 
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text-30.md) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
 
 To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 

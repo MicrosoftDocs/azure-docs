@@ -73,7 +73,7 @@ https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cogn
 
 ## Getting Transcription ID for Batch transcription. (REST API v3.0).
 
-[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). 
+[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API v3.0](rest-speech-to-text-30.md). 
 
 The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Create Transcription](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription).
 

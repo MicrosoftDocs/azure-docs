@@ -19,7 +19,7 @@ Speech service offers a Swagger specification to interact with a handful of REST
 > [!NOTE]
 > Speech service has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  
 >
-> However only [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) and v2.0 are documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
+> However only [Speech-to-text REST API v3.0](rest-speech-to-text-30.md) and v2.0 are documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
 
 ## Generating code from the Swagger specification
 
