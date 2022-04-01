@@ -57,7 +57,7 @@ In this sample, you use Maven to run the quickstart app.
 
 1. Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-```xml
+    ```xml
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
@@ -65,7 +65,7 @@ In this sample, you use Maven to run the quickstart app.
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
-```
+    ```
 
 1. Close the *pom.xml* file.
 
