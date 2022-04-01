@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/22/2022
+ms.date: 03/31/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -98,6 +98,13 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 # [Azure CLI](#tab/cli)
 
 ```azurecli
+az network application-gateway waf-policy managed-rule exclusion add \
+  --resource-group $resourceGroupName \
+  --policy-name $wafPolicyName \
+  --match-variable 'RequestHeaderNames' \
+  --match-operator 'Equals'\
+  --selector 'User-Agent'
+
 az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --resource-group $resourceGroupName \
   --policy-name $wafPolicyName \
@@ -105,12 +112,11 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --version 3.2 \
   --group-name 'REQUEST-942-APPLICATION-ATTACK-SQLI' \
   --match-variable 'RequestHeaderNames' \
-  --selector-match-operator 'Equals' \
+  --match-operator 'Equals' \
   --selector 'User-Agent'
 ```
-<!-- TODO this doesn't seem to work -->
-> [!CAUTION]
-> This Azure CLI command doesn't seem to work yet?
+
+<!-- TODO The above CLI command uses a workaround of deploying a global exclusion first, which shouldn't be necessary and we are waiting to have removed. -->
 
 # [Bicep](#tab/bicep)
 
