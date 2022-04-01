@@ -111,8 +111,8 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | CorrelationId | GUID | Customer provided unique identifier for the event. |
 | ApplicationId | GUID | Application ID used in bearer authorization. |
 | Level | Int | The logging severity of the event. |
-| Location | String | The region where the event took place. |
-| Properties | JSON | Additional information details for the event. |
+| location_s | String | The region where the event took place. |
+| properties_s | JSON | Additional information details for the event. |
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->

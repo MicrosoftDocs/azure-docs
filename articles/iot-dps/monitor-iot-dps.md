@@ -49,6 +49,12 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 <!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
 
+In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your DPS instance followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your instance.
+
+The following screenshot shows a diagnostic setting for routing to a Log Analytics workspace.
+
+:::image type="content" source="media/monitor-iot-dps/diagnostic-setting.png" alt-text="Diagnostic Settings pane for a DPS instance.":::
+
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for DPS are listed in [Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-iot-dps-reference.md#resource-logs).
 
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
@@ -61,6 +67,10 @@ The metrics and logs you can collect are discussed in the following sections.
 If you don't support metrics, say so. Some services may be only onboarded to logs -->
 
 You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) for details on using this tool.
+
+In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your DPS instance to open metrics explorer scoped, by default, to the platform metrics emitted by your instace:
+
+:::image type="content" source="media/monitor-iot-dps/metrics-portal.png" alt-text="Screenshot showing the metrics explorer page for a DPS instance." border="true":::
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
 For a list of the platform metrics collected for DPS, see [Monitoring Azure IoT Hub Device Provisioning Service data reference metrics](monitor-iot-dps-reference.md#metrics).
@@ -75,6 +85,12 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 If you don't support resource logs, say so. Some services may be only onboarded to metrics and the activity log. -->
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
+
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
+
+In Azure portal, you can select **Logs** under **Monitoring** on the left-pane of your DPS instance to perform Log Analytics queries scoped, by default, to the logs and metrics collected in Azure Monitor Logs for your instance.
+
+:::image type="content" source="media/monitor-iot-dps/logs-portal.png" alt-text="Logs page for a Dps instance.":::
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for DPS resource logs is found in the [Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#schemas).
 
