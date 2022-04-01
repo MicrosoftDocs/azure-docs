@@ -75,8 +75,6 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics.
 
-------------**OPTION 1 EXAMPLE** ---------------------
-
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
