@@ -73,7 +73,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers|75|150|300|450|600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -103,7 +103,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers|750|900|1050|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|
+|Multi-AZ|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -131,7 +131,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers|1350|1500|1800|2400|3000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -371,7 +371,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
-|Multi-AZ|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -398,7 +398,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
-|Multi-AZ|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
