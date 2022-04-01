@@ -14,7 +14,12 @@ ms.reviewer: ylunagaria
 
 # SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview)
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that will help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md). 
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that will help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
+
+> [!IMPORTANT]
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Feature registration is no longer required.
+> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use concurrent connections to increase throughput
 
