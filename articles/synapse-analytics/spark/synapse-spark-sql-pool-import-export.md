@@ -50,7 +50,7 @@ This section details necessary pre-requisite steps include Azure Resource setup 
 
 ### Azure Resources
 
-Review and set up following dependent Azure Resources:
+Review and setup following dependent Azure Resources:
 
 * [Azure Data Lake Storage](../../storage/blobs/data-lake-storage-introduction.md) - used as the primary storage account for the Azure Synapse Workspace.
 * [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
@@ -159,7 +159,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
-    * Set up required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
+    * Configure required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
     * Following is a quick access snippet of the same:
 
       ```sql
@@ -193,7 +193,7 @@ Upon completion, in either case of a success or a failure the result is rendered
 
 ### Write Request Response
 
-The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function ). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
+The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
 
 Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
 
@@ -270,7 +270,7 @@ val readDF:DataFrame=spark.
             csv(pathToInputSource).
             limit(1000) //Reads first 1000 rows from the source CSV input.
 
-//Set up and trigger the read DataFrame for write to Synapse Dedicated SQL Pool.
+//Setup and trigger the read DataFrame for write to Synapse Dedicated SQL Pool.
 //Fully qualified SQL Server DNS name can be obtained using one of the following methods:
 //    1. Synapse Workspace - Manage Pane - SQL Pools - <Properties view of the corresponding Dedicated SQL Pool>
 //    2. From Azure Portal, follow the bread-crumbs for <Portal_Home> -> <Resource_Group> -> <Dedicated SQL Pool> and then go to Connection Strings/JDBC tab. 
@@ -279,7 +279,7 @@ val readDF:DataFrame=spark.
 val writeOptionsWithAADAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
                                             Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
-//Set up optional callback/feedback function that can receive post write metrics of the job performed.
+//Setup optional callback/feedback function that can receive post write metrics of the job performed.
 var errorDuringWrite:Option[Throwable] = None
 val callBackFunctionToReceivePostWriteMetrics: (Map[String, Any], Option[Throwable]) => Unit =
     (feedback: Map[String, Any], errorState: Option[Throwable]) => {
