@@ -206,6 +206,8 @@ items:
     items:
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
+    - name: Manage user-assigned managed identities
+      href: how-to-manage-user-assigned-managed-identities.md
     - name: Create roles and permissions
       href: how-to-permissions.md
     - name: Use TLS/SSL certificates
