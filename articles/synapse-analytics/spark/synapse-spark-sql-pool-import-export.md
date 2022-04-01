@@ -231,7 +231,7 @@ synapsesql(tableName:String,
 
 #### Write using AAD based Authentication
 
-Following code template has common parts that can be used with both AAD based authentication and SQL Basic Authentication. When used with SQL Basic authentication, please use the write definition from the [Write using SQL Basic Authentication](#write-using-sql-basic-authentication) section.
+Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
 ```Scala
 //Add required imports
@@ -333,7 +333,7 @@ Following SaveModes are supported when writing source data to a destination tabl
   
 #### Write Request Callback Handle
 
-The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. These metrics provide information such as number of records staged, to number of records written to SQL table, time spent in staging and executing the SQL statements to write data to the Synapse Dedicated SQL Pool. String values for each Metric key are defined and accessible from the new Object reference - `Constants.FeedbackConstants`. These metrics are by default written to the Spark Driver logs. One can also fetch these by passing a call-back handle (a `Scala Function`). Following is the signature of this function:
+The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle i.e., `Scala Function`. Following is the function signature:
 
 ```Scala
 //Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
@@ -386,8 +386,6 @@ Following is a sample JSON string with post-write metrics:
 ### Read from Azure Synapse Dedicated SQL Pool
 
 #### Read Request - `synapsesql` Method Signature
-
-Following is the signature to leverage `synapsesql` (applies to both Spark 2.4.8 and Spark 3.1.2 Connector versions):
 
 ```Scala
 synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
