@@ -4,8 +4,8 @@ description: The article provides details on the known issues and troubleshootin
 ms.service: update-management-center
 ms.date: 04/01/2022
 ms.topic: conceptual
-ms.author: SGSneha
-author: v-ssudhir
+ms.author: v-ssudhir
+author: SGSneha
 ---
 
 # Troubleshoot issues with update management center (preview)
