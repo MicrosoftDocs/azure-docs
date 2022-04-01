@@ -117,8 +117,6 @@ Refer to the section - [Configuration Options](#configuration-options) to learn 
   
 ### Authorization
 
-This section focuses on required authorization grants that must be set for the User on respective Azure Resource Types - Azure Storage and Azure Synapse Dedicated SQL Pool.
-
 #### [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
 
 There are two ways to grant access permissions to Azure Data Lake Storage Gen2 - Storage Account:
