@@ -34,7 +34,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted above. Open a command prompt, or a terminal window, and set up the following values:
 
-```CMD 
+```dos
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
 set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
@@ -128,20 +128,20 @@ In this sample, you use Maven to run the quickstart app.
 
 ## Build and run the app
 
-1. First, you must set the environment variables as noted.
+1. First, if you haven't already, you must set the environment variables as noted above.
 
-```CMD 
-set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
-```
-
+    ```dos
+    set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+    set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+    ```
+    
 1. Execute the following Maven command to build and run the app:
 
-    ```CMD
+    ```dos
     mvn compile
     mvn exec:java -D exec.mainClass=example.demo.App
     ```
-    
+
 In the example below, you see the `Message` key previously had a cached value. The value was updated  to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
 
 :::image type="content" source="./media/cache-java-get-started/azure-cache-redis-complete.png" alt-text="Azure Cache for Redis app completed":::
@@ -170,5 +170,5 @@ After a few moments, the resource group and all of its contained resources are d
 
 In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Development](cache-best-practices-development.md)
+- [Connection resilience](cache-best-practices-connection.md)
