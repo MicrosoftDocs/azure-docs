@@ -64,11 +64,11 @@ In the following REST API calls, we use `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, `LO
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `TOKEN` with your own value. You can retrieve this token with the following command:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="13":::
+:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="10":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="11":::
+:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="8":::
 
 ### Create compute
 Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster where you can run batch scoring workflows.
