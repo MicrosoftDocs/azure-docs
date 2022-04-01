@@ -2,10 +2,10 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 07/20/2020
+ms.date: 03/25/2022
 ms.author: msmbaldwin
 
-# Used by Key Vault PowerShell quickstarts.
+# Generic PowerShell create resource group include for quickstarts.
 
 ---
 
