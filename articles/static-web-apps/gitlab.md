@@ -1,5 +1,5 @@
 ---
-title: Deploy GitLab repositories on Azure Static Web Apps
+title: "Tutorial: Deploy GitLab repositories on Azure Static Web Apps"
 description: Use GitLab with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
@@ -9,9 +9,16 @@ ms.date: 03/30/2021
 ms.author: cshoe
 ---
 
-# Deploy GitLab repositories on Azure Static Web Apps
+# Tutorial: Deploy GitLab repositories on Azure Static Web Apps
 
 Azure Static Web Apps has flexible deployment options that allow to work with various providers. In this article, you deploy a web application hosted in GitLab to Azure Static Web Apps.
+
+In this tutorial, you learn to:
+
+> [!div class="checklist"]
+> * Import a repository to GitLab
+> * Create a static web app
+> * Configure the GitLab repo to deploy to Azure Static Web Apps
 
 ## Prerequisites
 
@@ -23,8 +30,7 @@ Azure Static Web Apps has flexible deployment options that allow to work with va
 
 This article uses a GitHub repository as the source to import code into a GitLab repository.
 
-1. Navigate to your account in GitLab and create a new project.
-1. Select **Import project**.
+1. Sign in to your GitLab account and navigate to [https://gitlab.com/projects/new#import_project](https://gitlab.com/projects/new#import_project)
 1. Select the **Repo by URL** button.
 1. In the *Git repository URL* box, enter the repository URL for your choice of framework.
 
@@ -51,7 +57,7 @@ This article uses a GitHub repository as the source to import code into a GitLab
     ---
 
 1. In the *Project slug* box, enter **my-first-static-web-app**.
-1. Select the **Create project** button.
+1. Select the **Create project** button and wait a moment while your repository is set up.
 
 ## Create a static web app
 
@@ -82,10 +88,12 @@ Now that the repository is created, you can create a static web app from the Azu
 
 ## Create the pipeline task in GitLab
 
+Next you add a workflow task responsible for building and deploying your site as you make changes.
+
 ### Add deployment token
 
 1. Navigate to the repository in GitLab.
-1. Select **Setting**.
+1. Select **Settings**.
 1. Select **CI/CD**.
 1. Next to the *Variables* section, select the **Expand** button.
 1. Select the **Add variable** button.
@@ -95,7 +103,11 @@ Now that the repository is created, you can create a static web app from the Azu
 
 ### Add file
 
-1. Create a new file named `.gitlab-ci.yml` at the root of the repository.
+1. Select the **Repository** menu option.
+1. Select **Files**.
+1. Ensure the *main* branch is selected in the branch drop down at the top.
+1. Press the **plus sign** drop down and select **New file**.
+1. Create a new file named `.gitlab-ci.yml` at the root of the repository. (Make sure the file extension is `.yml`.)
 1. Enter the following YAML into the file.
 
     # [No Framework](#tab/vanilla-javascript)
@@ -174,9 +186,12 @@ Now that the repository is created, you can create a static web app from the Azu
 
     ---
 
-1. Select **Commit**
+1. Select the **Commit changes** button.
+1. Select the **CI/CD** then **Pipelines** menu items to view the progress of your deployment.
 
-### Configuration properties
+Once the deployment is complete, you can view your website.
+
+### Properties reference
 
 The following configuration properties are used in the *.gitlab-ci.yml* file to configure your static web app.
 
