@@ -256,14 +256,12 @@ sections:
       - question: |
          How can I reduce request latency for my API calls?
         answer: |
-          - Latency the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
-
-          - Try applying longer timeouts to account for random latency spikes. A timeout of 1 to 2 minutes should be sufficient to catch all responses. If not, try the call again after a short delay.
-
-          - Consider using [Proximity placement groups](../../virtual-machines/co-location.md) for workloads where low latency is a requirement.
-
-          - Enable a backup resource in another region to mitigate the latency impact.
-
+          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
+          
+      - question: |
+         How long will it to take analyze a document?
+        answer: |
+          Form Recognizer is a multi-tenanted service where latency for similar documents is comparable but not always identical. The time to analyze a document depends on the size (e.g. number of pages) and associated content on each page.
 
   - name: Custom models
     questions:

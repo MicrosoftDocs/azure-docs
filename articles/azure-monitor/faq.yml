@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-monitor
   author: bwren
   ms.author: bwren
-  ms.date: 03/16/2022
+  ms.date: 04/01/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -288,10 +288,7 @@ sections:
           Here's how AMA impacts the two System Center Operations Manager related monitor scenarios:
           - **Scenario 1**: For monitoring the Windows operating system of System Center Operations Manager, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
           - **Scenario 2**: For onboarding/connecting System Center Operations Manager to Log Analytics workspaces, since this is enabled via a System Center Operations Manager connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the Operations Manager management server. As such there is no impact to this use case from AMA perspective.  
-          
-          > [!NOTE] 
-          > You can run both scenarios above with MMA and AMA side-by-side without any impact.
-          
+                    
           
       - question: |
           Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services such as Microsoft Defender for Cloud and Microsoft Sentinel?
@@ -321,42 +318,39 @@ sections:
       - question: |
           Can the Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
         answer: |
-          Yes they can, but with certain considerations. If they both send data, from the same data source to a Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur. Read more [here](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
+          Yes they can, but with certain considerations. Read more [about agent coexistence](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
           
       - question: |
           Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
         answer: |
-          If you are collecting the same events with both agents, there will be duplication. This could be the legacy agent collecting data from the [workspace configuration](agents/agent-data-sources.md) that duplicates data collected by the data collection rule. Or you might be collecting security events with Legacy Agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
+          If you are collecting the same events with both agents, there will be duplication. This could be the legacy agent collecting data from the [workspace configuration](agents/agent-data-sources.md) that duplicates data collected by the data collection rule. Or you might be collecting security events with legacy agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
           
           You should limit duplication events to only while you transition from one agent to the other. After you've fully tested the DCR and verified its data collection, you should disconnect disable collection for the workspace and disconnect any MMA data connectors.
 
       - question: |
-          Is the Azure Monitor Agent at parity with existing agents?
+          Is the Azure Monitor Agent at parity with the Log Analytics agents?
         answer: |
-          It does not have full parity yet with existing agents. Here are some high-level gaps:
-          
-          - **Comparison with Log Analytics Agents (MMA/OMS)**
-          -	Not all Log Analytics Solutions are supported today. See [what's supported](agents/azure-monitor-agent-overview.md#supported-services-and-features)
-          -	No support for Private Links 
-          -	No support for collecting custom logs or IIS logs
-          
-          - **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
-          -	No support for Event Hubs and Storage accounts as destinations
+          Review [current limitations](agents/azure-monitor-agent-overview.md#current-limitations) of AMA when compared with the Log Analytics agents.
         
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
-          
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
+      
+      - question: |
+          Does the Azure Monitor Agent support private links?
+        answer: |
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [View steps here](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) on how to set this up.
+
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
-          Any on-premises server, or non-Azure cloud server, must be on Azure Arc to run the AMA. For more information, see [About Azure Arc](../azure-arc/overview.md).
+          For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use AMA?
         answer: |
-          The AMA authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. The legacy Log Analytics agent authenticates using the workspace ID and key instead, and therefore did not need Azure Arc.
+          The AMA authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. Managed Identity is a more secure and manageable authentication solution from Azure. The legacy Log Analytics agent authenticates using the workspace ID and key instead, and therefore did not need Azure Arc.
 
       - question: |
           What impact does installing the Azure Arc Connected Machine agent have on my non-Azure machine?
@@ -366,24 +360,24 @@ sections:
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers only. 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. Additional you can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
 
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
         answer: |
-          Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  
+          Yes. You can use **Xpath queries** for filtering Windows Event Logs. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  
           For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
           For syslog on Linux, you can choose Facilities and log level for each facility to collect.
           
       - question: |
           Does the new Azure Monitor agent support sending data to Event Hubs and Azure Storage Accounts?
         answer: |
-          Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
+          Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future when AMA starts convergence with the Diagnostic extensions.
           
       - question: |
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
-          This is not available currently for the agent in preview, and is planned to be added post general availability.
+          This is not available yet.
 
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
