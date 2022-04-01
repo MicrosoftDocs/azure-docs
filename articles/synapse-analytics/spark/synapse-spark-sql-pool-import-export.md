@@ -276,7 +276,9 @@ val readDF:DataFrame=spark.
 //Fully qualified SQL Server DNS name can be obtained using one of the following methods:
 //    1. Synapse Workspace - Manage Pane - SQL Pools - <Properties view of the corresponding Dedicated SQL Pool>
 //    2. From Azure Portal, follow the bread-crumbs for <Portal_Home> -> <Resource_Group> -> <Dedicated SQL Pool> and then go to Connection Strings/JDBC tab. 
-val writeOptions:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net", 
+//If `Constants.SERVER` is not provided, the value will be inferred by using the `database_name` in the three-part table name argument to the `synapsesql` method.
+//Like-wise, if `Constants.TEMP_FOLDER` is not provided, the connector will use the runtime staging directory config (see section on Configuration Options for details).
+val writeOptionsWithAADAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
                                             Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
 //Set up optional callback/feedback function that can receive post write metrics of the job performed.
@@ -287,18 +289,51 @@ val callBackFunctionToReceivePostWriteMetrics: (Map[String, Any], Option[Throwab
     errorDuringWrite = errorState
 }
 
-//Configure and trigger write to Synapse Dedicated SQL Pool (note - default SaveMode is set to ErrorIfExists)
+//Configure and submit the request to write to Synapse Dedicated SQL Pool (note - default SaveMode is set to ErrorIfExists)
+//Sample below is using AAD-based authentication approach; See further examples to leverage SQL Basic auth.
 readDF.
     write.
-    options(writeOptions).
-    mode(SaveMode.Overwrite).
+    options(writeOptionsWithAADAuth).
+    //Choose a save mode that is apt for your use case.
+    mode(SaveMode.Overwrite). 
     synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
-                tableType = Constants.INTERNAL, //For external table type value is Constants.EXTERNAL
-                location = None, //Not required for writing to an internal table
+                //For external table type value is Constants.EXTERNAL
+                tableType = Constants.INTERNAL, 
+                //Optional parameter that is used to specify external table's base folder; defaults to `database_name/schema_name/table_name`
+                location = None, 
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 
 //If write request has failed, raise an error and fail the Cell's execution.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get    
+```
+
+#### Write Code Template using SQL Basic Authentication
+
+Following code snippet provides a template that defines necessary configuration options required to perform a write using SQL Basic Authentication approach:
+
+```Scala
+//Define write options to use SQL basic authentication
+val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
+                                           Constants.USER -> "<User name as defined in the target DB>",
+                                           Constants.PASSWORD -> "<User password as set when creating the user login in the `master` database>",
+                                           //Required only when writing to an external table. For write to internal table, this can be used instead of TEMP_FOLDER option.
+                                           Constants.DATA_SOURCE -> "<Name of the datasource as defined in the target database>"
+                                           //To be used only when writing to internal tables. Storage path will be used for data staging.
+                                           Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
+
+//Configure and submit the request to write to Synapse Dedicated SQL Pool. 
+readDF.
+    write.
+    options(writeOptions).
+    //Choose a save mode that is apt for your use case.
+    mode(SaveMode.Overwrite). 
+    synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
+                //For external table type value is Constants.EXTERNAL
+                tableType = Constants.INTERNAL,
+                //Not required for writing to an internal table 
+                location = None,
+                //Optional parameter.
+                callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
 #### DataFrame SaveMode Support
