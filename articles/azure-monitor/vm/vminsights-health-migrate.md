@@ -22,7 +22,7 @@ Alert rules for the key metrics used by VM health include the following:
 - [Available Memory](monitor-virtual-machine-alerts.md#log-alert-rules-1)
 - [Disk free space](monitor-virtual-machine-alerts.md#log-query-alert-rules-1)
 
-To create a an alert rule for a single VM that alerts on any of the three conditions, create a [log alert rule](monitor-virtual-machine-alerts#log-alerts.md) with the following details.
+To create a an alert rule for a single VM that alerts on any of the three conditions, create a [log alert rule](monitor-virtual-machine-alerts.md#log-alerts) with the following details.
 
 
 | Setting | Value |
