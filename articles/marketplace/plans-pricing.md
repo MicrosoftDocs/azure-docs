@@ -109,7 +109,7 @@ This table provides pricing information that’s specific to various offer types
 | Azure Container | <ul><li>[Plan an Azure container offer](marketplace-containers.md#plans-and-pricing)</li></ul> |
 | Azure virtual machine | <ul><li>[Plan a virtual machine offer](marketplace-virtual-machines.md#plans-pricing-and-trials)</li><li>[Configure pricing and availability for a virtual machine offer](azure-vm-plan-pricing-and-availability.md#pricing)</li></ul> |
 | Consulting service | <ul><li>[Plan a consulting service offer](plan-consulting-service-offer.md#pricing-and-availability)</li><li>[Configure consulting service offer pricing and availability](create-consulting-service-pricing-availability.md#pricing-informational-only) |
-| IoT Edge module | <ul><li>[Plan an IoT Edge module offer](marketplace/marketplace-iot-edge.md#licensing-options)</li></ul> |
+| IoT Edge module | <ul><li>[Plan an IoT Edge module offer](marketplace-iot-edge.md#licensing-options)</li></ul> |
 | Managed service | <ul><li>[Plan a Managed Service offer]()</li><li>[Create plans for a Managed Service offer](create-managed-service-offer-plans.md#define-pricing-and-availability) |
 | Power BI app | <ul><li>[Plan a Power BI App offer](marketplace-power-bi.md#licensing-options)</li></ul> |
 | Software as a Service (SaaS) | <ul><li>[SaaS pricing models](plan-saas-offer.md#saas-pricing-models)</li><li>[SaaS billing](plan-saas-offer.md#saas-billing)</li><li>[Create plans for a SaaS offer](create-new-saas-offer-plans.md#define-a-pricing-model)</li></ul> |
