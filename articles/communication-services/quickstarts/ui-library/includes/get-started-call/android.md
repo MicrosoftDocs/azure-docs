@@ -360,7 +360,7 @@ To receive error events, inject a handler to the `CallCompositeBuilder`.
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
-callComposite.setOnErrorHandler { errorEvent ->
+callComposite.setOnErrorHandler { communicationUIErrorEvent ->
     //...
 }
 ```
@@ -369,7 +369,7 @@ callComposite.setOnErrorHandler { errorEvent ->
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.setOnErrorHandler(errorEvent -> {
+callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
     //...
 });
 ```
@@ -410,14 +410,14 @@ CallComposite callComposite =
 
 ### Apply localization configuration
 
-To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LocalizationConfiguration.getSupportedLanguages()` provides list of supported languages.
+To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LanguageCode.values()` provides list of supported languages.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 import com.azure.android.communication.ui.configuration.LocalizationConfiguration
 
-// LocalizationConfiguration.getSupportedLanguages() provides list of supported languages
+// LanguageCode.values() provides list of supported languages
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
                 LocalizationConfiguration("en")
@@ -429,7 +429,7 @@ val callComposite: CallComposite =
 ```java
 import com.azure.android.communication.ui.configuration.LocalizationConfiguration;
 
-// LocalizationConfiguration.getSupportedLanguages() provides list of supported languages
+// LanguageCode.values() provides list of supported languages
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .localization(new LocalizationConfiguration("en"))
