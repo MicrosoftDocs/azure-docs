@@ -10,14 +10,61 @@ ms.date: 03/01/2022
 This article walks through migrating from the VM guest health (preview) to Azure Monitor Log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on VM metrics (Percentage CPU utilization, Available Memory, Free Disk space), make sure to transition to Azure Monitor Log alerts before this date. 
 
 ## Configure Azure Monitor Log alerts
-See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md#log-alerts) for instructions on creating Azure Monitor log alerts. Alert rules for the key metrics used by VM health include the following:
+The first step in migration is to create alerts to replace the alerting functionality of VM guest health. See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md#log-alerts) for instructions on creating Azure Monitor log alerts. 
+
+> [!IMPORTANT]
+> Transitioning to Log alerts will result in charges according to Azure Monitor log alert rates. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
+
+
+Alert rules for the key metrics used by VM health include the following:
 
 - [CPU utilization](monitor-virtual-machine-alerts.md#log-alert-rules)
 - [Available Memory](monitor-virtual-machine-alerts.md#log-alert-rules-1)
 - [Disk free space](monitor-virtual-machine-alerts.md#log-query-alert-rules-1)
 
-> [!IMPORTANT]
-> Transitioning to Log alerts will result in charges according to Azure Monitor log alert rates. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
+To create a an alert rule for a single VM that alerts on any of the three conditions, create a [log alert rule](monitor-virtual-machine-alerts#log-alerts.md) with the following details.
+
+
+| Setting | Value |
+|:---|:---|
+| **Scope** | |
+| Target scope | Select your virtual machine. |
+| **Condition** | |
+| Signal type | Log |
+| Signal name | Custom log search |
+| Query | \<Use the query below\> |
+| Measurement | Measure: *Table rows*<br>Aggregation type: Count<br>Aggregation granularity: 15 minutes |
+| Alert Logic | Operator: Greater than<br>Threshold value: 0<br>Frequency of evaluation: 15 minutes |
+| Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
+| **Details** | |
+| Severity| Warning |
+| Alert rule name | Daily data limit reached |
+
+
+
+```kusto
+InsightsMetrics
+| where TimeGenerated >= ago(15m)
+| where Origin == "vm.azm.ms"
+| where Namespace == "Processor" and Name == "UtilizationPercentage"
+| summarize UtilizationPercentage = avg(Val) by Computer, _ResourceId
+| where UtilizationPercentage >= 90
+| union (
+InsightsMetrics
+| where TimeGenerated >= ago(15m)
+| where Origin == "vm.azm.ms"
+| where Namespace == "Memory" and Name == "AvailableMB"
+| summarize AvailableMB = avg(Val) by Computer, _ResourceId
+| where AvailableMB <= 100)
+| union (
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where TimeGenerated >= ago(15m)
+| where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
+| summarize FreeSpacePercentage = avg(Val) by Computer, _ResourceId
+| where FreeSpacePercentage <= 10)
+| summarize UtilizationPercentage = max(UtilizationPercentage), AvailableMB = max(AvailableMB), FreeSpacePercentage = max(FreeSpacePercentage)  by Computer, _ResourceId
+```
 
 ## Offboard VMs from VM guest health
 Use the following steps to offboard the VMs from the VM guest health (preview) feature. The **Health** tab and the **Guest VM Health** status in VM insights will not be available after retirement.
