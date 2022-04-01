@@ -689,13 +689,13 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens. Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
-> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens. Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen.<br><br> Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
+> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen.<br><br> Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
-> | servers | failoverGroups | 1-63 | Lowercase letters, numbers, and hyphens. Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
+> | servers | failoverGroups | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't have any special characters, such as `@`.<br><br> Can't start or end with hyphen.<br><br> Can’t have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
 > | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
