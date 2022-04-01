@@ -99,7 +99,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](marketplace-metering-service-apis.md) and [SaaS apps](./partner-center-portal/saas-metered-billing.md).
 
-### Offer type specific pricing information
+### Pricing information specific to offer types
 
 This table provides pricing information that’s specific to various offer types.
 
