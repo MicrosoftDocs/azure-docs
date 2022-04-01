@@ -532,7 +532,7 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write 
   * It is important to consider and factor-in volumetric information of the source data including Data Format, Volume of Data, and Partitions.
     * Initial parallelism along with max bytes per partition must drive decisions to find a right number of executors.
     * This approach will ensure executors stay busy and are getting optimally leveraged.
-    * To tune maximum bytes per partition suggest to infer partition ranges from your source data set and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
+    * To tune maximum bytes per partition suggest inferring max data per partition from the source data, and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
     * This must be set at the Spark Pool level and not for individual requests.
   * When writing large volume data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
