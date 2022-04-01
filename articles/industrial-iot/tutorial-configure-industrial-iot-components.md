@@ -50,7 +50,7 @@ output of deployment script or reset the password
 
 ## OPC Publisher 2.8.2 Configuration options for orchestrated mode
 
-The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings. When both environment variable and CLI argument are provided, the latest will overrule the env variable.
+The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings. When both the environment variable and the CLI argument are provided, the latest will overrule the env variable.
 
 |Configuration Option     |    Description   |   Default  |
 |----------------------------------------------|------------------|--------------|
@@ -66,7 +66,7 @@ OperationTimeout=VALUE |OPC UA Stack Transport Secure Channel - OPC UA Service c
 MaxStringLength=VALUE |OPC UA Stack Transport Secure Channel - Maximum length of a string that can be send/received over the OPC UA Secure channel. |130,816 (128KB - 256)
 DefaultSamplingInterval=VALUE |Default value for the OPC UA sampling interval of nodes to publish. This value is used when no explicit setting is configured. |{00:00:01}
 DefaultPublishingInterval=VALUE |Default value for the OPC UA publishing interval of OPC UA subscriptions created to an OPC UA server. This value is used when no explicit setting is configured. |{00:00:01}
-DefaultSessionTimeout=VALUE |The interval the publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to. |0, meaning not set
+DefaultSessionTimeout=VALUE |The interval the OPC Publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to. |0, meaning not set
 MinSubscriptionLifetime=VALUE | OPC UA Client Application Config - Minimum subscription lifetime as per OPC UA definition. |0, meaning not set
 AddAppCertToTrustedStore=VALUE |OPC UA Client Security Config - automatically copy own certificate's public key to the trusted certificate store |true
 ApplicationName=VALUE |OPC UA Client Application Config - Application name as per OPC UA definition. This is used for authentication during communication init handshake and as part of own certificate validation. |"Microsoft.Azure.IIoT" 
