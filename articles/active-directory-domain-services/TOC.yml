@@ -162,6 +162,8 @@
   items:
     - name: FAQs
       href: faqs.yml
+    - name: Feature availability
+      href: feature-availability.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Pricing

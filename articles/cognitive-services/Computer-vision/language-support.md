@@ -39,50 +39,6 @@ The following table lists the languages supported by Read for handwritten text.
 |German (preview) |`de`|Spanish (preview) |`es`|
 |Italian (preview) |`it`|
 
-### Print languages (GA)
-
-This section lists the supported languages in the latest GA version.
-
-|Language| Code (optional) |Language| Code (optional) |
-|:-----|:----:|:-----|:----:|
-|Afrikaans|`af`|Japanese | `ja` |
-|Albanian |`sq`|Javanese | `jv` |
-|Asturian |`ast`|K'iche'  | `quc` |
-|Basque  |`eu`|Kabuverdianu | `kea` |
-|Bislama   |`bi`|Kachin (Latin) | `kac` |
-|Breton    |`br`|Kara-Kalpak (Latin) | `kaa` |
-|Catalan    |`ca`|Kashubian | `csb` |
-|Cebuano    |`ceb`|Khasi  | `kha` |
-|Chamorro  |`ch`|Korean | `ko` |
-|Chinese Simplified | `zh-Hans`|Kurdish (Latin) | `ku-latn`
-|Chinese Traditional | `zh-Hant`|Luxembourgish  | `lb` |
-|Cornish     |`kw`|Malay (Latin) | `ms` |
-|Corsican      |`co`|Manx  | `gv` |
-|Crimean Tatar (Latin)|`crh`|Neapolitan   | `nap` |
-|Czech | `cs` |Norwegian | `no` |
-|Danish | `da` |Occitan | `oc` |
-|Dutch | `nl` |Polish | `pl` |
-|English | `en` |Portuguese | `pt` |
-|Estonian  |`et`|Romansh  | `rm` |
-|Fijian |`fj`|Scots  | `sco` |
-|Filipino  |`fil`|Scottish Gaelic  | `gd` |
-|Finnish | `fi` |Slovenian  | `sl` |
-|French | `fr` |Spanish | `es` |
-|Friulian  | `fur` |Swahili (Latin)  | `sw` |
-|Galician   | `gl` |Swedish | `sv` |
-|German | `de` |Tatar (Latin)  | `tt` |
-|Gilbertese    | `gil` |Tetum    | `tet` |
-|Greenlandic   | `kl` |Turkish | `tr` |
-|Haitian Creole  | `ht` |Upper Sorbian  | `hsb` |
-|Hani  | `hni` |Uzbek (Latin)     | `uz` |
-|Hmong Daw (Latin)| `mww` |Volapük   | `vo` |
-|Hungarian | `hu` |Walser    | `wae` |
-|Indonesian   | `id` |Western Frisian | `fy` |
-|Interlingua  | `ia` |Yucatec Maya | `yua` |
-|Inuktitut (Latin) | `iu` |Zhuang | `za` |
-|Irish    | `ga` |Zulu  | `zu` |
-|Italian | `it` |
-
 ### Print languages (preview)
 
 This section lists the supported languages in the latest preview.
@@ -135,6 +91,50 @@ This section lists the supported languages in the latest preview.
 |Kurdish (Arabic) | `ku-arab`|Uzbek (Cyrillic)  | `uz-cyrl`
 |Kurukh (Devanagiri) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
+
+### Print languages (GA)
+
+This section lists the supported languages in the latest GA version.
+
+|Language| Code (optional) |Language| Code (optional) |
+|:-----|:----:|:-----|:----:|
+|Afrikaans|`af`|Japanese | `ja` |
+|Albanian |`sq`|Javanese | `jv` |
+|Asturian |`ast`|K'iche'  | `quc` |
+|Basque  |`eu`|Kabuverdianu | `kea` |
+|Bislama   |`bi`|Kachin (Latin) | `kac` |
+|Breton    |`br`|Kara-Kalpak (Latin) | `kaa` |
+|Catalan    |`ca`|Kashubian | `csb` |
+|Cebuano    |`ceb`|Khasi  | `kha` |
+|Chamorro  |`ch`|Korean | `ko` |
+|Chinese Simplified | `zh-Hans`|Kurdish (Latin) | `ku-latn`
+|Chinese Traditional | `zh-Hant`|Luxembourgish  | `lb` |
+|Cornish     |`kw`|Malay (Latin) | `ms` |
+|Corsican      |`co`|Manx  | `gv` |
+|Crimean Tatar (Latin)|`crh`|Neapolitan   | `nap` |
+|Czech | `cs` |Norwegian | `no` |
+|Danish | `da` |Occitan | `oc` |
+|Dutch | `nl` |Polish | `pl` |
+|English | `en` |Portuguese | `pt` |
+|Estonian  |`et`|Romansh  | `rm` |
+|Fijian |`fj`|Scots  | `sco` |
+|Filipino  |`fil`|Scottish Gaelic  | `gd` |
+|Finnish | `fi` |Slovenian  | `sl` |
+|French | `fr` |Spanish | `es` |
+|Friulian  | `fur` |Swahili (Latin)  | `sw` |
+|Galician   | `gl` |Swedish | `sv` |
+|German | `de` |Tatar (Latin)  | `tt` |
+|Gilbertese    | `gil` |Tetum    | `tet` |
+|Greenlandic   | `kl` |Turkish | `tr` |
+|Haitian Creole  | `ht` |Upper Sorbian  | `hsb` |
+|Hani  | `hni` |Uzbek (Latin)     | `uz` |
+|Hmong Daw (Latin)| `mww` |Volapük   | `vo` |
+|Hungarian | `hu` |Walser    | `wae` |
+|Indonesian   | `id` |Western Frisian | `fy` |
+|Interlingua  | `ia` |Yucatec Maya | `yua` |
+|Inuktitut (Latin) | `iu` |Zhuang | `za` |
+|Irish    | `ga` |Zulu  | `zu` |
+|Italian | `it` |
 
 ## Image analysis
 

@@ -3,7 +3,7 @@ title: Microsoft identity platform UserInfo endpoint | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: cliv2
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
@@ -14,6 +14,8 @@ ms.reviewer: laobri
 ---
 
 # CLI (v2) command component YAML schema
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json.
 

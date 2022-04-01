@@ -10,10 +10,12 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2, ignite-fall-2021
+ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2
 ---
 
 # Deploy and score a machine learning model by using an online endpoint (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to use an online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 

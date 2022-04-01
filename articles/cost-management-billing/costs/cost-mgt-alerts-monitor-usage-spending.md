@@ -1,5 +1,6 @@
 ---
-title: Monitor usage and spending with cost alerts in Azure Cost Management
+title: Monitor usage and spending with cost alerts in Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders

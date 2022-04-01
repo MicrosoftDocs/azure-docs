@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 author: mrbullwinkle
 ms.author: mbullwin
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/23/2021
 ---
 

@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2
 
 author: mx-iao
 ms.author: minxia
@@ -14,6 +15,8 @@ ms.reviewer: laobri
 ---
 
 # CLI (v2) core YAML syntax
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
 

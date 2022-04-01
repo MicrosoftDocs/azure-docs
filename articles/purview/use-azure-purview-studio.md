@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 02/12/2022
 ---
 
 # Use Azure Purview Studio
@@ -61,6 +61,16 @@ The following list summarizes the main features of **Home page**. Each number in
 ## Knowledge center
 
 Knowledge center is where you can find all the videos and tutorials related to Azure Purview.
+
+## Localization
+
+Azure Purview is localized in 18 languages. To change the language used, go to the **Settings** from the top bar and select the desired language from the dropdown.
+
+:::image type="content" source="./media/use-purview-studio/localization.png" alt-text="Screenshot of how to localize Azure Purview studio.":::
+
+> [!NOTE]
+> Only generally available features are localized. Features still in preview are in English regardless of which language is selected.
+
 
 ## Guided tours
 

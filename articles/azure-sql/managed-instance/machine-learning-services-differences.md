@@ -74,6 +74,8 @@ Memory usage depends on how much is used in your R scripts and the number of par
 
 If you receive one of these errors, you can resolve it by scaling your database to a higher service tier.
 
+If you encounter out of memory errors in Azure SQL Managed Instance, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+
 ## SQL Managed Instance pools
 
 Machine Learning Services is currently not supported on [Azure SQL Managed Instance pools (preview)](instance-pools-overview.md).

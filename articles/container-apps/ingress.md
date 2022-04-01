@@ -18,6 +18,7 @@ With ingress enabled, your container app features the following characteristics:
 
 - Supports TLS termination
 - Supports HTTP/1.1 and HTTP/2
+- Supports WebSocket and gRPC
 - Endpoints always use TLS 1.2, terminated at the ingress point
 - Endpoints always expose ports 80 (for HTTP) and 443 (for HTTPS).
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443.

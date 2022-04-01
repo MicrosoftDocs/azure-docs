@@ -1,11 +1,11 @@
 ---
 title: How to rotate access key for Azure SignalR Service
 description: An overview on why the customer needs to routinely rotate the access keys and how to do it with the Azure portal GUI and the Azure CLI.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: zhshang
+ms.author: lianwei
 ---
 # How to rotate access key for Azure SignalR Service
 
@@ -29,7 +29,7 @@ For security reasons and compliance requirements, routinely rotate your access k
 
    ![Regenerate Keys](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az_signalr_key_renew).
+You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az-signalr-key-renew).
 
 ## Update configurations with new connection strings
 

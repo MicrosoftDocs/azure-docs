@@ -4,7 +4,7 @@ description: Use Azure Monitor to create, view, and manage log alert rules
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
@@ -18,9 +18,6 @@ This article shows you how to create and manage log alerts. Azure Monitor log al
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
-
-> [!NOTE]
-> [This page](alerts-unified-log.md) explains all of the concepts behind each setting used when setting up a log alert rule.
 ## Create a log alert rule in the Azure portal
 > [!NOTE]
 > This article describes creating alert rules using the new alert rule wizard. 
@@ -37,24 +34,13 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 >     - For more advanced customizations, use Logic Apps.
 
 
-1. In the [portal](https://portal.azure.com/), select the relevant resource.
-1. In the Resource menu, under **Monitor**, select **Logs**.
+1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group for the alert rule.
+1. In the Resource menu, select **Logs**.
 1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. From the top command bar, Select **+ New Alert rule**.
 
    :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 
-1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
-
-    :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select signal.":::
-
-1. Click on the **Custom log search** signal.
-1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
-1. Click **Run** to confirm that the query correctly identifies the data you want to alert on.
- 
-    :::image type="content" source="media/alerts-log/alerts-logs-query-results.png" alt-text="Query results.":::
-
-1. Once you have successfully finished writing your query, click **Continue Editing Alert**.
 1. The **Condition** tab opens, populated with your log query.
  
     :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
@@ -103,9 +89,6 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 1. When validation passes and you have reviewed the settings, click the **Create** button.    
     
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
-
-> [!NOTE]
-> We recommend that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
 ## Manage alert rules in the Alerts portal
 
 > [!NOTE]

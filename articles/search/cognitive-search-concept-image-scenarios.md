@@ -46,7 +46,7 @@ Azure Blob Storage is the most frequently used storage for image processing in C
 
 - [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
 
-- Optionally, [set file type criteria](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
+- Optionally, [set file type criteria](search-blob-storage-integration.md#PartsOfBlobToIndex) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
 
 <a name="get-normalized-images"></a>
 
@@ -99,7 +99,7 @@ You cannot turn off image normalization. Skills that iterate over images, such a
 
 ### About normalized images
 
-When "imageAction" is set to a value other then "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
+When "imageAction" is set to a value other than "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
 
 | Image member       | Description                             |
 |--------------------|-----------------------------------------|
@@ -536,7 +536,7 @@ Images can also be passed into and returned from custom skills. The skillset bas
  }
 ```
 
-The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
+The [Azure Search Python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
 
 <a name="passing-images-to-custom-skills"></a>
 
@@ -583,7 +583,7 @@ The following skillset takes the normalized image (obtained during document crac
 
 ### Custom skill example
 
-The custom skill itself is external to the skillset. In this case, it is Python code that first loops thorough the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
+The custom skill itself is external to the skillset. In this case, it is Python code that first loops through the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
 
 ```python
 # deserialize the request, for each item in the batch

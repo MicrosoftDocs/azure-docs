@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
+ms.topic: how-to
 ms.date: 01/05/2022
 ms.custom: "seodec18"
 ---

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2022
+ms.date: 02/11/2022
 ms.author: jeedes
 
 ---
@@ -75,8 +75,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	In the **Sign on URL** text box, type the URL:
-    `https://hrportal-uat.ehr.com/microsoftbenefits`
+	In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<ENVIRONMENT>.ehr.com/microsoftbenefits`
+
+    > [!NOTE]
+	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Embark support team](mailto:wtw.software.support.notification@willistowerswatson.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your Embark application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Embark expects this to be mapped with the user's employee id. For that you can use **user.employeeid** attribute from the list or use the appropriate attribute value based on your organization configuration..
 

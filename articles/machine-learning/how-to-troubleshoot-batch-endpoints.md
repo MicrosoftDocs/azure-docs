@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting, devplatv2
+ms.custom: troubleshooting, devplatv2, cliv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
@@ -15,6 +15,8 @@ ms.date: 10/21/2021
 
 ---
 # Troubleshooting batch endpoints (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) (preview) for batch scoring.
 
@@ -108,7 +110,7 @@ arg_parser.add_argument("--logging_level", type=str, help="logging level")
 args, unknown_args = arg_parser.parse_known_args()
 print(args.logging_level)
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.logging_level.upper())
 logger.info("Info log statement")

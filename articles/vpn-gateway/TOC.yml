@@ -116,7 +116,11 @@
   - name: Site-to-Site with ExpressRoute connections
     items:
     - name: Coexisting connections
-      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      items:
+      - name: Azure portal
+        href: ../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      - name: Azure PowerShell
+        href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
   - name: VNet-to-VNet connections

@@ -1302,6 +1302,14 @@ groups:
     title: Environment settings
   - id: classic-connector
     title: Classic connector
+- id: connect-gcp-accounts
+  title: Add a GCP account
+  prompt: How will you connect the GCP account?
+  pivots:
+  - id: env-settings
+    title: Environment settings
+  - id: classic-connector
+    title: Classic connector
 - id: manage-asc-initiatives
   title: Manage Defender for Cloud initiatives
   prompt: How will you manage your Defender for Cloud initiatives?
@@ -1317,9 +1325,11 @@ groups:
   - id: defender-for-container-aks
     title: Azure (AKS)
   - id: defender-for-container-arc
-    title: On-premises / IaaS
+    title: On-premises / IaaS (Arc)
   - id: defender-for-container-eks
     title: AWS (EKS)
+  - id: defender-for-container-gke
+    title: GCP (GKE)
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -1595,18 +1605,29 @@ groups:
   - id: iot-toolset-cmake
     title: CMake
   - id: iot-toolset-iar-ewarm
+    title: IAR EWAR
+# Owner: timlt
+- id: iot-develop-stm32-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
     title: IAR EWARM
+  - id: iot-toolset-stm32cube
+    title: STM32Cube IDE
 # Owner: v-amallick
-- id: backup-client-powershelltier-clitier-portaltier
+- id: backup-client-portaltier-powershelltier-clitier
   title: Clients
   prompt: Choose a client
   pivots:
+  - id: client-portaltier
+    title: Azure portal
   - id: client-powershelltier
     title: PowerShell
   - id: client-clitier
     title: CLI
-  - id: client-portaltier
-    title: Azure portal
 # Owner: prakulka
 - id: acs-tollfree-shortcode
   title: Number Type
@@ -1657,21 +1678,21 @@ groups:
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
-  prompt: Select the Azure Front Door tier
+  prompt: "Select the Azure Front Door tier:"
   pivots:
-  - id: front-door-classic
-    title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
-  prompt: Select an Azure SQL deployment option
+  prompt: "Select an Azure SQL Database deployment option:"
   pivots:
   - id: azure-sql-single-db
-    title: Azure SQL Database, single database
+    title: Single database
   - id: azure-sql-elastic-pool
-    title: Azure SQL Database, elastic pool
+    title: Elastic pool
 # Owner: karler
 - id: spring-cloud-tier-selection
   title: Azure Spring Cloud tier
@@ -1681,3 +1702,31 @@ groups:
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
+# Owner: jomondi
+- id: home-realm-discovery
+  title: hrd-policy
+  prompt: Choose an option
+  pivots:
+  - id: powershell-hrd
+    title: PowerShell
+  - id: graph-hrd
+    title: Graph
+# Owner: juliakm
+- id: pipelines-version
+  title: Pipelines version
+  prompt: Choose a Pipelines version
+  pivots:
+  - id: pipelines-yaml
+    title: YAML
+  - id: pipelines-classic
+    title: Classic
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift
+  title: ARM and Bicep-OpenShift
+  prompt: Choose an option
+  pivots:
+  - id: aro-arm
+    title: Azure Resouce Manager
+  - id: aro-bicep
+    title: Bicep   
+

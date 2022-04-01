@@ -80,7 +80,7 @@ The maximum write throughput for a volume and a single Linux session is between 
 It's important to understand that the data is written to the same SSDs in the storage backend. The performance quota from the capacity pool was created to be able to manage the environment.
 The Storage KPIs are equal for all HANA database sizes. In almost all cases, this assumption doesn't reflect the reality and the customer expectation. The size of  HANA Systems doesn't necessarily mean that a small system requires low storage throughput – and a large system requires high storage throughput. But generally we can expect higher throughput requirements for larger HANA database instances. As a result of SAP's sizing rules for the underlying hardware such larger HANA instances also provide more CPU resources and higher parallelism in tasks like loading data after an instances restart. As a result the volume sizes should be adopted to the customer expectations and requirements. And not only driven by pure capacity requirements.
 
-As you design the infrastructure for SAP in Azure you should be aware of some minimum storage throughput requirements (for productions Systems) by SAP, which translate into minimum throughput characteristics of:
+As you design the infrastructure for SAP in Azure you should be aware of some minimum storage throughput requirements (for productions Systems) by SAP, which translates into minimum throughput characteristics of:
 
 | Volume type and I/O type | Minimum KPI demanded by SAP | Premium service level | Ultra service level |
 | --- | --- | --- | --- |
@@ -120,19 +120,19 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
-## Deployment through application volume groups for SAP HANA (AVG)
-To deploy ANF volumes with proximity to your VM, a new functionality called application volume groups got developed. The functionality is currently in public preview. There is a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs invovles the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
+## Deployment through Azure NetApp Files application volume group for SAP HANA (AVG)
+To deploy ANF volumes with proximity to your VM, a new functionality called Azure NetApp Files application volume group for SAP HANA (AVG) got developed. **The functionality is currently in public preview**. There's a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs involves the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
 The order of deployment would look like:
 
-- Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty AvSet to a compute HW to ensure that VM’s aren't going to move
-- Assign a PPG to the Avset and start a VM assigned to this Avset
-- Use Azure application volume group to deploy your HANA volumes
+- Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty AvSet to a compute HW to ensure that VMs aren't going to move
+- Assign a PPG to the Availability Set and start a VM assigned to this Availability Set
+- Use Azure NetApp Files application volume group for SAP HANA functionality to deploy your HANA volumes
 
 The proximity placement group configuration to use AVGs in an optimal way would look like:
 
 ![ANF application volume group and ppg architecture](media/hana-vm-operations-netapp/avg-ppg-architecture.png)
 
-The diagram shows that you're going to use an Azure proximity placement group for the DBMS layer. So, that it can get used together with ANF application volume groups. It's best to just include only the VM(s) that run the HANA instance(s) in the proximity placement group. The proximity placement group is necessary, even if only one VM with a single HANA instance is used, for the application volume group to identify the closest proximity of the ANF hardware. And to allocate the NFS volume on ANF as close as possible to the VM(s) that are using the NFS volumes.
+The diagram shows that you're going to use an Azure proximity placement group for the DBMS layer. So, that it can get used together with AVGs. It's best to just include only the VM(s) that run the HANA instance(s) in the proximity placement group. The proximity placement group is necessary, even if only one VM with a single HANA instance is used, for the AVG to identify the closest proximity of the ANF hardware. And to allocate the NFS volume on ANF as close as possible to the VM(s) that are using the NFS volumes.
 
 ## Availability
 ANF system updates and upgrades are applied without impacting the customer environment. The defined [SLA is 99.99%](https://azure.microsoft.com/support/legal/sla/netapp/).
@@ -159,7 +159,7 @@ SAP HANA supports:
 
 Creating storage-based snapshot backups is a simple four-step procedure, 
 1. Creating a HANA (internal) database snapshot - an activity you or tools need to perform 
-1. SAP HANA writes data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
+1. SAP HANA write data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
 1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There's no need to perform a snapshot on the **/hana/log** volume
 1. Delete the HANA (internal) database snapshot and resume normal operation - a step you or tools need to perform
 
@@ -182,7 +182,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-This snapshot backup procedure can be managed in various ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
+This snapshot backup procedure can be managed in various ways, using various tools. One example is the Python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
 This is sample code, provided “as-is” without any maintenance or support.
 
 
@@ -192,13 +192,13 @@ This is sample code, provided “as-is” without any maintenance or support.
 
 Available solutions for storage snapshot based application consistent backup:
 
-- Microsoft [Azure Application Consistent Snapshot tool (AzAcSnap)](../../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance as well as Azure NetApp Files. See What is Azure Application Consistent Snapshot tool for more details 
+- Microsoft [Azure Application Consistent Snapshot tool (AzAcSnap)](../../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. See What is Azure Application Consistent Snapshot tool for more details 
 - For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
 
 
 
 ### Back up the snapshot using Azure blob storage
-Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the AzCopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
+Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the AzCopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the Python script from GitHub is installed.
 Download the latest AzCopy tool:
 
 ```

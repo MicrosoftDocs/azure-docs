@@ -10,12 +10,15 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 01/11/2022
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, cliv2
+
 
 # Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
 ---
 
 # Access Azure resources from an online endpoint (preview) with a managed identity 
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
@@ -29,7 +32,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
 * An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
 

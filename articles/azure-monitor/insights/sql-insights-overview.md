@@ -68,7 +68,7 @@ SQL insights performs all monitoring remotely. No agents are installed on the vi
 
 SQL insights uses dedicated monitoring virtual machines to remotely collect data from your SQL resources. Each monitoring virtual machine has the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and the Workload Insights (WLI) extension installed. 
 
-The WLI extension includes the open-source [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/). SQL insights uses [data collection rules](../agents/data-collection-rule-overview.md) to specify the data collection settings for Telegraf's [SQL Server plug-in](https://www.influxdata.com/integration/microsoft-sql-server/).
+The WLI extension includes the open-source [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/). SQL insights uses [data collection rules](../essentials/data-collection-rule-overview.md) to specify the data collection settings for Telegraf's [SQL Server plug-in](https://www.influxdata.com/integration/microsoft-sql-server/).
 
 Different sets of data are available for Azure SQL Database, Azure SQL Managed Instance, and SQL Server. The following tables describe the available data. You can customize which datasets to collect and the frequency of collection when you [create a monitoring profile](sql-insights-enable.md#create-sql-monitoring-profile).
 

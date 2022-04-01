@@ -11,11 +11,8 @@ items:
   items:
     - name: Get started with the DICOM service
       href: get-started-with-dicom.md
-    - name: Deploy DICOM service
-      expanded: true
-      items:
-        - name: Using Portal
-          href: deploy-dicom-services-in-azure.md
+    - name: Deploy DICOM service using Portal
+      href: deploy-dicom-services-in-azure.md
 - name: How-to guides
   expanded: true
   items:
@@ -36,7 +33,7 @@ items:
   - name: Diagnostic logging
     expanded: true
     items: 
-    - name: Enable diagnostic dogging in the DICOM service
+    - name: Enable diagnostic logging in the DICOM service
       href: enable-diagnostic-logging.md
   - name: Operations
     expanded: true
@@ -51,10 +48,14 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: Using DICOMweb Standard APIs with DICOM service
-      href: dicomweb-standard-apis-with-dicom-services.md
+    - name: DICOMcast overview
+      href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
+    - name: DICOM Extended Query Tags overview
+      href: dicom-extended-query-tags-overview.md
+    - name: Using DICOMweb Standard APIs with DICOM service
+      href: dicomweb-standard-apis-with-dicom-services.md  
 - name: Resources
   expanded: true
   items:
@@ -64,7 +65,14 @@ items:
       href: api-versioning-dicom-service.md
     - name: DICOM Conformance Statement
       href: dicom-services-conformance-statement.md
- 
+- name: References
+  expanded: true
+  items:
+    - name: DICOM service open-source projects
+      href: references-for-dicom-service.md
+    - name: DICOMcast access request
+      href: dicom-cast-access-request.md
+
 
 
 

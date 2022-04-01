@@ -54,7 +54,7 @@ Built-in features of IoT Central you can use to extract business value include:
   
   - To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
   
-  - When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
+  - When a device connects to an IoT Central, the device is assigned to a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
 
 - Use built-in rules and analytics:
 
@@ -63,7 +63,7 @@ Built-in features of IoT Central you can use to extract business value include:
   - [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
   - [Configure rules](howto-configure-rules.md)
   
-  IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
+  IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 Scenarios that process IoT data outside of IoT Central to extract business value include:
 

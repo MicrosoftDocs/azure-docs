@@ -8,8 +8,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
-ms.date: 01/06/2022
+ms.topic: conceptual
+ms.date: 03/21/2022
 
 ---
 # Intents 
@@ -81,7 +81,7 @@ The  **None**  intent is not included in the balance. That intent should contain
 
 ### Intent limits
 
-Review the  [limits](../luis-limits.md#model-boundaries) to understand how many intents you can add to a model.
+Review the  [limits](../luis-limits.md) to understand how many intents you can add to a model.
 
 > [!Tip]
 > If you need more than the maximum number of intents, consider whether your system is using too many intents and determine if multiple intents be combined into single intent with entities.

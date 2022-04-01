@@ -18,7 +18,11 @@ The Java v4 SDK wasn't able to connect to Azure Cosmos DB.
 The following list contains known causes and solutions for service unavailable exceptions.
 
 ### The required ports are being blocked
-Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
+Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled. If the account is configured with private endpoint then additional ports are required to be opened.
+
+```
+failed to establish connection to {account name}.documents.azure.com/<unresolved>:3044 due to io.netty.channel.ConnectTimeoutException:
+```
 
 ### Client initialization failure
 The following exception is hit if the SDK is not able to talk to the Cosmos DB instance. This normally points to some security protocol like a firewall rule is blocking the requests.
