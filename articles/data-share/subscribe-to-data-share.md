@@ -102,7 +102,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Run the [az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az-datashare-consumer-invitation-list) command to see your current invitations:
+Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation?view=azure-cli-latest#az-datashare-invitation-list) command to see your current invitations:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -253,7 +253,7 @@ Use these commands to configure where you want to receive data.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az-datashare-consumer-dataset-mapping-create) command to create the dataset mapping:
+1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/data-set-mappingt#az-datashare-data-set-mapping-create) command to create the dataset mapping:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -371,7 +371,7 @@ These steps only apply to snapshot-based sharing.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az-datashare-consumer-trigger-create) command to trigger a snapshot:
+Run the [az datashare consumer trigger create](/cli/azure/datashare/trigger#az-datashare-trigger-create) command to trigger a snapshot:
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \
