@@ -7,7 +7,7 @@ ms.date: 03/01/2022
 ---
 
 # Migrate from VM guest health to Azure Monitor Log alerts
-This article walks through migrating from the VM guest health (preview) to Azure Monitor Log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on key VM metrics, make sure to transition to Azure Monitor Log alerts before that date. 
+This article walks through migrating from the VM guest health (preview) to Azure Monitor Log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on VM metrics (Percentage CPU utilization, Available Memory, Free Disk space), make sure to transition to Azure Monitor Log alerts before this date. 
 
 ## Configure Azure Monitor Log alerts
 See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md#log-alerts) for instructions on creating Azure Monitor log alerts. Alert rules for the key metrics used by VM health include the following:
@@ -16,6 +16,8 @@ See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machin
 - [Available Memory](monitor-virtual-machine-alerts.md#log-alert-rules-1)
 - [Disk free space](monitor-virtual-machine-alerts.md#log-query-alert-rules-1)
 
+> [!IMPORTANT]
+> Transitioning to Log alerts will result in charges according to Azure Monitor log alert rates. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
 
 ## Offboard VMs from VM guest health
 Use the following steps to offboard the VMs from the VM guest health (preview) feature. The **Health** tab and the **Guest VM Health** status in VM insights will not be available after retirement.
