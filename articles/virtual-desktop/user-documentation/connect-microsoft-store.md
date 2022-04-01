@@ -33,7 +33,7 @@ To subscribe to a workspace:
    - If you're using a Workspace URL, use the URL your admin gave you.
    - If you're connecting from Azure Virtual Desktop, use one of the following URLs depending on which version of the service you're using:
        - Azure Virtual Desktop (classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
-       - Azure Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
+       - Azure Virtual Desktop: `https://rdweb.wvd.microsoft.com/arm/webclient/index.html`.
   
 3. Tap **Subscribe**.
 4. Provide your credentials when prompted.
