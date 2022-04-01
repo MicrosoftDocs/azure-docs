@@ -36,8 +36,6 @@
       href: manage-vms-programmatically.md
     - name: Manage updates for Arc-enabled servers using REST API
       href: manage-arc-enabled-servers-programmatically.md
-    - name: Manage the update settings for your Windows and Linux machines
-      href: manage-update-settings.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues
