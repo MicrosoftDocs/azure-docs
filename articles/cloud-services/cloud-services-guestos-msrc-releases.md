@@ -210,7 +210,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-12 OOB |  [4578013]  |  Standalone Security Update | [4.97] | Aug 19, 2020 |
 |  Rel 21-12 |  [5005698]  |  Servicing Stack update | [5.62] | Sep 14, 2021 |
 |  Rel 21-12 |  [5006749]  |  Servicing Stack update | [2.117] | July 13, 2021 |
-|  Rel 21-12 |  [5008287]  |  Servicing Stack update | [6.38] | Aug 10, 2021 |
 |  Rel 21-12 |  [4494175]  |  Microcode | [5.62] | Sep 1, 2020 |
 |  Rel 21-12 |  [4494174]  |  Microcode | [6.38] | Sep 1, 2020 |
 
@@ -233,7 +232,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4578013]: https://support.microsoft.com/kb/4578013
 [5005698]: https://support.microsoft.com/kb/5005698
 [5006749]: https://support.microsoft.com/kb/5006749
-[5008287]: https://support.microsoft.com/kb/5008287
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 [2.117]: ./cloud-services-guestos-update-matrix.md#family-2-releases
