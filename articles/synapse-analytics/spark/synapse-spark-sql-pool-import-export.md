@@ -522,6 +522,10 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 
 The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write and read semantics from dependent resources (Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool) to provide efficient data transfers. Following are some important aspects to note:
 
+* When writing to the tables
+  * For internal table types, the target table is created with ROUND_ROBIN data distribution. Column types are inferred from the DataFrame on which the write is triggered.
+  * For external table types, data distribution is influenced by the source data organization and further configurations that effect the initial write parallelism (i.e., to read and write). 
+    * Types are mapped from the user's data frame similar to a write to an internal table type.
 * It is important to factor in source data format type, data distribution and volume aspects to chose ideal Spark Pool Capacity, and also to drive initial parallelism outcomes.
   * Giving more executors does not necessarily translate into better throughput.
   * For example, setting a better byte distribution per partition `spark.sql.files.maxPartitionBytes` will allow execution to maximize executor capacity utilization.
