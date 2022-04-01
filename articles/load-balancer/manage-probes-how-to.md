@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Manage health probes for Azure Load Balancer using the Azure portal
 
-Azure Load Balancer supports health probes to monitor the health of backend instances. In this article, you'll learn how to manage health probes for Azure Load Balancer.
+Azure Load Balancer uses health probes to monitor the health of backend instances. In this article, you'll learn how to manage health probes for Azure Load Balancer.
 
 There are three types of health probes:
 

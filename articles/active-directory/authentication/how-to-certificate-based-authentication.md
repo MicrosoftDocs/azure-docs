@@ -2,7 +2,6 @@
 title: How to configure Azure AD certificate-based authentication without federation (Preview) - Azure Active Directory
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -79,7 +78,7 @@ You can validate the crlDistributionPoint value you provide in the above PowerSh
 
 The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
 
-| CA Certificate Info | |Downloaded CRL Info|
+| CA Certificate Info |= |Downloaded CRL Info|
 |----|:-:|----|
 |Subject |=|Issuer |
 |Subject Key Identifier |=|Authority Key Identifier (KeyID) |

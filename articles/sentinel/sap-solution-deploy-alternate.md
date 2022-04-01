@@ -44,7 +44,7 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname --role Contributor
+az ad sp create-for-rbac –name $spname --role Contributor --scopes /subscriptions/<subscription_id>
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -76,13 +76,13 @@ az keyvault secret set \
   --value "<abapuserpass>" \
   --description SECRET_ABAP_PASSWORD --vault-name $kvname
 
-#Add java Username
+#Add Java Username
 az keyvault secret set \
   --name <SID>-JAVAOSUSER \
   --value "<javauser>" \
   --description SECRET_JAVAOS_USER --vault-name $kvname
 
-#Add java Username password
+#Add Java Username password
 az keyvault secret set \
   --name <SID>-JAVAOSPASS \
   --value "<javauserpass>" \
@@ -328,7 +328,7 @@ This section enables you to configure the following parameters:
 |**auditlogforcexal**     |  Determines whether the system forces the use of audit logs for non-SAL systems, such as SAP BASIS version 7.4.       |
 |**auditlogforcelegacyfiles**     |  Determines whether the system forces the use of audit logs with legacy system capabilities, such as from SAP BASIS version 7.4 with lower patch levels.|
 |**timechunk**     |   Determines that the system waits a specific number of minutes as an interval between data extractions. Use this parameter if you have a large amount of data expected. <br><br>For example, during the initial data load during your first 24 hours, you might want to have the data extraction running only every 30 minutes to give each data extraction enough time. In such cases, set this value to **30**.  |
-|     |         |
+
 
 ### Configuring an ABAP SAP Control instance
 

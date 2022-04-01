@@ -59,7 +59,7 @@ items:
           href: how-to-custom-speech-test-and-train.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Create structured text data
+        - name: Create phonetic pronunciation data
           href: customize-pronunciation.md
         - name: Upload data for Custom Speech
           href: how-to-custom-speech-upload-data.md
@@ -91,7 +91,9 @@ items:
       displayName: tts
     - name: Text-to-speech quickstart
       href: get-started-text-to-speech.md
-    - name: Synthesize long-form speech
+    - name: How to synthesize speech
+      href: how-to-speech-synthesis.md
+    - name: Synthesize from long-form text
       href: long-audio-api.md
     - name: Improve synthesis with SSML
       href: speech-synthesis-markup.md
@@ -264,7 +266,7 @@ items:
       items:
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
-      - name: Support compressed input audio
+      - name: How to use compressed audio files
         href: how-to-use-codec-compressed-audio-input-streams.md
         displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
       - name: Select a specific microphone input device

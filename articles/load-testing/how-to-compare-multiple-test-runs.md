@@ -88,7 +88,7 @@ Use the client-side metrics, such as requests per second or response time, on th
 
 ## Identify the root cause
 
-When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-update-rerun-test.md) for Azure-hosted applications.
+When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-monitor-server-side-metrics.md) for Azure-hosted applications.
 
 1. Hover over the server-side metrics graphs to compare the values across the different test runs.
 
