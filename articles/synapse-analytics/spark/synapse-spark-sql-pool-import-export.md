@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
-description: Presents Azure Synapse Dedicated SQL Pool Connector for Apache Spark for moving data between Apache Spark Runtime (Serverless Spark Pool) and the Synapse Dedicated SQL Pool.
+description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
 author: kalyankadiyala-Microsoft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -25,10 +25,10 @@ At a high-level, the connector provides the following capabilities:
     * `Ignore`
     * `Overwrite`
   * Write to External Table type supports Parquet and Delimited Text file format (example - CSV).
-  * Write path implementation leverages [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of CETAS/CTAS approach.
+  * To write data to internal tables, the connector now uses [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of CETAS/CTAS approach.
   * Enhancements to optimize end-to-end write throughput performance.
   * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
-    * For example - time taken to stage data, time taken to write data to target tables, number of records staged, number of records committed to target table, and the failure cause (if the request submitted has failed).
+    * Few examples include - number of records, duration to complete certain action, and failure reason.
 * Read from Azure Synapse Dedicated SQL Pool:
   * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and Views.
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
@@ -77,7 +77,7 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 #### Azure Active Directory based Authentication
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. When interacting with respective resources such as storage and Synapse Dedicated SQL Pool, the user tokens are leveraged from the runtime. It's important to verify that the respective users can connect and access respective resources to perform write and read actions. The User Identity must be set up in the Azure Active Directory associated with the Azure Subscription where the resources are set up and configured to connect using Azure Active Directory based authentication.
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. When interacting with respective resources such as storage and Synapse Dedicated SQL Pool, the user tokens from the runtime are used when defining the connection strings or as properties on the connect requests. It is important to verify that the user signing in to the workspace is given permissions to connect, read and write to respective end points.
 
 #### SQL Basic Authentication
 
