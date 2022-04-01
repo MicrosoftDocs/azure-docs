@@ -57,7 +57,7 @@ Review and setup following dependent Azure Resources:
 * [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
 * [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
-#### Database Setup
+#### Prepare the Database
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
@@ -229,7 +229,9 @@ synapsesql(tableName:String,
            callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
-#### Write using AAD based Authentication
+## Code Templates
+
+### Write using AAD based Authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
