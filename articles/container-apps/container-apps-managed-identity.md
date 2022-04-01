@@ -353,7 +353,7 @@ some command
 
 # [ARM template](#tab/arm)
 
-To remove all identities in an ARM template:
+To remove all identities, set the `type` of the container app's identity to `None` in the ARM template:
 
 ```json
 "identity": {
