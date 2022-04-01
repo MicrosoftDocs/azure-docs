@@ -312,6 +312,8 @@ items:
     - name: Swagger documentation
       href: swagger-documentation.md
       displayName: rest
+    - name: Speech-to-text short audio
+      href: rest-speech-to-text.md 
     - name: Speech containers
       items:
         - name: Install and run Speech containers
@@ -408,8 +410,8 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference 
-        - name: Speech-to-text REST API
-          href: rest-speech-to-text.md 
+        - name: Speech-to-text v3.0 REST API
+          href: rest-speech-to-text-30.md
           displayName: reference          
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md

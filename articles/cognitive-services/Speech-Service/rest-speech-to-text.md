@@ -1,7 +1,7 @@
 ---
-title: Speech-to-text API reference (REST) - Speech service
+title: Speech-to-text REST API for short audio - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use REST APIs to convert speech to text.
+description: Learn how to use Speech-to-text REST API for short audio to convert speech to text.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,37 +14,9 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Speech-to-text REST APIs
+# Speech-to-text REST API for short audio
 
-Speech-to-text has two REST APIs. Each API serves a special purpose and uses its own set of endpoints. In this article, you learn how to use those APIs, including authorization options, query options, how to structure a request, and how to interpret a response.  
-
-## Speech-to-text REST API v3.0
-
-Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md). If you need to communicate with the online transcription via REST, use the [speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
-
-Use REST API v3.0 to:
-- Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
-- Transcribe data from a container (bulk transcription) and provide multiple URLs for audio files.
-- Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
-- Get logs for each endpoint if logs have been requested for that endpoint.
-- Request the manifest of the models that you create, to set up on-premises containers.
-
-REST API v3.0 includes such features as:
-- **Webhook notifications**: All running processes of the service support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
-- **Updating models behind endpoints** 
-- **Model adaptation with multiple datasets**: Adapt a model by using multiple dataset combinations of acoustic, language, and pronunciation data.
-- **Bring your own storage**: Use your own storage accounts for logs, transcription files, and other data.
-
-For examples of using REST API v3.0 with batch transcription, see [How to use batch transcription](batch-transcription.md).
-
-For information about migrating to the latest version of the speech-to-text REST API, see [Migrate code from v2.0 to v3.0 of the REST API](./migrate-v2-to-v3.md).
-
-You can find the full speech-to-text REST API v3.0 reference on the [Microsoft developer portal](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
-
-## Speech-to-text REST API for short audio
-
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech to text by using the [REST API for short audio](#speech-to-text-rest-api-for-short-audio).
-This API is very limited. Use it only in cases where you can't use the Speech SDK.
+Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the Speech SDK. For [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md), you should always use [Speech to Text API v3.0](rest-speech-to-text-30.md).
 
 Before you use the speech-to-text REST API for short audio, consider the following limitations:
 
