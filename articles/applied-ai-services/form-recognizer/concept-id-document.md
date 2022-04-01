@@ -62,7 +62,7 @@ See how to extract data, including name, birth date, machine-readable zone, and 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API 2.1)
 
 You'll need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 
