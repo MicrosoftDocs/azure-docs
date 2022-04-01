@@ -64,6 +64,16 @@ This article uses a GitHub repository as the source to import code into a Bitbuc
 1. Enter **MyStaticWebApp**.
 1. Select the **Import repository** button and wait a moment while the website creates your repository.
 
+### Set main branch
+
+From time to time the template repository have more than one branch. Use the following steps to ensure Bitbucket maps the *main* tag to the main branch in the repository.
+
+1. Select **Repository settings**.
+1. Expand the **Advanced** section.
+1. Under the *Main branch* label, ensure **main** is selected in the drop down.
+1. If you made a change, select **Save changes**.
+1. Select the **Back** button on the left.
+
 ## Create a static web app
 
 Now that the repository is created, you can create a static web app from the Azure portal.
@@ -215,6 +225,8 @@ Next, define value for the `API_TOKEN` variable.
 1. Check the **Secured** checkbox.
 1. Select the **Add** button.
 1. Select **Commit file** and return to your pipelines tab.
+
+Wait a moment on the *Pipelines* window and you'll see your deployment status appear. Once the deployment is finished running, you can view the website in your browser.
 
 ## View the website
 
