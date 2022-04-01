@@ -84,15 +84,15 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     ```bash
     #!/bin/bash
     kubectl apply -f - <<EOF
-    apiVersion: certmanager.k8s.io/v1alpha1
+    apiVersion: cert-manager.io/v1
     kind: ClusterIssuer
     metadata:
-    name: letsencrypt-staging
+      name: letsencrypt-staging
     spec:
-    acme:
+      acme:
         # You must replace this email address with your own.
         # Let's Encrypt will use this to contact you about expiring
-        # certificates, and issues related to your account.
+        # certificates, and issues related to your account.  
         email: <YOUR.EMAIL@ADDRESS>
         # ACME server URL for Let’s Encrypt’s staging environment.
         # The staging environment will not issue trusted certificates but is
@@ -100,12 +100,18 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
         # before moving to production
         server: https://acme-staging-v02.api.letsencrypt.org/directory
         privateKeySecretRef:
-        # Secret resource used to store the account's private key.
-        name: example-issuer-account-key
+          # Secret resource used to store the account's private key.
+          name: example-issuer-account-key
+        solvers:
         # Enable the HTTP-01 challenge provider
         # you prove ownership of a domain by ensuring that a particular
         # file is present at the domain
-        http01: {}
+        - http01:
+            ingress:
+              ingressTemplate:
+                metadata:
+                  annotations:
+                    kubernetes.io/ingress.class: azure/application-gateway
     EOF
     ```
 
@@ -130,7 +136,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     name: guestbook-letsencrypt-staging
     annotations:
         kubernetes.io/ingress.class: azure/application-gateway
-        certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
     tls:
     - hosts:
