@@ -38,7 +38,7 @@ Key principles of Azure Communication Services Email Service include:
 ## Key Features
 Key features include:
 
-- **Azure Managed Domain** - Customers will be able to send mail from the pre-provisioned domain (<-guid->.azurecomm.net) 
+- **Azure Managed Domain** - Customers will be able to send mail from the pre-provisioned domain (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net) 
 - **Custom Domain** - 	Customers will be able to send mail from the domain(notify.contoso.com) where mail from domain will also from the verified domain (notify.contoso.com).
 - **Sender Authentication Support** - 	Platform Enables support for SPF(Sender Policy Framework) and DKIM(Domain Keys Identified Mail) settings for both Azure managed and Custom Domains with ARC (Authenticated Received Chain) support which preserves the Email authentication result during transitioning.
 
