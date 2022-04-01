@@ -52,6 +52,7 @@ There are several Azure resources defined in the Bicep file:
     ```azurecli
     az group create --name exampleRG --location eastus
     az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
 
     # [PowerShell](#tab/PowerShell)
 
