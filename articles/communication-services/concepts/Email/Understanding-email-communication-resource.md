@@ -17,9 +17,9 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Similar to Chat, VOIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
+Similar to Chat, VoIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
 sending an email requires certain preconfiguration steps and you have to rely on your organization admins help setting that up. The administartor of your organization need to, 
-- Approve the domain that you organization allows you to send mail from 
+- Approve the domain that your organization allows you to send mail from 
 - Define the sender domain they will use as the P1 sender email address (also known as MailFrom email address) that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
 - Define the P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). 
 - Setup and verify the sender domain by adding necessary DNS records for sender verification to succeed.
@@ -34,19 +34,19 @@ Your Azure Administartors will create a new resource of type “Email Communicat
  ## Organziation Admins \ Admin Devlopers Responsibility 
 
 - Plan all the requried Email Domains for the applications in the organization
-- Add Custom domains or get an azure managed domain.
-- Perform the Sender Verification Steps for custom domains
+- Add Custom Domains or get an Azure Managed Domain.
+- Perform the sender verification steps for Custom Domains
 - Setup DMARC Policy for the verified Sender Domains.
 
 ## Devlopers Responsibility 
-- Connect the preferred domains to Azure Communication Service resources.
-- Responsible for generating email payload and define the required
+- Connect the preferred domain to Azure Communication Service resources.
+- Generate email payload and define the required
   - Email headers 
   - Body of email
   - Recipient list
   - Attachments if any
 - Submits to Communication Services Email API.
-- Verify the Status of Email Delivery.
+- Verify the status of Email Delivery.
 
 ## Next steps
 
