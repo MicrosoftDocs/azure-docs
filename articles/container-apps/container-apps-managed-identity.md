@@ -72,9 +72,6 @@ When a managed identity is added, deleted or modified on a running container app
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
-    ![Screenshot that shows where to switch Status to On and then select Save.](../app-service/media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
-
-
 # [Azure CLI](#tab/cli)
 
 Run the `az containerapp identity assign` command to create a system-assigned identity:
