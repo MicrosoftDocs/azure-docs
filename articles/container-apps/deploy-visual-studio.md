@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022, available as a [free download](https://visualstudio.com).  
+- Visual Studio 2022 Preview 2 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project
@@ -32,7 +32,7 @@ In the dialog window, search for *ASP.NET*, and then choose **ASP.NET Core Web A
 
 In the **Project Name** field, name the application *MyContainerApp* and then select **Next**.
 
-On the **Additional Information** screen, make sure to select **Enable Docker**.  This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building.
+On the **Additional Information** screen, make sure to select **Enable Docker**, and then make sure **Linux** is selected for the **Docker OS** setting. Azure Container Apps currently do not support Windows containers. This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building. 
 
 Click **Create** and Visual Studio creates and loads the project.
 
@@ -47,15 +47,15 @@ Visual Studio launches the Docker Desktop for Windows installer.  You can follow
 
 ## Deploy to Azure Container Apps
 
-The application includes a Dockerfile because the **Enable Docker** setting is selected in the project template.  Visual Studio uses the Dockerfile to build the image that is run by Azure Container Apps.
+The application includes a Dockerfile because the Enable Docker setting was selected in the project template. Visual Studio uses the Dockerfile to build the container image that is run by Azure Container Apps.
 
 Refer to [How Visual Studio builds containerized apps](/visualstudio/containers/container-build) if you'd like to learn more about the specifics of this process.
 
-Your are now ready to deploy to Azure Containers Apps.
+You are now ready to deploy to the application to Azure Containers Apps.
 
 ### Create the resources
 
-Visual Studio creates all the necessary Azure resources to deploy and run Azure Container Apps through the publishing workflow. 
+The Visual Studio publish dialogs will help you choose existing Azure resources, or create new ones to be used to deploy your applications to. It will also build the container image using the Dockerfile in the project, push this image to ACR, and finally deploy the new image to the container app selected.
 
 Right click on the **MyContainerApp** project node and select **Publish**.
 
@@ -72,15 +72,8 @@ Next, create an Azure Container App to host the project.  Select the the **green
 - **Container App name**: Enter a name of `msdocscontainerapp`.
 - **Subscription name**: Choose the subscription where you would like to host your app.
 - **Resource group**: A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`.
-- **Container Apps Environment**:  Every container app requires a Container Apps Environment. Environments help to orchestrate Container Apps and allow multiple apps to be hosted alongside one another. Click **New** to open the **Create new** dialog for your container app environment. Enter the following values:
-    - **Environment name**: Leave the default name.  
-    - **Location**: Choose a location that's close to you.
-    - **Azure Log Analytics workspace**: Every container app requires an Azure Log Analytics workspace to view logs. Select **New** to open the **Create new** Azure Log Analytics Workspace dialog and enter the following values:  
-        - **Workspace name**: Enter a name of `msdocscontainerappworkspace` or something similar.
-        - **Location**: Choose a location that is close to you.
-        - Select **OK** to close the **Azure Log Analytics workspace** dialog.
-    - Select **OK** to close the **Crew new** environment dialog.
-- **Container Name**: On the original Container App dialog, enter a value of `msdocscontainer1`. In the future, you can run multiple containers in a single app, but for now there is only one.
+- **Container Apps Environment**:  Container Apps Environment: Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other, Click **New** to open the Create new dialog for your container app environment. Leave the default values and select **OK** to close the environment dialog.
+- **Container Name**: This is the friendly name of the container that will run for this container app. Use the name `msdocscontainer1` for this quickstart. A container app typically runs a single container, but there are times when having more than one container is needed. One such example is when a sidecar container is required to perform an activity such as specialized logging or communications.
 
 :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
 
@@ -88,9 +81,6 @@ Select **Create** to finalize the creation or your container app. Visual Studio 
 
 Once the resources are created, choose **Next**.
 
-On the **Container Name** dialog, ensure the container name you created is selected, and then choose **Next** again.
-
-:::image type="content" source="media/visual-studio/container-apps-container-name.png" alt-text="A screenshot showing how to select the right container.":::
 
 On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
@@ -104,7 +94,7 @@ On the **Registry** screen, you can either select an existing Registry if you ha
 
 After you have populated these values, select **Create**. Visual Studio and Azure will take a moment to create the registry.
 
-Once the Container registry is created, make sure it is selected, and then choose **Finish**.  Visual Studio will take a moment to create the publish profile.  You can close the dialog once it finishes.
+Once the container registry is created, make sure it is selected, and then choose Finish. Visual Studio will take a moment to create the publish profile. This publish profile is where VS stores the publish options and resources you chose so you can quickly publish again whenever you want. You can close the dialog once it finishes.
 
 :::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
 
@@ -124,6 +114,8 @@ When the app finishes deploying, Visual Studio opens a browser to the the URL of
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+
+Follow these steps in the Azure portal to remove the resources you created:
 
 1. Select the **msdocscontainerapps** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
