@@ -12,9 +12,9 @@ ms.author: v-ssudhir
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-You can use Update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule.
+You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule.
 
-Update management center (preview) uses maintenance control schedule instead of using creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
 ## Prerequisites for scheduled patching
 
@@ -36,7 +36,7 @@ Update management center (preview) uses maintenance control schedule instead of 
  
 To create a schedule from a single VM, use the following steps:
 
-1. In **Update management center (Preview)**, **Overview** and select your **Subscription**.
+1. In **Update management center (Preview)**, **Overview**, select your **Subscription**.
 1. Select **Check for updates** to add machines and resources.
 1. Select the machine to view all the available updates and to create a recurring schedule.
 

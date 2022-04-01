@@ -17,21 +17,21 @@ This article details on how to check the status of available updates on all agen
 ## Check updates
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In Update management center (preview), **Overview**, select your **Subscription** to view all your machines.
-    The **Update status of machine** tile displays a summary of the updates of your machines.
+1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines.
+    The **Update status of machines** tile displays a summary of the updates of your machines.
 1. Select **Check for updates**.
 1. In **Select resources and check for updates**, choose your machine(s) and select **Check for updates**.
 
    :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Screenshot for selecting resources and checking updates." lightbox="./media/view-updates/check-updates-expanded.png":::
 
-    An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration**, and **Total Installation runs** tiles are refreshed and display the results.
+    An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
 
 ### Update assessment scan
 
-In update management center (preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+In update management center (Preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
 
-1. In Update management center (preview), go to **Machines**, and select your **Subscription** to view all your machines.
+1. In Update management center (Preview), go to **Machines**, and select your **Subscription** to view all your machines.
 1. Select the machine(s) to initiate the scan.
    In the **Updates (Preview)**, select **Assess updates** to start the process and get the latest assessment data for the machine(s).
    
