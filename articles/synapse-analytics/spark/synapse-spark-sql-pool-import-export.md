@@ -34,9 +34,6 @@ At a high-level, the connector provides the following capabilities:
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
   * Support for column pruning.
 
-> [!NOTE]
-> The latest release of the Connector introduced certain default behavior changes for the write path. Please refer to the section [Common Issues](#common-issues) for scenario description and relevant mitigation steps.
-
 ## Orchestration Approach
 
 ### Write
