@@ -13,53 +13,48 @@ ms.author: v-bcatherine
 
 Azure Container Apps provides built-in  observability features to give you a holistic view of the behavior, performance and health of your running container apps.
 
-These feature include: 
+These features include: 
 
 - Azure Monitor Metrics
 - Azure Monitor Log Analytics
 - Alerts
 
 >[!NOTE]
-> While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
+> While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
 > Container Apps doesn't support the Application Insights auto-instrumentation agent however, you can instrument your application code using Application Insights SDKs.  
-
 
 ## Azure Monitor Metrics
 
-The Azure Monitor Metrics feature allows you to monitor your app's compute and network usage.  These metrics can be viewed and analyzed through the Metrics Explorer in the Azure portal.  Metric data can be retrieved through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets and custom applications.
-
-> [!IMPORTANT]
-> Azure Monitor metrics in Azure Container Apps are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
+The Azure Monitor Metrics feature allows you to monitor your app's compute and network usage.  These metrics can be viewed and analyzed through the Metrics Explorer in the Azure portal.  Metric data can be retrieved through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets and custom applications.
 
 ### Available metrics
 
 Container Apps provides these metrics for your container app.  
 
-* CPU usage nanocores
-  * CPU usage in nanocores
-  * Metric ID: UsageNanoCores
-  * Namespace: microsoft.app/containerapps
-  * Unit: nanocores
-* Memory working set byte
-  * Working set memory used in bytes
-  * Metric ID: WorkingSetBytes
-  * Namespace: microsoft.app/containerapps
-  * Unit: bytes
-* Network in bytes
-  * Network received bytes
-  * Metric ID: RxBytes
-  * Namespace: microsoft.app/containerapps
-  * Unit: bytes
-* Network out bytes
-  * Network transmitted bytes
-  * Metric ID: TxBytes
-  * Namespace: microsoft.app/containerapps
-  * Unit: bytes
-* Requests
-  * Requests processed
-  * Metric ID: Requests
-  * Namespace: microsoft.app/containerapps
+- CPU usage nanocores
+  - CPU usage in nanocores
+  - Metric ID: UsageNanoCores
+  - Namespace: microsoft.app/containerapps
+  - Unit: nanocores
+- Memory working set byte
+  - Working set memory used in bytes
+  - Metric ID: WorkingSetBytes
+  - Namespace: microsoft.app/containerapps
+  - Unit: bytes
+- Network in bytes
+  - Network received bytes
+  - Metric ID: RxBytes
+  - Namespace: microsoft.app/containerapps
+  - Unit: bytes
+- Network out bytes
+  - Network transmitted bytes
+  - Metric ID: TxBytes
+  - Namespace: microsoft.app/containerapps
+  - Unit: bytes
+- Requests
+  - Requests processed
+  - Metric ID: Requests
+  - Namespace: microsoft.app/containerapps
 
 ### Container app overview page
 
@@ -67,7 +62,7 @@ In the **Overview** page for your container app, the **Monitoring** section disp
 
 :::image type="content" source="media/observability/metrics-in-overview-page.png" alt-text="Monitoring section in container app overview":::
 
-From this view, you can pin one or more charts to your dashboard.  When you select a chart, it is opened in Metrics Explorer.
+From this view, you can pin one or more charts to your dashboard.  When you select a chart, it's opened in Metrics Explorer.
 
 ### Metrics explorer
 
@@ -75,10 +70,7 @@ The Metrics explorer can be accessed from the *Metrics* menu option in your cont
 
 The Metric page allows you to select create charts by selecting  Container Apps metrics, filtering based on revisions and replicas and apply splitting by revisions or replicas.    Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
-
 :::image type="content" source="media/observability/metrics-main-page-cropped.png" alt-text="Container Apps metrics main page." lightbox="media/observability/metrics-main-page.png":::
-
-
 
 Filtering by replica:
 :::image type="content" source="media/observability/add-filter.png" alt-text="Add a filter to chart":::
@@ -93,7 +85,7 @@ You can view metrics across multiple container apps to view resource utilization
 
 ## Azure Monitor Log Analytics
 
-Application Logs are accessed through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace which provides a common log space for each container app in the environment.  
+Application Logs are accessed through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for each container app in the environment.  
 
 Application logs, consisting of the stdout and stderr from each running container (replica), are collected and stored in the Log Analytics workspace.
 
@@ -113,7 +105,7 @@ Application logs can be queried from the Azure CLI and PowerShell cmdlets.  For 
 
 ## Alerts
 
-Alerts can be configured to send notifications based on metrics and log criteria.  Both Metrics explorer and Log Analytics provide the ability to create alerts.
+Alerts can be configured to send notifications based on metrics and log criteria.  You can create alerts in  Metrics Explorer and the Log Analytics interface in the Azure portal.
 
 ### Setting alerts in Metrics Explorer
 
@@ -147,14 +139,14 @@ During the development and test phase, Log Analytics provides access to your app
 
 You can monitor performance and resource utilization and set up notifications when important conditions occur in your container apps using:
 
-* Metrics
-* Alerts
-* Log Analytics
-* Other Azure Monitor features
+- Metrics
+- Alerts
+- Log Analytics
+- Other Azure Monitor features
 
 ### Updates and Revisions
 
 Container Apps supports the monitoring of every active revision.  You can monitor and compare the behavior and performance across revisions through:
 
-* Metrics
-* Log Analytics 
+- Metrics
+- Log Analytics 
