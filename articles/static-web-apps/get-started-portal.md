@@ -143,42 +143,42 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 
 In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
-    # [No Framework](#tab/vanilla-javascript)
+# [No Framework](#tab/vanilla-javascript)
 
-    1. Select **Custom** from the _Build Presets_ dropdown.
-    1. Type **./src** in the _App location_ box.
-    1. Leave the _Api location_ box empty.
-    1. Type **./src** _App artifact location_ box.
+1. Select **Custom** from the _Build Presets_ dropdown.
+1. Type **./src** in the _App location_ box.
+1. Leave the _Api location_ box empty.
+1. Type **./src** _App artifact location_ box.
 
-    # [Angular](#tab/angular)
+# [Angular](#tab/angular)
 
-    1. Select **Angular** from the _Build Presets_ dropdown.
-    1. Keep the default value in the _App location_ box.
-    1. Leave the _Api location_ box empty.
-    1. Type **dist/angular-basic** in the _App artifact location_ box.
+1. Select **Angular** from the _Build Presets_ dropdown.
+1. Keep the default value in the _App location_ box.
+1. Leave the _Api location_ box empty.
+1. Type **dist/angular-basic** in the _App artifact location_ box.
 
-    # [Blazor](#tab/blazor)
+# [Blazor](#tab/blazor)
 
-    1. Select **Blazor** from the _Build Presets_ dropdown.
-    1. Keep the default value of **Client** in the _App location_ box.
-    1. Leave the _Api location_ box empty.
-    1. Keep the default value of **wwwroot** in the _App artifact location_ box.
+1. Select **Blazor** from the _Build Presets_ dropdown.
+1. Keep the default value of **Client** in the _App location_ box.
+1. Leave the _Api location_ box empty.
+1. Keep the default value of **wwwroot** in the _App artifact location_ box.
 
-    # [React](#tab/react)
+# [React](#tab/react)
 
-    1. Select **React** from the _Build Presets_ dropdown.
-    1. Keep the default value in the _App location_ box.
-    1. Leave the _Api location_ box empty.
-    1. Type **build** in the _App artifact location_ box.
+1. Select **React** from the _Build Presets_ dropdown.
+1. Keep the default value in the _App location_ box.
+1. Leave the _Api location_ box empty.
+1. Type **build** in the _App artifact location_ box.
 
-    # [Vue](#tab/vue)
+# [Vue](#tab/vue)
 
-    1. Select **Vue.js** from the _Build Presets_ dropdown.
-    1. Keep the default value in the _App location_ box.
-    1. Leave the _Api location_ box empty.
-    1. Keep the default value in the _App artifact location_ box.
+1. Select **Vue.js** from the _Build Presets_ dropdown.
+1. Keep the default value in the _App location_ box.
+1. Leave the _Api location_ box empty.
+1. Keep the default value in the _App artifact location_ box.
 
-    ---
+---
 
 Select **Review + create**.
 
@@ -237,11 +237,3 @@ If you're not going to continue to use this application, you can delete the Azur
 
 > [!div class="nextstepaction"]
 > [Add an API](add-api.md)
-
-::: zone pivot="azure-devops"
-
-::: zone-end
-
-::: zone pivot="github"
-
-::: zone-end
