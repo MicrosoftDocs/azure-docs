@@ -2,13 +2,11 @@
 title: Customize a Language model in Azure Video Analyzer for Media (formerly Video Indexer) - Azure  
 titleSuffix: Azure Video Analyzer for Media
 description: This article gives an overview of what is a Language model in Azure Video Analyzer for Media (formerly Video Indexer) and how to customize it.
-services: azure-video-analyzer
-author: anikaz
-manager: johndeu
-ms.topic: article
-ms.subservice: azu-video-analyzer-media
-ms.date: 05/31/2022
-ms.author: kumud
+author: Juliako
+manager: femila
+ms.topic: conceptual
+ms.author: juliako
+ms.date: 02/02/2022
 ---
 
 # Customize a Language model with Video Analyzer for Media
