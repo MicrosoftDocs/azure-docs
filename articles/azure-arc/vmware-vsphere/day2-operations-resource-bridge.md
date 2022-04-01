@@ -10,11 +10,9 @@ ms.date: 03/28/2022
 
 In this article, you'll learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
 
-1. Upgrading the Arc resource bridge
-
-2. Updating the credentials
-
-3. Collecting logs from the Arc resource bridge
+- Upgrading the Arc resource bridge
+- Updating the credentials
+- Collecting logs from the Arc resource bridge
 
 Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
 
@@ -27,37 +25,37 @@ Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect you
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
-- Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources
+1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources
 
-- Find and delete the old Arc resource bridge **template** from your vCenter
+2. Find and delete the old Arc resource bridge **template** from your vCenter
 
-- Download the script from the portal and update the following section in the script
+3. Download the script from the portal and update the following section in the script
 
-```powershell
-$location = <Azure region of the resources>
+    ```powershell
+    $location = <Azure region of the resources>
+    
+    $applianceSubscriptionId = <subscription-id>
+    $applianceResourceGroupName = <resourcegroup-name>
+    $applianceName = <resource-bridge-name>
+    
+    $customLocationSubscriptionId = <subscription-id>
+    $customLocationResourceGroupName = <resourcegroup-name>
+    $customLocationName = <custom-location-name>
+    
+    $vCenterSubscriptionId = <subscription-id>
+    $vCenterResourceGroupName = <resourcegroup-name>
+    $vCenterName = <vcenter-name-in-azure>
+    ```
 
-$applianceSubscriptionId = <subscription-id>
-$applianceResourceGroupName = <resourcegroup-name>
-$applianceName = <resource-bridge-name>
-
-$customLocationSubscriptionId = <subscription-id>
-$customLocationResourceGroupName = <resourcegroup-name>
-$customLocationName = <custom-location-name>
-
-$vCenterSubscriptionId = <subscription-id>
-$vCenterResourceGroupName = <resourcegroup-name>
-$vCenterName = <vcenter-name-in-azure>
-```
-
-- [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
+4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
     ```
 
-- [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
+5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
 
-- Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
+6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
 ## Updating the vSphere account credentials
 
