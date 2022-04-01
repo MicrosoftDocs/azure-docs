@@ -77,7 +77,7 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 #### Azure Active Directory based Authentication
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. User tokens from the runtime are applied to successfully connect and interact with dependent resources such as Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool.
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
 
 #### SQL Basic Authentication
 
