@@ -8,9 +8,9 @@ ms.author: v-ssudhir
 ms.topic: quickstart
 ---
 
-# Quickstart: Check and install on-demand updates
+# QuickStart: Check and install on-demand updates
 
-Using the Update management center (Preview) you can update automatically at scale with the help of built in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
+Using the Update management center (Preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
 
 This quickstart details you how to do manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server in an on-premise or other cloud environments.
 
@@ -23,11 +23,14 @@ This quickstart details you how to do manual assessment and apply updates on a s
 
 ## Check updates
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview.)
-1. Under **Getting started**, in **On-demand assessments and updates**, select **Check for updates**.
-    In the **select resources and check for updates** page, a table lists all the machines in the specific Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (Preview).
+1. In **Getting started**, **On-demand assessment and updates**, select **Check for updates**.
+
+    In the **Select resources and check for updates**, a table lists all the machines in the specific Azure subscription.
+
 1. Select one or more machines from the list and select **Check for updates**.
 1. A compliance scan is initiated.
+    
     When the assessment is complete, a confirmation message appears on the top right corner of the page.
 
 
@@ -35,9 +38,9 @@ This quickstart details you how to do manual assessment and apply updates on a s
 
 For the assessed machines that are reporting updates, you can initiate an update deployment that can start immediately or you can schedule the updates by defining the maintenance window. To manually update, follow these steps:
 
-1. In **Update management center(Preview)|Getting started** page, in **On-demand assessments and updates**, select **Update settings**.
-1. In **Change update settings** page, select **Properties**, to apply specific settings to selected machines.
-1. In **Update setting(s) to change**, select any one option to configure and click **Next**.
+1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+1. In **Change update settings** page, by default **Properties** is selected. Select to apply specific settings to selected machines.
+1. In **Update setting(s) to change**, select any one option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**.
 1. In **Machines**, verify the machines for which you can apply the updates. You can also add or remove machines from the list and select **Next**.
 1. In **Review and change**, verify the resource selection and update settings and select **Review and change**.
     A notification appears to confirm that the update settings have been successfully applied.
@@ -47,7 +50,7 @@ For the assessed machines that are reporting updates, you can initiate an update
 
 As per the last assessment performed on selected machines, you can now select resources and machines to install the updates
 
-1. In **Update management center(Preview)|Getting started** page, in **On-demand assessments and updates**, select **Install updates by machines**.
+1. In **Update management center(Preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 1. In the **Install one-time updates** page, select **Machines** to select one or more machines from the list and click **Next**.
 1. In **Updates**, specify the updates to include in the deployment and click **Next**:
     - Include update classification 
