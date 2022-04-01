@@ -21,7 +21,7 @@ ms.custom: mode-api
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/).
+* Install the [Go binaries](https://go.dev/dl/).
 * Install the go-spew library to use a deep pretty printer to display the results. Use this command to install the library: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]

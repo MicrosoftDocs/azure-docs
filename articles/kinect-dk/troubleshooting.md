@@ -4,7 +4,7 @@ description: Learn about some of the known issues and troubleshooting tips when 
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 03/05/2021
+ms.date: 03/15/2022
 ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---

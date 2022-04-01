@@ -76,7 +76,7 @@ The platform provides an intuitive data-mining interface for granular searching 
 
 The Sensor Cloud Management mode determines where device, alert, and other information that the sensor detects is displayed.
 
-For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.
+For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered to Azure and can be shared with other Azure services, such as Microsoft Sentinel.
 
 For **locally connected sensors**, information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 
@@ -89,8 +89,6 @@ Defender for IoT provides a consolidated view of all your devices. It also provi
 Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for IoT optimizes alert handling and control of operational network security.
 
 The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from various business resources: CMDBs, DNS, firewalls, Web APIs, and more.
-
-:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display." lightbox="media/concept-air-gapped-networks/site-management-alert-screen.png":::
 
 We recommend that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
 
@@ -132,7 +130,7 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
-For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md).
 
 ## What is an Inventory Device
 
