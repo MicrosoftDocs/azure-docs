@@ -14,7 +14,7 @@ items:
   items:
   - name: Configure Permissions for Managed Grafana
     href: how-to-permissions.md
-  - name: Configure data source plugins with Managed Identity
+  - name: Configure data source for Managed Grafana with Managed Identity
     href: how-to-data-source-plugins-managed-identity.md
   - name: Share your Managed Grafana workspace
     href: how-to-share-grafana-workspace.md
@@ -24,3 +24,7 @@ items:
   items:
   - name: Grafana Application UI
     href: grafana-app-ui.md
+  - name: Control Plane
+    href: /rest/api/managed-grafana
+  - name: Data Plane
+  href: https://aka.ms/managed-grafana-dataplane
