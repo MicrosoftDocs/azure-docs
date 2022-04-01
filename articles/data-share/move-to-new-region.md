@@ -74,39 +74,39 @@ The following steps show how to deploy a new Data Share account using a Resource
 1. You can also change other parameters in the template if you choose. This is optional depending on your requirements:
 
     * **Sent Shares** - You can edit which Sent Shares are deployed into the target Data Share Account by adding or removing Shares from the **resources** section in the **template.json** file.:
-        ```json
-           "resources": [
-                {
-                    "type": "Microsoft.DataShare/accounts/shares",
-                    "apiVersion": "2021-08-01",
-                    "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                    ],
-                    "properties": {
-                        "shareKind": "CopyBased"
-                    }
-                },
-           ]
-        ```
+    ```json
+       "resources": [
+            {
+                "type": "Microsoft.DataShare/accounts/shares",
+                "apiVersion": "2021-08-01",
+                "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+                ],
+                "properties": {
+                    "shareKind": "CopyBased"
+                }
+            },
+       ]
+    ```
 
     * **Sent Share Invitations** - You can edit which Invitations are deployed into the target Data Share account by adding or removing Invitations from the resources section in the **template.json** file.
-        ```json
-            "resources": [
-                {
-                    "type": "Microsoft.DataShare/accounts/shares/invitations",
-                    "apiVersion": "2021-08-01",
-                    "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share/blob_snapshot_jsmith_microsoft_com')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'test_sent_share')]",
-                        "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                    ],
-                    "properties": {
-                        "targetEmail": "jsmith@microsoft.com"
-                    }
+    ```json
+        "resources": [
+            {
+                 "type": "Microsoft.DataShare/accounts/shares/invitations",
+                 "apiVersion": "2021-08-01",
+                 "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share/blob_snapshot_jsmith_microsoft_com')]",
+                 "dependsOn": [
+                     "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'test_sent_share')]",
+                     "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+                 ],
+                "properties": {
+                    "targetEmail": "jsmith@microsoft.com"
                 }
-            ]
-        ```
+            }
+        ]
+    ```
     
     * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources secton in the **template.json** file. Below is an example of a BlobFolder dataset. 
     
@@ -115,27 +115,27 @@ The following steps show how to deploy a new Data Share account using a Resource
     >[!IMPORTANT]
     >* Datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
   
-        ```json
-              "resources": [
-                  {
-                      "type": "Microsoft.DataShare/accounts/shares/dataSets",
-                      "apiVersion": "2021-08-01",
-                      "name": "[concat(parameters('accounts_my_datashare_account_name'), '/blobpath/directory')]",
-                      "dependsOn": [
-                          "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'blobpath')]",
-                          "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                      ],
-                      "kind": "BlobFolder",
-                      "properties": {
-                          "containerName": "<container-name>",
-                          "prefix": "<prefix>"
-                          "subscriptionId": "<subscription-id>",
-                          "resourceGroup": "<resource-group-name>",
-                          "storageAccountName": "<storage-account-name>"
-                      }
+    ```json
+          "resources": [
+              {
+                  "type": "Microsoft.DataShare/accounts/shares/dataSets",
+                  "apiVersion": "2021-08-01",
+                  "name": "[concat(parameters('accounts_my_datashare_account_name'), '/blobpath/directory')]",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'blobpath')]",
+                      "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+                  ],
+                  "kind": "BlobFolder",
+                  "properties": {
+                      "containerName": "<container-name>",
+                      "prefix": "<prefix>"
+                      "subscriptionId": "<subscription-id>",
+                      "resourceGroup": "<resource-group-name>",
+                      "storageAccountName": "<storage-account-name>"
                   }
-              ]
-        ```
+              }
+          ]
+    ```
             
 
 1. Select **Save** in the online editor.
