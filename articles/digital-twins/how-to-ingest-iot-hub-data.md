@@ -57,7 +57,7 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 You'll then need to create one twin using this model. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0}'
 ```
 
 >[!NOTE]

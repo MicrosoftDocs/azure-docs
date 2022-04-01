@@ -71,12 +71,12 @@ Use these special character tips for Bash environments.
 
 #### Queries
 
-In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in the Cloud Shell Bash environment, escape the `$` character with a backtick character.
+In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in the Cloud Shell Bash environment, escape the `$` character with a backslash (`\`).
 
 Here is an example of querying for a twin with a CLI command in the Cloud Shell Bash environment:
 
 ```azurecli
-az dt twin query -n <instance-name> -q "SELECT * FROM DigitalTwins T Where T.`$dtId = 'room0'"
+az dt twin query -n <instance-name> -q "SELECT * FROM DigitalTwins T Where T.\$dtId = 'room0'"
 ```
 
 ### PowerShell
@@ -85,13 +85,16 @@ Use these special character tips for PowerShell environments.
 
 #### Inline JSON
 
-Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in the PowerShell environment, escape double quote characters (`"`) inside the JSON with `\`. 
+Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in the PowerShell environment, escape double quote characters (`"`) inside the JSON with a backslash (`\`). 
 
 Here is an example of creating a twin with a CLI command in PowerShell:
 
 ```azurecli
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}'
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0}'
 ```
+
+>[!TIP]
+>Many of the commands that support inline JSON also support input as a file path, which can help you avoid shell-specific text requirements.
 
 #### Queries
 
@@ -108,13 +111,16 @@ Use these special character tips for the local Windows CMD.
 
 #### Inline JSON
 
-Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in a local Windows CMD window, enclose the parameter value with double quotes (`"`) instead of single quotes (`'`), and escape double quote characters inside the JSON with `\`. 
+Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in a local Windows CMD window, enclose the parameter value with double quotes (`"`) instead of single quotes (`'`), and escape double quote characters inside the JSON with a backslash (`\`). 
 
 Here is an example of creating a twin with a CLI command in the local Windows CMD:
 
 ```azurecli
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties "{\"Temperature\": 0.0,}"
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties "{\"Temperature\": 0.0}"
 ```
+
+>[!TIP]
+>Many of the commands that support inline JSON also support input as a file path, which can help you avoid shell-specific text requirements.
 
 ## Next steps
 

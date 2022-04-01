@@ -31,7 +31,11 @@ Use the full error message text to help you determine which character is causing
 
 ### Solution #2
 
-Not all shells have the same special character requirements, so you can try running the command in a different shell type (some options are the Cloud Shell Bash environment, Cloud Shell PowerShell environment, local Windows CMD, local Bash window, or local PowerShell window).
+If you're encountering the parsing issue while passing inline JSON into a command (like [az dt model create](/cli/azure/dt/model#az-dt-model-create) or [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create)), check whether the command allows you to pass in a file instead. Many of the commands that support inline JSON also support input as a file path, which can help you avoid shell-specific text requirements.
+
+### Solution #3
+
+Not all shells have the same special character requirements, so you can try running the command in a different shell type (some options are the [Cloud Shell](https://shell.azure.com) Bash environment, [Cloud Shell](https://shell.azure.com) PowerShell environment, local Windows CMD, local Bash window, or local PowerShell window).
 
 ## Next steps
 
