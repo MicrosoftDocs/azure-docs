@@ -57,25 +57,25 @@ You are now ready to deploy to the application to Azure Containers Apps.
 
 The Visual Studio publish dialogs will help you choose existing Azure resources, or create new ones to be used to deploy your applications to. It will also build the container image using the Dockerfile in the project, push this image to ACR, and finally deploy the new image to the container app selected.
 
-1) Right click on the **MyContainerApp** project node and select **Publish**.
+1) Right-click the **MyContainerApp** project node and select **Publish**.
 
 2) In the dialog, choose **Azure** from the list of publishing options, and then select **Next**.
 
-:::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
+   :::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
 3) On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
 
-:::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
+   :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 
 5) Next, create an Azure Container App to host the project.  Select the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
 
-- **Container App name**: Enter a name of `msdocscontainerapp`.
-- **Subscription name**: Choose the subscription where you would like to host your app.
-- **Resource group**: A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`.
-- **Container Apps Environment**:  Container Apps Environment: Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other, Click **New** to open the Create new dialog for your container app environment. Leave the default values and select **OK** to close the environment dialog.
-- **Container Name**: This is the friendly name of the container that will run for this container app. Use the name `msdocscontainer1` for this quickstart. A container app typically runs a single container, but there are times when having more than one container is needed. One such example is when a sidecar container is required to perform an activity such as specialized logging or communications.
+    - **Container App name**: Enter a name of `msdocscontainerapp`.
+    - **Subscription name**: Choose the subscription where you would like to host your app.
+    - **Resource group**: A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`.
+    - **Container Apps Environment**:  Container Apps Environment: Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other, Click **New** to open the Create new dialog for your container app environment. Leave the default values and select **OK** to close the environment dialog.
+    - **Container Name**: This is the friendly name of the container that will run for this container app. Use the name `msdocscontainer1` for this quickstart. A container app typically runs a single container, but there are times when having more than one container is needed. One such example is when a sidecar container is required to perform an activity such as specialized logging or communications.
 
-:::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
+    :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
 
 6) Select **Create** to finalize the creation or your container app. Visual Studio and Azure create the needed resources on your behalf.  This process may take a couple minutes, so allow it to run to completion before moving on.
 
@@ -83,19 +83,19 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
 8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
-- **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
-- **Subscription Name**: Select the subscription you want to use - you may only have one to choose from.
-- **Resource Group**: Choose the msdocs resource group you created previously.
-- **Sku**: Select **Standard**.
-- **Registry Location**: Select a region that is geographically close to you.
+    - **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
+    - **Subscription Name**: Select the subscription you want to use - you may only have one to choose from.
+    - **Resource Group**: Choose the msdocs resource group you created previously.
+    - **Sku**: Select **Standard**.
+    - **Registry Location**: Select a region that is geographically close to you.
 
-:::image type="content" source="media/visual-studio/container-apps-registry.png" alt-text="A screenshot showing how to create the container registry.":::
+    :::image type="content" source="media/visual-studio/container-apps-registry.png" alt-text="A screenshot showing how to create the container registry.":::
 
 9) After you have populated these values, select **Create**. Visual Studio and Azure will take a moment to create the registry.
 
 10) Once the container registry is created, make sure it is selected, and then choose **Finish**. Visual Studio will take a moment to create the publish profile. This publish profile is where VS stores the publish options and resources you chose so you can quickly publish again whenever you want. You can close the dialog once it finishes.
 
-:::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
+    :::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
 
 ### Publish the app
 
