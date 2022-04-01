@@ -93,14 +93,8 @@ Your terms of service must contain ALL of the following:
 - Opt-Out message: "Text STOP to cancel"
 - A link to the Privacy Policy or the whole Privacy policy. 
 
-##### Example:
-**Terms of Service** 
-
-:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing web opt-in mock up.":::
-
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to phone@microsoft.com with "[CompanyName - ProgramName] Short Code Request".
-
 
 ### Program Sign up type and URL 
 This field captures the call-to-action, an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call-to-action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call-to-action.
