@@ -54,7 +54,7 @@ To begin setting up labs for PLTW, you need access to an Azure subscription and 
 
 ## License server
 
-Most of the software that's used in the earlier-mentioned PLTW classes don't require access to a license server. However, you'll need to access a license server if you plan to use the Autodesk network licensing model for the following software:
+Most of the software that's used in the earlier-mentioned PLTW classes *don't* require access to a license server. However, you'll need to access a license server if you plan to use the Autodesk network licensing model for the following software:
 
 - Revit
 - Inventor CAD
