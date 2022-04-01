@@ -71,7 +71,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 The following snippets are all taken from the *Program.java* file.
 
-This console app uses the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
+This console app uses the [MongoDB Java driver](https://www.mongodb.com/docs/drivers/java-drivers/). 
 
 * The DocumentClient is initialized.
 
