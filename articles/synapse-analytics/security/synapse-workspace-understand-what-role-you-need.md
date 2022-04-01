@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 03/23/2022
+ms.date: 03/31/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
@@ -99,20 +99,20 @@ Commit changes to a KQL script to the Git repo|Requires Git permissions on the r
 APACHE SPARK POOLS|
 Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
 Monitor Apache Spark applications| Synapse User|read
-View the logs for notebook and job execution |Synapse Monitoring Operator|
+View the logs for notebook and job execution |Synapse Compute Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
 Create a notebook or job definition|Synapse User, or </br>Azure Owner, Contributor, or Reader on the workspace</br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
-List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User, Synapse Monitoring Operator on the workspace|artifacts/read
+List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor on the workspace|artifacts/read
 Run a notebook and review its output, or submit a Spark job|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
 PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
-Monitor Integration runtime status|Synapse Monitoring Operator|read, integrationRuntimes/viewLogs
-Review pipeline runs|Synapse Monitoring Operator|read, pipelines/viewOutputs 
+Monitor Integration runtime status|Synapse Compute Operator|read, integrationRuntimes/viewLogs
+Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
 Create a pipeline |Synapse User</br>*Additional Synapse permissions are required to debug, add triggers, publish, or commit changes*|read
 Create a dataflow or dataset |Synapse User</br>*Additional Synapse permissions are required to publish, or commit changes*|read
-List and open a published pipeline |Synapse Artifact User, Synapse Monitoring Operator | artifacts/read
+List and open a published pipeline |Synapse Artifact User | artifacts/read
 Preview dataset data|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity| 
 Debug a pipeline using the default Integration runtime|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity credential|read, </br>credentials/useSecret
 Create a trigger, including trigger now (requires permission to execute the pipeline)|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action

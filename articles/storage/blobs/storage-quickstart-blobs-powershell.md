@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 03/31/2022
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -134,7 +134,7 @@ azcopy copy 'D:\Images\Image001.jpg' "https://$StorageAccountName.blob.core.wind
 Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name $ResourceGroupName 
+Remove-AzResourceGroup -Name $ResourceGroup 
 ```
 
 ## Next steps
