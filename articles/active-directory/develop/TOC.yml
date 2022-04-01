@@ -27,6 +27,9 @@
           href: msal-overview.md
         - name: Microsoft Graph
           href: microsoft-graph-intro.md
+        - name: Glossary of terms
+          displayName: dictionary, terminology
+          href: developer-glossary.md
     - name: Permissions and access
       displayName: Access control
       items:
@@ -642,6 +645,8 @@
                   href: msal-net-provide-httpclient.md
                 - name: Web browser interaction (system and embedded)
                   href: msal-net-web-browsers.md
+                - name: Universal Windows Platform
+                  href: msal-net-uwp-considerations.md
             - name: Authentication and single sign-on (SSO)
               displayName: caching, token caching, caching tokens
               items:
@@ -679,8 +684,6 @@
                   href: msal-net-migration-public-client.md
                 - name: Differences between ADAL.NET and MSAL.NET
                   href: msal-net-differences-adal-net.md
-            - name: Universal Windows Platform
-              href: msal-net-uwp-considerations.md
         - name: MSAL Node
           displayName: Node.js
           items:
@@ -776,9 +779,6 @@
     - name: "Endpoint reference: National and public cloud URIs"
       displayName: china, germany, gov, 21vianet
       href: authentication-national-cloud.md
-    - name: Glossary of terms
-      displayName: dictionary, terminology
-      href: developer-glossary.md
     - name: Microsoft Graph API reference (identity operations)
       href: /graph/api/resources/azure-ad-overview
 - name: Resources

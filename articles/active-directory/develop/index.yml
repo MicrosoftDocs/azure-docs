@@ -35,7 +35,7 @@ highlightedContent:
 #    - title: OAuth 2.0 and OpenID Connect (OIDC)
 #      url: active-directory-v2-protocols.md
 #      itemType: concept
-    - title: App types and auth flows
+    - title: App types and authentication flows
       url: authentication-flows-app-scenarios.md
       itemType: concept
     - title: Code samples
