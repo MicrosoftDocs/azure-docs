@@ -70,11 +70,7 @@ az vm create --resource-group myResourceGroup \
     --specialized
 ```
 
-XXX
-For VM deployments of a custom image, use the 
-imageReference.communityGalleryImageId value if the custom image has been shared 
-via subscription / tenant; otherwise use the imageReference.id value if the custom image 
-has been shared using RBAC (user, group, service principal, or managed identity) 
+
 
 ### [PowerShell](#tab/powershell)
 
@@ -160,6 +156,35 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+
+
+## From community gallery
+
+List the image definitions in a gallery using XXX
+
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate that the image is a specialized image.
+
+Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`.
+
+In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/CommunityGalleries/xxContosoImages-f61bb1d9-3c5a-4ad2-99b5-744030225de6/Images/LinuxSpecialized" \
+    --specialized
+```
+
+XXX
+For VM deployments of a custom image, use the 
+imageReference.communityGalleryImageId value if the custom image has been shared 
+via subscription / tenant; otherwise use the imageReference.id value if the custom image 
+has been shared using RBAC (user, group, service principal, or managed identity) 
+
+
+/CommunityGalleries/xxContosoImages-f61bb1d9-3c5a-4ad2-99b5-744030225de6/Images/LinuxSpecialized
+
 
 ---
 
