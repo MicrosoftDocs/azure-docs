@@ -25,7 +25,7 @@ You can use the Table storage or the Azure Cosmos DB to store flexible datasets 
 
 Follow this article to learn how to manage Azure Table storage using the Azure SDK for Go.
 
-## ## Prerequisites
+## Prerequisites
 
 You need the following:
 
@@ -35,17 +35,29 @@ You need the following:
 
 ## Setup your environment
 
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
+To follow along with this tutorial you'll need an Azure resource group, a storage account, and a table resource. Run the following commands to setup your environment:
 
-```azurecli
-az storage account create --name <storageAccountName> --resource-group myResourceGroup --location eastus --sku Standard_LRS
-```
+1. Create an Azure resource group.
+ 
+	```azurecli
+	az group create --name myResourceGroup --location eastus
+	```
 
-```azurecli
-az storage table create --account-name <storageAccountName> --account-key 'storageKey' --name mytable
-```
+2. Next create an Azure storage account for your new Azure Table.
+ 
+	```azurecli
+	az storage account create --name <storageAccountName> --resource-group myResourceGroup --location eastus --sku Standard_LRS
+	```
+
+3. Create a table resource.
+ 
+	```azurecli
+	az storage table create --account-name <storageAccountName> --account-key 'storageKey' --name mytable
+	```
+
+### Install Packages
+
+You will need two pacakges to manage Azure Tables with Go; [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity), and [aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables). The `azidentity` package provides you with a way to authenticate to Azure. And the `aztables` packages gives you the ability to manage the tables resource in Azure. Run the following Go commands to install these packages:
 
 ```azurecli
 go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
@@ -57,11 +69,13 @@ To learn more about the ways to authenticate to Azure, check out [Azure authenti
 
 ## Create the sample application
 
+Once you have the packages installed, you create a sample application that uses the Azure SDK for Go to manage Azure Tables. Run the `go mod` command to create a new module named `azTableSample`.
+
 ```azurecli
 go mod init azTableSample
 ```
 
-Create a file called `main.go`, then copy the following code into the file:
+Next, create a file called `main.go`, then copy below into it: 
 
 ```go
 package main
@@ -225,11 +239,16 @@ func main() {
 
 ```
 
+> [!IMPORTANT]
+> Ensure that the account you authenticated with has the proper accces policy to manage your Azure storage account. To run the above code you're account needs to have at a minimum the Storage Blob Data Contributor role and the Storage Table Data Contributor role.
+
+
 ## Code examples
 
 ### Authenticate the client
 
 ```go
+// Lookup environment variables
 accountName, ok := os.LookupEnv("AZURE_STORAGE_ACCOUNT")
 if !ok {
   panic("AZURE_STORAGE_ACCOUNT environment variable not found")
@@ -240,10 +259,13 @@ if !ok {
   panic("AZURE_TABLE_NAME environment variable not found")
 }
 
+// Create a credential
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
   panic(err)
 }
+
+// Create a table client
 serviceURL := fmt.Sprintf("https://%s.table.core.windows.net/%s", accountName, tableName)
 client, err := aztables.NewClient(serviceURL, cred, nil)
 if err != nil {
@@ -254,6 +276,7 @@ if err != nil {
 ### Create a table
 
 ```go
+// Create a table and discard the response
 _, err := client.Create(context.TODO(), nil)
 if err != nil {
   panic(err)
@@ -263,6 +286,7 @@ if err != nil {
 ### Create an entity
 
 ```go
+// Define the table entity as a custom type
 type InventoryEntity struct {
 	aztables.Entity
 	Price       float32
@@ -271,6 +295,7 @@ type InventoryEntity struct {
 	OnSale      bool
 }
 
+// Define the entity values
 myEntity := InventoryEntity{
 	Entity: aztables.Entity{
 		PartitionKey: "pk001",
@@ -282,11 +307,13 @@ myEntity := InventoryEntity{
 	OnSale:      false,
 }
 
+// Marshal the entity to JSON
 marshalled, err := json.Marshal(myEntity)
 if err != nil {
 	panic(err)
 }
 
+// Add the entity to the table
 _, err = client.AddEntity(context.TODO(), marshalled, nil) // needs Storage Table Data Contributor role
 if err != nil {
 	panic(err)
@@ -296,6 +323,7 @@ if err != nil {
 ### Get an entitiy
 
 ```go
+// Define the new custom type
 type PurchasedEntity struct {
 	aztables.Entity
 	Price       float32
@@ -303,6 +331,7 @@ type PurchasedEntity struct {
 	OnSale      bool
 }
 
+// Define the query filter and options
 filter := fmt.Sprintf("PartitionKey eq '%v' or RowKey eq '%v'", "pk001", "rk001")
 options := &aztables.ListEntitiesOptions{
 	Filter: &filter,
@@ -310,6 +339,7 @@ options := &aztables.ListEntitiesOptions{
 	Top:    to.Int32Ptr(15),
 }
 
+// Query the table for the entity
 pager := client.List(options)
 for pager.More() {
 	resp, err := pager.NextPage(context.Background())
@@ -348,7 +378,7 @@ if err != nil {
 
 ## Run the code
 
-Before you run the sample application, create two environment variables and set them to the appropriate value.
+All that's left is to run the application. But before you do that, you need to set up your environment variables. Create two environment variables and set them to the appropriate value using the following commands:
 
 # [Bash](#tab/bash)
 
