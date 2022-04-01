@@ -26,7 +26,7 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 #### Online transcription
 
-You can use online transcription with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
+You can use online transcription with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -39,7 +39,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text-30.md) limit | Not available for F0 | 300 requests per minute |
+| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |

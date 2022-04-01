@@ -18,6 +18,9 @@ ms.author: eur
 
 Use this article to migrate your applications from the Bing Speech API to the Speech service.
 
+> [!IMPORTANT]
+> The Speech service has replaced Bing Speech API. Please migrate your applications to the Speech service.
+
 This article outlines the differences between the Bing Speech APIs and the Speech service, and suggests strategies for migrating your applications. Your Bing Speech API subscription key won't work with the Speech service; you'll need a new Speech service subscription.
 
 A single Speech service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
