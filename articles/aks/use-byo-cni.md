@@ -172,6 +172,7 @@ aks-nodepool1-23902496-vmss000000   container runtime network not ready: Network
 
 At this point, the cluster is ready for installation of a CNI plugin.
 
+---
 ## Next steps
 
 Learn more about networking in AKS in the following articles:
