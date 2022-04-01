@@ -86,7 +86,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 1. Otherwise, if you're using a user-assigned managed identity, select **User-assigned managed identity**, search for the name of the user-assigned managed identity, and then select it.
 
-On the **Review + assign** tab, select **Review + assign** to assign the role.
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## 3 - Create the data source
 
