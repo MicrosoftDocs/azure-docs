@@ -50,7 +50,7 @@ If your Azure Machine Learning workspace uses a private endpoint and virtual net
 * If you are __OK__ with the CLI v2 communication over the public internet, use the following `--public-network-access` parameter for the `az ml workspace update` command to enable public network access. For example, the following command updates a workspace for public network access:
 
     ```azurecli
-    az ml workspace update --name myworkspace --public-network-access
+    az ml workspace update --name myworkspace --public-network-access enabled
     ```
 
 * If you are __not OK__ with the CLI v2 communication over the public internet, you can use an Azure Private Link to increase security of the communication. Use the following links to secure communications with Azure Resource Manager by using Azure Private Link.

@@ -567,14 +567,13 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - path:
+      - path: /static(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: aks-helloworld-one
             port: 
               number: 80
-        path: /static(/|$)(.*)
 ```
 
 Create the ingress resource using the `kubectl apply` command.
