@@ -266,7 +266,7 @@ items:
       items:
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
-      - name: How to compress audio input
+      - name: How to use compressed audio files
         href: how-to-use-codec-compressed-audio-input-streams.md
         displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
       - name: Select a specific microphone input device
