@@ -158,7 +158,7 @@ The following steps show how to deploy a new Data Share account using a Resource
 
 ## Verify
 
-**Sent shares**
+### Sent shares
 - Confirm that all sent shares in your source Data Share account are now present in the target Data Share account.
 - For each sent share, confirm that all data sets from the source share are now present in the target share. If they are not, you will need to manually re-add them.
 - For all share subscriptions in each sent share in your source account, confirm that you have sent invitations to all recipients of the shares so that they will be able to access the data again.
