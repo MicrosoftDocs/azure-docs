@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot known issues with Update management center (preview)
-description: The article provides details on the known issues and troubleshooting any problems with update management center (preview) in Azure.
+title: Troubleshoot known issues with update management center (preview)
+description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
 ms.service: update-management-center
-ms.date: 08/17/2021
+ms.date: 04/01/2022
 ms.topic: conceptual
-ms.author: magoedte
-author: mgoedtel
+ms.author: SGSneha
+author: v-ssudhir
 ---
 
 # Troubleshoot issues with update management center (preview)
 
-You might receive error messages when you deploy or use update management center (preview) in Azure. This article describes the errors that might occur and how to resolve them.
+This article describes the errors that might occur when you deploy or use update management center (preview) and how to resolve them.  
 
 ## General troubleshooting
 
@@ -60,7 +60,8 @@ When you view an update deployment in **Update History**, the property **Failed 
 
 #### Cause
 
-During an update deployment, it checks for maintenance window utilization at multiple steps. 10 mins of the maintenance window is  reserved for reboot at any point. Before getting a list of missing updates or downloading/installing any update (except Windows service pack updates), it checks to verify if there is 15 minutes + 10 minutes for reboot (that is, 25 mins left in maintenance window). For  Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment does not have that much time left, then it skips the scan/download/install of updates. The deployment run then checks if a reboot is needed and there is 10 minutes left in the maintenance window. If there is, the deployment triggers a reboot, otherwise the reboot is skipped. In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to ***true**. For cases where time left is less than 25 minutes, updates are not scanned or attempted for installation. 
+During an update deployment, it checks for maintenance window utilization at multiple steps. Ten mins of the maintenance window is reserved for reboot at any point. Before getting a list of missing updates or downloading/installing any update (except Windows service pack updates), it checks to verify if there is 15 minutes + 10 minutes for reboot (that is, 25 mins left in maintenance window). 
+For  Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficent left, then it skips the scan/download/install of updates. The deployment run then checks if a reboot is needed and there is ten minutes left in the maintenance window. If there is, the deployment triggers a reboot, otherwise the reboot is skipped. In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to ***true**. For cases where time left is less than 25 minutes, updates are not scanned or attempted for installation. 
 
 More details can be found by reviewing the logs in the file path provided in the error message of the deployment run.
 
