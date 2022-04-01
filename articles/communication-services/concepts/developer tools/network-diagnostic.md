@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 The Network Test Tool enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](aka.ms/acsdiagnostics). There users can quickly run a test, free of charge, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. 
 
-<INSERT IMAGE OF NETWORK TEST TOOL>
+INSERT IMAGE OF NETWORK TEST TOOL
   
 As part of the diagnostics performed, the user is asked to enable permissions for the tool to access their devices. The user is also asked to record their voice which is then played back using an echo bot to ensure that the microphone is working as expected. The tool finally, performs a video test, where it uses the camera to detect video and measure the quality of the video sent and received. 
   
