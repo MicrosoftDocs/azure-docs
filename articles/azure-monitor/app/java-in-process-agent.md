@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Get started
 
 Java auto-instrumentation can be enabled without any code changes.
