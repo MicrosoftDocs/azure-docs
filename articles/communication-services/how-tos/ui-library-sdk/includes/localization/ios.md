@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Available Languages
 
-The following is a table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
+The following table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
 
 |Language| LanguageCode|
 |---------|---------|
@@ -44,11 +44,11 @@ print(languageCodes)
 
 ### LocalizationConfiguration
 
-`LocalizationConfiguration` is a options wrapper that sets all the strings for UI Library components using a `languageCode`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
+`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `languageCode`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
 
 #### Usage
 
-To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we will localize the composite to French (`fr`).
+To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French (`fr`).
 
 ```swift
 let localizationConfig = LocalizationConfiguration(languageCode: "fr")
@@ -60,7 +60,7 @@ let callComposite = CallComposite(withOptions: callCompositeOptions)
 
 ### Layout Direction
 
-Certain cultures (Arabic, Hebrew, etc…) may need have the need for localization to have right-to-left layout. You can specify the `isRightToLeft` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
+Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right-to-left layout. You can specify the `isRightToLeft` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
 ```swift
 var localizationConfig: LocalizationConfiguration
@@ -87,17 +87,17 @@ You can see below the right-to-left layout mirroring, by default without specify
 
 ### Customizing Translations
 
-There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported language, and when a key is not provided, will fallback to our supported translation string. If you specified a unsupported language, you should provide translations for all the keys for that language (using Option1 or Option2), and will fallback to English strings when a key is not provided.
+There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using Option1 or Option2), and will fall back to English strings when a key isn't provided.
 
 Let's say you wish to have the `ControlBar` with strings from our English (US) locale but you want to change the label of `JoinCall` button to "Start Meeting" (instead of "Join call") in Setup View.
 
 #### Override using Localization.strings file
 
-Enable Localization in the Project, below for the `languageCode` you want to override. Create a `Localizable.strings` file (or other filename with extension `.strings`) with the key-value pair for selected keys you want to override. In the example below, we are overriding the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
+Enable Localization in the Project, below for the `languageCode` you want to override. Create a `Localizable.strings` file (or other filename with extension `.strings`) with the key-value pair for selected keys you want to override. In the example below, we're overriding the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
 
 :::image type="content" source="media/ios_setup_project.png" alt-text="iOS setup project":::
 
-To specify you are overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `languageCode` and `localizationFilename`.
+To specify you're overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `languageCode` and `localizationFilename`.
 
 ```swift
 let localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.fr,

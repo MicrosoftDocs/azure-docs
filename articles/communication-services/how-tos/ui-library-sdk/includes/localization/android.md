@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Available Languages
 
-The following is a table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
+The following table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
 
 |Language| LanguageCode|
 |---------|---------|
@@ -35,7 +35,7 @@ The following is a table of `languageCode` with out of the box translations. If 
 
 ### Localization Provider
 
-`LocalizationConfiguration` is a options wrapper that sets all the strings for Mobile UI Library components using a `languageCode`. By default, all text labels use English strings. If desired `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
+`LocalizationConfiguration` is an options wrapper that sets all the strings for Mobile UI Library components using a `languageCode`. By default, all text labels use English strings. If desired `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
 
 You can also obtain list of `languageCode` by the static function `LanguageCode.values()`.
 
@@ -43,7 +43,7 @@ You can also obtain list of `languageCode` by the static function `LanguageCode.
 
 #### Usage
 
-To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we will localize the composite to French.
+To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we'll  localize the composite to French.
 
 ```java
 val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(LocalizationConfiguration(LanguageCode.FRENCH)).build()
@@ -51,7 +51,7 @@ val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(Loca
 
 ### Layout Direction
 
-Certain cultures (Arabic, Hebrew, etc…) may need have the need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
+Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
 ```java
 val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(LocalizationConfiguration(LanguageCode.FRENCH,LaytouDirection.RTL)).build()
@@ -63,6 +63,6 @@ val callComposite: CallComposite =  CallCompositeBuilder.customTransactions(Loca
 
 ### Customizing Translations
 
-To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported language, and when a key is not provided, will fallback to our supported translation string. If you specified a unsupported language, you should provide translations for all the keys for that language, and will fallback to English strings when a key is not provided.
+To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language, and will fall back to English strings when a key isn't provided.
 
 Create a `string.xml` file (or other filename) with the key-value pair for selected keys you want to override.

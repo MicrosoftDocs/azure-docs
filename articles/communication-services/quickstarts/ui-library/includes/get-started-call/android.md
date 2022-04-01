@@ -351,7 +351,6 @@ callComposite.launch(context, options);
 ```
 
 -----
-
 ### Subscribe to error events from `CallComposite`
 
 To receive error events, inject a handler to the `CallCompositeBuilder`.
@@ -375,7 +374,6 @@ callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
 ```
 
 -----
-
 ### Apply theme configuration
 
 To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
@@ -408,6 +406,7 @@ CallComposite callComposite =
         .build();
 ```
 
+-----
 ### Apply localization configuration
 
 To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LanguageCode.values()` provides list of supported languages.
