@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 01/04/2022
+ms.date: 04/01/2022
 ms.topic: quickstart
 ms.custom: mode-api
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -9,7 +9,7 @@ ms.custom: mode-api
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md).
+Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
 ## Prerequisites
 
