@@ -6,7 +6,7 @@ summary: >
   our quickstarts, tutorials, and in-depth how-to guides.
 metadata:
    ms.topic: landing-page
-   ms.date: 03/31/2022
+   ms.date: 04/01/2022
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -42,18 +42,18 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: "Overview: SPA with user sign-in and web API access"
+          - text: SPA that signs in users and calls an API
             url: scenario-spa-overview.md
-          - text: Register the application
-            url: scenario-spa-app-registration.md
-          - text: Initialize the auth library
-            url: scenario-spa-app-configuration.md
-          - text: Add sign-in and sign-out
-            url: scenario-spa-sign-in.md
-          - text: Get access token for web API
-            url: scenario-spa-acquire-token.md
-          - text: Call web API with access token
-            url: scenario-spa-call-api.md
+          # - text: Register the application
+          #   url: scenario-spa-app-registration.md
+          # - text: Initialize the auth library
+          #   url: scenario-spa-app-configuration.md
+          # - text: Add sign-in and sign-out
+          #   url: scenario-spa-sign-in.md
+          # - text: Get access token for web API
+          #   url: scenario-spa-acquire-token.md
+          # - text: Call web API with access token
+          #   url: scenario-spa-call-api.md
 ## ROW 2 ################################################### ROW 2 ##
   # - title: $CARD_TITLE
   #   linkLists:

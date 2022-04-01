@@ -1,13 +1,12 @@
 ### YamlMime:Landing
 
 title: Desktop app authentication documentation
-summary: The Microsoft identity platform performs identity and access management (IAM) for registered applications. Desktop applications run on a user's desktop or laptop computer and have a user interface (UI). Microsoft identity platform can help you authenticate your desktop app users.
-          Read this documentation to learn how Microsoft identity platform can help you protect your desktop app.
-
-
+summary: >
+  Learn how to sign in users and access web APIs in desktop applications with
+  our quickstarts, tutorials, and in-depth how-to guides.
 metadata:
    ms.topic: landing-page
-   ms.date: 09/16/2021
+   ms.date: 04/01/2022
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -17,30 +16,32 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: About $APP_TYPE authentication
+  - title: "Get started fast"
     linkLists:
-      - linkListType: overview
+      - linkListType: quickstart
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
-  - title: $CARD_TITLE
+          - text: Universal Windows Platform (UWP)
+            url: desktop-app-quickstart.md?pivots=devlang-uwp
+          - text: Windows Presentation Foundation (WPF)
+            url: desktop-app-quickstart.md?pivots=devlang-wpf
+          - text: Node.js - Electron
+            url: desktop-app-quickstart.md?pivots=devlang-nodejs-electron
+  - title: "Learn by building"
     linkLists:
-      - linkListType: get-started
+      - linkListType: tutorial
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
-  - title: $CARD_TITLE
+          - text: Universal Windows Platform (UWP)
+            url: tutorial-v2-windows-uwp.md
+          - text: Windows Presentation Foundation (WPF)
+            url: tutorial-v2-windows-desktop.md
+          - text: Node.js - Electron
+            url: tutorial-v2-nodejs-desktop.md
+  - title: "Scenario in depth"
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
+          - text: Desktop app that calls a web API
+            url: scenario-desktop-overview.md
 ## ROW 2 ################################################### ROW 2 ##
   # - title: $CARD_TITLE
   #   linkLists:
