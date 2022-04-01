@@ -752,6 +752,8 @@
                   href: sql/profile-sql-api-query.md
                 - name: Tune query performance
                   href: sql/sql-api-query-metrics.md
+                - name: Optimize query performance when using SDK
+                  href: sql/performance-tips-query-sdk.md
             - name: Indexing
               items:
                 - name: Indexing policies
