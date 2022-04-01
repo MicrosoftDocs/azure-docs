@@ -18,11 +18,9 @@ You can securely connect to the Blob Storage endpoint of an Azure Storage accoun
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Feature registration is no longer required.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
 
 ## Prerequisites
 
@@ -31,126 +29,6 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 - If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22 used by SFTP.
-
-## Register the feature
-
-Before you can enable SFTP support, you must register the SFTP feature with your subscription.
-
-### [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Open the configuration page of your subscription.
-
-3. Under **Settings**, select **Preview features**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Preview setting](./media/secure-file-transfer-protocol-support-how-to/preview-features-setting.png)
-
-4. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
-
-### [PowerShell](#tab/powershell)
-
-1. Open a Windows PowerShell command window.
- 
-2.	Install **Az.Storage** preview module.
-
-    ```powershell
-    Install-Module -Name Az.Storage -AllowPrerelease 
-    ```
-
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
-
-3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-4. If your identity is associated with more than one subscription, then set your active subscription.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-5. Register the `AllowSFTP` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. Install the `storage-preview` extension.
-
-   ```azurecli
-   az extension add -n storage-preview
-   ```
-
-2. If you're using Azure CLI locally, run the login command.
-
-   ```azurecli
-   az login
-   ```
-
-   If the CLI can open your default browser, it will do so and load an Azure sign-in page.
-
-   Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
-
-1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
-
-   ```azurecli
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Storage --name AllowSFTP
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
----
-
-### Verify feature registration
-
-Verify that the feature is registered before continuing with the other steps in this article. 
-
-#### [Portal](#tab/azure-portal)
-
-1. Open the **Preview features** page of your subscription. 
-
-2. Locate the **AllowSFTP** feature and make sure that **Registered** appears in the **State** column.
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowSFTP
-```
-
----
 
 ## Enable SFTP support
 
