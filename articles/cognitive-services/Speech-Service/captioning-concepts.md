@@ -14,14 +14,12 @@ ms.author: eur
 
 # Captioning with speech to text
 
-Use captioning with speech to text to transcribe the spoken words into text. Captioning can accompany real time or pre-recorded speech. 
+In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but does not include speaker ID or sound effects. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
 - Sporting events
 - Voice and video calls
-
-This guide covers captioning for speech, but does not include speaker ID or sound effects.
 
 The following are aspects to consider when using captioning:
 * Center captions horizontally on the screen, in a large and prominent font. 
@@ -33,7 +31,7 @@ The following are aspects to consider when using captioning:
 > [!TIP]
 > Try the [Azure Video Analyzer for Media](/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
 
-Whether you are showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. This guide shows examples using the speech SDK.
+Captioning can accompany real time or pre-recorded speech. Whether you are showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Input audio to the Speech service
 
