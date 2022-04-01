@@ -170,7 +170,7 @@
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
-          href: iot-hub-protocol-gateway.md
+          href: ../iot-edge/iot-edge-as-gateway.md
     - name: Security
       items:
         - name: TLS support
