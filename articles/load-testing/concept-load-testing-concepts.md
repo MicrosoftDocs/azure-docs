@@ -26,7 +26,7 @@ Learn about the key concepts and components of Azure Load Testing preview. This 
 
 ## Load testing resource
 
-The Load testing resource is the top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts. A load testing contains zero or more [load tests](#test).
+The Load testing resource is the top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts. A load testing resource contains zero or more [load tests](#test).
 
 When you create a load test resource, you specify its location, which determines the location of the [test engines](#test-engine).
 
@@ -44,7 +44,7 @@ The configuration of a load test consists of:
 - The Apache JMeter test script and related data and configuration files. For example, a [CSV data file](./how-to-read-csv-data.md).
 - [Environment variables](./how-to-parameterize-load-tests.md).
 - [Secret parameters](./how-to-parameterize-load-tests.md).
-- The number [test engines](#test-engine) to run the test script on.
+- The number of [test engines](#test-engine) to run the test script on.
 - The [pass/fail criteria](./how-to-define-test-criteria.md) for the test.
 - The list of [app components and resource metrics to monitor](./how-to-monitor-server-side-metrics.md) during the test execution.
 
@@ -70,7 +70,7 @@ You can [view and analyze the load test results in the Azure Load Testing dashbo
 
 When you run a load test for an Azure-hosted application, you can monitor resource metrics for the different Azure application components (server-side metrics). While the load test runs, and after completion of the test, you can [monitor and analyze the resource metrics in the Azure Load Testing dashboard](./how-to-monitor-server-side-metrics.md).
 
-When you create or update a load test, you can configure the list of app components that Azure Load Testing will monitor. You can modify the list of default resource metrics for each app component. Learn more about which [Azure resource types that are supported by Azure Load Testing](./resource-supported-azure-resource-types.md).
+When you create or update a load test, you can configure the list of app components that Azure Load Testing will monitor. You can modify the list of default resource metrics for each app component. Learn more about which [Azure resource types are supported by Azure Load Testing](./resource-supported-azure-resource-types.md).
 
 ## Metrics
 
