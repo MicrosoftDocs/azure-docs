@@ -17,34 +17,34 @@ recommendations: false
 > [!NOTE]
 > This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Compose custom models v2.1.](compose-custom-models.md).
 
-A composed model is created by taking a collection of custom models and assigning them to a single model comprised of your form types. You can assign up to 100 trained custom models to a single composed model. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model.
+A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign up to 100 trained custom models to a single composed model. When analyze documents with a composed model, Form Recognizer will first classify the form you submitted, then choose the best matching assigned model, and return results the results.
 
 To learn more, see [Composed custom models](concept-composed-models.md)
 
-In this article you will learn how to create and use composed custom models to analyze your forms and documents.
+In this article, you'll learn how to create and use composed custom models to analyze your forms and documents.
 
 ## Prerequisites
 
-To get started, you'll need the following:
+To get started, you'll need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
-* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* **A Form Recognizer instance**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
   1. After the resource deploys, select **Go to resource**.
 
-  1. Copy the **Keys and Endpoint** values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  1. Copy the **Keys and Endpoint** values from the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For further guidance, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
+    > For more information, see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
 
 * **An Azure storage account.** If you don't know how to create an Azure storage account, follow the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Create your custom models
 
-First, you'll need to a set of custom models to compose. Using the Form Recognizer Studio, REST API, or client-library SDKs, the steps are as follows:
+First, you'll need to a set of custom models to compose. You can use the Form Recognizer Studio, REST API, or client-library SDKs. The steps are as follows:
 
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
@@ -66,19 +66,15 @@ See [Build a training data set](./build-training-data-set.md) for tips on how to
 
 ## Upload your training dataset
 
-When you've gathered the set of form documents that you'll use for training, you'll need to [upload your training data](build-training-data-set.md#upload-your-training-data)
-to an Azure blob storage container.
+When you've gathered a set of training documents, you'll need to [upload your training data](build-training-data-set.md#upload-your-training-data) to an Azure blob storage container.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
-
 ## Train your custom model
 
-You [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects). Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
+When you [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
-
-Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) API to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
+Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) API to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -94,7 +90,7 @@ To create custom models, you start with configuring your project:
 
 :::image type="content" source="media/studio/create-project.gif" alt-text="Animation showing create a custom project in Form Recognizer Studio.":::
 
-While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
+While creating your custom models, you may need to extract data collections from your documents. The collections may appear one of two formats. Using tables as the visual pattern:
 
 * Dynamic or variable count of values (rows) for a given set of fields (columns)
 
@@ -106,7 +102,7 @@ See [Form Recognizer Studio: labeling as tables](quickstarts/try-v3-form-recogni
 
 Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. 
 
-Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
 
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
@@ -114,7 +110,7 @@ Once you have your label files, you can include them with by calling the trainin
 
 ### [Client-libraries](#tab/sdks)
 
-Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you have them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
+Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you've them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
 
 |Language |Method|
 |--|--|
@@ -130,7 +126,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 > [!NOTE]
 > **the `create compose model` operation is only available for custom models trained _with_ labels.** Attempting to compose unlabeled models will produce an error.
 
-With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Form Recognizer first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -177,7 +173,7 @@ You can manage your custom models throughout life cycles:
   
 * Test and validate new documents.
 * Download your model to use in your applications.
-* Delete your model when it's lifecycle is complete.
+* Delete your model when its lifecycle is complete.
 
 :::image type="content" source="media/studio/compose-manage.png" alt-text="Screenshot of a composed model in the Form Recognizer Studio":::
 
@@ -185,18 +181,14 @@ You can manage your custom models throughout life cycles:
 
 Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
-* [**Gather your custom model IDs**](#gather-your-model-ids)
 * [**Compose your custom models**](#compose-your-custom-models)
 * [**Analyze documents**](#analyze-documents)
 * [**Manage your composed models**](#manage-your-composed-models)
 
-#### Gather your model IDs
-
-The [**REST API**](./quickstarts/try-v3-rest-api.md#manage-custom-models), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model.
 
 #### Compose your custom models
 
-The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of models to be composed.
+The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
 
 :::image type="content" source="media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
@@ -242,7 +234,7 @@ Once you have built your composed model, it can be used to analyze forms and doc
 
 ## Manage your composed models
 
-You can manage your custom models throughout their lifecycle by viewing a list of all custom models under your subscription, retrieving information about a specific custom model, and deleting custom models from your account.
+Custom models can be managed throughout their lifecycle. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
 
 |Programming language| Code sample |
 |--|--|

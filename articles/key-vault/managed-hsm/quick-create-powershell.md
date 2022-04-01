@@ -31,6 +31,7 @@ A resource group is a logical container into which Azure resources are deployed 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "westus2"
+```
 
 ## Get your principal ID
 
@@ -108,7 +109,7 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 

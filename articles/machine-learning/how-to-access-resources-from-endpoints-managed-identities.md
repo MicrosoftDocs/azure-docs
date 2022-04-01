@@ -10,7 +10,8 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 01/11/2022
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, cliv2
+
 
 # Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
 ---
