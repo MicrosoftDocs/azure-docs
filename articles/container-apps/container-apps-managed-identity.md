@@ -1,6 +1,6 @@
 ---
-title: Managed identity in Azure Container Apps
-description: Using Managed identity in Container Apps
+title: Managed identities in Azure Container Apps
+description: Using managed identities in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
@@ -10,14 +10,14 @@ ms.author: v-bcatherine
 
 ---
 
-# Managed Identities in Azure Container Apps Preview
+# Managed identities in Azure Container Apps Preview
 
 A managed identity from Azure Active Directory (Azure AD) allows your container app to access other Azure AD-protected resources.  For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your container app can be granted two types of identities:
 
 - A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted/deactivated. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app as well as multiple resources. A container app can have multiple user-assigned identities. The identity exist until you delete them.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app as well as other resources. A container app can have multiple user-assigned identities. The identity exists until you delete them.
 
 ## Why use a managed identity?
 
@@ -26,7 +26,7 @@ You can use a managed identity in a running container app to authenticate to any
 With managed identities:
 
 - You don't need to manage credentials.
-- You can grant role-based access control to grant permissions.
+- You can use role-based access control to grant specific permissions to a managed identity.
 - User-assigned credentials, you can create, read, update and delete the identities and assign them to multiple resources.
 - System-assigned identities are deleted with your container app is deleted.
 - User-assigned identities are independent of the life cycle of your container app.
@@ -353,7 +353,7 @@ some command
 
 # [ARM template](#tab/arm)
 
-To remove all identities in an ARM template:
+To remove all identities, set the `type` of the container app's identity to `None` in the ARM template:
 
 ```json
 "identity": {
