@@ -68,7 +68,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | API | Basic tier | Free/Standard tier |
 | --- | ---------- | ------------- |
 | [Delete device](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-deletedevice) | Yes | Yes |
-| [Get device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Yes | Yes |
+| Get device | Yes | Yes |
 | [Delete module](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Yes | Yes |
 | [Get module](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule) | Yes | Yes |
 | [Get registry statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getdevicestatistics) | Yes | Yes |
