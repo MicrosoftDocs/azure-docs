@@ -21,9 +21,9 @@ In this article, you'll learn how to use SignalR Service and Azure Functions to 
 
 The following prerequisites are needed for this quickstart:
 
-- Visual Studio Code, or other code editor. If you don't already have Visual Studio Code installed, you can download and use it for free(https://code.visualstudio.com/Download).
+- Visual Studio Code, or other code editor. If you don't already have Visual Studio Code installed, [download Visual Studio Code here](https://code.visualstudio.com/Download).
 - An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
-- [Azure Functions Core Tools)](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2)
+- [Azure Functions Core Tools](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create an Azure SignalR Service instance
@@ -34,7 +34,7 @@ The following prerequisites are needed for this quickstart:
 
 You'll need the Azure Functions Core Tools for this step.
 
-1. Create an empty directory and navigate to the directory with command line.
+1. Create an empty directory and change to the directory with the command line.
 1. Initialize a new project.
 
     ```bash
@@ -128,7 +128,7 @@ You'll need the Azure Functions Core Tools for this step.
     - `Negotiate` is used by the client to get an access token.
     - `Broadcast` is periodically called to get the star count from GitHub and then broadcast messages to all clients.
 
-1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory under project root folder. And copy the following content.
+1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in `GetHomePage` function, then create a new file *index.html* in the `content` directory under project root folder. Copy the following content into *index.html*.
 
     ```html
     <html>
@@ -176,7 +176,7 @@ You'll need the Azure Functions Core Tools for this step.
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string. And execute the command below.
+    1. Copy the primary connection string, and then run the following command:
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
