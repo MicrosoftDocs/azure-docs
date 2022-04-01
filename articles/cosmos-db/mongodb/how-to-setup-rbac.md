@@ -59,7 +59,57 @@ An additional column called "userId" has been added to the MongoRequests table i
 * listCollections
 * listIndexes
 
+## Built-in Roles
+These roles already exist on every database and do not need to be created.
+
+### read
+Has the following privileges: changeStream, collStats, find, killCursors, listIndexes, listCollections
+
+### readwrite
+Has the following privileges: collStats, createCollection, dropCollection, createIndex, dropIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
+
+### dbAdmin
+Has the following privileges: collStats, createCollection, createIndex, dbStats, dropCollection, dropDatabase, dropIndex, listCollections, listIndexes, reIndex
+
+### dbOwner
+Has the following privileges: collStats, createCollection, createIndex, dbStats, dropCollection, dropDatabase, dropIndex, listCollections, listIndexes, reIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
+
+## Azure CLI Setup 
+We recommend using the cmd when using Windows.
+
+1. Make sure you have latest CLI version(not extension) installed locally. try "az upgrade" command.
+2. Check if you have dev extension version already installed. "az extension show -n cosmosdb-preview". If it shows your local version, remove it using the following command: "az extension remove -n cosmosdb-preview". It may ask you to remove it from python virtual env. If that's the case, launch your local cli extension python env and run "azdev extension remove cosmosdb-preview"(no -n here).
+3. List the available extensions and make sure the list shows the preview version and corresponding "Compatible" flag is true.
+4. Install the latest preview version: az extension add -n cosmosdb-preview
+5. Check if the preview version is installed using this: az extension list
+6. Connect to your subscription
+```powershell
+az cloud set -n  AzureCloud
+az login
+az account set --subscription <your subscription ID>
+```
+7. Create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+```powershell
+az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
+```
+8. Create a database for users to connect to in the Azure Portal
+9. Create an RBAC user with built-in read role
+```powershell
+az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"testdb.read\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
+```
+
+## Powershell Quickstart
+Coming soon.
+
+## Authenticate using pymongo
+Sending the appName parameter is required to authenticate as a user in the preview. Here is an example of how to do so:
+```python
+from pymongo import MongoClient
+client = MongoClient("mongodb://<YOUR_HOSTNAME>:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000", username="<YOUR_USER>", password="<YOUR_PASSWORD>", authSource='<YOUR_DATABASE>', authMechanism='SCRAM-SHA-256', appName="<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>")
+```
+
 ## RBAC Commands
+The RBAC management commands will only work with a preview version of the Azure CLI or Powershell installed. See the Quickstarts above on how to get started. 
 
 ### CLI - Create Role Definition
 ```powershell
@@ -230,6 +280,9 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 - The number of users + roles you can create must equal less than 10,000. 
 - listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
 - Backup/Restore and Synapse link are not supported in the preview``
+- Users and Roles across databases are not supported in the preview
+- Users must connect with a tool that support the appName parameter in the preview. Mongo shell and many GUI tools are not supported in the preview. MongoDB drivers are supported.
+
 
 ## Frequently asked questions
 
