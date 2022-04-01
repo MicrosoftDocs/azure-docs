@@ -8,9 +8,9 @@ ms.date: 03/07/2022
 ms.topic: conceptual
 ---
 
-# Overview of query update management center (preview) logs
+# Overview of query logs in update management center (Preview)
 
-Logs created from operations like update assessments and installations are stored by Update management center (preview) in [Azure Resource Graph](/azure/governance/resource-graph/overview). Azure Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update management center (preview) uses Azure Resource Graph to store its results, and you can view the last 30 days of update history from the resources.
+Logs created from operations like update assessments and installations are stored by update management center (Preview) in [Azure Resource Graph](/azure/governance/resource-graph/overview). Azure Resource Graph (ARG) is a service in Azure designed to store Azure service details without any cost or deployment requirements. Update management center (preview) uses Azure Resource Graph to store its results, and you can view the last 30 days of update history from the resources.
 
 Azure Resource Graph's query language is based on the [Kusto query language](/azure/governance/resource-graph/concepts/query-language) used by Azure Data Explorer. 
 
@@ -18,7 +18,7 @@ The article describes the structure of the logs from Update management center (p
 
 ## Log structure
 
-Update management center (preview) sends the results of all its operation into Azure Resource Graph as logs, which are available for 30 days. Listed below are the structure of logs being sent to Azure Resource Graph.
+Update management center (preview) sends the results of all its operation into Azure Resource Graph as logs, which are available for 30 days. Listed below are the structure of logs sent to Azure Resource Graph.
 
 ### Patch assessment results
 
