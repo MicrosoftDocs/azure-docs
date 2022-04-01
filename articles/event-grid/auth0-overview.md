@@ -26,9 +26,10 @@ Delivering a strong user experience is critical to reducing churn and keeping yo
 
 ### Understand user behavior
 Understand when users access your product, where they're signed in, and what devices they use. Develop an understanding of the product areas that matter most by keeping track of these signals. These signals help you determine:
-- What browsers and devices to support. 
-- What languages to localize your app in. 
-- When your peak traffic times are. 
+
+- Browsers and devices to support 
+- Languages to localize your app 
+- Peak traffic times
 
 ### Manage user data
 Keeping and auditing your user actions is crucial for maintaining security and following industry regulations. The ability to edit, remove, or export user data is increasingly important to following privacy laws, such as the European Union's General Data Protection Regulation (GDPR).

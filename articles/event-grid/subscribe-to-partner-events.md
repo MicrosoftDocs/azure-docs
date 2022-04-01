@@ -6,7 +6,7 @@ ms.date: 03/31/2022
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
-This article describes steps that an end user should take to subscribe to events that originate in a system owned or managed by a partner (SaaS, ERP, etc.). 
+This article describes steps to subscribe to events that originate in a system owned or managed by a partner (SaaS, ERP, etc.). 
 
 > [!IMPORTANT]
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md) to understand the rationale of the steps in this article.
@@ -107,10 +107,10 @@ Subscribing to the partner topic tells Event Grid where you want your partner ev
 1. In the Azure portal, type **Event Grid Partner Topics** in the search box, and select **Event Grid Partner Topics**. 
 1. On the **Event Grid Partner Topics** page, select the partner topic in the list. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/select-partner-topic.png" alt-text="Image showing the selection of a partner topic in the partner topic list in the Azure portal.":::
+    :::image type="content" source="./media/subscribe-to-partner-events/select-partner-topic.png" alt-text="Image showing the selection of a partner topic.":::
 1. On the **Event Grid Partner Topic** page for the partner topic, select **+ Event Subscription** on the command bar. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/select-add-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription button on the command bar of the Event Grid Partner Topic page.":::    
+    :::image type="content" source="./media/subscribe-to-partner-events/select-add-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription button on the Event Grid Partner Topic page.":::    
 1. On the **Create Event Subscription** page, do the following steps:
     1. Enter a **name** for the event subscription.
     1. For **Filter to Event Types**, select types of events that your subscription will receive.

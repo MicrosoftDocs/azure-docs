@@ -50,7 +50,7 @@ To verify that the integration is working as expected:
 Try [invoking any of the Auth0 actions that trigger an event to be published](https://auth0.com/docs/logs/references/log-event-type-codes) to see events flow.
 
 ## Delivery attempts and retries
-Auth0 events are delivered to Azure via a streaming mechanism. Each event is sent as it is triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event. Otherwise, Auth0 will log the failure to deliver in its system.
+Auth0 events are delivered to Azure via a streaming mechanism. Each event is sent as it's triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event. Otherwise, Auth0 will log the failure to deliver in its system.
 
 ## Next steps
 
