@@ -1,4 +1,4 @@
-- name: Azure Update management center documentation
+- name: Update management center documentation
   href: index.yml
 - name: Overview
   items:
@@ -14,8 +14,8 @@
   items:
   - name: Update options
     href: updates-maintenance-schedules.md
-  - name: Log on to Azure Resource Graph
-    href: query-logs-resource-graph.md 
+  - name: Query resources with Azure Resource Graph
+    href: query-logs.md 
   - name: Manage multiple machines
     href: manage-multiple-machines.md  
 - name: How-to guides
@@ -30,18 +30,14 @@
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
-    - name: Manage multiple machines
-      href: manage-multiple-machines.md
+    - name: Set update schedules
+      href: scheduled-patching.md
     - name: Manage updates for Azure VMs using REST API
       href: manage-vms-programmatically.md
     - name: Manage updates for Arc-enabled servers using REST API
       href: manage-arc-enabled-servers-programmatically.md
     - name: Manage the update settings for your Windows and Linux machines
       href: manage-update-settings.md
-    - name: Set update schedules
-      href: scheduled-patching.md
-    - name: Query update logs
-      href: query-logs.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues
