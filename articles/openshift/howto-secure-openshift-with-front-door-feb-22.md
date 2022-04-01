@@ -1,6 +1,6 @@
 ---
-title: Secure access to Azure Red Hat OpenShift with Azure Front Door 
-description: This article explains how to use Azure Front Door to secure access to Azure Red Hat OpenShift applications.
+title: Secure access to Azure Red Hat OpenShift with Front Door 
+description: This article explains how to use Front Door to secure access to Azure Red Hat OpenShift applications.
 author: rahulm23
 ms.author: rahulmehta
 ms.service: azure-redhat-openshift
@@ -10,7 +10,7 @@ keywords: azure, openshift, red hat, front, door
 #Customer intent: I need to understand how to secure access to Azure Red Hat OpenShift applications with Azure Front Door.
 ---
 
-# Secure access to Azure Red Hat OpenShift with Azure Front Door
+# Secure access to Azure Red Hat OpenShift with Front Door
 
 This article explains how to use Azure Front Door Premium to secure access to Azure Red Hat OpenShift.  
 

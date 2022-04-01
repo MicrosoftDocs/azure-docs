@@ -40,6 +40,19 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 * Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, the connection will go through the virtual network gateway.
 
+### IP address limits
+
+| ExpressRoute SKU | Bandwidth | FathPath IP limit |
+| -- | -- | -- |
+| ExpressRoute Direct Port | 100Gbps | 200,000 |
+| ExpressRoute Direct Port | 10Gbps | 100,000 |
+| ExpressRoute provider circuit | 10Gbps and lower | 25,000 |
+
+> [!NOTE]
+> * ExpressRoute Direct has a cumulative limit at the port level.
+> * Traffic will flow through the ExpressRoute gateway when these limits are reached.
+>
+
 ## Public preview
 
 The following FastPath features are in Public preview:
