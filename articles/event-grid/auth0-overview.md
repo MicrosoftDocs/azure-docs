@@ -10,7 +10,7 @@ ms.date: 07/22/2021
 
 Auth0, the identity platform for application builders, provides developers and enterprises with the building blocks they need to secure their applications.
 
-The Auth0 partner topic allows you to use events that are emitted by Auth0's system to accomplish a number of tasks. Engage with users in meaningful ways after the authentication or automate security and infrastructure tasks.
+The Auth0 partner topic allows you to use events that are emitted by Auth0's system to accomplish many tasks. Engage with users in meaningful ways after the authentication or automate security and infrastructure tasks.
 
 The integration allows you to stream your Auth0 log events with high reliability into Azure. There, you can consume the events with your favorite Azure resources. This integration allows you to react to events, gain insights, monitor for security issues, and interact with other powerful data pipelines.
 
