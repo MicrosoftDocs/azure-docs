@@ -39,7 +39,7 @@ landingContent:
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 #Card 2
-   - title: Form Recognizer Features
+   - title: Models and features
      linkLists:
       - linkListType: overview
         links:
@@ -63,7 +63,7 @@ landingContent:
             url: concept-business-card.md
 
   #Card 3
-   - title: 🆕Form Recognizer Studio (v3.0/preview)
+   - title: 🆕Form Recognizer Studio (v3.0)
      linkLists:
       - linkListType: get-started
         links:
@@ -91,7 +91,7 @@ landingContent:
             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
 
   #Card 4
-   - title: 🆕Form Recognizer sample labeling tool (v2.1/GA)
+   - title: 🆕Sample labeling tool (v2.1)
      linkLists:
       - linkListType: overview
         links:
@@ -110,7 +110,7 @@ landingContent:
           - text:  Business card model
             url: "concept-business-card.md#sample-labeling-tool-api-v21"
   #Card 5
-   - title: Form Recognizer Quickstarts
+   - title: Quickstarts
      linkLists:
       - linkListType: quickstart
         links:
