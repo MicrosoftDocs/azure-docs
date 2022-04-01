@@ -12,31 +12,40 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
+# Email Communication Services
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-# Email Communication Services
+
 Similar to Chat, VOIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
-sending an email requires certain preconfiguration steps that are required and you have to rely on your organization admins help setting that up. The admin developer tasks includes, deciding the domain that you organization allows to send mail from , which sender domain they will use as the P1 sender also known as MailFrom email address is an email address that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321) and P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). The admin developer will also need to setup and verify the sender domain by addting necessary DNS records for sender verification to succeed.
+sending an email requires certain preconfiguration steps that are required and you have to rely on your organization admins help setting that up. The admin developer need to, 
+- Approve the domain that you organization allows you to send mail from 
+- Define the sender domain they will use as the P1 sender also known as MailFrom email address is an email address that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
+- Define the P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). 
+- Setup and verify the sender domain by adding necessary DNS records for sender verification to succeed.
 
-One of the key prinicipal that we are focusing here is, our email platform will simplify the expereicne for developers and ease this back and forth operations with organization administartors and improve the end to end expirence by allowihg admin developer configure the necessary sender authentication and other compliance releated steps to send email and letting you focus on building the required paylod to send email.
+Once the sender domain is succeffully configured correctly and verified you will able to link the verified domains with your Azure Communication Services resource and start sending emails.
+ 
+One of the key prinicipals for azure communication services is to have a simplified developer experience. Our email platform will simplify the expereicne for developers and ease this back and forth operations with organization administartors and improve the end to end expirence by allowing admin developers to configure the necessary sender authentication and other compliance releated steps to send email and letting you focus on building the required paylod.
 
-Your Azure Administartors will create a new resource of type “Email Communication Services” and add the allowed email sender domains under this resource. The domains added under this resource type will contain all the sender authentication and engagment tracking configurations that are required to be completed before start sending emails. Once the sender domain is configured correctly and verified you  will able to link these domains with your Azure Communication Services resource and you can select which  specify which sender domain will be used to send emails for your application and connect them.  
+Your Azure Administartors will create a new resource of type “Email Communication Services” and add the allowed email sender domains under this resource. The domains added under this resource type will contain all the sender authentication and engagment tracking configurations that are required to be completed before start sending emails. Once the sender domain is configured and verified you  will able to link these domains with your Azure Communication Services resource and you can select which  of the verified domains is suitable for your application and connect them to send emails from your application.  
 
 
- Organziation Admins \ Admin Devlopers Responsibility 
+ ## Organziation Admins \ Admin Devlopers Responsibility 
 
-- Plan Email Domains with required Sender Verification needs.
+- Plan all the requried Email Domains for the applications in the organization
 - Add Custom domains or get an azure managed domain.
-- Configures Custom Domains through Email Communication Services Resources APIs or through Portal
+- Perform the Sender Verification Steps for custom domains
+- Setup DMARC Policy for the verified Sender Domains.
 
-Devlopers Responsibility 
+## Devlopers Responsibility 
 - Connect the preferred domains to Azure Communication Service resources.
 - Responsible for Generating email Payload
   - Defines headers 
   - Body of email
   - Recipient list
-- Submits to Communication Services Email API
+- Submits to Communication Services Email API.
+- Verify the Status of Email Delivery.
 
 ## Next steps
 
