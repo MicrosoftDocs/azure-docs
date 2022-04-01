@@ -167,8 +167,8 @@ sections:
       - question : |
           How do I determine what is connected to my classic storage account?
         answer: |
-          [Find unattached unmanaged disks and dependencies](https://docs.microsoft.com/azure/virtual-machines/disks-find-unattached-portal#unmanaged-disks-find-and-delete-unattached-disks)
-
+          1. [Find unattached disks](https://docs.microsoft.com/azure/virtual-machines/disks-find-unattached-portal#unmanaged-disks-find-and-delete-unattached-disks)
+          2. [Other connections not related to VMS](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
       - question : |
           Can Microsoft migrate this data for me?
         answer: |
