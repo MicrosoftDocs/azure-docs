@@ -11,13 +11,13 @@ ms.subservice: disks
 
 # Use Azure AD to securely import/export a managed disk (preview)
 
-You can use Azure Active Directory (Azure AD) integration to control export and import of data to Azure managed disks. You do this with the **DataAccessAuthMode** property of disks called DataAccessAuthMode to AzureActiveDirectory to ensure the system validates the identity of users in Azure AD and that the user has the necessary permissions to export or import data from a disk. Moreover, a system administrator can set a policy at the Azure account or subscription level to enforce that DataAccessAuthMode is set to AzureActiveDirectory for disks and snapshots. 
+You can use Azure Active Directory (Azure AD) to secure the export and import of data to Azure managed disks. This feature is currently in preview. When using Azure AD, you can ensure that the system validates the identity of the requesting user in Azure AD, and that the user has the required permissions to export and import that disk. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that all disks and snapshots must use Azure AD for import or export.
 
 ## Pre-requisites
 
-1. Enable the feature on your subscription, reach out to AzureDisks@microsoft .com to have the feature enabled.
+1. Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
 1. Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-1. Install this [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
+1. Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
 
 ## Restrictions
 
