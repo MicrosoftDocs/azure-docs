@@ -504,8 +504,6 @@
               items:
                 - name: Android MSAL configuration file
                   href: msal-configuration.md
-                - name: SSO with MSAL Android
-                  href: msal-android-single-sign-on.md
                 - name: Shared device mode
                   displayName: firstline worker, frontline worker, flw
                   href: msal-android-shared-devices.md
@@ -513,6 +511,8 @@
                   href: msal-android-b2c.md
             - name: Authentication and single sign-on (SSO)
               items:
+                - name: SSO with MSAL Android
+                  href: msal-android-single-sign-on.md
                 - name: Accounts and tenant profiles
                   href: accounts-overview.md
                 - name: Single- and multi-account public client apps

@@ -69,8 +69,8 @@ productDirectory:
           imageSrc: ./media/hub/app-type-desktop.svg
           summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer.
         - title: Mobile app
-          #url: index-mobile.yml
-          url: mobile-app-quickstart.md
+          url: index-mobile.yml
+          #url: mobile-app-quickstart.md
           imageSrc: ./media/hub/app-type-mobile.svg
           summary: Applications with a UI whose code runs on a user's phone, tablet, or other mobile device.
         - title: Background service, daemon, or script

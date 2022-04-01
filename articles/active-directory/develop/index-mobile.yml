@@ -1,12 +1,13 @@
 ### YamlMime:Landing
 
-title: Mobile app authentication documentation
-summary: The Microsoft identity platform performs identity and access management (IAM) for registered applications. Mobile apps run on a user's phone or tablet and have a user interface (UI). Microsoft identity platform can help you authenticate your mobile app users.
-          Read this documentation to learn how Microsoft identity platform can help you protect your mobile app.
+title: Mobile application authentication documentation
+summary: >
+  Learn how to sign in users and access web APIs in mobile applications with
+  our quickstarts, tutorials, and in-depth how-to guides.
 
 metadata:
    ms.topic: landing-page
-   ms.date: 09/16/2021
+   ms.date: 04/01/2022
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -16,30 +17,30 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: About $APP_TYPE authentication
+  - title: "Get started fast"
     linkLists:
-      - linkListType: overview
+      - linkListType: quickstart
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
-  - title: $CARD_TITLE
+          - text: Android
+            url: mobile-app-quickstart.md?pivots=devlang-android
+          - text: iOS and macOS
+            url: mobile-app-quickstart.md?pivots=devlang-ios
+  - title: "Learn by building"
     linkLists:
-      - linkListType: get-started
+      - linkListType: tutorial
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
-  - title: $CARD_TITLE
+          - text: Android
+            url: tutorial-v2-android.md
+          - text: Android - Shared-device mode
+            url: tutorial-v2-shared-device-mode.md
+          - text: iOS and macOS
+            url: tutorial-v2-ios.md
+  - title: "Scenario in depth"
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
-          - text: $ARTICLE_TITLE
-            url: index.yml
-          - text: $ARTICLE_TITLE
-            url: index.yml
+          - text: Mobile application that calls a web API
+            url: scenario-mobile-overview.md
 ## ROW 2 ################################################### ROW 2 ##
   # - title: $CARD_TITLE
   #   linkLists:
