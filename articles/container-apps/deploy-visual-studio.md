@@ -32,7 +32,7 @@ Begin by creating the containerized ASP.NET Core application to deploy to Azure.
 
 3) In the **Project Name** field, name the application *MyContainerApp* and then select **Next**.
 
-4) On the **Additional Information** screen, make sure to select **Enable Docker**, and then make sure **Linux** is selected for the **Docker OS** setting. Azure Container Apps currently do not support Windows containers. This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building. 
+4) On the **Additional Information** screen, make sure to select **Enable Docker**, and then make sure **Linux** is selected for the **Docker OS** setting. Azure Container Apps currently does not support Windows containers. This selection ensures the project template supports containerization by default. While enabled, the project uses a container as it is running or building. 
 
 5) Click **Create** and Visual Studio creates and loads the project.
 
@@ -67,7 +67,7 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
 :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 
-5) Next, create an Azure Container App to host the project.  Select the the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
+5) Next, create an Azure Container App to host the project.  Select the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
 
 - **Container App name**: Enter a name of `msdocscontainerapp`.
 - **Subscription name**: Choose the subscription where you would like to host your app.
