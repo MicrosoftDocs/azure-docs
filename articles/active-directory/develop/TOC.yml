@@ -76,6 +76,9 @@
   items:
     - name: Build
       items:
+        - name: Microsoft auth libraries by app type
+          displayName: MSAL, auth library, SDK
+          href: reference-v2-libraries.md
         - name: Prepare for development
           items:
             - name: Get an Azure AD tenant
@@ -130,17 +133,17 @@
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Connect
       items:
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
-        - name: Exchange AD FS SAML for Microsoft Graph access token
-          displayName: exchange, swap, SAML token, OAuth token
-          href: v2-saml-bearer-assertion.md
-        - name: Access identity platform-protected resources from GCP
-          href: workload-identity-federation-create-trust-gcp.md
         - name: Workload identity federation
           href: workload-identity-federation.md
         - name: Trust an external identity provider (federation)
           href: workload-identity-federation-create-trust.md
+        - name: Configure an app to trust a GitHub repo
+          href: workload-identity-federation-create-trust-github.md
+        - name: Access identity platform-protected resources from GCP
+          href: workload-identity-federation-create-trust-gcp.md
+        - name: Exchange AD FS SAML for Microsoft Graph access token
+          displayName: exchange, swap, SAML token, OAuth token
+          href: v2-saml-bearer-assertion.md
     - name: Deploy
       items:
         - name: Automatic user provisioning (SCIM)
@@ -560,8 +563,8 @@
                   href: msal-error-handling-ios.md
                 - name: Troubleshoot SSL issues (MSAL iOS/macOS)
                   href: ssl-issues.md
-        - name: Migrate to MSAL.iOS / macOS
-          href: migrate-objc-adal-msal.md
+            - name: Migrate to MSAL.iOS / macOS
+              href: migrate-objc-adal-msal.md
         - name: MSAL Java
           items:
             - name: Custom token cache serialization
@@ -749,8 +752,8 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
-    - name: List of Microsoft authentication libraries
-      displayName: MSAL, auth library, SDK
+    - name: Microsoft auth libraries by app type
+      displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md
     - name: AADSTS error code reference
       href: reference-aadsts-error-codes.md
