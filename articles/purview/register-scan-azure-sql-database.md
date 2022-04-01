@@ -22,6 +22,20 @@ This article outlines the process to register an Azure SQL data source in Azure 
 
 * Data lineage extraction is currently supported only for Stored procedure runs
 
+When scanning Azure SQL Database, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+	- Server
+	- Database
+	- Schemas
+	- Tables including the columns
+	- Views including the columns
+	- Store procedures (with lineage extraction enabled)
+	- Store procedure runs (with lineage extraction enabled)
+
+When setting up scan, you can further scope the scan after providing the database name by selecting tables and views as needed. 
+
 ### Known limitations
 
 * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.

@@ -2,14 +2,14 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/29/2022
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
 
 VMware HCX Advanced and its associated Cloud Manager are no longer pre-deployed in Azure VMware Solution. Instead, you'll install it through the Azure portal as an add-on. You'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter. 
 
-Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud).  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled, which is currently in public preview. Once the service is generally available, you'll have 30 days to decide on your next steps. You can also turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
+Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud).  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. Once the service is generally available, you'll have 30 days to decide on your next steps. You can turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
 
 Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) aren't in use, and site pairings are three or fewer.
 
@@ -44,7 +44,10 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
-   It takes around 35 minutes to install HCX Advanced and configure the Cloud Manager. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing display on the **Migration using HCX** tab.
+   It takes around 35 minutes to install HCX Advanced and configure the Cloud Manager. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing will display on the **Migration using HCX** tab.
+
+    > [NOTE!]
+    > If you aren't able to see the HCX key once installed, click the **ADD** button to generate the key which you can then use for site pairing.
 
    :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
 
