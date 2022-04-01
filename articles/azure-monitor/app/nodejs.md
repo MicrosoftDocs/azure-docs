@@ -42,9 +42,6 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 
 Include the SDK in your app, so it can gather data.
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=nodejs) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
 1. Copy your resource's connection string from your new resource. Application Insights uses the connection string to map data to your Azure resource. Before the SDK can use your connection string, you must specify the connection string in an environment variable or in your code.
 
    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
