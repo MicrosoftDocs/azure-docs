@@ -248,9 +248,7 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 ### Use Query Plan caching
 
-The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for version 4.20.0 and above**.
-
-Query plan caching currently works for queries with filters. This feature can also be leveraged from the Spring connector when using method derived queries. Currently, queries defined with `@Query` spring data annotation, do not take advantage of Query plan caching.
+The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for Java SDK version 4.20.0 and above** and **for Spring Data Cosmos SDK version 3.13.0 and above**.
 
 ### Use parametrized single partition queries
 
@@ -266,8 +264,13 @@ SqlQuerySpec querySpec = new SqlQuerySpec(
         "SELECT * FROM c WHERE c.city = @city",
         paramList);
 
+//  Sync API
 CosmosPagedIterable<MyItem> filteredItems = 
     container.queryItems(querySpec, options, MyItem.class);
+
+//  Async API
+CosmosPagedFlux<MyItem> filteredItems = 
+    asyncContainer.queryItems(querySpec, options, MyItem.class);
 ```
 
 > [!NOTE]
@@ -286,8 +289,13 @@ options.setMaxDegreeOfParallelism(-1);
 
 // Define the query
 
+//  Sync API
 CosmosPagedIterable<MyItem> filteredItems = 
-    container.queryItems(query, options, MyItem.class);
+    container.queryItems(querySpec, options, MyItem.class);
+
+//  Async API
+CosmosPagedFlux<MyItem> filteredItems = 
+    asyncContainer.queryItems(querySpec, options, MyItem.class);
 ```
 
 Let's assume that
@@ -305,10 +313,11 @@ Following are implications of how the parallel queries would behave for differen
 
 When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first.
 
-You can use the `pageSize` parameter in `iterableByPage` to define a page size:
+You can use the `pageSize` parameter in `iterableByPage()` for sync API and `byPage()` for async API, to define a page size:
 
 ```java
-Iterable<FeedResponse<MyItem>> filteredItemsAsPages = 
+//  Sync API
+Iterable<FeedResponse<MyItem>> filteredItemsAsPages =
     container.queryItems(querySpec, options, MyItem.class).iterableByPage(continuationToken,pageSize);
 
 for (FeedResponse<MyItem> page : filteredItemsAsPages) {
@@ -316,11 +325,21 @@ for (FeedResponse<MyItem> page : filteredItemsAsPages) {
         //...
     }
 }
+
+//  Async API
+Flux<FeedResponse<MyItem>> filteredItemsAsPages =
+    asyncContainer.queryItems(querySpec, options, MyItem.class).byPage(continuationToken,pageSize);
+
+filteredItemsAsPages.map(page -> {
+    for (MyItem item : page.getResults()) {
+        //...
+    }
+}).subscribe();
 ```
 
 ## Tune the buffer size
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching (NOTE: This can also result in high memory consumption). If you set this value to 0, the system will automatically determine the number of items to buffer.
 
 ```java
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
@@ -329,8 +348,13 @@ options.setMaxBufferedItemCount(-1);
 
 // Define the query
 
+//  Sync API
 CosmosPagedIterable<MyItem> filteredItems = 
-    container.queryItems(query, options, MyItem.class);
+    container.queryItems(querySpec, options, MyItem.class);
+
+//  Async API
+CosmosPagedFlux<MyItem> filteredItems = 
+    asyncContainer.queryItems(querySpec, options, MyItem.class);
 ```
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
