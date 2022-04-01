@@ -35,12 +35,12 @@ To create a new update deployment, perform the following steps.
 1. In **Machines**, select **+Add machine** to add machines that were previously not selected and click **Add**.
 1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, it's necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
-> [!NOTE]
-> Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update Center Management (Preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
+   > [!NOTE]
+   > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update Center Management (Preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
    
-   :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
+      :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
    - Select **Include KB ID/package** to include in the updates. enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
 
