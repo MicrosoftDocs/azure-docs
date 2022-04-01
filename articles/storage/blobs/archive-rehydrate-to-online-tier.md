@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/30/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -39,11 +39,11 @@ After the copy operation is complete, the destination blob appears in the Archiv
 
 The following examples show how to copy an archived blob with the Azure portal, PowerShell, or Azure CLI.
 
-### [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 N/A
 
-### [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To copy an archived blob to an online tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
@@ -71,7 +71,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
     -Context $ctx
 ```
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
@@ -183,8 +183,6 @@ az storage blob set-tier \
 ```
 
 ---
-
-
 
 ## Bulk rehydrate a set of blobs
 
