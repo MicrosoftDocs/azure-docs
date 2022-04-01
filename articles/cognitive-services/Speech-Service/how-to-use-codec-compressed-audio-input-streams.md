@@ -1,7 +1,7 @@
 ---
-title: How to compress audio input with the Speech SDK - Speech service
+title: How to use compressed audio files with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to compress audio input to the Speech service with the Speech SDK. 
+description: Learn how to use compressed audio files to the Speech service with the Speech SDK. 
 services: cognitive-services
 author: eric-urban
 ms.author: eur
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# How to compress audio input
+# How to use compressed audio files
 
 The Speech SDK and Speech CLI use GStreamer to support different kinds of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
 
