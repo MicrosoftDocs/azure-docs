@@ -94,7 +94,7 @@ You can connect to the lab VM where the artifact failed, and investigate the iss
 
 ### Inspect the Custom Script Extension log file
 
-1. On the lab VM, go to *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\\*1.10.12\*\\Status\\*, where *1.10.12* is the Azure Custom Script Extension version number.
+1. On the lab VM, go to *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\\*1.10.12\*\\Status\\*, where *\*1.10.12\** is the CSE version number.
 
    ![Screenshot of the Status folder on the lab V M.](./media/devtest-lab-troubleshoot-apply-artifacts/status-folder.png)
 
@@ -110,7 +110,7 @@ When the VM first starts, or when the CSE first installs to serve the request to
 
 To verify if the artifact appeared to stop responding because of the VM Agent:
 
-1. Using File Explorer, navigate to *C:\\WindowsAzure\\logs*.
+1. On the lab VM, navigate to *C:\\WindowsAzure\\logs*.
 1. Open the file *WaAppAgent.log*.
 1. Look for entries that show the VM Agent starting, finishing initialization, and the first sent heartbeat, around the time you experienced the artifact issue.
 
