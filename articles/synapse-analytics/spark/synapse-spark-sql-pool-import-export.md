@@ -46,7 +46,7 @@ At a high-level, the connector provides the following capabilities:
 
 ## Pre-requisites
 
-This section details necessary pre-requisite steps include Azure Resource set up and Configurations including authentication and authorization requirements for using the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+This section details necessary pre-requisite steps include Azure Resource setup and Configurations including authentication and authorization requirements for using the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
 ### Azure Resources
 
@@ -57,9 +57,9 @@ Review and set up following dependent Azure Resources:
 * [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
 * [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
-#### Database Set up
+#### Database Setup
 
-Connect to the Synapse Dedicated SQL Pool database and run following set up statements:
+Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
 * Create a database user for the Azure Active Directory User Identity. This must be the same identity that is used to log in to Azure Synapse Workspace. If your use case for the Connector is to write data to destination tables in Azure Synapse Dedicated SQL Pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from Synapse Dedicated SQL Pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
   
@@ -155,7 +155,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization are necessary unless you are a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
+To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you are a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
@@ -199,8 +199,8 @@ Benefits of this approach over printing the end state result to console (partial
 
 * Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
 * Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
-  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle).
-* Recommend to review and leverage the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
+  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](#write-request-callback-handle).
+* Recommend to review and leverage the [Write to Azure Synapse Dedicated SQL Pool - Code Template](#write-to-azure-synapse-dedicated-sql-pool) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
 
 ## Connector API Documentation
 
@@ -308,7 +308,7 @@ if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 
 #### Write using SQL Basic Authentication
 
-Following code snippet replaces the write definition described in the [Write using AAD based authentication](#write-using-aad-based-authentication) section, to submit write request using SQL basic authentication approach :
+Following code snippet replaces the write definition described in the [Write using AAD based authentication](#write-using-aad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
 ```Scala
 //Define write options to use SQL basic authentication
@@ -522,22 +522,24 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 
 The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write and read semantics from dependent resources (Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool) to provide efficient data transfers. Following are some important aspects to note:
 
-* When writing to the tables
-  * For internal table types, the target table is created with ROUND_ROBIN data distribution. Column types are inferred from the DataFrame on which the write is triggered.
-  * For external table types, data distribution is influenced by the source data organization and further configurations that effect the initial write parallelism (i.e., to read and write). 
-    * Types are mapped from the user's data frame similar to a write to an internal table type.
-* It is important to factor in source data format type, data distribution and volume aspects to chose ideal Spark Pool Capacity, and also to drive initial parallelism outcomes.
-  * Giving more executors does not necessarily translate into better throughput.
-  * For example, setting a better byte distribution per partition `spark.sql.files.maxPartitionBytes` will allow execution to maximize executor capacity utilization.
-  * In the sense, the aim here should be to send ideal distribution of data and more per executors until their maximum capacity is utilized.
-* When writing large volume data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
-* The Connector implementation exhibits an I/O intensive pattern i.e., a conduit that performs a read or a write. Any compute-intensive operation is delegated to the underlying dependencies (Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool).
-  * Hence suggest to leverage the API constructs supported by the DataFrame and Spark Pool runtime.
-  * For example, using the DataFrame method `repartition` the partition layout when reading from the source can be dynamically adjusted.
-  * However, if your use case typically experience high-volume ingest, suggest to set `spark.sql.files.maxParititionBytes` parameter on the corresponding Serverless Spark Pool instance that will be used by the Notebooks.
-  * Another example is to leverage the DataFrame API filters to take advantage of the Connector's column-pruning feature.
-  * We do not support TOP(limit-count) yet, to limit number of records that will be transported from the database layer to the Spark Runtime. Limit clauses must go onto the DataFrame read's `limit` clause. Refer the code sample from [Using materialized data across cells](#using-materialized-data-across-cells) section.
-* It is also important to monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to ensure there's sufficient capacity to support the reads and writes made by the Connector, such that it is not throttling.
+* When writing to the Azure Synapse Dedicated SQL Pool tables:
+  * For internal table types:
+    * Target tables are setup with ROUND_ROBIN data distribution.
+    * Column types are inferred from the DataFrame that'd read data from source. String columns are mapped to `NVARCHAR(4000)`.
+  * For external table types:
+    * Data distribution is influenced by the layout of the source data and the settings to re-configure ataFrame initial parallelism.
+    * Column types are inferred from the DataFrame that'd read data from source.
+  * It is important to consider and factor-in volumetric information of the source data including Data Format, Volume of Data, and Partitions.
+    * Initial parallelism along with max bytes per partition must drive decisions to find a right number of executors.
+    * This approach will ensure executors stay busy and are getting optimally leveraged.
+    * To tune maximum bytes per partition suggest to infer partition ranges from your source data set and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
+    * This must be set at the Spark Pool level and not for individual requests.
+  * When writing large volume data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
+* When reading from the Azure Synapse Dedicated SQL Pool tables:
+  * Consider leveraging the `filter` setting on the DataFrame to take advantage of the `column-pruning` feature of the Connector.
+  * Read does not yet support use of `TOP(n-rows)` clause on the `SELECT` statements. Users can however limit data consumed by the DataFrame using the limit clause.
+    * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
+* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to ensure there's sufficient capacity to support the reads and writes made by the Connector, such that it is not throttling.
 
 ## Additional Reading
 
