@@ -63,7 +63,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
     ![Screenshot of the Unity Color wheel dialog. The color is set to 0 for all R G B A components.](./media/color-wheel-black.png)
 
-1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
+1. Set **Clipping Planes** to *Near = 0.1* and *Far = 20*. This means rendering will clip geometry that is closer than 10 cm or farther than 20 meters.
 
     ![Screenshot of the Unity inspector for a Camera component.](./media/camera-properties.png)
 

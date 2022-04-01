@@ -1678,12 +1678,12 @@ groups:
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
-  prompt: Select the Azure Front Door tier
+  prompt: "Select the Azure Front Door tier:"
   pivots:
-  - id: front-door-classic
-    title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
