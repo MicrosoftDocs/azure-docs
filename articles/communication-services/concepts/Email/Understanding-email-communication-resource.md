@@ -18,9 +18,9 @@ ms.custom: private_preview
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
 Similar to Chat, VOIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
-sending an email requires certain preconfiguration steps that are required and you have to rely on your organization admins help setting that up. The admin developer need to, 
+sending an email requires certain preconfiguration steps and you have to rely on your organization admins help setting that up. The administartor of your organization need to, 
 - Approve the domain that you organization allows you to send mail from 
-- Define the sender domain they will use as the P1 sender also known as MailFrom email address is an email address that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
+- Define the sender domain they will use as the P1 sender email address (also known as MailFrom email address) that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
 - Define the P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). 
 - Setup and verify the sender domain by adding necessary DNS records for sender verification to succeed.
 
@@ -40,10 +40,11 @@ Your Azure Administartors will create a new resource of type “Email Communicat
 
 ## Devlopers Responsibility 
 - Connect the preferred domains to Azure Communication Service resources.
-- Responsible for Generating email Payload
-  - Defines headers 
+- Responsible for generating email payload and define the required
+  - Email headers 
   - Body of email
   - Recipient list
+  - Attachments if any
 - Submits to Communication Services Email API.
 - Verify the Status of Email Delivery.
 
