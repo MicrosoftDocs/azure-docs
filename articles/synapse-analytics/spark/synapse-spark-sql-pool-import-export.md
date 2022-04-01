@@ -499,7 +499,7 @@ Benefits of this approach over printing the end state result to console (partial
 * Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
 * Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
   * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](#write-request-callback-handle).
-* Recommend to review and leverage the [Write to Azure Synapse Dedicated SQL Pool - Code Template](#write-to-azure-synapse-dedicated-sql-pool) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
+* Refer to the code samples shared in the section [Write to Azure Synapse Dedicated SQL Pool](#write-to-azure-synapse-dedicated-sql-pool).
 
 ## Things to Note
 
