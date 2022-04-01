@@ -13,7 +13,7 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics efficiently transfers large volume data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Scala Connector code can be placed in any Synapse Notebook Cell regardless of the notebook language preferences.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Scala Connector code can be placed in any Synapse Notebook Cell regardless of the notebook language preferences.
 
 At a high-level, the connector provides the following capabilities:
 
@@ -61,7 +61,7 @@ Review and setup following dependent Azure Resources:
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
-* Create a database user for the Azure Active Directory User Identity. This must be the same identity that is used to log in to Azure Synapse Workspace. If your use case for the Connector is to write data to destination tables in Azure Synapse Dedicated SQL Pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from Synapse Dedicated SQL Pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
+* Create a database user that is mapped to the Azure Active Directory User Identity used to sign in to the Azure Synapse Workspace. If your use case for the Connector is to write data to destination tables in Azure Synapse Dedicated SQL Pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from Synapse Dedicated SQL Pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
@@ -77,15 +77,15 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 #### Azure Active Directory based Authentication
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. When interacting with respective resources such as storage and Synapse Dedicated SQL Pool, the user tokens from the runtime are used when defining the connection strings or as properties on the connect requests. It is important to verify that the user signing in to the workspace is given permissions to connect, read and write to respective end points.
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. User tokens from the runtime are applied to successfully connect and interact with dependent resources such as Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool.
 
 #### SQL Basic Authentication
 
-An alternative to Azure Active Directory based authentication is to use SQL basic authentication. This approach requires additional parameters as described below:
+The basic authentication credentials include `username` and `password`. These are used to authenticate with Azure Synapse Dedicated SQL Pool. Additional configurations as described below are necessary to interact with storage where data is sourced:
 
 * Write Data to Azure Synapse Dedicated SQL Pool
   * When reading data from the data source by initializing a DataFrame object:
-    * Consider an example scenario where the data is read from a Storage Account for which the workspace user doesn't have access permissions.
+    * Consider an example, where the workspace user does not have read permissions to the Storage Account.
     * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
 
        ```Scala
@@ -128,7 +128,7 @@ An alternative to Azure Active Directory based authentication is to use SQL basi
       * External Table Type - the Connector expects the workspace user has access to read/write access to the target storage location where external table's data is staged.
 
 * Reading from Azure Synapse Dedicated SQL Pool table:
-  * To read data following the SQL basic authentication approach, user must provide `Constants.DATA_SOURCE` configuration option.
+  * To read data from a table in Azure Synapse Dedicated SQL Pool table the configuration option `Constants.DATA_SOURCE` must be specified on the DataFrameReader's options.
   
 ### Authorization
 
@@ -534,7 +534,7 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write 
     * This approach will ensure executors stay busy and are getting optimally leveraged.
     * To tune maximum bytes per partition suggest inferring max data per partition from the source data, and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
     * This must be set at the Spark Pool level and not for individual requests.
-  * When writing large volume data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
+  * When writing large data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider leveraging the `filter` setting on the DataFrame to take advantage of the `column-pruning` feature of the Connector.
   * Read does not yet support use of `TOP(n-rows)` clause on the `SELECT` statements. Users can however limit data consumed by the DataFrame using the limit clause.
