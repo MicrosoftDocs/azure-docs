@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse dedicated SQL pool connector for Apache Spark
-description:  This article discusses the Azure Synapse dedicated SQL pool connector for Apache Spark. It's used for moving data between the Apache Spark runtime (serverless Spark pool) and the Azure Synapse dedicated SQL pool.
+description:  This article discusses the Azure Synapse dedicated SQL pool connector for Apache Spark. The connector is used to move data between the Apache Spark runtime (serverless Spark pool) and the Azure Synapse dedicated SQL pool.
 author: kalyankadiyala-Microsoft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -11,13 +11,13 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 --- 
 # Azure Synapse dedicated SQL pool connector for Apache Spark
 
-This article discusses the Azure Synapse dedicated SQL pool connector for Apache Spark. It's used for moving data between the Apache Spark runtime (serverless Spark pool) and the Azure Synapse dedicated SQL pool.
+This article discusses the Azure Synapse dedicated SQL pool connector for Apache Spark in Azure Synapse Analytics. The connector is used to move data between the Apache Spark runtime (serverless Spark pool) and the Azure Synapse dedicated SQL pool.
 
 ## Introduction
 
 The Azure Synapse dedicated SQL pool connector for Apache Spark in Azure Synapse Analytics efficiently transfers large-volume datasets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and a [dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented by using the `Scala` language.
 
-The connector is shipped as a default library within the Azure Synapse Analytics environment that consists of a workspace notebook and serverless Spark pool runtime. By using the Spark magic command `%%spark`, the Scala connector code can be placed in any Azure Synapse notebook cell regardless of the notebook language preferences.
+The connector is shipped as a default library within the Synapse Analytics environment that consists of a workspace notebook and serverless Spark pool runtime. By using the Spark magic command `%%spark`, the Scala connector code can be placed in any Azure Synapse notebook cell regardless of the notebook language preferences.
 
 At a high level, the connector provides the following capabilities:
 
@@ -28,20 +28,22 @@ At a high level, the connector provides the following capabilities:
     * `ErrorIfExists`
     * `Ignore`
     * `Overwrite`
-  * Writes to external table type that supports Parquet and the delimited text file format, for example, CSV.
-  * Writes path implementation uses [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of the CETAS/CTAS approach.
+  * Writes to an external table type that supports Parquet and the delimited text file format, for example, CSV.
+  * Writes path implementation uses a [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of the CETAS/CTAS approach.
   * Provides enhancements to optimize end-to-end write throughput performance.
   * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
-    * Examples include time taken to stage data, time taken to write data to target tables, number of records staged, number of records committed to target table, and the failure cause (if the request submitted has failed).
+    * Examples include time taken to stage data, time taken to write data to target tables, number of records staged, and number of records committed to target table. The failure cause is also included if the submitted request has failed.
 * Reads from the Azure Synapse dedicated SQL pool:
   * Reads large datasets from the Azure Synapse dedicated SQL pool tables (internal and external) and views.
   * Supports comprehensive predicate push-down, where filters on DataFrame get mapped to corresponding SQL predicate push-down.
   * Supports column pruning.
 
 > [!NOTE]
-> The latest release of the connector introduced certain default behavior changes for the write path. See the section [Common issues](#common-issues) for scenario description and relevant mitigation steps.
+> The latest release of the connector introduced certain default behavior changes for the write path. See the section [Common issues](#common-issues) for a scenario description and relevant mitigation steps.
 
 ## Orchestration approach
+
+The following two diagrams illustrate the write and read orchestrations.
 
 ### Write
 
@@ -53,7 +55,7 @@ At a high level, the connector provides the following capabilities:
 
 ## Prerequisites
 
-This section details necessary prerequisite steps include Azure resource setup and Configurations including authentication and authorization requirements for using the Azure Synapse dedicated SQL pool connector for Apache Spark.
+This section details necessary prerequisite steps for Azure resource setup and configuration. It includes authentication and authorization requirements for using the Azure Synapse dedicated SQL pool connector for Apache Spark.
 
 ### Azure resources
 
@@ -68,13 +70,15 @@ Review and set up the following dependent Azure resources:
 
 Connect to the Azure Synapse dedicated SQL pool database and run the following setup statements:
 
-* Create a database user for the Azure Active Directory User Identity. This must be the same identity that's used to sign in to an Azure Synapse workspace. If your use case for the connector is to write data to destination tables in the Azure Synapse dedicated SQL pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from an Azure Synapse dedicated SQL pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
+* Create a database user for the Azure Active Directory user identity. It must be the same identity that's used to sign in to an Azure Synapse workspace.
+
+  If your use case for the connector is to write data to destination tables in the Azure Synapse dedicated SQL pool, you can skip this step. This step is necessary only if your scenario is both write-to and read-from an Azure Synapse dedicated SQL pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
     ```
 
-* Create schema in which tables will be defined, such that the Connector can successfully write-to and read-from respective tables.
+* Create a schema in which tables will be defined so that the connector can successfully write to and read from respective tables.
 
     ```sql
     CREATE SCHEMA [<schema_name>];
@@ -82,13 +86,17 @@ Connect to the Azure Synapse dedicated SQL pool database and run the following s
 
 ### Authentication
 
+This section discusses two approaches for authentication.
+
 #### Azure Active Directory-based authentication
 
-Azure Active Directory (Azure AD)-based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse workspace. When interacting with respective resources such as storage and Azure Synapse dedicated SQL pool, the user tokens are leveraged from the runtime. It's important to verify that the respective users can connect and access respective resources to perform write and read actions. The user identity must be set up in the Azure AD associated with the Azure subscription where the resources are set up and configured to connect by using Azure AD-based authentication.
+Azure Active Directory (Azure AD)-based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse workspace. When interacting with respective resources such as storage and the Azure Synapse dedicated SQL pool, the user tokens are leveraged from the runtime.
+
+It's important to verify that the respective users can connect and access respective resources to perform write and read actions. The user identity must be set up in the Azure AD associated with the Azure subscription where the resources are set up and configured to connect by using Azure AD-based authentication.
 
 #### SQL basic authentication
 
-An alternative to Azure AD-based authentication is to use SQL basic authentication. This approach requires additional parameters as described here:
+An alternative to Azure AD-based authentication is to use SQL basic authentication. This approach requires the parameters described here:
 
 * Write data to an Azure Synapse dedicated SQL pool
   * When reading data from the data source by initializing a DataFrame object:
@@ -123,19 +131,19 @@ An alternative to Azure AD-based authentication is to use SQL basic authenticati
                     limit(100)
        ```
 
-    * Similar to the preceding snippet, the DataFrame over the source data must have credentials to meet the requirement to perform read from some other source you would like fetch data.
+    * Similar to the preceding snippet, the DataFrame over the source data must have credentials to meet the requirement to perform the read from some other source from which you want to fetch data.
   
   * When staging the source data to the temporary folders:
     * The connector expects that the workspace user is granted permission to connect and successfully write to the staging folders, for example, temporary folders.
   
-  * Writing to an Azure Synapse dedicated SQL pool table:
+  * When writing to an Azure Synapse dedicated SQL pool table:
     * To successfully connect to an Azure Synapse dedicated SQL pool table, the connector expects the `user` and `password` option parameters.
     * Committing data to SQL occurs in two forms depending on the type of the target table that the user's request requires:
       * Internal table type: The connector requires the option `staging_storage_acount_key` set on the DataFrameWriter[Row] before invoking the method `synapsesql`.
       * External table type: The connector expects that the workspace user has access to read/write access to the target storage location where the external table's data is staged.
 
-* Reading from an Azure Synapse dedicated SQL pool table:
-  * With SQL basic authentication approach, to read data from the source tables, the connector's ability to write to staging table must be met.
+* Read from an Azure Synapse dedicated SQL pool table:
+  * With the SQL basic authentication approach, to read data from the source tables, the connector's ability to write to the staging table must be met.
   * This requirement can be made possible by providing the `data_source` configuration option on the DataFrameReader reference, prior to invoking the `synapsesql` method.
   
 ### Authorization
@@ -144,14 +152,14 @@ This section focuses on required authorization grants that must be set for the u
 
 #### [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
 
-There are two ways to grant access permissions to Azure Data Lake Storage Gen2 storage account:
+There are two ways to grant access permissions to an Azure Data Lake Storage Gen2 storage account:
 
 * Role-based access control (RBAC) role: [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-  * Assigning the `Storage Blob Data Contributor Role` grants the user permissions to read, write, and delete from the Azure Storage Blob Containers.
+  * Assigning the `Storage Blob Data Contributor Role` grants the user permission to read, write, and delete from the Azure Storage Blob containers.
   * RBAC offers a coarse control approach at the container level.
-* [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
-  * ACL approach allows for fine-grained controls over specific paths or files under a given folder.
-  * ACL checks aren't enforced if the user is already granted permissions using an RBAC approach.
+* [Access control lists (ACLs)](../../storage/blobs/data-lake-storage-access-control.md)
+  * The ACL approach allows for fine-grained controls over specific paths or files under a given folder.
+  * ACL checks aren't enforced if the user is already granted permission by using an RBAC approach.
   * There are two broad types of ACL permissions:
     * Access permissions, which are applied at a specific level or object.
     * Default permissions, which are automatically applied for all child objects at the time of their creation.
@@ -163,11 +171,11 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 s
 
 #### [Azure Synapse dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-This section details the authorization settings that are necessary to interact with an Azure Synapse dedicated SQL pool. This step can be skipped if the user identity used to sign in to an Azure Synapse workspace is also configured as an `Active Directory Admin`, for the database in the target Azure Synapse dedicated SQL pool.
+This section describes the authorization settings that are necessary to interact with an Azure Synapse dedicated SQL pool. You can skip this step if the user identity used to sign in to an Azure Synapse workspace is also configured as an `Active Directory Admin` for the database in the target Azure Synapse dedicated SQL pool.
 
 * Write scenario
   * The connector uses the COPY command to write data from staging to the internal table's managed location.
-    * Set up required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
+    * Set up required permissions described in [this quickstart](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
     * The following sample is a quick access snippet of the same:
 
       ```sql
@@ -193,22 +201,22 @@ This section details the authorization settings that are necessary to interact w
 
 ## Process the response
 
-Invoking `synapsesql` has two possible end states: Successful completion of the request (write or read) or a Failure state. In this section, we'll review how to handle each of these states with respect to a write and read use case.
+Invoking `synapsesql` has two possible end states. They're the successful completion of the request (write or read) or a failure state. In this section, we'll review how to handle each of these states with respect to a write and read use case.
 
 ### Read request response
 
-Upon completion, in either case of a success or a failure the result is rendered below the respective cell. Detailed information can be obtained from the application logs.
+Upon completion, in either case of a success or a failure the result is rendered below the respective cell. More information can be obtained from the application logs.
 
 ### Write request response
 
-The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (for example, Scala Function ). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
+The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below the respective cell from which the request is submitted. The method `synapsesql` now supports another argument to pass an optional lambda (for example, a Scala function ). The expected arguments for this function are a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
 
-Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
+Benefits of this approach over printing the end state result to the console in a partial snippet and to the application logs include:
 
-* Allow the end users (for example, developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
-* Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
-  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle).
-* Recommend to review and leverage the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (also known as, lambda).
+* Allow the users, for example, developers, to model dependent workflow activities that depend on a prior state without having to change the cell.
+* Provide a programmatic approach to handle the outcome `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
+  * Review the sample error code snippet presented in the section [Write request callback handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle).
+* Recommend to review and use the [Write scenario - Code template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template) that makes it easy to adopt to the signature changes and motivate to build better write workflows by using the call-back function (also known as lambda).
 
 ## Connector API documentation
 
@@ -294,12 +302,12 @@ if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 
 #### DataFrame SaveMode support
 
-The following list is a brief description of how the SaveMode setting by the user would translate into actions taken by the connector:
+The following items briefly describe how the SaveMode setting by the user translates into actions taken by the connector:
 
 * ErrorIfExists (the connector's default save mode)
   * If the destination table exists, the write is aborted with an exception returned to the callee. Else, a new table is created with data from the staging folders.
 * Ignore
-  * If the destination table exists, the write will ignore the write request without returning an error. Else, a new table is created with data from the staging folders.
+  * If the destination table exists, the write ignores the write request without returning an error. Else, a new table is created with data from the staging folders.
 * Overwrite
   * If the destination table exists, the existing data in the destination is replaced with data from the staging folders. Else, a new table is created with data from the staging folders.
 * Append
@@ -307,12 +315,14 @@ The following list is a brief description of how the SaveMode setting by the use
   
 #### Write request callback handle
 
-The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. These metrics provide information such as the number of records staged to the number of records written to a SQL table, time spent in staging and executing the SQL statements to write data to the Azure Synapse dedicated SQL pool. String values for each metric key are defined and accessible from the new object reference, `Constants.FeedbackConstants`. By default, these metrics are written to the Spark driver logs. One can also fetch these by passing a call-back handle (a `Scala Function`). The following snippet is the signature of this function:
+The new write path API changes introduced an experimental feature to provide the client with a key value map of post-write metrics. These metrics provide information like the number of records staged to the number of records written to a SQL table. They can also include information on the time spent in staging and executing the SQL statements to write data to the Azure Synapse dedicated SQL pool.
+
+String values for each metric key are defined and accessible from the new object reference, `Constants.FeedbackConstants`. By default, these metrics are written to the Spark driver logs. You can also fetch these metrics by passing a call-back handle like the Scala function. The following snippet is the signature of this function:
 
 ```Scala
-//Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
-//Post-write if there's a reference of this handle passed to the `synapsesql` signature, it will be invoked by the closing process.
-//These arguments will have valid objects in either Success or Failure case. In case of Failure the second argument will be a Some(Throwable), for example, some error reference.
+//Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable].
+//Post-write if there's a reference of this handle passed to the `synapsesql` signature. It will be invoked by the closing process.
+//These arguments will have valid objects in either a Success or Failure case. In the case of Failure, the second argument will be a Some(Throwable), for example, some error reference.
 (Map[String, Any], Option[Throwable]) => Unit
 ```
 
@@ -361,7 +371,7 @@ The following snippet is a sample JSON string with post-write metrics:
 
 #### Read request - `synapsesql` method signature
 
-The following snippet is the signature to leverage `synapsesql`. It applies to both Spark 2.4.8 and Spark 3.1.2 connector versions:
+The following snippet is the signature to use `synapsesql`. It applies to both Spark 2.4.8 and Spark 3.1.2 connector versions:
 
 ```Scala
 synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
@@ -408,12 +418,12 @@ import org.apache.spark.sql.SqlAnalyticsConnector._
 
 The latest release of the connector introduced certain default behavior changes for the write path. The following list includes common behaviors and the necessary mitigation steps:
 
-* Error handling (for example, throwing exceptions from cells) when writing to an Azure Synapse dedicated SQL pool.
+* Error handling, for example, throwing exceptions from cells, when writing to an Azure Synapse dedicated SQL pool:
   * Context
-    * Typically, when the code in a notebook cell contains an error, an error will be surfaced and notebook execution will stop.
+    * Typically, when the code in a notebook cell contains an error, an error is surfaced and notebook execution stops.
     * The current implementation of this connector is different. Any errors will be written to the driver logs, but notebook cell execution will continue.
   * Mitigation
-    * Handling and surfacing the error will allow the cell execution to fail. Subsequent cell execution won't be attempted (for example, canceled).
+    * Handling and surfacing the error allows the cell execution to fail. Subsequent cell execution won't be attempted (for example, canceled).
     * See the Write [code template](#write-code-template) section for a sample code reference.
 
 * A write request returns a validation error message, as described:
