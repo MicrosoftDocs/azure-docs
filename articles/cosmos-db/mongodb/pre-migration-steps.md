@@ -22,13 +22,19 @@ This MongoDB pre-migration guide is part of series on MongoDB migration. The cri
 
 ## Overview of pre-migration
 
-It is critical to carry out certain planning and decision-making about your migration up-front before you actually move any data. This initial decision-making process is the “pre-migration”. Your goal in pre-migration is to (1) ensure that you set up Azure Cosmos DB to fulfill your application's post-migration requirements, and (2) plan out how you will execute the migration.
+It's critical to carry out certain planning and decision-making about your migration up-front before you actually move any data. This initial decision-making process is the “pre-migration”.
+
+Your goal in pre-migration is to:
+
+1. Ensure that you set up Azure Cosmos DB to fulfill your application's requirements, and
+2. Plan out how you will execute the migration.
 
 Follow these steps to perform a thorough pre-migration
-* [Discover your existing MongoDB resources and create an artifact to track them](#pre-migration-discovery)
-* [Assess the readiness of your existing MongoDB resources for data migration](#pre-migration-assessment)
-* [Map your existing MongoDB resources to new Azure Cosmos DB resources](#pre-migration-mapping)
-* [Plan the logistics of migration process end-to-end, before you kick off the full-scale data migration](#execution-logistics)
+
+1. [Discover your existing MongoDB resources and create a data estate spreadsheet to track them](#pre-migration-discovery)
+2. [Assess the readiness of your existing MongoDB resources for data migration](#pre-migration-assessment)
+3. [Map your existing MongoDB resources to new Azure Cosmos DB resources](#pre-migration-mapping)
+4. [Plan the logistics of migration process end-to-end, before you kick off the full-scale data migration](#execution-logistics)
 
 Then, execute your migration in accordance with your pre-migration plan.
 
@@ -38,33 +44,68 @@ All of the above steps are critical for ensuring a successful migration.
 
 When you plan a migration, we recommend that whenever possible you plan at the per-resource level.
 
+Database migration assistant assists you with the [Discovery](#programmatic-discovery-using-the-database-migration-assistant) and [Assessment](#programmatic-assessment-using-the-database-migration-assistant) stages of the planning.
+
 ## Pre-migration discovery
 
-The first pre-migration step is resource discovery. In this step you attempt to make a comprehensive list of existing resources in your MongoDB data estate.
+The first pre-migration step is resource discovery. 
+In this step, you need to create a **data estate migration spreadsheet**.
 
-### Create a data estate migration spreadsheet
+* This sheet contains a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
+* The purpose of this spreadsheet is to enhance your productivity and help you to plan migration from end-to-end.
+* You're recommended to extend this document and use it as a tracking document throughout the migration process.
 
-Create a **data estate migration spreadsheet** as a tracking document for your migration, using your preferred productivity software. 
-   * The purpose of this spreadsheet is to enhance your productivity and help you to plan migration from end-to-end.
-   * The structure of the spreadsheet is up to you. The following bullet points provide some recommendations.
-   * This spreadsheet should be structured as a record of your data estate resources, in list form.
-   * Each row corresponds to a resource (database or collection).
-   * Each column corresponds to a property of the resource; for now, you should at least have *name* and *data size (GB)* as columns, although ideally you can also collect information about the MongoDB version for each resource, in which case add a *Mongo version* column as well. 
-   * Initially, you will fill out this spreadsheet with a list of the existing resources in your MongoDB data estate. As you progress through this guide, you will build this spreadsheet into a tracking document for your end-to-end migration planning, adding columns as needed.
+### Programmatic discovery using the Database Migration Assistant
 
-### Discover existing MongoDB data estate resources
+You may use the [Database Migration Assistant](https://aka.ms/mongodma)(DMA) to assist you with the discovery stage and create the data estate migration sheet programmatically.
 
-Using an appropriate discovery tool, identify the resources (databases, collections) in your existing MongoDB data estate, as comprehensively as possible. 
+It's easy to [setup and run DMA](https://aka.ms/mongodma#how-to-run-the-dma) through an Azure Data Studio client. It can be run from any machine connected to your source MongoDB environment.
+
+You can use either one of these DMA output files as the data estate migration spreadsheet -
+
+* workload_database_details.csv - Gives a database-level view of the source workload. Columns in file are: Database Name, Collection ount, Document Count, Average Document Size, Data Size, Index Count and Index Size.
+* workload_collection_details.csv - Gives a collection-level view of the source workload. Columns in file are: Database Name, Collection Name, Doc Count, Average Document Size, Data size, Index Count, Index Size and Index definitions.
+
+Here's a sample database-level migration spreadsheet created by DMA:
+![Data estate spreadsheet example](./media/pre-migration-steps/data-estate-spreadsheet.png)
+
+### Manual discovery
+
+Alternately, you may refer to the sample spreadsheet above and create a similar document manually.
+
+* The spreadsheet should be structured as a record of your data estate resources, in list form.
+* Each row corresponds to a resource (database or collection).
+* Each column corresponds to a property of the resource; start with at least *name* and *data size (GB)* as columns.
+* As you progress through this guide, you'll build this spreadsheet into a tracking document for your end-to-end migration planning, adding columns as needed.
 
 Here are some tools you can use for discovering resources:
-   * [MongoDB Shell](https://www.mongodb.com/try/download/shell)
-   * [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+
+* [MongoDB Shell](https://www.mongodb.com/try/download/shell)
+* [MongoDB Compass](https://www.mongodb.com/try/download/compass)
 
 ## Pre-migration assessment
 
-Second, as a prelude to planning your migration, assess the readiness of each resource in your data estate for migration. 
+Second, as a prelude to planning your migration, assess the readiness of resources in your data estate for migration.
 
-The primary factor impacting readiness is MongoDB version. Azure Cosmos DB currently supports MongoDB binary protocol versions 3.2, 3.6 and 4.0. Hopefully you have a column in your migration planning spreadsheet for *MongoDB version*. Step through you spreadsheet and highlight any resources which use incompatible MongoDB versions for Azure Cosmos DB.
+Assessment involves finding out whether you're using the [features and syntax that are supported](./feature-support-42). It also includes making sure you're adhering to the [limits and quotas](../concepts-limits#per-account-limits). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
+
+### Programmatic assessment using the Database Migration Assistant
+
+[Database Migration Assistant](https://aka.ms/mongodma) (DMA) also assists you with the assessment stage of pre-migration planning.
+
+Refer to the section [Programmatic discovery using the Database Migration Assistant](#programmatic-discovery-using-the-database-migration-assistant) to know how to setup and run DMA. The DMA notebook runs a few assessment rules against the resource list it gathers from source MongoDB.
+
+Assessment checks run by DMA currently include:
+
+* Unsupported features: Text index
+* Partially supported features: Compound/Unique indexes with nested fields only allowed on nested doc fields and not arrays, TTL index only supported on _ts field
+* Limit warnings: Unsharded collection reaching fixed collection limit, Databases with >25 collections aren't recommended for shared database throughput setting
+
+Assessment results are printed as an output in the DMA notebook and saved to a csv file - assessment_result.csv.
+
+> [!NOTE]
+> Database Migration Assistant is a preliminary utility meant to assist you with the pre-migration steps. It does not perform an end-to-end assessment currently. \
+> In addition to running the DMA, we also recommend you to go through [the supported features and syntax](./feature-support-42), [Cosmos DB limits and quotas](../concepts-limits#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ## Pre-migration mapping
 
@@ -96,12 +137,13 @@ Before you plan your Azure Cosmos DB data estate, make sure you understand the f
 
 ### Plan the Azure Cosmos DB data estate
 
-Figure out what Azure Cosmos DB resources you will create. This means stepping through your data estate migration spreadsheet and mapping each existing MongoDB resource to a new Azure Cosmos DB resource. 
+Figure out what Azure Cosmos DB resources you'll create. This means stepping through your data estate migration spreadsheet and mapping each existing MongoDB resource to a new Azure Cosmos DB resource.
+
 * Anticipate that each MongoDB database will become an Azure Cosmos DB database
 * Anticipate that each MongoDB collection will become an Azure Cosmos DB collection
 * Choose a naming convention for your Azure Cosmos DB resources. Barring any change in the structure of databases and collections, keeping the same resource names is usually a fine choice.
-* In MongoDB, sharding collections is optional. In Azure Cosmos DB, every collection is sharded.
-* *Do not assume that your MongoDB collection shard key becomes your Azure Cosmos DB collection shard key. Do not assume that your existing MongoDB data model/document structure is what you will employ on Azure Cosmos DB.* 
+* Determine whether you'll be using sharded or unsharded collections in Cosmos DB. Unsharded collection limit is 20 GB.
+* If using sharded collections, *do not assume that your MongoDB collection shard key becomes your Azure Cosmos DB collection shard key. Do not assume that your existing MongoDB data model/document structure is what you'll employ on Azure Cosmos DB.* 
    * Shard key is the single most important setting for optimizing the scalability and performance of Azure Cosmos DB, and data modeling is the second most important. Both of these settings are immutable and cannot be changed once they are set; therefore it is highly important to optimize them in the planning phase. Follow the guidance in the [Immutable decisions](#immutable-decisions) section for more information.
 * Azure Cosmos DB does not recognize certain MongoDB collection types such as capped collections. For these resources, just create normal Azure Cosmos DB collections.
 * Azure Cosmos DB has two collection types of its own – shared and dedicated throughput. Shared vs dedicated throughput is another critical, immutable decision which it is vital to make in the planning phase. Follow the guidance in the [Immutable decisions](#immutable-decisions) section for more information.
