@@ -235,8 +235,10 @@ Pre-fetching works the same way regardless of the degree of parallelism, and the
 
 To learn more about performance using the .NET SDK:
 
+* [Best practices for Azure Cosmos DB .NET SDK](best-practice-dotnet.md)
 * [Performance tips for Azure Cosmos DB .NET V3 SDK](performance-tips-dotnet-sdk-v3-sql.md)
 * [Performance tips for Azure Cosmos DB .NET V2 SDK](performance-tips.md)
+
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -337,6 +339,7 @@ Pre-fetching works the same way regardless of the degree of parallelism, and the
 
 To learn more about performance using the Java SDK:
 
+* [Best practices for Azure Cosmos DB Java V4 SDK](best-practice-java.md)
 * [Performance tips for Azure Cosmos DB Java V4 SDK](performance-tips-java-sdk-v4-sql.md)
 
 ::: zone-end
