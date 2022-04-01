@@ -42,7 +42,7 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-beta.1'
+    pod 'AzureCommunicationUI', '1.0.0-beta.2'
 end
 ```
 
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
 
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
-        let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
+        let options = GroupCallOptions(credential: communicationTokenCredential,
                                        groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
                                        displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
@@ -137,6 +137,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
 | [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
 | [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
+| [LocalizationConfiguration](#apply-localization-configuration) | Allows you to set the language for the composite. |
 
 ## UI Library functionality
 
@@ -173,7 +174,7 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 ```swift
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
-let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
+let options = GroupCallOptions(credential: communicationTokenCredential,
                                groupId: uuid,
                                displayName: "<DISPLAY_NAME>")
 ```
@@ -183,7 +184,7 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
-let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
+let options = TeamsMeetingOptions(credential: communicationTokenCredential,
                                   meetingLink: "<TEAMS_MEETING_LINK>",
                                   displayName: "<DISPLAY_NAME>")
 ```
@@ -225,6 +226,15 @@ class CustomThemeConfiguration: ThemeConfiguration {
 
 ```swift
 let callCompositeOptions = CallCompositeOptions(themeConfiguration: CustomThemeConfiguration())
+```
+
+### Apply localization configuration
+
+You can change the language by creating a custom localization configuration and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`LanguageCode.en.rawValue`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LocalizationConfiguration.supportedLanguages` provides a list of all supported languages.
+
+```swift
+let localizationConfiguration = LocalizationConfiguration(languageCode: "fr") 
+let callCompositeOptions = CallCompositeOptions(localizationConfiguration: localizationConfiguration) 
 ```
 
 ## Add notifications into your mobile app
