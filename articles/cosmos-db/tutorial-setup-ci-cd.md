@@ -12,11 +12,20 @@ ms.custom: devx-track-csharp
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs. 
+> [!NOTE]
+> Due to the full removal of Windows 2016 hosted runners on April 1st, 2022, this method of using the Cosmos DB emulator with build task in Azure DevOps is no longer supported. We are actively working on an alternative solutions. Meanwhile, you can follow the below instructions to leverage the Azure Cosmos DB emulator which comes pre-installed when using the "windows-2019" agent type.
 
-The Azure Cosmos DB Emulator build task for Azure DevOps allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
+The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs.
 
-This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. You can use a similar approach to set up a CI pipeline for a Node.js or a Python application. 
+## PowerShell Task for Emulator
+A typical PowerShell based task that will start the Cosmos DB emulator can be scripted as following:
+
+
+
+[Tuesday 10:41 AM] Milis Militaru
+next should be a "code" paragraph
+
+
 
 ## Install the emulator build task
 
@@ -51,9 +60,46 @@ Now that the extension is installed, sign in to your Azure DevOps organization a
 Azure Cosmos DB Emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) team for help:
 
 ```powershell
+
+# Write your PowerShell commands here.
+
+Write-Host "Hello World"
+dir "C:\Program Files\Azure Cosmos DB Emulator\"
+
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
-Start-CosmosDbEmulator
+
+$startEmulatorCmd = "Start-CosmosDbEmulator -NoFirewall -NoUI"
+Write-Host $startEmulatorCmd
+Invoke-Expression -Command $startEmulatorCmd
+
+$command = "curl `"https://localhost:8081/_explorer/index.html`""
+Write-Host $command
+$resultCommand = Invoke-Expression $command
+Write-Host $resultCommand
+
+# Pipe an emulator info object to the output stream
+
+$Emulator = Get-Item "$env:ProgramFiles\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe"
+$IPAddress = Get-NetIPAddress -AddressFamily IPV4 -AddressState Preferred -PrefixOrigin Manual | Select-Object IPAddress
+
+New-Object PSObject @{
+Emulator = $Emulator.BaseName
+Version = $Emulator.VersionInfo.ProductVersion
+Endpoint = @($(hostname), $IPAddress.IPAddress) | ForEach-Object { "https://${_}:8081/" }
+MongoDBEndpoint = @($(hostname), $IPAddress.IPAddress) | ForEach-Object { "mongodb://${_}:10255/" }
+CassandraEndpoint = @($(hostname), $IPAddress.IPAddress) | ForEach-Object { "tcp://${_}:10350/" }
+GremlinEndpoint = @($(hostname), $IPAddress.IPAddress) | ForEach-Object { "http://${_}:8901/" }
+TableEndpoint = @($(hostname), $IPAddress.IPAddress) | ForEach-Object { "https://${_}:8902/" }
+IPAddress = $IPAddress.IPAddress
+}
 ```
+:::image type="content" source="./media/tutorial-setup-ci-cd/powershellscript2.png" alt-text="Add the Emulator build task to the build definition":::
+
+:::image type="content" source="./media/tutorial-setup-ci-cd/powershellscript1.png" alt-text="Add the Emulator build task to the build definition":::
+
+For agents that do not come with the Azure Cosmos DB emulator preinstalled, you can instead download the latest emulator's MSI package from https://aka.ms/cosmosdb-emulator using 'curl' or 'wget', then leverage 'msiexec' to 'quiet' install it - see https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec". After the install, you can run a similar PowerShell script as the one above to start the emulator.
+
+
 
 ## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the task to a build pipeline
 
