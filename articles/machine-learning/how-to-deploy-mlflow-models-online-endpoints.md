@@ -31,8 +31,8 @@ The base container image/curated environment used for dynamic installation is `m
 
 The MLflow base image/curated environment contains,
 
-* `azureml-inference-server-http` 
-* `mlflow-skinny`
+* [`azureml-inference-server-http`](how-to-inference-server-http.md) 
+* [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
 * `pandas`
 
 The scoring script is baked into the image, so you don't have to provide one.
