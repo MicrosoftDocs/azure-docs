@@ -158,8 +158,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
       ```
 
 * Read Scenario
-  * Data set that matches the User's read requirements i.e., table, columns and predicates is first fetched to an external staging location using external tables.
-  * In order to successfully create temporary external tables over data in the staging folders, grant the `db_exporter` the system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Grant the user [db_exporter](sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15#special-roles-for--and-azure-synapse) role using the system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
   * Following is a reference sample:
 
     ```sql
