@@ -229,15 +229,17 @@ The automatic checkpointing that happens at the `yield` call on `context.task_al
 ```PowerShell
 param($Context)
 
+$parallelTasks = @()
+
 # Get a list of work items to process in parallel.
 $WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
 
 $ParallelTasks =
     foreach ($WorkItem in $WorkBatch) {
-        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
+        $parallelTasks += Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
     }
 
-$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+$Outputs = Wait-ActivityFunction -Task $parallelTasks
 
 # Aggregate all outputs and send the result to F3.
 $Total = ($Outputs | Measure-Object -Sum).Sum
