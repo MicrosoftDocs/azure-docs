@@ -414,9 +414,9 @@ val dfToReadFromTable:DataFrame = spark.read.
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
     //Set database user name
-    Constants.USER -> "<user_name>",
+    option(Constants.USER, "<user_name>").
     //Set user's password to the database
-    Constants.PASSWORD -> "<user_password>",
+    option(Constants.PASSWORD, "<user_password>").
     //Set name of the data source definition that is defined with database scoped credentials.
     //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
