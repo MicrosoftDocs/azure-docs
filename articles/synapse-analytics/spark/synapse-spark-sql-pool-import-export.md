@@ -81,9 +81,7 @@ Azure Active Directory based authentication is an integrated authentication appr
 
 #### Basic Authentication
 
-A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and don't apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
-
-Following code sample describes how to pass credentials to connect and read data from the source:
+A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and don't apply to connect with Azure Storage. Following code sample describes how to pass necessary credentials to connect and read data from the source:
 
  ```Scala
 //Specify options that Spark runtime must support when interfacing and consuming source data
