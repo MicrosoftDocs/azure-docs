@@ -107,16 +107,7 @@ For example, to remove profane words from the speech recognition result, set the
 speech_config.SetProfanity(ProfanityOption.Removed);
 ```
 
-Profanity filter is applied:
-SpeechRecognitionResult.Text
-DetailedSpeechRecognitionResult.Text
-DetailedSpeechRecognitionResult.MaskedNormalizedForm
-
-Profanity filter is not applied:
-DetailedSpeechRecognitionResult.LexicalForm
-DetailedSpeechRecognitionResult.NormalizedForm
-DetailedSpeechRecognitionResult.Words
-
+Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
 
 ## Capitalize intermediate results
 
@@ -127,6 +118,10 @@ To request capitalization of partial intermediate results, set the `SpeechServic
 ```csharp
 speech_config.SetProperty ("SpeechServiceResponse_PostProcessingOption", "TrueText");
 ```
+
+## Language identification
+
+If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
 
 ## Customizations to improve accuracy
 
@@ -140,9 +135,7 @@ Examples of phrases include:
 
 There are some situations where [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy. For example, if you are captioning orthodontics lectures, you might want to train a custom model with the corresponding domain data.
 
-## Language identification
-
-If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
-
 ## Next steps
+
+* [Create captions quickstart](captioning-quickstart.md)
 * [Get started with speech to text](get-started-speech-to-text.md)
