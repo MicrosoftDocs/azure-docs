@@ -313,7 +313,7 @@ Following SaveModes are supported when writing source data to a destination tabl
   
 #### Write Request Callback Handle
 
-The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle i.e., `Scala Function`. Following is the function signature:
+The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle (i.e., `Scala Function`). Following is the function signature:
 
 ```Scala
 //Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
@@ -500,8 +500,6 @@ Benefits of this approach over printing the end state result to console (partial
 
 ## Things to Note
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write and read semantics from dependent resources (Azure Data Lake Storage gen2 and Azure Synapse Dedicated SQL Pool) to provide efficient data transfers. Following are some important aspects to note:
-
 * When writing to the Azure Synapse Dedicated SQL Pool tables:
   * For internal table types:
     * Target tables are setup with ROUND_ROBIN data distribution.
@@ -509,14 +507,10 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write 
   * For external table types:
     * Data distribution is influenced by the layout of the source data and the settings to re-configure ataFrame initial parallelism.
     * Column types are inferred from the DataFrame that would read data from source.
-  * It's important to consider and factor-in volumetric information of the source data including Data Format, Volume of Data, and Partitions.
-    * Initial parallelism along with max bytes per partition must drive decisions to find a right number of executors.
-    * This approach will ensure executors stay busy and are getting optimally leveraged.
-    * To tune maximum bytes per partition suggest inferring max data per partition from the source data, and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
-    * This must be set at the Spark Pool level and not for individual requests.
+  * Better data distribution across executors can be achieved by tuning the `spark.sql.files.maxPartitionBytes` and the DataFrame's `repartition` parameter.
   * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
-  * Consider leveraging the `filter` setting on the DataFrame to take advantage of the `column-pruning` feature of the Connector.
+  * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
   * Read does'nt yet support use of `TOP(n-rows)` clause on the `SELECT` statements. Users can however limit data consumed by the DataFrame using the limit clause.
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
 * Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. This will help avoid throttling behaviors and enable better read and write performance.
