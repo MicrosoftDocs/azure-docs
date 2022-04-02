@@ -101,19 +101,21 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | Category | String | Type of operation, either **ServiceOperations** or **DeviceOperations**. |
 | CorrelationId | GUID | Customer provided unique identifier for the event. |
 | DurationMs | String | How long it took to perform the event in milliseconds. |
-| Level | Int | The logging severity of the event: Information or Error |
+| Level | Int | The logging severity of the event: Information or Error. |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
 | OperationVersion | String | The API Version used during the event. |
-| Resource | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceGroup | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| Resource | String | The name forOF the resource where the event took place. For example, "MYEXAMPLEDPS". |
+| ResourceGroup | String | The name of the resource group where the resource is located. |
 | ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceProvider | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceType | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ResourceProvider | String | The resource provider for the the event. For example, "MICROSOFT.DEVICES". |
+| ResourceType | String | The resource type for the event. For example, "PROVISIONINGSERVICES". |
 | ResultDescription | String | Error details for the event if unsuccessful. |
 | ResultSignature | String | HTTP status code for the event if unsuccessful. |
-| ResultType | String | Outcome of the event: Success, Failure, ClientError. |
+| ResultType | String | Outcome of the event: Success, Failure, ClientError, and so on. |
+| SubscriptionId | GUID | The subscription ID of the Azure subscription where the resource is located. |
+| TenantId | GUID | The tenant ID for the Azure tenant where the resource is located. |
 | TimeGenerated | DateTime | The date and time that this event occurred, in UTC. |
-| location_s | String | The region where the event took place. |
+| location_s | String | The Azure region where the event took place. |
 | properties_s | JSON | Additional information details for the event. |
 
 ## Activity log
