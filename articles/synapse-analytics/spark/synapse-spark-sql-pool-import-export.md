@@ -165,8 +165,6 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
-
-
 ## Connector API Documentation
 
 Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
