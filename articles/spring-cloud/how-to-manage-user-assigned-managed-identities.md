@@ -27,7 +27,6 @@ Managed identities for Azure resources provide an automatically managed identity
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - [Azure CLI version 2.25.0 or later](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
-- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - At least one already provisioned user-assigned managed identity. For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 ::: zone-end
