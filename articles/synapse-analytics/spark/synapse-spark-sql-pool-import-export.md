@@ -312,12 +312,12 @@ Following SaveModes are supported when writing source data to a destination tabl
   
 #### Write Request Callback Handle
 
-The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle (i.e., `Scala Function`). Following is the function signature:
+The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle (a `Scala Function`). Following is the function signature:
 
 ```Scala
 //Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
 //Post-write if there's a reference of this handle passed to the `synapsesql` signature, it will be invoked by the closing process.
-//These arguments will have valid objects in either Success or Failure case. In case of Failure the second argument will be a Some(Throwable) i.e., some error reference.
+//These arguments will have valid objects in either Success or Failure case. In case of Failure the second argument will be a `Some(Throwable)`.
 (Map[String, Any], Option[Throwable]) => Unit
 ```
 
@@ -512,7 +512,7 @@ If the write method completes successfully, then a code snippet to mark successf
   * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
-  * Read scenario does not support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
+  * Read scenario doesn't support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
 * Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. This will help avoid throttling behaviors and enable better read and write performance.
 
