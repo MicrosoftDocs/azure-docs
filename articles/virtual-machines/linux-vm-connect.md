@@ -12,13 +12,13 @@ ms.author: cynthn
 ---
 # Connect to a Linux VM
 
-In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux, on Windows you can use [Windows Sub System for Linux](https://docs.microsoft.com/windows/wsl/about) or any local terminal. You can also use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) from any browser.
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux, on Windows you can use [Windows Sub System for Linux](/windows/wsl/about) or any local terminal. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
 
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP see [Azure Bastion Service](../bastion/bastion-overview.md)
 
 ## Prerequisites
 
-- You need an SSH key pair. If you don't already have one Azure will create one during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](linux/mac-create-ssh-keys.md).
+- You need an SSH key pair. If you don't already have one Azure will create one during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](./linux/mac-create-ssh-keys.md).
 
 - In order to connect to a Linux Virtual Machine you need the appropriate port open, normally this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
@@ -32,7 +32,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
 - Your VM Must have a public IP Address. To check if your VM has a public IP address, select **Overview** from the left menu and look at the **Networking** section. If you see an IP Address next to **Public IP address**, then your VM has a public IP
  
-    If your VM does not have a public IP Address, it will look like this. 
+    If your VM does not have a public IP Address, it will look like this.
  
     To learn more about adding a public IP address to an existing VM read, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
@@ -40,13 +40,14 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
  
 
 ## Connect to the VM
+
 Once the above prerequisites are met, you are ready to connect to your VM
 Open your SSH client of choice.
 - If you are using Linux or MacOS this is most commonly terminal or shell.
-- For a Windows machine this might be [WSL](https://docs.microsoft.com/windows/wsl/about), or any local terminal like [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2). If you do not have an SSH client learn more about installing WSL here, or consider using [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client learn more about installing WSL here, or consider using [Azure Cloud Shell](./cloud-shell/overview.md).
 
 > [!NOTE]
-> The following examples assume your SSH key is in the key.pem format. If you used CLI or Azure PowerShell to download your keys, they may be in the id_rsa format. 
+> The following examples assume your SSH key is in the key.pem format. If you used CLI or Azure PowerShell to download your keys, they may be in the id_rsa format.
 
 ## WSL, MacOS, or native Linux client
 
@@ -73,10 +74,11 @@ If you generated keys manually or generated them with the CLI, then the keys are
 
     If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
     
-```bash
-ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
-```
-5.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+   ```bash
+   ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
+   ```
+
+5.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### SSH With existing public key on Client
 1.	Run the following command in your SSH client. In this example, *20.51.230.13* is the public IP Address of your VM and *username* is the user name you created when you created the VM.
@@ -87,39 +89,44 @@ ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
     
     If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
     
-```bash
-ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
-```
-3.	Success! You should now be connected to your VM. If you are unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+   ```bash
+   ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
+   ```
+
+3.	Success! You should now be connected to your VM. If you are unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password Authentication
  
 > [!WARNING]
-> This type of authentication method is not as secure and is not our recommended way to connect.
+> This type of authentication method is not as secure and is not recommended.
 
 1.	Run the following command in your SSH client, where `20.51.230.13` is the public IP Address of your VM and `username` is the user name you created when you created the VM. 
-```bash
-SSH <username>@azureuser@<20.51.230.13>
-```
 
-If you forgot your password or username see [Reset Access to an Azure VM](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess)
+   ```bash
+   SSH <username>@azureuser@<20.51.230.13>
+   ```
+
+   If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess.md)
+
 2.	Validate the returned fingerprint.
+
+   ```bash
+   ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
+   ```
+
+   If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
     
-    If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
-    
-```bash
-ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
-```
-3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+
+3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 
-## WIndows 10 Command Line (Command Prompt, PowerShell, etc.)
+## Windows 10 PowerShell or cmd.exe
 
 ### SSH Public Key Authentication with New Key Pair
 1. Locate your private SSH Key
 2.	Run the SSH command 
     ```bash
-    ssh -i PATH_TO_PRIVATE_KEY USERNAME@EXTERNAL_IP
+    ssh -i <path to the private key> <username>@<ip address>
     ``` 
     For example, if your `azureuser` is the username you created and `20.51.230.13` is the public IP address of your VM, type:
     ```bash
@@ -129,10 +136,10 @@ ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
 
     If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
     
-```bash
-ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
-```
-4.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+   ```bash
+   ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
+   ```
+4.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password Authentication
  
@@ -140,21 +147,23 @@ ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
 > This type of authentication method is not as secure and is not our recommended way to connect.
 
 1.	Run the following command in your SSH client, where `20.51.230.13` is the public IP Address of your VM and `username` is the user name you created when you created the VM. 
-```bash
-SSH <username>@azureuser@<20.51.230.13>
-```
 
-If you forgot your password or username see [Reset Access to an Azure VM](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess)
+   ```bash
+   SSH <username>@azureuser@<20.51.230.13>
+   ```
+
+   If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess.md)
 
 2.	Validate the returned fingerprint.
     
     If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: 
     
-```bash
-ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
-```
-3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+   ```bash
+   ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'.
+   ```
+
+3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ## Next steps
-In this quickstart, you learned how to SSH into an existing Linux VM. To learn more about Azure virtual machines, see [Deploy A Linux Application on a VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-lamp-stack) 
+In this quickstart, you learned how to SSH into an existing Linux VM. To learn more about Azure virtual machines, see [Deploy A Linux Application on a VM](./linux/tutorial-lamp-stack.md).
 
