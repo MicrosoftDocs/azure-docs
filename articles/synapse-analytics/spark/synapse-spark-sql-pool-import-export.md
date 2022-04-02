@@ -81,7 +81,7 @@ Azure Active Directory based authentication is an integrated authentication appr
 
 #### Basic Authentication
 
-A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and do not apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
+A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and don't apply to connect with Azure Storage. Additional credentials are required to fetch data from the source or to write to the target table's storage paths.
 
 Following code sample describes how to pass credentials to connect and read data from the source:
 
@@ -138,7 +138,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you are a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
+To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you'r a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
@@ -180,9 +180,9 @@ Following table describes the essential configuration options that must be set f
 
 |Usage Scenario| Options to configure |
 |--------------|----------------------------------|
-| Write using AAD based authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER`<ul><li>By default, if user has not provided one, the Synapse Dedicated SQL End Point will be inferred by using the database name from the three-part table argument to `synapsesql` method.</li><li>User can chose to provide `Constants.SERVER` option, in which case inference will not be made.</li></ul></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>For Internal Table Type:<ul><li>Configure either `Constants.TEMP_FOLDER` or `Constants.DATASOURCE` option.</li><li>If user chose to provide `Constants.DATASOURCE` option, staging folder will be derived by using the `location` value on the DataSource.</li><li>If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.</li><li>In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.</li></ul></li><li>For External Table Type:<ul><li>`Constants.DATASOURCE` is a required configuration option.</li><li>The storage path defined on the Data Source's `location` parameter will be used as the base path to establish final absolute path.</li><li>The base path is then appended with the value set on the `synapsesql` method's `location` argument, example `/<external_table_name>`.</li><li>If the `location` argument to `synapsesql` method is not provided, then the connector will derive the location value as  `<base_path>/dbName/schemaName/tableName`.</li></ul></li></ul></li></ul>|
-| Write using Basic Authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATASOURCE`.</li></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>SQL basic authentication credentials do not apply to access storage end points. Hence it is required that the workspace user identity is given relevant access permissions (reference the section - [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).</li></ul></li></ul>|
-|Read using AAD based authentication|<ul><li>Credentials are auto-mapped, and user is not required to provide specific configuration options.</li><li>Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.</li></ul>|
+| Write using AAD based authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER`<ul><li>By default, if user doesn't provided one, the Synapse Dedicated SQL End Point will be inferred by using the database name from the three-part table argument to `synapsesql` method.</li><li>User can chose to provide `Constants.SERVER` option, which case end point will not be inferred.</li></ul></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>For Internal Table Type:<ul><li>Configure either `Constants.TEMP_FOLDER` or `Constants.DATASOURCE` option.</li><li>If user chose to provide `Constants.DATASOURCE` option, staging folder will be derived by using the `location` value on the DataSource.</li><li>If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.</li><li>In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.</li></ul></li><li>For External Table Type:<ul><li>`Constants.DATASOURCE` is a required configuration option.</li><li>The storage path defined on the Data Source's `location` parameter will be used as the base path to establish final absolute path.</li><li>The base path is then appended with the value set on the `synapsesql` method's `location` argument, example `/<external_table_name>`.</li><li>If the `location` argument to `synapsesql` method isn't provided, then the connector will derive the location value as  `<base_path>/dbName/schemaName/tableName`.</li></ul></li></ul></li></ul>|
+| Write using Basic Authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATASOURCE`.</li></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>SQL basic authentication credentials don't apply to access storage end points. Hence it's required that the workspace user identity is given relevant access permissions (reference the section - [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).</li></ul></li></ul>|
+|Read using AAD based authentication|<ul><li>Credentials are auto-mapped, and user isn't required to provide specific configuration options.</li><li>Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.</li></ul>|
 |Read using basic authentication|<ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>`Constants.DATA_SOURCE` - Location setting from data source is used to stage extracted data from Azure Synapse Dedicated SQL End Point.</li></ul></li></ul>|
   
 ## Code Templates
@@ -508,21 +508,21 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark leverages write 
 * When writing to the Azure Synapse Dedicated SQL Pool tables:
   * For internal table types:
     * Target tables are setup with ROUND_ROBIN data distribution.
-    * Column types are inferred from the DataFrame that'd read data from source. String columns are mapped to `NVARCHAR(4000)`.
+    * Column types are inferred from the DataFrame that would read data from source. String columns are mapped to `NVARCHAR(4000)`.
   * For external table types:
     * Data distribution is influenced by the layout of the source data and the settings to re-configure ataFrame initial parallelism.
-    * Column types are inferred from the DataFrame that'd read data from source.
-  * It is important to consider and factor-in volumetric information of the source data including Data Format, Volume of Data, and Partitions.
+    * Column types are inferred from the DataFrame that would read data from source.
+  * It's important to consider and factor-in volumetric information of the source data including Data Format, Volume of Data, and Partitions.
     * Initial parallelism along with max bytes per partition must drive decisions to find a right number of executors.
     * This approach will ensure executors stay busy and are getting optimally leveraged.
     * To tune maximum bytes per partition suggest inferring max data per partition from the source data, and configure Spark Configuration `spark.sql.files.maxPartitionBytes`.
     * This must be set at the Spark Pool level and not for individual requests.
-  * When writing large data sets, it is important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
+  * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider leveraging the `filter` setting on the DataFrame to take advantage of the `column-pruning` feature of the Connector.
-  * Read does not yet support use of `TOP(n-rows)` clause on the `SELECT` statements. Users can however limit data consumed by the DataFrame using the limit clause.
+  * Read does'nt yet support use of `TOP(n-rows)` clause on the `SELECT` statements. Users can however limit data consumed by the DataFrame using the limit clause.
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
-* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to ensure there's sufficient capacity to support the reads and writes made by the Connector, such that it is not throttling.
+* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. This will help avoid throttling behaviors and enable better read and write performance.
 
 ## Additional Reading
 
