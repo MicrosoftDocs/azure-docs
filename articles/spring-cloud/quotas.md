@@ -29,6 +29,7 @@ All Azure services set default limits and quotas for resources and features.   A
 | Persistent volumes                   | per Azure Spring Cloud service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps |
 | Inbound Public Endpoints             | per Azure Spring Cloud service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>     |
 | Outbound Public IPs                  | per Azure Spring Cloud service instance | 1 <sup>2</sup>     | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> |
+| User-assigned managed identities     | per app instance                        | 20                 | 20                  |
 
 <sup>1</sup> You can increase this limit via support request to a maximum of 1 per app.
 
