@@ -25,18 +25,17 @@ You only provide the typical MLflow model folder contents:
 * `conda.yaml`
 * model file(s)
 
-For no-code-deployment, Azure Machine Learning dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
+For no-code-deployment, Azure Machine Learning 
 
-The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
+* Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
+    * The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
 
-The MLflow base image/curated environment contains,
+Provides a MLflow base image/curated environment that contains,
 
 * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
 * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
 * `pandas`
-
-The scoring script is baked into the image, so you don't have to provide one.
-
+* The scoring script baked into the image
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
