@@ -321,14 +321,13 @@ The new write path API changes introduced an experimental feature to provide the
 (Map[String, Any], Option[Throwable]) => Unit
 ```
 
-Following is a list of some notable metric constants, with values described using Camel-case format:
+Following are some notable metrics (presented in camel case):
 
-* WRITE_FAILURE_CAUSE -> "WriteFailureCause"
-* TIME_INMILLIS_TO_COMPLETE_DATA_STAGING -> "DataStagingSparkJobDurationInMilliseconds"
-* NUMBER_OF_RECORDS_STAGED_FOR_SQL_COMMIT -> "NumberOfRecordsStagedForSQLCommit"
-* TIME_INMILLIS_TO_EXECUTE_COMMIT_SQLS -> "SQLStatementExecutionDurationInMilliseconds"
-* COPY_INTO_COMMAND_PROCESSED_ROW_COUNT -> "rows_processed" ()
-* ROW_COUNT_POST_WRITE_ACTION (applied for scenario where table type is external)
+* `WriteFailureCause`
+* `DataStagingSparkJobDurationInMilliseconds`
+* `NumberOfRecordsStagedForSQLCommit`
+* `SQLStatementExecutionDurationInMilliseconds`
+* `rows_processed`
 
 Following is a sample JSON string with post-write metrics:
 
