@@ -487,17 +487,17 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
         spark.sql("select * from <temporary_view_name>").show()
     ```
 
-## Processing the Response
+## Response Handling
 
 Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
 
 ### Read Request Response
 
-Upon completion, in either case of a success or a failure the result is rendered below the respective cell. Detailed information can be obtained from the application logs.
+Upon completion, the read response snippet is displayed in the cell's output. If the cell execution fails, it will error the current cell and cancel's subsequent cell execution. Additional detail is available from the Spark Application logs.
 
 ### Write Request Response
 
-Upon completion, the write method will print the results to the Cell Output. The results can also be obtained as a feedback, by passing the `Scala Function` as described in the section [Write Request Callback Handle](#write-request-callback-handle). One key benefit of using a callback over the default behavior is the ability to introduce control structures and handle a workflow style interaction from within the cell. One can still throw errors to fail the current cell.
+If the write method completes successfully, then a code snippet to mark successful completion is printed to the cell's output. In case of a failure, the error is printed to the cell's output and marks the cell as errored. Additional detail is available from the Spark Application logs. The logs will also include the post-write metrics JSON string. The other approach to handle the write response is to pass the callback handle (`Scala Function`). For more details read the information presented in the [Write Request Callback Handle](#write-request-callback-handle) section. By using the callback handle approach, developers can be build better control structures to programmatically process the write request's response. The code sample presented in the section [Write using Azure AD based Authentication](#write-using-azure-ad-based-authentication) provides an approach raise an error such that the current cell will fail. A cell failure will cancel subsequent cell executions.
 
 ## Things to Note
 
