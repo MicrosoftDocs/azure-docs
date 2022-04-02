@@ -156,7 +156,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
       ```
 
 * Read Scenario
-  * Grant the user [db_exporter](sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15#special-roles-for--and-azure-synapse) role using the system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Grant the user [db_exporter](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15#special-roles-for--and-azure-synapse) role using the system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
   * Following is a reference sample:
 
     ```sql
