@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Arcion
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for a variety of reasons such as:
+Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for reasons such as:
 
 * **Better scalability and availability:** It eliminates single points of failure, better scalability, and availability for your applications.
 
@@ -21,7 +21,7 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 * **No overhead of managing and monitoring:** As a fully managed cloud service, Azure Cosmos DB removes the overhead of managing and monitoring a myriad of settings.
 
-There are various ways to migrate database workloads from one platform to another. [Arcion](https://www.arcion.io) is a tool that offers a secure and reliable way to perform zero downtime migration from a variety of databases to Azure Cosmos DB. This article describes the steps required to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Arcion.
+There are various ways to migrate database workloads from one platform to another. [Arcion](https://www.arcion.io) is a tool that offers a secure and reliable way to perform zero downtime migration from other databases to Azure Cosmos DB. This article describes the steps required to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Arcion.
 
 ## Benefits using Arcion for migration
 
@@ -31,9 +31,9 @@ Arcion’s migration solution follows a step by step approach to migrate complex
 
 * Arcion offers high-volume and parallel database replication. It enables both the source and target platforms to be in-sync during the migration by using a technique called Change-Data-Capture (CDC). By using CDC, Arcion continuously pulls a stream of changes from the source database(Oracle) and applies it to the destination database(Azure Cosmos DB).
 
-* It is fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
+* It's fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
 
-* It secures the data during transit using a variety of security methodologies like TLS/SSL, encryption.
+* It secures the data during transit using security methodologies like TLS/SSL, encryption.
 
 * It offers services to convert complex business logic written in PL/SQL to equivalent business logic in Azure Cosmos DB.
 
@@ -116,7 +116,7 @@ This section describes the steps required to setup Arcion and migrates data from
 
 1. Next migrate the data using Arcion. You can run the Arcion replicant in **full** or **snapshot** mode:
 
-   * **Full mode** – In this mode, the replicant continues to run after migration and it listens for any changes on the source Oracle system. If it detects any changes, they are replicated on the target Azure Cosmos account in real time.
+   * **Full mode** – In this mode, the replicant continues to run after migration and it listens for any changes on the source Oracle system. If it detects any changes, they're replicated on the target Azure Cosmos account in real time.
 
    * **Snapshot mode** – In this mode, you can perform schema migration and one-time data replication. Real-time replication isn’t supported with this option.
 
@@ -133,7 +133,7 @@ This section describes the steps required to setup Arcion and migrates data from
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/oracle-data-migration-output.png" alt-text="Oracle data migration output":::
 
-1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database. Later you can validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
+1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database. Later you can validate that they're replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
 
 1. You can stop the replicant any point and restart it with **--resume** switch. The replication resumes from the point it has stopped without compromising on data consistency. The following command shows how to use the resume switch.
 
