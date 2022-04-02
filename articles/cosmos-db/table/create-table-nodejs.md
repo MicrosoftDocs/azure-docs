@@ -24,7 +24,7 @@ In this quickstart, you create an Azure Cosmos DB Table API account, and use Dat
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Node.js 0.10.29+](https://nodejs.org/) .
 - [Git](https://git-scm.com/downloads).
 
@@ -245,6 +245,9 @@ const serviceClient = TableClient.fromConnectionString(
 
 The `serviceClient` object contains a method named `listEntities` which allows you to select rows from the table.  In this example, since no parameters are being passed to the method, all rows will be selected from the table.
 
+```js
+const allRowsEntities = serviceClient.listEntities();
+```
 
 ### Filter rows returned from a table
 
