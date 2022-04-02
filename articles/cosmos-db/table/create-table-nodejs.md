@@ -192,8 +192,6 @@ $(Get-AzCosmosDBAccountKey `
     -Type "ConnectionStrings")."Primary Table Connection String"
 ```
 
----
-
 The connection string for your Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  
 
 ---
@@ -205,7 +203,6 @@ To access the Cosmos DB Table API from a nodejs application, install the [Azure 
 ```bash
   npm install @azure/data-tables
 ```
----
 
 ## 5 - Configure the Table client in env.js file
 
