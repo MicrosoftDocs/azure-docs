@@ -433,7 +433,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-### Additional Code Samples
+### More Code Samples
 
 #### Using the Connector with Other language preferences
 
@@ -493,11 +493,11 @@ Invoking `synapsesql` has two possible end states - Success or a Failed State. T
 
 ### Read Request Response
 
-Upon completion, the read response snippet is displayed in the cell's output. If the cell execution fails, it will error the current cell and cancel's subsequent cell execution. Additional detail is available from the Spark Application logs.
+Upon completion, the read response snippet is displayed in the cell's output. If the cell execution fails, it will error the current cell and cancel's subsequent cell execution. Detailed trace is available from the Spark Application logs.
 
 ### Write Request Response
 
-If the write method completes successfully, then a code snippet to mark successful completion is printed to the cell's output. In case of a failure, the error is printed to the cell's output and marks the cell as errored. Additional detail is available from the Spark Application logs. The logs will also include the post-write metrics JSON string. The other approach to handle the write response is to pass the callback handle (`Scala Function`). For more details read the information presented in the [Write Request Callback Handle](#write-request-callback-handle) section. By using the callback handle approach, developers can be build better control structures to programmatically process the write request's response. The code sample presented in the section [Write using Azure AD based Authentication](#write-using-azure-ad-based-authentication) provides an approach raise an error such that the current cell will fail. A cell failure will cancel subsequent cell executions.
+If the write method completes successfully, then a code snippet to mark successful completion is printed to the cell's output. In case of a failure, the error is printed to the cell's output and marks the cell as errored. Detailed trace is available from the Spark Application logs. The logs will also include the post-write metrics JSON string. The other approach to handle the write response is to pass the callback handle (`Scala Function`). For more details read the information presented in the [Write Request Callback Handle](#write-request-callback-handle) section. By using the callback handle approach, developers can be build better control structures to programmatically process the write request's response. The code sample presented in the section [Write using Azure AD based Authentication](#write-using-azure-ad-based-authentication) provides an approach raise an error such that the current cell will fail. A cell failure will cancel subsequent cell executions.
 
 ## Things to Note
 
