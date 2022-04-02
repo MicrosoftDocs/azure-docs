@@ -489,14 +489,7 @@ Upon completion, in either case of a success or a failure the result is rendered
 
 ### Write Request Response
 
-The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
-
-Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
-
-* Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
-* Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
-  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](#write-request-callback-handle).
-* Refer to the code samples shared in the section [Write to Azure Synapse Dedicated SQL Pool](#write-to-azure-synapse-dedicated-sql-pool).
+Upon completion, the write method will print the results to the Cell Output. The results can also be obtained as a feedback, by passing the `Scala Function` as described in the section [Write Request Callback Handle](#write-request-callback-handle). One key benefit of using a callback over the default behavior is the ability to introduce control structures and handle a workflow style interaction from within the cell. One can still throw errors to fail the current cell.
 
 ## Things to Note
 
