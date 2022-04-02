@@ -273,8 +273,10 @@ Following code snippet replaces the write definition described in the [Write usi
 ```Scala
 //Define write options to use SQL basic authentication
 val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
-                                           Constants.USER -> "<User name as defined in the target DB>",
-                                           Constants.PASSWORD -> "<User password as set when creating the user login in the `master` database>",
+                                           //Set database user name
+                                           Constants.USER -> "<user_name>",
+                                           //Set database user's password
+                                           Constants.PASSWORD -> "<user_password>",
                                            //Required only when writing to an external table. For write to internal table, this can be used instead of TEMP_FOLDER option.
                                            Constants.DATA_SOURCE -> "<Name of the datasource as defined in the target database>"
                                            //To be used only when writing to internal tables. Storage path will be used for data staging.
@@ -411,13 +413,17 @@ val dfToReadFromTable:DataFrame = spark.read.
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
-    //Data source name that is defined in the database from where the read is performed. 
-    //Used to create staging external table that holds data extracted from the subject table from which data is should be read.
+    //Set database user name
+    Constants.USER -> "<user_name>",
+    //Set user's password to the database
+    Constants.PASSWORD -> "<user_password>",
+    //Set name of the data source definition that is defined with database scoped credentials.
+    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
     //Three-part table name from where data will be read.
     synapsesql("<database_name>.<schema_name>.<table_name>").
     //Column-pruning i.e., query select column values.
-    select("<some_column_1>", "<some_column_5>", "<some_column_n>"). 
+    select("<some_column_1>", "<some_column_5>", "<some_column_n>").
     //Push-down filter criteria that gets translated to SQL Push-down Predicates.    
     filter(col("Title").startsWith("E")).
     //Fetch a sample of 10 records 
@@ -451,20 +457,25 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 * Cell where data is fetched (say with Notebook language preference as `Scala`)
 
 ```Scala
-    //Necessary implicits
+    //Necessary imports
     import org.apache.spark.sql.DataFrame
     import org.apache.spark.sql.SaveMode
     import com.microsoft.spark.sqlanalytics.utils.Constants
     import org.apache.spark.sql.SqlAnalyticsConnector._
     
-    //Append to an existing Synapse Dedicated SQL Pool table
+    //Configure options and read from Synapse Dedicated SQL Pool.
     val readDF = spark.read.
+        //Set Synapse Dedicated SQL End Point name.
         option(Constants.SERVER, "<synapse-dedicated-sql-end-point>.sql.azuresynapse.net").
-        option(Constants.USER, "<username-as-defined-in-database>").
-        option(Constants.PASSWORD, "<password-as-defined-in-database>").
-        option(Constants.DATA_SOURCE,"<data_source_name-as-defined-in-database-with-appropriate-database-scoped-credentials>").
+        //Set database user name.
+        option(Constants.USER, "<user_name>").
+        //Set database user's password. 
+        option(Constants.PASSWORD, "<user_password>").
+        //Set name of the data source definition that is defined with database scoped credentials.
+        option(Constants.DATA_SOURCE,"<data_source_name>").
+        //Set the three-part table name from which the read must be performed.
         synapsesql("<database_name>.<schema_name>.<table_name>").
-        //For the sample reference, will fetch 10 records from the table
+        //Optional - specify number of records the DataFrame would read.
         limit(10)
     //Register the temporary view (scope - current active Spark Session)
     readDF.createOrReplaceTempView("<temporary_view_name>")
