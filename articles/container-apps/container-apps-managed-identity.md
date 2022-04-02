@@ -226,7 +226,7 @@ The X-IDENTITY-HEADER in this example shows a GUID. That GUID is provided to all
 # [.NET](#tab/dotnet)
 
 > [!NOTE]
-> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity. For an example, see [Tutorial: Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
+> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity. 
 
 For .NET apps, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
 
@@ -309,7 +309,7 @@ Content-Type: application/json
 
 This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response). To access Key Vault, you'll then add the value of `access_token` to a client connection with the vault.
 
-## REST endpoint reference
+### REST endpoint reference
 
 > [!NOTE]
 > An older version of this endpoint, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
