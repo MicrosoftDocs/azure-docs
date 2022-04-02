@@ -13,7 +13,7 @@ Use the following line at the end of the Prerequisites section, where relevant. 
 
 -->
 
-The Azure Spring Cloud extension supports app user-assigned managed identity (3.1.0 or later). Use the following command to remove previous versions and install the latest extension:
+The Azure Spring Cloud extension supports app user-assigned managed identity (3.1.1 or later). Use the following command to remove previous versions and install the latest extension:
 
    ```azurecli
    az extension remove --name spring-cloud
