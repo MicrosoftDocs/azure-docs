@@ -498,7 +498,7 @@ Upon completion, the write method will print the results to the Cell Output. The
     * Target tables are setup with ROUND_ROBIN data distribution.
     * Column types are inferred from the DataFrame that would read data from source. String columns are mapped to `NVARCHAR(4000)`.
   * For external table types:
-    * Data distribution is influenced by the layout of the source data and the settings to re-configure ataFrame initial parallelism.
+    * DataFrame's initial parallelism drives the data organization for the external table.
     * Column types are inferred from the DataFrame that would read data from source.
   * Better data distribution across executors can be achieved by tuning the `spark.sql.files.maxPartitionBytes` and the DataFrame's `repartition` parameter.
   * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
