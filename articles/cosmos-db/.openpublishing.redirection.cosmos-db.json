@@ -1786,6 +1786,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/cassandra/migrate-data-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-arcion",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/cassandra-migrate-cosmos-db-databricks.md",
     "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-databricks",
     "redirect_document_id": true
@@ -1878,6 +1883,11 @@
   {
     "source_path_from_root": "/articles/cosmos-db/oracle-migrate-cosmos-db-blitzz.md",
     "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-arcion",
     "redirect_document_id": true
   },
   {

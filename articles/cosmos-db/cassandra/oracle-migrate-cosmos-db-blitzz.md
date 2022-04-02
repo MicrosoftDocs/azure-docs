@@ -1,16 +1,16 @@
 ---
-title: Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz
-description: Learn how to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Blitzz.
+title: Migrate data from Oracle to Azure Cosmos DB Cassandra API using Arcion
+description: Learn how to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Arcion.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 08/21/2019
+ms.date: 04/02/2022
 ms.reviewer: sngun
 ---
 
-# Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Blitzz
+# Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Arcion
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for a variety of reasons such as:
@@ -21,15 +21,15 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 * **No overhead of managing and monitoring:** As a fully managed cloud service, Azure Cosmos DB removes the overhead of managing and monitoring a myriad of settings.
 
-There are various ways to migrate database workloads from one platform to another. [Blitzz](https://www.blitzz.io) is a tool that offers a secure and reliable way to perform zero downtime migration from a variety of databases to Azure Cosmos DB. This article describes the steps required to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Blitzz.
+There are various ways to migrate database workloads from one platform to another. [Arcion](https://www.arcion.io) is a tool that offers a secure and reliable way to perform zero downtime migration from a variety of databases to Azure Cosmos DB. This article describes the steps required to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Arcion.
 
-## Benefits using Blitzz for migration
+## Benefits using Arcion for migration
 
-Blitzz’s migration solution follows a step by step approach to migrate complex operational workloads. The following are some of the key aspects of Blitzz’s zero-downtime migration plan:
+Arcion’s migration solution follows a step by step approach to migrate complex operational workloads. The following are some of the key aspects of Arcion’s zero-downtime migration plan:
 
 * It offers automatic migration of business logic (tables, indexes, views) from Oracle database to Azure Cosmos DB. You don’t have to create schemas manually.
 
-* Blitzz offers high-volume and parallel database replication. It enables both the source and target platforms to be in-sync during the migration by using a technique called Change-Data-Capture (CDC). By using CDC, Blitzz continuously pulls a stream of changes from the source database(Oracle) and applies it to the destination database(Azure Cosmos DB).
+* Arcion offers high-volume and parallel database replication. It enables both the source and target platforms to be in-sync during the migration by using a technique called Change-Data-Capture (CDC). By using CDC, Arcion continuously pulls a stream of changes from the source database(Oracle) and applies it to the destination database(Azure Cosmos DB).
 
 * It is fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
 
@@ -39,9 +39,9 @@ Blitzz’s migration solution follows a step by step approach to migrate complex
 
 ## Steps to migrate data
 
-This section describes the steps required to setup Blitzz and migrates data from Oracle database to Azure Cosmos DB.
+This section describes the steps required to setup Arcion and migrates data from Oracle database to Azure Cosmos DB.
 
-1. From the computer where you plan to install the Blitzz replicant, add a security certificate. This certificate is required by the Blitzz replicant to establish a TLS connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
+1. From the computer where you plan to install the Arcion replicant, add a security certificate. This certificate is required by the Arcion replicant to establish a TLS connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt
@@ -49,11 +49,11 @@ This section describes the steps required to setup Blitzz and migrates data from
    keytool -keystore $JAVA_HOME/lib/security/cacerts -importcert -alias bc2025ca -file bc2025.cer
    ```
 
-1. ou can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io). Alternatively, you can also send an [email](mailto:success@blitzz.io) to the team.
+1. ou can get the Arcion installation and the binary files either by requesting a demo on the [Arcion website](https://www.arcion.io). Alternatively, you can also send an [email](mailto:support@arcion.io) to the team.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Blitzz replicant tool download":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/arcion-replicant-download.png" alt-text="arcion replicant tool download":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Blitzz replicant files":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/replicant-files.png" alt-text="Arcion replicant files":::
 
 1. From the CLI terminal, set up the source database configuration. Open the configuration file using **`vi conf/conn/oracle.yml`** command and add a comma-separated list of IP addresses of the oracle nodes, port number, username, password, and any other required details. The following code shows an example configuration file:
 
@@ -72,9 +72,9 @@ This section describes the steps required to setup Blitzz and migrates data from
    use-ssl: false
    ```
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Open Oracle connection editor":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/open-connection-editor-oracle.png" alt-text="Open Oracle connection editor":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Oracle connection configuration":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/oracle-connection-configuration.png" alt-text="Oracle connection configuration":::
 
    After filling out the configuration details, save and close the file.
 
@@ -83,7 +83,7 @@ This section describes the steps required to setup Blitzz and migrates data from
    ```bash
 
    allow:
-   -	schema: “io_blitzz”
+   -	schema: “io_arcion”
    Types: [TABLE]
    ```
  
@@ -93,7 +93,7 @@ This section describes the steps required to setup Blitzz and migrates data from
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time. 
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Scale Azure Cosmos container throughout":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/scale-throughput.png" alt-text="Scale Azure Cosmos container throughout":::
 
    You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](../set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles.
 
@@ -107,14 +107,14 @@ This section describes the steps required to setup Blitzz and migrates data from
    host: `<Azure Cosmos account’s Contact point>`
    port: 10350
 
-   username: 'blitzzdemo'
+   username: 'arciondemo'
    password: `<Your Azure Cosmos account’s primary password>'
 
    max-connections: 30
    use-ssl: false
    ```
 
-1. Next migrate the data using Blitzz. You can run the Blizz replicant in **full** or **snapshot** mode:
+1. Next migrate the data using Arcion. You can run the Arcion replicant in **full** or **snapshot** mode:
 
    * **Full mode** – In this mode, the replicant continues to run after migration and it listens for any changes on the source Oracle system. If it detects any changes, they are replicated on the target Azure Cosmos account in real time.
 
@@ -123,7 +123,7 @@ This section describes the steps required to setup Blitzz and migrates data from
 
    By using the above two modes, migration can be performed with zero downtime.
 
-1. To migrate data, from the Blitzz replicant CLI terminal, run the following command:
+1. To migrate data, from the Arcion replicant CLI terminal, run the following command:
 
    ```bash
    ./bin/replicant full conf/conn/oracle.yaml conf/conn/cosmosdb.yaml --filter filter/oracle_filter.yaml --replace-existing
@@ -131,7 +131,7 @@ This section describes the steps required to setup Blitzz and migrates data from
 
    The replicant UI shows the replication progress. Once the schema migration and snapshot operation are done, the progress shows 100%. After the migration is complete, you can validate the data on the target Azure Cosmos database.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Oracle data migration output":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-arcion/oracle-data-migration-output.png" alt-text="Oracle data migration output":::
 
 1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database. Later you can validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
 
@@ -141,7 +141,7 @@ This section describes the steps required to setup Blitzz and migrates data from
    ./bin/replicant full conf/conn/oracle.yaml conf/conn/cosmosdb.yaml --filter filter/oracle_filter.yaml --replace-existing --resume
    ```
 
-To learn more on the data migration to destination, real-time migration, see the [Blitzz replicant demo](https://www.youtube.com/watch?v=y5ZeRK5A-MI).
+To learn more on the data migration to destination, real-time migration, see the [Arcion replicant demo](https://www.youtube.com/watch?v=y5ZeRK5A-MI).
 
 ## Next steps
 
