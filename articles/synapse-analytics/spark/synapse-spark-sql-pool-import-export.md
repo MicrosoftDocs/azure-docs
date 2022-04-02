@@ -170,7 +170,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
 
 ## Connector API Documentation
 
-Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
 
 ### Configuration Options
 
