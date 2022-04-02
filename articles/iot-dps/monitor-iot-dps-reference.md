@@ -96,19 +96,23 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 
 | Property | Data type | Description |
 |:--- |:---|:---|
-| Time | DateTime | The date and time that this event occurred, in UTC. |
-| ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ApplicationId | GUID | Application ID used in bearer authorization. |
+| CallerIpAddress | String | A masked source IP address for the event. |
+| Category | String | Type of operation, either **ServiceOperations** or **DeviceOperations**. |
+| CorrelationId | GUID | Customer provided unique identifier for the event. |
+| DurationMs | String | How long it took to perform the event in milliseconds. |
+| Level | Int | The logging severity of the event: Information or Error |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
 | OperationVersion | String | The API Version used during the event. |
-| Category | String | Type of operation, either **ServiceOperations** or **DeviceOperations**. |
-| ResultType | String | Outcome of the event: Success, Failure, ClientError. |
-| ResultSignature | String | HTTP status code for the event if unsuccessful. |
+| Resource | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ResourceGroup | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ResourceProvider | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
+| ResourceType | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
 | ResultDescription | String | Error details for the event if unsuccessful. |
-| DurationMs | String | How long it took to perform the event in milliseconds. |
-| CallerIpAddress | String | A masked source IP address for the event. |
-| CorrelationId | GUID | Customer provided unique identifier for the event. |
-| ApplicationId | GUID | Application ID used in bearer authorization. |
-| Level | Int | The logging severity of the event. |
+| ResultSignature | String | HTTP status code for the event if unsuccessful. |
+| ResultType | String | Outcome of the event: Success, Failure, ClientError. |
+| TimeGenerated | DateTime | The date and time that this event occurred, in UTC. |
 | location_s | String | The region where the event took place. |
 | properties_s | JSON | Additional information details for the event. |
 
@@ -133,6 +137,71 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 The following schemas are in use by DPS:
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
+
+### ServiceOperations
+
+The following JSON is an example of a successful add (`Upsert`) individual enrollment operation. The registration ID for the enrollment and the type of enrollment are identified in the `properties_s` property.
+
+```json
+  {
+    "CallerIPAddress": "13.91.244.XXX",
+    "Category": "ServiceOperations",
+    "CorrelationId": "23bd419d-d294-452b-9b1b-520afef5ef52",
+    "DurationMs": "98",
+    "Level": "Information",
+    "OperationName": "Upsert",
+    "OperationVersion": "October2021",
+    "Resource": "MYEXAMPLEDPS",
+    "ResourceGroup": "MYRESOURCEGROUP",
+    "ResourceId": "/SUBSCRIPTIONS/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
+    "ResourceProvider": "MICROSOFT.DEVICES",
+    "ResourceType": "PROVISIONINGSERVICES",
+    "ResultDescription": "",
+    "ResultSignature": "",
+    "ResultType": "Success",
+    "SourceSystem": "Azure",
+    "SubscriptionId": "747f1067-xxxx-xxxx-xxxx-9deaa894152f",
+    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
+    "TimeGenerated": "2022-04-01T00:52:00Z",
+    "Type": "AzureDiagnostics",
+    "_ResourceId": "/subscriptions/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
+    "location_s": "centralus",
+    "properties_s": "{\"id\":\"my-device-1\",\"type\":\"IndividualEnrollment\",\"protocol\":\"Http\"}",
+  }
+```
+
+### DeviceOperations
+
+The following JSON is an example of a successful attestation attempt from a device. The registration ID for the device is identified in the `properties_s` property.
+
+```json
+  {
+    "CallerIPAddress": "24.18.226.XXX",
+    "Category": "DeviceOperations",
+    "CorrelationId": "68952383-80c0-436f-a2e3-f8ae9a41c69d",
+    "DurationMs": "226",
+    "Level": "Information",
+    "OperationName": "AttestationAttempt",
+    "OperationVersion": "March2019",
+    "Resource": "MYEXAMPLEDPS",
+    "ResourceGroup": "MYRESOURCEGROUP",
+    "ResourceId": "/SUBSCRIPTIONS/747F1067-xxx-xxx-xxxx-9DEAA894152F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
+    "ResourceProvider": "MICROSOFT.DEVICES",
+    "ResourceType": "PROVISIONINGSERVICES",
+    "ResultDescription": "",
+    "ResultSignature": "",
+    "ResultType": "Success",
+    "SourceSystem": "Azure",
+    "SubscriptionId": "747F1067-xxx-xxx-xxxx-9DEAA894152F",
+    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
+    "TimeGenerated": "2022-04-02T00:05:51Z",
+    "Type": "AzureDiagnostics",
+    "_ResourceId": "/subscriptions/747F1067-xxx-xxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
+    "location_s": "centralus",
+    "properties_s": "{\"id\":\"my-device-1\",\"type\":\"Registration\",\"protocol\":\"Mqtt\"}",
+  }
+
+```
 
 ## See Also
 
