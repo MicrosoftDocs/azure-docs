@@ -99,7 +99,7 @@ You can set up your Azure environment to support continuous export using either:
 
 - In the Azure portal
 
-    1. In the (Event Hubs service](https://docs.microsoft.com/azure/event-hubs/event-hubs-create), create an Event Hubs namespace and event hub.
+    1. In the [Event Hubs service](../event-hubs/event-hubs-create.md), create an Event Hubs namespace and event hub.
         ![Screenshot of creating an Event Hubs namespace in Microsoft Event Hubs.](./media/export-to-siem/create-event-hub-namespace.png)
     1. Define a policy for the event hub with "Send" permissions:
         1. In the Event Hubs menu, select the Event Hubs namespace you created.
