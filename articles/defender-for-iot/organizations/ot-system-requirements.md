@@ -363,9 +363,9 @@ The virtualized hardware used to run guest operating systems is supplied by Virt
 There are generally two distinct categories of virtual machine hypervisors: Type 1 (bare-metal) and Type 2 (hosted).
 Type 1 hypervisors run directly on the host server's hardware. Hardware resources are directly allocated to guest virtual machines, and the hardware is managed directly. This type of hypervisor provides specific resources for specific virtual machines; in some instances, hardware can be passed directly to a guest. Microsoft Hyper-V Server and VMware vSphere/ESXi are examples of Type 1 hypervisors.
 
-Type 2 hypervisors run within the host operating system. In contrast to Type 1 hypervisors, they do not have exclusive hardware control and do not reserve dedicated resources for their guest virtual machines. Type 2 hypervisors include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
+Type 2 hypervisors run within the host operating system. In contrast to Type 1 hypervisors, they don't have exclusive hardware control and don't reserve dedicated resources for their guest virtual machines. Type 2 hypervisors include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
 
-We reccomend Type 1 hypervisors for Defender for IoT virtual machines because of the deterministic performance and ability to dedicate resources they provide.  
+We recommend Type 1 hypervisors for Defender for IoT virtual machines. They provide deterministic performance and the ability to dedicate resources.  
 
 ### Hypervisor support
 - VMware ESXi (version 5.0 and later)
@@ -375,7 +375,7 @@ We reccomend Type 1 hypervisors for Defender for IoT virtual machines because of
 
 Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero impact on ICS networks and devices.
 
-The first step to deploying an OT sensor is to configure your server, or virtual machine, and connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
+The first step to deploying an OT sensor is to configure your server or virtual machine. Then connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
 
 |Maximum Network bandwidth*|2.5 Gb/sec|800 Mb/sec|160 Mb/Sec|160 Mb/sec|
 |:----|:----|:----|:----|:----|
@@ -406,11 +406,11 @@ The On-Premises Management Console provides a consolidated view of all the asset
 |:----|:----|:----|
 |CPU|Non-dynamic allocation of CPU cores (>2.4Ghz) should be dedicated based on capacity.|High CPU usage – the appliance is constantly recording network traffic and performing analytics. The CPU performance of sensor appliances is critical in capturing and analyzing network traffic. Any slowdown is likely to result in packet drops and degraded performance. As a best practice, physical cores should be dedicated (pinning) based on the chosen appliance capacity.|
 |Memory|Non-dynamic allocation of RAM should be dedicated based on the chosen capacity.|High RAM usage – the appliance is constantly recording network traffic and performing analytics.|
-|Network Interfaces|For maximum performance, lowest latency, and efficient CPU utilization Virtual machines should ideally have their network interfaces physically mapped with SR-IOV or by dedicating a NIC to the virtual machine. When using a vSwitch, ensure that the promiscuous mode policy is set to 'Accept' in order to allow all traffic to reach the VM.|High network utilization is expected, based on the amount of traffic monitored. vSwitch may block certain protocols if not configured correctly.|
-|Storage|Resource provisioning should ensure there is sufficient read and write IOPS and throughput to match the performance of the appliances on this page.|High storage utilization is also expected, based on the amount of traffic monitored (IOPs and throughput).|
+|Network Interfaces|Physically map Virtual machines using SR-IOV or an NIC dedicated to the virtual machine. This will provide maximum performance, lowest latency and efficient CPU utilization. When using a vSwitch, set the promiscuous mode to 'Accept'. This will allow all traffic to reach the VM.|Traffic monitoring volume is high, so high network utilization is expected. vSwitch may block certain protocols if not configured correctly.|
+|Storage|Resource provisioning should ensure there's sufficient read and write IOPS and throughput to match the performance of the appliances on this page.|Traffic monitoring volume is high (IOPs and throughput) so high storage utilization is also expected.|
 
 ### Past certifications of legacy appliances
-This section details additional appliances that were certified but are not offered as preconfigured appliances.
+This section details more appliances that were certified but aren't offered as preconfigured appliances.
 
 #### Enterprise deployment: HPE ProLiant DL20
 
