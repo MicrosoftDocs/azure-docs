@@ -6,8 +6,7 @@ ms.date: 03/30/2022
 
 ---
 
-
-# Connect Azure Monitor to ITSM tools by using Secure Webhook
+# Connect Azure to ITSM tools by using Secure Webhook
 
 This article shows you how to configure the connection between your IT Service Management (ITSM) product or service by using Secure Webhook.
 
