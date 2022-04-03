@@ -639,6 +639,8 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
+      - name: Log alert legacy API
+        href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -647,8 +649,6 @@ items:
         href: ./alerts/activity-log-alerts.md
       - name: Webhook schema
         href: alerts/activity-log-alerts-webhook.md
-      - name: Log alert legacy API
-        href: alerts/api-alerts.md
     - name: Service health alerts
       items:
       - name: View notifications
