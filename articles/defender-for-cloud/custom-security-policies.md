@@ -165,66 +165,69 @@ This example shows you how to assign the built-in Defender for Cloud initiative 
  ```
 
 This example shows you how to assign a custom Defender for Cloud initiative on a subscription or management group:
+
+> [!NOTE]
+> Make sure you include `"ASC":"true"` in the request body as shown here.
  
- ```
-    PUT  
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}?api-version=2021-06-01
+```
+  PUT  
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}?api-version=2021-06-01
 
-    Request Body (JSON) 
+  Request Body (JSON) 
 
-    {
-      "properties": {
-        "displayName": "Cost Management",
-        "description": "Policies to enforce low cost storage SKUs",
-        "metadata": {
-          "category": "Cost Management"
-          "ASC":"true"
-        },
-        "parameters": {
-          "namePrefix": {
-            "type": "String",
-            "defaultValue": "myPrefix",
-            "metadata": {
-              "displayName": "Prefix to enforce on resource names"
+  {
+    "properties": {
+      "displayName": "Cost Management",
+      "description": "Policies to enforce low cost storage SKUs",
+      "metadata": {
+        "category": "Cost Management"
+        "ASC":"true"
+      },
+      "parameters": {
+        "namePrefix": {
+          "type": "String",
+          "defaultValue": "myPrefix",
+          "metadata": {
+            "displayName": "Prefix to enforce on resource names"
+          }
+        }
+      },
+      "policyDefinitions": [
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+          "policyDefinitionReferenceId": "Limit_Skus",
+          "parameters": {
+            "listOfAllowedSKUs": {
+              "value": [
+                "Standard_GRS",
+                "Standard_LRS"
+              ]
             }
           }
         },
-        "policyDefinitions": [
-          {
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            "policyDefinitionReferenceId": "Limit_Skus",
-            "parameters": {
-              "listOfAllowedSKUs": {
-                "value": [
-                  "Standard_GRS",
-                  "Standard_LRS"
-                ]
-              }
-            }
-          },
-          {
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-            "policyDefinitionReferenceId": "Resource_Naming",
-            "parameters": {
-              "prefix": {
-                "value": "[parameters('namePrefix')]"
-              },
-              "suffix": {
-                "value": "-LC"
-              }
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+          "policyDefinitionReferenceId": "Resource_Naming",
+          "parameters": {
+            "prefix": {
+              "value": "[parameters('namePrefix')]"
+            },
+            "suffix": {
+              "value": "-LC"
             }
           }
-        ]
-      }
+        }
+      ]
     }
- ```
+  }
+```
 
 This example shows you how to remove an assignment:
 
- ```
-    DELETE   
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
- ```
+```
+  DELETE   
+  https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+```
 
 ::: zone-end
 
