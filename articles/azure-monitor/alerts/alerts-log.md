@@ -92,7 +92,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > [!NOTE]
 > The alert recommendations feature is currently in preview and is only enabled for VMs.
 
-If you don't have any alerts defined for the selected resource, you can enable our recommended out-of-the-box alert rules. 
+If you don't have any alert rules defined for the selected resource, you can enable our recommended out-of-the-box alert rules. 
 
 :::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 
@@ -102,7 +102,7 @@ The system compiles a list of recommended alert rules based on:
 
 To enable recommended alert rules:
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
-1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can  change the default values if you would like.
+1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Enable**.
 
