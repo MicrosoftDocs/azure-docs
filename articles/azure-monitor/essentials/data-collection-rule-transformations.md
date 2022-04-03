@@ -118,7 +118,7 @@ print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
 ### Supported statements
 
 ####	let statement
-The right-hand side of [let](/data-explorer/kusto/query/letstatement) can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
+The right-hand side of [let](/azure/data-explorer/kusto/query/letstatement) can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
 
 #### tabular expression statements
 The only supported data sources for the KQL statement are as follows:
