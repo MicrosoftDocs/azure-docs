@@ -639,7 +639,7 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
-      - name: Log alert legacy API
+      - name: Log analytics alerts legacy API
         href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
