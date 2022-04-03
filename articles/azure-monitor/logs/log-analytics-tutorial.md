@@ -94,14 +94,21 @@ For example, set a filter on the **DurationMs** column to limit the records to t
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Screenshot that shows a query results filter." lightbox="media/log-analytics-tutorial/query-results-filter.png":::
 
-
-Let's search through the query results using the search box at the top right of the result pane.
+Let's search through the query results using the search box at the top right of the results pane.
 
 Enter **Chicago** in the query results search box and click the arrows to find all instances of this string in your search results.
 
 :::image type="content" source="media/log-analytics-tutorial/search-query-results.png" alt-text="Screenshot the search box at the top right of the result pane." lightbox="media/log-analytics-tutorial/search-query-results.png":::
 
-summarize, aggregate, compare and analyze.
+In addition to filtering and searching through results, you can reorganize and summarize the data in the query results based on your needs.
+
+Select **Columns** to the right of the results pane to open the **Columns** sidebar. 
+ 
+:::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Screenshot the Column link at shows to the right of the results pane, which you select to open the Columns sidebar." lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
+
+In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Group** section. Results are now organized by that column, and you can collapse each group to help you with your analysis.
+
+:::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped by URL." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 
 ## Work with charts
 Let's look at a query that uses numerical data that we can view in a chart. Instead of building a query, we'll select an example query.
