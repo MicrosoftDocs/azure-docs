@@ -14,7 +14,7 @@ ms.author: eur
 
 # Role-based access control for Speech resources
 
-You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across speech resources. For example, you can assign a role to a speech resource that should only be used to train a Custom Speech model. You can assign another role to a speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
+You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across Speech resources. For example, you can assign a role to a Speech resource that should only be used to train a Custom Speech model. You can assign another role to a Speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
 
 > [!NOTE]
 > A Speech resource can inherit or be assigned multiple roles. The final level of access to this resource is a combination of all roles permissions from the operation level.
@@ -38,13 +38,13 @@ A role definition is a collection of permissions. When you create a Speech resou
 
 Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
 
-For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a custom speech model to an endpoint. 
+For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a Custom Speech model to an endpoint. 
 
 ## Authentication with keys and tokens
 
 The [roles](#roles-for-speech-resources) define what permissions you have. Authentication is required to use the Speech resource. 
 
-To authenticate with speech resource keys, all you need is the key and region. To authenticate with an Azure AD token, the Speech resource must have a [custom subdomain](speech-services-private-link.md#create-a-custom-domain-name) and use a [private endpoint](speech-services-private-link.md#turn-on-private-endpoints). The Speech service uses custom subdomains with private endpoints only.
+To authenticate with Speech resource keys, all you need is the key and region. To authenticate with an Azure AD token, the Speech resource must have a [custom subdomain](speech-services-private-link.md#create-a-custom-domain-name) and use a [private endpoint](speech-services-private-link.md#turn-on-private-endpoints). The Speech service uses custom subdomains with private endpoints only.
 
 ### Speech SDK authentication
 
