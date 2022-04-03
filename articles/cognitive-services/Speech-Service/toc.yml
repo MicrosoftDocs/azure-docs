@@ -273,7 +273,7 @@ items:
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access control in Speech Studio
+      - name: Role-based access with Azure Active Directory 
         href: speech-studio-role-based-access-control.md
       - name: Use Azure Active Directory Authentication
         href: how-to-configure-azure-ad-auth.md

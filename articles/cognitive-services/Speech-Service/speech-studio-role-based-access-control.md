@@ -1,53 +1,68 @@
 ---
-title: Role-based access control in Speech Studio - Speech service
+title: Role-based access control for Speech resources - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to assign access roles to the Speech service through Speech Studio.
+description: Learn how to assign access roles for a Speech resource.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 04/03/2022
 ms.author: eur
 ---
 
-# Azure role-based access control in Speech Studio 
+# Role-based access control for Speech resources
 
-Speech Studio supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you can assign different levels of permissions for your Speech Studio operations to different team members. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
-
-## Prerequisites
-
-* You must be signed into Speech Studio with your Azure account and Speech resource. See the [Speech Studio overview](speech-studio-overview.md).
-
-## Manage role assignments for Speech resources
-
-To grant access to an Azure speech resource, you add a role assignment through the Azure RBAC tool in the Azure portal. 
-
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
-
-## Supported built-in roles in Speech Studio
-
-A role definition is a collection of permissions. Use the following recommended built-in roles if you don't have any unique custom requirements for permissions:
-
-| **Built-in role** | **Permission to list resource keys** | **Permission for Custom Speech operations** | **Permission for Custom Voice operations**| **Permission for other capabilities** |
-| ---| ---| ---| ---| --|
-|**Owner** |Yes |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access |
-|**Contributor** |Yes |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access |
-|**Cognitive Service Contributors** |Yes |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access |
-|**Cognitive Service Users** |Yes |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access |
-|**Cognitive Service Speech Contributor** |No |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access to the projects, including the permission to create, edit, or delete project / data / model / endpoints |Full access |
-|**Cognitive Service Speech User** |No |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Full access |
-|**Cognitive Services Data Reader (preview)** |No |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Full access |
-
-Alternatively, you can [create your own custom roles](../../role-based-access-control/custom-roles.md). For example, you could create a custom role with the permission to upload custom speech datasets, but without the ability to deploy a custom speech model to an endpoint.
+You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across speech resources. For example, you can assign a role to a speech resource that should only be used to train a Custom Speech model. You can assign another role to a speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
 
 > [!NOTE]
-> Speech Studio supports key-based authentication. Roles that have permission to list resource keys (`Microsoft.CognitiveServices/accounts/listKeys/action`) will firstly be authenticated with a resource key and will have full access to the Speech Studio operations, as long as key authentication is enabled in Azure portal. If key authentication is disabled by the service admin, then those roles will lose all access to the Studio.
+> A Speech resource can inherit or be assigned multiple roles. The final level of access to this resource is a combination of all roles permissions from the operation level.
 
-> [!NOTE]
-> One resource could be assigned or inherited with multiple roles, and the final level of access to this resource is a combination of all your roles' permissions from the operation level.
+## Roles for Speech resources
+
+A role definition is a collection of permissions. When you create a Speech resource, the built-in roles in this table are assigned by default. 
+
+| Role | Can list resource keys | Read or write access | 
+| ---| ---| ---| 
+|**Owner** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
+|**Contributor** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
+|**Cognitive Services Contributor** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
+|**Cognitive Services User** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
+|**Cognitive Services Speech Contributor** |No | Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
+|**Cognitive Services Speech User** |No |Read-only access to the resource and projects, including the permission to view data, models, and endpoints. |
+|**Cognitive Services Data Reader (Preview)** |No |Read-only access to the resource and projects, including the permission to view data, models, and endpoints. |
+
+> [!IMPORTANT]
+> Whether a role can list resource keys is important for [Speech Studio authentication](#speech-studio-authentication). To list resource keys, a role must have permission to run the `Microsoft.CognitiveServices/accounts/listKeys/action` operation. Please note that if key authentication is disabled in the Azure Portal, then none of these roles can list keys.
+
+Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
+
+For finer-grained access control, you can assign [custom roles](../../role-based-access-control/custom-roles.md) to your Speech resource. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a custom speech model to an endpoint. To add or remove roles for a Speech resource, you add a role assignment through the Azure RBAC tool in the Azure portal. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+
+## Authentication with keys and tokens
+
+The [roles](#roles-for-speech-resources) define what permissions you have. Authentication is required to use the Speech resource. 
+
+To authenticate with speech resource keys, all you need is the key and region. To authenticate with an Azure AD token, the Speech resource must have a [custom subdomain](speech-services-private-link.md#create-a-custom-domain-name) and use a [private endpoint](speech-services-private-link.md#turn-on-private-endpoints). The Speech service uses custom subdomains with private endpoints only.
+
+### Speech SDK authentication
+
+For the SDK, you configure whether to authenticate with a Speech resource key or Azure AD token. For details, see [Azure Active Directory Authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
+
+### Speech Studio authentication
+
+Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Azure AD token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio will authenticate with the key. Otherwise, Speech Studio will authenticate with the Azure AD token. 
+
+If Speech Studio falls back to use your Azure AD token, but the resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
+
+| Authentication credential | Feature availability | 
+| ---| ---|  
+|Speech resource key|Full access limited only by the assigned role permissions.|
+|Azure AD token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
+|Azure AD token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or Custom Neural Voice. But you can't use a Custom Speech model or Custom Neural Voice.|
 
 ## Next steps
 
-Learn more about [Speech service encryption of data at rest](./speech-encryption-of-data-at-rest.md).
+* [Azure Active Directory Authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
+* [Speech service encryption of data at rest](speech-encryption-of-data-at-rest.md).
