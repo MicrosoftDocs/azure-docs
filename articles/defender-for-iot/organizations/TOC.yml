@@ -103,19 +103,15 @@
       href: tutorial-splunk.md
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
-  - name: System maintenance
+  - name: System setup
     items:
     - name: Manage an Azure subscription
       href: how-to-manage-subscriptions.md
-    - name: Manage sensors from the Azure portal
-      items:
-      - name: Onboard sensors in the Azure portal
-        href: how-to-manage-sensors-on-the-cloud.md
-      - name: Activate and set up your sensor
-        href: how-to-activate-and-set-up-your-sensor.md
-      - name: Maintain threat intelligence packages
-        href: how-to-work-with-threat-intelligence-packages.md
-    - name: OT system maintenance
+    - name: Onboard sensors in the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: OT system setup
       items:
       - name: Set up OT network monitoring
         href: how-to-set-up-your-network.md
@@ -129,6 +125,14 @@
           href: connect-sensors.md
         - name: Connect OT sensors with a proxy (legacy)
           href: how-to-connect-sensor-by-proxy.md
+      - name: Activate and set up your on-premises management console
+        href: how-to-activate-and-set-up-your-on-premises-management-console.md
+  - name: System maintenance
+    items:
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
+    - name: OT system maintenance
+      items:
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
@@ -159,8 +163,6 @@
         href: how-to-set-up-snmp-mib-monitoring.md
       - name: Manage an OT on-premises management console
         items:
-        - name: Activate and set up your on-premises management console
-          href: how-to-activate-and-set-up-your-on-premises-management-console.md
         - name: Set up high availability
           href: how-to-set-up-high-availability.md
         - name: Manage the on-premises management console

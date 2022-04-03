@@ -8,7 +8,9 @@ ms.topic: reference
 
 # Predeployment checklist
 
-Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. We recommend printing this page or saving it as a PDF file where you can check things off as you go.
+Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. 
+
+We recommend printing this browser page or using the print function to save it as a PDF file where you can check things off as you go. For example, on Windows machines, press **CTRL+P** to access the Print dialog for this page.
 
 Use this checklist together with [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md).
 
@@ -18,24 +20,20 @@ Review the following items before deploying your site:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | Order appliances. | ☐ |  |
-| 2 | Prepare a list of subnets in the network. | ☐ |  |
-| 3 | Provide a VLAN list of the production networks. | ☐ |  |
-| 4 | Provide a list of switch models in the network. | ☐ |  |
-| 5 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
-| 6 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 7 | Third-party switch management | ☐ |  |
-| 8 | Create necessary firewall rules and the access list. | ☐ |  |
-| 9 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 10 | Prepare rack space for sensor appliances. | ☐ |  |
-| 11 | Prepare a workstation for personnel. | ☐ |  |
-| 12 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 13 | Rack and cable the appliances. | ☐ |  |
-| 14 | Allocate site resources to support deployment. | ☐ |  |
-| 15 | Create Active Directory groups or local users. | ☐ |  |
-| 16 | Set up training (self-learning). | ☐ |  |
-| 17 | Go or no-go. | ☐ |  |
-| 18 | Schedule the deployment date. | ☐ |  |
+| 1 | If you are using physical appliances, order your appliances. <br>For more information, see | ☐ |  |
+| 2 | Identify the managed switches you want to monitor | ☐ |  |
+| 3 | Provide network details for sensors (IP address, subnet, D-GW, DNS, host). | ☐ |  |
+| 4 | Create necessary firewall rules and the access list. | ☐ |  |
+| 5 | Create SPAN ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
+| 6 | Prepare rack space for sensor appliances. | ☐ |  |
+| 7 | Prepare a workstation for personnel. | ☐ |  |
+| 8 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
+| 9 | Rack and cable the appliances. | ☐ |  |
+| 10 | Allocate site resources to support deployment. | ☐ |  |
+| 11 | Create Active Directory groups or local users. | ☐ |  |
+| 12 | Set up training (self-learning). | ☐ |  |
+| 13 | Go or no-go. | ☐ |  |
+| 14 | Schedule the deployment date. | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
