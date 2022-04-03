@@ -77,6 +77,7 @@ This setting determines how often access reviews will occur.
 1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer. You can also select **Manager** if you want to designate the reviewee’s manager to be the reviewer. If you select this option, you need to add a **fallback** to forward the review to in case the manager cannot be found in the system.
 
 1. If you selected **Specific reviewer(s)**, specify which users will do the access review:
+
     ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
     1. Select **Add reviewers**.
@@ -92,7 +93,20 @@ This setting determines how often access reviews will occur.
 
     ![Add the fallback reviewers](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
-1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
+1. There are other advanced settings you can configure. To configure other advanced access review settings, click **Show advanced access review settings**:
+    1. If you want specify what happens to users' access when a reviewer doesn't respond, click **If reviewers don't respond**, and then select one of the following: 
+        - **No change** if you don't want a decision made on the users' access.
+        - **Remove access** if you want the users' access removed.
+        - **Take recommendations** if you want a decision to be made based on recommendations from MyAccess.
+        
+        ![Add advanced access review settings](./media/entitlement-management-access-reviews/advanced-access-reviews.png)
+        
+    1. If you want to see system recommendations, click **Show reviewer decision helpers**. The system's recommendations are based on the users' activity. The reviewers will see one of the following recommendations: 
+        - **approve** the review if the user has signed-in at least once during the last 30 days. 
+        - **deny** the review if the user hasn't signed-in during the last 30 days.
+    1. If you want the reviewer to share their reasons for their approval decision, click **Require reviewer justification**. Their justification is visible to other reviewers and the requestor.
+
+1. Click **Review + Create** or click **next** if you are creating a new access package. Click **Update** if you are editing an access package, at the bottom of the page.
 
 ## View the status of the access review
 

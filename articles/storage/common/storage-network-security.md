@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2022
+ms.date: 03/31/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -47,70 +47,76 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 
 ## Change the default network access rule
 
-By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
+By default, storage accounts accept connections from clients on any network. You can limit access to selected networks **or** prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
 
 > [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Storage. Setting the default network rule to **deny** blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
-
-### Managing default network access rules
-
-You can manage default network access rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
-
-#### [Portal](#tab/azure-portal)
+> Changing this setting can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks or set up access through a [private endpoint](storage-private-endpoints.md) before you change this setting.
+     
+### [Portal](#tab/azure-portal)
 
 1. Go to the storage account you want to secure.
 
-2. Select on the settings menu called **Networking**.
+2. Locate the **Networking** settings under **Security + networking**. 
 
-3. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+3. Choose which type of public network access you want to allow.
+
+   - To allow traffic from all networks, select **Enabled from all networks**.
+   
+   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
+    
+   - To block traffic from all networks, use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.  
 
 4. Select **Save** to apply your changes.
 
 <a id="powershell"></a>
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```powershell
-    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
-    ```
+    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
 
-3. Set the default rule to deny network access by default.
+      ```powershell
+      Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+      ```
+  
+   - To allow traffic only from specific virtual networks, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`.
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
-    ```
+     ```powershell
+     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+     ```
 
-4. Set the default rule to allow network access by default.
+   - To block traffic from all networks, use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
+   
+     ```powershell
+     Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
+     ```
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
-    ```
-
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```azurecli
-    az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
-    ```
+    - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
 
-3. Set the default rule to deny network access by default.
+      ```azurecli
+      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
+      ```
+   
+   - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
-    ```
+     ```azurecli
+     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
+     ```
 
-4. Set the default rule to allow network access by default.
+   - To block traffic from all networks, use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
-    ```
+     ```azurecli
+     az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
+     ```
 
 ---
 
@@ -201,7 +207,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -210,7 +216,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    > [!NOTE]
    > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
 
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
    ```azurecli
    az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -223,7 +229,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 

@@ -15,7 +15,7 @@ ms.custom: mvc
 
 ## Update (March 2022)
 - Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
-
+- General Availability: Support to select subnets for each Network Interface Card of a replicating virtual machine in VMware agentless migration scenario.
 
 ## Update (February 2022)
 - General Availability: Migrate Windows and Linux Hyper-V virtual machines with large data disks (up to 32 TB in size).

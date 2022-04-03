@@ -90,13 +90,13 @@
     - name: .NET SDK
       href: https://github.com/Azure/azure-sdk-for-net
     - name: Reference
-      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+      href: /dotnet/api/overview/azure/virtualmachines
   - name: Java
     items:
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
-      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+      href: /java/api/com.azure.resourcemanager.compute
   - name: Go
     items:
     - name: Go SDK
@@ -416,7 +416,8 @@
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: image-version-encryption.md
-      - name: Managed disk from image version
+      - name: Export an image to a managed disk
+        desplayName: export, image version, disk, SIG, gallery
         href: managed-disk-from-image-version.md
       - name: Purchase plan information
         href: marketplace-images.md
@@ -685,7 +686,7 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Capacity reservation (preview)
+  - name: Capacity reservation
     items:
     - name: Overview
       displayName: on-demand capacity reservation
@@ -705,9 +706,12 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a virtual machine scale set with uniform orchestration
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Associate a virtual machine scale set
+      displayName: on-demand capacity reservation with flexible orchestration
+      href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
     - name: Remove a virtual machine scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md
