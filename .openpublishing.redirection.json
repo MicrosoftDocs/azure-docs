@@ -16604,6 +16604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
