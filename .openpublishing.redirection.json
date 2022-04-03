@@ -16604,6 +16604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
@@ -19839,6 +19844,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/concept-ml-pipelines.md",
       "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
       "redirect_document_id": true
@@ -21192,11 +21227,6 @@
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
@@ -27771,6 +27801,11 @@
     {
       "source_path_from_root": "/articles/storsimple/storsimple-ova-pp-release-notes.md",
       "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/private-5g-core/activate-sims.md",
+      "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
       "redirect_document_id": false
     },
     {
