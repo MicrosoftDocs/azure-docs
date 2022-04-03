@@ -307,7 +307,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Enterprise Program Management Support |973-3700|1|
 
 
-### SMB Deployment: HPE ProLiant DL20+
+#### SMB Deployment: HPE ProLiant DL20+
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
 |Component|Technical specifications|
@@ -345,7 +345,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-###SMB Rugged: YS-techsystems YS-FIT2
+### SMB Rugged: YS-techsystems YS-FIT2
 
 |Components|Technical Specifications|
 |:----|-----|
@@ -367,11 +367,11 @@ Type 2 hypervisors run within the host operating system. In contrast to Type 1 h
 
 We recommend Type 1 hypervisors for Defender for IoT virtual machines. They provide deterministic performance and the ability to dedicate resources.  
 
-### Hypervisor support
+#### Hypervisor support
 - VMware ESXi (version 5.0 and later)
 - Microsoft Hyper-V (VM configuration version 8.0 and later)
 
-### OT Network Sensors (Physical / Virtual)
+#### OT Network Sensors (Physical / Virtual)
 
 Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero impact on ICS networks and devices.
 
@@ -383,13 +383,11 @@ The first step to deploying an OT sensor is to configure your server or virtual 
 |Architecture Requirements|Corporate_6T_v3|Enterprise_2T_v3|SMB_500G_v3|Rugged_100G_v3|
 |vCPU|32|8|4|4|
 Memory|32 GB|32 GB|8 GB|8 GB|
-|Storage|5.6 TB <br ~500 IOPSm|1.8 TB <br> ~300 IOPS| 
-|500 GB <br> ~200 IOPS|
-|100 GB <br>~150 IOPS|
+|Storage|5.6 TB <br> - 500 IOPSm|1.8 TB <br> - 300 IOPS|500 GB <br> -200 IOPS 100 GB <br>~150 IOPS|
 
 * Results for VMs may vary, depending on the distribution of protocols and the actual hardware resources that are available: including CPU model, memory bandwidth, and IOPS.
 
-*** On Premises Management Console (Physical / Virtual)
+### On Premises Management Console (Physical / Virtual)
 
 The On-Premises Management Console provides a consolidated view of all the assets and delivers a real-time view of key OT risk indicators and alerts across all your facilities. 
 
@@ -412,7 +410,7 @@ The On-Premises Management Console provides a consolidated view of all the asset
 ### Past certifications of legacy appliances
 This section details more appliances that were certified but aren't offered as preconfigured appliances.
 
-#### Enterprise deployment: HPE ProLiant DL20
+### Enterprise deployment: HPE ProLiant DL20
 
 |Component|Technical specifications|
 |:----|:----|
@@ -429,7 +427,7 @@ This section details more appliances that were certified but aren't offered as p
 |Power|	Dual Hot Plug Power Supplies 500 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-#### Enterprise deployment: HPE PROLIANT DL20 BOM
+### Enterprise deployment: HPE PROLIANT DL20 BOM
 |PN|Description: high end|Quantity|
 |:----|:----|:----|
 |P06963-B21|HPE DL20 Gen10 4SFF CTO Server|1|
@@ -446,7 +444,7 @@ This section details more appliances that were certified but aren't offered as p
 |P06722-B21|HPE DL20 Gen10 RPS Enablement FIO Kit|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-#### Enterprise deployment: Dell PowerEdge R340 XL
+### Enterprise deployment: Dell PowerEdge R340 XL
 
 |Component|	Technical Specifications|
 |:----|:----|
@@ -464,7 +462,7 @@ This section details more appliances that were certified but aren't offered as p
 |Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks| with support for optional tool-less cable management arm.|
 
-#### SMB deployment: HPE ProLiant DL20
+### SMB deployment: HPE ProLiant DL20
 
 |Component|Technical specifications|
 |:----|:----|
@@ -497,7 +495,7 @@ This section details more appliances that were certified but aren't offered as p
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-#### SMB rugged: HPE Edgeline EL300 
+### SMB rugged: HPE Edgeline EL300 
 
 |Component|Technical specifications|
 |:----|:----|
@@ -517,7 +515,7 @@ This section details more appliances that were certified but aren't offered as p
 |Vibration|0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail|
 |Shock|10G 10 ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail|
 
-#### SMB Rugged: HPE EDGELINE EL300 BOM
+### SMB Rugged: HPE EDGELINE EL300 BOM
 
 |Product|Description|
 |:----|:----|
@@ -537,7 +535,9 @@ This section details more appliances that were certified but aren't offered as p
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
 |P03456-B21 optional|HPE Edgeline 1 GbE 4-port TSN FIO Daughter Card|
 
-#### SMB rugged: Neousys Nuvo-5006LP
+### SMB rugged: Neousys Nuvo-5006LP
+
+:::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Image of Cyber X machine":::
 |Component|Technical Specifications|
 |:----|:----|
 |Construction|Aluminum, Fanless & Dust-proof Design|
@@ -551,7 +551,7 @@ This section details more appliances that were certified but aren't offered as p
 |Device access|4 USBs: 2 fronts; 2 rears; 1 internal|
 |Power Adapter|120/240VAC-20VDC/6A|
 |Mounting|Mounting kit, Din Rail|
-|Operating Temperature|-25°C ~ 70°CStorage Temperature|-40°C ~ 85°C|
+|Operating Temperature|-25°C -  70°C|   |Storage Temperature|-40°C ~ 85°C|
 |Humidity|10%~90%, non-condensing|
 |Vibration|Operating, 5 Grms, 5-500 Hz, 3 Axes <br>(w/ SSD, according to IEC60068-2-64)|
 |Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
