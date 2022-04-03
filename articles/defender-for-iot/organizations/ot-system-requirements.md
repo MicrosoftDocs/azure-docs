@@ -347,7 +347,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ###SMB Rugged: YS-techsystems YS-FIT2
 
-Components|Technical Specifications|
+|Components|Technical Specifications|
 |:----|-----|
 |Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112mm (W) x 112mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
 |Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V)Storage |128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
@@ -359,13 +359,13 @@ Components|Technical Specifications|
 
 ## Virtual Appliance Requirements
 
-Virtual machine hosts, also known as hypervisors, supply the virtualized hardware under which guest operating systems run. 
+The virtualized hardware used to run guest operating systems is supplied by Virtual Machine Hosts, also known as hypervisors. 
 There are generally two distinct categories of virtual machine hypervisors: Type 1 (bare-metal) and Type 2 (hosted).
-Hypervisors of type 1 run directly on the host server's hardware. The guest virtual machines are allocated the hardware resources directly and the hardware is managed directly. Hypervisors of this type can provide specific resources for specific virtual machines; in some instances, hardware can be passed directly to a guest. Microsoft Hyper-V Server and VMware vSphere/ESXi are examples of Type 1 hypervisors.
+Type 1 hypervisors run directly on the host server's hardware. Hardware resources are directly allocated to guest virtual machines, and the hardware is managed directly. This type of hypervisor provides specific resources for specific virtual machines; in some instances, hardware can be passed directly to a guest. Microsoft Hyper-V Server and VMware vSphere/ESXi are examples of Type 1 hypervisors.
 
-Hypervisors of type 2 run within the host operating system. In contrast to Type 1 hypervisors, they do not have exclusive hardware control and do not reserve dedicated resources for their guest virtual machines. Hypervisors of type 2 include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
+Type 2 hypervisors run within the host operating system. In contrast to Type 1 hypervisors, they do not have exclusive hardware control and do not reserve dedicated resources for their guest virtual machines. Type 2 hypervisors include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
 
-The deterministic performance that Type 1 hypervisors provide to guests, and the ability to dedicate resources, is the reason we recommend them for Defender for IoT virtual machines.
+We reccomend Type 1 hypervisors for Defender for IoT virtual machines because of the deterministic performance and ability to dedicate resources they provide.  
 
 ### Hypervisor support
 - VMware ESXi (version 5.0 and later)
@@ -373,19 +373,17 @@ The deterministic performance that Type 1 hypervisors provide to guests, and the
 
 ### OT Network Sensors (Physical / Virtual)
 
-Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on ICS networks and devices.
+Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero impact on ICS networks and devices.
 
-The first step to deploying your OT sensor is to configure your server, or virtual machine, and connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
+The first step to deploying an OT sensor is to configure your server, or virtual machine, and connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
 
 |Maximum Network bandwidth*|2.5 Gb/sec|800 Mb/sec|160 Mb/Sec|160 Mb/sec|
 |:----|:----|:----|:----|:----|
 |Maximum monitored assets*|12,000|10,000|800|800|
-|Architecture Requirements|
-|Corporate_6T_v3|Enterprise_2T_v3|SMB_500G_v3|Rugged_100G_v3|
-|vCPU|328|4|4|
-|Memory|32GB|32GB|8GB|8GB|
-|Storage|5.6TB <br> ~500 IOPS|
-|1.8TB <br> ~300 IOPS|
+|Architecture Requirements|Corporate_6T_v3|Enterprise_2T_v3|SMB_500G_v3|Rugged_100G_v3|
+|vCPU|32|8|4|4|
+Memory|32GB|32GB|8GB|8GB|
+|Storage|5.6TB <br ~500 IOPSm|1.8TB <br> ~300 IOPS| 
 |500GB <br> ~200 IOPS|
 |100GB <br>~150 IOPS|
 
@@ -406,10 +404,10 @@ The On-Premises Management Console provides a consolidated view of all the asset
 
 |Component|Recommendation|What to Expect|
 |:----|:----|:----|
-|CPU|Non-dynamic allocation of CPU cores (>2.4Ghz) should be dedicated based on the chosen capacity.|High CPU usage – the appliance is constantly recording network traffic and performing analytics. The CPU performance of sensor appliances is critical in capturing and analyzing network traffic. Any slowdown is likely to result in packet drops and degraded performance. As a best practice, physical cores should be dedicated (pinning) based on the chosen appliance capacity.|
+|CPU|Non-dynamic allocation of CPU cores (>2.4Ghz) should be dedicated based on capacity.|High CPU usage – the appliance is constantly recording network traffic and performing analytics. The CPU performance of sensor appliances is critical in capturing and analyzing network traffic. Any slowdown is likely to result in packet drops and degraded performance. As a best practice, physical cores should be dedicated (pinning) based on the chosen appliance capacity.|
 |Memory|Non-dynamic allocation of RAM should be dedicated based on the chosen capacity.|High RAM usage – the appliance is constantly recording network traffic and performing analytics.|
-|Network Interfaces|For maximum performance, lowest latency, and efficient CPU utilization Virtual machines should ideally have their network interfaces physically mapped with SR-IOV or by dedicating a NIC to the virtual machine.When using a vSwitch, ensure that the promiscuous mode policy is set to 'Accept' in order to allow all traffic to reach the VM.|Based on how much traffic is monitored, high network utilization is expected. vSwitch may block certain protocols if not configured correctly.|
-|Storage|Resource provisioning should ensure there is sufficient read and write IOPS and throughput to match the performance of the appliances on this page.|Based on how much traffic is monitored, high storage utilization is expected (IOPs and throughput).|
+|Network Interfaces|For maximum performance, lowest latency, and efficient CPU utilization Virtual machines should ideally have their network interfaces physically mapped with SR-IOV or by dedicating a NIC to the virtual machine. When using a vSwitch, ensure that the promiscuous mode policy is set to 'Accept' in order to allow all traffic to reach the VM.|High network utilization is expected, based on the amount of traffic monitored. vSwitch may block certain protocols if not configured correctly.|
+|Storage|Resource provisioning should ensure there is sufficient read and write IOPS and throughput to match the performance of the appliances on this page.|High storage utilization is also expected, based on the amount of traffic monitored (IOPs and throughput).|
 
 ### Past certifications of legacy appliances
 This section details additional appliances that were certified but are not offered as preconfigured appliances.
@@ -418,14 +416,14 @@ This section details additional appliances that were certified but are not offer
 
 |Component|Technical specifications|
 |:----|:----|
-|Chassis|	1U rack server|
+|Chassis|1U rack server|
 |Dimensions |(height x width x depth)	4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
-|Weight|	7.9 kg/17.41 lb|
-|Processor|Intel Xeon E-2234| 3.6 GHz| 4C/8T| 71 W|
-|Chipset|	Intel C242|
+|Weight|7.9 kg/17.41 lb|
+|Processor|Intel Xeon E-2234 <br> 3.6 GHz <br>4C/8T 71 W|
+|Chipset|Intel C242|
 |Memory|2 x 16-GB Dual Rank x8 DDR4-2666|
-|Storage|	3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
-|Network controller|	On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 GbExternal: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|Storage|3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
+|Network controller|On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 GbExternal: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |Management	|HPE iLO Advanced|
 |Device access|	Front: 1 x USB 3. <br> 1 x USB iLO Service Port <br>Rear: 2 x USB 3.0 <br> Internal: 1 x USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 500 W|
@@ -455,10 +453,10 @@ This section details additional appliances that were certified but are not offer
 |Chassis|	1U rack server|
 |Dimensions|	42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
 |Weight|	Max 29.98 lb/13.6 Kg|
-|Processor|	Intel Xeon E-2144G 3.6GHz| 8M cache|4C/8T| turbo (71W)|
-|Chipset|	Intel C246|
+|Processor|	Intel Xeon E-2144G 3.6GHz <br>8M cache <br> 4C/8T <br> turbo (71W|
+|Chipset|Intel C246|
 |Memory	|32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
-|Storage	| 3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Storage| 3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
 |Network controller|On-board: 2 x 1Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1Gb Broadcom BCM5720 <br>External: 1 x Intel Ethernet i350 QP 1Gb Server Adapter Low Profile|
 |Management|iDRAC 9 Enterprise|
 |Device access|	2 rear USB 3.0|
@@ -473,11 +471,11 @@ This section details additional appliances that were certified but are not offer
 |Chassis|	1U rack server|
 |Dimensions| (height x width x depth)	4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
 |Weight|	7.88 kg/17.37 lb|
-|Processor|	Intel Xeon E-2224| 3.4 GHz| 4C| 71 W|
+|Processor|	Intel Xeon E-2224 <br> 3.4 GHz <br> 4C <br> 71 W|
 |Chipset|	Intel C242|
 |Memory|	1 x 8-GB Dual Rank x8 DDR4-2666|
 |Storage|	2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
-|Network controller|	On-board: 2 x 1 Gb<br> On-board: iLO Port Card 1 Gb<br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|Network controller|On-board: 2 x 1 Gb<br> On-board: iLO Port Card 1 Gb<br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |Management|HPE iLO Advanced|
 |Device access|Front: 1 x USB 3.0 <br> 1 x USB iLO Service Port <br>Rear: 2 x USB 3.0 <br>Internal: 1 x USB 3.0|
 |Power|Hot Plug Power Supply 290 W|
