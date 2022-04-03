@@ -21,12 +21,12 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 
 ## What are the Microsoft Defender for server plans?
 
-Microsoft Defender for servers adds threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, on-premises, or in a multi-cloud environment. Two plans are available to enhance the security features that Microsoft Defender for Cloud provides:
+Microsoft Defender for servers provides threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, or on-premises. Microsoft Defender for Servers is available in two plans:
 
 - **Microsoft Defender for servers Plan 1** - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
-    - Per hour licensing to lower costs for protecting virtual machines
-    - Automatic deployment to cloud workloads
-    - Alerts and vulnerability data within Microsoft Defender for Cloud
+    - Microsoft Defender for Endpoint licenses are charged per hour instead of per seat, lowering costs for protecting virtual machines only when they are in use.
+    - Microsoft Defender for Endpoint is deployed automatically to all cloud workloads so that you know they are protected when they spin up.
+    - Alerts and vulnerability data from Microsoft Defender for Endpoint is shown in Microsoft Defender for Cloud
 
 - **Microsoft Defender for servers Plan 2** (formerly Defender for servers) - includes the benefits of Plan 1 and support for all of the other Microsoft Defender for servers features.
 
@@ -69,9 +69,6 @@ The threat detection and protection capabilities provided with Microsoft Defende
 - **Integrated license for Microsoft Defender for Endpoint** - Microsoft Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. When you enable Microsoft Defender for servers, you give consent for Defender for Cloud to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Defender for Cloud. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. For more information, see [Protect your endpoints](integration-defender-for-endpoint.md).
-
-    > [!IMPORTANT]
-    > Defender for servers Plan 1 includes just support for Defender for Endpoint.
 
 - **Vulnerability assessment tools for machines** - Microsoft Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Defender for Cloud's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
 
