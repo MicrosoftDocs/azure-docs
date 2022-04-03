@@ -538,6 +538,8 @@ This section details more appliances that were certified but aren't offered as p
 ### SMB rugged: Neousys Nuvo-5006LP
 
 :::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Image of Cyber X machine":::
+
+
 |Component|Technical Specifications|
 |:----|:----|
 |Construction|Aluminum, Fanless & Dust-proof Design|
