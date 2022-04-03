@@ -30,15 +30,15 @@ A role definition is a collection of permissions. When you create a Speech resou
 |**Cognitive Services Contributor** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
 |**Cognitive Services User** |Yes |Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
 |**Cognitive Services Speech Contributor** |No | Read and write access to the projects. Permission to view, create, edit, or delete data, models, and endpoints. |
-|**Cognitive Services Speech User** |No |Read-only access to the resource and projects, including the permission to view data, models, and endpoints. |
-|**Cognitive Services Data Reader (Preview)** |No |Read-only access to the resource and projects, including the permission to view data, models, and endpoints. |
+|**Cognitive Services Speech User** |No |Read-only access to the resource and projects. Permission to view data, models, and endpoints. |
+|**Cognitive Services Data Reader (Preview)** |No |Read-only access to the resource and projects. Permission to view data, models, and endpoints. |
 
 > [!IMPORTANT]
-> Whether a role can list resource keys is important for [Speech Studio authentication](#speech-studio-authentication). To list resource keys, a role must have permission to run the `Microsoft.CognitiveServices/accounts/listKeys/action` operation. Please note that if key authentication is disabled in the Azure Portal, then none of these roles can list keys.
+> Whether a role can list resource keys is important for [Speech Studio authentication](#speech-studio-authentication). To list resource keys, a role must have permission to run the `Microsoft.CognitiveServices/accounts/listKeys/action` operation. Please note that if key authentication is disabled in the Azure Portal, then none of the roles can list keys.
 
 Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
 
-For finer-grained access control, you can assign [custom roles](../../role-based-access-control/custom-roles.md) to your Speech resource. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a custom speech model to an endpoint. To add or remove roles for a Speech resource, you add a role assignment through the Azure RBAC tool in the Azure portal. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a custom speech model to an endpoint. 
 
 ## Authentication with keys and tokens
 
@@ -54,7 +54,7 @@ For the SDK, you configure whether to authenticate with a Speech resource key or
 
 Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Azure AD token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio will authenticate with the key. Otherwise, Speech Studio will authenticate with the Azure AD token. 
 
-If Speech Studio falls back to use your Azure AD token, but the resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
+If Speech Studio uses your Azure AD token, but the Speech resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
 
 | Authentication credential | Feature availability | 
 | ---| ---|  
