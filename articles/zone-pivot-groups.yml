@@ -163,6 +163,15 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-cosmos
+# Owner maquaran
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-text-analytics
   title: Programming languages
   prompt: Choose one of the client library languages or REST API.
