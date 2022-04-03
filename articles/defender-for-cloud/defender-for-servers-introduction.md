@@ -23,7 +23,7 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 
 Microsoft Defender for servers provides threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, or on-premises. Microsoft Defender for Servers is available in two plans:
 
-- **Microsoft Defender for servers Plan 1** - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
+- **Microsoft Defender for servers Plan 1** - deploys Microsoft Defender for Endpoint to your servers with these additional capabilities:
     - Microsoft Defender for Endpoint licenses are charged per hour instead of per seat, lowering costs for protecting virtual machines only when they are in use.
     - Microsoft Defender for Endpoint is deployed automatically to all cloud workloads so that you know they are protected when they spin up.
     - Alerts and vulnerability data from Microsoft Defender for Endpoint is shown in Microsoft Defender for Cloud
