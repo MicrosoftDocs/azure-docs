@@ -68,7 +68,9 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 ## Create a VM for your sensor
 
-This procedure describes how to create a VM for your sensor with VMWare ESXi.
+This procedure describes how to create a VM for your sensor with VMWare ESXi. 
+
+Defender for IoT also supports other processes, such as using Hyper-V or physical sensors. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 **To create a VM for your sensor**:
 
@@ -198,7 +200,7 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 - **Eventhub**: `*.servicebus.windows.net`
 
 > [!TIP]
-> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), and [Cloud connected vs local sensors](#cloud-connected-vs-local-sensors).
+> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).
 >
 
 ## Onboard and activate the virtual sensor
@@ -263,25 +265,7 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
-### Cloud-connected vs local sensors
 
-Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
-
-When you have a cloud connected sensor:
-
-- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
-
-- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
-
-- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
-
-In contrast, when working with locally managed sensors:
-
-- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
-
-- You must manually upload any threat intelligence packages
-
-- Sensor names can be updated in the sensor console.
 
 ## Next steps
 

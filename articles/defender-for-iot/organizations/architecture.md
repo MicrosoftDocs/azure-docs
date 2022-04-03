@@ -32,6 +32,26 @@ Defender for IoT network sensors discover and continuously monitor network traff
 
 Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high latency connectivity because only metadata is transferred on, either to the Azure portal for cloud management, or an on-premises management console.
 
+### Cloud-connected vs local sensors
+
+Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
+
+When you have a cloud connected sensor:
+
+- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
+
+- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
+
+- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
+
+In contrast, when working with locally managed sensors:
+
+- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+
+- You must manually upload any threat intelligence packages
+
+- Sensor names can be updated in the sensor console.
+
 ## Analytics engines
 
 Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
