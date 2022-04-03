@@ -2,7 +2,7 @@
 title: Data Collection Rules in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 03/31/2022
 
 ---
 

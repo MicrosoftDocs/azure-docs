@@ -18,6 +18,12 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## March 2022
+
+### Closed Captioning files now support including speakers’ attributes
+
+Video Analyzer for Media enables you to include speakers' characteristic based on a closed captioning file that you choose to download. To include the speakers’ attributes, select Downloads -> Closed Captions -> choose the closed captioning downloadable file format (SRT, VTT, TTML, TXT, or CSV) and check **Include speakers** checkbox.
+
 ## February 2022
 
 ### Public preview of Video Analyzer for Media account management based on ARM in Government cloud

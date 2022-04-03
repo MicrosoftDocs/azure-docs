@@ -143,7 +143,9 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
     ```
 
     >[!NOTE]
-    > It's recommended to use the CLI in the Bash environment for this tutorial. If you're using the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON value to be parsed correctly.
+    >If you're using anything other than Cloud Shell in the Bash environment, you may need to escape certain characters in the inline JSON so that it's parsed correctly. 
+    >
+    >For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells).
     
     The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
 
