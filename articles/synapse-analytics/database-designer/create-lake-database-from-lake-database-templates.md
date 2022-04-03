@@ -29,6 +29,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
 3. Select the industry you're interested in (for example, **Retail**) and select **Continue** to navigate to the exploration of the data model.
 4. You'll land on the database canvas and can explore the tables available in the template. By default, the canvas will show a selection of the most used tables in that template. The canvas has various tools to help you navigate the entity-relationship diagram.
     - **Zoom to fit** to fit all tables on the canvas in the viewing area
+    - **Undo last action** to undo a single recent change
     - **Increase zoom** to zoom in to the canvas
     - **Decrease zoom** to zoom out of the canvas
     - **Zoom slider** to control the zoom level
@@ -45,13 +46,16 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - **Business areas** are folders containing tables related to that business construct. For example, Budget & Forecasting contains tables related to managing budgets.
     - You can expand business area folders to view the tables, and select the checkbox to add them to the canvas. 
     - Selected tables can be removed via the checkbox.
+    - You can also click on the ellipes next to the business area folder and **Select All** or **UnSelect All** to add/remove all tables under that business area to the canvas.
 
 6. You can select a table on the canvas. It opens the table properties pane with the tabs General, Columns, and Relationships.
     - The General tab has information on the table such as its name and description.
     - The Columns tab has the details about all the columns that make up the table such as column names and datatypes.
     - The Relationships tab lists the incoming and outgoing relationships of the table with other tables on the canvas.
+    - Toggle to view all from & to relationships of the table using **select all**.
+    - Add related tables to the canvas using the check boxes next to the relationships in the toggle pane.    
     
-7. To quickly add tables that are related to the tables on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas.
+7. To quickly add tables that are related to the tables on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas. If this adds too many tables to the canvas, use the **Undo Last Action** to undo this change. 
 
 8. Once the canvas has all the tables that meet your requirements, select **Create database** to continue with creation of lake database. The new database will show up in the database designer and you can customize it per your business needs. 
 
@@ -63,7 +67,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - **Input folder** used to set the default container and folder path within that linked service using the file browser.
     - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 > [!NOTE]
-> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later.
+> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. If you are unsure of the folder hierarchy in the data lake, you can also specify wildcards to traverse the directory structure.
  
 ![Screenshot showing the database designer with the properties panel open](./media/create-lake-database-from-lake-database-template/designer-overview.png)
 
