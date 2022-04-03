@@ -23,7 +23,7 @@ The following tables describe supported deployment options for your OT sensors a
 
 |Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
-|C5600 (Corporate)    | 3 Gbps        | 12K        |Physical / Virtual         |
+|C5600 (Corporate)    | 3 Gbps        | 12 K        |Physical / Virtual         |
 
 ### Enterprise monitoring at the site level
 
@@ -58,7 +58,7 @@ Defender for IoT sensor and on-premises management console software is built on 
 |Name  |Supported models and versions |
 |---------|---------|
 |C5600 (Corporate)     |-  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
-|E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6GHz, 8M cache, 4C/8T, turbo (71W) with Intel C246|
+|E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
 |L500 (Line) <br> L100 (Line)<br> L60 (Line)|-Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>-Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
 
 #### Network cards (Ethernet/SFP)
@@ -76,8 +76,8 @@ Defender for IoT sensor and on-premises management console software is built on 
 |Name  |Supported models and versions |
 |---------|---------|
 |C5600 (Corporate)     |- 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 with HPE Smart Array P408i-a SR Gen10 Controller <br>-3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with HPE Smart Array P408i-a SR Controller       |
-|E1800 (Enterprise)    | -2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with Dell PERC H330      |
-|L500 (Line) <br> L100 (Line) <br> L60 (Line)     | -128GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> -HPE Edgeline 256GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD <br>-128GB 3ME3 Wide Temperature mSATA SSD
+|E1800 (Enterprise)    | -2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with HPE Smart Array P208i-a <br> -3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with HPE Smart Array P208i-a <br> -3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with Dell PERC H330      |
+|L500 (Line) <br> L100 (Line) <br> L60 (Line)     | -128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> -HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD <br>-128 GB 3ME3 Wide Temperature mSATA SSD
 
 ## Supported physical appliances
 
@@ -96,8 +96,8 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Model / Capacity|Monitoring Ports|Max bandwidth|Max protected devices|Mounting|
 |:----|:----|:----|:----|:----|
 |**HPE ProLiant DL360** <br> C5600|15 x RJ45 or 8 SFP (OPT)|3Gbp/s|12,000|1U|
-| **HPE ProLiant DL20+** <br>E1800|8 x RJ45 or 6 SFP (OPT)|1Gbp/s|10,000|1U|
-|**Dell PowerEdge R340** <br>XL E1800|8 x RJ45 or 6 SFP (OPT)|1Gbp/s|10,000|1U|
+| **HPE ProLiant DL20+** <br>E1800|8 x RJ45 or 6 SFP (OPT)|1 Gbp/s|10,000|1U|
+|**Dell PowerEdge R340** <br>XL E1800|8 x RJ45 or 6 SFP (OPT)|1 Gbp/s|10,000|1U|
 |**HPE ProLiant DL20+** <br>L500|4 x RJ45|200Mbp/s|1,000|1U|
 |**Dell Edge Gateway 5200** <br>L500| |60Mbp/s|1000|Wall mount|
 |**YS-Techsystems YS-FIT2** <br>L100|1 x RJ45|10Mbp/s|100|DIN/VESA|
@@ -140,11 +140,11 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |
-| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr| 
-| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|
-| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
-| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|
+| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adptr SI |
+| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adptr| 
+| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adptr SI|
+| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adptr|
+| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adptr SI|
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
@@ -166,25 +166,25 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |1|P44111-B21|HPE DL20 Gen10+ 4SFF CTO Svr|
 |1|P45252-B21|Intel Xeon E-2234 FIO CPU for HPE|
 |1|869081-B21|HPE Smart Array P408i-a SR G10 LH Ctrlr|
-|1|782961-B21|HPE 12W Smart Storage Battery|
+|1|782961-B21|HPE 12 W Smart Storage Battery|
 |1|P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
 |2|865408-B21|HPE 500W FS Plat Ht Plg LH Pwr Sply Kit|
 |1|775612-B21|HPE 1U Short Friction Rail Kit|
 |1|512485-B21|HPE iLO Adv 1-svr Lic 1yr Support|
 |1|P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
-|1|P21106-B21|INT I350 1GbE 4p BASE-T Adptr|
-|3|P28610-B21|HPE 1TB SATA 7.2K SFF BC HDD|
-|2|P43019-B21|HPE 16GB 1Rx8 PC4-3200AA-E STND Kit|
+|1|P21106-B21|INT I350 1 GbE 4p BASE-T Adptr|
+|3|P28610-B21|HPE 1 TB SATA 7.2 K SFF BC HDD|
+|2|P43019-B21|HPE 16 GB 1Rx8 PC4-3200AA-E STND Kit|
 
 #### Optional modules for port expansion
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |
-| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr| 
-| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|
-| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
-| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|
+| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adptr SI |
+| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adptr| 
+| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adptr SI|
+| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adptr|
+| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adptr SI|
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
@@ -236,16 +236,16 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Chassis|1U rack server|
 |Dimensions|42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
 |Weight|Max 29.98 lb/13.6 Kg|
-|Processor|Intel Xeon E-2144G 3.6GHz<br>8M cache4C/8T turbo (71W)|
+|Processor|Intel Xeon E-2144G 3.6 GHz<br>8M cache4C/8T turbo (71 W)|
 |Chipset|Intel C246|
-|Memory|32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
-|Storage|3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
-|Network controller|On-board: 2 x 1Gb Broadcom BCM5720|
-|On-board LOM| iDRAC Port Card 1Gb Broadcom BCM5720|
-|External| 1 x Intel Ethernet i350 QP 1Gb Server Adapter Low Profile|
+|Memory|32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM|
+|Storage|3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Network controller|On-board: 2 x 1 Gb Broadcom BCM5720|
+|On-board LOM| iDRAC Port Card 1 Gb Broadcom BCM5720|
+|External| 1 x Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
 |Management|iDRAC 9 Enterprise|
 |Device access|	2 rear USB 3.0 <br> 1 front USB 3.0|
-|Power|	Dual Hot Plug Power Supplies 350W|
+|Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks with support for optional tool-less cable management arm.
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340" border="false":::
@@ -261,8 +261,8 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |PCI Slot 2 (High profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
 |PCI Slot 2 (High profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
 |PCI Slot 2 (High profile)|Quad Port F/O NIC|Intel X710-DA4 - MCBX-NIC02-A00|
-|SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10Gb-1Gb|
-|SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10GbE|
+|SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10 Gb-1 Gb|
+|SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10 GbE|
 
 
 #### Deployment BOM
@@ -276,7 +276,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Brand/Bezel, Embedded OS, OEM PowerEdge R340XL|325-BDGR|1|
 |OEM PowerEdge R340 Shipping, DAO|340-CJQL|1|
 |OEM PowerEdge R340 Shipping Material, 3.5" Chassis, DAO|340-CJQM|1|
-|Intel Xeon E-2144G 3.6Ghz, 8m cache, 4C/8T, turbo (71W)|338-BQPK|1|
+|Intel Xeon E-2144G 3.6 Ghz, 8m cache, 4C/8T, turbo (71 W)|338-BQPK|1|
 |Heatsin for 80w or less CPU|412-AAPW|1|
 |2666 MT/s UDIMMs|370-AEKM|1|
 |Performance Optimized|370-AAIP|1|
@@ -290,7 +290,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |PCle Riser, 1x FH x8 Pcle Gen 3 slot, 1x LP x4 Pcle Gen3 slot, <br> R240/R340 |330-BBMH|1|
 |Standard Fan|384-BBWF|1|
 |No Internal Optical Drive for x4 and x8 HDD Chassis|429-ABBF|1|
-|Dual Hot Plug Power Supplies 350W|450-AEUV|1|
+|Dual Hot Plug Power Supplies 350 W|450-AEUV|1|
 |Performance BIOS Settings|384-BBBL|1|
 |UEFI BIOS Boot Mode with GPT Partition|800-BBDM|1|
 |ReadyRails Sliding Rails Without Cable Management Arm|770-BCWN|1|
@@ -300,8 +300,8 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |ProSupport Next Business Day Onsite Service Initial, 15 Month(s)|865-BBQK|1|
 |ProSupport Next Business Day Onsite Service Extension, 24 Month(s)|865-BBQL|1|
 |On-site Installation Declined|900-9997|1|
-|8GB 2666 MT/s DDR4 ECC UDIMM|370-AEKN|4|
-|2TB 7.3 RPM SATA 6Gbps 512 3.5 in Hot-plug Hard Drive|400-ASHX|3|
+|8 GB 2666 MT/s DDR4 ECC UDIMM|370-AEKN|4|
+|2 TB 7.3 RPM SATA 6 Gbps 512 3.5 in Hot-plug Hard Drive|400-ASHX|3|
 |On-Board LOM|542-BBP|1|
 |NEMA 5-15P to C13 Wall Plug, 125 Volt, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
 |Enterprise Program Management Support |973-3700|1|
@@ -349,9 +349,9 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 |Components|Technical Specifications|
 |:----|-----|
-|Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112mm (W) x 112mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
-|Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V)Storage |128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
-|Network controller |2x 1GbE LAN PortsDevice access |2 x USB 2.0, 2 X USB 3.0Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
+|Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112 mm (W) x 112 mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
+|Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V)Storage |128 GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
+|Network controller |2x 1 GbE LAN PortsDevice access |2 x USB 2.0, 2 X USB 3.0Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
 |UPS|fit-uptime Miniature 12V UPS for miniPCs (Optional)|
 |Mounting |VESA / wall or Din Rail mounting kitTemperature |0°C ~ 70°CHumidity |5%~95%, non-condensingVibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz , 3 axis)|
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)|
@@ -382,10 +382,10 @@ The first step to deploying an OT sensor is to configure your server or virtual 
 |Maximum monitored assets*|12,000|10,000|800|800|
 |Architecture Requirements|Corporate_6T_v3|Enterprise_2T_v3|SMB_500G_v3|Rugged_100G_v3|
 |vCPU|32|8|4|4|
-Memory|32GB|32GB|8GB|8GB|
-|Storage|5.6TB <br ~500 IOPSm|1.8TB <br> ~300 IOPS| 
-|500GB <br> ~200 IOPS|
-|100GB <br>~150 IOPS|
+Memory|32 GB|32 GB|8 GB|8 GB|
+|Storage|5.6 TB <br ~500 IOPSm|1.8 TB <br> ~300 IOPS| 
+|500 GB <br> ~200 IOPS|
+|100 GB <br>~150 IOPS|
 
 * Results for VMs may vary, depending on the distribution of protocols and the actual hardware resources that are available: including CPU model, memory bandwidth, and IOPS.
 
@@ -396,8 +396,8 @@ The On-Premises Management Console provides a consolidated view of all the asset
 | Type               | Enterprise |
 | ------------------ | ---------- |
 | vCPU               | 8          |
-| Memory             | 32GB       |
-| Storage            | 1.8TB      |
+| Memory             | 32 GB       |
+| Storage            | 1.8 TB      |
 | Monitored Sensors* | Up to 300  |
 
 #### Recommended resource design considerations
@@ -423,7 +423,7 @@ This section details more appliances that were certified but aren't offered as p
 |Chipset|Intel C242|
 |Memory|2 x 16-GB Dual Rank x8 DDR4-2666|
 |Storage|3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
-|Network controller|On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 GbExternal: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|Network controller|On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1  GbExternal: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |Management	|HPE iLO Advanced|
 |Device access|	Front: 1 x USB 3. <br> 1 x USB iLO Service Port <br>Rear: 2 x USB 3.0 <br> Internal: 1 x USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 500 W|
@@ -453,15 +453,15 @@ This section details more appliances that were certified but aren't offered as p
 |Chassis|	1U rack server|
 |Dimensions|	42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
 |Weight|	Max 29.98 lb/13.6 Kg|
-|Processor|	Intel Xeon E-2144G 3.6GHz <br>8M cache <br> 4C/8T <br> turbo (71W|
+|Processor|	Intel Xeon E-2144G 3.6 GHz <br>8M cache <br> 4C/8T <br> turbo (71 W|
 |Chipset|Intel C246|
-|Memory	|32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
-|Storage| 3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
-|Network controller|On-board: 2 x 1Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1Gb Broadcom BCM5720 <br>External: 1 x Intel Ethernet i350 QP 1Gb Server Adapter Low Profile|
+|Memory	|32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM|
+|Storage| 3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Network controller|On-board: 2 x 1 Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
 |Management|iDRAC 9 Enterprise|
 |Device access|	2 rear USB 3.0|
 |1 front| USB 3.0|
-|Power|	Dual Hot Plug Power Supplies 350W|
+|Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks| with support for optional tool-less cable management arm.|
 
 #### SMB deployment: HPE ProLiant DL20
@@ -524,29 +524,29 @@ This section details more appliances that were certified but aren't offered as p
 |P25828-B21|HPE Edgeline EL300 v2 Converged Edge System|
 |P25828-B21 B19|HPE EL300 v2 Converged Edge System|
 |P25833-B21|Intel Core i7-8650U (1.9GHz/4-core/15W) FIO Basic Processor Kit for HPE Edgeline EL300|
-|P09176-B21|HPE Edgeline 8GB (1x8GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered Memory FIO Kit|
-|P09188-B21|HPE Edgeline 256GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD|
+|P09176-B21|HPE Edgeline 8 GB (1x8 GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered Memory FIO Kit|
+|P09188-B21|HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD|
 |P04054-B21|HPE Edgeline EL300 SFF to M.2 Enablement Kit|
 |P08120-B21|HPE Edgeline EL300 12VDC FIO Transfer Board|
 |P08641-B21|HPE Edgeline EL300 80W 12VDC Power Supply|
-|AF564A|HPE C13 - SI-32 IL 250V 10Amp 1.83m Power Cord|
+|AF564A|HPE C13 - SI-32 IL 250V 10Amp 1.83 m Power Cord|
 |P25835-B21|HPE EL300 v2 FIO Carrier Board|
 |R1P49AAE|HPE EL300 iSM Adv 3yr 24x7 Sup_Upd E-LTU|
 |P08018-B21 optional|HPE Edgeline EL300 Low Profile Bracket Kit|
 |P08019-B21 optional|HPE Edgeline EL300 DIN Rail Mount Kit|
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
-|P03456-B21 optional|HPE Edgeline 1GbE 4-port TSN FIO Daughter Card|
+|P03456-B21 optional|HPE Edgeline 1 GbE 4-port TSN FIO Daughter Card|
 
 #### SMB rugged: Neousys Nuvo-5006LP
 |Component|Technical Specifications|
 |:----|:----|
 |Construction|Aluminum, Fanless & Dust-proof Design|
-|Dimensions|240mm (W) x 225mm (D) x 77mm (H)|
-|Weight|3.1kg (incl. CPU, memory and HDD)|
+|Dimensions|240 mm (W) x 225 mm (D) x 77 mm (H)|
+|Weight|3.1 kg (incl. CPU, memory and HDD)|
 |CPU|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
 |Chipset|Intel® Q170 Platform Controller Hub|
-|Memory|8GB DDR4 2133MHz Wide Temperature SODIMM|
-|Storage|128GB 3ME3 Wide Temperature mSATA SSD|
+|Memory|8 GB DDR4 2133MHz Wide Temperature SODIMM|
+|Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
 |Network controller|6x Gigabit Ethernet ports by Intel® I219|
 |Device access|4 USBs: 2 fronts; 2 rears; 1 internal|
 |Power Adapter|120/240VAC-20VDC/6A|
