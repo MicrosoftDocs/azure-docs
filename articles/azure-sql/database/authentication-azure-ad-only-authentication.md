@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma, wiassaf
-ms.date: 03/08/2022
+ms.date: 04/01/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
@@ -398,7 +398,7 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 When Azure AD-only authentication is enabled for SQL Database, the following features aren't supported:
 
-- [Azure SQL Database server roles](security-server-roles.md)
+- [Azure SQL Database server roles](security-server-roles.md) are supported for [Azure AD server principals](authentication-azure-ad-logins.md), but not if the Azure AD login is a group.
 - [Elastic jobs](job-automation-overview.md)
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) - If you create a database in Azure SQL Database as an Azure AD user and enable change data capture on it, a SQL user will not be able to disable or make changes to CDC artifacts. However, another Azure AD user will be able to enable or disable CDC on the same database. Similarly, if you create an Azure SQL Database as a SQL user, enabling or disabling CDC as an Azure AD user won't work
