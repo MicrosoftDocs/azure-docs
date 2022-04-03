@@ -10,7 +10,7 @@ ms.topic: reference
 
 Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. 
 
-We recommend printing this browser page or using the print function to save it as a PDF file where you can check things off as you go. For example, on Windows machines, press **CTRL+P** to access the Print dialog for this page.
+We recommend printing this browser page or using the print function to save it as a PDF file where you can check off things as you go. For example, on Windows machines, press **CTRL+P** to access the Print dialog for this page.
 
 Use this checklist together with [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md).
 
@@ -20,7 +20,7 @@ Review the following items before deploying your site:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | If you are using physical appliances, order your appliances. <br>For more information, see [OT system hardware and virtual appliance requirements](ot-system-requirements.md). | ☐ |  |
+| 1 | If you're using physical appliances, order your appliances. <br>For more information, see [OT system hardware and virtual appliance requirements](ot-system-requirements.md). | ☐ |  |
 | 2 | Identify the managed switches you want to monitor | ☐ |  |
 | 3 | Provide network details for sensors (IP address, subnet, D-GW, DNS, host). | ☐ |  |
 | 4 | Create necessary firewall rules and the access list. For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).| ☐ |  |
@@ -48,7 +48,7 @@ Review your industrial network architecture to define the proper location for th
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You'll need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you'll be prompted to enter the number of devices in increments of 1000.
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional).
 
@@ -158,7 +158,7 @@ Review your industrial network architecture to define the proper location for th
 
     Are you planning to use SMTP to forward alerts to an email server? Yes or No
 
-    If yes, what authentication method you will use?  
+    If yes, what authentication method will you use?  
 
 1. **Active Directory or local users**
 

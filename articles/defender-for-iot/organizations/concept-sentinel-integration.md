@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # OT threat monitoring in enterprise SOCs
 
-As more and more business-critical industries transform their OT systems to digital IT infrastructures, security operation center (SOC) teams and chief information security officers (CISOs) are increasingly responsible for threats from OT networks.
+As more business-critical industries transform their OT systems to digital IT infrastructures, security operation center (SOC) teams and chief information security officers (CISOs) are increasingly responsible for threats from OT networks.
 
 Together with the new responsibilities, SOC teams deal with new challenges, including:
 

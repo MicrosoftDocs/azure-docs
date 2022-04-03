@@ -32,7 +32,7 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- VMWare, ESXi 5.5 or later, installed and operational:
+- VMware, ESXi 5.5 or later, installed and operational:
 
 
 - <a name="hw"></a>Available hardware resources for your VM as follows:
@@ -56,7 +56,7 @@ Before you start, make sure that you have the following:
 
 Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis.
 
-You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine and VMWare and describes how to download and install the sensor software yourself.
+You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine and VMware and describes how to download and install the sensor software yourself.
 
 **To download software for your virtual sensors**:
 
@@ -68,13 +68,13 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 ## Create a VM for your sensor
 
-This procedure describes how to create a VM for your sensor with VMWare ESXi. 
+This procedure describes how to create a VM for your sensor with VMware ESXi. 
 
 Defender for IoT also supports other processes, such as using Hyper-V or physical sensors. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 **To create a VM for your sensor**:
 
-1. Make sure that you have the sensor software downloaded and accessible, and that VMWare is running on your machine.
+1. Make sure that you have the sensor software downloaded and accessible, and that VMware is running on your machine.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -128,7 +128,7 @@ This procedure describes how to install the sensor software on your VM.
 
 1. Enter **Y** to accept the settings.
 
-1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords will not be presented again.
+1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
 
     - **Support**: The administrative user for user management.
 
@@ -154,9 +154,9 @@ This procedure describes how to validate your installation using the sensor's ow
 
 ## Configure a SPAN port
 
-Virtual switches do not have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
+Virtual switches don't have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
 
-This procedure describes how to configure a SPAN port using a workaround with VMWare ESXi.
+This procedure describes how to configure a SPAN port using a workaround with VMware ESXi.
 
 
 > [!NOTE]
@@ -205,7 +205,7 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 
 ## Onboard and activate the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you'll need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
 
 ### Onboard the virtual sensor
 
@@ -247,7 +247,7 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign in page.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign-in page.":::
 
 1. Enter the credentials defined during the sensor installation.
 

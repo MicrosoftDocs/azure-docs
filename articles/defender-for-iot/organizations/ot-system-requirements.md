@@ -77,7 +77,7 @@ Defender for IoT sensor and on-premises management console software is built on 
 |---------|---------|
 |C5600 (Corporate)     |- 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 with HPE Smart Array P408i-a SR Gen10 Controller <br>-3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with HPE Smart Array P408i-a SR Controller       |
 |E1800 (Enterprise)    | -2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with HPE Smart Array P208i-a <br> -3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with HPE Smart Array P208i-a <br> -3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with Dell PERC H330      |
-|L500 (Line) <br> L100 (Line) <br> L60 (Line)     | -128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> -HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD <br>-128 GB 3ME3 Wide Temperature mSATA SSD
+|L500 (Line) <br> L100 (Line) <br> L60 (Line)     | -128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> - HPE Edgeline 256-GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD <br>-128 GB 3ME3 Wide Temperature mSATA SSD
 
 ## Supported physical appliances
 
@@ -168,9 +168,9 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |1|869081-B21|HPE Smart Array P408i-a SR G10 LH Ctrlr|
 |1|782961-B21|HPE 12 W Smart Storage Battery|
 |1|P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2|865408-B21|HPE 500W FS Plat Ht Plg LH Pwr Sply Kit|
+|2|865408-B21|HPE 500 W FS Plat Ht Plg LH Pwr Sply Kit|
 |1|775612-B21|HPE 1U Short Friction Rail Kit|
-|1|512485-B21|HPE iLO Adv 1-svr Lic 1yr Support|
+|1|512485-B21|HPE iLO Adv 1-svr Lic 1 yr Support|
 |1|P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 |1|P21106-B21|INT I350 1 GbE 4p BASE-T Adptr|
 |3|P28610-B21|HPE 1 TB SATA 7.2 K SFF BC HDD|
@@ -303,7 +303,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |8 GB 2666 MT/s DDR4 ECC UDIMM|370-AEKN|4|
 |2 TB 7.3 RPM SATA 6 Gbps 512 3.5 in Hot-plug Hard Drive|400-ASHX|3|
 |On-Board LOM|542-BBP|1|
-|NEMA 5-15P to C13 Wall Plug, 125 Volt, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
+|NEMA 5-15P to C13 Wall Plug, 125 Volts, 15 AMP, 10 Feet (3 m), Power Cord, North America|450-AALV|2|
 |Enterprise Program Management Support |973-3700|1|
 
 
@@ -349,12 +349,12 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 |Components|Technical Specifications|
 |:----|-----|
-|Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112 mm (W) x 112 mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
-|Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V)Storage |128 GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
-|Network controller |2x 1 GbE LAN PortsDevice access |2 x USB 2.0, 2 X USB 3.0Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
-|UPS|fit-uptime Miniature 12V UPS for miniPCs (Optional)|
-|Mounting |VESA / wall or Din Rail mounting kitTemperature |0°C ~ 70°CHumidity |5%~95%, non-condensingVibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz , 3 axis)|
-|Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)|
+|Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112 mm (W) x 112 mm (D) x 25 mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
+|Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35 V) Storage |128 GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
+|Network controller |2x 1-GbE LAN PortsDevice access |2 x USB 2.0, 2 X USB 3.0Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
+|UPS|fit-uptime Miniature 12 V UPS for miniPCs (Optional)|
+|Mounting |VESA / wall or Din Rail mounting kitTemperature |0°C, 95% humidity, non-condensingVibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz, 3 axis)|
+|Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15 g , 6 directions)|
 |EMC |CE/FCC Class B|
 
 ## Virtual Appliance Requirements
@@ -373,7 +373,7 @@ We recommend Type 1 hypervisors for Defender for IoT virtual machines. They prov
 
 ### OT Network Sensors (Physical / Virtual)
 
-Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero impact on ICS networks and devices.
+Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero effect on ICS networks and devices.
 
 The first step to deploying an OT sensor is to configure your server or virtual machine. Then connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
 
@@ -525,17 +525,17 @@ This section details more appliances that were certified but aren't offered as p
 |P25828-B21 B19|HPE EL300 v2 Converged Edge System|
 |P25833-B21|Intel Core i7-8650U (1.9GHz/4-core/15W) FIO Basic Processor Kit for HPE Edgeline EL300|
 |P09176-B21|HPE Edgeline 8 GB (1x8 GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered Memory FIO Kit|
-|P09188-B21|HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD|
+|P09188-B21|HPE Edgeline 256-GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD|
 |P04054-B21|HPE Edgeline EL300 SFF to M.2 Enablement Kit|
 |P08120-B21|HPE Edgeline EL300 12VDC FIO Transfer Board|
 |P08641-B21|HPE Edgeline EL300 80W 12VDC Power Supply|
-|AF564A|HPE C13 - SI-32 IL 250V 10Amp 1.83 m Power Cord|
+|AF564A|HPE C13 - SI-32 IL 250 V 10 Amp 1.83 m Power Cord|
 |P25835-B21|HPE EL300 v2 FIO Carrier Board|
-|R1P49AAE|HPE EL300 iSM Adv 3yr 24x7 Sup_Upd E-LTU|
+|R1P49AAE|HPE EL300 iSM Adv 3 yr 24x7 Sup_Upd E-LTU|
 |P08018-B21 optional|HPE Edgeline EL300 Low Profile Bracket Kit|
 |P08019-B21 optional|HPE Edgeline EL300 DIN Rail Mount Kit|
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
-|P03456-B21 optional|HPE Edgeline 1 GbE 4-port TSN FIO Daughter Card|
+|P03456-B21 optional|HPE Edgeline 1-GbE 4-port TSN FIO Daughter Card|
 
 #### SMB rugged: Neousys Nuvo-5006LP
 |Component|Technical Specifications|
@@ -545,13 +545,13 @@ This section details more appliances that were certified but aren't offered as p
 |Weight|3.1 kg (incl. CPU, memory and HDD)|
 |CPU|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
 |Chipset|Intel® Q170 Platform Controller Hub|
-|Memory|8 GB DDR4 2133MHz Wide Temperature SODIMM|
+|Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
 |Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
 |Network controller|6x Gigabit Ethernet ports by Intel® I219|
 |Device access|4 USBs: 2 fronts; 2 rears; 1 internal|
 |Power Adapter|120/240VAC-20VDC/6A|
 |Mounting|Mounting kit, Din Rail|
-|Operating Temperature|-25°C ~ 70°CStorage Temperature|-40°C ~ 85°C|
+|Operating Temperature|-25°C - 85°C|
 |Humidity|10%~90%, non-condensing|
 |Vibration|Operating, 5 Grms, 5-500 Hz, 3 Axes <br>(w/ SSD, according to IEC60068-2-64)|
 |Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|

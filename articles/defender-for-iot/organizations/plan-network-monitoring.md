@@ -94,7 +94,7 @@ A switch port analyzer mirrors local traffic from interfaces on the switch to in
 
 - The mirroring option is disabled by default.
 
-- We recommend that you configure all of the switch's ports, even if no data is connected to them. Otherwise, a rogue device might be connected to an unmonitored port, and it would not be alerted on the sensor.
+- We recommend that you configure all of the switch's ports, even if no data is connected to them. Otherwise, a rogue device might be connected to an unmonitored port, and it wouldn't be alerted on the sensor.
 
 - On OT networks that utilize broadcast or multicast messaging, configure the switch to mirror only RX (Receive) transmissions. Otherwise, multicast messages will be repeated for as many active ports, and the bandwidth is multiplied.
 
@@ -155,14 +155,14 @@ Consider the following when configuring RSPAN:
 - The mirroring option is disabled by default.
 - The remote VLAN must be allowed on the trunked port between the source and destination switches.
 - All switches that connect the same RSPAN session must be from the same vendor.
-- Make sure that the trunk port that's sharing the remote VLAN between the switches is not defined as a mirror session source port.
+- Make sure that the trunk port that's sharing the remote VLAN between the switches isn't defined as a mirror session source port.
 - The remote VLAN increases the bandwidth on the trunked port by the size of the mirrored session's bandwidth. Verify that the switch's trunk port supports the increased bandwidth.
 
 The following diagram shows an example of a remote VLAN architecture:
 
 :::image type="content" source="media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN.":::
 
-For example, use the following steps to set up a RSPAN for a Cisco 2960 switch with 24 ports running IOS.
+For example, use the following steps to set up an RSPAN for a Cisco 2960 switch with 24 ports running IOS.
 
 **To configure the source switch**:
 
@@ -200,17 +200,17 @@ For example, use the following steps to set up a RSPAN for a Cisco 2960 switch w
 
 An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
 
-The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation is not supported, each TAP uses two sensor ports to monitor send and receive traffic.
+The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation isn't supported, each TAP uses two sensor ports to monitor send and receive traffic.
 
 The advantages of TAPs include:
 
 - TAPs are hardware-based and can't be compromised
 - TAPs pass all traffic, even damaged messages, which the switches often drop
-- TAPs are not not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
+- TAPs aren't not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
 
 For forensic purposes, a TAP is the best device.
 
-TAP aggregators can also be used for port monitoring. These devices are processor-based and are not as intrinsically secure as hardware TAPs, and therefore might not reflect exact packet timing.
+TAP aggregators can also be used for port monitoring. These devices are processor-based and aren't as intrinsically secure as hardware TAPs, and therefore might not reflect exact packet timing.
 
 The following diagram shows an example of a network setup with an active and passive TAP:
 
@@ -252,7 +252,7 @@ The following diagram shows an example of a ring network topology, in which each
 
 ### Sample: Linear bus and star topology
 
-In a star network, every host is connected to a central hub. In its simplest form, one central hub acts as a conduit to transmit messages. In the following example, lower switches are not monitored, and traffic that remains local to these switches will not be seen. Devices might be identified based on ARP messages, but connection information will be missing.
+In a star network, every host is connected to a central hub. In its simplest form, one central hub acts as a conduit to transmit messages. In the following example, lower switches aren't monitored, and traffic that remains local to these switches won't be seen. Devices might be identified based on ARP messages, but connection information will be missing.
 
 :::image type="content" source="media/how-to-set-up-your-network/linear-bus-star-topology.PNG" alt-text="Diagram of the linear bus and star topology.":::
 

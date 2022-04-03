@@ -27,7 +27,7 @@ Before performing the procedures in this article, make sure that you understand 
 
 ## On-site deployment tasks
 
-Perform the steps in this section before deploying Defender for IoT on yor network. 
+Perform the steps in this section before deploying Defender for IoT on your network. 
 
 Make sure to perform each step methodologically, requesting the information and reviewing the data you receive. Prepare and configure your site and then validate your configuration.
 
@@ -143,7 +143,7 @@ Use the following tables to ensure that required firewalls are open on your work
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console. | Sensor | On-premises management console |
 | SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 
-### Additional firewall rules for external services (optional)
+### Other firewall rules for external services (optional)
 
 Open these ports to allow extra services for Defender for IoT.
 
@@ -154,10 +154,10 @@ Open these ports to allow extra services for Defender for IoT.
 | HTTP | TCP | Out | 80 | The CRL download for certificate validation when uploading  certificates. | Access to the CRL server | Sensor and on-premises management console | CRL server |
 | [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | Out | 135, 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
 | [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Out | 161 | Monitoring | Monitors the sensor's health. | On-premises management console and Sensor | SNMP server |
-| LDAP | TCP | In/Out | 389 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAP server |
+| LDAP | TCP | In/Out | 389 | Active Directory | Allows Active Directory management of users that have access, to sign in to the system. | On-premises management console and Sensor | LDAP server |
 | Proxy | TCP/UDP | In/Out | 443 | Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor | Proxy server |
 | Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server. | On-premises management console and Sensor | Syslog server |
-| LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAPS server |
+| LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to sign in to the system. | On-premises management console and Sensor | LDAPS server |
 | Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
 
 ## Choose a cloud connection method
@@ -179,7 +179,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 2. Verify that the GUI network is connected to the management port on the sensor.
 
-3. Ping the appliance IP address. If there is no response to ping:
+3. Ping the appliance IP address. If there's no response to ping:
 
     1. Connect a monitor and a keyboard to the appliance.
 
@@ -211,7 +211,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 6. Try to ping and connect from the GUI again.
 
-### Appliance is not responding
+### Appliance isn't responding
 
 1. Connect with a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 

@@ -9,7 +9,7 @@ ms.date: 03/24/2022
 
 The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
-The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and third party sources to to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
+The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and third party sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
 :::image type="content" source="media/architecture/system-architecture.png" alt-text="Diagram of the Defender for IoT system architecture." border="false":::
 
@@ -66,7 +66,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 - **Industrial malware detection engine**. Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.
 
-- **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign in attempts, and PLC Scan Detected alerts.
+- **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign-in attempts, and PLC Scan Detected alerts.
 
 - **Operational incident detection**. Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
@@ -74,7 +74,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 Defender for IoT provides hybrid network support using the following management options:
 
-- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides additional value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
+- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
 
     Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
