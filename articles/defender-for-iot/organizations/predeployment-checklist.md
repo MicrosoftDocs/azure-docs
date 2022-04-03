@@ -20,20 +20,15 @@ Review the following items before deploying your site:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | If you are using physical appliances, order your appliances. <br>For more information, see | ☐ |  |
+| 1 | If you are using physical appliances, order your appliances. <br>For more information, see [OT system hardware and virtual appliance requirements](ot-system-requirements.md). | ☐ |  |
 | 2 | Identify the managed switches you want to monitor | ☐ |  |
 | 3 | Provide network details for sensors (IP address, subnet, D-GW, DNS, host). | ☐ |  |
-| 4 | Create necessary firewall rules and the access list. | ☐ |  |
-| 5 | Create SPAN ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 6 | Prepare rack space for sensor appliances. | ☐ |  |
-| 7 | Prepare a workstation for personnel. | ☐ |  |
-| 8 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 9 | Rack and cable the appliances. | ☐ |  |
-| 10 | Allocate site resources to support deployment. | ☐ |  |
-| 11 | Create Active Directory groups or local users. | ☐ |  |
-| 12 | Set up training (self-learning). | ☐ |  |
-| 13 | Go or no-go. | ☐ |  |
-| 14 | Schedule the deployment date. | ☐ |  |
+| 4 | Create necessary firewall rules and the access list. For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).| ☐ |  |
+| 5 | Configure port mirroring, defining the *source* as the physical ports or VLANs you want to monitor, and the *destination* as the output port that connected to OT sensor. | ☐ |  |
+| 7 |  Connect the switch to the OT sensor. | ☐ |  |
+| 8 | Create Active Directory groups or local users. | ☐ |  |
+| 9 | On the Azure portal, add a Defender for IoT subscription and an OT sensor and then activate your sensor. | ☐ |  |
+| 10 | Validate the link and incoming traffic to the OT sensor  | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
