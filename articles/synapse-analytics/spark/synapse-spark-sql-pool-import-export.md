@@ -515,7 +515,7 @@ By default, a write response is printed to the cell output. On failure, the curr
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
 * Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to spot throttling behaviors that can [impact](../../storage/common/scalability-targets-standard-account.md) read and write performance.
 
-## Additional Reading
+## References
 
 * [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
 * [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
