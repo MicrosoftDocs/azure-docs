@@ -471,8 +471,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
-      - name: Restore a deleted dedicated SQL pool
-        href: ./backuprestore/restore-deleted-sql-pool.md
+      - name: Restore a SQL pool from a deleted workspace
+        href: ./backuprestore/restore-sql-pool-from-deleted-workspace.md
       - name: Pause and resume using Synapse Pipelines
         href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
