@@ -37,7 +37,7 @@ If both ExpressRoute circuits (to AVS and to on-premises) are terminated in the 
 
 As the diagram shows, the NVA needs to advertise a more generic (less specific) prefix that both the on-premises network and AVS. You need to be careful with this approach, since the NVA might be potentially attracting traffic that it should not (since it is advertising wider ranges, in the example above the whole `10.0.0.0/8` network).
 
-If two regions are involved, you would need an NVA would in each region, and both NVAs would exchange the routes they learn from their respective Azure Route Servers via BGP and some sort of encapsulation protocol such as VXLAN or IPsec, as the following diagram shows.
+If two regions are involved, you would need an NVA in each region, and both NVAs would exchange the routes they learn from their respective Azure Route Servers via BGP and some sort of encapsulation protocol such as VXLAN or IPsec, as the following diagram shows.
 
 :::image type="content" source="./media/scenarios/vmware-solution-to-on-premises.png" alt-text="Diagram of AVS to on-premises communication with Route Server in two regions.":::
 
