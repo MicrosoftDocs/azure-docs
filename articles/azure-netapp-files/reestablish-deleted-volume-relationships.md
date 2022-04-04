@@ -7,7 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 04/04/2022
 ---
 # Re-established deleted volume replication relationships in Azure NetApp Files
 
@@ -34,8 +34,15 @@ The network features capability is currently in public preview. If you are using
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Reestablish the Relationship
-1. From the **Volumes** menu, select the volume that was formerly the destination volume in the replication relationship you want to restore. Then select the **Replication** tab. 
+1. From the **Volumes** menu under **Storage service**, select the volume that was formerly the _destination_ volume in the replication relationship you want to restore. Then select the **Replication** tab. 
 1. In the **Replication** tab, select the **Re-establish** button. 
-    :::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
+    :::image type="content" source="../media/azure-netapp-files/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. The re-establish button is highlighted with a red box." lightbox="../media/azure-netapp-files/reestablish-button.png":::
 1. The side menu that appears will present a dropdown menu with a selection of all volumes that formerly had either a source or destination replication relationship with the selected volume. From the dropdown menu, select the volume you want to reestablish a relationship with. Select **OK** to reestablish the relationship.
-    :::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
+    :::image type="content" source="../media/azure-netapp-files/reestablish-confirm.png" alt-text="Blade depicting a dropdown menu with available volume relationships to restore." lightbox="../media/azure-netapp-files/reestablish-confirm.png":::
+
+## Next steps  
+
+* [Cross-region replication](cross-region-replication-introduction.md)
+* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Display health status of replication relationship](cross-region-replication-display-health-status.md)
+* [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
