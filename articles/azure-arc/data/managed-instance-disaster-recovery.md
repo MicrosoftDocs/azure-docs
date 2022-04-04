@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
 
-Disaster recovery in Azure Arc-enabled SQL Managed Instance can be configured by setting up auto-failover groups, similar to Azure SQL DB or Azure SQL MI. 
+Disaster recovery in Azure Arc-enabled SQL Managed Instance can be configured by setting up failover groups, similar to Azure SQL DB or Azure SQL MI. 
 
 The implementation behind auto-failover groups is achieved using distributed availability groups.
 
