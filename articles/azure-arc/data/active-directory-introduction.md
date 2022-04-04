@@ -14,15 +14,15 @@ ms.topic: how-to
 # Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
 This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication in : 
--  Active Directory (AD) manual authentication mode or Bring their own keytab (BYOK) mode 
--  Active Directory (AD) automatic autentfication mode 
+-  Active Directory (AD) in Bring your own keytab (BYOK) mode 
+-  Active Directory (AD) in automatic autentfication mode 
 
 ## Background
 
 Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed instances uses an existing on-premises Active Directory (AD) domain for authentication. Users need to follow the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance : 
 
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
-- [Deploy a manual AD connector](deploy-manual-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
+- [Deploy a Bring your own keytab (BYOK) AD connector](deploy-boky-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
 - [Deploy SQL Managed instances](deploy-active-directory-sql-managed-instance.md)
 
 The following diagram shows how user proceed to enable Active Directory authentication for Arc-enabled SQL Managed Instance :
@@ -41,22 +41,22 @@ coming from the SQL Managed Instance to either of the two upstream DNS services:
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
 
-## What is the difference between a manual Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
+## What is the difference between a Bring your own keytab (BYOK) Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
 
-To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you dermine the mode of the AD deployment : manual or Automatic. 
+To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you dermine the mode of the AD deployment : Bring your own keytab (BYOK) or Automatic. 
 
-In the manual mode, users will bring in : 
+In the Bring your own keytab (BYOK) mode, users will bring in : 
 - A an Active Directory account was created prior to the AD deployment
 - Service Principal Names 
 - Your own Keytab file
-And you need an manual AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+And you need an Bring your own keytab (BYOK) AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
 In the automatic mode, you need an automatic Active Directory (AD) connector, system will take care of the following work : 
 - The domain service AD account is automatically generated.
 - The system sets SPNs automatically on that account.
 - A keytab file is generated then delivered to the SQL Managed instance.
 
-The mode of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to manual or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
+The mode of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to Bring your own keytab (BYOK) or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
 - spec.activeDirectory.ouDistinguishedName
 - spec.activeDirectory.domainServiceAccountSecret
 
@@ -64,7 +64,7 @@ When a SQL Managed Instance is deployed with the intention to enable Active Dire
 
 ## Next steps
 
-* [Deploy an manual Active Directory (AD) connector](deploy-manual-active-directory-connector.md)
+* [Deploy an Bring your own keytab (BYOK) Active Directory (AD) connector](deploy-byok-active-directory-connector.md)
 * [Deploy an automatic Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 * [Deploy Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)

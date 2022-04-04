@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Tutorial – Deploy an Automatic Active Directory (AD) Connector
 
-This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both manual and automatic Active Directory (AD) authentification mode.
+This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) authentication mode.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
 - **Optional**
 
-  - **spec.activeDirectory.serviceAccountProvisioning** This is an optional field defines your AD connector deployment mode with possible value manual or automatic. This field indicating whether the service account provisioning including SPN and keytab generation should be automatic or manual. Once it sets to automatic, the service AD account is automatically generated and set SPNs on that account, and a keytab file is generated then transport to SQL Managed instance. In case it sets to manual which is the default value, the system will not take care of AD service account generation, SPN registration and keytab generation. 
+  - **spec.activeDirectory.serviceAccountProvisioning** This is an optional field defines your AD connector deployment mode with possible value Bring your own keytab (BYOK) or automatic. This field indicating whether the service account provisioning including SPN and keytab generation should be automatic or Bring your own keytab (BYOK). Once it sets to automatic, the service AD account is automatically generated and set SPNs on that account, and a keytab file is generated then transport to SQL Managed instance. In case it sets to Bring your own keytab (BYOK) which is the default value, the system will not take care of AD service account generation, SPN registration and keytab generation. 
 
   - **spec.activeDirectory.ouDistinguishedName** This is an optional field. Though it becomes conditionally mandatory when the value of **serviceAccountProvisioning** is set to automatic. This field accepts the Distinguished Name (DN) of an Organizational Unit (OU) that the users must create in Active Directory domain before deploying AD Connector. It stores the system-generated AD accounts in active directory for AD LDAP server. The example of the value would look as follows : "OU=arcou,DC=contoso,DC=local"
 
@@ -154,7 +154,7 @@ kubectl get adc -n <namespace>
 ```
 
 ## Next steps
-
+* [Deploy an Bring your own keytab (BYOK) Active Directory (AD) connector](deploy-byok-active-directory-connector.md)
 * [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
 

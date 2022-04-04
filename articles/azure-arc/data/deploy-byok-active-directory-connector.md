@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Deploy a manual Active Directory (AD) Connector
-description: Tutorial to deploy a Manual Active Directory (AD) Connector
+title: Tutorial – Deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
+description: Tutorial to deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 04/05/2022
 ms.topic: how-to
 ---
 
-# Tutorial – Deploy a Manual Active Directory (AD) Connector
+# Tutorial – Deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
 
-This article explains how to deploy a manual Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both manual and automatic Active Directory (AD) authentification mode.
+This article explains how to deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) authentification mode.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Before you proceed, you must have:
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
 
-The following instructions expect that the users are able to generate the following in the Active Directory domain and provide to the AD manual deployment.
+The following instructions expect that the users are able to generate the following in the Active Directory domain and provide to the AD Bring your own keytab (BYOK) deployment.
 
 * An Active Directory user account for the SQL Managed Instance
 * Service Principal Names (SPNs) under the user account
@@ -158,7 +158,7 @@ Deploy the Kubernetes secret with `kubectl apply -f <file>`. For example:
 kubectl apply –f sqlmi-keytab-secret.yaml
 ```
 
-## Active directory (AD ) in Manual or Bring Your Own Keytab (BYOK) mode
+## Active directory (AD ) in Bring your own keytab (BYOK) or Bring Your Own Keytab (BYOK) mode
 
 The following are the steps for user to set up:
 1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
@@ -168,7 +168,7 @@ The following are the steps for user to set up:
 1. Registering Service Principal Names (SPNs) under the AD account in Active Directory domain for the SQL endpoint.
 1. Creating and providing a keytab file for SQL Managed Instance containing entries for the AD account and SPNs.
 
-The following diagram Active Directory Connector and SQL Managed Instance describes how the manual mode works : 
+The following diagram Active Directory Connector and SQL Managed Instance describes how the Bring your own keytab (BYOK) mode works : 
 
 ![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
 
@@ -236,10 +236,10 @@ Following input fields are exposed to the users in the Active Directory Connecto
       If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
 
 
-## Deploy a Manual Active Directory (AD) connector
+## Deploy a Bring your own keytab (BYOK) Active Directory (AD) connector
 To deploy an AD connector, create a YAML spec file called `active-directory-connector.yaml`.
 
-The following example is an example of a manual AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain.
+The following example is an example of a Bring your own keytab (BYOK) AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain.
 
 ```yaml
 apiVersion: arcdata.microsoft.com/v1beta1
@@ -276,7 +276,7 @@ kubectl get adc -n <namespace>
 ```
 
 ## Next steps
-
+* [Deploy an Automatic Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 * [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
 
