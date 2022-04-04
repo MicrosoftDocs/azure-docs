@@ -18,7 +18,7 @@ You can enable a managed bot protection rule set for your WAF to block or log re
 
 ## Use with OWASP rulesets
 
-You can use the Bot Protection ruleset alongside any of the OWASP rulesets (2.2.9, 3.0, and 3.1). Only one OWASP ruleset can be used at any given time. The bot protection ruleset contains an additional rule that appears in its own ruleset. It's titled **Microsoft_BotManagerRuleSet_0.1**, and you can  enable or disable it like the other OWASP rules.
+You can use the Bot Protection ruleset alongside any of the OWASP rulesets (3.2, 3.1, 3.0, and 2.2.9). Only one OWASP ruleset can be used at any given time. The bot protection ruleset contains an additional rule that appears in its own ruleset. It's titled **Microsoft_BotManagerRuleSet_0.1**, and you can  enable or disable it like the other OWASP rules.
 
 ![Bot ruleset](../media/bot-protection-overview/bot-ruleset.png)
 

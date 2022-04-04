@@ -45,7 +45,7 @@ sections:
       - question: |
           What rules are currently available for WAF?
         answer: |
-          WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+          WAF currently supports CRS [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), [3.1](application-gateway-crs-rulegroups-rules.md#owasp30), [3.0](application-gateway-crs-rulegroups-rules.md#owasp31), and [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
           
           * SQL injection protection
           * Cross-site scripting protection
@@ -55,7 +55,7 @@ sections:
           * Prevention against bots, crawlers, and scanners
           * Detection of common application misconfigurations (that is, Apache, IIS, and so on)
           
-          For more information, see [OWASP top-10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+          For more information, see [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
           
       - question: |
           What content types does WAF support?
