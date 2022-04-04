@@ -405,7 +405,7 @@ function signOut() {
         account: myMSALObj.getAccountByUsername(username)
     };
 
-    myMSALObj.logout(logoutRequest);
+    myMSALObj.logoutPopup(logoutRequest);
 }
 
 function getTokenPopup(request) {
@@ -500,7 +500,7 @@ function signOut() {
         account: myMSALObj.getAccountByUsername(username)
     };
 
-    myMSALObj.logout(logoutRequest);
+    myMSALObj.logoutRedirect(logoutRequest);
 }
 
 function getTokenRedirect(request) {
