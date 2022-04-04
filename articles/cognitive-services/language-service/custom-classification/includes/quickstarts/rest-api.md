@@ -130,7 +130,7 @@ This request will return an error if:
 
 ## Start training your model
 
-After your project has been created, you can begin training a cusom text classification model. Create a **POST** request using the following URL, headers, and JSON body to start training a custom text classification model.
+After your project has been created, you can begin training a custom text classification model. Create a **POST** request using the following URL, headers, and JSON body to start training a custom text classification model.
 
 ### Request URL
 
