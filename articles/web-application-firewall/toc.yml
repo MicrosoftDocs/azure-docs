@@ -8,7 +8,7 @@
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
-    - name: Azure WAF Engine
+    - name: Azure WAF engine
       href: ./ag/azure-waf-engine.md
     - name: What's new
       href: ./ag/ag-overview.md#whats-new
