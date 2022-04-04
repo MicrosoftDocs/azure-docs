@@ -18,7 +18,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VMs | GA | X | Log Analytics agent | Defender for Servers |  |
+| Compliance | Docker CIS | VMs | GA | X | Log Analytics agent | Defender for Servers Plan 2 |  |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | ✓ (Preview) | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | X | Defender profile | Defender for Containers | Commercial clouds |
 | Hardening | Control plane recommendations | ACR, AKS | GA | ✓ | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
@@ -36,9 +36,9 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
-| Compliance | Docker CIS | EC2 | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability assessment | Registry scan | - | - | - | - | - |
-| Vulnerability assessment | View vulnerabilities for running images | - | - | - | - | - |
+| Compliance | Docker CIS | EC2 | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
+| Vulnerability Assessment | Registry scan | - | - | - | - | - |
+| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| EKS | Preview | ✓ | Agentless | Defender for Containers |
@@ -54,9 +54,9 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
-| Compliance | Docker CIS | GCP VMs | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability assessment | Registry scan | - | - | - | - | - |
-| Vulnerability assessment | View vulnerabilities for running images | - | - | - | - | - |
+| Compliance | Docker CIS | GCP VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
+| Vulnerability Assessment | Registry scan | - | - | - | - | - |
+| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | GKE | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| GKE | Preview | ✓ | Agentless | Defender for Containers |
@@ -68,13 +68,13 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### [**On-prem/IasS (Arc)**](#tab/iass-arc)
+### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
-| Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
-| Vulnerability assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
+| Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
+| Vulnerability Assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
+| Vulnerability Assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |
