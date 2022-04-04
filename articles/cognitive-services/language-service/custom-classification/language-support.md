@@ -1,14 +1,14 @@
 ---
 title: Language support in custom text classification
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by custom entity extraction.
+description: Learn about which languages are supported by custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/14/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -28,15 +28,101 @@ With custom text classification, you can train a model in one language and test 
 
 Custom text classification supports `.txt` files in the following languages:
 
-| Language | Locale |  
-|--|--|
-| English (United States) |`en-US` |
-| French (France) |`fr-FR` |
-| German |`de-DE` |
-| Italian |`it-IT` |
-| Spanish (Spain) |`es-ES` |
-| Portuguese (Portugal) | `pt-PT` |
-| Portuguese (Brazil) | `pt-BR` |
+| Language | Language Code |
+| --- | --- |
+| Afrikaans | `af` |
+| Amharic | `am` |
+| Arabic | `ar` |
+| Assamese | `as` |
+| Azerbaijani | `az` |
+| Belarusian | `be` |
+| Bulgarian | `bg` |
+| Bengali | `bn` |
+| Breton | `br` |
+| Bosnian | `bs` |
+| Catalan | `ca` |
+| Czech | `cs` |
+| Welsh | `cy` |
+| Danish | `da` |
+| German | `de` 
+| Greek | `el` |
+| English (US) | `en-us` |
+| Esperanto | `eo` |
+| Spanish | `es` |
+| Estonian | `et` |
+| Basque | `eu` |
+| Persian (Farsi) | `fa` |
+| Finnish | `fi` |
+| French | `fr` |
+| Western Frisian | `fy` |
+| Irish | `ga` |
+| Scottish Gaelic | `gd` |
+| Galician | `gl` |
+| Gujarati | `gu` |
+| Hausa | `ha` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Croatian | `hr` |
+| Hungarian | `hu` |
+| Armenian | `hy` |
+| Indonesian | `id` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Javanese | `jv` |
+| Georgian | `ka` |
+| Kazakh | `kk` |
+| Khmer | `km` |
+| Kannada | `kn` |
+| Korean | `ko` |
+| Kurdish (Kurmanji) | `ku` |
+| Kyrgyz | `ky` |
+| Latin | `la` |
+| Lao | `lo` |
+| Lithuanian | `lt` |
+| Latvian | `lv` |
+| Malagasy | `mg` |
+| Macedonian | `mk` |
+| Malayalam | `ml` |
+| Mongolian | `mn` |
+| Marathi | `mr` |
+| Malay | `ms` |
+| Burmese | `my` |
+| Nepali | `ne` |
+| Dutch | `nl` |
+| Norwegian (Bokmal) | `nb` |
+| Oriya | `or` |
+| Punjabi | `pa` |
+| Polish | `pl` |
+| Pashto | `ps` |
+| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Portugal) | `pt-pt` |
+| Romanian | `ro` |
+| Russian | `ru` |
+| Sanskrit | `sa` |
+| Sindhi | `sd` |
+| Sinhala | `si` |
+| Slovak | `sk` |
+| Slovenian | `sl` |
+| Somali | `so` |
+| Albanian | `sq` |
+| Serbian | `sr` |
+| Sundanese | `su` |
+| Swedish | `sv` |
+| Swahili | `sw` |
+| Tamil | `ta` |
+| Telugu | `te` |
+| Thai | `th` |
+| Filipino | `tl` |
+| Turkish | `tr` |
+| Uyghur | `ug` |
+| Ukrainian | `uk` |
+| Urdu | `ur` |
+| Uzbek | `uz` |
+| Vietnamese | `vi` |
+| Xhosa | `xh` |
+| Yiddish | `yi` |
+| Chinese (Simplified) | `zh-hans` |
+| Zulu | `zu` | 
 
 ## Next steps
 

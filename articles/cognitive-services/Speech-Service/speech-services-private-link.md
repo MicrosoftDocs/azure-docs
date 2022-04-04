@@ -7,7 +7,7 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo 
 ms.custom: devx-track-azurepowershell
@@ -340,6 +340,9 @@ Follow these steps to modify your code:
 > Parameters set in the endpoint URI always take precedence. Other APIs can override only parameters that are not specified in the endpoint URI.
 
 After this modification, your application should work with the private-endpoint-enabled Speech resources. We're working on more seamless support of private endpoint scenarios.
+
+[!INCLUDE [](includes/speech-studio-vnet.md)]
+
 
 ## Adjust an application to use a Speech resource without private endpoints
 

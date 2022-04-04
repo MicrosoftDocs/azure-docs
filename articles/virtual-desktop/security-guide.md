@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 02/22/2022
 ms.author: helohr
 ms.service: virtual-desktop
 manager: femila
@@ -186,6 +186,7 @@ The following operating systems support running nested virtualization on Azure V
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
+- Windows 11
 
 ## Windows Defender Application Control
 
@@ -196,6 +197,7 @@ The following operating systems support using Windows Defender Application Contr
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
+- Windows 11
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.

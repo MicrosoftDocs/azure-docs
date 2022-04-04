@@ -53,7 +53,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
               "type": "AzureMonitorWindowsAgent",
               "typeHandlerVersion": "1.0",
               "autoUpgradeMinorVersion": true,
-			  "enableAutomaticUpgrade":true
+              "enableAutomaticUpgrade":true
           }
       }
   ]

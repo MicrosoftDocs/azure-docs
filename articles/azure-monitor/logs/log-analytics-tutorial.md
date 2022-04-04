@@ -2,8 +2,6 @@
 title: "Log Analytics tutorial"
 description: Learn from this tutorial how to use features of Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
 ms.date: 06/28/2021
 
 ---
@@ -66,9 +64,15 @@ A **where** statement is added to the query with the value that you selected. Th
 
 
 ### Time range
-All tables in a Log Analytics workspace have a column called **TimeGenerated**, which is the time that the record was created. All queries have a time range that limits the results to records that have a **TimeGenerated** value within that range. You can set the time range in the query or by using the selector at the top of the screen.
 
-By default, the query returns records from the last 24 hours. You should see a message here that says we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. Select the **Time range** dropdown list, and change the value to **12 hours**. Select **Run** again to return the results. 
+All queries return records generated within a set time range. By default, the query returns records generated in the last 24 hours. 
+
+You can set a different time range using the [where operator](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor#filter-by-boolean-expression-where-1) in the query, or using the **Time range** dropdown list at the top of the screen. 
+
+Let’s change the time range of the query by selecting **Last 12 hours** from the **Time range** dropdown. Select **Run** to return the results.
+
+> [!NOTE]
+> Changing the time range using the **Time range** dropdown does not change the query in the query editor.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Screenshot that shows the time range." lightbox="media/log-analytics-tutorial/query-results-max.png":::
 

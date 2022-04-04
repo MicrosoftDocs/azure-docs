@@ -6,25 +6,22 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 03/21/2022
 ms.custom: template-concept 
 ---
 
 # Elastic data map in Azure Purview
 
-Azure Purview Data Map provides the foundation for data discovery and data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), and operation systems in hybrid, on-premises, and multi-cloud environments. Azure Purview Data Map automatically stays up to date with its built-in scanning and classification system. With the UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
+The Azure Purview data map provides the foundation for data discovery and data governance. It captures metadata about data present in analytics, software-as-a-service (SaaS), and operation systems in hybrid, on-premises, and multi-cloud environments. The Azure Purview data map stays up to date with its built-in scanning and classification system. 
 
-## Elastic data map
-
-All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). These limits should cover most data landscapes. However, if you need a higher capacity, [you can create a support ticket](#request-capacity).
-
+All Azure Purview accounts have a data map that elastically grow starting at one capacity unit. They scale up and down based on request load and metadata stored within the data map.
 ## Data map capacity unit
 
-Elastic Data Map comes with operation throughput and storage components that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 10 GB of metadata storage limit.  
+The elastic data map has two components, metadata storage and operation throughput, represented as a capacity unit (CU). All Azure Purview accounts, by default, start with one capacity unit and elastically grow based on usage. Each data Map capacity unit includes a throughput of 25 operations/sec and 10 GB of metadata storage limit.  
 
 ### Operations
 
-Operations are the throughput measure of the Azure Purview Data Map. They include the Create, Read, Write, Update, and Delete operations on metadata stored in the Data Map. Some examples of operations are listed below:
+Operations are the throughput measure of the Azure Purview Data Map. They include any Create, Read, Write, Update, and Delete operations on metadata stored in the Data Map. Some examples of operations are listed below:
 
 - Create an asset in Data Map
 - Add a relationship to an asset such as owner, steward, parent, lineage, etc.
@@ -90,7 +87,7 @@ The Data Map billing example below shows a Data Map with growing metadata storag
 
 :::image type="content" source="./media/concept-elastic-data-map/operations-and-metadata.png" alt-text="Chart depicting number of operations and growth of metadata over time.":::
 
-Each Data Map capacity unit supports 25 operations/second and 10 GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
+Each Data Map capacity unit supports 25 operations/second and 10 GB of metadata storage. The Data Map is billed hourly. It is billed for the maximum Data Map capacity units needed within the hour, with a minimum of one capacity unit. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
 
 The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example:
 
@@ -103,15 +100,28 @@ Based on the Data Map operations/second and metadata storage consumption in this
 >[!Important]
 >Azure Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level of the elasticity window, a support ticket needs to be created.
 
-## Request capacity
+## Increase operations throughput limit
 
-If you're working with very large datasets or a massive environment and need higher capacity for your elastic data map, you can request a larger capacity of elasticity window by [creating a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+The default limit for maximum operations per second is 10 capacity units. If you are working with a very large Azure Purview environment and require a higher throughput, you can request a larger capacity of elasticity window by [creating a quota request](how-to-manage-quotas.md#request-quota-increase). Select "Data map capacity unit" as the quota type and provide as much relevant information as you can about your environment and the additional capacity you would like to request.
 
-Select **Service and subscription limits (quota)** and complete the on screen instructions by choosing the Azure Purview account that you'd like to request larger capacity for.
+> [!IMPORTANT]
+> There's no default limit for metadata storage. As you add more metadata to your data map, it will elastically increase. 
 
-:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Screen showing the support case creation, with limit increase options selected.":::
+Increasing the operations throughput limit will also increase the minimum number of capacity units. If you increase the throughput limit to 20, the minimum capacity units you will be charged is 2 CUs. The below table illustrates the possible throughput options. The number you enter in the quota request is the minimum number of capacity units on the account.
 
-In the description, provide as much relevant information as you can about your environment and the additional capacity you would like to request.
+
+| Minimum capacity units | Operations throughput limit |
+|----------|-----------|
+| 1 |10 (Default)     |
+| 2 |20     |
+| 3 |30     |
+| 4 |40     |
+| 5 |50    |
+| 6 |60   |
+| 7 |70     |
+| 8 |80    |
+| 9 |90    |
+| 10 |100    |
 
 ## Monitoring the elastic data map
 

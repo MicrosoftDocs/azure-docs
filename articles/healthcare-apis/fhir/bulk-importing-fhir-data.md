@@ -1,25 +1,22 @@
 ---
-title: Bulk import data into the FHIR service in Azure Healthcare APIs
-description: This article describes how to bulk import data to the FHIR service in Healthcare APIs.
+title: Bulk import data into the FHIR service in Azure Health Data Services
+description: This article describes how to bulk import data to the FHIR service in Azure Health Data Services.
 services: healthcare-apis
-author: SteveWohl
+author: dougseven
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/28/2022
-ms.author: zxue
+ms.date: 03/01/2022
+ms.author: dseven
 ---
 
-# Bulk importing data to the FHIR service in Healthcare APIs
+# Bulk importing data to the FHIR service in Azure Health Data Services
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this article, you'll learn how to bulk import data into the FHIR service in Healthcare APIs. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open-source community.
+In this article, you'll learn how to bulk import data into the FHIR service in Azure Health Data Services. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open-source community.
 
 While tools such as [Postman](../fhir/use-postman.md), [cURL](../fhir/using-curl.md), and [REST Client](../fhir/using-rest-client.md) to ingest data to the FHIR service, they're not typically used to bulk load FHIR data.
 
 >[!Note]
->The [bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) feature is currently available in the open source FHIR server. It's not available in Healthcare APIs yet.
+>The [bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) feature is currently available in the open source FHIR server. It's not available in Azure Health Data Services yet.
 
 ## Azure Function FHIR Importer
 
@@ -28,7 +25,7 @@ The [FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/ma
 - Behind the scenes, the Azure Storage trigger starts the Azure Function when a new document is detected and the document is the input to the function.
 - It processes multiple documents in parallel and provides a basic retry logic using [HTTP call retries](/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) when the FHIR service is too busy to handle the requests.
 
-The FHIR Importer works for the FHIR service in Healthcare APIs and Azure API for FHIR.
+The FHIR Importer works for the FHIR service in Azure Health Data Services and Azure API for FHIR.
 
 >[!Note]
 >The retry logic of Importer does not handle errors after retries have been attempted. It is highly recommended that you revise the retry logic for production use. Also, informational and error logs may be added or removed.
@@ -43,7 +40,7 @@ To use the tool, follow the prerequisite steps below:
 
    [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)](media/bulk-import/importer-appsettings.png#lightbox)
 
-1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors. You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or other upload tools.
+1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that can’t be processed due to errors. You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or other upload tools.
 
    [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png)](media/bulk-import/importer-storage-container.png#lightbox)
 
@@ -61,7 +58,7 @@ There are other similar tools that can be used to bulk load FHIR data.
 
 ## Next steps
 
-In this article, you've learned about the tools and the steps for bulk-importing data into the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned about the tools and the steps for bulk-importing data into FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 >[!div class="nextstepaction"]
 >[Converting your data to FHIR](convert-data.md)

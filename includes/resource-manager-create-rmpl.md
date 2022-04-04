@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 09/20/2021
+ms.date: 03/24/2022
 ms.author: tomfitz
 ---
 
@@ -30,6 +30,11 @@ The following image shows how to construct a solution that restricts access for 
 :::image type="content" source="./media/resource-manager-create-rmpl/resource-management-private-link.svg" alt-text="Resource management private link diagram":::
 
 The private link association extends the root management group. The private link association and the private endpoints reference the resource management private link.
+
+> [!IMPORTANT]
+> Multi-tenant accounts aren't currently supported for managing resources through a private link. You can't connect private link associations on different tenants to a single resource management private link.
+>
+> If your account accesses more than one tenant, define a private link for only one of them.
 
 ## Workflow
 

@@ -1,11 +1,9 @@
 ---
 title: Import SQL BACPAC files with templates
 description: Learn how to use Azure SQL Database extensions to import SQL BACPAC files with Azure Resource Manager templates (ARM templates).
-author: mumian
-ms.date: 09/30/2021
+ms.date: 02/28/2022
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: devx-track-azurepowershell
+
 #Customer intent: As a database administrator I want use ARM templates so that I can import a SQL BACPAC file.
 ---
 
@@ -89,9 +87,11 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
                              -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
-    Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
-    Write-Host "The project name and location are $projectName and $location"
+    Write-Host "The project name:        $projectName`
+    	The location:            $location`
+    	The storage account key: $storageAccountKey`
+    	The BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName`
+    	"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -138,7 +138,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
         }
     ```
 
-    Add a comma after the `adminPassword` property's closing curly brace (`}`). To format the JSON file from Visual Studio Code, select Shift+Alt+F.
+    Add a comma after the `adminPassword` property's closing curly brace (`}`). To format the JSON file from Visual Studio Code, select **Shift+Alt+F**.
 
 1. Add two resources to the template.
 
@@ -222,7 +222,6 @@ Use the project name and location that were used when you prepared the BACPAC fi
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $storageAccountKey = Read-Host -Prompt "Enter the storage account key"

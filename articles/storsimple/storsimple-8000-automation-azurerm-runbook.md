@@ -58,7 +58,7 @@ To create an automation module for the StorSimple 8000 series device management,
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
     ```
 
-5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands:
+5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows PowerShell window, type the following commands:
 
     ```powershell
         # set path variables

@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
-ms.author: eric-urban
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 

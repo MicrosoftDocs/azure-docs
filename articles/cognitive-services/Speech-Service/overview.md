@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/09/2022
 ms.author: eur
 ---
 
@@ -29,6 +29,7 @@ The following features are part of the Speech service. Use the links in this tab
 | [Text-to-speech](text-to-speech.md) | Prebuilt neural voices | Text-to-speech converts input text into humanlike synthesized speech by using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are humanlike voices powered by deep neural networks. See [Language support](language-support.md). | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
 | | [Custom neural voices](#customize-your-speech-experience) | Create custom neural voice fonts unique to your brand or product. | No | [Yes](#reference-docs) |
 | [Speech translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multilanguage translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
+| [Language identification](language-identification.md) | Language identification | Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech-to-text recognition, or with speech translation. | [Yes](./speech-sdk.md) | No |
 | [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion. | [Yes](voice-assistants.md) | No |
 | [Speaker recognition](speaker-recognition-overview.md) | Speaker verification and identification | Speaker recognition provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". | Yes | [Yes](/rest/api/speakerrecognition/) |
 
@@ -98,7 +99,7 @@ After you've had a chance to get started with the Speech service, try our tutori
 
 ## Get sample code
 
-Sample code is available on GitHub for the Speech service. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition, and working with custom models. Use these links to view SDK and REST samples:
+Sample code is available on GitHub for the Speech service. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
 - [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
@@ -118,13 +119,7 @@ Other products offer speech models tuned for specific purposes, like healthcare 
 
 ## Deploy on-premises by using Docker containers
 
-[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. The Speech service offers the following containers:
-
-* Standard Speech-to-Text
-* Custom Speech-to-Text
-* Prebuilt Neural Text-to-Speech
-* Custom Neural Text-to-Speech (preview)
-* Speech Language Identification (preview)
+[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
 ## Reference docs
 

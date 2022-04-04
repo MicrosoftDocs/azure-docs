@@ -31,10 +31,6 @@ JDBC connections to an HDInsight cluster on Azure are made over port 443. The tr
 
 Replace `CLUSTERNAME` with the name of your HDInsight cluster.
 
-Or you can get the connection through **Ambari UI > Hive > Configs > Advanced**.
-
-:::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png" alt-text="Get JDBC connection string through Ambari" border="true":::
-
 ### Host name in connection string
 
 Host name 'CLUSTERNAME.azurehdinsight.net' in the connection string is the same as your cluster URL. You can get it through Azure portal.

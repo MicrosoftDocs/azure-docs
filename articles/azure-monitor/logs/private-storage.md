@@ -2,9 +2,10 @@
 title: Using customer-managed storage accounts in Azure Monitor Log Analytics
 description: Use your own storage account for Log Analytics scenarios
 ms.topic: conceptual
-author: noakup
-ms.author: noakuper
-ms.date: 09/03/2020
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: noakuper
+ms.date: 04/04/2022
 ---
 
 # Using customer-managed storage accounts in Azure Monitor Log Analytics
@@ -20,11 +21,11 @@ The Azure Diagnostics extension agents (also called WAD and LAD for Windows and 
 Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Supported data types:
-* Syslog
-* Windows events
+* [Syslog](../agents/data-sources-syslog.md)
+* [Windows events](../agents/data-sources-windows-events.md)
 * Service Fabric
-* ETW Events
-* IIS Logs
+* [ETW Events](../agents/data-sources-event-tracing-windows.md)
+* [IIS Logs](../agents/data-sources-iis-logs.md)
 
 ## Using Private links
 Customer-managed storage accounts are used to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 

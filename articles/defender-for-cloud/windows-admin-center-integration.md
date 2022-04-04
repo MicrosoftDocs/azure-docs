@@ -38,7 +38,7 @@ By combining these two tools, Defender for Cloud becomes your single pane of gla
     * An Azure Gateway is registered.
     * The server has a workspace to report to and an associated subscription.
     * Defender for Cloud's Log Analytics solution is enabled on the workspace. This solution provides Microsoft Defender for Cloud's features for *all* servers and virtual machines reporting to this workspace.
-    * Microsoft Defender for servers is enabled on the subscription.
+    * Microsoft Defender for Servers is enabled on the subscription.
     * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]
