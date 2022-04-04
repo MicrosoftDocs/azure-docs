@@ -212,7 +212,7 @@ There are two aspects to deploying a static app. The first creates the underlyin
 
 Before you can navigate to your new static site, the deployment build must first finish running.
 
-The Static Web Apps overview window displays a series of links that help you interact with your web app.
+The Static Web Apps *Overview* window displays a series of links that help you interact with your web app.
 
 ::: zone pivot="github"
 
@@ -224,9 +224,9 @@ The Static Web Apps overview window displays a series of links that help you int
 
 ::: zone-end
 
-::: zone pivot="github"
+::: zone pivot="azure-devops"
 
-Once DevOps pipeline workflow is complete, you can click on the _URL_ link to open the website in new tab.
+Once the  workflow is complete, you can click on the _URL_ link to open the website in new tab.
 
 ::: zone-end
 
