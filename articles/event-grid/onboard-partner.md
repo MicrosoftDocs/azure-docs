@@ -113,7 +113,7 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
 
 1. Go to the **Overview** page of the partner namespace you created, and select **+ Channel** on the command bar.
 
-    :::image type="content" source="./media/onboard-partner/create-channel-button.png" alt-text="Image showing the selection of Create Channel button on the command bar of the Event Grid Partner Namespace page.":::
+    :::image type="content" source="./media/onboard-partner/create-channel-button.png" lightbox="./media/onboard-partner/create-channel-button.png" alt-text="Image showing the selection of Create Channel button on the command bar of the Event Grid Partner Namespace page.":::
 1. On the **Create Channel - Basics** page, follow these steps.
     1. Enter a **name** for the channel. Channel name should be unique across the region in which is created.
     1. For the channel type, select **Partner Topic** or **Partner Destination**. 
@@ -186,7 +186,6 @@ If you selected **Source attribute in event** for **Partner topic routing mode**
     1. Select **Next: Additional features** at the bottom of the page. 
     
         :::image type="content" source="./media/onboard-partner/create-event-channel-filters-page.png" alt-text="Create event channel - filters page":::
-        create-event-channel-filters-page.png
 1. On the **Additional features** page, you can set an **expiration time** and **description for the partner topic**. 
     1. The **expiration time** is the time at which the topic and its associated event channel will be automatically deleted if not activated by the customer. A default of seven days is used in case a time isn't provided. Select the checkbox to specify your own expiration time. 
     1. As this topic is a resource that's not created by the user, a **description** can help the user with understanding the nature of this topic. A generic description will be provided if none is set. Select the checkbox to set your own partner topic description. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid - Partner Events (customers) 
+title: Partner Events overview for customers 
 description: Send or receive from a SaaS or ERP system directly to/from Azure services with Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/31/2022

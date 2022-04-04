@@ -22,7 +22,7 @@ To send Auth0 events to Azure:
 
 This article provides steps for doing the task #3 from the above list. All other tasks are documented in the [Subscribe to partner events](subscribe-to-partner-events.md) article. 
 
-## Set up an Auth0 Partner Topic
+## Set up an Auth0 partner topic
 Part of the integration process is to set up Auth0 for use as an event source by using the [Auth0 Dashboard](https://manage.auth0.com/).
 
 1. Log in to the [Auth0 Dashboard](https://manage.auth0.com/).

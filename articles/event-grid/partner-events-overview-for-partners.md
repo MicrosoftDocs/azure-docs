@@ -1,5 +1,5 @@
 ---
-title: Partner Events overview for system owners who desire to become partners (Azure Event Grid)
+title: Partner Events overview for system owners who desire to become partners
 description: Provides an overview of the concepts and general steps to become a partner. 
 ms.topic: conceptual
 ms.date: 03/31/2021
@@ -11,7 +11,7 @@ Event Grid's **Partner Events** allows customers to **subscribe to events** that
 > [!NOTE]
 > This is a conceptual article that's required reading before you decide to onboard as a partner to Azure Event Grid. For step-by-step instructions on how to onboard as an Event Grid partner using the Azure portal, see [How to onboard as an Event Grid partner (Azure portal)](onboard-partner.md). 
 
-## Partner Events: how it works
+## Partner Events: How it works
 
 As a partner, you create Event Grid resources that enable to you publish events to Azure Event Grid so that customers on Azure can subscribe to them. For most partners, for example SaaS providers, it's the only integration capability that they'll use.
 
@@ -59,10 +59,10 @@ Registrations are global. That is, they aren't associated with a particular Azur
   
 ### Channel
 A Channel is a nested resource to a Partner Namespace. A channel has two main purposes:
-  1. It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is the customer's resource where events from a partner system. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel is the kind of resource, along with partner topics and partner destinations, that enable bi-directional event integration.
+  - It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is the customer's resource where events from a partner system. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel is the kind of resource, along with partner topics and partner destinations, that enable bi-directional event integration.
    
       A channel has the same lifecycle as its associated customer partner topic or destination. When a channel of type `partner topic` is deleted, for example, the associated customer's partner topic is deleted. Similarly, if the partner topic is deleted by the customer, the associated channel on your Azure subscription is deleted.
-  2. It's a resource that is used to route events. A channel of type ``partner topic`` is used to route events to a customer's partner topic. It supports two types of routing modes. 
+  - It's a resource that is used to route events. A channel of type ``partner topic`` is used to route events to a customer's partner topic. It supports two types of routing modes. 
       - **Channel name routing**. With this kind of routing, you publish events using an http header called `aeg-channel-name` where you provide the name of the channel to which events should be routed. As channels are a partner's representation of partner topics, the events routed to the channel show on the customer's parter topic. This kind of routing is a new capability not present in `event channels`, which support only source-based routing. Channel name routing enables more use cases than the source-based routing and it's the recommended routing mode to choose. For example, with channel name routing a customer can request events that originate in different event sources to land on a single partner topic.
       - **Source-based routing**. This routing approach is based on the value of the `source` context attribute in the event. Sources are mapped to channels and when an event comes with a source, say, of value "A" that event is routed to the partner topic associated to the channel that contains "A" in its source property.
 
@@ -100,8 +100,8 @@ Customer activates the partner topic or destination you've created for them. At 
 ### How do you automate the process to know when you can start publishing events for a given partner topic?
 
 You have two options:
-1. Read (poll) the channel state periodically to check if the activation status has transitioned from **NeverActivated** to **Activated**. This operation can be computationally intensive.
-2. Create an [event subscription](subscribe-through-portal.md)  for the [Azure subscription](event-schema-subscriptions.md#available-event-types) or [resource group](event-schema-resource-groups.md#available-event-types) that contains the channel(s) you want to monitor. You'll receive `Microsoft.Resources.ResourceWriteSuccess` events whenever a channel is updated. You'll then need to read the state of the channel with the Azure Resource Manager ID provided in the event to ascertain that the update is related to a change in the activation status to **Activated**.
+- Read (poll) the channel state periodically to check if the activation status has transitioned from **NeverActivated** to **Activated**. This operation can be computationally intensive.
+- Create an [event subscription](subscribe-through-portal.md)  for the [Azure subscription](event-schema-subscriptions.md#available-event-types) or [resource group](event-schema-resource-groups.md#available-event-types) that contains the channel(s) you want to monitor. You'll receive `Microsoft.Resources.ResourceWriteSuccess` events whenever a channel is updated. You'll then need to read the state of the channel with the Azure Resource Manager ID provided in the event to ascertain that the update is related to a change in the activation status to **Activated**.
 
 ## References
 
