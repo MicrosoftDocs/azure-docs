@@ -14,11 +14,13 @@ ms.date: 03/24/2022
 Azure NetApp Files is an Azure service is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](/azure/azure-netapp-files) documentation.  
 
 > [!IMPORTANT]
-> Azure NetApp Files datastores for Azure VMware Solution (Preview) is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews]().
+> Azure NetApp Files datastores for Azure VMware Solution (Preview) is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 By using NFS datastores backed by Azure NetApp Files you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
-## Regional road map
+## Supported Regions
+
+East US, US South Central, North Europe, West Europe, North Central US, Australia Southeast, France Central, Australia East, Brazil South, Canada Central, Canada East, Central US, Germany West Central, Japan West, Southeast Asia, Switzerland West, UK South, UK West and West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
 
 ## Prerequisites
 
