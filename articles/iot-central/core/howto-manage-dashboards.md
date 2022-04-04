@@ -102,15 +102,6 @@ This table describes the types of tiles you can add to a dashboard:
 
 Currently, you can add up to 10 devices to tiles that support multiple devices.
 
-## Pin analytics to dashboard
-
-To continuously monitor the analytics queries, you can pin the query to dashboard. To pin a query to the dashboard:
-
-1. Navigate to **Data explorer**  in the left pane and select the query you created.
-1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
-
-:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard":::
-
 ### Customize visualizations
 
 By default, line charts show data over a range of time. The selected time range is split into 50 equally sized partitions. The device data is then aggregated per partition to give 50 data points over the selected time range. If you want to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the **Display range** dropdown in the **Configure chart** panel.
@@ -140,6 +131,15 @@ The following screenshot shows the effect of those conditional formatting rules:
 This feature is available on the KPI, LKV, and property tiles. It lets you adjust font size, choose decimal precision, abbreviate numeric values (for example, format 1,700 as 1.7 K), or wrap string values on their tiles.
 
 :::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Screenshot that shows the dialog box for tile formatting.":::
+
+## Pin analytics to dashboard
+
+To continuously monitor the analytics queries, you can pin the query to dashboard. To pin a query to the dashboard:
+
+1. Navigate to **Data explorer**  in the left pane and select the query you created.
+1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
+
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard":::
 
 ## Next steps
 
