@@ -62,12 +62,14 @@ sections:
         answer: |
           While creating a new private offer, select “Accepted date” as the start date to make the price available for the customer to transact as soon as the private offer is accepted. If you want a private price to be available to the customer immediately on acceptance, choose “Accepted date”.
 
-          Choose Specific month to make the private price available in a future calendar month. Example: If you create a private offer on May 15th and want the private price to be available to the customer on June 1st, select June. The private offer will start on the first day of the month and end on the last day. You can't select specific start and end dates. If a customer purchases the public offer/plan prior to June 1st, they will not receive the private offer price for any transactions before June 1st.
+          Choose specific month to make the private price available in a future calendar month. Example: If you create a private offer on May 15th and want the private price to be available to the customer on June 1st, select June. The private offer will start on the first day of the month and end on the last day. You can't select specific start and end dates. If a customer purchases the public offer/plan prior to June 1st, they will not receive the private offer price for any transactions before June 1st.
 
           > [!NOTE]
           > If a private offer is extended to an existing customer of pay-as-you-go (PAYG; consumption-based) products (like Virtual machines, selecting Accepted date will make the private price applicable for the entire month. For example: If you create a private offer on May 15th for a Virtual Machine product for an existing customer and select Accepted date, the private price will be applied for the entire month on the month of acceptance.
 
       - question: |
+          How is **Accept by date** different from **End date**?
+        answer: |
           Accept by date is the offer's expiration date. Your customer must accept the private offer on or before this date or it will expire. The End date specifies the date on which the private price/terms will end.
 
       - question: |
