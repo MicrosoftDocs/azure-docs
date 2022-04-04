@@ -62,7 +62,7 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It is not supported to update agent pool from host group A to host group B.
-* Fault domain count can only be 1.
+* Using ADH across subscriptions.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
@@ -96,7 +96,7 @@ az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 1
+--platform-fault-domain-count 5
 --automatic-placement true
 ```
 
