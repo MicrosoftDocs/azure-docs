@@ -29,6 +29,8 @@ items:
       href: quickstarts/upgrade-unity-quickstart-to-2020.md
     - name: Starting a new Unity HoloLens app
       href: quickstarts/new-unity-hololens-app.md
+    - name: Unity remoting support
+      href: quickstarts/unity-remoting.md
   - name: Create HoloLens DirectX app
     href: quickstarts/get-started-hololens-directx.md
 - name: How-to
