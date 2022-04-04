@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 10/29/2020
-ms.author: stevehow
+ms.author: realAngryAnalytics
 ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
@@ -58,3 +58,4 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 ## Next Steps
 
 - [Create a restore point](sqlpool-create-restore-point.md)
+- [Restore SQL pool from deleted workspace](restore-sql-pool-from-deleted-workspace.md)
