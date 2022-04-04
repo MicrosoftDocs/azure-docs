@@ -25,11 +25,7 @@ To install Defender for IoT software on your own appliances, see [OT hardware sy
 
 ## Supported appliances for OT network sensors
 
-You can purchase any of the following appliances for your OT network sensors.
-
-> [!NOTE]
-> Bandwidth capacity may vary depending on protocol distribution.
-
+You can purchase any of the following appliances for your OT network sensors:
 
 - **HPE ProLiant DL360**, for [corporate deployments](#hpe-proliant-dl360):
 
@@ -49,7 +45,7 @@ You can purchase any of the following appliances for your OT network sensors.
     |:----|:----|:----|:----|:----|
     |XL E1800| Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
 
-- **HPE ProLiant DL20 Plus**, for [SMB rugged deployments](#dl20-rugged):
+- **HPE ProLiant DL20 Plus**, for [SMB rugged deployments](#hpe-proliant-dl20-plus-smb-rugged):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
@@ -69,15 +65,15 @@ You can purchase any of the following appliances for your OT network sensors.
     |:----|:----|:----|:----|:----|
     | L100|One RJ45|10Mbp/s|100|DIN/VESA|
 
+> [!NOTE]
+> Bandwidth capacity may vary depending on protocol distribution.
+
 
 ## Supported appliances for on-premises management consoles
 
 You can purchase any of the following appliances for your OT network sensors.
 
-> [!NOTE]
-> Bandwidth capacity may vary depending on protocol distribution.
-
-- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#dl20-enterprise):
+- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#hpe-proliant-dl20-plus-enterprise):
 
     |Bandwidth capacity| Monitoring ports|Monitored sensors|Mounting|
     |:----|:----|:----|:----|
@@ -89,7 +85,8 @@ You can purchase any of the following appliances for your OT network sensors.
     |:----|:----|:----|:----|
     |E1800|Eight RJ45 or six SFP (OPT)|Up to 300|1U|
 
-
+> [!NOTE]
+> Bandwidth capacity may vary depending on protocol distribution.
 ## Supported appliances per deployment type
 
 The following tabs describe supported specifications, depending on your system deployment type.
@@ -142,9 +139,9 @@ For enterprise deployments, use one of the following options and specifications:
 - HPE ProLiant DL20
 - Dell PowerEdge R340 XL
 
-### <a name"dl20-enterprise"></a>HPE ProLiant DL20 Plus
+### HPE ProLiant DL20 Plus (enterprise)
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-DL20 Plus.png" alt-text="Photo of the DL20 Plus panel" border="false":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20 Plus panel" border="false":::
 
 
 |Component  |Specifications|
@@ -307,7 +304,7 @@ For an SMB deployment, use one of the following options and specifications:
 - HPE ProLiant DL20 Plus
 - YS-techsystems YS-FIT2
 
-### <a name"dl20-rugged"></a>HPE ProLiant DL20 Plus
+### HPE ProLiant DL20 Plus (SMB rugged)
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus" border="false":::
 
