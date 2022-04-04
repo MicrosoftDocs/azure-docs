@@ -12,6 +12,6 @@ ms.author: spelluru
 > * [PHP](../service-bus-php-how-to-use-queues.md)
 > * [Python](../service-bus-python-how-to-use-queues.md)
 > * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
-> * [REST](../service-bus-dotnet-get-started-with-queues.md)
+> * [REST](https://docs.microsoft.com/rest/api/azure/)
 > 
 >

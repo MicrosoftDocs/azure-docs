@@ -116,7 +116,7 @@ To ensure that the privileged init container setting is not reverted to the defa
 ### Enable High Availability features on installation
 OSM's control plane components are built with High Availability and Fault Tolerance in mind. This section describes how to
 enable Horizontal Pod Autoscaling (HPA) and Pod Disruption Budget (PDB) during installation. Read more on the design
-considerations of High Availability on OSM [here](https://openservicemesh.io/docs/guides/ha_scale/high_availability/).
+considerations of High Availability on OSM [here](https://docs.openservicemesh.io/docs/guides/ha_scale/high_availability/).
 
 #### Horizontal Pod Autoscaling (HPA)
 HPA automatically scales up or down control plane pods based on the average target CPU utilization (%) and average target 

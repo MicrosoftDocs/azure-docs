@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 03/18/2022
+ms.date: 04/04/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 

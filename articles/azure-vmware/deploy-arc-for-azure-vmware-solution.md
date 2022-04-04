@@ -64,7 +64,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/tag/v2.0.0). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -97,7 +97,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-      "resourceGroup": "test-rg ", 
+      "resourceGroup": "test-rg", 
       "applianceControlPlaneIpAddress": "10.14.10.10", 
       "privateCloud": "test-pc", 
       "isStatic": true, 
@@ -183,7 +183,7 @@ This section will demonstrate how to use custom roles to manage granular access 
 
 #### Arc-enabled VMware vSphere custom roles
 
-We provide three custom roles to meet your Role-based access controls (RBACs). These roles can be applied to a whole subscription, resource group, or a single resource.
+Three custom roles are provided to meet your Role-based access control (RBAC) requirements. These roles can be applied to a whole subscription, resource group, or a single resource.
 
 - Azure Arc VMware Administrator role
 - Azure Arc VMware Private Cloud User role
@@ -324,7 +324,7 @@ Use the **`Set Credential`** command to update the provider credentials for appl
 1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
     
 > [!NOTE]
-> Customers need to ensure kubeconfig and SSH remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
+> Customers need to ensure kubeconfig and SSH keys remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
 
 **Parameters**
 
@@ -347,6 +347,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
+1. Delete the resource bridge ARM resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.
