@@ -58,7 +58,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Activity log insights (Preview)](essentials/activity-log-insights.md)
+- [Activity logs insights (Preview)](essentials/activity-logs-insights.md)
 
 **Updated articles**
 
