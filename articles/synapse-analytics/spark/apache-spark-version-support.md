@@ -48,7 +48,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | GA|
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | GA |
-| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | April 11, 2022 | GA |
+| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | April 18, 2022 | GA |
 
 ## Runtime release stages
 
