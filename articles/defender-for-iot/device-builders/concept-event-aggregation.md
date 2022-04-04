@@ -118,7 +118,7 @@ The **nics** properties are composed of the following;
 
 ## Baseline (trigger based)
 
-The baseline collector performs CIS checks periodically. Only the failed results are sent to the cloud. The cloud aggregates the results, and provides recommendations.
+The baseline collector performs periodic CIS checks, and *failed*, *pass*, and *skip* check results are sent to the Defender for IoT cloud service. Defender for IoT aggregates the results and provides recommendations based on any failures.
 
 ### Data collection
 
@@ -127,7 +127,7 @@ The data collected for each event is:
 | Parameter | Description|
 |--|--|
 | **Check ID** | In CIS format. For example, `CIS-debian-9-Filesystem-1.1.2`. |
-| **Check result** | Can be `Error`, or `Fail`. For example, `Error` in a situation where the check can’t run. |
+| **Check result** | Can be `Fail`, `Pass`, `Skip`, or `Error`. For example, `Error` in a situation where the check can’t run. |
 | **Error** | The error's information, and description. |
 | **Description** | The description of the check from CIS. |
 | **Remediation** | The recommendation for remediation from CIS. |
