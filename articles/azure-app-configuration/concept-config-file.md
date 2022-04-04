@@ -47,7 +47,7 @@ Key Vault references require a particular content type during importing, so you 
 ```json
 {
     "Database": {
-        "ConnectionString": "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}"
+        "ConnectionString": "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}"
     }
 }
 ```
@@ -84,7 +84,7 @@ The following example is a file in the KVSet profile named `appcofigdata.json` c
     },
     {
       "key": "Database:ConnectionString",
-      "value": "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}",
+      "value": "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}",
       "label": "test",
       "content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
       "tags": {}
