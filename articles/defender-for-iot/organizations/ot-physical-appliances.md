@@ -1,13 +1,15 @@
 ---
-title: Microsoft Defender for IoT OT system hardware and virtual appliance requirements
-description: Learn about system requirements for hardware and virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console. 
-ms.date: 03/28/2022
+title: Microsoft Defender for IoT OT system physical appliance requirements
+description: Learn about system requirements for physical appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
+ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT system hardware and virtual appliance requirements
+# OT system physical appliance requirements
 
-This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
+This article lists the hardware and physical appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+
+The hardware listed in this article has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
 
 For more information, see:
 
@@ -15,45 +17,16 @@ For more information, see:
 - [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-## Deployment options
 
-The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
-
-### Corporate IT/OT hybrid networks
-
-|Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
-|---------|---------|---------|---------|
-|C5600 (Corporate)    | 3 Gbps        | 12 K        |Physical / Virtual         |
-
-### Enterprise monitoring at the site level
-
-|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
-|---------|---------|---------|---------|
-|E1800 (Enterprise)     |1 Gbps         |10K         |Physical / Virtual         |
-
-### Securing production lines
-
-|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
-|---------|---------|---------|---------|
-|L500 (Line)    | 200 Mbps        |   1,000      |Physical / Virtual         |
-|L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
-|L60 (Line)     | 10 Mbps        |   100      |Physical / Virtual|
-
-### On-premises management console
-
-|Name  |Max monitored sensors  |Deployment  |
-|---------|---------|---------|
-|E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
-
-## Supported hardware
-
-The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
-
-#### Required operating systems
+## Required operating systems
 
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
 
-#### Central processing unit (CPU)
+## Supported hardware
+
+The following tables describe supported hardware for physical appliances used for Defender for IoT OT sensors and on-premises management consoles.
+
+### Central processing unit (CPU)
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -61,7 +34,7 @@ Defender for IoT sensor and on-premises management console software is built on 
 |E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
 |L500 (Line) <br> L100 (Line)<br> L60 (Line)|-Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>-Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
 
-#### Network cards (Ethernet/SFP)
+### Network cards (Ethernet/SFP)
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -71,7 +44,7 @@ Defender for IoT sensor and on-premises management console software is built on 
 |L100 (Line)           |-Broadcom BCM5720   |
 |L60 (Line)            |-Broadcom BCM5719   |
 
-#### Storage arrays
+### Storage arrays
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -91,7 +64,7 @@ Microsoft has validated the following physical appliances. Using any of the appl
 
 Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
-#### Supported appliances for OT network sensors
+### Supported appliances for OT network sensors
 
 |Model / Capacity|Monitoring Ports|Max bandwidth|Max protected devices|Mounting|
 |:----|:----|:----|:----|:----|
@@ -105,14 +78,17 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 > [!NOTE]
 > Bandwidth capacity may vary depending on protocol distribution.
 
-#### Supported appliances for on-premises management consoles
+### Supported appliances for on-premises management consoles
 
 |Model / Capacity| Monitoring Ports|Monitored Sensors|Mounting|
 |:----|:----|:----|:----|
 |**HPE ProLiant DL20+**<br>E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
 |**Dell PowerEdge R340 XL** <br> E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
 
-### Corporate deployment: HPE ProLiant DL360
+
+## Corporate deployment options
+
+For corporate deployments, use the **HPE ProLiant DL360** with the following specifications:
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360" border="false":::
 
@@ -149,9 +125,14 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
 
-### Enterprise deployment: HPE ProLiant DL20+
+## Enterprise deployment options
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="HPE ProLiant D120+ View" border="false":::
+For enterprise deployments, use one of the following options and specifications:
+
+# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20+)
+
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel" border="false":::
+
 
 |Component  |Specifications|
 |---------|---------|
@@ -159,7 +140,6 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel" border="false":::
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -176,7 +156,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |3|P28610-B21|HPE 1 TB SATA 7.2 K SFF BC HDD|
 |2|P43019-B21|HPE 16 GB 1Rx8 PC4-3200AA-E STND Kit|
 
-#### Optional modules for port expansion
+Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
@@ -188,9 +168,11 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
+For example:
+
 :::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20" border="false":::
 
-### Enterprise deployment: HPE ProLiant DL20
+# [HPE ProLiant DL20](#tab/hpe-proliant-dl20)
 
 |Component|Technical specifications|
 |----|----|
@@ -211,7 +193,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Power|Dual Hot Plug Power Supplies 500 W|
 |Rack support| HPE 1U Short Friction Rail Kit|
 
-#### Appliance BOM
+**Appliance BOM**
 
 |PN|Description: high end|Quantity|
 |:----|:----|:----|
@@ -229,7 +211,8 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |P06722-B21|HPE DL20 Gen10 RPS Enablement FIO Kit|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-### Enterprise Deployment: Dell PowerEdge R340 XL
+# [Dell PowerEdge R340 XL](#tab/dell-poweredge-r340-xl)
+
 
 |Component |Technical Specifications|
 |----|----|
@@ -250,8 +233,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340" border="false":::
 
-
- #### Optional modules for port expansion
+Optional modules for port expansion include:
 
 |Location|Type|Specification|
 |-----|-----|-----|
@@ -265,7 +247,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10 GbE|
 
 
-#### Deployment BOM
+**Deployment BOM**:
 
 |Description|SKU|Qty|
 |:----|:----|:----|
@@ -306,8 +288,14 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |NEMA 5-15P to C13 Wall Plug, 125 Volt, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
 |Enterprise Program Management Support |973-3700|1|
 
+---
 
-#### SMB Deployment: HPE ProLiant DL20+
+## SMB rugged deployment options
+
+For an SMB deployment, use one of the following options and specifications:
+
+# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20+)
+
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
 |Component|Technical specifications|
@@ -328,7 +316,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-#### Appliance BOM
+**Appliance BOM**:
 
 |PN|Description|Quantity|
 |:----|:----|:----|
@@ -345,7 +333,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-### SMB Rugged: YS-techsystems YS-FIT2
+# [YS-techsystems YS-FIT2](#tab/ys-techsystems-ys-fit2)
 
 |Components|Technical Specifications|
 |:----|-----|
@@ -357,60 +345,15 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)|
 |EMC |CE/FCC Class B|
 
-## Virtual Appliance Requirements
+---
 
-The virtualized hardware used to run guest operating systems is supplied by Virtual Machine Hosts, also known as hypervisors. 
-There are generally two distinct categories of virtual machine hypervisors: Type 1 (bare-metal) and Type 2 (hosted).
-Type 1 hypervisors run directly on the host server's hardware. Hardware resources are directly allocated to guest virtual machines, and the hardware is managed directly. This type of hypervisor provides specific resources for specific virtual machines; in some instances, hardware can be passed directly to a guest. Microsoft Hyper-V Server and VMware vSphere/ESXi are examples of Type 1 hypervisors.
+## Legacy appliance support
 
-Type 2 hypervisors run within the host operating system. In contrast to Type 1 hypervisors, they don't have exclusive hardware control and don't reserve dedicated resources for their guest virtual machines. Type 2 hypervisors include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
+This section details more appliances that are certified but aren't currently offered as preconfigured appliances.
 
-We recommend Type 1 hypervisors for Defender for IoT virtual machines. They provide deterministic performance and the ability to dedicate resources.  
+### Enterprise options
 
-#### Hypervisor support
-- VMware ESXi (version 5.0 and later)
-- Microsoft Hyper-V (VM configuration version 8.0 and later)
-
-#### OT Network Sensors (Physical / Virtual)
-
-Defender for IoT Sensors collect IoT/OT network traffic using passive (agentless) monitoring. These sensors are passive and non-intrusive and have zero impact on ICS networks and devices.
-
-The first step to deploying an OT sensor is to configure your server or virtual machine. Then connect a Network Interface Card (NIC) to the switch monitoring port (SPAN) or network TAP. To install the software after acquiring your network sensor, go to Defender for IoT > Network Sensors ISO > Installation.
-
-|Maximum Network bandwidth*|2.5 Gb/sec|800 Mb/sec|160 Mb/Sec|160 Mb/sec|
-|:----|:----|:----|:----|:----|
-|Maximum monitored assets*|12,000|10,000|800|800|
-|Architecture Requirements|Corporate_6T_v3|Enterprise_2T_v3|SMB_500G_v3|Rugged_100G_v3|
-|vCPU|32|8|4|4|
-Memory|32 GB|32 GB|8 GB|8 GB|
-|Storage|5.6 TB <br> - 500 IOPSm|1.8 TB <br> - 300 IOPS|500 GB <br> -200 IOPS 100 GB <br>~150 IOPS|
-
-* Results for VMs may vary, depending on the distribution of protocols and the actual hardware resources that are available: including CPU model, memory bandwidth, and IOPS.
-
-### On Premises Management Console (Physical / Virtual)
-
-The On-Premises Management Console provides a consolidated view of all the assets and delivers a real-time view of key OT risk indicators and alerts across all your facilities. 
-
-| Type               | Enterprise |
-| ------------------ | ---------- |
-| vCPU               | 8          |
-| Memory             | 32 GB       |
-| Storage            | 1.8 TB      |
-| Monitored Sensors* | Up to 300  |
-
-#### Recommended resource design considerations
-
-|Component|Recommendation|What to Expect|
-|:----|:----|:----|
-|CPU|Non-dynamic allocation of CPU cores (>2.4Ghz) should be dedicated based on capacity.|High CPU usage – the appliance is constantly recording network traffic and performing analytics. The CPU performance of sensor appliances is critical in capturing and analyzing network traffic. Any slowdown is likely to result in packet drops and degraded performance. As a best practice, physical cores should be dedicated (pinning) based on the chosen appliance capacity.|
-|Memory|Non-dynamic allocation of RAM should be dedicated based on the chosen capacity.|High RAM usage – the appliance is constantly recording network traffic and performing analytics.|
-|Network Interfaces|Physically map Virtual machines using SR-IOV or an NIC dedicated to the virtual machine. This will provide maximum performance, lowest latency and efficient CPU utilization. When using a vSwitch, set the promiscuous mode to 'Accept'. This will allow all traffic to reach the VM.|Traffic monitoring volume is high, so high network utilization is expected. vSwitch may block certain protocols if not configured correctly.|
-|Storage|Resource provisioning should ensure there's sufficient read and write IOPS and throughput to match the performance of the appliances on this page.|Traffic monitoring volume is high (IOPs and throughput) so high storage utilization is also expected.|
-
-### Past certifications of legacy appliances
-This section details more appliances that were certified but aren't offered as preconfigured appliances.
-
-### Enterprise deployment: HPE ProLiant DL20
+# [HPE ProLiant DL20](#tab/hpe-proliant-dl20)
 
 |Component|Technical specifications|
 |:----|:----|
@@ -427,7 +370,8 @@ This section details more appliances that were certified but aren't offered as p
 |Power|	Dual Hot Plug Power Supplies 500 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-### Enterprise deployment: HPE PROLIANT DL20 BOM
+**Appliance BOM**:
+
 |PN|Description: high end|Quantity|
 |:----|:----|:----|
 |P06963-B21|HPE DL20 Gen10 4SFF CTO Server|1|
@@ -444,7 +388,9 @@ This section details more appliances that were certified but aren't offered as p
 |P06722-B21|HPE DL20 Gen10 RPS Enablement FIO Kit|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-### Enterprise deployment: Dell PowerEdge R340 XL
+
+# [Dell PowerEdge R340 XL](#tab/dell-poweredge-r340-xl)
+
 
 |Component|	Technical Specifications|
 |:----|:----|
@@ -462,7 +408,11 @@ This section details more appliances that were certified but aren't offered as p
 |Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks| with support for optional tool-less cable management arm.|
 
-### SMB deployment: HPE ProLiant DL20
+---
+
+### SMB options
+
+**HPE ProLiant DL20**:
 
 |Component|Technical specifications|
 |:----|:----|
@@ -479,7 +429,8 @@ This section details more appliances that were certified but aren't offered as p
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-#### Appliance BOM
+**Appliance BOM**:
+
 |PN|Description|Quantity|
 |:----|:----|:----|
 |P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
@@ -494,6 +445,8 @@ This section details more appliances that were certified but aren't offered as p
 |P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
+
+
 
 ### SMB rugged: HPE Edgeline EL300 
 
@@ -559,9 +512,16 @@ This section details more appliances that were certified but aren't offered as p
 |Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
 |EMC|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
 
-## Next Steps
-For more information, see:
+## Next steps
+
+Continue understanding system requirements for physical or virtual appliances. For more information, see:
+
+- [OT system deployment options](ot-deployment-options.md)
+- [OT system virtual appliance requirements](ot-virtual-appliances.md)
+- [OT system legacy supported hardware](ot-legacy-appliances.md)
+
+Then, use any of the following procedures to continue:
 
 - [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)

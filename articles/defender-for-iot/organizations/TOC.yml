@@ -56,8 +56,16 @@
         href: architecture.md
       - name: Sensor connection methods
         href: architecture-connections.md
-      - name: OT hardware system requirements
-        href: ot-system-requirements.md
+      - name: OT system-requirements
+        items:
+        - name: Deployment options
+          href: ot-deployment-options.md
+        - name: Physical appliance requirements
+          href: ot-physical-appliances.md
+        - name: Virtual appliance requirements
+          href: ot-virtual-appliances.md
+        - name: Supported legacy appliances
+          href: ot-legacy-appliances.md
     - name: Key concepts
       href: concept-key-concepts.md
     - name: OT threat monitoring in enterprise SOCs
