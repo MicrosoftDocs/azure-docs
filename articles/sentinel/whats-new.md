@@ -44,7 +44,7 @@ For more information, see:
 
 - [New custom log ingestion and data transformation at ingestion time (Public preview)](#new-custom-log-ingestion-and-data-transformation-at-ingestion-time-public-preview)
 - [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
-- [View Microsoft Purview data in Microsoft Sentinel (Public preview)](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [View Microsoft Purview data in Microsoft Sentinel (Public preview)](#view-microsoft-purview-data-in-microsoft-sentinel-public-preview)
 - [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
 - [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
 - [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
