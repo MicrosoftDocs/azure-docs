@@ -24,6 +24,13 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 
 Video Analyzer for Media enables you to include speakers' characteristic based on a closed captioning file that you choose to download. To include the speakers’ attributes, select Downloads -> Closed Captions -> choose the closed captioning downloadable file format (SRT, VTT, TTML, TXT, or CSV) and check **Include speakers** checkbox.
 
+### Improvements to the widget offering
+
+* Azure Video Analyzer for Media widgets support more than 1 locale in widget's param .
+* Our Insight widget support initial search params and multiple sorting options. 
+* The Insights widget now also include a confirmation step before deleting a face to avoid mistakes.
+* We extend the widget customization to support width as strings (for example 100%, 100vw).
+
 ## February 2022
 
 ### Public preview of Video Analyzer for Media account management based on ARM in Government cloud
