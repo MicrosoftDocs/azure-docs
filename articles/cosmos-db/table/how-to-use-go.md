@@ -31,7 +31,7 @@ Follow this article to learn how to manage Azure Table storage using the Azure S
 - **Go installed**: Version 1.17 or [above](https://golang.org/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-## set up your environment
+## Set up your environment
 
 To follow along with this tutorial you'll need an Azure resource group, a storage account, and a table resource. Run the following commands to set up your environment:
 
