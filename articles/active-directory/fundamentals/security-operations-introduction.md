@@ -38,6 +38,8 @@ As you audit your current security operations or establish security operations f
 
 * Create a strategy for continuous monitoring and alerting on activities that might indicate a security threat.
 
+## Andy was here
+This is content that will not get pushed. This is a test.
 ## Audience
 
 The Azure AD SecOps Guide is intended for enterprise IT identity and security operations teams and managed service providers that need to counter threats through better identity security configuration and monitoring profiles. This guide is especially relevant for IT administrators and identity architects advising Security Operations Center (SOC) defensive and penetration testing teams to improve and maintain their identity security posture. 
