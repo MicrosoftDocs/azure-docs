@@ -73,7 +73,7 @@ The following image shows a properly configured distributed availability group:
    The following examples use the `--shared-name <name of failover group>...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
  
    > [!NOTE]
-   > The distributed availability group name should be identical on both sites.
+   > The `shared-name` value should be identical on both sites.
    
     ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
