@@ -149,7 +149,7 @@ This section details more appliances that are certified but aren't currently off
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
 |P03456-B21 optional|HPE Edgeline 1 GbE 4-port TSN FIO Daughter Card|
 
-# Neousys Nuvo-5006LP](#tab/neousys-nuvo-5006lp)
+# [Neousys Nuvo-5006LP](#tab/neousys-nuvo-5006lp)
 
 
 :::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP":::
