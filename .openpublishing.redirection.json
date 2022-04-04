@@ -16604,6 +16604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
@@ -43533,6 +43538,16 @@
       "redirect_url": "reference-yaml-endpoint-managed-online",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-job-component.md",
+      "redirect_url": "reference-yaml-job-command",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-dataset.md",
+      "redirect_url": "reference-yaml-data",
+      "redirect_document_id": true
+    },   
     {
       "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
