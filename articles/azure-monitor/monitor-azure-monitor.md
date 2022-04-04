@@ -1,11 +1,13 @@
 ---
 title: Monitoring Azure Monitor  
-description: Start here to learn how to monitor [TODO-service-name] #Required; 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.service: #Required; The service you are monitoring
+description: Learn about how Azure Monitor monitors itself
+author: rboucher
+ms.author: robb
+ms.topic: reference
+ms.service: azure-monitor
 ms.custom: subject-monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 04/03/2022
+---
 ---
 
 <!-- VERSION 2.2

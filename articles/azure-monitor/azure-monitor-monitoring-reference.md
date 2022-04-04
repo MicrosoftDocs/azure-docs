@@ -2,24 +2,20 @@
 title: Monitoring Azure monitor data reference  
 description: Important reference material needed when you monitor parts of Azure Monitor  
 author: rboucher
-ms.topic: reference
 ms.author: robb
+ms.topic: reference
 ms.service: azure-monitor
 ms.custom: subject-monitoring
-ms.date: 01/27/2022
+ms.date: 04/03/2022
 ---
-<!-- VERSION 2.3
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-
-<!-- IMPORTANT STEP 1.  Do a search and replace of Azure Monitor with the name of your service. That will make the template easier to read -->
 
 # Monitoring Azure Monitor data reference
 
-See [Monitoring Azure Monitor](monitor-service.md) for details on collecting and analyzing monitoring data for Azure Monitor.
+See [Monitoring Azure Monitor](monitor-azure-monitor.md) for details on collecting and analyzing monitoring data for Azure Monitor. This article may seem slightly confusing because it's listing the parts of the Azure Monitor service that are monitored by itself.
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure Monitor.  
+This section lists all the platform metrics collected automatically for Azure Monitor.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -32,16 +28,11 @@ While technically not about Azure Monitor operations, the following metrics are 
 | Log Analytics agent gathered data for the [Metric alerts on logs](/azure/azure-monitor/alerts/alerts-metric-logs#metrics-and-dimensions-supported-for-logs) feature | [Microsoft.OperationalInsights/workspaces](/azure/azure-monitor/platform/metrics-supported##microsoftoperationalinsightsworkspaces)
 | [Application Insights availability tests](/azure/azure-monitor/app/availability-overview) | [Microsoft.Insights/Components](/azure/azure-monitor/essentials/metrics-supported#microsoftinsightscomponents)
 
-See a complete list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+See a complete list of [platform metrics for other resources types](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
 
-<!-- REQUIRED. Please  keep headings in this order -->
-<!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
-
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
-
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 Azure Monitor metrics support the following dimensions.
 
@@ -55,8 +46,6 @@ Azure Monitor metrics support the following dimensions.
 
 ## Resource logs
 
-<!-- REQUIRED. Please  keep headings in this order -->
-
 This section lists all the Azure Monitor resource log category types collected into Azure Monitor.
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link |
@@ -68,9 +57,8 @@ For additional reference, see a list of [all resource logs category types suppor
 
 
 ## Azure Monitor Logs tables
-<!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor and available for query by Log Analytics.
 
 |Resource Type | Notes |
 |-------|-----|
@@ -78,7 +66,6 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 
 ## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
 
 For a partial list of entires that the Azure Monitor services writes to the activity log, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#monitor).  There may be other entires not listed here.
 
@@ -86,13 +73,13 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## Schemas
 
-The following schemas are in use by Azure Monitor. 
+The following schemas are in use by Azure Monitor.
 
 ### Action Groups
 
-The following schemas are in use for action groups. Sme 
+The following schemas are relevant to action groups, which are part of the notification infrastructure for Azure Monitor. Following are example calls and responses for action groups.
 
-Create Action Group
+#### Create Action Group
 ```json
 {
     "authorization": {
@@ -184,7 +171,7 @@ Create Action Group
 }
 ```
 
-Delete Action Group
+#### Delete Action Group
 ```json
 {
     "authorization": {
@@ -276,7 +263,8 @@ Delete Action Group
 }
 ```
 
-Unsubscribe using Email
+#### Unsubscribe using Email
+
 ```json
 {
     "caller": "test.cam@ieee.org",
@@ -333,7 +321,7 @@ Unsubscribe using Email
 }
 ```
 
-Unsubscribe using SMS
+#### Unsubscribe using SMS
 ```json
 {
     "caller": "",
@@ -346,7 +334,7 @@ Unsubscribe using SMS
         "http://schemas.microsoft.com/identity/claims/objectidentifier": ""
     },
     "correlationId": "e039f06d-c0d1-47ac-b594-89239101c4d0",
-    "description": "User with phone number:4252137109 has unsubscribed from action group:TestingLogginc, Action:testPhone_-SMSAction-",
+    "description": "User with phone number:4255557109 has unsubscribed from action group:TestingLogginc, Action:testPhone_-SMSAction-",
     "eventDataId": "789d0b03-2a2f-40cf-b223-d228abb5d2ed",
     "eventName": {
         "value": "",
@@ -390,7 +378,7 @@ Unsubscribe using SMS
 }
 ```
 
-Update Action Group
+#### Update Action Group
 ```json
 {
     "authorization": {
@@ -482,6 +470,5 @@ Update Action Group
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Azure Monitor](monitor-service-name.md) for a description of monitoring Azure Azure Monitor.
+- See [Monitoring Azure Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
