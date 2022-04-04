@@ -73,7 +73,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Replicate database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-replicate-database.md)
 - [Failover database with link feature in SSMS - Azure SQL Managed Instance](managed-instance-link-use-ssms-to-failover-database.md)
 - [Failover (migrate) database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-failover-database.md)
-- [Best practices with link feature for Azure SQL Managed Instance](link-feature-best-practices.md)
+- [Best practices with link feature for Azure SQL Managed Instance](managed-instance-link-best-practices.md)
 
 
 ## Monitoring and tuning

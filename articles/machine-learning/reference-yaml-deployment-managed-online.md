@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
+ms.custom: cliv2
 
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: rsethur
+ms.author: seramasu
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) managed online deployment YAML schema
@@ -35,13 +36,14 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `model` | string or object | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline, follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. <br><br> This field is optional for [custom container deployment](how-to-deploy-custom-container.md) scenarios.| | |
 | `model_mount_path` | string | The path to mount the model in a custom container. Applicable only for [custom container deployment](how-to-deploy-custom-container.md) scenarios. If the `model` field is specified, it is mounted on this path in the container. | | |
 | `code_configuration` | object | Configuration for the scoring code logic. <br><br> This field is optional for [custom container deployment](how-to-deploy-custom-container.md) scenarios. | | |
-| `code_configuration.code.local_path` | string | Local path to the source code directory for scoring the model. | | |
+| `code_configuration.code` | string | Local path to the source code directory for scoring the model. | | |
 | `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set in the deployment container. You can access these environment variables from your scoring scripts. | | |
 | `environment` | string or object | **Required.** The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `instance_type` | string | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md). | | |
 | `instance_count` | integer | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
-| `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you do not need to specify this property. <br><br> With this `default` scale type, you can either 1) manually scale the instance count up and down after deployment creation by updating the `instance_count` property or 2) create an [autoscaling policy](). | | |
+| `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you do not need to specify this property. <br><br> With this `default` scale type, you can either manually scale the instance count up and down after deployment creation by updating the `instance_count` property, or create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
 | `scale_settings.type` | string | The scale type. | `default` | `default` |
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -63,7 +65,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `initial_delay` | integer | The number of seconds after the container has started before the probe is initiated. Minimum value is `1`. | `10` |
 | `timeout` | integer | The number of seconds after which the probe times out. Minimum value is `1`. | `2` |
 | `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1`. | `1` |
-| `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in case of liveness probe means restarting the container. In case of readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
+| `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in the case of a liveness probe means the container will be restarted. In the case of a readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
 ## Remarks
 

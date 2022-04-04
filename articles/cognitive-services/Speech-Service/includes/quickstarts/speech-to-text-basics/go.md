@@ -29,7 +29,7 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 Follow these steps to create a new GO module.
 
 1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
-1. Replace the contents of `speech-recognition.go` with the following code. 
+1. Copy the following code into `speech-recognition.go`:
 
     ```go
     package main
@@ -69,7 +69,7 @@ Follow these steps to create a new GO module.
     }
     
     func main() {
-        subscription :=  "YourSubscriptionKey"
+        key :=  "YourSubscriptionKey"
         region := "YourServiceRegion"
     
     	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
@@ -78,7 +78,7 @@ Follow these steps to create a new GO module.
     		return
     	}
     	defer audioConfig.Close()
-    	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    	speechConfig, err := speech.NewSpeechConfigFromSubscription(key, region)
     	if err != nil {
     		fmt.Println("Got an error: ", err)
     		return
@@ -119,7 +119,6 @@ go run speech-recognition
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
-
 
 ## Clean up resources
 

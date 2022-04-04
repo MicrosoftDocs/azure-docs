@@ -1,8 +1,6 @@
 ---
 title: Query exported data from Azure Monitor using Azure Data Explorer
 description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
-author: osalzberg
-ms.author: guywi-ms
 ms.topic: conceptual
 ms.reviewer: osalzberg
 ms.date: 03/22/2022

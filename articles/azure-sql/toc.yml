@@ -953,8 +953,8 @@
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
-    - name: Link feature for SQL MI
-      href: managed-instance/link-feature.md
+    - name: Managed Instance link
+      href: managed-instance/managed-instance-link-feature-overview.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Data virtualization 
@@ -1225,27 +1225,25 @@
     
     - name: Migrate
       items: 
-      - name: Migrate SQL Server to SQL MI Guide
-        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
-      - name: Migrate database using Log Replay Service
+      - name: Database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
-      - name: Migrate TDE cert 
+      - name: TDE certificate
         href: managed-instance/tde-certificate-migrate.md
 
-    - name: Managed Instance link feature
+    - name: Managed Instance link 
       items:
       - name: Prepare environment for link 
         href: managed-instance/managed-instance-link-preparation.md
       - name: Replicate databases in SSMS
         href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
-      - name: Failover databases in SSMS
+      - name: Fail over databases in SSMS
         href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
-      - name: Best practices
-        href: managed-instance/link-feature-best-practices.md
       - name: Replicate databases with scripts
         href: managed-instance/managed-instance-link-use-scripts-to-replicate-database.md
       - name: Fail over databases with scripts
         href: managed-instance/managed-instance-link-use-scripts-to-failover-database.md
+      - name: Best practices
+        href: managed-instance/managed-instance-link-best-practices.md
 
     - name: Configure business continuity 
       items: 
@@ -1635,6 +1633,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./database/policy-reference.md
+  - name: DTU benchmark
+    href: database/dtu-benchmark.md
 
 - name: Resources
   items:
