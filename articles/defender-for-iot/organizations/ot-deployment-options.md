@@ -5,11 +5,11 @@ ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT system deployment options
+# OT monitoring deployment options
 
-This article introduces the deployment options for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+This article introduces the deployment options for Microsoft Defender for IoT OT sensors and on-premises management console.
 
-When setting up your system, choose the deployment option that meets your needs best. You can use either physical or virtual appliances as needed for your organization.
+When setting up your system, choose the deployment option that meets your needs best. You can use both physical or virtual appliances as needed for your organization.
 
 For more information, see:
 
@@ -17,13 +17,13 @@ For more information, see:
 - [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-## Corporate IT/OT hybrid networks
+## Corporate IT/OT Mixed Environments
 
-Use the following deployment for corporate IT/OT hybrid networks:
+Use the following deployment sizing for high bandwidth corporate IT/OT mixed networks:
 
 |Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
-|C5600    | 3 Gbps        | 12 K        |Physical / Virtual         |
+|[Corporate]    | 3 Gbps        | 12 K        |Physical / Virtual         |
 
 ## Enterprise monitoring at the site level
 
@@ -31,7 +31,7 @@ Use the following deployment for enterprise monitoring at the site level:
 
 |Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|E1800     |1 Gbps         |10K         |Physical / Virtual         |
+|[Enterprise]    |1 Gbps         |10K         |Physical / Virtual         |
 
 ## Production line monitoring
 
@@ -39,9 +39,9 @@ Use the following deployment for production line monitoring:
 
 |Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|L500    | 200 Mbps        |   1,000      |Physical / Virtual         |
-|L100    | 60 Mbps        |   800      | Physical / Virtual        |
-|L60    | 10 Mbps        |   100      |Physical / Virtual|
+|[SMB]    | 200 Mbps        |   1,000      |Physical / Virtual         |
+|[Office]    | 60 Mbps        |   800      | Physical / Virtual        |
+|[Rugged]    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
@@ -49,15 +49,15 @@ On-premises management consoles are supported for enterprise deployment systems.
 
 |Name  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
-|E1800    |Up to 300         |Physical / Virtual         |
+|[Enterprise]    |Up to 300         |Physical / Virtual         |
 
 ## Next steps
 
-Continue understanding system requirements, including options for pre-configured appliances, or required specifications to install software on your own appliances:
+Continue understanding system requirements, including options for ordering pre-configured appliances, or required specifications to install software on your own appliances:
 
-- [Pre-configured physical appliances for OT systems](ot-preconfigured-appliances.md)
-- [OT hardware system requirements for your own installations](ot-physical-appliances.md)
-- [OT virtual system requirements for your own installations](ot-virtual-appliances.md)
+- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
+- [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md)
+- [Resource requirements for virtual appliances](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to continue:
 
