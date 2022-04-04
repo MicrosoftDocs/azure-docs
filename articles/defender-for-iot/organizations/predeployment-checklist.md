@@ -20,7 +20,7 @@ Review the following items before deploying your site:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | If you're using physical appliances, order your appliances. <br>For more information, see [OT system hardware and virtual appliance requirements](ot-system-requirements.md). | ☐ |  |
+| 1 | If you're using physical appliances, order your appliances. <br>For more information, see [Identify required appliances](how-to-identify-required-appliances.md). | ☐ |  |
 | 2 | Identify the managed switches you want to monitor | ☐ |  |
 | 3 | Provide network details for sensors (IP address, subnet, D-GW, DNS, host). | ☐ |  |
 | 4 | Create necessary firewall rules and the access list. For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).| ☐ |  |
