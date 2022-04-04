@@ -513,7 +513,7 @@ By default, a write response is printed to the cell output. On failure, the curr
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
   * Read scenario doesn't support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
-* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. Using monitoring metrics, the capacity must be adjusted to avoid throttling behaviors and ensure better read and write performance.
+* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to spot throttling behaviors that can [impact](../../storage/common/scalability-targets-standard-account.md) read and write performance.
 
 ## Additional Reading
 
