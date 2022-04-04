@@ -199,6 +199,10 @@ Use the following configuration:
 
 If you encounter feature gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. For more information, see [AKS roadmap][aks-roadmap].
 
+## Can i RDP into a windows pod/container for troublshooting?
+
+No , We can only RDP into the AKS cluster nodes for troublehooting and can only exec into a windows pod.
+
 ## Next steps
 
 To get started with Windows Server containers in AKS, see [Create a node pool that runs Windows Server in AKS][windows-node-cli].
