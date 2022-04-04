@@ -6,7 +6,7 @@ author: erjosito
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 02/03/2022
-ms.author: erjosito
+ms.author: jomore
 ---
 
 # Injecting a default route to Azure VMware Solution
