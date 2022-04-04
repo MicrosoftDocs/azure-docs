@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ms.author: alkohli
 ---
 
@@ -15,22 +15,22 @@ ms.author: alkohli
 
 Azure Data Box lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. 
 
-Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
-
-In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
-
 ## Transferred metadata
+
+ACLs, timestamps, and file attributes is the metadata that is transferred when the data from data box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
+
+Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
 The following metadata is transferred when data from the Data Box is uploaded to Azure Files.
 
-#### Timestamps
+## Timestamps
 
 The following timestamps are transferred:
 - CreationTime
 - LastAccessTime
 - LastWriteTime
 
-#### File attributes
+## File attributes
 
 File attributes on both files and directories are transferred unless otherwise noted.
 
@@ -49,7 +49,7 @@ The following file attributes aren't transferred:
   
 Read-only attributes on directories aren't transferred.
 
-#### ACLs
+## ACLs
 
 <!--ACLs DEFINITION
 
@@ -76,18 +76,14 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
 
-**ACLs transfer over SMB** 
+### ACLs transfer over SMB
 
 During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
 
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box.
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-**ACLs transfer over NFS**
- 
-ACLs aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
-
-**ACLs transfer over Data Copy Service** 
+### ACLs transfer over Data Copy Service
 
 During an [data copy service file transfer](data-box-deploy-copy-data-via-copy-service.md), the following ACLs are transferred:
 
@@ -101,7 +97,12 @@ If you do not have the SeBackupPrivilege credential:
 
  For more information, see how to obtain the [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
 
-**Default ACLs transfer**  
+### ACLs transfer over NFS
+ 
+ACLs aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
+
+
+### Default ACLs transfer
 
 Even if your data copy tool doesn't copy ACLs, the default ACLs on directories and files are transferred to Azure Files when you use a Windows client. The default ACLs aren't transferred when you use a Linux client.
 
