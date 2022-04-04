@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/16/2019
+ms.date: 04/04/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -44,18 +44,16 @@ After you specify an error page, the application gateway downloads it from the s
 
 1. Navigate to Application Gateway in the portal and choose an application gateway.
 
-    ![Screenshot shows the Overview page for an application gateway.](media/custom-error/ag-overview.png)
-2. Click **Listeners** and navigate to a particular listener where you want to specify an error page.
+2. Select **Listeners** and navigate to a particular listener where you want to specify an error page.
 
-    ![Application Gateway listeners](media/custom-error/ag-listener.png)
 3. Configure a custom error page for a 403 WAF error or a 502 maintenance page at the listener level.
 
     > [!NOTE]
     > Creating global level custom error pages from the Azure portal is currently not supported.
 
-4. Specify a publicly accessible blob URL for a given error status code and click **Save**. The Application Gateway is now configured with the custom error page.
+4. Specify a publicly accessible blob URL for a given error status code and select **Save**. The Application Gateway is now configured with the custom error page.
 
-   ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
+   ![Screenshot of Application Gateway custom error page.](media/custom-error/ag-error-codes.png)
 
 ## Azure PowerShell configuration
 
