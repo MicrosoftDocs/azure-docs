@@ -27,7 +27,7 @@ The Azure WAF Engine, released with CRS 3.2, provides significant improvements o
 
 There are many new features that are only supported in the Azure WAF engine.  
 
-- CRS 3.2
+- [CRS 3.2](application-gateway-crs-rulegroups-rules.md#owasp-crs-32)
   - Increased request body size limit to 2MB
   - Increased file upload limit to 4GB
 - WAF v2 metrics

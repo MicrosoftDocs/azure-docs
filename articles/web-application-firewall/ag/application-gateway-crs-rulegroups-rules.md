@@ -18,8 +18,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The Application Gateway WAF comes pre-configured with CRS 3.1 by default. But you can choose to use CRS 3.2, 3.0, or 2.2.9 instead.
  
-
-CRS 3.2 (preview) offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
+CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
 
 CRS 3.1 offers reduced false positives compared with CRS 3.0 and 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
 
@@ -36,7 +35,7 @@ The WAF protects against the following web vulnerabilities:
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
 
-### OWASP CRS 3.2 (preview)
+### OWASP CRS 3.2
 
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
@@ -124,7 +123,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
-# [OWASP 3.2 (preview)](#tab/owasp32)
+# [OWASP 3.2](#tab/owasp32)
 
 ## <a name="owasp32"></a> 3.2 rule sets
 
