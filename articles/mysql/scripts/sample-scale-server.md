@@ -26,7 +26,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -42,11 +42,11 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server update](/cli/azure/mysql/server#az_mysql_server_update) | Updates properties of the MySQL server. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server update](/cli/azure/mysql/server#az-mysql-server-update) | Updates properties of the MySQL server. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

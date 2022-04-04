@@ -27,7 +27,7 @@ Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **myResourceGroup** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
@@ -37,7 +37,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ## Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IPv4 address.
 
 The following command creates a zone-redundant public IP address named **myPublicIP** in **myResourceGroup**.
 
@@ -51,7 +51,7 @@ az network public-ip create \
 ```
 ## Create a virtual machine
 
-Create a virtual machine with [az vm create](/cli/azure/vm#az_vm_create). 
+Create a virtual machine with [az vm create](/cli/azure/vm#az-vm-create). 
 
 The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`-PublicIPAddressName`** parameter. When prompted, provide a username and password to be used as the credentials for the virtual machine:
 
@@ -67,7 +67,7 @@ The following command creates a Windows Server virtual machine. You'll enter the
 
 For more information on public IP SKUs, see [Public IP address SKUs](public-ip-addresses.md#sku). A virtual machine can be added to the backend pool of an Azure Load Balancer. The SKU of the public IP address must match the SKU of a load balancer's public IP. For more information, see [Azure Load Balancer](../../load-balancer/skus.md).
 
-View the public IP address assigned and confirm that it was created as a static address, with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
+View the public IP address assigned and confirm that it was created as a static address, with [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
 ```azurecli-interactive
   az network public-ip show \
@@ -84,7 +84,7 @@ View the public IP address assigned and confirm that it was created as a static 
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
   az group delete --name myResourceGroup --yes

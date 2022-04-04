@@ -1,12 +1,12 @@
 ---
 title: Mount Azure file share to an AD DS-joined VM
 description: Learn how to mount a file share to your on-premises Active Directory Domain Services-joined machines.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Part four: mount a file share from a domain-joined VM

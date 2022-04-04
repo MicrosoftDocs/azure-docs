@@ -76,7 +76,7 @@ When configuring data for export, note the following considerations:
 |**Scope of data exported**     |  Once export is configured for a specific table, all data sent to that table is exported, with no exception. Exported a filtered subset of your data, or limiting the export to specific events, is not supported.       |
 |**Location requirements**     |   Both the Azure Monitor / Microsoft Sentinel workspace, and the destination location (an Azure Storage Account or Event Hub) must be located in the same geographical region.      |
 |**Supported tables**     | Not all tables are supported for export, such as custom log tables, which are not supported. <br><br>For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md) and the [list of supported tables](../azure-monitor/logs/logs-data-export.md#supported-tables).         |
-|     |         |
+
 
 ### Data export methods and procedures
 
@@ -216,7 +216,7 @@ When storing your Microsoft Sentinel data in Azure Data Explorer, consider the f
 |**Security**     |  Several Azure Data Explorer settings can help you protect your data, such as identity management, encryption, and so on. Specifically for role-based access control (RBAC), Azure Data Explorer can be configured to restrict access to databases, tables, or even rows within a table. For more information, see [Security in Azure Data Explorer](/azure/data-explorer/security) and [Row level security](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy).|
 |**Data sharing**     |   Azure Data Explorer allows you to make pieces of data available to other parties, such as partners or vendors, and even buy data from other parties. For more information, see [Use Azure Data Share to share data with Azure Data Explorer](/azure/data-explorer/data-share).      |
 | **Other cost components** | Consider the other cost components for the following methods: <br><br>**Exporting  data via an Azure Event Hub**: <br>- Log Analytics data export costs, charged per exported GBs. <br>- Event hub costs, charged by throughput unit.  <br><br>**Export data via Azure Storage and Azure Data Factory**: <br>- Log Analytics data export, charged per exported GBs. <br>- Azure Storage, charged by GBs stored. <br>- Azure Data Factory, charged per copy of activities run.
-|     |         |
+
 
 ## Next steps
 

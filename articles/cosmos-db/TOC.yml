@@ -169,6 +169,8 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
+            - name: Go app
+              href: sql/create-sql-api-go.md 
     - name: Tutorials
       items:
         - name: Create and manage data
@@ -678,8 +680,12 @@
               href: partial-document-update-getting-started.md
             - name: Partial document update FAQ
               href: partial-document-update-faq.yml
-        - name: Connectivity modes
-          href: sql/sql-sdk-connection-modes.md
+        - name: SQL SDKs
+          items:
+          - name: Designing resilient applications
+            href: sql/conceptual-resilient-sdk-applications.md
+          - name: Connectivity modes
+            href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
       items:
         - name: Global distribution
@@ -736,6 +742,8 @@
           items:
             - name: .NET
               href: sql/best-practice-dotnet.md
+            - name: Java
+              href: sql/best-practice-java.md
         - name: Performance
           items:
             - name: Query
@@ -744,6 +752,8 @@
                   href: sql/profile-sql-api-query.md
                 - name: Tune query performance
                   href: sql/sql-api-query-metrics.md
+                - name: Optimize query performance when using SDK
+                  href: sql/performance-tips-query-sdk.md
             - name: Indexing
               items:
                 - name: Indexing policies
@@ -879,8 +889,6 @@
           items:
             - name: Use Power BI
               href: sql/powerbi-visualize.md
-            - name: Create a live weather dashboard
-              href: sql/create-real-time-weather-dashboard-powerbi.md
             - name: Use Qlik Sense
               href: visualize-qlik-sense.md
         - name: Built-in analytics with Apache Spark
@@ -1068,10 +1076,10 @@
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
               href: cassandra/migrate-data-striim.md
-            - name: Migrate - Oracle DB to Cassandra API using Blitzz
-              href: cassandra/oracle-migrate-cosmos-db-blitzz.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-              href: cassandra/migrate-data-blitzz.md
+            - name: Migrate - Oracle DB to Cassandra API using Arcion
+              href: cassandra/oracle-migrate-cosmos-db-arcion.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Arcion
+              href: cassandra/migrate-data-arcion.md
             - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
               href: cassandra/migrate-data-dual-write-proxy.md              
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
@@ -1133,10 +1141,12 @@
           href: cassandra/cli-samples.md
         - name: Glowroot using Cassandra API
           href: cassandra/glowroot-cassandra.md
-        - name: Error codes definitions
+        - name: Understand Cassandra API error codes
           href: cassandra/error-codes-solution.md
         - name: Lightweight Transactions in Cassandra API
           href: cassandra/lwt-cassandra-api.md
+        - name: Cassandra API extensions overview
+          href: cassandra/cassandra-driver-extensions.md
     - name: Reference
       items:
         - name: REST resource provider

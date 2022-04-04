@@ -32,7 +32,7 @@ Each method has advantages over the other:
 | **Advantages** | Exist in every Microsoft Sentinel instance. <br><br>Usable with other built-in content. | New parsers are often delivered first as workspace-deployed parsers.|
 | **Disadvantages** |Cannot be directly modified by users. <br><br>Fewer parsers available. | Not used by built-in content. |
 | **When to use** | Use in most cases that you need ASIM parsers. | Use when deploying new parsers, or for parsers not yet available out-of-the-box. |
-| | | |
+
 
 > [!TIP]
 > Using both built-in and workspace-deployed parsers is useful when you want to customize built-in parsers by adding custom, workspace-deployed parsers to the built-in parser hierarchy. For more information, see [Managing ASIM parsers](normalization-manage-parsers.md). 
