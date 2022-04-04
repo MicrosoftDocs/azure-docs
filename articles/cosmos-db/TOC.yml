@@ -1390,6 +1390,8 @@
           href: table/how-to-use-nodejs.md
         - name: Python
           href: table/how-to-use-python.md
+        - name: Go
+          herf: table/how-to-use-go.md
         - name: PHP
           href: table/how-to-use-php.md
         - name: C++

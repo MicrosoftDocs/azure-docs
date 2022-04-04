@@ -1,5 +1,5 @@
 ---
-title: How to manage Azure Tables with the Azure SDK for Go 
+title: Use the Azure Tables client library for Go
 description: Store structured data in the cloud using the Azure Tables client library for Go.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -19,7 +19,7 @@ ms.author: jduffney
 
 In this article, you'll learn how to use the Azure SDK for Go to create, list, and delete Azure Tables and Table entities.
 
-Azure Table allows you to store structured NoSQL data in the cloud by providing you with a key attribute store with a schemaless design. Because Azure Table storage is schemaless, it's easy to adapt your data to the evolving needs of your applications. Access to table's data and API is a fast and cost-effectrive solution for many applications.
+Azure Table allows you to store structured NoSQL data in the cloud by providing you with a key attribute store with a schemaless design. Because Azure Table storage is schemaless, it's easy to adapt your data to the evolving needs of your applications. Access to table's data and API is a fast and cost-effective solution for many applications.
 
 You can use the Table storage or the Azure Cosmos DB to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
@@ -33,9 +33,9 @@ You need the following:
 - **Go installed**: Version 1.17 or [above](https://golang.org/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-## Setup your environment
+## set up your environment
 
-To follow along with this tutorial you'll need an Azure resource group, a storage account, and a table resource. Run the following commands to setup your environment:
+To follow along with this tutorial you'll need an Azure resource group, a storage account, and a table resource. Run the following commands to set up your environment:
 
 1. Create an Azure resource group.
  
@@ -57,7 +57,7 @@ To follow along with this tutorial you'll need an Azure resource group, a storag
 
 ### Install Packages
 
-You will need two pacakges to manage Azure Tables with Go; [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity), and [aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables). The `azidentity` package provides you with a way to authenticate to Azure. And the `aztables` packages gives you the ability to manage the tables resource in Azure. Run the following Go commands to install these packages:
+You will need two packages to manage Azure Tables with Go; [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity), and [aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables). The `azidentity` package provides you with a way to authenticate to Azure. And the `aztables` packages give you the ability to manage the tables resource in Azure. Run the following Go commands to install these packages:
 
 ```azurecli
 go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
@@ -227,7 +227,7 @@ func main() {
 	fmt.Println("Calculating all entities in the table...")
 	listEntities(client)
 
-	fmt.Println("Querying a specific entitiy...")
+	fmt.Println("Querying a specific entity...")
 	queryEntity(client) 
 
 	fmt.Println("Deleting an entity...")
@@ -320,7 +320,7 @@ if err != nil {
 }
 ```
 
-### Get an entitiy
+### Get an entity
 
 ```go
 // Define the new custom type
