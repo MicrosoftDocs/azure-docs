@@ -42,39 +42,39 @@ The `az ml data` commands can be used for managing Azure Machine Learning data a
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/dataset). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/data). Several are shown below.
 
 ## YAML: datastore file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file.yml":::
 
 ## YAML: datastore folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder.yml":::
 
 ## YAML: https file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file-https.yml":::
 
 ## YAML: https folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder-https.yml":::
 
 ## YAML: wasbs file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file-wasbs.yml":::
 
 ## YAML: wasbs folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder-wasbs.yml":::
 
 ## YAML: local file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/local-file.yml":::
 
 ## YAML: local folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/data/local-folder.yml":::
 
 ## Next steps
 
