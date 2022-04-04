@@ -114,7 +114,7 @@ az appconfig kv import --profile appconfig/kvset --name <your store name> --sour
 ```
 
 > [!NOTE]
-> The KVSet profile is currently supported in Azure CLI only.
+> The KVSet profile is currently supported in Azure CLI only and requires version 2.30.0 or later.
 
 The following table shows all the imported data in your App Configuration store.
 
