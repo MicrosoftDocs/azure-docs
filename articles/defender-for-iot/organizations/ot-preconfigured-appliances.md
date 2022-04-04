@@ -33,7 +33,7 @@ You can purchase any of the following appliances for your OT network sensors:
     |:----|:----|:----|:----|:----|
     |C5600|15 RJ45 or eight SFP (OPT)|3Gbp/s|12,000|1U|
 
-- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#dl20-enterprise):
+- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#hpe-proliant-dl20-plus-enterprise):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
@@ -422,11 +422,11 @@ Legacy options for enterprise deployments include:
 |Weight|	Max 29.98 lb/13.6 Kg|
 |Processor|	Intel Xeon E-2144G 3.6 GHz <br>8M cache <br> 4C/8T <br> turbo (71 W|
 |Chipset|Intel C246|
-|Memory	|32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM|
-|Storage| 3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
-|Network controller|On-board: 2 x 1 Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
+|Memory	|32 GB = Two 16 GB 2666MT/s DDR4 ECC UDIMM|
+|Storage| Three 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Network controller|On-board: Two 1 Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br>External: One Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
 |Management|iDRAC 9 Enterprise|
-|Device access|	2 rear USB 3.0|
+|Device access|	Two rear USB 3.0|
 |1 front| USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks| with support for optional tool-less cable management arm.|
@@ -530,11 +530,12 @@ Legacy options for SMB rugged deployments include:
 |Chipset|Intel® Q170 Platform Controller Hub|
 |Memory|8 GB DDR4 2133MHz Wide Temperature SODIMM|
 |Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
-|Network controller|6x Gigabit Ethernet ports by Intel® I219|
-|Device access|4 USBs: 2 fronts; 2 rears; 1 internal|
+|Network controller|Six  Gigabit Ethernet ports by Intel® I219|
+|Device access|Four USBs: Two in front, two in the rear, and 1 internal|
 |Power Adapter|120/240VAC-20VDC/6A|
 |Mounting|Mounting kit, Din Rail|
-|Operating Temperature|-25°C -  70°C|   |Storage Temperature|-40°C ~ 85°C|
+|Operating Temperature|-25°C -  70°C|
+|Storage Temperature|-40°C ~ 85°C|
 |Humidity|10%~90%, non-condensing|
 |Vibration|Operating, 5 Grms, 5-500 Hz, 3 Axes <br>(w/ SSD, according to IEC60068-2-64)|
 |Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
