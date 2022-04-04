@@ -177,14 +177,22 @@ The syntax in **Python** would be the following:
 
 # If you are using managed private endpoints for Azure Cosmos DB analytical store and using batch writes/reads and/or streaming writes/reads to transactional store you should set connectionMode to Gateway. 
 
+def writeBatchToCosmos(batchDF, batchId):
+  batchDF.persist()
+  print("--> BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.write.format("cosmos.oltp")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .option("spark.cosmos.write.upsertEnabled", "true")\
+    .mode('append')\
+    .save()
+  print("<-- BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.unpersist()
+
 streamQuery = dfStream\
         .writeStream\
-        .format("cosmos.oltp")\
-        .outputMode("append")\
+        .foreachBatch(writeBatchToCosmos) \
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
-        .option("spark.synapse.linkedService", "<enter linked service name>")\
-        .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "Gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -198,12 +206,19 @@ The equivalent syntax in **Scala** would be the following:
 
 val query = dfStream.
             writeStream.
-            format("cosmos.oltp").
-            outputMode("append").
+            foreachBatch { (batchDF: DataFrame, batchId: Long) =>
+              batchDF.persist()
+              batchDF.write.format("cosmos.oltp").
+                option("spark.synapse.linkedService", "<enter linked service name>").
+                option("spark.cosmos.container", "<enter container name>"). 
+                option("spark.cosmos.write.upsertEnabled", "true").
+                mode(SaveMode.Overwrite).
+                save()
+              println(s"BatchId: $batchId, Document count: ${batchDF.count()}")
+              batchDF.unpersist()
+              ()
+            }.        
             option("checkpointLocation", "/localWriteCheckpointFolder").
-            option("spark.synapse.linkedService", "<enter linked service name>").
-            option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "Gateway").
             start()
 
 query.awaitTermination()
