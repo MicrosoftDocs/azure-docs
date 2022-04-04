@@ -44,23 +44,22 @@ To enable the Microsoft Defender for Servers plans:
 
 The following table describes what's included in each plan at a high level.
 
-| Feature | Free in Microsoft Defender for Cloud | Defender for Servers Plan 1 | Defender for Servers Plan 2 |
-|:---|:---|:---|:---|
-| Automatic onboarding for resources in Azure, AWS, GCP | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Cloud security posture management (CSPM) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Log-analytics (500MB free) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Security Policy & Regulatory Compliance | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Vulnerability Assessment using Qualys | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Threat detections: OS level, network layer, control plane | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Adaptive application controls | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| File integrity monitoring | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Just-in time VM access | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Adaptive Network Hardening | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-<!-- | Future – TVM P2 | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Future – disk scanning insights | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+| Feature | Defender for Servers Plan 1 | Defender for Servers Plan 2 |
+|:---|:---:|:---:|
+| Automatic onboarding for resources in Azure, AWS, GCP | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Log-analytics (500MB free) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Security Policy & Regulatory Compliance | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Vulnerability Assessment using Qualys | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Threat detections: OS level, network layer, control plane | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive application controls | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| File integrity monitoring | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Just-in time VM access | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive Network Hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+<!-- | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
 
 ## What are the benefits of Defender for Servers?
 
