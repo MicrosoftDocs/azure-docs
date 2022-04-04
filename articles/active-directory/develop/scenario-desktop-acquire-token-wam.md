@@ -35,7 +35,7 @@ Using an authentication broker such as WAM has numerous benefits.
 - Enhanced security (your app does not have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
-- Better Single Sing-On (users don't have to reenter passwords)
+- Better Single Sign-On (users don't have to reenter passwords)
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations

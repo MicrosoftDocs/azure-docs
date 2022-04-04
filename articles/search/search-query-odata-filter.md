@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: OData language reference and full syntax used for creating filter expressions in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 09/16/2021
@@ -201,7 +201,7 @@ Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' sep
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
 ```odata-filter-expr
-    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 ```
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.

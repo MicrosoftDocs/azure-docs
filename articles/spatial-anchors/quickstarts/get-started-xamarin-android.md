@@ -12,9 +12,9 @@ ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Xamarin Android app with Azure Spatial Anchors
+# Run the sample app: Android - Xamarin (C#)
 
-This quickstart covers how to create an Android app with Xamarin using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an Android app that can save and recall a spatial anchor.
+This quickstart covers how to run the [Azure Spatial Anchors](../overview.md) sample app for Android devices using Xamarin (C#). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an Android app that can save and recall a spatial anchor.
 
 You'll learn how to:
 

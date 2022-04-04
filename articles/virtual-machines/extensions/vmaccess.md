@@ -4,8 +4,8 @@ description: How to manage administrative users and reset access on Linux VMs us
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 05/10/2018
 

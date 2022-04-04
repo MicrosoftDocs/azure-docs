@@ -28,7 +28,7 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Network**                          | VMinsights             | VMConnection           | [Azure Monitor VMConnection reference](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Wire Data Solution     | WireData               | [Azure Monitor WireData reference](/azure/azure-monitor/reference/tables/wiredata) |
 | **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](../network-watcher/traffic-analytics-schema.md) |
-| | | | |
+
 
 > [!NOTE]
 > For more information, see the entire [Azure Monitor data reference](/azure/azure-monitor/reference/).
@@ -53,7 +53,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
 |**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
-| | | | | |
+
 
 > [!NOTE]
 > For more information, see also [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
