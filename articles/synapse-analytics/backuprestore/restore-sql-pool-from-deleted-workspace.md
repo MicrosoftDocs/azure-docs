@@ -65,6 +65,5 @@ $RestoredDatabase.status
 If "An unexpected error occurred while processing the request." message is received, the original database may not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
 
 ## Next Steps
-- [Restore a SQL pool](restore-sql-pool.md)
-- [Restore a deleted SQL pool](restore-deleted-sql-pool.md)
 - [Create a restore point](sqlpool-create-restore-point.md)
+- [Restore a SQL pool](restore-sql-pool.md)
