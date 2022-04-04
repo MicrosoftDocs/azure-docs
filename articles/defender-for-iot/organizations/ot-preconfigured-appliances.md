@@ -345,13 +345,22 @@ For an SMB deployment, use one of the following options and specifications:
 
 ### YS-techsystems YS-FIT2
 
-|Components|Technical Specifications|
+|Components|Technical specifications|
 |:----|-----|
-|Construction |Aluminum | zinc die cast parts, Fanless & Dust-proof DesignDimensions |112 mm (W) x 112 mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
-|Weight |0.35kgCPU |Intel Atom® x7-E3950 ProcessorMemory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V)Storage |128 GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP|
-|Network controller |2x 1 GbE LAN PortsDevice access |2 x USB 2.0, 2 X USB 3.0Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
+|Construction |Aluminum or zinc die cast parts, Fanless & Dust-proof Design
+| Dimensions |112 mm (W) x 112 mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
+|Weight |0.35kg |
+| CPU |Intel Atom® x7-E3950 Processor |
+| Memory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
+| Storage |128 GB M.2 M-key 2260* or 2242 (SATA 3 6 Gbps) PLP|
+|Network controller |Two 1 GbE LAN Ports |
+| Device access |Two USB 2.0, Two USB 3.0 |
+| Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
 |UPS|fit-uptime Miniature 12V UPS for miniPCs (Optional)|
-|Mounting |VESA / wall or Din Rail mounting kitTemperature |0°C ~ 70°CHumidity |5%~95%, non-condensingVibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz , 3 axis)|
+|Mounting |VESA / wall or Din Rail mounting kit | 
+| Temperature |0°C ~ 70°C |
+| Humidity |5% ~ 95%, non-condensing |
+| Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz , 3 axis)|
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)|
 |EMC |CE/FCC Class B|
 
