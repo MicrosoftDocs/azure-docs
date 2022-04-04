@@ -26,10 +26,12 @@ Video Analyzer for Media enables you to include speakers' characteristic based o
 
 ### Improvements to the widget offering
 
-* Azure Video Analyzer for Media widgets support more than 1 locale in widget's param .
-* Our Insight widget support initial search params and multiple sorting options. 
-* The Insights widget now also include a confirmation step before deleting a face to avoid mistakes.
-* We extend the widget customization to support width as strings (for example 100%, 100vw).
+The following improvements were made:
+
+* Video Analyzer for Media widgets support more than 1 locale in widget's parameter.
+* The Insight widgets support initial search parameters and multiple sorting options. 
+* The Insight widgets also include a confirmation step before deleting a face to avoid mistakes.
+* The widget customization now supports width as strings (for example 100%, 100vw).
 
 ## February 2022
 
