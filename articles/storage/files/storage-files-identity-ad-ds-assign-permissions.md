@@ -49,17 +49,21 @@ The following table lists the share-level permissions and how they align with th
 |[Storage File Data SMB Share Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-contributor)     |Allows for read, write, and delete access on files and directories in Azure file shares. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
 |[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
 
-
 ## Share-level permissions for specific Azure AD users or groups
 
-If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a **hybrid identity that exists in both on-premises AD DS and Azure AD**. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD to Azure AD using Azure AD Connect sync. 
+If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a **hybrid identity that exists in both on-premises AD DS and Azure AD**. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals.
+
+In order for share-level permissions to work, you must:
+
+- Sync the users **and** the groups from your local AD to Azure AD using Azure AD Connect sync
+- Add AD synced groups to RBAC role so they can access your storage account
 
 Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication.
 
 You can use the Azure portal, Azure PowerShell module, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
 > [!IMPORTANT]
-> The share level permissions will take upto 3 hours to take effect once completed. Please wait for the permissions to sync before connecting to your file share using your credentials   
+> The share-level permissions will take up to three hours to take effect once completed. Please wait for the permissions to sync before connecting to your file share using your credentials.
 
 # [Portal](#tab/azure-portal)
 
@@ -110,7 +114,7 @@ When you set a default share-level permission, all authenticated users and group
 
 # [Portal](#tab/azure-portal)
 
-You cannot currently assign permissions to the storage account with the Azure portal. Use either the Azure PowerShell module or the Azure CLI, instead.
+You can't currently assign permissions to the storage account with the Azure portal. Use either the Azure PowerShell module or the Azure CLI, instead.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -151,4 +155,4 @@ You could also assign permissions to all authenticated Azure AD users and specif
 
 Now that you've assigned share-level permissions, you must configure directory and file-level permissions. Continue to the next article.
 
-[Part three: configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
+[Part three: configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)

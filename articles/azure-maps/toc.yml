@@ -353,6 +353,8 @@ items:
       href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
+  - name: Show right attribution
+    href: how-to-show-attribution.md
 - name: Reference
   items:
   - name: API and parameter extensions

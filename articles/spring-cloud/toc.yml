@@ -50,16 +50,18 @@ items:
       href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutorials
   items:
-  - name: Alerts and action groups
-    href: tutorial-alerts-action-groups.md
-  - name: Circuit Breaker Dashboard
-    href: tutorial-circuit-breaker.md
-  - name: Custom DNS name
-    href: tutorial-custom-domain.md
-  - name: Managed identity to connect Key Vault
-    href: tutorial-managed-identities-key-vault.md
-  - name: Managed identity to invoke Azure Functions
-    href: tutorial-managed-identities-functions.md
+    - name: Alerts and action groups
+      href: tutorial-alerts-action-groups.md
+    - name: Circuit Breaker Dashboard
+      href: tutorial-circuit-breaker.md
+    - name: Custom DNS name
+      href: tutorial-custom-domain.md
+    - name: Managed identity to connect MySQL
+      href: tutorial-managed-identities-mysql.md
+    - name: Managed identity to connect Key Vault
+      href: tutorial-managed-identities-key-vault.md
+    - name: Managed identity to invoke Azure Functions
+      href: tutorial-managed-identities-functions.md
 - name: Concepts
   items:
   - name: App and deployment
@@ -190,8 +192,10 @@ items:
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
       href: access-app-virtual-network.md
-    - name: Expose applications to the internet
-      href: expose-apps-gateway.md
+    - name: Expose applications to the internet with TLS Termination at gateway
+      href: expose-apps-gateway-tls-termination.md
+    - name: Expose applications to the internet with end-to-end TLS/SSL
+      href: expose-apps-gateway-end-to-end-tls.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
     - name: Customer responsibilities running Azure Spring Cloud in VNET
@@ -202,6 +206,8 @@ items:
     items:
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
+    - name: Manage user-assigned managed identities
+      href: how-to-manage-user-assigned-managed-identities.md
     - name: Create roles and permissions
       href: how-to-permissions.md
     - name: Use TLS/SSL certificates

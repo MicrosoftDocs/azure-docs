@@ -49,6 +49,9 @@ We recommend that you use the address ranges enumerated in [RFC 1918](https://to
 * 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
 * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
 
+You can also deploy the Shared Address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as Private IP Address space in Azure:
+* 100.64.0.0 - 100.127.255.255 (100.64/10 prefix)
+
 Other address spaces may work but may have undesirable side effects.
 
 In addition, you cannot add the following address ranges:

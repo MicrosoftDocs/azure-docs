@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 ## Enable managed identity on an app
 
-If you create and publish your web app through Visual Studio, the managed identity was enabled on your app for you. In your app service, select **Identity** in the left pane, and then select **System assigned**. Verify that the **Status** is set to **On**. If not, select **Save** and then select **Yes** to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
+If you create and publish your web app through Visual Studio, the managed identity was enabled on your app for you. In your app service, select **Identity** in the left pane, and then select **System assigned**. Verify that the **Status** is set to **On**. If not, select **On** and then **Save**. Select **Yes** in the confirmation dialog to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
 
 :::image type="content" alt-text="Screenshot that shows the System assigned identity option." source="../../media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
 
@@ -63,7 +63,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. On the Azure portal menu, select **All services**. In the list of resources, enter **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 
-1. In the **Storage Accounts** window that appears, select **Add**.
+1. In the **Storage Accounts** window that appears, select **Create**.
 
 1. Select the subscription in which to create the storage account.
 
@@ -71,7 +71,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length and can include numbers and lowercase letters only.
 
-1. Select a location for your storage account, or use the default location.
+1. Select a location (region) for your storage account, or use the default value.
 
 1. Leave these fields set to their default values:
 

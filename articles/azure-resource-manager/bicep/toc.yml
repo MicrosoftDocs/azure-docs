@@ -20,6 +20,8 @@
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Create template specs
+    href: quickstart-create-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -39,14 +41,46 @@
     href: learn-bicep.md
 - name: Samples - Azure Services
   items:
+  - name: AI + Machine Learning
+    items:
+    - name: Cognitive Search
+      href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
       href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Event Hubs
+      href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
-    items: 
+    items:
+    - name: Batch
+      href: ../../batch/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Windows virtual machine
+      href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Containers
+    items:
+    - name: Container Instances
+      href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Databases
+    items:
+    - name: Database Migration Service
+      href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: DevOps
+    items:
+    - name: DevTest Labs
+      href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Networking
+    items:
+    - name: Content Delivery Network
+      href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: DNS
+      href: ../../dns/dns-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: ExpressRoute
+      href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Front Door
+      href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management
@@ -246,6 +280,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+  - name: Contribute to Bicep
+    href: contribute.md
 - name: Reference
   items:
   - name: Resource reference

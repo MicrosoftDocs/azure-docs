@@ -17,6 +17,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    expanded: true
   - name: Create an internal load balancer
     items:
     - name: Portal
@@ -163,17 +164,17 @@
       href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
-  - name: Upgrade from Basic to Standard Load Balancer
+  - name: Upgrade from a basic to standard load balancer
     items:
-    - name: Upgrade a Basic Public Load Balancer
+    - name: Upgrade a basic public load balancer
       href: upgrade-basic-standard.md
-    - name: Upgrade an Internal Load Balancer - No Outbound Connection Required
-      href: upgrade-basicInternal-standard.md
-    - name: Upgrade an Internal Load Balancer - Outbound Connection Required
-      href: upgrade-InternalBasic-To-PublicStandard.md
+    - name: Upgrade an internal load balancer - Outbound connections not required
+      href: upgrade-basicinternal-standard.md
+    - name: Upgrade an internal load balancer - Outbound connections required
+      href: upgrade-internalbasic-to-publicstandard.md
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
-  - name: Configure distribution mode for Load Balancer
+  - name: Configure distribution mode for a load balancer
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:
@@ -211,8 +212,6 @@
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
     - name: Basic public
       items:
-      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
       - name: Deploy an IPv6 dual stack application using Basic Load Balancer - Azure CLI
         href: virtual-network-ipv4-ipv6-dual-stack-cli.md
       - name: Deploy an IPv6 dual stack application using Basic Load Balancer - ARM template

@@ -1,9 +1,9 @@
 ---
 title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
-ms.topic: how-to
-ms.author: benmansheim
 author: bmansheim
+ms.author: benmansheim
+ms.topic: how-to
 ms.date: 11/09/2021
 ---
 # Harden your Docker hosts
@@ -24,10 +24,10 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
-|||
+
 
 ## Identify and remediate security vulnerabilities in your Docker configuration
 
@@ -37,7 +37,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
     The recommendation page shows the affected resources (Docker hosts). 
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations .":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations.":::
 
     > [!NOTE]
     > Machines that aren't running Docker will be shown in the **Not applicable resources** tab. They'll appear in Azure Policy as Compliant. 

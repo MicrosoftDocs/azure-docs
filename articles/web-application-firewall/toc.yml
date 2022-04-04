@@ -123,6 +123,8 @@
        href: ./ag/associate-waf-policy-existing-gateway.md
      - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
+     - name: Monitoring and logging
+       href: ./ag/application-gateway-waf-metrics.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
@@ -139,7 +141,7 @@
       href: ./afds/waf-front-door-rate-limit-powershell.md
     - name: Configure a geo-filtering WAF policy
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
-    - name: Monitor and logging
+    - name: Monitoring and logging
       href: ./afds/waf-front-door-monitor.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
@@ -162,7 +164,7 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: /cli/azure/network
+      href: /cli/azure/network/front-door/waf-policy
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN
