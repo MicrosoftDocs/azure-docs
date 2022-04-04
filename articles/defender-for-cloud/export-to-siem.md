@@ -100,9 +100,9 @@ You can set up your Azure environment to support continuous export using either:
         2. Save Tenant, App ID, App password.
         3. Give permissions to the Azure AD Application to read from the event hub you created before.
 
-    For more detailed instructions, see the 
+    For more detailed instructions, see [Stream alerts to QRadar and Splunk](export-to-splunk-or-qradar.md).
 
-### Step 2. Connect the event hub to your preferred solution using the built-in connectors:
+### Step 2. Connect the event hub to your preferred solution using the built-in connectors
 
 | Tool | Hosted in Azure | Description |
 |:---|:---| :---|
@@ -111,7 +111,7 @@ You can set up your Azure environment to support continuous export using either:
 
 ## Stream alerts with continuous export
 
-To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, configure Azure Event Hubs with built-in connectors:
+To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, connect Defender for Cloud using continuous export and Azure Event Hubs:
 
 > [!NOTE]
 > To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to an event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).

@@ -31,18 +31,21 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     1. In the Entities section of the Event Hubs namespace menu, select **Event Hubs** and click on the event hub you created.
         ![Screenshot of opening the event hub Microsoft Event Hubs.](./media/export-to-siem/open-event-hub.png)
     1. Click **Consumer group**.
-1. Enable continuous export:
-    Tenant level:
-    1. In the search box in the menu, search for "Policy" and go to the Policy and select **Definitions** in the menu.
-    1. Look for "deploy export".
-    1. Select the **Deploy export to Event Hub for Azure Security Center data** built-in policy and click **Assign**.
-    1. Enter "scope" to define the level of data to export. To select a tenant root management group level you need to have permissions on tenant level.
-    1. (Optional) You can also define specific subscriptions to exclude from the export.
-    1. Enter an assignment name.
-    1. Make sure policy enforcement is enabled.
+1. Enable continuous export on the Tenant level:
+    1. In the Azure search box, search for "policy" and go to the Policy.
+    1. In the Policy menu, select **Definitions**.
+    1. Search for "deploy export" and select the **Deploy export to Event Hub for Azure Security Center data** built-in policy.
+    1. Click **Assign**.
+    1. Define the basic policy options:
+        1. In Scope, click the **...** to select the level of data to export.
+        1. Find your subscription in the Subscription dropdown list, find your resource group in the Resource Group dropdown list, and click **Select**.
+            - To select a tenant root management group level you need to have permissions on tenant level.
+        1. (Optional) In Exclusions you can define specific subscriptions to exclude from the export.
+        1. Enter an assignment name.
+        1. Make sure policy enforcement is enabled.
     1. In the policy parameters:
-        1. Select a resource group that defines where the automation resource is saved.
-        1. Select Resource group location.
+        1. Enter the resource group where the automation resource is saved.
+        1. Select resource group location.
         1. Click the **...** next to the **Event Hub details** and enter the details for the event hub, including:
             - Subscription.
             - The Event Hubs namespace you created.
@@ -78,3 +81,5 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     1. Click **Select Members**.
     1. Search for the Azure AD application you created before and select it.
     1. Click **Close**.
+
+Now you can [install the built-in connectors](export-to-siem.md#Step 2. Connect the event hub to your preferred solution using the built-in connectors) for the SIEM you are using.
