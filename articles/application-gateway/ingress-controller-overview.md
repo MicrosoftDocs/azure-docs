@@ -47,6 +47,9 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
 > [!NOTE]
 > Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm. 
 
+## Limitations
+If using the Azure Application Gateway ingress controller (AGIC) with Windows nodes you must deploy both to the same Virtual Network (VNET). If you are deploying to separate VNETs, even if they are peered, your Application Gateway will return a HTTP 502 status code and be unable to reach your Windows node pool. This issue has been reported and is being tracked under https://github.com/Azure/AKS/issues/1960
+
 ## Next steps
 - [**AKS Add-On Greenfield Deployment**](tutorial-ingress-controller-add-on-new.md): Instructions on installing AGIC add-on, AKS, and Application Gateway on blank-slate infrastructure.
 - [**AKS Add-On Brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): Install AGIC add-on on an AKS cluster with an existing Application Gateway.
