@@ -21,7 +21,7 @@ This quick start gives you a run through of an end-2-end scenario on how you can
 
 ## Create a lake database from database templates
 
-Use the new database templates (preview) functionality to create a lake database that you can use to configure your data model for the database. 
+Use the new database templates functionality to create a lake database that you can use to configure your data model for the database. 
 
 For our scenario we will use the Retail database template and select the following entities: 
  - **RetailProduct** - A product is anything that can be offered to a market that might satisfy a need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
