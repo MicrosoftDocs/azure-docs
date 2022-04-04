@@ -429,7 +429,7 @@ Legacy options for enterprise deployments include:
 |Device access|	Two rear USB 3.0|
 |1 front| USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 350 W|
-|Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks| with support for optional tool-less cable management arm.|
+|Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm.|
 
 # [Legacy SMB](#tab/legacy-smb)
 
