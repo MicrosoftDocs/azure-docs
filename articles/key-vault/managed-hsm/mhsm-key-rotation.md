@@ -51,7 +51,7 @@ Key rotation policy settings:
     -   Automatically renew at a given time before expiry. 'Expiration Date' must be set on the key for this event to fire.
 
 > [!WARNING]
-> The minimum time between automatic key rotations must be no less than 28 days. For `timeAfterCreate` rotation, this means the minimum value is `P28D`. For `timeBeforeExpiry`, the maximum time depends on the `expiryTime`. For example, if `expiryTime` is `P56D`, `timeBeforeExpiry` can be at most `P28D`.
+> An *automatic* rotation policy cannot mandate that new key versions be created more frequently than once every 28 days. For creation-based rotation policies, this means the minimum value for `timeAfterCreate`  is `P28D`. For expiration-based rotation policies, the maximum value for `timeBeforeExpiry` depends on the `expiryTime`. For example, if `expiryTime` is `P56D`, `timeBeforeExpiry` can be at most `P28D`.
 
 
 ## Configure a key rotation policy
@@ -114,6 +114,8 @@ Remove the key rotation policy (done by setting a blank policy)
 ```
 
 ## Rotation on demand
+
+Once a rotation policy is set for the key, you can also rotate the key on-demand. You must set a key rotation policy first.
 
 ### Azure CLI
 ```azurecli
