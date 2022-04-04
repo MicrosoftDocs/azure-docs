@@ -13,7 +13,7 @@ ms.author: jomore
 
 [Azure VMware Solution](../azure-vmware/introduction.md) is an Azure service where native VMware vSphere workloads run and communicate with other Azure services. This communication happens over ExpressRoute, and Azure Route Server can be used to modify the default behavior of Azure VMware Solution networking. For example, a default route can be injected from a Network Virtual Appliance (NVA) in Azure to attract traffic from AVS and inspect it before sending it out to the public Internet, or to analyze traffic between AVS and the on-premises network.
 
-Additionally, similar designs can be used to interconnect AVS and on-premises networks sending traffic through an NVA, either because traffic inspection is not required or becuase ExpressRoute Global Reach is not available in the relevant regions.
+Additionally, similar designs can be used to interconnect AVS and on-premises networks sending traffic through an NVA, either because traffic inspection is not required or because ExpressRoute Global Reach is not available in the relevant regions.
 
 ## Topology
 
