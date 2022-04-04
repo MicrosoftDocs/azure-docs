@@ -58,7 +58,7 @@
     - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
   - name: End-to-end observability for IoT Edge
-    href: tutorial-end-to-end-observability.md
+    href: how-to-observability.md
   - name: End-to-end example of machine learning at the edge
     items:
     - name: Introduction
