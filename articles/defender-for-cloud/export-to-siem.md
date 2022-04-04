@@ -91,7 +91,7 @@ In order to do these instructions, make sure you have:
 
 You can set up your Azure environment to support continuous export using either:
 
-- Using a PowerShell script (Recommended)
+- A PowerShell script (Recommended)
 
     Download and run [the PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/3rd%20party%20SIEM%20integration).
     Enter the required parameters and the script performs all of the necessary steps for you.
