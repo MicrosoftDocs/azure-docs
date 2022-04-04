@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
-ms.reviewer: laobri
-ms.date: 11/03/2021
+ms.reviewer: larryfr
+ms.date: 03/31/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -150,7 +150,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Kubernetes quota
 
-The requested CPU or memory couldn't be satisfied. Please adjust your request or the cluster.
+The requested CPU or memory couldn't be satisfied. Adjust your request or the cluster.
 
 #### Other quota
 
@@ -244,7 +244,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
 
 For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
 
@@ -262,7 +262,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## Bandwidth limit issues
 
-Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
 - Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
@@ -288,5 +288,5 @@ When you access online endpoints with REST requests, the returned status codes a
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
+- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
 
