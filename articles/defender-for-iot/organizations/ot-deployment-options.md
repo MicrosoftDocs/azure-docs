@@ -23,7 +23,7 @@ Use the following deployment for corporate IT/OT hybrid networks:
 
 |Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
-|C5600 (Corporate)    | 3 Gbps        | 12 K        |Physical / Virtual         |
+|C5600    | 3 Gbps        | 12 K        |Physical / Virtual         |
 
 ## Enterprise monitoring at the site level
 
@@ -31,7 +31,7 @@ Use the following deployment for enterprise monitoring at the site level:
 
 |Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|E1800 (Enterprise)     |1 Gbps         |10K         |Physical / Virtual         |
+|E1800     |1 Gbps         |10K         |Physical / Virtual         |
 
 ## Production line monitoring
 
@@ -39,17 +39,17 @@ Use the following deployment for production line monitoring:
 
 |Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|L500 (Line)    | 200 Mbps        |   1,000      |Physical / Virtual         |
-|L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
-|L60 (Line)     | 10 Mbps        |   100      |Physical / Virtual|
+|L500    | 200 Mbps        |   1,000      |Physical / Virtual         |
+|L100    | 60 Mbps        |   800      | Physical / Virtual        |
+|L60    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
-Use the following deployment when working with an on-premises management console:
+On-premises management consoles are supported for enterprise deployment systems. Use the following deployment when working with an on-premises management console:
 
 |Name  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
-|E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
+|E1800    |Up to 300         |Physical / Virtual         |
 
 ## Next steps
 
