@@ -81,28 +81,15 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 ### Sample Kusto queries
 
-These are now listed in the [Log Analytics user interface](./logs/queries.md). 
+These are now listed in the [Log Analytics user interface](./logs/queries.md).
 
 ## Alerts
 
-<!-- SUGGESTED: Include useful alerts on metrics, logs, log conditions or activity log. Ask your PMs if you don't know. 
-This information is the BIGGEST request we get in Azure Monitor so do not avoid it long term. People don't know what to monitor for best results. Be prescriptive  
--->
-
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-For information The following table lists common and recommended alert rules for [service-name].
-
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
+For an in-depth discussion of using alerts with autoscale, see [Troubleshoot Azure autoscale](/azure/azure-monitor/autoscale/autoscale-troubleshoot)
 
 ## Next steps
 
-<!-- Add additional links. You can change the wording of these and add more if useful.   -->
-
-- See [Monitoring [service-name] data reference](azure-monitor-monitoring-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
-*>.
+- See [Monitoring Azure Monitor data reference](azure-monitor-monitoring-reference.md) for a reference of the metrics, logs, and other important values created by Azure Monitor to monitor itself.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
