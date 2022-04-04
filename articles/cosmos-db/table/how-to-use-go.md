@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Tables client library for Go
-description: Store structured data in the cloud using the Azure Tables client library for Go.
+title: Use the Azure Table client library for Go
+description: Store structured data in the cloud using the Azure Table client library for Go.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: golang 
@@ -10,7 +10,7 @@ author: Duffney
 ms.author: jduffney 
 ---
 
-# How to use the Azure SDK for Go with Azure Tables
+# How to use the Azure SDK for Go with Azure Table
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
@@ -53,9 +53,9 @@ To follow along with this tutorial you'll need an Azure resource group, a storag
 	az storage table create --account-name <storageAccountName> --account-key 'storageKey' --name mytable
 	```
 
-### Install Packages
+### Install packages
 
-You'll need two packages to manage Azure Tables with Go; [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity), and [aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables). The `azidentity` package provides you with a way to authenticate to Azure. And the `aztables` packages give you the ability to manage the tables resource in Azure. Run the following Go commands to install these packages:
+You'll need two packages to manage Azure Table with Go; [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity), and [aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables). The `azidentity` package provides you with a way to authenticate to Azure. And the `aztables` packages give you the ability to manage the tables resource in Azure. Run the following Go commands to install these packages:
 
 ```azurecli
 go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
@@ -67,7 +67,7 @@ To learn more about the ways to authenticate to Azure, check out [Azure authenti
 
 ## Create the sample application
 
-Once you have the packages installed, you create a sample application that uses the Azure SDK for Go to manage Azure Tables. Run the `go mod` command to create a new module named `azTableSample`.
+Once you have the packages installed, you create a sample application that uses the Azure SDK for Go to manage Azure Table. Run the `go mod` command to create a new module named `azTableSample`.
 
 ```azurecli
 go mod init azTableSample
