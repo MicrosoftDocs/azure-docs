@@ -28,7 +28,8 @@ This is the basic template format:
       "<name>": "<value>"
     },
     "identity": {},			 
-    "properties": { 
+    "properties": {
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
         "vmSize": "<vmSize>",
@@ -50,8 +51,6 @@ This is the basic template format:
     } 
   } 
 ```
-
-
 
 ## Type and API version
 
@@ -80,6 +79,22 @@ The location is the region where the custom image will be created. The following
 - Australia East
 - UK South
 - UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+
 
 ```json
     "location": "<region>",
@@ -176,6 +191,34 @@ The Image Builder Build VM User Assigned Identity:
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+
+## Properties: stagingResourceGroup
+The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+> [!NOTE]
+> Any staging resource group specified for use by the Image Builder service must be empty (no resources inside), in the same region as the image template and have either "Contributor" or "Owner" RBAC assigned to it.
+
+### Template Creation Scenarios
+
+#### The stagingResourceGroup field is left empty
+If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `ImageTemplateRGName`. Also, the staging resource group will have the default RBAC applied to it, which is "Contributor".
+
+#### The stagingResourceGroup field is specified with a resource group that exists
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template and has either "Contributor" or "Owner" RBAC assigned to it. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `ImageTemplateRGName`. Preexisting tags are not deleted.
+
+#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
+If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. Of course, there will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `ImageTemplateRGName`. Also, the staging resource group will have the default RBAC applied to it, which is "Contributor".
+
+### Template Deletion
+Any staging resource group created by the Image Builder service will be deleted after the image build process is completed. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build. 
+
+If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image build process as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
+
+```json			 
+    "properties": {
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+    }
+```
 
 ## Properties: source
 
