@@ -51,7 +51,7 @@ After you specify an error page, the application gateway downloads it from the s
     > [!NOTE]
     > Creating global level custom error pages from the Azure portal is currently not supported.
 
-4. Specify a publicly accessible blob URL for a given error status code and select **Save**. The Application Gateway is now configured with the custom error page.
+4. Under **Error page url**, select **Yes**, and then configure a publicly accessible blob URL for a given error status code. Select **Save**. The Application Gateway is now configured with the custom error page.
 
    ![Screenshot of Application Gateway custom error page.](media/custom-error/ag-error-codes.png)
 
