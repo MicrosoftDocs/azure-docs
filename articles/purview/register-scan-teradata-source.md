@@ -51,7 +51,7 @@ To retrieve data types of view columns, Azure Purview issues a prepare statement
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -59,7 +59,7 @@ To retrieve data types of view columns, Azure Purview issues a prepare statement
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * You will have to manually download Teradata's JDBC Driver on your virtual machine where self-hosted integration runtime is running. The executable JAR file can be downloaded from the Teradata [website](https://downloads.teradata.com/).
+    * You'll have to manually download Teradata's JDBC Driver on your virtual machine where self-hosted integration runtime is running. The executable JAR file can be downloaded from the Teradata [website](https://downloads.teradata.com/).
 
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
@@ -95,7 +95,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
 ### Create and run scan
 
-1. In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime
+1. In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime
 
 1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
@@ -124,16 +124,16 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
         * Contain C or
         * Equal D
 
-        Usage of NOT and special characters are not acceptable
+        Usage of NOT and special characters aren't acceptable
 
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
-    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+    1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
         - Signature: The name and parameters of stored procedures.
         - Code, signature: The name, parameters and code of stored procedures.
         - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
-        - None: Stored procedure details are not included.
+        - None: Stored procedure details aren't included.
         
     1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
@@ -160,7 +160,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

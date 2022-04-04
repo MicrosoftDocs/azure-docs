@@ -22,7 +22,7 @@ This article outlines how to register Db2, and how to authenticate and interact 
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
-The supported IBM Db2 versions are Db2 for LUW 9.7 to 11.x. Db2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
+The supported IBM Db2 versions are Db2 for LUW 9.7 to 11.x. Db2 for z/OS (mainframe) and iSeries (AS/400) aren't supported now. 
 
 When scanning IBM Db2 source, Azure Purview supports:
 
@@ -45,7 +45,7 @@ When setting up scan, you can choose to scan an entire Db2 database, or scope th
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
@@ -106,7 +106,7 @@ The supported authentication type for a Db2 source is **Basic authentication**.
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -135,7 +135,7 @@ To create and run a new scan, do the following:
         * Contain C or
         * Equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
@@ -165,7 +165,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

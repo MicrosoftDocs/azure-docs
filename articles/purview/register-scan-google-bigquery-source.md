@@ -44,7 +44,7 @@ When setting up scan, you can choose to scan an entire Google BigQuery project, 
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -88,7 +88,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md).
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md).
 
 1. Navigate to **Sources**.
 
@@ -136,7 +136,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
         * contain C or
         * equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on your VM to be used by scanning processes. This is dependent on the size of Google BigQuery project to be scanned.
 
@@ -163,7 +163,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

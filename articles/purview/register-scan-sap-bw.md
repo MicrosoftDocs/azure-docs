@@ -22,7 +22,7 @@ This article outlines how to register SAP Business Warehouse (BW), and how to au
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
 
-The supported SAP BW versions are 7.3 to 7.5. SAP BW4/HANA is not supported.
+The supported SAP BW versions are 7.3 to 7.5. SAP BW4/HANA isn't supported.
 
 When scanning SAP BW source, Azure Purview supports extracting technical metadata including:
 
@@ -146,7 +146,7 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Search Data Catalog](how-to-search-catalog.md)
 - [Data insights in Azure Purview](concept-insights.md)

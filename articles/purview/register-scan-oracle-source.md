@@ -22,7 +22,7 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-The supported Oracle server versions are 6i to 19c. Proxy server is not supported when scanning Oracle source.
+The supported Oracle server versions are 6i to 19c. Proxy server isn't supported when scanning Oracle source.
 
 When scanning Oracle source, Azure Purview supports:
 
@@ -43,7 +43,7 @@ When scanning Oracle source, Azure Purview supports:
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
-Currently, the Oracle service name is not captured in the metadata or hierarchy.
+Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Currently, the Oracle service name is not captured in the metadata or hierarchy.
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -72,7 +72,7 @@ This section describes how to register Oracle in Azure Purview using the [Azure 
 
 A read-only access to system tables is required.
 
-The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
+The user should have permission to create a session and role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
 ```sql
 grant create session to [user];
@@ -148,7 +148,7 @@ Follow the steps below to scan Oracle to automatically identify assets and class
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -176,19 +176,19 @@ To create and run a new scan, do the following:
         * Contain C or
         * Equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+    1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
         - Signature: The name and parameters of stored procedures.
         - Code, signature: The name, parameters and code of stored procedures.
         - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
-        - None: Stored procedure details are not included.
+        - None: Stored procedure details aren't included.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 
@@ -215,7 +215,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

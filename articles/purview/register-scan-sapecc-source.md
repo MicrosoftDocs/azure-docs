@@ -47,7 +47,7 @@ When scanning SAP ECC source, Azure Purview supports:
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -62,12 +62,12 @@ When scanning SAP ECC source, Azure Purview supports:
 
         :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="pre-requisite" border="true":::
 
-    * The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API. Make sure the Java Connector is available on your virtual machine where self-hosted integration runtime is installed. Make sure that you are using the correct JCo distribution for your environment. For example: on a Microsoft Windows machine, make sure the sapjco3.jar and sapjco3.dll files are available.
+    * The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API. Make sure the Java Connector is available on your virtual machine where self-hosted integration runtime is installed. Make sure that you're using the correct JCo distribution for your environment. For example: on a Microsoft Windows machine, make sure the sapjco3.jar and sapjco3.dll files are available.
 
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You will need an ABAP developer account to create the RFC function module on the SAP server. The user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
+* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You'll need an ABAP developer account to create the RFC function module on the SAP server. The user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
   * STFC_CONNECTION (check connectivity)
   * RFC_SYSTEM_INFO (check system information)
 
@@ -109,7 +109,7 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 1. Navigate to **Sources**
 
@@ -133,7 +133,7 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
     1. **JCo library path**: The directory path where the JCo libraries are located.
 
-    1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory e.g. 100.
+    1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory, for example,  100.
 
         :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 
@@ -156,7 +156,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

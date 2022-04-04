@@ -48,7 +48,7 @@ When setting up scan, you can choose to scan an entire Looker server, or scope t
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 If your data store is publicly accessible, you can use the managed Azure integration runtime for scan without additional settings. Otherwise, if your data store limits access from on-premises network, private network or specific IPs, you need to configure a self-hosted integration runtime to connect to it:
 
@@ -97,7 +97,7 @@ Follow the steps below to scan Looker to automatically identify assets and class
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -125,7 +125,7 @@ To create and run a new scan, do the following:
 
         To understand more on credentials, refer to the link [here](manage-credentials.md)
 
-    1. **Project filter** -- Scope your scan by providing a semicolon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
+    1. **Project filter** - Scope your scan by providing a semicolon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
 
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
 
@@ -151,7 +151,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

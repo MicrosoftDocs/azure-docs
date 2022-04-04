@@ -143,9 +143,9 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
         * Contain C or
         * Equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running. This should be the path to valid JAR folder location. Do not include the name of the driver in the path.
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running. This should be the path to valid JAR folder location. Don't include the name of the driver in the path.
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of SAP HANA database to be scanned.
 
