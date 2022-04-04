@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: v-eschaffer
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 04/04/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
