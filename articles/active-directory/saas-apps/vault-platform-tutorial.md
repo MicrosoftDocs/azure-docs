@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following step:
 
     a. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://vaultplatform.com/api/portal/sessions/saml/<tennant-identifier>`
+    `https://vaultplatform.com/api/portal/sessions/saml/<tenant-identifier>`
 
     > [!NOTE]
 	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Vault Platform Client support team](mailto:azure@vaultplatform.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
