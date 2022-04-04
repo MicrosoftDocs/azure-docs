@@ -36,6 +36,7 @@ Before you install the password reset extension on the VMs running on your devic
 
 Depending on the operating system for your VM, you can install the extension for Windows or for Linux.
 
+
 ### [Windows](#tab/windows)
 
 To change the password for an existing VM, edit the `addPasswordResetExtensionTemplate.parameters.json` parameters file and then deploy the template `addPasswordResetExtensionTemplate.json`.
@@ -90,7 +91,7 @@ The file `addPasswordResetExtensionTemplate.parameters.json` takes the following
 }
 ```
 
-## Deploy the template 
+## Deploy template
 
 ### [Windows](#tab/windows)
 
