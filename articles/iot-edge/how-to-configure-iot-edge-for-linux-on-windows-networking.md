@@ -65,7 +65,7 @@ By default, if no **static IP** address is set up, the EFLOW VM will try to allo
 1. If you're using an **external** virtual switch, check the network interface used for creating the virtual switch. If you're using **internal** virtual switch, just look for the name used for the switch. Once the switch is located, check if `DHCP Enabled` say **Yes** or **No**, and check the `DCHP Server` address. 
 
 
-If you're using **static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#deploy-eflow). For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
+If you're using **static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow). For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
 
 ```powershell
 Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.168.0.2" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
@@ -125,7 +125,7 @@ MulticastDNS setting: no
          DNS Servers: 172.27.112.1
 ```
 
-If you need to manually set up the DNS server addresses, you can use the EFLOW PowerShell cmdlet `Set-EflowVmDNSServers`. For more information about EFLOW VM DNS configuration, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#set-eflowvmdnsservers). 
+If you need to manually set up the DNS server addresses, you can use the EFLOW PowerShell cmdlet `Set-EflowVmDNSServers`. For more information about EFLOW VM DNS configuration, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmdnsservers). 
 
 ### Check DNS resolution
 There are multiple ways to check the DNS resolution. 
@@ -171,3 +171,7 @@ microsoft.com.          0       IN      A       40.76.4.15
 ```
 
 ## Next steps
+
+Read more about [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
+
+Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows.md)
