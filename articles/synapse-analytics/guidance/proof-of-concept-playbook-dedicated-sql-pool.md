@@ -114,7 +114,7 @@ Most test plans revolve around performance and the expected user experience. Wha
 |We need to know that the query performance for our big complex reporting queries will meet our new SLAs|- Sequential test of "complex" queries<br/>- Concurrency test of complex queries against stated SLAs|- Queries A, B, and C finished in 10, 13, and 21 seconds, respectively<br/>- With 10 concurrent users, queries A, B, and C finished in 11, 15, and 23 seconds, on average|
 |We need to know the query performance for our interactive users|- Concurrency test of selected queries at an expected concurrency level of 50 users.<br/>- Run the preceding with result-set caching|- At 50 concurrent users, average execution time is expected to be under 10 seconds, and without result-set caching<br/>- At 50 concurrent users, average execution time is expected to be under five seconds with result-set caching|
 |We need to know whether our existing ETL processes can run within the SLA|- Run one or two ETL processes to mimic production loads|- Loading incrementally onto a core fact table must complete in less than 20 minutes (including staging and data cleansing)<br/>- Dimensional processing needs to take less than five minutes|
-|•	We need to know that the EDW has sufficient security capabilities to secure our data|- Review and enable network security (VNET and private endpoints), data security (row-level security, Dynamic Data Masking)|- Prove that data never leaves our tenant.<br/>- Ensure that PII is easily secured|
+|We need to know that the EDW has sufficient security capabilities to secure our data|- Review and enable network security (VNET and private endpoints), data security (row-level security, Dynamic Data Masking)|- Prove that data never leaves our tenant.<br/>- Ensure that PII is easily secured|
 
 The next step is to identify your dataset.
 
@@ -190,7 +190,11 @@ When loading data for the first time into Azure Synapse SQL pools, a common ques
 The following is a COPY INTO example:
 
 ```tsql
-COPY INTO test_1 (Col_one default 'myStringDefault' 1, Col_two default 1 3) FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/' WITH (
+COPY INTO
+    test_1 (Col_one default 'myStringDefault' 1, Col_two default 1 3)
+FROM
+    'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/'
+WITH (
     FILE_TYPE = 'CSV',
     CREDENTIAL = (IDENTITY= 'Storage Account Key', SECRET='<Your_Account_Key>'),
     FIELDQUOTE = '"',
@@ -198,6 +202,7 @@ COPY INTO test_1 (Col_one default 'myStringDefault' 1, Col_two default 1 3) FROM
     ROWTERMINATOR = '0x0A',
     ENCODING = 'UTF8',
     FIRSTROW = 2
+);
 ```
 Let's now move on to querying.
 
@@ -209,14 +214,19 @@ Deriving analytics from your data is why you are looking at a data warehouse in 
 
 Running queries sequentially is extremely easy with SSMS. It is important to run these tests using a user with a sufficient large resource class. For simple queries, we recommend Static 20. For more complex queries, we suggest Static 40.
 
-The following SQL query uses a query label to keep track of the first query in Dynamic Management Views (DMV). Then it uses `sys.dm_pdw_exec_requests` to determine query execution duration:
+The following SQL query uses a [query label](https://docs.microsoft.com/sql/t-sql/queries/option-clause-transact-sql?view=sql-server-ver15) to keep track of the first query in Dynamic Management Views (DMV). Then it uses `sys.dm_pdw_exec_requests` to determine query execution duration:
 
 > [!TIP]
 > Using a query label is a great way to keep track of your queries.
 
 ```tsql
 /* Use the OPTION(LABEL = '') Syntax to add a query label to track the query in DMVs */
-SELECT TOP (1000) * FROM [dbo].[Date] OPTION (LABEL = 'Test1')
+SELECT TOP (1000)
+    *
+FROM
+    [dbo].[Date]
+OPTION (LABEL = 'Test1');
+
 /* Use sys.dm_pdw_exec_requests to determine query execution duration (ms) */
 SELECT
     Total_elapsed_time AS [Elapsed_Time_ms],
@@ -224,7 +234,7 @@ SELECT
 FROM
     sys.dm_pdw_exec_requests
 WHERE
-    [label] = 'Test1'
+    [label] = 'Test1';
 ```
 
 ### Concurrent query test
