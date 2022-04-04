@@ -63,7 +63,7 @@ It's easy to [setup and run DMA](https://aka.ms/mongodma#how-to-run-the-dma) thr
 
 You can use either one of these DMA output files as the data estate migration spreadsheet -
 
-* workload_database_details.csv - Gives a database-level view of the source workload. Columns in file are: Database Name, Collection ount, Document Count, Average Document Size, Data Size, Index Count and Index Size.
+* workload_database_details.csv - Gives a database-level view of the source workload. Columns in file are: Database Name, Collection count, Document Count, Average Document Size, Data Size, Index Count and Index Size.
 * workload_collection_details.csv - Gives a collection-level view of the source workload. Columns in file are: Database Name, Collection Name, Doc Count, Average Document Size, Data size, Index Count, Index Size and Index definitions.
 
 Here's a sample database-level migration spreadsheet created by DMA:
@@ -93,15 +93,11 @@ Assessment involves finding out whether you're using the [features and syntax th
 
 [Database Migration Assistant](https://aka.ms/mongodma) (DMA) also assists you with the assessment stage of pre-migration planning.
 
-Refer to the section [Programmatic discovery using the Database Migration Assistant](#programmatic-discovery-using-the-database-migration-assistant) to know how to setup and run DMA. The DMA notebook runs a few assessment rules against the resource list it gathers from source MongoDB.
+Refer to the section [Programmatic discovery using the Database Migration Assistant](#programmatic-discovery-using-the-database-migration-assistant) to know how to setup and run DMA. 
 
-Assessment checks run by DMA currently include:
+The DMA notebook runs a few assessment rules against the resource list it gathers from source MongoDB. The assessment result lists the required and recommended changes needed to proceed with the migration. 
 
-* Unsupported features: Text index
-* Partially supported features: Compound/Unique indexes with nested fields only allowed on nested doc fields and not arrays, TTL index only supported on _ts field
-* Limit warnings: Unsharded collection reaching fixed collection limit, Databases with >25 collections aren't recommended for shared database throughput setting
-
-Assessment results are printed as an output in the DMA notebook and saved to a csv file - assessment_result.csv.
+The results are printed as an output in the DMA notebook and saved to a csv file - assessment_result.csv.
 
 > [!NOTE]
 > Database Migration Assistant is a preliminary utility meant to assist you with the pre-migration steps. It does not perform an end-to-end assessment currently. \
@@ -142,7 +138,7 @@ Figure out what Azure Cosmos DB resources you'll create. This means stepping thr
 * Anticipate that each MongoDB database will become an Azure Cosmos DB database
 * Anticipate that each MongoDB collection will become an Azure Cosmos DB collection
 * Choose a naming convention for your Azure Cosmos DB resources. Barring any change in the structure of databases and collections, keeping the same resource names is usually a fine choice.
-* Determine whether you'll be using sharded or unsharded collections in Cosmos DB. Unsharded collection limit is 20 GB.
+* Determine whether you'll be using sharded or unsharded collections in Cosmos DB. Unsharded collection limit is 20 GB. Sharding, on the other hand, helps achieve horizontal scale that is critical to the performance of many workloads.
 * If using sharded collections, *do not assume that your MongoDB collection shard key becomes your Azure Cosmos DB collection shard key. Do not assume that your existing MongoDB data model/document structure is what you'll employ on Azure Cosmos DB.* 
    * Shard key is the single most important setting for optimizing the scalability and performance of Azure Cosmos DB, and data modeling is the second most important. Both of these settings are immutable and cannot be changed once they are set; therefore it is highly important to optimize them in the planning phase. Follow the guidance in the [Immutable decisions](#immutable-decisions) section for more information.
 * Azure Cosmos DB does not recognize certain MongoDB collection types such as capped collections. For these resources, just create normal Azure Cosmos DB collections.
