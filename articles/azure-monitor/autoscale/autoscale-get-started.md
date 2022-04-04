@@ -24,7 +24,7 @@ You can discover all the resources for which Autoscale is applicable in Azure Mo
 
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
 
-![View all resources and status][./media/autoscale-get-started/view-all-resources-3.png]
+![View all resources and status][4]
 
 For each resource, you will find the current instance count and the Autoscale status. The Autoscale status can be:
 
@@ -36,11 +36,11 @@ For each resource, you will find the current instance count and the Autoscale st
 
 Let's now go through a simple step-by-step walkthrough to create your first Autoscale setting.
 
-1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][4])
+1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][5])
 1. Note that the current instance count is 1. Click **Custom autoscale**.
-  ![Scale setting for new web app][5]
+  ![Scale setting for new web app][6]
 1. Provide a name for the scale setting, and then click **Add a rule**. This opens a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
-  ![Create scale setting for a web app][6]
+  ![Create scale setting for a web app][7]
 1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
 
     a. Click **Add a rule**.
@@ -52,7 +52,7 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
     d. Set **Operation** to **Decrease count by**.
 
    You should now have a scale setting that scales out/scales in based on CPU usage.
-   ![Scale based on CPU][8]
+   ![Scale based on CPU][9]
 1. Click **Save**.
 
 Congratulations! You've now successfully created your first scale setting to autoscale your web app based on CPU usage.
@@ -69,7 +69,7 @@ In addition to scale based on CPU, you can set your scale differently for specif
 1. Select **Repeat specific days** for the schedule.
 1. Select the days and the start/end time for when the scale condition should be applied.
 
-![Scale condition based on schedule][9]
+![Scale condition based on schedule][10]
 ### Scale differently on specific dates
 In addition to scale based on CPU, you can set your scale differently for specific dates.
 
@@ -78,19 +78,19 @@ In addition to scale based on CPU, you can set your scale differently for specif
 1. Select **Specify start/end dates** for the schedule.
 1. Select the start/end dates and the start/end time for when the scale condition should be applied.
 
-![Scale condition based on dates][10]
+![Scale condition based on dates][11]
 
 ### View the scale history of your resource
 Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the scale history of your resource for the past 24 hours by switching to the **Run history** tab.
 
-![Run history][11]
+![Run history][12]
 
 If you want to view the complete scale history (for up to 90 days), select **Click here to see more details**. The activity log opens, with Autoscale pre-selected for your resource and category.
 
 ### View the scale definition of your resource
 Autoscale is an Azure Resource Manager resource. You can view the scale definition in JSON by switching to the **JSON** tab.
 
-![Scale definition][12]
+![Scale definition][13]
 
 You can make changes in JSON directly, if required. These changes will be reflected after you save them.
 
@@ -98,14 +98,14 @@ You can make changes in JSON directly, if required. These changes will be reflec
 There might be times when you want to disable your current scale setting and manually scale your resource.
 
 Click the **Disable autoscale** button at the top.
-![Disable Autoscale][13]
+![Disable Autoscale][14]
 
 > [!NOTE]
 > This option disables your configuration. However, you can get back to it after you enable Autoscale again.
 
 You can now set the number of instances that you want to scale to manually.
 
-![Set manual scale][14]
+![Set manual scale][15]
 
 You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
 
@@ -142,14 +142,15 @@ To learn more about moving resources between regions and disaster recovery in Az
 [1]:https://portal.azure.com
 [2]: ./media/autoscale-get-started/click-on-monitor-1.png
 [3]: ./media/autoscale-get-started/click-on-autoscale-2.png
-[4]: ../../app-service/quickstart-dotnetcore.md
-[5]: ./media/autoscale-get-started/manual-scale-04.png
-[6]: ./media/autoscale-get-started/custom-scale-add-rule-05.png
-[7]: ./media/autoscale-get-started/scale-in-recommendation.png 
-[8]: ./media/autoscale-get-started/custom-scale-results-06.png
-[9]: ./media/autoscale-get-started/scale-same-based-on-condition-07.png
-[10]: ./media/autoscale-get-started/scale-different-based-on-time-08.png
-[11]: ./media/autoscale-get-started/scale-history.png
-[12]: ./media/autoscale-get-started/view-scale-definition-09.png
-[13]: ./media/autoscale-get-started/disable-autoscale.png
-[14]: ./media/autoscale-get-started/set-manualscale.png
+[4]: ./media/autoscale-get-started/view-all-resources-3.png
+[5]: ../../app-service/quickstart-dotnetcore.md
+[6]: ./media/autoscale-get-started/manual-scale-04.png
+[7]: ./media/autoscale-get-started/custom-scale-add-rule-05.png
+[8]: ./media/autoscale-get-started/scale-in-recommendation.png 
+[9]: ./media/autoscale-get-started/custom-scale-results-06.png
+[10]: ./media/autoscale-get-started/scale-same-based-on-condition-07.png
+[11]: ./media/autoscale-get-started/scale-different-based-on-time-08.png
+[12]: ./media/autoscale-get-started/scale-history.png
+[13]: ./media/autoscale-get-started/view-scale-definition-09.png
+[14]: ./media/autoscale-get-started/disable-autoscale.png
+[15]: ./media/autoscale-get-started/set-manualscale.png
