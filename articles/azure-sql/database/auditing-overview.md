@@ -42,6 +42,7 @@ You can use SQL Database auditing to:
 - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 - Enabling auditing on a paused **Azure Synapse** is not supported. To enable auditing, resume Azure Synapse.
 - Auditing for **Azure Synapse SQL pools** supports default audit action groups **only**.
+- When configuring the auditing in Azure SQL server or Azure SQL database with log destination as storage account, the target storage account must be enabled with access to storage account keys. If the storage account is configured to use Azure AD authentication only and not configured for access key usage, the auditing cannot be configured. <!-- REST API reference: - https://docs.microsoft.com/en-us/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update -->
 
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
