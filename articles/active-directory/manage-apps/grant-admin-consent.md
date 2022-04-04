@@ -35,8 +35,8 @@ Granting tenant-wide admin consent requires you to sign in as a user that is aut
 To grant tenant-wide admin consent, you need:
 
 - An Azure AD user account with one of the following roles:
-   - Global Administrator or Privileged Role Administrator, for granting consnet for apps requesting any permission, for any API.
-   - Cloud Application Administrator or Application Administrator, for granting consnet for apps requesting any permission for any API, _except_ Azure AD Graph or Microsoft Graph app roles (application permissions).
+   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, _except_ Azure AD Graph or Microsoft Graph app roles (application permissions).
    - A custom directory role that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md), for the permissions required by the application.
 
 ## Grant tenant-wide admin consent in Enterprise apps
