@@ -11,7 +11,7 @@ ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma, danil
-ms.date: 03/22/2022
+ms.date: 04/02/2022
 ---
 
 # Prepare your environment for a link - Azure SQL Managed Instance
@@ -205,8 +205,8 @@ The following table describes port actions for each environment:
 
 |Environment|What to do|
 |:---|:-----|
-|SQL Server (in Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of SQL Managed Instance. If necessary, do the same on the Windows firewall. Create a network security group (NSG) rule in the virtual network that hosts the VM to allow communication on port 5022.  |
-|SQL Server (outside Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of SQL Managed Instance. If necessary, do the same on the Windows firewall.  |
+|SQL Server (in Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet IP range of SQL Managed Instance. If necessary, do the same on the SQL Server host OS (Windows/Linux) firewall. Create a network security group (NSG) rule in the virtual network that hosts the VM to allow communication on port 5022. |
+|SQL Server (outside Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet IP range of SQL Managed Instance. If necessary, do the same on the SQL Server host OS (Windows/Linux) firewall. |
 |SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of SQL Server on port 5022 to the virtual network that hosts SQL Managed Instance. |
 
 Use the following PowerShell script on the Windows host of the SQL Server instance to open ports in the Windows firewall: 
@@ -233,7 +233,7 @@ A successful test shows `TcpTestSucceeded : True`.
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot that shows the output of the command for testing a network connection in PowerShell.":::
 
 If the response is unsuccessful, verify the following network settings:
-- There are rules in both the network firewall *and* the Windows firewall that allow traffic to the *subnet* of SQL Managed Instance. 
+- There are rules in both the network firewall *and* the SQL Server host OS (Windows/Linux) firewall that allow traffic to the entire *subnet IP range* of SQL Managed Instance. 
 - There's an NSG rule that allows communication on port 5022 for the virtual network that hosts SQL Managed Instance. 
 
 
