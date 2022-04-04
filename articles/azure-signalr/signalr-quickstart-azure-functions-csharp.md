@@ -128,7 +128,7 @@ You'll need the Azure Functions Core Tools for this step.
     - `Negotiate` is used by the client to get an access token.
     - `Broadcast` is periodically called to get the star count from GitHub and then broadcast messages to all clients.
 
-1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in `GetHomePage` function, then create a new file *index.html* in the `content` directory under project root folder. Copy the following content into *index.html*.
+1. The client interface for this sample is a web page. We render the web page using the `GetHomePage` function by reading HTML content from file *content/index.html*. Now let's create this *index.html* under the `content` subdirectory with the following content:
 
     ```html
     <html>
