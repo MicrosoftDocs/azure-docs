@@ -51,7 +51,11 @@
   - name: Email when VM changes
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
-    href: resize-images-on-storage-blob-upload-event.md
+    items:
+    - name: Upload image data in the cloud with Azure Storage
+      href: storage-upload-process-images.md
+    - name: Automate resizing uploaded images using Event Grid
+      href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
