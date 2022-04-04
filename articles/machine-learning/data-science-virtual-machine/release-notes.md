@@ -28,7 +28,7 @@ Version: 22.04.01
 Main changes:
 
 - Updated R environment - added libraries: Cluster, Devtools Factoextra, GlueHere, Ottr, Paletteer, Patchwork, Plotly, Rmd2jupyter, Scales, Statip, Summarytools, Tidyverse, Tidymodels and Testthat
-- Further Log4j vulnerability mitigation - although not used, we moved all log4j to version v2, we have removed old log4j jars1.0 and moved log4j version 2.0 jars.
+- Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved log4j version 2.0 jars.
 - Azure CLI to version 2.33.1
 - Fixed jupyterhub access issue using public ip address
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
