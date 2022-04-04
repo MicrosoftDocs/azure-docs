@@ -37,7 +37,7 @@ Learn more about using these recommendations in [Harden a machine's OS configura
 
 Updates in August include:
 
-- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for Servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
 - [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
 - [Regulatory compliance dashboard's Azure Audit reports released for general availability (GA)](#regulatory-compliance-dashboards-azure-audit-reports-released-for-general-availability-ga)
@@ -48,9 +48,9 @@ Updates in August include:
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
-### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
+### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for Servers (in preview)
 
-[Azure Defender for servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
+[Azure Defender for Servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
 
 When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack.
 
@@ -191,14 +191,14 @@ Learn more in [Connect Azure Defender alerts from Azure Security Center](../sent
 
 The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
 
-As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
+As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for Servers**.
 
 The alerts are organized according to two main principles:
 
 - Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
 - Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
 
-These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
+These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for Servers:
 
 - ARM_AmBroadFilesExclusion
 - ARM_AmDisablementAndCodeExecution
@@ -222,7 +222,7 @@ These are the alerts that were part of Azure Defender for Resource Manager, and 
 - ARM_VMAccessUnusualPasswordReset
 - ARM_VMAccessUnusualSSHReset
 
-Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for Servers](defender-for-servers-introduction.md) plans.
 
 
 ### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
@@ -615,7 +615,7 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for Servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for Servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
@@ -927,7 +927,7 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for Servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for Servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
@@ -1022,13 +1022,13 @@ To learn more, see the following pages:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)
 
-In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
+In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
 It's now released for general availability (GA).
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
-With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+With this update, you can unleash the power of **Azure Defender for Servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
 
 Main capabilities:
 
@@ -1489,11 +1489,11 @@ Updates in October include:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
 
-[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
+[Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
-With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+With this update, you can unleash the power of **Azure Defender for Servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
 
 Main capabilities:
 
@@ -1666,7 +1666,7 @@ Learn more about the [overview page](overview-page.md).
 
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for Servers](defender-for-servers-introduction.md)
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [Azure Defender for Storage](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
