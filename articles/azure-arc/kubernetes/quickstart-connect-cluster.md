@@ -19,7 +19,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
@@ -52,7 +52,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
 

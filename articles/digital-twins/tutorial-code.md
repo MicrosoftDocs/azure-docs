@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Tutorial: Coding with the Azure Digital Twins APIs
+# Tutorial: Coding with the Azure Digital Twins SDK
 
 Developers working with Azure Digital Twins commonly write client applications for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
 
@@ -182,9 +182,7 @@ To keep the program from crashing, you can add exception code around the model u
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_try_catch":::
 
-Now, if you run the program with `dotnet run` in your command window now, you'll see that you get an error code back. The output from the model creation code shows this error:
-
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Screenshot of a console showing the program output, which results in an error '409:Service request failed. Status: 409 (Conflict).'.":::
+Run the program again with `dotnet run` in your command window. You'll see that you get back more details about the model upload issue, including an error code stating that `ModelIdAlreadyExists`.
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 

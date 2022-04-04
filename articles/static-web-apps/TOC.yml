@@ -132,6 +132,10 @@
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+    - name: Use an external code host
+      items:
+        - name: GitLab
+          href: gitlab.md
 - name: Samples
   items:
     - name: Serverless app with Azure SQL
@@ -160,3 +164,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

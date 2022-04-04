@@ -23,7 +23,7 @@ All Azure services set default limits and quotas for resources and features.   A
 |--------------------------------------|-----------------------------------------|--------------------|---------------------|
 | vCPU                                 | per app instance                        | 1                  | 4                   |
 | Memory                               | per app instance                        | 2 GB               | 8 GB                |
-| Azure Spring Cloud service instances | per region per subscription             | 1                  | 1                   |
+| Azure Spring Cloud service instances | per region per subscription             | 10                 | 10                  |
 | Total app instances                  | per Azure Spring Cloud service instance | 25                 | 500                 |
 | Custom Domains                       | per Azure Spring Cloud service instance | 0                  | 25                  |
 | Persistent volumes                   | per Azure Spring Cloud service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps |

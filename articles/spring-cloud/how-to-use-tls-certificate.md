@@ -84,7 +84,7 @@ X509Certificate cert = (X509Certificate) factory.generateCertificate(is);
 
 ### Load a certificate into the trust store
 
-For a java application, you can choose **Load into trust store** for the selected certificate. The certificate will be automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
+For a Java application, you can choose **Load into trust store** for the selected certificate. The certificate will be automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
 
 The following log from your app shows that the certificate is successfully loaded.
 

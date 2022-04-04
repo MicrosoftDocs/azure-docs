@@ -2,6 +2,8 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.date: 03/15/2022
 ---
 
@@ -22,7 +24,7 @@ On this page, you'll learn how you can use Defender for Containers to improve, m
 | Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
 | Clouds: | **Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National clouds (Azure Government, Azure China 21Vianet) (Except for preview features))<br><br>**Non Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: On-prem/IaaS supported via Arc enabled Kubernetes (Preview). <br> <br>For more details, see the [availability section](supported-machines-endpoint-solutions-clouds-containers.md#defender-for-containers-feature-availability). |
-|  |  |
+
 
 ## What are the benefits of Microsoft Defender for Containers?
 
@@ -86,19 +88,15 @@ Defender for Cloud filters, and classifies findings from the scanner. When an im
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
 
-### View vulnerabilities for running images
+### View vulnerabilities for running images 
 
-Defender for Containers expands on the registry scanning features by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile, or extension.
-
-> [!NOTE]
-> There's no Defender profile for Windows, it's only available on Linux OS.
-
-The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
-
-This recommendation shows running images, and their vulnerabilities based on ACR image. Images that are deployed from a non ACR registry, won't be scanned, and will appear under the Not applicable tab.
+The recommendation **Running container images should have vulnerability findings resolved** shows vulnerabilities for running images by using the scan results from ACR registeries and information on running images from the Defender security profile/extension. Images that are deployed from a non ACR registry, will appear under the Not applicable tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
+> [!NOTE]
+> This recommendation is currently supported for Linux containers only, as there's no Defender profile/extension for Windows.
+> 
 ## Run-time protection for Kubernetes nodes and clusters
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
@@ -221,29 +219,13 @@ The following describes the components necessary in order to receive the full pr
 
 ## FAQ - Defender for Containers
 
-- [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
-- [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
-- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
 - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-
-### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
-
-Subscriptions that already have one of these plans enabled can continue to benefit from it.
-
-If you haven't enabled them yet, or create a new subscription, these plans can no longer be enabled.
-
-### Is Defender for Containers a mandatory upgrade?
-
-No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for Containers Registries enabled doesn't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal. 
-
-### Does the new plan reflect a price increase?
-No. There’s no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
 
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
 
-### Does Microsoft Defender for Containers support AKS with virtual machines?
-No. If your cluster is deployed on an Azure Kubernetes Service (AKS) virtual machines, it's not recommended to enable the Microsoft Defender for Containers plan.
+### Does Microsoft Defender for Containers support AKS without scale set (default) ?
+No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported. 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension is not needed and may result in additional charges.

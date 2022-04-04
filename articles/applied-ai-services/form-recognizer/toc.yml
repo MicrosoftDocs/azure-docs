@@ -153,7 +153,7 @@ items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage
-    href: /azure/app-service/scenario-secure-app-access-storage?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json  
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:

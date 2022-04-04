@@ -132,7 +132,7 @@ In this example, this connection string specifies explicit overrides for every s
 ## How to set a connection string
 
 Connection Strings are supported in the following SDK versions:
-- .NET and .NET Core v2.12.0
+- .NET v2.12.0
 - Java v2.5.1 and Java 3.0
 - JavaScript v2.3.0
 - NodeJS v1.5.0
@@ -169,7 +169,7 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
-NetCore Explicitly Set:
+.NET Core Explicitly Set:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -178,7 +178,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-NetCore config.json: 
+.NET Core config.json: 
 
 ```json
 {

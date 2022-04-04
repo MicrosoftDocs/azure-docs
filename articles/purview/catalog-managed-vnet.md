@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/10/2022
+ms.date: 03/17/2022
 ms.custom: references_regions
 # Customer intent: As a Azure Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Azure Purview account.
 ---
@@ -54,6 +54,11 @@ Currently, the following data sources are supported to have a managed private en
 - Azure Database for PostgreSQL
 
 Additionally, you can deploy managed private endpoints for your Azure Key Vault resources if you need to run scans using any authentication options rather than Managed Identities, such as SQL Authentication or Account Key.  
+
+> [!IMPORTANT]
+> If you are planning to scan Azure Synapse workspaces using Managed Virtual Network, you are also required to [configure Azure Synapse workspace firewall access](register-scan-synapse-workspace.md#set-up-azure-synapse-workspace-firewall-access) to enable **Allow Azure services and resources to access this workspace**. Currently, we do not support setting up scans for an Azure Synapse workspace from Azure Purview Studio, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. If you cannot enable the firewall:
+>  - You can use [Azure Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
+>  - You must use **SQL Authentication** as authentication mechanism.
 
 ### Managed Virtual Network
 

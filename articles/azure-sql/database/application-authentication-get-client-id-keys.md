@@ -85,7 +85,7 @@ $roleassignment = az role assignment create --role "Contributor" --scope /subscr
 # output the values we need for our C# application to successfully authenticate
 Write-Output "Copy these values into the C# sample app"
 
-Write-Output "_subscriptionId:" (az account show --query "id")
+Write-Output "-subscriptionId:" (az account show --query "id")
 Write-Output "_tenantId:" (az account show --query "tenantId")
 Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret

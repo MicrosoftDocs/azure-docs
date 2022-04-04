@@ -20,25 +20,25 @@ You can manage your Azure Compute Gallery (formerly known as Shared Image Galler
 
 ### [CLI](#tab/cli)
 
-Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az_sig_list).
+Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list).
+List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List the image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
+List the image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).
+Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
 ```azurecli-interactive
 az sig image-version show \
@@ -108,7 +108,7 @@ Image version:
 
 If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
-Update the description of a gallery using ([az sig update](/cli/azure/sig#az_sig_update). 
+Update the description of a gallery using ([az sig update](/cli/azure/sig#az-sig-update). 
 
 ```azurecli-interactive
 az sig update \
@@ -118,7 +118,7 @@ az sig update \
 ```
 
 
-Update the description of an image definition using [az sig image-definition update](/cli/azure/sig/image-definition#az_sig_image_definition_update).
+Update the description of an image definition using [az sig image-definition update](/cli/azure/sig/image-definition#az-sig-image-definition-update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -128,7 +128,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Update an image version to add a region to replicate to using [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update). This change will take a while as the image gets replicated to the new region.
+Update an image version to add a region to replicate to using [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update). This change will take a while as the image gets replicated to the new region.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -139,7 +139,7 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
-This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to exclude this image version from being used as the *latest* image.
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update) to exclude this image version from being used as the *latest* image.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -150,7 +150,7 @@ az sig image-version update \
    --set publishingProfile.excludeFromLatest=true
 ```
 
-This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to include this image version in being considered for *latest* image.
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update) to include this image version in being considered for *latest* image.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -234,7 +234,7 @@ You have to delete resources in reverse order, by deleting the image version fir
 
 ### [CLI](#tab/cli)
 
-Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az_sig_image_version_delete).
+Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az-sig-image-version-delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -244,7 +244,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Delete an image definition using [az sig image-definition delete](/cli/azure/sig/image-definition#az_sig_image_definition_delete).
+Delete an image definition using [az sig image-definition delete](/cli/azure/sig/image-definition#az-sig-image-definition-delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -254,7 +254,7 @@ az sig image-definition delete \
 ```
 
 
-Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
+Delete a gallery using [az sig delete](/cli/azure/sig#az-sig-delete).
 
 ```azurecli-interactive
 az sig delete \
