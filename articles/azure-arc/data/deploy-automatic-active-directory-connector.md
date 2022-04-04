@@ -12,20 +12,9 @@ ms.topic: how-to
 ---
 
 
-# Tutorial – Deploy a Manual Active Directory (AD) Connector
+# Tutorial – Deploy an Automatic Active Directory (AD) Connector
 
-This article explains how to deploy Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in Active Directory (AD) authentification mode.
-
-## What is an Active Directory (AD) connector?
-
-The Active Directory (AD) connector is a Kubernetes native custom resource definition (CRD) that allows you to provide arc-enabled
-SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
-
-An Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
-coming from the SQL Managed Instance to either of the two upstream DNS services:
-* Active Directory DNS Servers
-* Kubernetes DNS Servers
-
+This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both manual and automatic Active Directory (AD) authentification mode.
 
 ## Prerequisites
 
@@ -33,10 +22,13 @@ Before you proceed, you must have:
 
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
+* A pre-created organizational unit (OU) in the Active Directory
+* An Domain service AD account which has  necessary permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 
-## Input for deploying Active Directory (AD) Connector
+## Input for deploying an Automatic Active Directory (AD) Connector
 
 To deploy an instance of Active Directory Connector, several inputs are needed from the Active Directory domain environment.
+
 These inputs are provided in a YAML spec of AD Connector instance.
 
 Following metadata about the AD domain must be available before deploying an instance of AD Connector:
@@ -109,8 +101,9 @@ To deploy an AD connector, create a YAML spec file called `active-directory-conn
 
 The following example is an example of an Automatic AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain. The `adarc-dsa-secret` contains the AD domain service account that was created prior to the AD deployment. 
 
-> [!IMPORTANT]
-> Make sure the DSA acccount password doesn't contain '!' as special characaters. 
+> [!NOTE]
+Make sure the password of provided domain service AD acccount here  doesn't contain '!' as special characaters. 
+> 
 
 ```yaml
 apiVersion: v1 

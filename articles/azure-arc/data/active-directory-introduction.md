@@ -13,94 +13,58 @@ ms.topic: how-to
 
 # Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
-This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication,  : 
--  by bring your own keytab (BYOK) where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
-- 
+This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication in : 
+-  Active Directory (AD) manual authentication mode or Bring their own keytab (BYOK) mode 
+-  Active Directory (AD) automatic autentfication mode 
 
 ## Background
 
-Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM).  The Arc-enabled SQL Managed instances uses an existing Active Directory (AD) for authentication. We recommend creating an organizational unit (OU) for better administration experience and an active directory user account (AD account) prior to the deployment. Users can following the following workflow to enable Active Directory authentication for SQL Managed Instance : 
+Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed instances uses an existing on-premises Active Directory (AD) domain for authentication. Users need to follow the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance : 
+
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
-- [Deploy AD connector](deploy-active-directory-connector.md) 
+- [Deploy a manual AD connector](deploy-manual-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
 - [Deploy SQL Managed instances](deploy-active-directory-sql-managed-instance.md)
 
-The following diagram shows how user proceed to enable Active Directory authentication for SQL Managed Instance :
+The following diagram shows how user proceed to enable Active Directory authentication for Arc-enabled SQL Managed Instance :
 
 ![Actice Directory Deployment User journey](media/active-directory-deployment/active-directory-user-journey.png)
-
-In order to enable Active Directory authentication for SQL Managed Instance, a SQL Managed Instance must be deployed in an environment that allows it to communicate with the Active Directory domain.
-
-To facilitate this, Azure Arc introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. You can specify this kind of resource in the CRD. An Active Directory Connector custom resource stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts.
-
-This custom resource deploys a DNS proxy service that mediates between the SQL Managed Instance DNS resolver and the two upstream DNS servers:
-
-1. Kubernetes DNS servers
-2. Active Directory DNS servers
-
-When a SQL Managed Instance is deployed with Active Directory Authentication enabled, it will reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication. 
-
-## Bring Your Own Keytab (BYOK) 
-
-The following are the steps for user to set up:
-
-1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
-1. Providing a DNS name belonging to the Active Directory DNS domain for the SQL Managed Instance endpoint.
-1. Creating a DNS record in Active Directory for the SQL endpoint.
-1. Providing a port number for the SQL Managed Instance endpoint.
-1. Registering Service Principal Names (SPNs) under the AD account in Active Directory domain for the SQL endpoint.
-1. Creating and providing a keytab file for SQL Managed Instance containing entries for the AD account and SPNs.
-
-## Automatic 
-The following are the steps for user to set up:
-1. Create an organizational unit (OU). 
-2. User only need to Providing an Active Directory Domain service AD name and password for each SQL Managed Instance that must accept AD authentication. Domain service account is an AD account with specific permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
-3. Providing a port number for the SQL Managed Instance endpoint.
-
-
-## What is the difference between  Bring Your Own Keytab (BYOK) and Automatic mode ?
-
-To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you dermine the nature of the AD deployment : Bring Your Own Keytab (BYOK) or Automatic. 
-
-In the automatic mode, system will take care of the following work : 
-
-- The service domain AD account is automatically generated.
-- The system sets SPNs automatically on that account.
-- A keytab file is generated then transport to the SQL Managed instance.
 
 
 ## What is an Active Directory (AD) connector?
 
-The Active Directory (AD) connector is a Kubernetes native custom resource definition (CRD) that allows you to provide arc-enabled
-SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
+In order to enable Active Directory authentication for SQL Managed Instance, a SQL Managed Instance must be deployed in an environment that allows it to communicate with the Active Directory domain. 
 
-An Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
+To facilitate this, Azure Arc introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`, it provide arc-enabled SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
+
+An Active Directory Connector instance stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts and it deploys a DNS proxy service that proxies the DNS requests
 coming from the SQL Managed Instance to either of the two upstream DNS services:
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
 
-
-
-
-## Active Directory Connector and SQL Managed Instance
-
-![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
-
-
 ## What is the difference between a manual Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
 
-To enable Active Directory Authentication for arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector.  The manual AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you dermine the mode of the AD deployment : manual or Automatic. 
 
-When it comes to an automatic Active Directory (AD) connector, the service domain AD account is automatically generated and the system sets SPNs automatically on that account, also a keytab file is generated then transport to the SQL Managed instance.
+In the manual mode, users will bring in : 
+- A an Active Directory account was created prior to the AD deployment
+- Service Principal Names 
+- Your own Keytab file
+And you need an manual AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
-The nature of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to manual or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
+In the automatic mode, you need an automatic Active Directory (AD) connector, system will take care of the following work : 
+- The domain service AD account is automatically generated.
+- The system sets SPNs automatically on that account.
+- A keytab file is generated then delivered to the SQL Managed instance.
+
+The mode of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to manual or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
 - spec.activeDirectory.ouDistinguishedName
 - spec.activeDirectory.domainServiceAccountSecret
-- spec.activeDirectory.dns.domainName 
 
-See [Input for deploying automatic AD connector](#input-for-deploying-automatic-active-directory-ad-connector) section for further details. 
+When a SQL Managed Instance is deployed with the intention to enable Active Directory Authentication, it needs to reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication. 
 
 ## Next steps
 
-* [Deploy Active Directory (AD) connector](deploy-active-directory-connector.md)
+* [Deploy an manual Active Directory (AD) connector](deploy-manual-active-directory-connector.md)
+* [Deploy an automatic Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 * [Deploy Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)
