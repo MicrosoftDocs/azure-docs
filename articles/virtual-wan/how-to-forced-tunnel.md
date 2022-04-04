@@ -1,7 +1,7 @@
 ---
 title: 'COnfigured forced tunneling for Virtual WAN Point-to-site VPN'
 titleSuffix: Azure Virtual WAN
-description: Learn to configured forced tunneling for P2S VPN in Virtual WAN.
+description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 services: virtual-wan
 author: wtnlee
 

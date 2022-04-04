@@ -149,7 +149,7 @@
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Configure Forced Tunneling
+    - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
     - name: Client profiles
       items:
