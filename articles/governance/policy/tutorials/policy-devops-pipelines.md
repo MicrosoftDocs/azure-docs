@@ -26,7 +26,7 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 1. In Azure DevOps, create a release pipeline that contains at least one stage, or open an existing release pipeline.
 
 1. Add a pre- or post-deployment condition that includes the **Security and compliance assessment** task as a gate.
-   [More details](/azure/devops/pipelines/release/deploy-using-approvals.md#configure-gate).
+   [More details](/azure/devops/pipelines/release/deploy-using-approvals#set-up-gates).
 
    ![Screenshot of Azure Policy Gate.](../media/devops-policy/azure-policy-gate.png)
 
