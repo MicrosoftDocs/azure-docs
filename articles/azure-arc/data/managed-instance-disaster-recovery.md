@@ -69,7 +69,7 @@ The following image shows a properly configured distributed availability group:
 
 4. Create the failover group resource on both sites. 
 
-   Use `az sql instance-failover-group-arc ...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
+   In the `az sql instance-failover-group-arc` command, use `--shared-name <name off failover group>...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
  
    > [!NOTE]
    > The distributed availability group name should be identical on both sites.
