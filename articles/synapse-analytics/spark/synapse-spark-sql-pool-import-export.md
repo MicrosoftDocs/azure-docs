@@ -54,7 +54,7 @@ Review and setup following dependent Azure Resources:
 
 * [Azure Data Lake Storage](../../storage/blobs/data-lake-storage-introduction.md) - used as the primary storage account for the Azure Synapse Workspace.
 * [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
-* [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
+* [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - provides enterprise Data Warehousing features.
 * [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
 #### Prepare the Database
@@ -81,37 +81,7 @@ Azure Active Directory based authentication is an integrated authentication appr
 
 #### Basic Authentication
 
-A basic authentication approach requires user to configure `username` and `password` options. These credentials are applied to connect to Azure Synapse Dedicated SQL Pool and don't apply to connect with Azure Storage. Following code sample describes how to pass necessary credentials to connect and read data from the source:
-
- ```Scala
-//Specify options that Spark runtime must support when interfacing and consuming source data
-val storageAccountName="<storageAccountName>"
-val storageContainerName="<storageContainerName>"
-val subscriptionId="<AzureSubscriptionID>"
-val spnClientId="<ServicePrincipalClientID>"
-val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
-val dfReadOptions:Map[String, String]=Map("header"->"true",
-                                "delimiter"->",", 
-                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
-                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
-                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
-                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
-                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
-                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
-                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
-                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
-//Initialize the Storage Path string, where source data is maintained/kept.
-val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
-//Define data frame to interface with the data source
-val df:DataFrame = spark.
-            read.
-            options(dfReadOptions).
-            csv(pathToInputSource).
-            limit(100)
-```
-
-Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters to write to the target tables.
+A basic authentication approach requires user to configure `username` and `password` options. Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters for reading from and writing to tables in Azure Synapse Dedicated SQL Pool.
   
 ### Authorization
 
@@ -174,10 +144,10 @@ Following table describes the essential configuration options that must be set f
 
 |Usage Scenario| Options to configure |
 |--------------|----------------------------------|
-| Write using Azure AD based authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER`<ul><li>By default, the Connector will infer the Synapse Dedicated SQL End Point associated with the database name (from the three part table name argument to `synapsesql` method).</li><li>Alternatively, users can provide the `Constants.SERVER` option.</li></ul></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>For Internal Table Type:<ul><li>Configure either `Constants.TEMP_FOLDER` or `Constants.DATASOURCE` option.</li><li>If user chose to provide `Constants.DATASOURCE` option, staging folder will be derived by using the `location` value on the DataSource.</li><li>If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.</li><li>In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.</li></ul></li><li>For External Table Type:<ul><li>`Constants.DATASOURCE` is a required configuration option.</li><li>The storage path defined on the Data Source's `location` parameter will be used as the base path to establish final absolute path.</li><li>The base path is then appended with the value set on the `synapsesql` method's `location` argument, example `/<external_table_name>`.</li><li>If the `location` argument to `synapsesql` method isn't provided, then the connector will derive the location value as  `<base_path>/dbName/schemaName/tableName`.</li></ul></li></ul></li></ul>|
-| Write using Basic Authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATASOURCE`.</li></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>SQL basic authentication credentials don't apply to access storage end points. Hence it's required that the workspace user identity is given relevant access permissions (reference the section - [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).</li></ul></li></ul>|
+| Write using Azure AD based authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER`<ul><li>By default, the Connector will infer the Synapse Dedicated SQL End Point associated with the database name (from the three part table name argument to `synapsesql` method).</li><li>Alternatively, users can provide the `Constants.SERVER` option.</li></ul></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>For Internal Table Type:<ul><li>Configure either `Constants.TEMP_FOLDER` or `Constants.DATASOURCE` option.</li><li>If user chose to provide `Constants.DATASOURCE` option, staging folder will be derived by using the `location` value on the DataSource.</li><li>If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.</li><li>In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.</li></ul></li><li>For External Table Type:<ul><li>`Constants.DATASOURCE` is a required configuration option.</li><li>The storage path defined on the Data Source's `location` parameter will be used as the base path to establish final absolute path.</li><li>The base path is then appended with the value set on the `synapsesql` method's `location` argument, example `/<external_table_name>`.</li><li>If the `location` argument to `synapsesql` method isn't provided, then the connector will derive the location value as  `<base_path>/dbName/schemaName/tableName`.</li></ul></li></ul></li></ul>|
+| Write using Basic Authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATASOURCE`.</li></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>SQL basic authentication credentials don't apply to access storage end points. Hence it's required that the workspace user identity is given relevant access permissions (reference the section - [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).</li></ul></li></ul>|
 |Read using Azure AD based authentication|<ul><li>Credentials are auto-mapped, and user isn't required to provide specific configuration options.</li><li>Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.</li></ul>|
-|Read using basic authentication|<ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li></ul></li><li>Azure Data Lake Storage (g2) End Point  - Staging Folders<ul><li>`Constants.DATA_SOURCE` - Location setting from data source is used to stage extracted data from Azure Synapse Dedicated SQL End Point.</li></ul></li></ul>|
+|Read using basic authentication|<ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>`Constants.DATA_SOURCE` - Location setting from data source is used to stage extracted data from Azure Synapse Dedicated SQL End Point.</li></ul></li></ul>|
   
 ## Code Templates
 
@@ -260,6 +230,7 @@ readDF.
                 tableType = Constants.INTERNAL, 
                 //Optional parameter that is used to specify external table's base folder; defaults to `database_name/schema_name/table_name`
                 location = None, 
+                //Optional parameter to receive a callback.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 
 //If write request has failed, raise an error and fail the Cell's execution.
@@ -295,6 +266,36 @@ readDF.
                 location = None,
                 //Optional parameter.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
+```
+
+In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from a Azure Data Lake Storage Gen2 data source using Service Principal credentials:
+
+ ```Scala
+//Specify options that Spark runtime must support when interfacing and consuming source data
+val storageAccountName="<storageAccountName>"
+val storageContainerName="<storageContainerName>"
+val subscriptionId="<AzureSubscriptionID>"
+val spnClientId="<ServicePrincipalClientID>"
+val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
+val dfReadOptions:Map[String, String]=Map("header"->"true",
+                                "delimiter"->",", 
+                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
+                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
+                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
+                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
+                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
+                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
+                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
+                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
+//Initialize the Storage Path string, where source data is maintained/kept.
+val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
+//Define data frame to interface with the data source
+val df:DataFrame = spark.
+            read.
+            options(dfReadOptions).
+            csv(pathToInputSource).
+            limit(100)
 ```
 
 #### DataFrame Write SaveMode Support
