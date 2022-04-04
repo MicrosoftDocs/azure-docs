@@ -1,6 +1,8 @@
 ---
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: quickstart
 ms.date: 03/27/2022
 zone_pivot_groups: connect-aws-accounts
@@ -154,7 +156,7 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
