@@ -102,6 +102,8 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Application administration guide
       href: core/overview-iot-central-admin.md
+    - name: Network security using private endpoints
+      href: core/concepts-private-endpoints.md
     - name: FAQ
       href: core/howto-faq.yml
       items:
@@ -229,7 +231,8 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-
+        - name: Create a private endpoint
+          href: core/howto-create-private-endpoint.md
 - name: Reference
   items:
   - name: Azure CLI
