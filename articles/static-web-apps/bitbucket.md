@@ -124,7 +124,6 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                    API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                     API_TOKEN: $deployment_token​
     ```
@@ -142,7 +141,6 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
-                    API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/angular-basic'
                     API_TOKEN: $deployment_token​
     ```
@@ -160,7 +158,6 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/Client'
-                    API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/wwwroot'
                     API_TOKEN: $deployment_token​
     ```
@@ -178,7 +175,6 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
-                    API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/build'
                     API_TOKEN: $deployment_token​
     ```
@@ -196,12 +192,14 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
-                    API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist'
                     API_TOKEN: $deployment_token​
     ```
 
     ---
+
+    > [!NOTE]
+    > In this example the value for `pipe` is set to `microsoft/azure-static-web-apps-deploy:main`. Replace `main` with your desired branch name if you want your pipeline to work with a different branch.
 
     The following configuration properties are used in the configuration file for your static web app.
 
