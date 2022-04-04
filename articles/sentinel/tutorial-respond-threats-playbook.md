@@ -66,10 +66,6 @@ You can also choose to run a playbook manually on-demand, as a response to a sel
 
 Get a more complete and detailed introduction to automating threat response using [automation rules](automate-incident-handling-with-automation-rules.md) and [playbooks](automate-responses-with-playbooks.md) in Microsoft Sentinel.
 
-> [!IMPORTANT]
->
-> - **Automation rules**, and the use of the **incident trigger** for playbooks, are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Create a playbook
 
 Follow these steps to create a new playbook in Microsoft Sentinel:

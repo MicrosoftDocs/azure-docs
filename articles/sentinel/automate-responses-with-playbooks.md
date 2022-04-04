@@ -70,10 +70,6 @@ Azure Logic Apps communicates with other systems and services using connectors. 
   - [Alert trigger](/connectors/azuresentinel/#triggers): the playbook receives the alert as its input.
   - [Incident trigger](/connectors/azuresentinel/#triggers): the playbook receives the incident as its input, along with all its included alerts and entities.
 
-    > [!IMPORTANT]
-    >
-    > The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
 - **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
