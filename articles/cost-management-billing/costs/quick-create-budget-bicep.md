@@ -77,19 +77,19 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=[]
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -113,19 +113,19 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=[] resourceGroupFilterValues=[]
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]" -resourceGroupFilterValues="[]"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. Replace **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded. Replace **[]** with the set of values for the resource group filter.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -149,19 +149,19 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=[] contactGroups=[] resourceGroupFilterValues=[] meterCategoryFilterValues=[]
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]" -contactGroups "[]" -resourceGroupFilterValues="[]" -meterCategoryFilterValues="[]"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. Replace **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded. Replace **[]** with the list of action groups to send the budget notification to when the threshold is exceeded. Replace **[]** with the set of values for the resource group filter. Replace **[]** with the set of values for the meter category filter.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
