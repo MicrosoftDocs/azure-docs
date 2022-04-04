@@ -1,18 +1,18 @@
 ---
-title: Tutorial – Deploy Active Directory Connector
-description: Tutorial to deploy Active Directory Connector
+title: Tutorial – Deploy an automatic Active Directory (AD) Connector
+description: Tutorial to deploy an automatic Active Directory (AD) Connector
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: cloudmelon
 ms.author: melqin
 ms.reviewer: mikeray
-ms.date: 03/26/2022
+ms.date: 04/05/2022
 ms.topic: how-to
 ---
 
 
-# Tutorial – Deploy Active Directory Connector
+# Tutorial – Deploy a Manual Active Directory (AD) Connector
 
 This article explains how to deploy Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in Active Directory (AD) authentification mode.
 
@@ -25,20 +25,6 @@ An Active Directory Connector instance deploys a DNS proxy service that proxies 
 coming from the SQL Managed Instance to either of the two upstream DNS services:
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
-
-
-## What is the difference between a manual Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
-
-To enable Active Directory Authentication for arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector.  The manual AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
-
-When it comes to an automatic Active Directory (AD) connector, the service domain AD account is automatically generated and the system sets SPNs automatically on that account, also a keytab file is generated then transport to the SQL Managed instance.
-
-The nature of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to manual or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
-- spec.activeDirectory.ouDistinguishedName
-- spec.activeDirectory.domainServiceAccountSecret
-- spec.activeDirectory.dns.domainName 
-
-See [Input for deploying AD connector](#input-for-deploying-active-directory-ad-connector) section for further details. 
 
 
 ## Prerequisites
@@ -82,8 +68,6 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
   - **spec.activeDirectory.domainServiceAccountSecret** This is an optional field. it becomes conditionally mandatory when the value of **serviceAccountProvisioning** is set to automatic. This field accepts a name of the Kubernetes secret that contains the username and password of the service Domain Service Account that was created prior to the AD deployment, the Security Support Service will use it to generate other AD users in the OU and perform actions on those AD accounts.
 
-  - **spec.dns.endpointDnsProvisioning** This is an optional field defines your AD connector deployment mode with possible value manual or automatic. This field indicating whether the endpoint DNS provisioning is set to automatic or manual. If set to automatic, the SQL Managed instance endpoint DNS records is automatically provisioned in the AD DNS servers. In case the value is set to manual, it is up to the user  to manually create a static record in their AD DNS server for the SQL Managed instance endpoints. 
-
    - **spec.activeDirectory.netbiosDomainName**
       NETBIOS name of the Active Directory domain. This is the short domain name that represents the Active Directory domain.
 
@@ -122,30 +106,6 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
 ## Deploy Active Directory (AD) connector
 To deploy an AD connector, create a YAML spec file called `active-directory-connector.yaml`.
-
-The following example is an example of a manual AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain.
-
-```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
-kind: ActiveDirectoryConnector
-metadata:
-  name: adarc
-  namespace: <namespace>
-spec:
-  activeDirectory:
-    realm: CONTOSO.LOCAL
-    domainControllers:
-      primaryDomainController:
-        hostname: dc1.contoso.local
-      secondaryDomainControllers:
-      - hostname: dc2.contoso.local
-      - hostname: dc3.contoso.local
-  dns:
-    preferK8sDnsForPtrLookups: false
-    nameserverIPAddresses:
-      - <DNS Server 1 IP address>
-      - <DNS Server 2 IP address>
-```
 
 The following example is an example of an Automatic AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain. The `adarc-dsa-secret` contains the AD domain service account that was created prior to the AD deployment. 
 

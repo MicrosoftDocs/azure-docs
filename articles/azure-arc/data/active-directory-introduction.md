@@ -7,13 +7,15 @@ ms.subservice: azure-arc-data
 author: cloudmelon
 ms.author: melqin
 ms.reviewer: mikeray
-ms.date: 03/26/2022
+ms.date: 04/05/2022
 ms.topic: how-to
 ---
 
 # Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
-This article describes Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication by bring your own keytab (BYOK) where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
+This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication,  : 
+-  by bring your own keytab (BYOK) where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
+- 
 
 ## Background
 
@@ -27,6 +29,7 @@ The following diagram shows how user proceed to enable Active Directory authenti
 ![Actice Directory Deployment User journey](media/active-directory-deployment/active-directory-user-journey.png)
 
 In order to enable Active Directory authentication for SQL Managed Instance, a SQL Managed Instance must be deployed in an environment that allows it to communicate with the Active Directory domain.
+
 To facilitate this, Azure Arc introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. You can specify this kind of resource in the CRD. An Active Directory Connector custom resource stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts.
 
 This custom resource deploys a DNS proxy service that mediates between the SQL Managed Instance DNS resolver and the two upstream DNS servers:
@@ -35,10 +38,6 @@ This custom resource deploys a DNS proxy service that mediates between the SQL M
 2. Active Directory DNS servers
 
 When a SQL Managed Instance is deployed with Active Directory Authentication enabled, it will reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication. 
-
-## Active Directory Connector and SQL Managed Instance
-
-![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
 
 ## Bring Your Own Keytab (BYOK) 
 
@@ -68,6 +67,37 @@ In the automatic mode, system will take care of the following work :
 - The system sets SPNs automatically on that account.
 - A keytab file is generated then transport to the SQL Managed instance.
 
+
+## What is an Active Directory (AD) connector?
+
+The Active Directory (AD) connector is a Kubernetes native custom resource definition (CRD) that allows you to provide arc-enabled
+SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
+
+An Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
+coming from the SQL Managed Instance to either of the two upstream DNS services:
+* Active Directory DNS Servers
+* Kubernetes DNS Servers
+
+
+
+
+## Active Directory Connector and SQL Managed Instance
+
+![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
+
+
+## What is the difference between a manual Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
+
+To enable Active Directory Authentication for arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector.  The manual AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+
+When it comes to an automatic Active Directory (AD) connector, the service domain AD account is automatically generated and the system sets SPNs automatically on that account, also a keytab file is generated then transport to the SQL Managed instance.
+
+The nature of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to manual or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 
+- spec.activeDirectory.ouDistinguishedName
+- spec.activeDirectory.domainServiceAccountSecret
+- spec.activeDirectory.dns.domainName 
+
+See [Input for deploying automatic AD connector](#input-for-deploying-automatic-active-directory-ad-connector) section for further details. 
 
 ## Next steps
 
