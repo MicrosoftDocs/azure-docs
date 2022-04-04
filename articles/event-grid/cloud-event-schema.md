@@ -26,8 +26,7 @@ Here is an example of an Azure Blob Storage event in CloudEvents format:
     "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
     "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
     "time": "2019-11-18T15:13:39.4589254Z",
-    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "dataschema": "#",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",    
     "data": {
         "api": "PutBlockList",
         "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",

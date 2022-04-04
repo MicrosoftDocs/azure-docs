@@ -29,8 +29,8 @@ The steps in this article detail the process to:
 
 - Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
 
-- A customer owned IP range to provision in Azure
-    - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours
+- A customer owned IP range to provision in Azure.
+    - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
@@ -49,7 +49,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075
+    * The Origin AS must be listed as 8075.
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
@@ -80,11 +80,11 @@ The following steps show the steps required to prepare sample customer range (1.
 
     Instructions for each registry are below:
   
-    * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the "Comments" of the prefix record
+    * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the "Comments" of the prefix record.
     
-    * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record
+    * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
     
     * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
      
@@ -192,10 +192,10 @@ As before, the operation is asynchronous. Use [az network custom-ip prefix show]
 
 ## Next steps
 
-- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md)
+- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md).
 
-- For more information on managing a custom IP prefix, see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md)
+- For more information on managing a custom IP prefix, see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md).
 
-- To create a custom IP address prefix using the Azure CLI, see [Create custom IP address prefix using the Azure CLI](create-custom-ip-address-prefix-cli.md)
+- To create a custom IP address prefix using the Azure CLI, see [Create custom IP address prefix using the Azure CLI](create-custom-ip-address-prefix-cli.md).
 
-- To create a custom IP address prefix using the Azure portal, see [Create a custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
+- To create a custom IP address prefix using the Azure portal, see [Create a custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
