@@ -29,7 +29,7 @@ Virtual network NAT gateway is a highly resilient and scalable Azure service tha
 
 * **How does a NAT gateway reduce the risk of SNAT port exhaustion?**
 
-    Azure Load Balancer allocates fixed amounts of SNAT ports to each VM instance in a backend pool. This method of allocation can lead to SNAT exhaustion, especially if uneven traffic patterns result in a specific virtual machine sending a higher volume of outgoing connections. Unlike load balancer, a NAT gateway dynamically allocates SNAT ports across all VM instances within a subnet. 
+    Azure Load Balancer allocates fixed amounts of SNAT ports to each virtual machine instance in a backend pool. This method of allocation can lead to SNAT exhaustion, especially if uneven traffic patterns result in a specific virtual machine sending a higher volume of outgoing connections. Unlike load balancer, a NAT gateway dynamically allocates SNAT ports across all VM instances within a subnet. 
 
     A NAT gateway makes available SNAT ports accessible to every instance in a subnet. This dynamic allocation allows VM instances to use the number of SNAT ports each needs from the available pool of ports for new connections. The dynamic allocation reduces the risk of SNAT exhaustion.
 
