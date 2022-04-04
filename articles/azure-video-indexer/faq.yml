@@ -125,7 +125,7 @@ sections:
         answer: |
           Yes, the content and its insights are kept within the Azure region (except for Singapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
 
-          Customer data in a region is replicated for BCDR reasons to the [paired region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
+          Customer data in a region is replicated for BCDR reasons to the [paired region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
 
       - question: What is the privacy policy for Video Analyzer for Media?
         answer: |

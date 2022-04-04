@@ -24,7 +24,7 @@ This tutorial is using Logic App to show how to:
 > * Set up the file upload flow
 > * Set up the JSON extraction flow
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

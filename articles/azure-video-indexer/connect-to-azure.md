@@ -34,7 +34,7 @@ The article also covers [Linking a Video Analyzer for Media account to Azure Gov
     If you don't have an Azure subscription yet, sign up for [Azure Free Trial](https://azure.microsoft.com/free/).
 * An Azure Active Directory (Azure AD) domain.
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../../active-directory/enterprise-users/domains-manage.md)
+    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../active-directory/enterprise-users/domains-manage.md)
 * A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Analyzer for Media account to Azure.
 
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
@@ -47,7 +47,7 @@ The article also covers [Linking a Video Analyzer for Media account to Azure Gov
 
     You'll use this member when connecting your Video Analyzer for Media account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../../role-based-access-control/check-access.md).
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 
     ![access control](./media/create-account/access-control-iam.png)
 
@@ -177,7 +177,7 @@ To automate the creation of the account is a two steps process:
 
 ### Prerequisites for connecting to Azure Government
 
--	An Azure subscription in [Azure Government](../../azure-government/index.yml).
+-	An Azure subscription in [Azure Government](../azure-government/index.yml).
 - An Azure AD account in Azure Government.
 - All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure). Make sure to check [Additional prerequisites for automatic flow](#additional-prerequisites-for-automatic-flow) and [Additional prerequisites for manual flow](#additional-prerequisites-for-manual-flow).
 
