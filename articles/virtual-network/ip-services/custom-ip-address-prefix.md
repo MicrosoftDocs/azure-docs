@@ -50,7 +50,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * The minimum size of an IP range is /24.
 
-* IPv6 is currently not supported for custom IP prefixes
+* IPv6 is currently not supported for custom IP prefixes.
 
 * In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
