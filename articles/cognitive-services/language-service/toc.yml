@@ -182,6 +182,20 @@ items:
     href: conversational-language-understanding/language-support.md
   - name: FAQ
     href: conversational-language-understanding/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for CLU
+      href: /legal/cognitive-services/clu/clu-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for CLU, CLU Transparency, Language understanding transparency note, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/clu/clu-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/clu/clu-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: CLU characteristics, CLU limitations, Language understanding characteristics
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/clu/clu-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
       - name: Create projects
