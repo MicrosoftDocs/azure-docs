@@ -56,6 +56,8 @@
         href: architecture.md
       - name: Sensor connection methods
         href: architecture-connections.md
+      - name: OT hardware system requirements
+        href: ot-system-requirements.md
     - name: Key concepts
       href: concept-key-concepts.md
     - name: OT threat monitoring in enterprise SOCs
