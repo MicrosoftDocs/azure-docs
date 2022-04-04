@@ -44,7 +44,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 Once the above prerequisites are met, you are ready to connect to your VM
 Open your SSH client of choice.
 - If you are using Linux or MacOS this is most commonly terminal or shell.
-- For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client learn more about installing WSL here, or consider using [Azure Cloud Shell](./cloud-shell/overview.md).
+- For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client learn more about installing WSL here, or consider using [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
 > The following examples assume your SSH key is in the key.pem format. If you used CLI or Azure PowerShell to download your keys, they may be in the id_rsa format.
