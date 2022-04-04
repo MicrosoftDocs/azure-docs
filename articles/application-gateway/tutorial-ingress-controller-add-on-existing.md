@@ -64,7 +64,8 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 > [!NOTE]
 > Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs. 
 
-## Enable the AGIC add-on in existing AKS cluster through Azure CLI 
+> [!NOTE]
+> When using Application Gateway ingress controller (AGIC) with Windows nodes you must deploy both to the same Virtual Network (VNET). If you are deploying to separate VNETs, even if they are peered, your Application Gateway will return a HTTP 502 status code and be unable to reach your Windows node pool. This issue has been reported and is being tracked under Azure/AKS#1960
 
 If you'd like to continue using Azure CLI, you can continue to enable the AGIC add-on in the AKS cluster you created, *myCluster*, and specify the AGIC add-on to use the existing Application Gateway you created, *myApplicationGateway*.
 
