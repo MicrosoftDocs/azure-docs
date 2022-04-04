@@ -129,7 +129,7 @@ For corporate deployments, use the **HPE ProLiant DL360** with the following spe
 
 For enterprise deployments, use one of the following options and specifications:
 
-# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20+)
+# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20-plus)
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel" border="false":::
 
@@ -294,7 +294,7 @@ Optional modules for port expansion include:
 
 For an SMB deployment, use one of the following options and specifications:
 
-# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20+)
+# [HPE ProLiant DL20+](#tab/hpe-proliant-dl20-plus)
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
