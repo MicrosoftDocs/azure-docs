@@ -2258,6 +2258,8 @@
         href: tutorocean-tutorial.md  
       - name: Twic
         href: twic-tutorial.md  
+      - name: Twilio Sendgrid
+        href: twilio-sendgrid-tutorial.md  
       - name: Uberflip
         href: uberflip-tutorial.md
       - name: UKG Pro
