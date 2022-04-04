@@ -61,21 +61,21 @@ There are currently two ways to deploy a zone-redundant premium plan and functio
 
 1. In the **Basics** page, fill out the fields for your function app. Pay special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
 
-| Setting      | Suggested value  | Notes for Zone Redundancy |
-| ------------ | ---------------- | ----------- |
-| **Region** | Preferred region | The subscription under which this new function app is created. You must pick a region that is AZ enabled from the [list above](#requirements). |
+    | Setting      | Suggested value  | Notes for Zone Redundancy |
+    | ------------ | ---------------- | ----------- |
+    | **Region** | Preferred region | The subscription under which this new function app is created. You must pick a region that is AZ enabled from the [list above](#requirements). |
 
-![Choose HTTP trigger function](./media/functions-az-redundancy\AzureFunctionsBasicsAZ.png)
+    ![Basics tab of function app create page](./media/functions-az-redundancy\AzureFunctionsBasicsAZ.png)
 
 1. In the **Hosting** page, fill out the fields for your function app hosting plan. Pay special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
 
-| Setting      | Suggested value  | Notes for Zone Redundancy |
-| ------------ | ---------------- | ----------- |
-| **Storage Account** | A [zone-redundant storage account](storage-considerations.md#storage-account-requirements) | As mentioned above in the [requirements](#requirements) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
-| **Plan Type** | Functions Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. Information on zone redundancy on app service plans can be found [in this article](../app-service/how-to-zone-redundancy.md). |
-| **Zone Redundancy** | Enabled | This field populates the flag that determines if your app is zone redundant or not. You won't be able to select `Enabled` unless you have chosen a region supporting zone redundancy, as mentioned in step 2. |
+    | Setting      | Suggested value  | Notes for Zone Redundancy |
+    | ------------ | ---------------- | ----------- |
+    | **Storage Account** | A [zone-redundant storage account](storage-considerations.md#storage-account-requirements) | As mentioned above in the [requirements](#requirements) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
+    | **Plan Type** | Functions Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. Information on zone redundancy on app service plans can be found [in this article](../app-service/how-to-zone-redundancy.md). |
+    | **Zone Redundancy** | Enabled | This field populates the flag that determines if your app is zone redundant or not. You won't be able to select `Enabled` unless you have chosen a region supporting zone redundancy, as mentioned in step 2. |
 
-![Choose HTTP trigger function](./media/functions-az-redundancy\AzureFunctionsHostingAZ.png)
+    ![Hosting tab of function app create page](./media/functions-az-redundancy\AzureFunctionsHostingAZ.png)
 
 1. For the rest of the function app creation process, create your function app as normal. There are no fields in the rest of the creation process that affect zone redundancy.
 
