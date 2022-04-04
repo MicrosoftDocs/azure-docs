@@ -29,7 +29,7 @@
     href: /security/zero-trust/integrate/sentinel-solution
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
-  - name: Integrate with Azure Purview
+  - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
   items:
