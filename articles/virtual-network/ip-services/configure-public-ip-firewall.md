@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 # Manage a public IP address with Azure Firewall
 
-Azure Firewall is a cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured. This IP or set of IPs are used as the external connection point to the firewall. Azure Firewall supports standard SKU public IP addresses. Basic SKU public IP address and public IP prefixes aren't supported. 
+Azure Firewall is a cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured. This IP or set of IPs are used as the external connection point to the firewall. Azure Firewall supports standard SKU public IP addresses. It is also possible to add public IP addresses from public IP preffixes following [this guidance](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-address-prefix#scenarios). Basic SKU public IP address aren't supported. 
 
 In this article, you'll learn how to create an Azure Firewall using an existing public IP in your subscription. You'll change the IP configuration of the firewall. Finally, you'll add an IP configuration to the firewall.
 
