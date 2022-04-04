@@ -1,5 +1,5 @@
 ---
-title: Manage blob containers using the Azure Portal
+title: Manage blob containers using the Azure portal
 titleSuffix: Azure Storage
 description: Learn how to manage Azure storage containers using the Azure portal
 services: storage
@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 04/04/2022
 ms.author: shaas
 ms.subservice: blobs
 ---
@@ -22,7 +22,7 @@ In this how-to article, you learn how to work with container objects within the 
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-All access to Azure Storage takes place through a storage account. For this how-to, create a storage account using the [Azure portal](https://portal.azure.com/), Azure PowerShell, or Azure CLI. For help with creating a storage account, see [Create a storage account](../common/storage-account-create.md).
+All access to Azure Storage takes place through a storage account. For this how-to article, create a storage account using the [Azure portal](https://portal.azure.com/), Azure PowerShell, or Azure CLI. For help with creating a storage account, see [Create a storage account](../common/storage-account-create.md).
 
 ## Create a container
 
@@ -30,7 +30,7 @@ There are no limits to the number of blobs or containers that can be created wit
 
 To create a container in the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the portal navigation pane on the left side of the screen, select **Storage accounts** and choose a storage account. If the navigation pane isn't visible, click the menu button to toggle its visibility.
+1. In the portal navigation pane on the left side of the screen, select **Storage accounts** and choose a storage account. If the navigation pane isn't visible, select the menu button to toggle its visibility.
 
     :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button in the browser" lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
 
@@ -86,17 +86,17 @@ You can read about the assignment of roles at [Assign Azure roles using the Azur
 
 ### Enable anonymous public read access
 
-Although anonymous read access for containers is supported, it is disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request.
+Although anonymous read access for containers is supported, it's disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request.
 
 Read about enabling public access level in the [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal) article.
 
 ### Generate a shared access signature
 
-A shared access signature (SAS) provides temporary, secure, delegated access to a client who wouldn't normally have permissions. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the interval over which the SAS is valid.
+A shared access signature (SAS) provides temporary, secure, delegated access to a client who wouldn't normally have permissions. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the duration.
 
 Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with blob storage service.
 
-When you create a SAS, you may choose to set access limitations based on permission level, IP address or range, or start and expiry date and time. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md).
+When you create a SAS, you may set access limitations based on permission level, IP address or range, or start and expiry date and time. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md).
 
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
@@ -104,7 +104,7 @@ When you create a SAS, you may choose to set access limitations based on permiss
 To generate an SAS token using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Select the checkbox next to the name of the container for which you will generate an SAS token.
+1. Select the checkbox next to the name of the container for which you'll generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
 
     :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
@@ -121,20 +121,20 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 
     :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container within the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
 
-1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and cannot be retrieved after the window is closed. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
+1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and can't be retrieved after the window is closed. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
 
 ### Create a stored access or immutability policy
 
-A **stored access policy** gives you additional server-side control over one or more shared access signatures. When you associate an SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These additional restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke it after it has been issued.
+A **stored access policy** gives you additional server-side control over one or more shared access signatures. When you associate an SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These extra restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke it after it has been issued.
 
-**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a period of time. Azure supports two types of SAS. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but but must be explicitly explicitly cleared before those operations can resume.
+**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a specific duration. Azure supports two types of SAS. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but must be explicitly cleared before those operations can resume.
 
 #### Create a stored access policy
 
-Configuring a stored access policy is a two-step process: the policy must first be defined, and then subsequently applied to the container. To configure a stored access policy, follow these steps:
+Configuring a stored access policy is a two-step process: the policy must first be defined, and then applied to the container afterward. To configure a stored access policy, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Select the checkbox next to the name of the container for which you will generate an SAS token.
+1. Select the checkbox next to the name of the container for which you'll generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Access policy** to display the **Access policy** pane.
 
     :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
@@ -153,13 +153,13 @@ Configuring a stored access policy is a two-step process: the policy must first 
 
     :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy within the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
 
-1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy the the container. After creating at least one stored access policy, you will be able to associate other secure access signatures (SAS) with it.
+1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy to the container. After creating at least one stored access policy, you'll be able to associate other secure access signatures (SAS) with it.
 
     :::image type="content" source="media/blob-containers-portal/apply-policy-sml.png" alt-text="Screenshot showing how to apply a stored access policy within the Azure portal" lightbox="media/blob-containers-portal/apply-policy-lrg.png":::
 
 #### Create an immutability policy
 
-Read more about how to [Configure immutability policies for containers](immutable-storage-overview.md). For help in implementing immutability policies, follow the steps outlined in the [Configure a retention policy](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-a-retention-policy-on-a-container) or [Configure or clear a legal hold](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-or-clear-a-legal-hold) articles.
+Read more about how to [Configure immutability policies for containers](immutable-storage-overview.md). For help with implementing immutability policies, follow the steps outlined in the [Configure a retention policy](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-a-retention-policy-on-a-container) or [Configure or clear a legal hold](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-or-clear-a-legal-hold) articles.
 
 ## Manage leases
 
@@ -180,12 +180,12 @@ There are five different lease operation modes, though only two are available wi
 To acquire a lease using the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Select the checkbox next to the name of the container for which you will acquire a lease.
+1. Select the checkbox next to the name of the container for which you'll acquire a lease.
 1. Select the container's **More** button (**...**), and select **Acquire lease** to request a new lease and display the details in the **Lease status** pane.
 
     :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings within the Azure portal" lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
 
-1. The **Container** and **Lease ID** property values of the newly-requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and cannot be retrieved after the pane is closed.
+1. The **Container** and **Lease ID** property values of the newly requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and can't be retrieved after the pane is closed.
 
     :::image type="content" source="media/blob-containers-portal/view-container-lease-sml.png" alt-text="Screenshot showing how to access container lease status pane within the Azure portal" lightbox="media/blob-containers-portal/view-container-lease-lrg.png":::
 
@@ -194,7 +194,7 @@ To acquire a lease using the Azure portal, follow these steps:
 To break a lease using the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Select the checkbox next to the name of the container for which you will break a lease.
+1. Select the checkbox next to the name of the container for which you'll break a lease.
 1. Select the container's **More** button (**...**), and select **Break lease** to break the lease.
 
     :::image type="content" source="media/blob-containers-portal/break-container-lease-sml.png" alt-text="Screenshot showing how to break a container lease within the Azure portal" lightbox="media/blob-containers-portal/break-container-lease-lrg.png":::
@@ -220,7 +220,7 @@ To delete a container within the [Azure portal](https://portal.azure.com), follo
 
 1. In the **Delete container(s)** dialog, confirm that you want to delete the container.
 
-In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, you can access containers deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
+In some cases, it's possible to retrieve containers that have been deleted. If soft delete data protection option is enabled on your storage account, you can access containers deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
 ## View soft-deleted containers
 
