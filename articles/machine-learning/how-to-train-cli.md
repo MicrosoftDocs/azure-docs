@@ -375,7 +375,7 @@ And run it:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
-<!-- ## Build a training pipeline
+## Build a training pipeline
 
 The CIFAR-10 example above translates well to a pipeline job. The previous job can be split into three jobs for orchestration in a pipeline:
 
@@ -384,16 +384,16 @@ The CIFAR-10 example above translates well to a pipeline job. The previous job c
 - "eval-model" to take the data and the trained model and evaluate accuracy
 
 Both "train-model" and "eval-model" will have a dependency on the "get-data" job's output. Additionally, "eval-model" will have a dependency on the "train-model" job's output. Thus the three jobs will run sequentially.
-
+<!-- 
 You can orchestrate these three jobs within a pipeline job:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
 
 And run:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pipeline_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pipeline_cifar"::: -->
 
-Pipelines can also be written using reusable components. For more, see [Create and run components-based machine learning pipelines with the Azure Machine Learning CLI (Preview)](how-to-create-component-pipelines-cli.md). -->
+Pipelines can also be written using reusable components. For more, see [Create and run components-based machine learning pipelines with the Azure Machine Learning CLI (Preview)](how-to-create-component-pipelines-cli.md).
 
 ## Next steps
 
