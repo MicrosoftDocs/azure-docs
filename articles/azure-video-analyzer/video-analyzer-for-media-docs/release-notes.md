@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 03/01/2022
+ms.date: 04/04/2022
 ms.author: juliako
 ---
 
@@ -28,9 +28,9 @@ Video Analyzer for Media enables you to include speakers' characteristic based o
 
 The following improvements were made:
 
-* Video Analyzer for Media widgets support more than 1 locale in widget's parameter.
-* The Insight widgets support initial search parameters and multiple sorting options. 
-* The Insight widgets also include a confirmation step before deleting a face to avoid mistakes.
+* Video Analyzer for Media widgets support more than 1 locale in a widget's parameter.
+* The Insights widgets support initial search parameters and multiple sorting options. 
+* The Insights widgets also include a confirmation step before deleting a face to avoid mistakes.
 * The widget customization now supports width as strings (for example 100%, 100vw).
 
 ## February 2022
