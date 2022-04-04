@@ -78,6 +78,7 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 |Number of participants in thread|250 |
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
+|Page size - ListMessages|200 |
 
 ## Voice and video calling
 
