@@ -6,7 +6,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 03/24/2022
+ms.date: 04/04/2022
 ms.author: kgremban
 ms.custom: [mqtt, iot]
 ---
