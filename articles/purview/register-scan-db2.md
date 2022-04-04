@@ -49,14 +49,14 @@ When setting up scan, you can choose to scan an entire Db2 database, or scope th
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Manually download a Db2 JDBC driver from [here](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) onto your virtual machine where self-hosted integration runtime is running.
+    * Manually download a Db2 JDBC driver from [here](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) onto your virtual machine where self-hosted integration runtime is running.
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
 * The Db2 user must have the CONNECT permission. Azure Purview connects to the syscat tables in IBM Db2 environment when importing metadata.
 

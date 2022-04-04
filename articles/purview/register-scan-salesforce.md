@@ -39,13 +39,13 @@ When setting up scan, you can choose to scan an entire Salesforce organization, 
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
-You can use the managed Azure integration runtime for scan - make sure to provide the security token to authenticate to Salesforce, learn more from the credential configuration in [Scan](#scan) section. Otherwise, if you want the scan to be initiated from a Salesforce trusted IP range for your organization, you can configure a self-hosted integration runtime to connect to it:
+    You can use the managed Azure integration runtime for scan - make sure to provide the security token to authenticate to Salesforce, learn more from the credential configuration in [Scan](#scan) section. Otherwise, if you want the scan to be initiated from a Salesforce trusted IP range for your organization, you can configure a self-hosted integration runtime to connect to it:
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce.
+    * Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce.
 
 ### Required permissions for scan
 

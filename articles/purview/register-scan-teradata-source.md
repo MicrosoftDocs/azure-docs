@@ -55,14 +55,14 @@ To retrieve data types of view columns, Azure Purview issues a prepare statement
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* You will have to manually download Teradata's JDBC Driver on your virtual machine where self-hosted integration runtime is running. The executable JAR file can be downloaded from the Teradata [website](https://downloads.teradata.com/).
+    * You will have to manually download Teradata's JDBC Driver on your virtual machine where self-hosted integration runtime is running. The executable JAR file can be downloaded from the Teradata [website](https://downloads.teradata.com/).
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 ## Register
 

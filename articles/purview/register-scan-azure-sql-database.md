@@ -95,8 +95,8 @@ It's important to register the data source in Azure Purview before setting up a 
 
 If your database server has a firewall enabled, you'll need to update the firewall to allow access in one of two ways:
 
-1. Allow Azure connections through the firewall.
-1. Install a Self-Hosted Integration Runtime and give it access through the firewall.
+1. [Allow Azure connections through the firewall](#allow-azure-connections).
+1. [Install a Self-Hosted Integration Runtime and give it access through the firewall](#self-hosted-integration-runtime).
 
 #### Allow Azure Connections
 

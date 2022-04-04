@@ -46,14 +46,14 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 
-* Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
+    * Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 
-* Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download the SAP HANA JDBC driver ([JAR ngdbc](https://mvnrepository.com/artifact/com.sap.cloud.db.jdbc/ngdbc)) on the machine where your self-hosted integration runtime is running.
+    * Download the SAP HANA JDBC driver ([JAR ngdbc](https://mvnrepository.com/artifact/com.sap.cloud.db.jdbc/ngdbc)) on the machine where your self-hosted integration runtime is running.
 
-  > [!Note]
-  > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
+      > [!Note]
+      > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
 ### Required permissions for scan
 
