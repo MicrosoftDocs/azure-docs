@@ -1,13 +1,10 @@
 ---
 title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
-author: craigshoemaker
-
 ms.topic: reference
 ms.devlang: csharp, fsharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp
 ms.date: 01/14/2019
-ms.author: cshoe
 ---
 
 # Using the Azure Function return value

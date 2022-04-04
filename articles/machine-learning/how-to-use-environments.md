@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli 
+ms.custom: devx-track-python, devx-track-azurecli, cliv1
 ms.devlang: azurecli
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
@@ -30,7 +30,7 @@ The examples in this article show how to:
 * Use an environment for training.
 * Use an environment for web service deployment.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about managing environments in the Azure ML studio, see [Manage environments in the studio](how-to-manage-environments-in-studio.md). For information about configuring development environments, see [here](how-to-configure-environment.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about managing environments in the Azure ML studio, see [Manage environments in the studio](how-to-manage-environments-in-studio.md). For information about configuring development environments, see [Set up a Python development environment for Azure ML](how-to-configure-environment.md).
 
 ## Prerequisites
 

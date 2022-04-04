@@ -22,7 +22,7 @@ When troubleshooting your SAP data connector, you may find the following command
 |**Start the Docker container**     |`docker start sapcon-[SID]`         |
 |**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
 |**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
-|     |         |
+
 
 For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
 

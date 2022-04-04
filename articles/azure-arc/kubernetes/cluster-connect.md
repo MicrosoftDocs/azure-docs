@@ -19,9 +19,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ## Prerequisites   
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
+- [Install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) Azure CLI to version >= 2.16.0.
 
-- Install the `connectedk8s` Azure CLI extension of version >= 1.2.0:
+- Install the `connectedk8s` Azure CLI extension of version >= 1.2.5:
 
     ```azurecli
     az extension add --name connectedk8s
@@ -77,7 +77,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
         AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
         ```
 
-1. Authorize the AAD entity with appropriate permissions:
+1. Authorize the entity with appropriate permissions:
 
     - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
     

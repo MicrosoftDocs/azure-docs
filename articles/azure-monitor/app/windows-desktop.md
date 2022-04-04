@@ -27,6 +27,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 5. [Use the API](./api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure portal.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## <a name="telemetry"></a>Example code
 
 ```csharp

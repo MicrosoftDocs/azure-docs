@@ -17,6 +17,8 @@ This quickstart describes how to create an Azure Load Testing Preview resource b
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials. 
 
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -33,10 +35,6 @@ If you already have a Load Testing resource, skip this section and continue to [
 To create a Load Testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
-
-## <a name="role_assignment"></a> Configure role-based access
-
-[!INCLUDE [azure-load-testing-role-assignment](../../includes/azure-load-testing-role-assignment.md)]
 
 ## <a name="jmeter"></a> Create an Apache JMeter script
 

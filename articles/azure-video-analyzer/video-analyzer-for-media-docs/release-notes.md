@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 02/18/2022
+ms.date: 04/04/2022
 ms.author: juliako
 ---
 
@@ -18,59 +18,79 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## March 2022
+
+### Closed Captioning files now support including speakers’ attributes
+
+Video Analyzer for Media enables you to include speakers' characteristic based on a closed captioning file that you choose to download. To include the speakers’ attributes, select Downloads -> Closed Captions -> choose the closed captioning downloadable file format (SRT, VTT, TTML, TXT, or CSV) and check **Include speakers** checkbox.
+
+### Improvements to the widget offering
+
+The following improvements were made:
+
+* Video Analyzer for Media widgets support more than 1 locale in a widget's parameter.
+* The Insights widgets support initial search parameters and multiple sorting options. 
+* The Insights widgets also include a confirmation step before deleting a face to avoid mistakes.
+* The widget customization now supports width as strings (for example 100%, 100vw).
+
 ## February 2022
+
+### Public preview of Video Analyzer for Media account management based on ARM in Government cloud
+
+Video Analyzer for Media website is now supporting account management based on ARM in public preview (see, [November 2021 release note](#november-2021)).
 
 ### Leverage open-source code to create ARM based account
 
 Added new code samples including HTTP calls to use Video Analyzer for Media create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account
 ).
+
 ## January 2022
 
 ### Improved audio effects detection
 
-The audio effects detection capability was improved to have a better detection rate over the following classes: 
+The audio effects detection capability was improved to have a better detection rate over the following classes:
 
-* Crowd reactions (cheering, clapping, and booing), 
-* Gunshot or explosion, 
+* Crowd reactions (cheering, clapping, and booing),
+* Gunshot or explosion,
 * Laughter
 
 For more information, see [Audio effects detection](audio-effects-detection.md).
 
 ### New source languages support for STT, translation, and search on the website
- 
-Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.   
+
+Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.
 It means transcription, translation, and search features are also supported for these languages in Video Analyzer for Media web applications and widgets.
 
-## December 2021 
- 
+## December 2021
+
 ### The projects feature is now GA
 
 The projects feature is now GA and ready for productive use. There is no pricing impact related to the "Preview to GA" transition. See [Add video clips to your projects](use-editor-create-project.md).
- 
-### New source languages support for STT, translation, and search on API level 
+
+### New source languages support for STT, translation, and search on API level
 
 Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the API level.
 
 ### Matched person detection capability
 
-When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player. 
+When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
 
 ## November 2021
- 
+
 ### Public preview of Video Analyzer for Media account management based on ARM
 
 Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based Video Analyzer for Media APIs to create, edit, and delete an account from the [Azure portal](https://portal.azure.com/#home).
 
 > [!NOTE]
-> The Government cloud includes support for CRUD ARM based accounts from Video Analyzer for Media API and from the Azure portal. 
->  
+> The Government cloud includes support for CRUD ARM based accounts from Video Analyzer for Media API and from the Azure portal.
+>
 > There is currently no support from the Video Analyzer for Media [website](https://www.videoindexer.ai).
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
 ### People’s clothing detection
 
-When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player. 
+When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player.
 
 ### Face bounding box (preview)
 
@@ -97,42 +117,42 @@ There is now an option to re-index video or audio files that have failed during 
 Fixed bugs related to CSS, theming and accessibility:
 
 * high contrast
-* account settings and insights views in the [portal](https://www.videoindexer.ai).  
+* account settings and insights views in the [portal](https://www.videoindexer.ai).
 
 ## July 2021
 
 ### Automatic Scaling of Media Reserved Units
- 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](../../media-services/latest/concept-media-reserved-units.md) auto scaling by [Azure Media Services](../../media-services/latest/media-services-overview.md), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
- 
+
 ### Video Analyzer for Media deployed in six new regions
- 
+
 You can now create a Video Analyzer for Media paid account in France Central, Central US, Brazil South, West Central US, Korea Central, and Japan West regions.
-  
+
 ## May 2021
 
 ### New source languages support for speech-to-text (STT), translation, and search
 
-Video Analyzer for Media now supports STT, translation, and search in Chinese (Cantonese) ('zh-HK'), Dutch (Netherlands) ('Nl-NL'), Czech ('Cs-CZ'), Polish ('Pl-PL'), Swedish (Sweden) ('Sv-SE'), Norwegian('nb-NO'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), 
-Arabic: (United Arab Emirates) ('ar-AE', 'ar-EG'), (Iraq) ('ar-IQ'), (Jordan) ('ar-JO'), (Kuwait) ('ar-KW'), (Lebanon) ('ar-LB'), (Oman) ('ar-OM'), (Qatar) ('ar-QA'), (Palestinian Authority) ('ar-PS'), (Syria) ('ar-SY'), and Turkish('tr-TR'). 
+Video Analyzer for Media now supports STT, translation, and search in Chinese (Cantonese) ('zh-HK'), Dutch (Netherlands) ('Nl-NL'), Czech ('Cs-CZ'), Polish ('Pl-PL'), Swedish (Sweden) ('Sv-SE'), Norwegian('nb-NO'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'),
+Arabic: (United Arab Emirates) ('ar-AE', 'ar-EG'), (Iraq) ('ar-IQ'), (Jordan) ('ar-JO'), (Kuwait) ('ar-KW'), (Lebanon) ('ar-LB'), (Oman) ('ar-OM'), (Qatar) ('ar-QA'), (Palestinian Authority) ('ar-PS'), (Syria) ('ar-SY'), and Turkish('tr-TR').
 
 These languages are available in both API and Video Analyzer for Media website. Select the language from the combobox under **Video source language**.
 
 ### New theme for Azure Video Analyzer for Media
 
 New theme is available: 'Azure' along with the 'light' and 'dark themes. To select a theme, click on the gear icon in the top-right corner of the website, find themes under **User settings**.
- 
-### New open-source code you can leverage 
+
+### New open-source code you can leverage
 
 Three new Git-Hub projects are available at our [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer):
 
 * Code to help you leverage the newly added [widget customization](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets).
 * Solution to help you add [custom search](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) to your video libraries.
 * Solution to help you add [de-duplication](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) to your video libraries.
- 
-### New option to toggle bounding boxes (for observed people) on the player  
+
+### New option to toggle bounding boxes (for observed people) on the player
 
 When indexing a video through our advanced video settings, you can view our new observed people capabilities. If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
@@ -141,22 +161,22 @@ When indexing a video through our advanced video settings, you can view our new 
 The Video Indexer service was renamed to Azure Video Analyzer for Media.
 
 ### Improved upload experience in the portal
- 
+
 Video Analyzer for Media has a new upload experience in the [portal](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
 
 ### New developer portal in available in gov-cloud
- 
+
 [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
 
-### Observed people tracing (preview)  
+### Observed people tracing (preview)
 
-Azure Video Analyzer for Media now detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including its confidence. 
+Azure Video Analyzer for Media now detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including its confidence.
 
-For example, if a video contains a person, the detect operation will list the person appearances together with their coordinates in the video frames. You can use this functionality to determine the person path in a video. It also lets you determine whether there are multiple instances of the same person in a video. 
+For example, if a video contains a person, the detect operation will list the person appearances together with their coordinates in the video frames. You can use this functionality to determine the person path in a video. It also lets you determine whether there are multiple instances of the same person in a video.
 
-The newly added observed people tracing feature is available when indexing your file by choosing the **Advanced option** -> **Advanced video** or **Advanced video + audio** preset (under Video + audio indexing). Standard  and basic indexing presets will not include this new advanced model. 
+The newly added observed people tracing feature is available when indexing your file by choosing the **Advanced option** -> **Advanced video** or **Advanced video + audio** preset (under Video + audio indexing). Standard  and basic indexing presets will not include this new advanced model.
 
-When you choose to see Insights of your video on the Video Analyzer for Media website, the Observed People Tracing will show up on the page with all detected people thumbnails. You can choose a thumbnail of a person and see where the person appears in the video player.  
+When you choose to see Insights of your video on the Video Analyzer for Media website, the Observed People Tracing will show up on the page with all detected people thumbnails. You can choose a thumbnail of a person and see where the person appears in the video player.
 
 The feature is also available in the JSON file generated by Video Analyzer for Media. For more information, see [Trace observed people in a video](observed-people-tracing.md).
 
@@ -168,46 +188,46 @@ You can now see the detected acoustic events in the closed captions file. The fi
 
 ## March 2021
 
-### Audio analysis 
+### Audio analysis
 
 Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
 
 The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
 
-### New developer portal 
+### New developer portal
 
-Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
- 
-### Advanced customization capabilities for insight widget 
+Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples.
 
-SDK is now available to embed Video Analyzer for Media's insights widget in your own service and customize its style and data. The SDK supports the standard Video Analyzer for Media insights widget and a fully customizable insights widget. Code sample is available in [Video Analyzer for Media GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Video Analyzer for Media insights). 
+### Advanced customization capabilities for insight widget
 
-### Video Analyzer for Media deployed in the US North Central , US West and Canada Central 
+SDK is now available to embed Video Analyzer for Media's insights widget in your own service and customize its style and data. The SDK supports the standard Video Analyzer for Media insights widget and a fully customizable insights widget. Code sample is available in [Video Analyzer for Media GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Video Analyzer for Media insights).
+
+### Video Analyzer for Media deployed in the US North Central , US West and Canada Central
 
 You can now create a Video Analyzer for Media paid account in the US North Central, US West and Canada Central regions
- 
-### New source languages support for speech-to-text (STT), translation and search 
 
-Video Analyzer for Media now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Video Analyzer for Media website. 
- 
-### Search by Topic in Video Analyzer for Media Website 
+### New source languages support for speech-to-text (STT), translation and search
 
-You can now use the search feature, at the top of  the [Video Analyzer for Media website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics. 
+Video Analyzer for Media now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Video Analyzer for Media website.
+
+### Search by Topic in Video Analyzer for Media Website
+
+You can now use the search feature, at the top of  the [Video Analyzer for Media website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics.
 
 ## February 2021
 
-### Multiple account owners 
+### Multiple account owners
 
 Account owner role was added to Video Analyzer for Media. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
 
 ### Audio event detection (public preview)
 
 > [!NOTE]
-> This feature is only available in trial accounts. 
+> This feature is only available in trial accounts.
 
-Video Analyzer for Media now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping, and booing) and Silence. 
+Video Analyzer for Media now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping, and booing) and Silence.
 
-The newly added audio affects feature is available when indexing your file by choosing the **Advanced option** -> **Advanced audio** preset (under Video + audio indexing). Standard indexing will only include **silence** and **crowd reaction**. 
+The newly added audio affects feature is available when indexing your file by choosing the **Advanced option** -> **Advanced audio** preset (under Video + audio indexing). Standard indexing will only include **silence** and **crowd reaction**.
 
 The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
 
@@ -215,27 +235,27 @@ When you choose to see **Insights** of your video on the [Video Analyzer for Med
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
 
-### Named entities enhancement  
+### Named entities enhancement
 
-The extracted list of people and location was extended and updated in general. 
+The extracted list of people and location was extended and updated in general.
 
-In addition, the model now includes people and locations in-context which are not famous, like a ‘Sam’ or ‘Home’ in the video. 
+In addition, the model now includes people and locations in-context which are not famous, like a ‘Sam’ or ‘Home’ in the video.
 
 ## January 2021
 
-### Video Analyzer for Media is deployed on US Government cloud 
+### Video Analyzer for Media is deployed on US Government cloud
 
-You can now create a Video Analyzer for Media paid account on US government cloud in Virginia and Arizona regions. 
-Video Analyzer for Media free trial offering isn't available in the mentioned region. For more information go to Video Analyzer for Media Documentation. 
+You can now create a Video Analyzer for Media paid account on US government cloud in Virginia and Arizona regions.
+Video Analyzer for Media free trial offering isn't available in the mentioned region. For more information go to Video Analyzer for Media Documentation.
 
-### Video Analyzer for Media deployed in the India Central region 
+### Video Analyzer for Media deployed in the India Central region
 
-You can now create a Video Analyzer for Media paid account in the India Central region. 
+You can now create a Video Analyzer for Media paid account in the India Central region.
 
 ### New Dark Mode for the Video Analyzer for Media website experience
 
-The Video Analyzer for Media website experiences is now available in dark mode. 
-To enable the dark mode open the settings panel and toggle on the **Dark Mode** option. 
+The Video Analyzer for Media website experiences is now available in dark mode.
+To enable the dark mode open the settings panel and toggle on the **Dark Mode** option.
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
 
@@ -247,7 +267,7 @@ You can now create a Video Analyzer for Media paid account in the Switzerland We
 
 ## October 2020
 
-### Animated character identification improvements  
+### Animated character identification improvements
 
 Video Analyzer for Media supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
 
@@ -258,8 +278,8 @@ Starting March 1st 2021, you no longer will be able to sign up and sign in to th
 You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
 
 > [!NOTE]
-> The Video Analyzer for Media accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
-> 
+> The Video Analyzer for Media accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021.
+>
 > You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Analyzer for Media account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
 > Alternatively, you can create a paid account and migrate the data.
 
@@ -267,11 +287,11 @@ You will be able to sign up and sign in using one of these providers: Azure AD, 
 
 ### Mobile design for the Video Analyzer for Media website
 
-The Video Analyzer for Media website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs). 
+The Video Analyzer for Media website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs).
 
-### Accessibility improvements and bug fixes 
+### Accessibility improvements and bug fixes
 
-As part of WCAG (Web Content Accessibility guidelines), the Video Analyzer for Media website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved. 
+As part of WCAG (Web Content Accessibility guidelines), the Video Analyzer for Media website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
 
 ## July 2020
 
@@ -301,7 +321,7 @@ Side panel is also used for user preferences and help.
 
 You can now use the search API to search for videos with specific topics (API only).
 
-Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos) for details.  
+Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos) for details.
 
 ### Labels enhancement
 
@@ -312,7 +332,7 @@ The label tagger was upgraded and now includes more visual labels that can be id
 ### Video Analyzer for Media deployed in the East US
 
 You can now create a Video Analyzer for Media paid account in the East US region.
- 
+
 ### Video Analyzer for Media URL
 
 Video Analyzer for Media regional endpoints were all unified to start only with www. No action item is required.
@@ -329,7 +349,7 @@ The **Insights** widget includes new parameters: `language` and `control`.
 
 The **Player** widget has a new `locale` parameter. Both `locale` and `language` parameters control the player’s language.
 
-For more information, see the [widget types](video-indexer-embed-widgets.md#widget-types) section. 
+For more information, see the [widget types](video-indexer-embed-widgets.md#widget-types) section.
 
 ### New player skin
 
@@ -343,7 +363,7 @@ A new player skin launched with updated design.
     * [Get-Account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account)
     * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-Authorization)
     * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-With-Token)
- 
+
     The Account object has a `Url` field pointing to the location of the [Video Analyzer for Media website](https://www.videoindexer.ai/).
 For paid accounts the `Url` field is currently pointing to an internal URL instead of the public website.
 In the coming weeks we will change it and return the [Video Analyzer for Media website](https://www.videoindexer.ai/) URL for all accounts (trial and paid).
@@ -355,26 +375,26 @@ In the coming weeks we will change it and return the [Video Analyzer for Media w
 
     * Replacing the URL with a URL pointing to the Video Analyzer for Media widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Insights-Widget))
     * Using the Video Analyzer for Media website to generate a new embedded URL:
-         
+
          Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
-   
+
     The regional URLs are not supported and will be blocked in the coming weeks.
 
 ## January 2020
- 
+
 ### Custom language support for additional languages
 
 Video Analyzer for Media now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
- 
+
 ### Delete account timeframe action update
 
 Delete account action now deletes the account within 90 days instead of 48 hours.
- 
+
 ### New Video Analyzer for Media GitHub repository
 
 A new Video Analyzer for Media GitHub with different projects, getting started guides and code samples is now available:
 https://github.com/Azure-Samples/media-services-video-indexer
- 
+
 ### Swagger update
 
 Video Analyzer for Media unified **authentications** and **operations** into a single [Video Analyzer for Media OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai/).
@@ -387,21 +407,21 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 
 ### Fix account configuration from the Video Analyzer for Media portal
 
-You can now update Media Services connection configuration in order to self-help with issues like: 
+You can now update Media Services connection configuration in order to self-help with issues like:
 
 * incorrect Azure Media Services resource
 * password changes
-* Media Services resources were moved between subscriptions  
+* Media Services resources were moved between subscriptions
 
 To fix the account configuration, in the Video Analyzer for Media portal navigate to Settings > Account tab (as owner).
 
 ### Configure the custom vision account
 
-Configure the custom vision account on paid accounts using the Video Analyzer for Media portal (previously, this was only supported by API). To do that, sign in to the Video Analyzer for Media portal, choose Model Customization > Animated characters > Configure. 
+Configure the custom vision account on paid accounts using the Video Analyzer for Media portal (previously, this was only supported by API). To do that, sign in to the Video Analyzer for Media portal, choose Model Customization > Animated characters > Configure.
 
 ### Scenes, shots and keyframes – now in one insight pane
 
-Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
+Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of.
 
 ### Notification about a long video name
 
@@ -416,26 +436,26 @@ When streaming endpoint is disabled, Video Analyzer for Media will show a descri
 Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) and [Update Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
 
 ## November 2019
- 
+
 * Korean custom language models support
 
-    Video Analyzer for Media now supports custom language models in Korean (`ko-KR`) in both the API and portal. 
+    Video Analyzer for Media now supports custom language models in Korean (`ko-KR`) in both the API and portal.
 * New languages supported for speech-to-text (STT)
 
     Video Analyzer for Media APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
-    
+
     For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
-    
+
 ## October 2019
- 
+
 * Search for animated characters in the gallery
 
     When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
 
 ## September 2019
- 
+
 Multiple advancements announced at IBC 2019:
- 
+
 * Animated character recognition  (public preview)
 
     Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
@@ -449,11 +469,11 @@ Multiple advancements announced at IBC 2019:
 
     Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Topic inferencing enhancement - now covering level 2
-    
+
     The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## August 2019
- 
+
 ### Video Analyzer for Media deployed in UK South
 
 You can now create a Video Analyzer for Media paid account in the UK south region.
@@ -469,7 +489,7 @@ Video Analyzer for Media identifies named locations and people via natural langu
 ### Keyframes extraction in native resolution
 
 Keyframes extracted by Video Analyzer for Media are available in the original resolution of the video.
- 
+
 ### GA for training custom face models from images
 
 Training faces from images moved from Preview mode to GA (available via API and in the portal).
@@ -480,11 +500,11 @@ Training faces from images moved from Preview mode to GA (available via API and 
 ### Hide gallery toggle option
 
 User can choose to hide the gallery tab from the portal (similar to hiding the samples tab).
- 
+
 ### Maximum URL size increased
 
 Support for URL query string of 4096 (instead of 2048) on indexing a video.
- 
+
 ### Support for multi-lingual projects
 
 Projects can now be created based on videos indexed in different languages (API only).
@@ -509,11 +529,11 @@ You can now create a Video Analyzer for Media paid account in the Japan East reg
 
 Added a new API that enables you to [update the Azure Media Service connection endpoint or key](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
-### Improve error handling on upload 
+### Improve error handling on upload
 
 A descriptive message is returned in case of misconfiguration of the underlying Azure Media Services account.
 
-### Player timeline Keyframes preview 
+### Player timeline Keyframes preview
 
 You can now see an image preview for each time on the player's timeline.
 
