@@ -1,6 +1,6 @@
 ---
 title: Managing configuration using files
-description: 
+description: Manage configuration data in files using different profiles supported by App Configuration importing tools.
 author: zhenlan
 ms.author: zhenlwa
 ms.service: azure-app-configuration
