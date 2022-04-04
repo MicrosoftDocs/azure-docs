@@ -33,6 +33,8 @@ Virtual network NAT gateway is a highly resilient and scalable Azure service tha
 
     A NAT gateway makes available SNAT ports accessible to every instance in a subnet. This dynamic allocation allows VM instances to use the number of SNAT ports each needs from the available pool of ports for new connections. The dynamic allocation reduces the risk of SNAT exhaustion.
 
+    :::image type="content" source="./media/troubleshoot-outbound-connection/load-balancer-vs-nat.png" alt-text="Diagram of Azure Load Balancer vs. Azure Virtual Network NAT.":::
+
 * **Port selection and reuse behavior.**
     
     A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports will be reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
