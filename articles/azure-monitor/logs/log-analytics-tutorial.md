@@ -104,7 +104,7 @@ Enter **Chicago** in the query results search box and click the arrows to find a
 
 ### Reorganize and summarize data
 
-In addition to filtering and searching through results, you can reorganize and summarize the data in the query results based on your needs.
+To better visualize your data, you can reorganize and summarize the data in the query results based on your needs.
 
 Select **Columns** to the right of the results pane to open the **Columns** sidebar. 
  
@@ -115,7 +115,7 @@ In the sidebar, you'll see a list of all available columns. Drag the **Url** col
 :::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped by URL." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 ### Create a pivot table
 
-Let's create a pivot table to analyze the performance of our pages. 
+To analyze the performance of your pages, create a pivot table. 
 
 In the **Columns** sidebar, select **Pivot Mode**. 
 
