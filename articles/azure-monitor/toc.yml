@@ -209,6 +209,8 @@ items:
   - name: IP addresses
     href: app/ip-addresses.md
     displayName: firewall, firewall exceptions, whitelist
+  - name: Self-Monitoring
+    href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
   - name: Scenarios
@@ -1481,10 +1483,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
-  - name: Data reference
-    href: /azure/azure-monitor/reference/
-  - name: Monitoring Azue Monitor data reference 
-    href: azure-monitor-monitoring-reference.md    
+  - name: Monitoring data reference
+    href: reference/azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:
     - name: Platform metrics
