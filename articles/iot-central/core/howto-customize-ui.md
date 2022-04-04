@@ -177,7 +177,7 @@ Following example shows how to change the word `Device` to `Asset` when you view
 
 1. Upload your edited customization file and select **Save** to see your new text in the application:
 
-    :::image type="content" source="media/howto-customize-ui/upload-custom-text.png" alt-text="SCreenshot showing how to upload custom text file.":::
+    :::image type="content" source="media/howto-customize-ui/upload-custom-text.png" alt-text="Screenshot showing how to upload custom text file.":::
 
     The UI now uses the new text values:
 
