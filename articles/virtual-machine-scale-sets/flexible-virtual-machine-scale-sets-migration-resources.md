@@ -15,7 +15,7 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
-Like availability sets, virtual machine scale sets allows you to spread virtual machines across multiple fault domains. Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](..virtual-machines/availability-set-overview.md). This article goes over migration considerations when switching to Flexible orchestration mode for virtual machine scale sets. 
+Like availability sets, virtual machine scale sets allows you to spread virtual machines across multiple fault domains. Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](../virtual-machines/availability-set-overview.md). This article goes over migration considerations when switching to Flexible orchestration mode for virtual machine scale sets. 
 
 ## Update availability set deployments templates and scripts
 
