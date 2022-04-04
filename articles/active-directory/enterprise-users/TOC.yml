@@ -23,6 +23,8 @@
   items:
   - name: Compare default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+  - name: What is delegated administration?
+    href: directory-delegated-administration-primer.md
   - name: Group-based licensing basics    
     href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Manage access with groups    
@@ -64,7 +66,7 @@
       href: users-restrict-guest-permissions.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: Organization
+  - name: Organization (tenant)
     items:
     - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

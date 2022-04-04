@@ -19,7 +19,6 @@ ms.collection: M365-identity-device-management
 ---
 # What is delegated administration?
 
-
 Managing permissions for external partners is a key part of your security posture. We’re adding capabilities to the Azure Active Directory (Azure AD) admin portal experience that an administrator can use to see the relationships that their Azure AD tenant has with Microsoft Cloud Service Providers (CSP) who can manage their tenant. This permissions model is called delegated administration. This article introduces the Azure AD administrator to the relationship between the old Delegated Admin Permissions (DAP) permission model and the new Granular Delegated Admin Permissions (GDAP) permission model.
 
 ## Delegated administration relationships
