@@ -5,13 +5,13 @@ summary: Azure virtual machine scale sets let you create and manage a group of l
 
 metadata:
   title: Virtual Machine Scale Sets documentation
-  description: Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
+  description: Learn how to create, configure, manage, and autoscale virtual machine scale sets.
   ms.service: virtual-machine-scale-sets
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman
   ms.reviewer: mimckitt
-  ms.date: 03/16/2020
+  ms.date: 03/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -88,7 +88,7 @@ landingContent:
         links:
           - text: Build a scalable application with virtual machine scale sets
             url: /learn/modules/build-app-with-scale-sets/
-          - text:  Create a Windows virtual machine in Azure
+          - text: Create a Windows virtual machine in Azure
             url: /learn/modules/create-windows-virtual-machine-in-azure/
 
 
