@@ -90,6 +90,8 @@ The file `addPasswordResetExtensionTemplate.parameters.json` takes the following
 }
 ```
 
+---
+
 ## Deploy template
 
 Deploy the template.
@@ -132,6 +134,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             ------- 
 4      Long Running... AzureLongRun... Running       True            localhost            New-AzResourceGroupDep... 
 ```
+
+---
 
 ## Track deployment
 
@@ -242,6 +246,8 @@ ForceUpdateTag          :
 PS C:\WINDOWS\system32> 
 ```
 
+---
+
 ## Verify the updated VM password
 
 Verify the updated VM password.
@@ -300,6 +306,8 @@ azureuser@mylinuxvm5:~$
 
 If authentication fails...
 
+---
+
 ## Remove the extension
 
 Remove the extension.
@@ -343,6 +351,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
   
 PS C:\WINDOWS\system32>
 ```
+---
 
 ## Next steps
 
