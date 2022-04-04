@@ -12,6 +12,9 @@
     href: manage-ddos-protection-powershell.md
   - name: Create a DDoS protection plan - CLI
     href: manage-ddos-protection-cli.md
+  - name: Create a DDoS protection plan - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: manage-ddos-protection-bicep.md
   - name: Create a DDoS protection plan - ARM template
     displayName: Resource Manager
     href: manage-ddos-protection-template.md

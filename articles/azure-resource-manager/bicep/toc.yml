@@ -75,12 +75,18 @@
     items:
     - name: Content Delivery Network
       href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: DDoS Protection
+      href: ../../ddos-protection/manage-ddos-protection-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DNS
       href: ../../dns/dns-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: ExpressRoute
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Storage
+    items:
+    - name: Data Share
+      href: ../../data-share/share-your-data-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management
