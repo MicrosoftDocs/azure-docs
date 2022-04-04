@@ -98,21 +98,21 @@ To deploy using these files, you can use either the studio or the Azure CLI.
 
 To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 extension. Run the following command to confirm that you've both:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/misc.sh" id="az_version":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
 If you receive an error message or you don't see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
 Sign in:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/misc.sh" id="az_login":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
 If you've access to multiple Azure subscriptions, you can set your active subscription:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/misc.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
 Set the default resource group and workspace to where you wish to create the deployment:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/setup.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
 
 ## Put the scoring file in its own directory
 
@@ -124,11 +124,11 @@ To create an online endpoint from the command line, you'll need to create an *en
 
 __automl_endpoint.yml__
 
-::: code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml" :::
+::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml" :::
 
 __automl_deployment.yml__
 
-::: code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
+::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
 
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 
