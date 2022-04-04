@@ -24,7 +24,7 @@ You can discover all the resources for which Autoscale is applicable in Azure Mo
 
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
 
-[!View all resources and status][./media/autoscale-get-started/view-all-resources-3.png]
+![View all resources and status][./media/autoscale-get-started/view-all-resources-3.png]
 
 For each resource, you will find the current instance count and the Autoscale status. The Autoscale status can be:
 
@@ -145,7 +145,7 @@ To learn more about moving resources between regions and disaster recovery in Az
 [4]: ../../app-service/quickstart-dotnetcore.md
 [5]: ./media/autoscale-get-started/manual-scale-04.png
 [6]: ./media/autoscale-get-started/custom-scale-add-rule-05.png
-[7]: ./media/autoscale-get-started/scale-in-recommendation.png <!--notUsedInDocument-->
+[7]: ./media/autoscale-get-started/scale-in-recommendation.png 
 [8]: ./media/autoscale-get-started/custom-scale-results-06.png
 [9]: ./media/autoscale-get-started/scale-same-based-on-condition-07.png
 [10]: ./media/autoscale-get-started/scale-different-based-on-time-08.png
