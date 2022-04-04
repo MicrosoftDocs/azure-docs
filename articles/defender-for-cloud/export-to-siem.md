@@ -4,7 +4,7 @@ description: Learn how to stream your security alerts to Microsoft Sentinel, thi
 ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
-ms.date: 03/31/2022
+ms.date: 04/04/2022
 ---
 
 # Stream alerts to a SIEM, SOAR, or IT Service Management solution
@@ -64,21 +64,9 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 ## Stream alerts to QRadar and Splunk
 
 The export of security alerts to Splunk and QRadar uses Event Hubs and a built-in connector.
-You can either use the PowerShell script or the Azure portal.
-Here's an overview of the steps you'll do in the Azure portal:
+You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts.
 
-1. Create an Event Hubs name space and event hub.
-2. Define a policy for the event hub with “Send” permissions.
-3. **If you are streaming your alerts to QRadar SIEM** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
-4. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
-5. Enable continuous export of your security alerts to the defined event hub.
-6. **If you are streaming your alerts to QRadar SIEM** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
-7. **If you are streaming your alerts to Splunk SIEM**:
-   1. Create an Microsoft Azure Active Directory application.
-   2. Save Tenant, App ID, App password.
-   3. Give permissions to the Azure AD Application to read from the event hub you created before.
-
-Finally, you’ll need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
+Then, you’ll need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
 
 ### Prerequisites
 
@@ -94,76 +82,25 @@ You can set up your Azure environment to support continuous export using either:
 - A PowerShell script (Recommended)
 
     Download and run [the PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/3rd%20party%20SIEM%20integration).
-    Enter the required parameters and the script performs all of the necessary steps for you.
-    When the script finishes, it outputs the relevant details you’ll use in installing the solution in the SIEM platform.
+    Enter the required parameters and the script performs all of the steps for you.
+    When the script finishes, it outputs the information you’ll use to install the solution in the SIEM platform.
 
 - In the Azure portal
 
-    1. In the [Event Hubs service](../event-hubs/event-hubs-create.md), create an Event Hubs namespace and event hub.
-        ![Screenshot of creating an Event Hubs namespace in Microsoft Event Hubs.](./media/export-to-siem/create-event-hub-namespace.png)
-    1. Define a policy for the event hub with "Send" permissions:
-        1. In the Event Hubs menu, select the Event Hubs namespace you created.
-        1. In the namespace menu, select **Shared access policies**.
-        1. Click **Add**, enter a unique policy name, and select **Send**.
-        1. Click **Create** to create the policy.
-            ![Screenshot of creating a shared policy in Microsoft Event Hubs.](./media/export-to-siem/create-shared-access-policy.png)
-    1. **If you are streaming your alerts to QRadar SIEM** - Create another policy but this time make it a Listen policy.
-        1. Click **Add**, enter a unique policy name, and select **Send**.
-        1. Click **Create** to create the policy.
-        1. After the listen policy is created, copy the **Connection string primary key** and save it to use later.
-            ![Screenshot of creating a listen policy in Microsoft Event Hubs.](./media/export-to-siem/create-shared-listen-policy.png)
-    1. Create a consumer group, then copy and save the name to use in the
-      SIEM platform.
-        1. In the Entities section of the Event Hubs namespace menu, select **Event Hubs** and click on the event hub you created.
-            ![Screenshot of opening the event hub Microsoft Event Hubs.](./media/export-to-siem/open-event-hub.png)
-        1. Click **Consumer group**.
-    1. Enable continuous export:
-        Tenant level:
-        1. In the search box in the menu, search for "Policy" and go to the Policy and select **Definitions** in the menu.
-        1. Look for "deploy export".
-        1. Select the **Deploy export to Event Hub for Azure Security Center data** built-in policy and click **Assign**.
-        1. Enter "scope" to define the level of data to export. To select a tenant root management group level you need to have permissions on tenant level.
-        1. (Optional) You can also define specific subscriptions to exclude from the export.
-        1. Enter an assignment name.
-        1. Make sure policy enforcement is enabled.
-        1. In the policy parameters:
-           1. Select a resource group that defines where the automation resource is saved.
-           1. Select Resource group location.
-           1. Click the **...** next to the **Event Hub details** and enter the details for the event hub, including:
-               - Subscription.
-               - The Event Hubs namespace you created.
-               - The event hub you created.
-               - In **authorizationrules**, select the shared access policy that you created to send alerts.
-        1. Click **Review and Create** and **Create** to finish the process of defining the continuous export to Event Hubs.
-            - Notice that when you activate continuous export policy on tenant root management group level, it automatically streams your alerts on any **new** subscription that will be created under this tenant.
-    1. **If you are streaming your alerts to QRadar SIEM** - Create a storage account, then copy and save the connection string to the account to use in QRadar.
-        1. Go to the Azure portal, click **Create a resource**, and select **Storage account**. If that option is not shown, search for "storage account".
-        1. Click **Create**.
-        1. Enter the details for the storage account, click **Review and Create**, and then **Create**.
-        1. After you create your storage account and go to the resource, in the menu select **Access Keys**.
-        1. Select **Show keys** to see the keys, and copy the connection string of Key 1.
-    1. **If you are streaming your alerts to Splunk SIEM -** Create an Azure AD application.
-        1. In the menu search box, search for "Azure Active Directory" and go to Azure Active Directory.
-        1. Go to the Azure portal, click **Create a resource**, and select **Azure Active Directory**. If that option is not shown, search for "active directory".
-        1. In the menu, select **App registrations**.
-        1. Click **New registration**.
-        1. Enter a unique name for the application and click **Register**.
-        1. Copy to Clipboard and save the **Application (client) ID** and **Directory (tenant) ID**.
-        1. In the menu, go to **Certificates & secrets**.
-        1. Create a password for the application to prove its identity when requesting a token:
-            1. Select **New client secret**.
-            1. Enter a short description, choose the expiration time of the secret, and click **Add**.
-            1. After the secret is created, copy the Secret ID and save it for later use together with the Application ID and Directory (tenant) ID.
-    1. **If you are streaming your alerts to Splunk SIEM -** Give permissions to the Azure AD Application to read from the event hub you created before.
-        1. Go to the Event Hubs namespace you created.
-        1. In the menu, go to **Access control**.
-        1. Click **Add** and select **Add role assignment**.
-        1. Click **Add role assignment**.
-        1. In the Roles tab, search for **Azure Event Hubs Data Receiver**.
-        1. Click **Next**.
-        1. Click **Select Members**.
-        1. Search for the Azure AD application you created before and select it.
-        1. Click **Close**.
+    Here's an overview of the steps you'll do in the Azure portal:
+
+    1. Create an Event Hubs name space and event hub.
+    2. Define a policy for the event hub with “Send” permissions.
+    3. **If you are streaming your alerts to QRadar SIEM** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
+    4. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
+    5. Enable continuous export of your security alerts to the defined event hub.
+    6. **If you are streaming your alerts to QRadar SIEM** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
+    7. **If you are streaming your alerts to Splunk SIEM**:
+        1. Create an Microsoft Azure Active Directory application.
+        2. Save Tenant, App ID, App password.
+        3. Give permissions to the Azure AD Application to read from the event hub you created before.
+
+    For more detailed instructions, see the 
 
 ### Step 2. Connect the event hub to your preferred solution using the built-in connectors:
 
