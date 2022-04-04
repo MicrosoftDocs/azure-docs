@@ -109,7 +109,7 @@ See how data is extracted from your specific or unique documents by using custom
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
 
 |Feature    |Custom Template | Custom Neural |
