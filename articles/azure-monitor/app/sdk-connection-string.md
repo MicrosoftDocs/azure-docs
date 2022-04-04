@@ -102,7 +102,7 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, this connection string specifies the endpoint suffix and the SDK will construct service endpoints.
+In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
@@ -130,9 +130,14 @@ In this example, the connection string specifies explicit overrides for every se
 
 ### Connection string with explicit region
 
-`InstrumentationKey=12345678-abcd-1234-abcd-1234567890ab;IngestionEndpoint=https://southcentralus.in.applicationinsights.azure.com/`
+`InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://southcentralus.in.applicationinsights.azure.com/`
 
 In this example, the connection string specifies the South Central US region.
+
+- Authorization scheme defaults to "ikey" 
+- Instrumentation Key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the explicit override values: 
+   - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
 
 Run the following command in the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
 
