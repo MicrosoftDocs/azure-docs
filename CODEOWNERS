@@ -12,14 +12,14 @@
 # Azure Monitor
 articles/azure-monitor/* @bwren
 articles/azure-monitor/agents @bwren
-articles/azure-monitor/alerts @rboucher @abbyMSFT
-articles/azure-monitor/app @bwren 
+articles/azure-monitor/alerts @abbyMSFT
+articles/azure-monitor/app @AaronMaxwell 
 articles/azure-monitor/autoscale @rboucher
 articles/azure-monitor/containers @bwren
 articles/azure-monitor/essentials @bwren @rboucher
 articles/azure-monitor/insights @bwren @rboucher 
-articles/azure-monitor/logs @bwren @abbyMSFT
-articles/azure-monitor/visualize @bwren  @rboucher
+articles/azure-monitor/logs @guywi-ms
+articles/azure-monitor/visualize @abbyMSFT @rboucher
 articles/azure-monitor/vm @bwren
 articles/advisor @rboucher
 articles/service-health @rboucher
