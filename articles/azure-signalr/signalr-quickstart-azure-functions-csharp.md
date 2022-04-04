@@ -124,7 +124,7 @@ You'll need the Azure Functions Core Tools for this step.
     ```
 
     The code in *Function.cs* has three functions:
-    - `Index` is used to get a website as client.
+    - `GetHomePage` is used to get a website as client.
     - `Negotiate` is used by the client to get an access token.
     - `Broadcast` is periodically called to get the star count from GitHub and then broadcast messages to all clients.
 
