@@ -197,7 +197,7 @@ A computer running Azure CLI that is uploading monitoring metrics or logs to Azu
 
 For example, to upload usage metrics data services will connect to `https://<azureRegion>.monitoring.azure.com/` where `<azureRegion>` is the region where data services is deployed.
 
-Likewise, data services will connect to the log analytics workspace at `https://<customer_id>.ods.opinsights.azure.com` where `<customer_id>` represents your subscription.
+Likewise, data services will connect to the log analytics workspace at `https://<subscription_id>.ods.opinsights.azure.com` where `<subscription_id>` represents your Azure subscription.
 
 #### Protocol
 
