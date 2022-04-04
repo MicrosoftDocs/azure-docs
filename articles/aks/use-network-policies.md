@@ -48,7 +48,7 @@ Both implementations use Linux *IPTables* to enforce the specified policies. Pol
 
 | Capability                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Supported platforms                      | Linux                      | Linux, Windows Server 2019 (preview)  |
+| Supported platforms                      | Linux                      | Linux, Windows Server 2019  |
 | Supported networking options             | Azure CNI                  | Azure CNI (Windows Server 2019 and Linux) and kubenet (Linux)  |
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
@@ -172,10 +172,6 @@ az provider register --namespace Microsoft.ContainerService
 > At this time, using Calico network policies with Windows nodes is available on new clusters using Kubernetes version 1.20 or later with Calico 3.17.2 and requires using Azure CNI networking. Windows nodes on AKS clusters with Calico enabled also have [Direct Server Return (DSR)][dsr] enabled by default.
 >
 > For clusters with only Linux node pools running Kubernetes 1.20 with earlier versions of Calico, the Calico version will automatically be upgraded to 3.17.2.
-
-Calico networking policies with Windows nodes is currently in preview.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
