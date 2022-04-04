@@ -13,7 +13,7 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Scala Connector code can be placed in any Synapse Notebook Cell regardless of the notebook language preferences.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
 
 At a high-level, the connector provides the following capabilities:
 
@@ -496,7 +496,7 @@ Upon completion, the read response snippet is displayed in the cell's output. Fa
 
 ### Write Request Response
 
-By default, a write response is printed to the cell output. On failure the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
+By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
 ## Things to Note
 
@@ -513,7 +513,7 @@ By default, a write response is printed to the cell output. On failure the curre
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
   * Read scenario doesn't support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
     * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
-* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. This will help avoid throttling behaviors and enable better read and write performance.
+* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends. Using monitoring metrics, the capacity must be adjusted to avoid throttling behaviors and ensure better read and write performance.
 
 ## Additional Reading
 
