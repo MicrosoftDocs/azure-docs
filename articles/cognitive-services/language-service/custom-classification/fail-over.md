@@ -132,7 +132,7 @@ Use the url from the `resultUrl` key in the body to view the exported assets fro
 
 ### Get export results
 
-Submit a **GET** request using the `{RESULT-URL}` you recieved from the previous step to view the results of the export job.
+Submit a **GET** request using the `{RESULT-URL}` you received from the previous step to view the results of the export job.
 
 #### Headers
 
@@ -330,7 +330,7 @@ Use the following header to authenticate your request.
 
 ## Deploy your model
 
-This is te step where you make your trained model available form consumption via the [runtime prediction API](https://aka.ms/ct-runtime-swagger). 
+This is the step where you make your trained model available form consumption via the [runtime prediction API](https://aka.ms/ct-runtime-swagger). 
 
 > [!TIP]
 > Use the same deployment name as your primary project for easier maintenance and minimal changes to your system to handle redirecting your traffic.
