@@ -23,7 +23,7 @@ Follow [Standard load balancer diagnostics with metrics, alerts, and resource he
 
 It's important to optimize your Azure deployments for outbound connectivity. Optimization can prevent or alleviate issues with outbound connectivity.
 
-### Use NAT gateway for outbound connectivity to the Internet
+### Use a NAT gateway for outbound connectivity to the Internet
 
 Virtual network NAT gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure Virtual Network NAT, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
@@ -53,7 +53,7 @@ To increase the number of available SNAT ports per VM, configure outbound rules 
 
 For detailed guidance, see [Design your applications to use connections efficiently](#design-your-applications-to-use-connections-efficiently) later in this article. To add more IP addresses for outbound connections, create a frontend IP configuration for each new IP. When outbound rules are configured, you're able to select multiple frontend IP configurations for a backend pool. It's recommended to use different IP addresses for inbound and outbound connectivity. Different IP addresses isolate traffic for improved monitoring and troubleshooting.
 
-### Configure individual public IP on VM
+### Configure an individual public IP on VM
 
 For smaller scale deployments, you can consider assigning a public IP to a VM. If a public IP is assigned to a VM, all ports provided by the public IP are available to the VM. Unlike with a load balancer or a NAT gateway, the ports are only accessible to the single VM associated with the IP address. 
 
