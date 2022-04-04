@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 04/04/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 # Install the password reset extension on VMs for your Azure Stack Edge Pro GPU device
 
-[!INCLUDE [applies-to-GPU-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2.md)]
+[!INCLUDE [applies-to-GPU-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2-sku.md)]
 
 This article describes how to install the password reset extension on a VM that is running on your Azure Stack Edge device. The article covers steps to install the password reset extension using Azure Resource Manager templates on both Windows and Linux VMs. The article also details how to deploy, verify, and then remove the extension.
 
@@ -35,7 +35,6 @@ Before you install the password reset extension on the VMs running on your devic
 ## Edit parameters file
 
 Depending on the operating system for your VM, you can install the extension for Windows or for Linux.
-
 
 ### [Windows](#tab/windows)
 
@@ -307,7 +306,7 @@ Remove the extension.
 
 ### [Windows](#tab/windows)
 
-To remove the password reset extension, use the following command:
+To remove the password reset extension, run the following command:
 
 ```powershell
 PS C:\WINDOWS\system32> Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name windowsVMAccessExt 
@@ -326,7 +325,7 @@ PS C:\WINDOWS\system32>
 
 ### [Linux](#tab/linux)
 
-To remove the password reset extension, use the following command:
+To remove the password reset extension, run the following command:
 
 ```powershell  
 Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name> 
