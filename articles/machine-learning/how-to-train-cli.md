@@ -248,7 +248,7 @@ Or the entire directory:
 
 The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once the job is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
 
-In addition, any files logged from MLflow via autologging or `mlflow.log_*` for artifact logging will get automatically persisted as well. Collectively with the aforementioned `./outputs` and `./logs` directories, this set of files and directories will be persisted to a directory that correponds to that job's default artifact location.
+In addition, any files logged from MLflow via autologging or `mlflow.log_*` for artifact logging will get automatically persisted as well. Collectively with the aforementioned `./outputs` and `./logs` directories, this set of files and directories will be persisted to a directory that corresponds to that job's default artifact location.
 
 You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
 
@@ -365,7 +365,7 @@ Optionally, remove the local file and directory:
 
 :::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
-Registered data assets can be can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
+Registered data assets can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
 
 With the data asset in place, you can author a distributed PyTorch job to train our model:
 
