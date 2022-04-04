@@ -93,7 +93,7 @@ The following data is collected:
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
 
 
-## System information (trigger based collector))
+## System information (trigger based collector)
 
 The data collected for each event is:
 
