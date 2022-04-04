@@ -118,8 +118,10 @@
       items:
         - name: Blazor
           href: deploy-blazor.md
-        - name: Next.js
-          href: deploy-nextjs.md
+        - name: Statically generated Next.js
+          href: deploy-nextjs-ssg.md
+        - name: Zero-config Next.js (preview)
+          href: deploy-nextjs-zero-config.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
     - name: Add a database with Mongoose.js and Cosmos DB
