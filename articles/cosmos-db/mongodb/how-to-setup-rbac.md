@@ -282,7 +282,8 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 - Backup/Restore and Synapse link are not supported in the preview``
 - Users and Roles across databases are not supported in the preview
 - Users must connect with a tool that support the appName parameter in the preview. Mongo shell and many GUI tools are not supported in the preview. MongoDB drivers are supported.
-
+- A user's password can only be set/reset by through the Azure CLI / PowerShell in the preview
+- Configuring Users and Roles is only supported through Azure CLI / Powershell. 
 
 ## Frequently asked questions
 
