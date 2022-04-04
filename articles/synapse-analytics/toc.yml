@@ -702,10 +702,12 @@ items:
       items:
         - name: Runtime overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
-          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime
+          href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
