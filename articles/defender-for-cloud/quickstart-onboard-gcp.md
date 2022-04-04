@@ -107,7 +107,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric id to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric I D to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
 
     To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** > **Service Accounts**, in the Name column, locate `Azure-Arc for servers onboarding` and copy the unique numeric ID number (OAuth 2 Client ID).
 
@@ -182,7 +182,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
 ### Configure the Containers plan
 
-Microsoft Defender for Containers brings threat detection, and advanced defences to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers, and to fully protect GCP clusters, ensure you have the following requirements configured:
+Microsoft Defender for Containers brings threat detection, and advanced defenses to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers, and to fully protect GCP clusters, ensure you have the following requirements configured:
 
 - **Kubernetes audit logs to Defender for Cloud** - Enabled by default. This configuration is available at a GCP Project level only. This provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud backend for further analysis.
 - **Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension** - Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in 3 different ways:
