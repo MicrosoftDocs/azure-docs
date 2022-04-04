@@ -88,7 +88,11 @@ az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-7. Create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+7. Enable the RBAC capability on your existing API for MongoDB database account 
+```powershell
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl
+```
+or create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
