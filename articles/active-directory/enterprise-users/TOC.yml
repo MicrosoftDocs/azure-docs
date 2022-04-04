@@ -4,6 +4,8 @@
   items:
   - name: Azure AD users, groups, and licensing
     href: directory-overview-user-model.md
+  - name: What is delegated administration?
+    href: directory-delegated-administration-primer.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
@@ -23,8 +25,6 @@
   items:
   - name: Compare default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: What is delegated administration?
-    href: directory-delegated-administration-primer.md
   - name: Group-based licensing basics    
     href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Manage access with groups    
