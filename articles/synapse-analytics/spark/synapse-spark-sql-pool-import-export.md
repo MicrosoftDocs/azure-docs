@@ -496,7 +496,7 @@ Upon completion, the read response snippet is displayed in the cell's output. Fa
 
 ### Write Request Response
 
-By default, a write response is printed to the cell output. In case of an error the current cell will fail and subsequent cell execution will be aborted. If current cell succeeds, the subsequent cell execution will be attempted. Users can refer to the Spark Application Logs for detailed application trace. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
+By default, a write response is printed to the cell output. On failure the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
 ## Things to Note
 
@@ -508,7 +508,7 @@ By default, a write response is printed to the cell output. In case of an error 
     * DataFrame's initial parallelism drives the data organization for the external table.
     * Column types are inferred from the DataFrame that would read data from source.
   * Better data distribution across executors can be achieved by tuning the `spark.sql.files.maxPartitionBytes` and the DataFrame's `repartition` parameter.
-  * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size). This will impact COPY command' ability to write to the destination tables in the Synapse Dedicated SQL Pool.
+  * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size).
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
   * Read scenario doesn't support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
