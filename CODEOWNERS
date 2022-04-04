@@ -19,7 +19,7 @@ articles/azure-monitor/containers @bwren
 articles/azure-monitor/essentials @bwren @rboucher
 articles/azure-monitor/insights @bwren @rboucher 
 articles/azure-monitor/logs @guywi-ms
-articles/azure-monitor/visualize abbyMSFT @rboucher
+articles/azure-monitor/visualize @abbyMSFT @rboucher
 articles/azure-monitor/vm @bwren
 articles/advisor @rboucher
 articles/service-health @rboucher
