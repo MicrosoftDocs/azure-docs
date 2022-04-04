@@ -92,7 +92,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Cloud monitoring with Azure Log Analytics
-            url: monitoring-private-5g-core-with-log-analytics.md
+            url: monitor-private-5g-core-with-log-analytics.md
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards

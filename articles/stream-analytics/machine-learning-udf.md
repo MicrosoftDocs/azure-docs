@@ -19,7 +19,7 @@ Complete the following steps before you add a machine learning model as a functi
 
 1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
 
-2. Your machine learning endpoint must have an associated [swagger](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
+2. Your machine learning endpoint must have an associated [swagger](../machine-learning/how-to-deploy-advanced-entry-script.md) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
@@ -66,7 +66,7 @@ FROM input
 WHERE <model-specific-data-structure> is not null
 ```
 
-If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It is recommended that you [enable resource logs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#send-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it is strongly recommended that you:
+If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It is recommended that you [enable resource logs](stream-analytics-job-diagnostic-logs.md#send-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it is strongly recommended that you:
 
 - Validate input to your ML UDF is not null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
@@ -177,7 +177,7 @@ After you have deployed your web service, you send sample request with varying b
 
 At optimal scaling, your Stream Analytics job should be able to send multiple parallel requests to your web service and get a response within few milliseconds. The latency of the web service's response can directly impact the latency and performance of your Stream Analytics job. If the call from your job to the web service takes a long time, you will likely see an increase in watermark delay and may also see an increase in the number of backlogged input events.
 
-You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
+You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
 * Bad Request (400)
 * Conflict (409)
 * Not Found (404)
