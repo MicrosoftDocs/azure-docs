@@ -103,7 +103,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.sizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
