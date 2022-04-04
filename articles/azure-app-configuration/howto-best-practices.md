@@ -104,7 +104,7 @@ To address these concerns, we recommend that you use a proxy service between you
 
 ## Configuration as Code
 
-Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in deploying your configuration data. This way, your applications can access the latest data from your App Configuration store(s).
+Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in [managing your configuration data in files](./concept-config-file.md) and deploying them as part of your build, release, or CI/CD process. This way, your applications can access the latest data from your App Configuration store(s).
 
 - For GitHub, you can enable the [App Configuration Sync GitHub Action](concept-github-action.md) for your repository. Changes to configuration files are synchronized to App Configuration automatically whenever a pull request is merged. 
 - For Azure DevOps, you can include the [Azure App Configuration Push](push-kv-devops-pipeline.md), an Azure pipeline task, in your build or release pipelines for data synchronization. 
