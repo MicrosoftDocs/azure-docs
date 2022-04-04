@@ -63,7 +63,7 @@ Learn about significant changes to the Azure SQL Database documentation.
 
 | Changes | Details |
 | --- | --- |
-| **General Purpose tier Zone redundancy GA** | Enabling zone redundancy for your provisioned and serverless General Purpose databases and elastic pools is now generally available. To learn more, see [General Purpose zone redundancy](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability). |
+| **General Purpose tier Zone redundancy GA** | Enabling zone redundancy for your provisioned and serverless General Purpose databases and elastic pools is now generally available in select regions. To learn more, see [General Purpose zone redundancy](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability). |
 
 ### March 2022
 
