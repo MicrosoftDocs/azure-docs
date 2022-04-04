@@ -1,7 +1,7 @@
 ---
-title: Custom classification evaluation metrics
+title: Custom text classification evaluation metrics
 titleSuffix: Azure Cognitive Services
-description: Learn about evaluation metrics in custom entity extraction.
+description: Learn about evaluation metrics in custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -104,7 +104,7 @@ So what does it actually mean to have a high precision or a high recall for a ce
 | High | Low | The model predicts this class well, however it is with low confidence. This may be because this class is over represented in the dataset so consider balancing your data distribution. |
 | Low | Low | This class is poorly handled by the model where it is not usually predicted and when it is, it is not with high confidence. |
 
-Custom classification models are expected to experience both false negatives and false positives. You need to consider how each will affect the overall system, and carefully think through scenarios where the model will ignore correct predictions, and recognize incorrect predictions. Depending on your scenario, either *precision* or *recall* could be more suitable evaluating your model's performance.  
+Custom text classification models are expected to experience both false negatives and false positives. You need to consider how each will affect the overall system, and carefully think through scenarios where the model will ignore correct predictions, and recognize incorrect predictions. Depending on your scenario, either *precision* or *recall* could be more suitable evaluating your model's performance.  
 
 For example, if your scenario involves processing technical support tickets, predicting the wrong class could cause it to be forwarded to the wrong department/team. In this example, you should consider making your system more sensitive to false positives, and precision would be a more relevant metric for evaluation. 
 
