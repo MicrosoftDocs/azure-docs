@@ -116,16 +116,16 @@ For corporate deployments, use the **HPE ProLiant DL360** with the following spe
 |Device access     | Two rear USB 3.0        |
 |One front    | USB 2.0        |
 |One internal    |USB 3.0         |
-|Power            |Two HPE 500 W flex slot platinum hot plug low halogen power supply kit
+|Power            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |Rack support     | HPE 1U Gen10 SFF easy install rail kit        |
 
 Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
+| PCI Slot 1 (Low profile)| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
 | PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
+| PCI Slot 2 (High profile)| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
 | PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
 | PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
@@ -158,7 +158,7 @@ For enterprise deployments, use one of the following options and specifications:
 |1|869081-B21|HPE Smart Array P408i-a SR G10 LH Controller|
 |1|782961-B21|HPE 12 W Smart Storage Battery|
 |1|P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2|865408-B21|HPE 500W flex slot platinum hot plug low halogen power supply kit|
+|2|865408-B21|HPE 500 W flex slot platinum hot plug low halogen power supply kit|
 |1|775612-B21|HPE 1U short friction rail lit|
 |1|512485-B21|HPE iLO advanced 1-server license 1-year support|
 |1|P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
@@ -170,9 +170,9 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
+| PCI Slot 1 (Low profile)| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
 | PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
+| PCI Slot 2 (High profile)| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
 | PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
 | PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
@@ -246,10 +246,10 @@ Optional modules for port expansion include:
 
 |Location|Type|Specification|
 |-----|-----|-----|
-|PCI Slot 1 (Low profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
-|PCI Slot 1 (Low profile)|Quad Port Eth NIC|Broadcom 5719 Quad Port 540-BBHB|
+|PCI Slot 1 (Low profile)|Quad Port Ethernet NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
+|PCI Slot 1 (Low profile)|Quad Port Ethernet NIC|Broadcom 5719 Quad Port 540-BBHB|
 |PCI Slot 1 (Low profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
-|PCI Slot 2 (High profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
+|PCI Slot 2 (High profile)|Quad Port Ethernet NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
 |PCI Slot 2 (High profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
 |PCI Slot 2 (High profile)|Quad Port F/O NIC|Intel X710-DA4 - MCBX-NIC02-A00|
 |SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10 Gb-1 Gb|
@@ -262,11 +262,11 @@ Optional modules for port expansion include:
 |OEM PowerEdge R340 XL|210-ARGO|1|
 |PowerEdge R340XL Motherboard|329-BECZ|1|
 |Trusted Platform Module 2.0|461-AAEM|1|
-|3.5" Chassis with up to 4 Hot Plug Hard Drives|321-BDUX|1|
+|3.5" Chassis with up to four Hot Plug Hard Drives|321-BDUX|1|
 |Brand/Bezel, Embedded OS, OEM PowerEdge R340XL|325-BDGR|1|
 |OEM PowerEdge R340 Shipping, DAO|340-CJQL|1|
 |OEM PowerEdge R340 Shipping Material, 3.5" Chassis, DAO|340-CJQM|1|
-|Intel Xeon E-2144G 3.6 Ghz, 8m cache, 4C/8T, turbo (71 W)|338-BQPK|1|
+|Intel Xeon E-2144G 3.6 Ghz, 8-m cache, 4C/8T, turbo (71 W)|338-BQPK|1|
 |Heatsin for 80w or less CPU|412-AAPW|1|
 |2666 MT/s UDIMMs|370-AEKM|1|
 |Performance Optimized|370-AAIP|1|
@@ -293,7 +293,7 @@ Optional modules for port expansion include:
 |8 GB 2666 MT/s DDR4 ECC UDIMM|370-AEKN|4|
 |2 TB 7.3 RPM SATA 6 Gbps 512 3.5 in Hot-plug Hard Drive|400-ASHX|3|
 |On-Board LOM|542-BBP|1|
-|NEMA 5-15P to C13 Wall Plug, 125 Volt, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
+|NEMA 5-15P to C13 Wall Plug, 125 Volts, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
 |Enterprise Program Management Support |973-3700|1|
 
 
@@ -321,7 +321,7 @@ For an SMB deployment, use one of the following options and specifications:
 |On-board| iLO Port Card 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |Management|HPE iLO Advanced|
-|Device access| **Front**: One USB 3.0 1 x USB iLO Service Port<br> **Rear**: Two USB 3.0|
+|Device access| **Front**: One USB 3.0 1 x USB iLO Service Port<br> **Rear**: Two USBs 3.0|
 |Internal| One USB 3.0|
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
@@ -347,21 +347,21 @@ For an SMB deployment, use one of the following options and specifications:
 
 |Components|Technical specifications|
 |:----|-----|
-|Construction |Aluminum or zinc die cast parts, Fanless & Dust-proof Design
-| Dimensions |112 mm (W) x 112 mm (D) x 25mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
-|Weight |0.35kg |
+|Construction |Aluminum or zinc die-cast parts, fanless and dust-proof Design
+| Dimensions |112 mm (W) x 112 mm (D) x 25 mm (H)4.41in (W) x 4.41in (D) x 0.98 in (H)|
+|Weight |0.35 kg |
 | CPU |Intel Atom® x7-E3950 Processor |
-| Memory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
+| Memory |8 GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35 V) |
 | Storage |128 GB M.2 M-key 2260* or 2242 (SATA 3 6 Gbps) PLP|
 |Network controller |Two 1 GbE LAN Ports |
 | Device access |Two USB 2.0, Two USB 3.0 |
 | Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for fitlet2 (Optional)|
-|UPS|fit-uptime Miniature 12V UPS for miniPCs (Optional)|
+|UPS|fit-uptime Miniature 12 V UPS for miniPCs (Optional)|
 |Mounting |VESA / wall or Din Rail mounting kit | 
 | Temperature |0°C ~ 70°C |
 | Humidity |5% ~ 95%, non-condensing |
-| Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz , 3 axis)|
-|Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)|
+| Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz, 3 axis)|
+|Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15 g , 6 directions)|
 |EMC |CE/FCC Class B|
 
 ---
@@ -425,9 +425,9 @@ Legacy options for enterprise deployments include:
 |Memory	|32 GB = Two 16 GB 2666MT/s DDR4 ECC UDIMM|
 |Storage| Three 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
 |Network controller|On-board: Two 1 Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br>External: One Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
-|Management|iDRAC 9 Enterprise|
+|Management|iDRAC nine Enterprise|
 |Device access|	Two rear USB 3.0|
-|1 front| USB 3.0|
+|One front| USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm.|
 
@@ -488,7 +488,7 @@ Legacy options for SMB rugged deployments include:
 |Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
 |Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
 |Network controller|6x Gigabit Ethernet ports by Intel® I219|
-|Device access|4 USBs: 2 fronts; 2 rears; 1 internal|
+|Device access|4 USBs: Two fronts; two rears; 1 internal|
 |Power Adapter|250V/10A|
 |Mounting|Mounting kit, Din Rail|
 |Operating Temperature|0C to +70C|
@@ -504,17 +504,17 @@ Legacy options for SMB rugged deployments include:
 |P25828-B21 B19|HPE EL300 v2 Converged Edge System|
 |P25833-B21|Intel Core i7-8650U (1.9GHz/4-core/15W) FIO Basic Processor Kit for HPE Edgeline EL300|
 |P09176-B21|HPE Edgeline 8 GB (1x8 GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered Memory FIO Kit|
-|P09188-B21|HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD|
+|P09188-B21|HPE Edgeline 256-GB SATA 6G Read Intensive M.2 2242 3 year warranty wide temperature SSD|
 |P04054-B21|HPE Edgeline EL300 SFF to M.2 Enablement Kit|
 |P08120-B21|HPE Edgeline EL300 12VDC FIO Transfer Board|
 |P08641-B21|HPE Edgeline EL300 80W 12VDC Power Supply|
-|AF564A|HPE C13 - SI-32 IL 250V 10Amp 1.83 m Power Cord|
+|AF564A|HPE C13 - SI-32 IL 250 V 10 Amp 1.83 m Power Cord|
 |P25835-B21|HPE EL300 v2 FIO Carrier Board|
-|R1P49AAE|HPE EL300 iSM Adv 3yr 24x7 Sup_Upd E-LTU|
+|R1P49AAE|HPE EL300 iSM Adv 3 yr 24x7 Sup_Upd E-LTU|
 |P08018-B21 optional|HPE Edgeline EL300 Low Profile Bracket Kit|
 |P08019-B21 optional|HPE Edgeline EL300 DIN Rail Mount Kit|
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
-|P03456-B21 optional|HPE Edgeline 1 GbE 4-port TSN FIO Daughter Card|
+|P03456-B21 optional|HPE Edgeline 1-GbE 4-port TSN FIO Daughter Card|
 
 ### Neousys Nuvo-5006LP (legacy SMB rugged)
 
@@ -528,16 +528,16 @@ Legacy options for SMB rugged deployments include:
 |Weight|3.1 kg (incl. CPU, memory and HDD)|
 |CPU|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
 |Chipset|Intel® Q170 Platform Controller Hub|
-|Memory|8 GB DDR4 2133MHz Wide Temperature SODIMM|
+|Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
 |Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
-|Network controller|Six  Gigabit Ethernet ports by Intel® I219|
+|Network controller|Six-Gigabit Ethernet ports by Intel® I219|
 |Device access|Four USBs: Two in front, two in the rear, and 1 internal|
 |Power Adapter|120/240VAC-20VDC/6A|
 |Mounting|Mounting kit, Din Rail|
 |Operating Temperature|-25°C -  70°C|
 |Storage Temperature|-40°C ~ 85°C|
 |Humidity|10%~90%, non-condensing|
-|Vibration|Operating, 5 Grms, 5-500 Hz, 3 Axes <br>(w/ SSD, according to IEC60068-2-64)|
+|Vibration|Operating, 5 Grms, 5-500 Hz, three Axes <br>(w/ SSD, according to IEC60068-2-64)|
 |Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
 |EMC|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
 
