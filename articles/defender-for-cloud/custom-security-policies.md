@@ -167,7 +167,7 @@ This example shows you how to assign the built-in Defender for Cloud initiative 
 This example shows you how to assign a custom Defender for Cloud initiative on a subscription or management group:
 
 > [!NOTE]
-> Make sure you include `"ASC":"true"` in the request body as shown here.
+> Make sure you include `"ASC":"true"` in the request body as shown here. The `ASC` field onboards the initiative to Microsoft Defender for Cloud.
  
 ```
   PUT  
