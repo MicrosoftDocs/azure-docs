@@ -11,11 +11,14 @@ ms.date: 04/03/2022
 
 # Monitoring Azure Monitor data reference
 
-See [Monitoring Azure Monitor](monitor-azure-monitor.md) for details on collecting and analyzing monitoring data for Azure Monitor. This article may seem slightly confusing because it's listing the parts of the Azure Monitor service that are monitored by itself.
+> [!NOTE]
+> This article may seem confusing because it lists the parts of the Azure Monitor service that are monitored by itself.
+
+See [Monitoring Azure Monitor](monitor-azure-monitor.md) for an explanation of how Azure Monitor monitors itself.
 
 ## Metrics
 
-This section lists all the platform metrics collected automatically for Azure Monitor.  
+This section lists all the platform metrics collected automatically for Azure Monitor into Azure Monitor.   
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -34,7 +37,7 @@ See a complete list of [platform metrics for other resources types](/azure/azure
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-Azure Monitor metrics support the following dimensions.
+The following dimensions are relevant for the following areas of Azure Monitor. 
 
 ### Autoscale
 
@@ -46,7 +49,7 @@ Azure Monitor metrics support the following dimensions.
 
 ## Resource logs
 
-This section lists all the Azure Monitor resource log category types collected into Azure Monitor.
+This section lists all the Azure Monitor resource log category types collected.
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link |
 |-------|-----|
@@ -58,18 +61,18 @@ For additional reference, see a list of [all resource logs category types suppor
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor and available for query by Log Analytics.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor resource types and available for query by Log Analytics.
 
 |Resource Type | Notes |
-|-------|-----|
-| [Autoscale for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [Autoscale Tables](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-monitor-autoscale-settings) | |
+|--------------|-------|
+| [Autoscale for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [Autoscale Tables](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-monitor-autoscale-settings) | 
 
 
 ## Activity log
 
 For a partial list of entires that the Azure Monitor services writes to the activity log, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#monitor).  There may be other entires not listed here.
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Schemas
 
