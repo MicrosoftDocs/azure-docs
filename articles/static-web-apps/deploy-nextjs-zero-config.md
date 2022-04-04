@@ -45,11 +45,7 @@ This tutorial will be using the Next.js CLI to create your app. For full informa
 
 Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
-
-When you select a framework or library, you see a details page about the selected item:
-
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Details page":::
+:::image type="content" source="media/deploy-nextjs/nextjs-zero-config-starter.png" alt-text="Start Next.js app":::
 
 ## Deploy your static website
 
