@@ -28,7 +28,7 @@ This tutorial will be using the Next.js CLI to create your app. For full informa
 1. Create a Next.js app using `create-next-app` and follow the prompts:
 
     ```bash
-    npm init next-app@latest --typescript
+    npm init next-app@latest -- --typescript
     ```
 
 1. Navigate to the folder containing the new app:
