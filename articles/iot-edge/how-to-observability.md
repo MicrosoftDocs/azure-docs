@@ -212,7 +212,7 @@ In order to successfully deploy this solution, you need the following:
   ```sh
     git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
   ```  
-1. Open a PowerShell console and run the `deploy-e23-tutorial.ps1` script.
+1. Open a PowerShell console and run the `deploy-e2e-tutorial.ps1` script.
 
   ```powershell
     ./Scripts/deploy-e2e-tutorial.ps1
@@ -222,4 +222,4 @@ In order to successfully deploy this solution, you need the following:
 
 In this article, you have set up a solution with end-to-end observability capabilities for monitoring and troubleshooting. The common challenge in such solutions for IoT systems is delivering observability data from the devices to the cloud. The devices in this scenario are supposed to be online and have a stable connection to Azure Monitor, which is not always the case in real life. 
 
-Advance to our follow up articles such as [Distributed Tracing with IoT Edge](https://github.com/eedorenko/iotedge-logging-and-monitoring-solution/blob/eedorenko/e2e/docs/iot-edge-distributed-tracing.md) with the recommendations and techniques to handle scenarios when the devices are normally offline or have limited or restricted connection to the observability backend in the cloud. 
+Advance to follow up articles such as [Distributed Tracing with IoT Edge](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/iot-edge-distributed-tracing.md) with the recommendations and techniques to handle scenarios when the devices are normally offline or have limited or restricted connection to the observability backend in the cloud. 
