@@ -60,12 +60,12 @@
         items:
         - name: Deployment options
           href: ot-deployment-options.md
+        - name: Pre-configured appliances
+          href: ot-preconfigured-appliances.md
         - name: Physical appliance requirements
           href: ot-physical-appliances.md
         - name: Virtual appliance requirements
           href: ot-virtual-appliances.md
-        - name: Supported legacy appliances
-          href: ot-legacy-appliances.md
     - name: Key concepts
       href: concept-key-concepts.md
     - name: OT threat monitoring in enterprise SOCs

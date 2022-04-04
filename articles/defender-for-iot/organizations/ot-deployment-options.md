@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # OT system deployment options
 
-This article introduces the deployment options for Microsoft Defender for IoT OT sensors and on-premises management consoles. 
+This article introduces the deployment options for Microsoft Defender for IoT OT sensors and on-premises management consoles.
 
 When setting up your system, choose the deployment option that meets your needs best. You can use either physical or virtual appliances as needed for your organization.
 
@@ -53,11 +53,11 @@ On-premises management consoles are supported for enterprise deployment systems.
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see:
+Continue understanding system requirements, including options for pre-configured appliances, or required specifications to install software on your own appliances:
 
-- [OT system physical appliance requirements](ot-physical-appliances.md)
-- [OT system virtual appliance requirements](ot-virtual-appliances.md)
-- [OT system legacy supported hardware](ot-legacy-appliances.md)
+- [Pre-configured physical appliances for OT systems](ot-preconfigured-appliances.md)
+- [OT hardware system requirements for your own installations](ot-physical-appliances.md)
+- [OT virtual system requirements for your own installations](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to continue:
 
