@@ -33,7 +33,7 @@ In this tutorial, you accomplish the following tasks:
 > If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 > [!IMPORTANT]
-> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot use Azure Container Instances for deploying models. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
+> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot use Azure Container Instances inside the VNet for deploying models. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
 
 ## Prerequisites
 
