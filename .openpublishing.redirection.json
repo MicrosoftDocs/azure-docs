@@ -43539,6 +43539,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-job-component.md",
+      "redirect_url": "reference-yaml-job-command",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-dataset.md",
+      "redirect_url": "reference-yaml-data",
+      "redirect_document_id": true
+    },   
+    {
       "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
