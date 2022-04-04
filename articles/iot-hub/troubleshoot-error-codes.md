@@ -19,7 +19,7 @@ This article describes the causes and solutions for common error codes that you 
 
 You may see the **40027** error if your device disconnects and reports **Communication_Error** as the **ConnectionStatusChangeReason** using .NET SDK and MQTT transport type. Or, your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**.
 
-This error occurs when another client creats a new connection to IoT Hub using the same identity, so IoT Hub closes the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity.
+This error occurs when another client creates a new connection to IoT Hub using the same identity, so IoT Hub closes the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity.
 
 To resolve this error, ensure that each client connects to IoT Hub using its own identity.
 
