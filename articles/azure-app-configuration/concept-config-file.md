@@ -36,18 +36,18 @@ The following example is a configuration file named `appsettings.json` containin
 }
 ```
 
-Run the following  CLI command to import it to App Configuration with the `dev` label and use the colon (`:`) as the separator to flatten the key name. You can optionally add parameter "**--profile appconfig/default**". It's skipped in the example as it's the default profile.
+Run the following CLI command to import it to App Configuration with the `dev` label and use the colon (`:`) as the separator to flatten the key name. You can optionally add parameter "**--profile appconfig/default**". It's skipped in the example as it's the default profile.
 
 ```azurecli-interactive
 az appconfig kv import --label dev --separator : --name <your store name> --source file --path appsettings.json --format json
 ```
 
-Key Vault references require a particular content type during importing, so you keep them in a separate file. The following is an example file named `keyvault-refs.json`.
+Key Vault references require a particular content type during importing, so you keep them in a separate file. The following example is a file named `keyvault-refs.json`.
 
 ```json
 {
     "Database": {
-        "ConnectionString": "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}"
+        "ConnectionString": "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}"
     }
 }
 ```
@@ -64,7 +64,7 @@ The following table shows all the imported data in your App Configuration store.
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled":false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | Warning | dev |  |
-| Database:ConnectionString | "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}" | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}" | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## KVSet Profile
 
@@ -84,7 +84,7 @@ The following example is a file in the KVSet profile named `appcofigdata.json` c
     },
     {
       "key": "Database:ConnectionString",
-      "value": "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}",
+      "value": "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}",
       "label": "test",
       "content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
       "tags": {}
@@ -122,7 +122,7 @@ The following table shows all the imported data in your App Configuration store.
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"Beta feature","enabled":**true**,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | **Debug** | dev |  |
-| Database:ConnectionString | "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}" | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | "{\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"}" | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## Next steps
 
