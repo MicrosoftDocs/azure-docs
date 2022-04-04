@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 04/05/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 # Install the password reset extension on VMs for your Azure Stack Edge Pro GPU device
 
-[!INCLUDE [applies-to-GPU-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2.md)]
 
 This article describes how to install the password reset extension on a VM that is running on your Azure Stack Edge device. The article covers steps to install the password reset extension using Azure Resource Manager templates on both Windows and Linux VMs. The article also details how to deploy, verify, and then remove the extension.
 
@@ -21,7 +21,7 @@ This article describes how to install the password reset extension on a VM that 
 
 Before you install the password reset extension on the VMs running on your device:
 
-1. Make sure to have access to an Azure Stack Edge device on which you've deployed one or more VMs. For more information, see [Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine-portal.md).
+1. Make sure to have access to an Azure Stack Edge device on which you've deployed one or more VMs. For more information, see [Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
     Here is an example where Port 2 was used to enable the compute network. If Kubernetes is not deployed on your environment, you can skip the Kubernetes node IP and external service IP assignment.
 
@@ -93,6 +93,8 @@ The file `addPasswordResetExtensionTemplate.parameters.json` takes the following
 
 ## Deploy template
 
+Deploy the template.
+
 ### [Windows](#tab/windows)
 
 Deploy the the template `addPasswordResetExtensionTemplate.json`. This template deploys the extension to an existing VM. Run the following command:
@@ -133,6 +135,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 ```
 
 ## Track deployment
+
+Track the deployment.
 
 ### [Windows](#tab/windows)
 
@@ -241,6 +245,8 @@ PS C:\WINDOWS\system32>
 
 ## Verify the updated VM password
 
+Verify the updated VM password.
+
 ### [Windows](#tab/windows)
 
 To verify the VM password update, connect to the VM using the new password.
@@ -296,6 +302,8 @@ azureuser@mylinuxvm5:~$
 If authentication fails...
 
 ## Remove the extension
+
+Remove the extension.
 
 ### [Windows](#tab/windows)
 
