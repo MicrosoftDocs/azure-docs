@@ -11,11 +11,11 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Control updates with Maintenance Control and the Azure portal
+# Control updates with Maintenance Configurations and the Azure portal
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-With Maintenance Configurations, you can now take more control over when to apply updates to your isolated VMs and Azure Dedicated Hosts. This topic covers the Azure portal options for creating Maintenance Configurations. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+With Maintenance Configurations, you can now take more control over when to apply updates to various Azure resources. This topic covers the Azure portal options for creating Maintenance Configurations. For more about benefits of using Maintenance Control, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
 ## Create a Maintenance Configuration
 
@@ -29,7 +29,7 @@ With Maintenance Configurations, you can now take more control over when to appl
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-2.png" alt-text="Screenshot showing how to add a maintenance configuration":::
 
-1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the scopes we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
+1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the *scopes* we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
     
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
