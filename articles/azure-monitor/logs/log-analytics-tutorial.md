@@ -94,11 +94,15 @@ For example, set a filter on the **DurationMs** column to limit the records to t
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Screenshot that shows a query results filter." lightbox="media/log-analytics-tutorial/query-results-filter.png":::
 
+### Search through query results
+
 Let's search through the query results using the search box at the top right of the results pane.
 
 Enter **Chicago** in the query results search box and click the arrows to find all instances of this string in your search results.
 
 :::image type="content" source="media/log-analytics-tutorial/search-query-results.png" alt-text="Screenshot the search box at the top right of the result pane." lightbox="media/log-analytics-tutorial/search-query-results.png":::
+
+### Reorganize and summarize data
 
 In addition to filtering and searching through results, you can reorganize and summarize the data in the query results based on your needs.
 
@@ -109,6 +113,21 @@ Select **Columns** to the right of the results pane to open the **Columns** side
 In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Group** section. Results are now organized by that column, and you can collapse each group to help you with your analysis.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped by URL." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
+### Create a pivot table
+
+Let's create a pivot table to analyze the performance of our pages. 
+
+In the **Columns** sidebar, select **Pivot Mode**. 
+
+Select **Url** and **DurationMs** to show the total duration of all calls to each URL.
+
+To view the maximum call duration to each URL, select **sum(DurationMs)** > **max**. 
+
+:::image type="content" source="media/log-analytics-tutorial/log-analytics-pivot-table.png" alt-text="Screenshot that shows how to turn on Pivot Mode and configure a pivot table based on the URL and DurationMS values." lightbox="media/log-analytics-tutorial/log-analytics-pivot-table.png":::
+
+Now let's sort the results by longest maximum call duration by selecting the **max(DurationMs)** column in the results pane.
+
+:::image type="content" source="media/log-analytics-tutorial/sort-pivot-table.png" alt-text="Screenshot the query results pane being sorted by the maximum DurationMS values." lightbox="media/log-analytics-tutorial/sort-pivot-table.png":::
 
 ## Work with charts
 Let's look at a query that uses numerical data that we can view in a chart. Instead of building a query, we'll select an example query.
