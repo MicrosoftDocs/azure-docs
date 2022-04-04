@@ -1484,7 +1484,7 @@ items:
   - name: Terminology changes
     href: terminology.md
   - name: Monitoring data reference
-    href: reference/azure-monitor-monitoring-reference.md 
+    href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:
     - name: Platform metrics
