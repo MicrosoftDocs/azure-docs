@@ -14,22 +14,22 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-To connect the IoT Edge for Linux on Windows (EFLOW) virtual machine to connect over a network to your host, to other virtual machines on your host, and to other devices/locations on an external network, the virtual machine networking must be configured accordingly. 
+To connect the IoT Edge for Linux on Windows (EFLOW) virtual machine over a network to your host, to other virtual machines on your Windows host, and to other devices/locations on an external network, the virtual machine networking must be configured accordingly. 
 
-The easiest way to establish basic networking on Windows Client SKUs is by using the **Default Switch**, which is already created by the Hyper-V feature. However, on Windows Server SKUs devices, networking it's a bit more complicated as there's no Default Switch available.  
+The easiest way to establish basic networking on Windows Client SKUs is by using the **default switch**, which is already created when enabling Hyper-V feature. However, on Windows Server SKUs devices, networking it's a bit more complicated as there's no **default switch** available.  
 
 For more information about EFLOW networking concepts, see [IoT Edge for Linux on Windows networking](./nested-virtualization.md). 
 
-This article will provide users clarity on which networking option is best for their scenario and provide insight into configuration requirements.
+This article will provide you clarity on which networking option is best for your scenario and provide insight into configuration requirements.
 
 ## Configure VM virtual switch
 
-The first step before deploying the EFLOW virtual machine, is to determine which type of virtual switch will be used. For more information about supported virtual switch, see [EFLOW virtual switch choices](./iot-edge-for-linux-on-windows-networking.md).  Once you determine the type of virtual switch that you want to use, make sure to create the virtual switch correctly. For more information about virtual switch creation, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
+The first step before deploying the EFLOW virtual machine, is to determine which type of virtual switch you'll use. For more information about EFLOW supported virtual switches, see [EFLOW virtual switch choices](./iot-edge-for-linux-on-windows-networking.md). Once you determine the type of virtual switch that you want to use, make sure to create the virtual switch correctly. If you're using Windows client and you want to use the **default switch**, then no switch creation is needed. For more information about virtual switch creation, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
 
 >[!WARNING]
 > Windows Server does not come with a **default switch**. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch, with DHCP server and NAT table. For more information, see [Create virtual switch for Linux on Windows](./how-to-create-virtual-switch.md).
 
-Before starting the deployment, make sure that your virtual switch name and type is correctly set up and is listed under the Windows host OS. To list all the virtual switches in your Windows host OS, you can use the following PowerShell cmdlet:
+After creating the virtual switch and before starting your deployment, make sure that your virtual switch name and type is correctly set up and is listed under the Windows host OS. To list all the virtual switches in your Windows host OS, you can use the following PowerShell cmdlet:
 
 ```powershell
 Get-VmSwitch
@@ -53,9 +53,9 @@ Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext"
 
 ## Configure VM IP address allocation
 
-The second step after deciding the type of virtual switch to be used, is to determine the type of IP address allocation of the virtual switch. For more information about IP allocation options, see [EFLOW supported IP allocations](./iot-edge-for-linux-on-windows-networking.md). Depending on the type of virtual switch used, make sure to use 
+The second step after deciding the type of virtual switch you're using, is to determine the type of IP address allocation of the virtual switch. For more information about IP allocation options, see [EFLOW supported IP allocations](./iot-edge-for-linux-on-windows-networking.md). Depending on the type of virtual switch you're using, make sure to use a supported IP address allocation mechanism.
 
-By default, if no **Static IP** address is set up, the EFLOW VM will try to allocate an IP address to the virtual switch using **DHCP**. Make sure that there's a DHCP server on the virtual switch network; if not available, the EFLOW VM installation will fail to allocate an IP address and installation will fail. If you're using **default switch**, then there's no need to check, as the virtual switch already has DHCP by default. However, if using **internal** or **external** virtual switch, you can check using the following steps:
+By default, if no **static IP** address is set up, the EFLOW VM will try to allocate an IP address to the virtual switch using **DHCP**. Make sure that there's a DHCP server on the virtual switch network; if not available, the EFLOW VM installation will fail to allocate an IP address and installation will fail. If you're using **default switch**, then there's no need to check for a DHCP server, as the virtual switch already has DHCP by default. However, if using **internal** or **external** virtual switch, you can check using the following steps:
 
 1. Open a command prompt.
 1. Display all the IP configurations and information
@@ -65,7 +65,7 @@ By default, if no **Static IP** address is set up, the EFLOW VM will try to allo
 1. If you're using an **external** virtual switch, check the network interface used for creating the virtual switch. If you're using **internal** virtual switch, just look for the name used for the switch. Once the switch is located, check if `DHCP Enabled` say **Yes** or **No**, and check the `DCHP Server` address. 
 
 
-If you're using **Static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#deploy-eflow). For example,  if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
+If you're using **static IP**, you'll have to specify three parameters during EFLOW deployment: `-ip4Address`, `ip4GatewayAddress` and `ip4PrefixLength`. If one parameter is missing or incorrect, the EFLOW VM installation will fail to allocate an IP address and installation will fail. For more information about EFLOW VM deployment, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions#deploy-eflow). For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, and a static IP configuration, with an IP address equal to **192.168.0.2**, gateway IP address equal to **192.168.0.1** and IP prefix length equal to **24**, then you should use the following command:
 
 ```powershell
 Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.168.0.2" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
@@ -103,7 +103,7 @@ eth0      Link encap:Ethernet  HWaddr 00:15:5d:4e:15:2c
 
 ## Configure VM DNS servers
 
-By default, the EFLOW virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. If using Static IP, the DNS server needs to be set up manually. For more information about EFLOW VM DNS, see [EFLOW DNS configuration](./iot-edge-for-linux-on-windows-networking.md).
+By default, the EFLOW virtual machine has no DNS configuration. Deployments using **DHCP** will try to obtain the DNS configuration propagated by the DHCP server. If you're using **static IP**, the DNS server needs to be set up manually. For more information about EFLOW VM DNS, see [EFLOW DNS configuration](./iot-edge-for-linux-on-windows-networking.md).
 
 To check the DNS servers used by the default interface (*eth0*), you can use the following command:
 
