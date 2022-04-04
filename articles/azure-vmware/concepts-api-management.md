@@ -23,7 +23,7 @@ The external deployment diagram shows the entire process and the actors involved
 
 The traffic flow goes through the API Management instance, which abstracts the backend services, plugged into the Hub virtual network. The ExpressRoute Gateway routes the traffic to the ExpressRoute Global Reach channel and reaches an NSX Load Balancer distributing the incoming traffic to the different backend service instances.
 
-API Management has an Azure Public API, and activating Azure DDOS Protection Service is recommended. 
+API Management has an Azure Public API, and activating Azure DDoS Protection Service is recommended. 
 
 :::image type="content" source="media/api-management/api-management-external-deployment.png" alt-text="Diagram showing an external API Management deployment for Azure VMware Solution" border="false":::
 
