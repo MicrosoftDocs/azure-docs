@@ -2,7 +2,7 @@
 title: Get started with autoscale in Azure
 description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine scale set in Azure."
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 04/04/2022
 ms.subservice: autoscale
 ---
 # Get started with Autoscale in Azure
@@ -17,12 +17,14 @@ Azure Monitor autoscale applies only to [Virtual Machine scale sets](https://azu
 You can discover all the resources for which Autoscale is applicable in Azure Monitor. Use the following steps for a step-by-step walkthrough:
 
 1. Open the [Azure portal.][1]
-1. Click the Azure Monitor icon in the left pane.
+1. Click the Azure Monitor icon in the top of your screen.
   ![Open Azure Monitor][2]
-1. Click **Autoscale** to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
-  ![Discover Autoscale in Azure Monitor][3]
+1. Click **Autoscale** on the left pane to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
+  ![Discover Autoscale in Azure Mononitor][3]
 
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
+
+[!View all resources and status][./media/autoscale-get-started/view-all-resources-3.png]
 
 For each resource, you will find the current instance count and the Autoscale status. The Autoscale status can be:
 
@@ -35,9 +37,9 @@ For each resource, you will find the current instance count and the Autoscale st
 Let's now go through a simple step-by-step walkthrough to create your first Autoscale setting.
 
 1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][4])
-1. Note that the current instance count is 1. Click **Enable autoscale**.
+1. Note that the current instance count is 1. Click **Custom autoscale**.
   ![Scale setting for new web app][5]
-1. Provide a name for the scale setting, and then click **Add a rule**. Notice the scale rule options that open as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
+1. Provide a name for the scale setting, and then click **Add a rule**. This opens a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
   ![Create scale setting for a web app][6]
 1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
 
@@ -138,16 +140,16 @@ To learn more about moving resources between regions and disaster recovery in Az
 
 <!--Reference-->
 [1]:https://portal.azure.com
-[2]: ./media/autoscale-get-started/azure-monitor-launch.png
-[3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
+[2]: ./media/autoscale-get-started/click-on-monitor-1.png
+[3]: ./media/autoscale-get-started/click-on-autoscale-2.png
 [4]: ../../app-service/quickstart-dotnetcore.md
-[5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
-[6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
-[7]: ./media/autoscale-get-started/scale-in-recommendation.png
-[8]: ./media/autoscale-get-started/scale-based-on-cpu.png
-[9]: ./media/autoscale-get-started/scale-condition-schedule.png
-[10]: ./media/autoscale-get-started/scale-condition-dates.png
+[5]: ./media/autoscale-get-started/manual-scale-04.png
+[6]: ./media/autoscale-get-started/custom-scale-add-rule-05.png
+[7]: ./media/autoscale-get-started/scale-in-recommendation.png <!--notUsedInDocument-->
+[8]: ./media/autoscale-get-started/custom-scale-results-06.png
+[9]: ./media/autoscale-get-started/scale-same-based-on-condition-07.png
+[10]: ./media/autoscale-get-started/scale-different-based-on-time-08.png
 [11]: ./media/autoscale-get-started/scale-history.png
-[12]: ./media/autoscale-get-started/scale-definition-json.png
+[12]: ./media/autoscale-get-started/view-scale-definition-09.png
 [13]: ./media/autoscale-get-started/disable-autoscale.png
 [14]: ./media/autoscale-get-started/set-manualscale.png
