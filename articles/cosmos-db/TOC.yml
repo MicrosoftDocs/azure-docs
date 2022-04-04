@@ -1076,10 +1076,10 @@
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
               href: cassandra/migrate-data-striim.md
-            - name: Migrate - Oracle DB to Cassandra API using Blitzz
-              href: cassandra/oracle-migrate-cosmos-db-blitzz.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-              href: cassandra/migrate-data-blitzz.md
+            - name: Migrate - Oracle DB to Cassandra API using Arcion
+              href: cassandra/oracle-migrate-cosmos-db-arcion.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Arcion
+              href: cassandra/migrate-data-arcion.md
             - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
               href: cassandra/migrate-data-dual-write-proxy.md              
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
