@@ -1,6 +1,6 @@
 ---
 title: "Face .NET client library quickstart"
-description: Use the Face client library for .NET to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face client library for .NET to detect and identify faces (facial recognition search).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -17,7 +17,6 @@ Use the Face client library for .NET to:
 
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
-* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -119,7 +118,6 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
-* [Find similar faces](#find-similar-faces)
 
 ## Authenticate the client
 
@@ -208,37 +206,6 @@ The following code takes the source image and creates a list of all the faces de
 The next code snippet calls the **IdentifyAsync** operation and prints the results to the console. Here, the service attempts to match each face from the source image to a **Person** in the given **PersonGroup**. This closes out your Identify method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
-
-
-## Find similar faces
-
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
-
-### Find matches
-
-The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
-
-In this program, the following remote image will be used as the source:
-
-![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
-
-### Print matches
-
-The following code prints the match details to the console:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
-
-In this program, the face detected in this image should be returned as the face that's similar to the source image face.
-
-![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Run the application
 

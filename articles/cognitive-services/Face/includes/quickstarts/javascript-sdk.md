@@ -1,6 +1,6 @@
 ---
 title: "Face JavaScript client library quickstart"
-description: Use the Face client library for JavaScript to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face client library for JavaScript to detect and  identify faces (facial recognition search).
 services: cognitive-services
 author: v-jaswel
 manager: chrhoder
@@ -19,7 +19,6 @@ Use the Face client library for JavaScript to:
 
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
-* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](/javascript/api/overview/azure/cognitive-services/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
@@ -102,7 +101,6 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
-* [Find similar faces](#find-similar-faces)
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js), which contains the code examples in this quickstart.
@@ -182,29 +180,7 @@ This **PersonGroup** and its associated **Person** objects are now ready to be u
 > [!TIP]
 > You can also create a **PersonGroup** from local images. See the [PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson) methods such as [AddFaceFromStream](/javascript/api/@azure/cognitiveservices-face/persongroupperson#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
 
-## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="recognize":::
-
-### Find matches
-
-The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image. Finally, it prints the match details to the console.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
-
-In this program, the following remote image will be used as the source:
-
-![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
-
-The face detected in this image should be returned as the face that's similar to the source image face.
-
-![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Main
 

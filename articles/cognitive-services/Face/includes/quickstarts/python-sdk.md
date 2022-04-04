@@ -1,6 +1,6 @@
 ---
 title: "Face Python client library quickstart"
-description: Use the Face client library for Python to detect faces, find similar (face search by image), and identify faces (facial recognition search).
+description: Use the Face client library for Python to detect faces and identify faces (facial recognition search).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -17,7 +17,6 @@ Use the Face client library for Python to:
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
-* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](/python/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -82,7 +81,6 @@ These code snippets show you how to do the following tasks with the Face client 
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
-* [Find similar faces](#find-similar-faces)
 
 
 ## Authenticate the client
@@ -192,25 +190,6 @@ The following code compares each of the source images to the target image and pr
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## Find similar faces
-
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Find matches
-
-First, run the code in the above section ([Detect and analyze faces](#detect-and-analyze-faces)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
-
-Then add the following code block to find instances of the first face in the group. See the [find_similar](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-) method to learn how to modify this behavior.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
-
-### Print matches
-
-Use the following code to print the match details to the console.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
 ## Run the application
 

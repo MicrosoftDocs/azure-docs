@@ -1,6 +1,6 @@
 ---
 title: "Face REST API quickstart"
-description: Use the Face REST API with cURL to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face REST API with cURL to detect and analyze faces.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,7 +16,6 @@ Get started with facial recognition using the Face REST API. The Face service pr
 Use the Face REST API to:
 
 * [Detect and analyze faces](#detect-and-analyze-faces)
-* [Find similar faces](#find-similar-faces)
 
 > [!NOTE]
 > This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
@@ -160,60 +159,7 @@ The returned face information now includes face attributes. For example:
 ]
 ```
 
-## Find similar faces
 
-This operation takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect and analyze](#detect-and-analyze-faces) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
-
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
-
-Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the target group of faces from which to find a similar face.
-
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_group":::
-
-Finally, detect the single source face that you'll use for matching, and save its ID. Keep this ID separate from the others.
-
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
-
-![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
-
-### Find matches
-
-Copy the following command to a text editor.
-
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar":::
-
-Then make the following changes:
-1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
-1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
-
-Use the following JSON content for the `body` value:
-
-:::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_body":::
-
-1. Use the source face ID for `"faceId"`.
-1. Paste the other face IDs as terms in the `"faceIds"` array.
-
-### Examine the results
-
-You'll receive a JSON response that lists the IDs of the faces that match your query face. 
-
-```json
-[
-    {
-        "persistedFaceId" : "015839fb-fbd9-4f79-ace9-7675fc2f1dd9",
-        "confidence" : 0.82
-    },
-    ...
-] 
-```
-
-In this program, the face detected in this image should be returned as the face that's similar to the source image face.
-
-![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Clean up resources
 
