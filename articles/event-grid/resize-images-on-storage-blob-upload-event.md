@@ -7,7 +7,7 @@ ms.devlang: csharp, javascript
 ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Automate resizing uploaded images using Event Grid
+# Tutorial Step 2: Automate resizing uploaded images using Event Grid
 
 [Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  
 

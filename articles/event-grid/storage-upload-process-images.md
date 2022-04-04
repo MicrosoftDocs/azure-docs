@@ -1,5 +1,5 @@
 ---
-title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
+title: Upload image data in the cloud with Azure Storage 
 description: Use Azure Blob Storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
 author: normesta
 
@@ -13,7 +13,7 @@ ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 
-# Tutorial: Upload image data in the cloud with Azure Storage
+# Step 1: Upload image data in the cloud with Azure Storage
 
 This tutorial is part one of a series. In this tutorial, you'll learn how to deploy a web app. The web app uses the Azure Blob Storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
@@ -44,7 +44,7 @@ In part one of the series, you learn how to:
 
 To complete this tutorial, you need an Azure subscription. Create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 To install and use the CLI locally, run Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -173,7 +173,7 @@ In the following command, replace `<web_app>` with a unique name. Valid characte
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command.
+Create a [web app](../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command.
 
 ```powershell
 $webapp="<web_app>"
@@ -183,7 +183,7 @@ New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan my
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp) command.
+Create a [web app](../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp) command.
 
 ```azurecli
 webapp="<web_app>"
@@ -460,7 +460,7 @@ Navigate back to your app to verify that the image uploaded to the **thumbnails*
 
 In part two of the series, you automate thumbnail image creation so you don't need this image. In the **thumbnails** container, select the image you uploaded, and select **Delete** to remove the image.
 
-You can enable Content Delivery Network (CDN) to cache content from your Azure storage account. For more information, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+You can enable Content Delivery Network (CDN) to cache content from your Azure storage account. For more information, see [Integrate an Azure storage account with Azure CDN](../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## Next steps
 
@@ -469,4 +469,4 @@ In part one of the series, you learned how to configure a web app to interact wi
 Go on to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
 
 > [!div class="nextstepaction"]
-> [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Use Event Grid to trigger an Azure Function to resize an uploaded image](resize-images-on-storage-blob-upload-event.md)
