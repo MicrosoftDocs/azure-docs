@@ -16,6 +16,9 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
+> [!NOTE]
+> The following article is for Uniform virtual machine scale sets. We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
+
 Create a VM from a specialized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) using Azure PowerShell. If want to create a scale set using a generalized image version, see [Create scale set instances from a generalized image version](instance-generalized-image-version-powershell.md).
 
 Once you have a specialized image in your gallery, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
