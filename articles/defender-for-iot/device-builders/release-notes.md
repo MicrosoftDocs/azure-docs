@@ -23,6 +23,8 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **AMQP support**: Now you can add AMQP support after installing your micro-agent. For more information, see [Add AMQP protocol support](tutorial-standalone-agent-binary-installation.md#add-amqp-protocol-support).
 
+- **Baseline collector updates**: The baseline collector now sends *pass* and *skip* checks to the cloud in addition to *failed* results. For more information, see [Micro agent event collection](concept-event-aggregation.md#baseline-trigger-based).
+
 ## February 2022
 
 **Version 4.1.2**:
