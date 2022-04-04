@@ -6,7 +6,7 @@ ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 10/14/2021
+ms.date: 03/30/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
