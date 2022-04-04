@@ -5,7 +5,7 @@ author: schaffererin
 ms.topic: quickstart
 ms.author: v-eschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 06/29/2020
+ms.date: 04/04/2022
 ---
 
 # Quickstart: Create Azure Advisor alerts on new recommendations using Bicep
@@ -37,7 +37,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-## Review the Bicep
+## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/insights-alertrules-servicehealth/).
 
@@ -48,7 +48,7 @@ The Bicep file defines two resources:
 - [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
 - [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
-## Deploy the Bicep
+## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.

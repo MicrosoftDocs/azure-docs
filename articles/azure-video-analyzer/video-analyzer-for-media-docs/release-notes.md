@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 03/01/2022
+ms.date: 04/04/2022
 ms.author: juliako
 ---
 
@@ -17,6 +17,21 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## March 2022
+
+### Closed Captioning files now support including speakers’ attributes
+
+Video Analyzer for Media enables you to include speakers' characteristic based on a closed captioning file that you choose to download. To include the speakers’ attributes, select Downloads -> Closed Captions -> choose the closed captioning downloadable file format (SRT, VTT, TTML, TXT, or CSV) and check **Include speakers** checkbox.
+
+### Improvements to the widget offering
+
+The following improvements were made:
+
+* Video Analyzer for Media widgets support more than 1 locale in a widget's parameter.
+* The Insights widgets support initial search parameters and multiple sorting options. 
+* The Insights widgets also include a confirmation step before deleting a face to avoid mistakes.
+* The widget customization now supports width as strings (for example 100%, 100vw).
 
 ## February 2022
 
