@@ -55,7 +55,7 @@ The following chart shows the latency for POST requests with different payload s
 
 ![Chart that shows the POST request latency for different size payloads.](../media/azure-waf-engine/latency-payload-sizes.png)
 
-Below are two charts that show how the existing WAF engine vs new WAF engine perform against ReDOS attacks.
+The following two charts show how the existing WAF engine vs new WAF engine perform against ReDOS attacks.
 
 ![Chart that shows the POST request latency for a U R L encoded body with many tiny fields.](../media/azure-waf-engine/latency-redos-tiny.png)
 
@@ -63,7 +63,7 @@ Below are two charts that show how the existing WAF engine vs new WAF engine per
 
 ### Requests per second
 
-Chart below shows RPS for POST requests with different payload sizes.
+The following chart shows the number of POST requests per second that both the ModSecurity and Azure WAF engine can process, with different payload sizes.
 
 ![Chart that shows the POST requests per second at different payload sizes.](../media/azure-waf-engine/requests-per-second.png)
 
