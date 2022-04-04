@@ -30,7 +30,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 > [!NOTE]
 > In Cognitive Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
 >
-> A trusted service connection must use a system managed identity. Cognitive Search doesn't support a user managed identity for this scenario.
+> A trusted service connection must use a system managed identity. Cognitive Search doesn't support a user-assigned managed identity for this scenario.
 
 ## Check service identity
 
