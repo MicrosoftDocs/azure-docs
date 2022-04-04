@@ -299,7 +299,7 @@
         - name: GPU extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
         - name: Password reset extension
-          href: install-the-password-reset-extension-on-vms-for-your-azure-stack-edge-pro-gpu-device.md
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md
       - name: Manage
         items:        
         - name: Network interfaces
