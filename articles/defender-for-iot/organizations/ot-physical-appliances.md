@@ -28,10 +28,10 @@ All hardware components must be compatible with Ubuntu version 18.04.
 
 ## Central processing unit (CPU) requirements
 
-| Deployment type | |Name  |Supported models and versions |
+| Deployment type |Name  |Supported models and versions |
 |---------|---------|---------|
 | **Corporate** |C5600      |-  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
-| **Enterprise** | |E1800 | - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>- Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>- Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
+| **Enterprise** |E1800 | - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>- Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>- Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
 | **Production line** |- L500 <br> - L100 <br> - L60 |- Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>- Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
 
 ## Network card (Ethernet/SFP) requirements
