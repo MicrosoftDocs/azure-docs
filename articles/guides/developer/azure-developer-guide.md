@@ -102,7 +102,7 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 * Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
 * Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
-> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
+> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure.
 >
 > **Get started:** [Deploy your first Spring Boot app in Azure Spring Cloud](../../spring-cloud/quickstart.md).
 
@@ -262,7 +262,7 @@ Along with REST APIs, many Azure services also let you programmatically manage r
 * [Go](/azure/go)
 
 Services such as [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library)
-and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager
 

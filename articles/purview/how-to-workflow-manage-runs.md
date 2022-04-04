@@ -4,7 +4,7 @@ description: This article outlines how to manage workflow runs.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.

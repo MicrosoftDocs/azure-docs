@@ -1,6 +1,6 @@
 ---
-title: Quickstart for managing Azure file shares
-description: See how to create and manage Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
+title: Quickstart for creating and using Azure file shares
+description: See how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
@@ -12,8 +12,8 @@ ms.devlang: azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Create and manage Azure file shares
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using either the Azure portal, Azure CLI, or Azure PowerShell module.
+# Quickstart: Create and use an Azure file share
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide shows you how to create an SMB Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell module.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account.
+If you would like to install and use PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -138,11 +138,11 @@ To create an Azure file share:
 	
     ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-1. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
-1. In **Name** type *myshare*, enter a quota, and leave **Transaction optimized** selected for **Tiers**.
+1. On the menu at the top of the **File service** page, click **+ File share**. The **New file share** page drops down.
+1. In **Name** type *myshare*. Leave **Transaction optimized** selected for **Tier**.
 1. Select **Create** to create the Azure file share.
 
-Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names must be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -182,7 +182,7 @@ az storage share-rm create \
 
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
-1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
+1. On the **File share settings** page, select the **myshare** file share. The page for your file share opens, indicating *no files found*.
 1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
 1. Type *myDirectory* and then click **OK**.
 
@@ -217,7 +217,7 @@ az storage directory create \
 # [Portal](#tab/azure-portal)
 
 
-To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
+To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've decided on the file you would like to upload:
 
 1. Select the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
@@ -295,7 +295,7 @@ az storage file list \
 #### Download a file
 # [Portal](#tab/azure-portal)
 
-You can download a copy of the file you uploaded by right-clicking on the file. After selecting the download button, the exact experience will depend on the operating system and browser you're using.
+You can download a copy of the file you uploaded by right-clicking on the file and selecting **Download**. The exact experience will depend on the operating system and browser you're using.
 
 
 # [PowerShell](#tab/azure-powershell)

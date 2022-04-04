@@ -849,17 +849,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rule-set-actions.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rules-set.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-caching.md",
       "redirect_url": "/azure/frontdoor/front-door-caching",
       "redirect_document_id": false
     },
@@ -869,10 +869,60 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-origin.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
+      "redirect_url": "/azure/frontdoor/private-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
+      "redirect_url": "/azure/frontdoor/end-to-end-tls",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
+      "redirect_url": "/azure/frontdoor/routing-methods",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+      "redirect_url": "/azure/frontdoor/health-probes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-portal.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
       "redirect_url": "/azure/frontdoor/front-door-url-redirect",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/index.yml",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-lb-with-azure-app-delivery-suite.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/load-balancing-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/overview.md",
+      "redirect_url": "/azure/frontdoor/front-door-overview",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
@@ -3076,6 +3126,21 @@
     {
       "source_path_from_root": "/articles/application-gateway/application-gateway-web-application-firewall-overview.md",
       "redirect_url": "/azure/application-gateway/waf-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/create-web-app.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/configure-web-app-portal.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-overview.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
       "redirect_document_id": false
     },
     {
@@ -16539,6 +16604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
@@ -19774,6 +19844,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/concept-ml-pipelines.md",
       "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
       "redirect_document_id": true
@@ -21127,11 +21227,6 @@
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",

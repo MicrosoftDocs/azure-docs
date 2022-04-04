@@ -303,7 +303,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](../../media-services/previous/media-services-quotas-and-limitations.md)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -362,7 +362,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-firewall-limits](../../../includes/firewall-limits.md)]
 
-### Azure Front Door Service limits
+### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
