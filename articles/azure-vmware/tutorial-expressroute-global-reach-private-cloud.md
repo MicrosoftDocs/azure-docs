@@ -26,7 +26,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 ## Prerequisites
 
-- Review the documentation on how to [enable connectivity in different Azure subscriptions](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach-portal).  
+- Review the documentation on how to [enable connectivity in different Azure subscriptions](../expressroute/expressroute-howto-set-global-reach-portal).  
 
 - A separate, functioning ExpressRoute circuit for connecting on-premises environments to Azure, which is _circuit 1_ for peering.
 
