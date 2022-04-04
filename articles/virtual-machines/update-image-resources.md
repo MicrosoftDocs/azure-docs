@@ -26,8 +26,14 @@ Get the location, status and other information about your image galleries using 
 az sig list -o table
 ```
 
+To list you community galleries with their public name:
+
+```azurecli-interactive
+az sig list --query [*]."{Name:name,PublicName:sharingProfile.communityGalleryInfo.publicNames}"
+```
+
 > [!NOTE]
-> To get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+> As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 **List the image definitions**
 
@@ -38,7 +44,7 @@ List the image definitions in your gallery, including information about OS type 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state. 
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
 ```azurecli-interactive 
  az sig image-definition list-community \
