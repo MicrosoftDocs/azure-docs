@@ -113,7 +113,7 @@ To configure group claims for a gallery or non-gallery SAML application via sing
 
      ![Screenshot that shows the Group Claims window, with the option for groups assigned to the application selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
-     Groups assigned to the application will be included in the token. Other groups that the user is a member of will be omitted. With this option, nested groups are not included and the user must be a direct member of the group assigned to the application.
+     Groups assigned to the application will be included in the token. Other groups that the user is a member of will not be omitted. With this option, nested groups are not included and the user must be a direct member of the group assigned to the application.
 
      To change the groups assigned to the application, select the application from the **Enterprise Applications** list. Then select **Users and Groups** from the application's left menu.
 
