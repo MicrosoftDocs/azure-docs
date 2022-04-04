@@ -96,7 +96,7 @@ Following input fields are exposed to the users in the Active Directory Connecto
       If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
 
 
-## Deploy Active Directory (AD) connector
+## Deploy an Automatic Active Directory (AD) connector
 To deploy an AD connector, create a YAML spec file called `active-directory-connector.yaml`.
 
 The following example is an example of an Automatic AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain. The `adarc-dsa-secret` contains the AD domain service account that was created prior to the AD deployment. 
