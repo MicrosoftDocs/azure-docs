@@ -16604,6 +16604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
@@ -27796,6 +27801,11 @@
     {
       "source_path_from_root": "/articles/storsimple/storsimple-ova-pp-release-notes.md",
       "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/private-5g-core/activate-sims.md",
+      "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
       "redirect_document_id": false
     },
     {

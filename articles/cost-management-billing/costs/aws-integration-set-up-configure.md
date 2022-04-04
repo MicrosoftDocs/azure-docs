@@ -4,11 +4,11 @@ titleSuffix: Azure Cost Management + Billing
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2022
+ms.date: 03/30/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
+ms.reviewer: shasulin
 ---
 
 # Set up and configure AWS Cost and Usage report integration
@@ -143,14 +143,14 @@ The policy JSON should resemble the following example. Replace `bucketname` with
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject",
-                "s3:ListBucket"
+                "s3:ListBucket",
                 "iam:GetPolicyVersion",
                 "iam:ListPolicyVersions",
-                "iam:ListAttachedRolePolicies",
+                "iam:ListAttachedRolePolicies"
             ],
             "Resource": [
                 "arn:aws:s3:::bucketname",
-                "arn:aws:s3:::bucketname/*"
+                "arn:aws:s3:::bucketname/*",
                 "arn:aws:iam::accountnumber:policy/*",
                 "arn:aws:iam::accountnumber:role/rolename"
             ]
