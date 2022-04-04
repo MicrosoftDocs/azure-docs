@@ -819,7 +819,7 @@ public void turnOffLocalVideo() {
 
 ## Run the code
 
-You can now launch the app by using the `Run 'App'` button on the toolbar of Android Studio. 
+You can now launch the app by using the **Run App** button on the toolbar of Android Studio. 
 
 Completed application             |  1:1 call
 :-------------------------:|:-------------------------:
@@ -1020,7 +1020,7 @@ public void onCallTypeSelected(View view) {
 
 ## Run the upgraded app
 
-At this point, you can launch the app by using the `Run 'App'` button on the toolbar of Android Studio. 
+At this point, you can launch the app by using the **Run App** button on the toolbar of Android Studio. 
 
 Screen update             |  Group call
 :-------------------------:|:-------------------------:
