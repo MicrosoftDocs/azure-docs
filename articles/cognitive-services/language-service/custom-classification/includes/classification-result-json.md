@@ -8,7 +8,7 @@ ms.date: 11/17/2021
 ms.author: aahi
 ---
 
-#### Text classification task results
+#### Custom text classification task results
 
 The response returned from the Get result call will be a JSON document with the following parameters:
 
