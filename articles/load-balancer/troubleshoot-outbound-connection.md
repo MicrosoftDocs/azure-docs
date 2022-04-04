@@ -51,7 +51,7 @@ To learn more about default outbound access and default port allocation, see [So
 
 To increase the number of available SNAT ports per VM, configure outbound rules with manual port allocation on your load balancer. For example, if you know you'll have a maximum of 10 VMs in your backend pool, you can allocate up to 6,400 SNAT ports per VM rather than the default 1,024. If you need more SNAT ports, you can add multiple frontend IP addresses for outbound connections to multiply the number of SNAT ports available. Make sure you understand why you're exhausting SNAT ports before adding more frontend IP addresses. 
 
-For detailed guidance, see [Design your applications to use connections efficiently](#design-your-applications-to-use-connections-efficiently) later in this article. To add more IP addresses for outbound connections, create a frontend IP configuration for each new IP. When configuring outbound rules, you'll able to select multiple frontend IP configurations for a backend pool. It's recommended to use different IP addresses for inbound and outbound connectivity. Different IP addresses isolate traffic for improved monitoring and troubleshooting.
+For detailed guidance, see [Design your applications to use connections efficiently](#design-your-applications-to-use-connections-efficiently) later in this article. To add more IP addresses for outbound connections, create a frontend IP configuration for each new IP. When outbound rules are configured, you're able to select multiple frontend IP configurations for a backend pool. It's recommended to use different IP addresses for inbound and outbound connectivity. Different IP addresses isolate traffic for improved monitoring and troubleshooting.
 
 ### Configure individual public IP on VM
 
