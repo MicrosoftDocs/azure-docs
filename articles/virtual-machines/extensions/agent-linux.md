@@ -65,6 +65,7 @@ The following systems have been tested and are known to work with the Azure Linu
 > 
 
 * CoreOS
+* Flatcar Container Linux
 * CentOS 6.3+
 * Red Hat Enterprise Linux 6.7+
 * Debian 7.0+
