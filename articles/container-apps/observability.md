@@ -109,7 +109,7 @@ You can query Application logs from the Azure CLI and PowerShell cmdlets.  For m
 
 You can configure alerts to send notifications based on metrics and log criteria.  Alert definitions are made via the Metrics Explorer and the Log Analytics interface in the Azure portal.
 
-### Setting alerts in Metrics Explorer
+### Setting alerts in metrics explorer
 
  You can define alert criteria based on any of the metrics tracked for Container Apps. 
 
