@@ -101,7 +101,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ```
 
 > [!NOTE]
-> The `$filter` parameter is not supported by Microsoft customer Agreements.
+> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
 
 ### Get amortized cost details
 
