@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 04/04/2022
+ms.date: 04/05/2022
 ms.author: alkohli
 ---
 
@@ -27,8 +27,10 @@ The subsequent sections of the article discuss in detail as to how the timestamp
 
 The following timestamps are transferred:
 - CreationTime
-- LastAccessTime
 - LastWriteTime
+
+The following timestamp isn't transferred:
+- LastAccessTime
 
 ## File attributes
 
@@ -89,13 +91,13 @@ During an [data copy service file transfer](data-box-deploy-copy-data-via-copy-s
 
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
 
-In order for you to copy SACLs from your files, you must have the **SeBackupPrivilege** credential granted. **SeBackupPrivilege** is required to read SACLs. If you are a member of the Administrators or Backup Operators group, you will have this privilege by default. 
+In order for you to copy SACLs from your files, you must provide credentials for a user with **SeBackupPrivilege**. **SeBackupPrivilege** is required to read SACLs. Users in the Administrators or Backup Operators group will have this privilege by default.
 
 If you do not have the **SeBackupPrivilege** credential:
 - You will not be able to copy SACLs for Azure Files copy service jobs.
-- You may experience access issues and receive this error: Could not read SACLs from share due to insufficient privileges.
+- You may experience access issues and receive this error in the error log: “Could not read SACLs from share due to insufficient privileges”.
 
- For more information, see how to obtain the [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
+ For more information, see how to obtain the [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants). 
 
 ### ACLs transfer over NFS
  
