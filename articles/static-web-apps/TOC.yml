@@ -88,6 +88,7 @@
           href: password-protection.md
     - name: Set up local development
       href: local-development.md
+      displayName: swa cli
     - name: Configure app settings
       href: application-settings.md
     - name: Configure front-end frameworks and libraries

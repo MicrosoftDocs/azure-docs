@@ -33,9 +33,6 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of the Recover dialog box.":::
 
-    > [!NOTE]
-    > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
-
 1. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
