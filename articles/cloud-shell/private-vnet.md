@@ -92,7 +92,7 @@ Navigate to the relay created using the above template, select "Networking" in s
 
 ### Configuring Cloud Shell to use a virtual network.
 > [!NOTE]
-> This step must be completed for each administrator will use Cloud Shell.
+> This step must be completed for each each administrator that will use Cloud Shell.
 
 After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on https://shell.azure.com. One of these experiences must be used each time you want to connect to an isolated Cloud Shell experience.
 
