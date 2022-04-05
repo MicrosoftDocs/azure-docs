@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
-ms.date: 09/28/2020
-ms.author: alkemper
+ms.date: 04/05/2022
+ms.author: malev
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Core app with App Configuration
@@ -24,7 +24,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -32,7 +32,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
     Leave **Label** and **Content Type** empty for now.
 
-1. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET Core console app
 
@@ -92,7 +92,10 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
     ### [PowerShell](#tab/powershell)
+
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
@@ -100,6 +103,7 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     ```
 
     ### [macOS](#tab/unix)
+
     If you use macOS, run the following command:
 
     ```console

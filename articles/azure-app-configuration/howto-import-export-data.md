@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 04/06/2022
 ms.author: malev
 ---
 
@@ -21,43 +21,49 @@ You can import or export data using either the [Azure portal](https://portal.azu
 
 Import brings configuration data into an App Configuration store from an existing source. Use the import function to migrate data into an App Configuration store or aggregate data from multiple sources. App Configuration supports importing from another App Configuration store, an App Service resource or a configuration file in JSON, YAML or .properties.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 From the Azure portal, follow these steps:
 
 1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
-1. On the **Import** tab, select **Configuration file** under **Source service**. Other options are **App Configuration** and **File services**.
+    :::image type="content" source="./media/import-file.png" alt-text="Screenshot of the Azure portal, importing a file.":::
 
-1. Select **For language** : .NET or Java (Spring) or other, and select your desired input type—JSON, YAML or .properties.
+1. On the **Import** tab, select **Configuration file** under **Source service**. Other options are **App Configuration** and **App Services**.
+
+1. Fill out the form with the following parameters:
+
+    | Parameter    | Description                                                                              | Examples |
+    |--------------|------------------------------------------------------------------------------------------|---------|
+    | For language | Choose the language of the file you're importing between .NET, Java (Spring) and Other. | .NET    |
+    | File type    | Select the type of file you're importing between YAML, properties or JSON.              | JSON    |
 
 1. Select the **Folder** icon, and browse to the file to import.
 
-    :::image type="content" source="./media/import-file.png" alt-text="Screenshot of the Azure portal, importing a file.":::
+1. Fill out the next part of the form:
 
-1. Select a **Separator**, and optionally enter a **Prefix** to use for imported key names.
+    | Parameter | Description                                                                                                                                                                                                                 | Example                          |
+    |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+    | Separator | The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `.`, `,`,`:`, `;`, `/`, `-`. | :                                |
+    | Prefix    | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store.                                                                                              | TestApp:Settings:Backgroundcolor |
+    | Label     | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                  | prod                             |
+    |  Content type         |                    Optional. Indicate if the file you're importing is a Key Vault reference or a JSON file. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](/azure/azure-app-configuration/use-key-vault-references-dotnet-core).                                                                                                                                                                                                          |      JSON (application/json)                            |
 
-   * A separator is a character used to separate values in a file to distribute them in a table. Select a period (.), a comma (,), a colon (:), a semicolon (;), a forward slash (/) or a dash (-).
-   * A key prefix is the beginning part of a key.
-
-1. Optionally, select a **Label** to assign to your imported key-value pairs.
 1. Select **Apply** to proceed with the import.
 
-    :::image type="content" source="./media/import-file-complete.png" alt-text="Screenshot of the Azure portal, file import completed":::
-
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the Azure CLI as explained below to import App Configuration data. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview). Specify the source of the data: `appconfig`, `appservice` or `file`. Optionally specify a source label with `--src-label` and a label to apply with `--label`.
 
 Import all keys and feature flags from a file and apply test label.
 
-```python
+```azurecli
 az appconfig kv import --name <your-app-config-store-name> --label test --source file --path D:/abc.json --format json
 ```
 
 Import all keys with label test and apply test2 label.
 
-```python
+```azurecli
 az appconfig kv import --name <your-app-config-store-name> --source appconfig --src-label test --label test2 --src-name <another-app-config-store-name>
 ```
 
@@ -75,9 +81,9 @@ For more details and examples, go to [az appconfig kv import](/cli/azure/appconf
 
 ## Export data
 
-Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data in an App Configuration store to a file that's embedded with your application code during deployment. You can export data from an App Configuration store, an App Service resource or a configuration in JSON, YAML or .properties.
+Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data from an App Configuration store to a file that can be embedded in your application code during deployment. You can export data from an App Configuration store, an App Service resource or a configuration file in JSON, YAML or .properties.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 From the [Azure portal](https://portal.azure.com), follow these steps:
 
@@ -85,19 +91,25 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. On the **Export** tab, select **Target service** > **Configuration file**.
 
-1. Optionally enter a **Prefix** select a **label** and a point-in-time for keys to be exported.
-    * Prefix: it's the beginning part of a key. Leave blank or fill out to restrict data to export.
-    * Label: Labels can be assigned to keys to define different values for the same key. Leave blank to select all keys without a label, or select a label in the dropdown box. [Learn more about labels](howto-labels-aspnet-core.md).
-    * Specific time: leave blank or fill out to export key data as from a specific point in time.
+1. Fill out the form with the following parameters:
+
+    | Parameter  | Description                                                                                                                                                                                                                 | Example                          |
+    |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+    | Prefix     | Optional. A key prefix is the beginning part of a key. Enter a prefix to restrict your export to key-values with the specified prefix.                                                                                      | TestApp:Settings:Backgroundcolor |
+    | From label | Optional. Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, only key-values without a label will be exported. See note below.                                                   | prod                             |
+    |  At a specific time          |                     Optional. Fill out to export key-values from a specific point in time.       |           01/28/2021 12:00:00 AM                       |
+    | File type    | Select the type of file you' a're importing between YAML, properties or JSON.              | JSON    |
+    | Separator  | The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `.`, `,`,`:`, `;`, `/`, `-`. | ;                                |
+    |
+
     > [!IMPORTANT]
-    > If the keys you want to export have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be exported. You may need create several exports to get all the desired data, according to the labels you need.
-1. Select a **File type** > **Separator**.
+    > If you don't select a label, only keys without labels will be exported. To export a key-value with a label, you must select its label. Note that you can only select one label per export, so to export keys with multiple labels, you may need to export multiple times, once per label you select.
 
 1. Select **Export** to finish the export.
 
     :::image type="content" source="./media/export-file-complete.png" alt-text="Screenshot of the Azure portal, exporting a file":::
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the Azure CLI as explained below to export configurations from App Configuration to another place. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview). Specify the destination of the data: `appconfig`, `appservice` or `file`. Specify a label for the data you want to export with `--label` or export data with no label by not entering a label.
 
