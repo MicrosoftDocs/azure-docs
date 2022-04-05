@@ -5,7 +5,7 @@ ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT virtual system requirements for your own installations
+# Resource requirements for virtual appliances
 
 This article lists the virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles.
 
@@ -96,7 +96,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 
 ---
 
-### On-premises management console
+## On-premises management console requirements
 
 An on-premises management console on a virtual appliance is supported for enterprise deployments with the following requirements:
 
@@ -112,7 +112,7 @@ An on-premises management console on a virtual appliance is supported for enterp
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
 
 - [OT system deployment options](ot-deployment-options.md)
-- [Pre-configured physical appliances for OT systems](ot-preconfigured-appliances.md)
+- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
 - [OT system physical appliance requirements](ot-physical-appliances.md)
 
 Then, use any of the following procedures to continue:

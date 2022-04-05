@@ -5,7 +5,7 @@ ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# Pre-configured physical appliances for OT systems
+# Pre-configured physical appliances for OT monitoring
 
 This article describes the pre-configured appliances available for Microsoft Defender for IoT OT sensors and on-premises management consoles.
 
@@ -21,7 +21,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 For more information, see [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
 
-To install Defender for IoT software on your own appliances, see [OT hardware system requirements for your own installations](ot-physical-appliances.md) or [OT system virtual appliance requirements](ot-virtual-appliances.md).
+To install Defender for IoT software on your own appliances, see [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md) or [OT system virtual appliance requirements](ot-virtual-appliances.md).
 
 ## Supported appliances for OT network sensors
 

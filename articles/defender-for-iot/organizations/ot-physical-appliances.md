@@ -1,13 +1,13 @@
 ---
-title: Microsoft Defender for IoT OT system physical appliance requirements
+title: Microsoft Defender for IoT OT hardware compatibility matrix for non-certified appliances
 description: Learn about system requirements for physical appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT hardware system requirements for your own installations
+# Hardware compatibility matrix for non-certified appliances
 
-This article lists the hardware specifications required if you want to install Microsoft Defender for IoT sensor and on-premises management console software on your own physical appliances.
+This article lists the hardware specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own physical appliances.
 
 For more information, see:
 
@@ -56,7 +56,7 @@ All hardware components must be compatible with Ubuntu version 18.04.
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
 
 - [OT system deployment options](ot-deployment-options.md)
-- [Pre-configured physical appliances for OT systems](ot-preconfigured-appliances.md)
+- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
 - [OT system virtual appliance requirements](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to continue:
