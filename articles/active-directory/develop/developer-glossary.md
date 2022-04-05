@@ -1,21 +1,20 @@
 ---
-title: Microsoft identity platform developer glossary | Azure
-description: A list of terms for commonly used Microsoft identity platform developer concepts and features.
+title: Glossary of terms in the Microsoft identity platform
+description: A list of terms commonly referenced by or in the context of Microsoft identity platform documentation, user interfaces, and APIs.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
-ms.workload: identity
-ms.date: 12/14/2021
+ms.topic: reference
+ms.date: 04/06/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ---
 
-# Microsoft identity platform developer glossary
+# Glossary: Microsoft identity platform
 
 This article contains definitions for some of the core developer concepts and terminology, which are helpful when learning about application development using Microsoft identity platform.
 
@@ -34,11 +33,11 @@ See the [access tokens reference][AAD-Tokens-Claims] for more details.
 
 ## Actor
 
-Another term for the [client application](#client-application) - this is the party acting on behalf of the subject, or [resource owner](#resource-owner).
+Another term for the [client application](#client-application). The actor is the party acting on behalf of a subject ([resource owner](#resource-owner)).
 
-## Application ID (client ID)
+## Application (client) ID
 
-The unique identifier Azure AD issues to an application registration that identifies a specific application and the associated configurations. This application ID ([client ID](https://tools.ietf.org/html/rfc6749#page-15)) is used when performing authentication requests and is provided to the authentication libraries in development time. The application ID (client ID) is not a secret.
+The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2)_, is a value the Microsoft identity platform assigns an Azure AD application registration that uniquely identifies the application and its configuration within the identity platform. The client ID is used by authentication libraries when performing authentication requests at application runtime. The application (client) ID is not a secret.
 
 ## Application manifest
 
