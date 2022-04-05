@@ -147,8 +147,6 @@ landingContent:
         links:
           - text: Deploy an IPV6 dual stack application - Standard Load Balancer
             url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
-            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell.md
 
   # Card
   - title: Monitor virtual networks

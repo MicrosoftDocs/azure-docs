@@ -14,7 +14,7 @@ This article lists the protocols that are supported by default in Microsoft Defe
 Defender for IoT can detect the following protocols when identifying assets and devices in your network:
 
 
-|Brand  |Protocols  |
+|Brand / Vendor |Protocols  |
 |---------|---------|
 |**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)      |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
@@ -51,7 +51,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 Defender for IoT can detect the following protocols using active monitoring, such as ping sweeps and queries:
 
 
-|Brand  |Protocols  |
+|Brand / Vendor  |Protocols  |
 |---------|---------|
 |**IETF**     |  Ping Sweep <br>SNMP Network Layout Query<br>SNMP Query       |
 |**Microsoft**     |  Windows WMI Query (req. WMI/WinRM): hardware, BIOS, version, software, patches       |

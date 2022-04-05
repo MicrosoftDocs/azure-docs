@@ -22,6 +22,43 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 >
 > To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
+## Client support
+
+### Known supported clients
+
+- OpenSSH 7.4+
+- WinSCP 5.17.10+
+- PuTTY 0.74+
+- FileZilla 3.53.0+
+- SSH.NET 2020.0.0+
+- libssh 1.8.2+
+- Cyberduck 7.8.2+
+- Maverick Legacy 1.7.15+
+
+### Known unsupported clients
+
+- SSH.NET 2016.1.0
+- libssh2 1.7.0
+- paramiko 1.16.0
+- AsyncSSH 2.1.0
+- SSH Go
+
+> [!NOTE]
+> The client support lists above are not exhaustive and may change over time.
+
+## Unsupported operations
+
+| Category | Unsupported operations |
+|---|---|
+| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
+| Resume operations |<li>`reget`, `get -a`- resume download<li>`reput`. `put -a` - resume upload |
+| Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
+| Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
+| Capacity Information | `df` - usage info for filesystem |
+| Extensions | Unsupported extensions include but are not limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
+| SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of the key exchange will fail. |
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  are not allowed from other protocols on blobs that are created by using SFTP. Full overwrites are allowed.|
+
 ## Authentication and authorization
 
 - _Local users_ is the only form of identity management that is currently supported for the SFTP endpoint.
@@ -60,8 +97,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 ## Other
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
-
-- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
 
 - Symbolic links are not supported.
 
