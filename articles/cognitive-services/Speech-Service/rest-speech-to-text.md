@@ -27,6 +27,8 @@ Use REST API v3.0 to:
 - Get logs for each endpoint if logs have been requested for that endpoint.
 - Request the manifest of the models that you create, to set up on-premises containers.
 
+## Features
+
 REST API v3.0 includes such features as:
 - **Webhook notifications**: All running processes of the service support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
 - **Updating models behind endpoints** 
