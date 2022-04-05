@@ -20,12 +20,12 @@ To create a resource group, server, and single database in the Azure portal:
 1. From the Search bar, search for and select **Azure SQL**.
 1. On the **Azure SQL** page, select **Add**.
 
-   ![Add to Azure SQL](./media/sql-database-create-single-database/sqldbportal.png)
+   :::image type="content" source="./media/sql-database-create-single-database/sqldbportal.png" alt-text="Add to Azure SQL":::
 
 1. On the **Select SQL deployment option** page, select the **SQL databases** tile, with **Single database** under **Resource type**. You can view more information about the different databases by selecting **Show details**.
 1. Select **Create**.
 
-   ![Create single database](./media/sql-database-create-single-database/create-single-database.png)
+   :::image type="content" source="./media/sql-database-create-single-database/create-single-database.png" alt-text="Create single database":::
 
 1. On the **Basics** tab of the **Create SQL database** form, under **Project details**, select the correct Azure **Subscription** if it isn't already selected.
 1. Under **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
@@ -38,7 +38,7 @@ To create a resource group, server, and single database in the Azure portal:
 
    Select **OK**.
 
-   ![New server](./media/sql-database-create-single-database/new-server.png)
+   :::image type="content" source="./media/sql-database-create-single-database/new-server.png" alt-text="New server":::
 
    Record the server admin login and password so you can log in to the server and its databases. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page after database creation. To open the **SQL server** page, select the server name on the database **Overview** page.
 
@@ -53,13 +53,13 @@ To create a resource group, server, and single database in the Azure portal:
 
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![New SQL database - Basic tab](./media/sql-database-create-single-database/new-sql-database-basics.png)
+   :::image type="content" source="./media/sql-database-create-single-database/new-sql-database-basics.png" alt-text="New SQL database - Basic tab":::
 
 1. On the **Networking** tab, under **Connectivity method**, select **Public endpoint**.
 1. Under **Firewall rules**, set **Add current client IP address** to **Yes**.
 1. Select **Next: Additional settings** at the bottom of the page.
 
-   ![Networking tab](./media/sql-database-create-single-database/networking.png)
+   :::image type="content" source="./media/sql-database-create-single-database/networking.png" alt-text="Networking tab":::
   
    For more information about firewall settings, see [Allow Azure services and resources to access this server](../database/network-access-controls-overview.md) and [Add a private endpoint](../database/private-endpoint-overview.md).
 
@@ -68,7 +68,7 @@ To create a resource group, server, and single database in the Azure portal:
 1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page.
 
-   ![Additional settings tab](./media/sql-database-create-single-database/additional-settings.png)
+   :::image type="content" source="./media/sql-database-create-single-database/additional-settings.png" alt-text="Additional settings tab":::
 
 1. After reviewing settings, select **Create**.
 
@@ -84,7 +84,7 @@ Follow the onscreen prompts to sign in to Azure and run the code.
 
 You can also use Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar.
 
-   ![Azure Cloud Shell](./media/sql-database-create-single-database/cloudshell.png)
+   :::image type="content" source="./media/sql-database-create-single-database/cloudshell.png" alt-text="Azure Cloud Shell":::
 
 The first time you use Cloud Shell from the portal, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar.
 
