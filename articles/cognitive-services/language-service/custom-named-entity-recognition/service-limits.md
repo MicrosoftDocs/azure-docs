@@ -27,7 +27,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Maximum allowed length for your file is 128,000 characters, which is approximately 28,000 words or 56 pages.
 
-* Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
+* Your [training dataset](how-to/train-model.md) should include at least 10 files and not more than 100,000 files.
 
 ## APIs limits
 

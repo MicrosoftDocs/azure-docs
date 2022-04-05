@@ -44,7 +44,7 @@ When you're ready to start [using your model to make predictions](#how-do-i-use-
 
 ## What is the recommended CI/CD process?
 
-You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-split) randomly into training and testing sets, so there is no guarantee that the reflected model evaluation is about the same test set, and the results are not comparable. It's recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
+You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you [train your data](how-to/train-model.md) you can determine how your dataset is split into training and testing sets. You can also have your data split randomly into training and testing set where there is no guarantee that the reflected model evaluation is about the same test set, and the results are not comparable. It's recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
 
 ## Does a low or high model score guarantee bad or good performance in production?
 
@@ -67,7 +67,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## Why do I get different results when I retrain my model?
 
-* When you train a new model your dataset is [split](how-to/train-model.md#data-split) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
+* When you [train your model](how-to/train-model.md), you can determine if you want your data to be split randomly into train and test sets. If you do, so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
 
 * If you're retraining the same model, your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how representative and distinct your data is and the quality of your tagged data.
 

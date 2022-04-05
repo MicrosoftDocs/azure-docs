@@ -27,14 +27,6 @@ The time to train a model varies on the dataset, and may take up to several hour
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
-## Data split
-
-Before starting the training process, files in your dataset are divided into two groups at random:
-
-* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
-
-* The **test set** contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training.
-
 ## Train model in Language studio
 
 1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
@@ -47,7 +39,7 @@ Before starting the training process, files in your dataset are divided into two
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new training job" lightbox="../media/train-model.png":::
     
-If you have enabled [Split project data manually toggle](https://docs.microsoft.com/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/tag-data) in Tag page, you will see two training options:
+If you have enabled [Split project data manually toggle](tag-data.md) when you were tagging your data, you will see two training options:
 
 * **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
 * **Use a manual split**: Assign each document to either the training or testing set, this required first adding files in the test dataset.
