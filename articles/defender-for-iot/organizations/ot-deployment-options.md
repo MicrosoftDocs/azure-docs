@@ -17,11 +17,12 @@ For more information, see:
 - [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-## Corporate IT/OT Mixed Environments
+## Corporate IT/OT mixed environments
 
 Use the following deployment sizing for high bandwidth corporate IT/OT mixed networks:
 
-|Name  |Max throughput (OT Traffic) |Max monitored Assets  |Deployment |
+
+|Name  |Max throughput (OT traffic) |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
 |[Corporate]    | 3 Gbps        | 12 K        |Physical / Virtual         |
 
@@ -29,7 +30,7 @@ Use the following deployment sizing for high bandwidth corporate IT/OT mixed net
 
 Use the following deployment for enterprise monitoring at the site level:
 
-|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
+|Name  |Max throughput (OT traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |[Enterprise]    |1 Gbps         |10K         |Physical / Virtual         |
 
@@ -37,7 +38,7 @@ Use the following deployment for enterprise monitoring at the site level:
 
 Use the following deployment for production line monitoring:
 
-|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
+|Name  |Max throughput (OT traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |[SMB]    | 200 Mbps        |   1,000      |Physical / Virtual         |
 |[Office]    | 60 Mbps        |   800      | Physical / Virtual        |
