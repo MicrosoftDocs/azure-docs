@@ -46,7 +46,7 @@ landingContent:
             url: how-to-share-grafana-workspace.md
           - text: Monitor your Managed Grafana workspace
             url: how-to-monitor-managed-grafana-workspace.md
-  - title: References
+  - title: More resources
     linkLists:
       - linkListType: reference
         links:
