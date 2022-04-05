@@ -48,6 +48,8 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Use managed identities
+      href: container-apps-managed-identity.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
