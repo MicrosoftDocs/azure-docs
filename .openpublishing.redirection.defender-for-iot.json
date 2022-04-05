@@ -8,6 +8,8 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/overview-eiot.md",
             "redirect_url": "/azure/defender-for-iot/organizations/overview",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-identify-required-appliances.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deployment-options",
             "redirect_document_id": false
         },
         {

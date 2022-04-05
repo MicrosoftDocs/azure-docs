@@ -34,7 +34,15 @@
       - name: OT sensor cloud connection methods
         href: architecture-connections.md
       - name: OT system requirements
-        href: how-to-identify-required-appliances.md
+        items:
+        - name: Deployment options
+          href: ot-deployment-options.md
+        - name: Pre-configured appliances
+          href: ot-preconfigured-appliances.md
+        - name: Physical appliance requirements
+          href: ot-physical-appliances.md
+        - name: Virtual appliance requirements
+          href: ot-virtual-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md
 - name: How-to guides
