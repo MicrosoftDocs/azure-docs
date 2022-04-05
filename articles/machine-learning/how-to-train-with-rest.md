@@ -88,7 +88,7 @@ The LightGBM example needs to run in a LightGBM environment. Create the environm
 
 You can configure the docker image with `Docker` and add conda dependencies with `condaFile`: 
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/train-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### Datastore
 
@@ -110,7 +110,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv`. 
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/train-rest.sh" id="create_data":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### Code
 
@@ -124,7 +124,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Once you upload your code, you can specify your code with a PUT request and reference the url through `codeUri`. 
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/train-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## Submit a training job
 
@@ -141,7 +141,7 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 
 Use the following commands to submit the training job:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/train-rest.sh" id="create_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## Submit a hyperparameter sweep job
 
@@ -156,7 +156,7 @@ Azure Machine Learning also lets you efficiently tune training hyperparameters. 
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
 
