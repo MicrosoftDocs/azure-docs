@@ -29,76 +29,67 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
 
 
 ```json
-{
-    "operationName": "SetCurrentPolicy",
-    "resultType": "Success",
-    "resultDescription": null,
-    "auditEventCategory": [
-        "ApplicationManagement"
-    ],
-    "nCloud": null,
-    "requestId": null,
-    "callerIpAddress": null,
-    "callerDisplayName": null,
-    "callerIdentities": [
-        {
-            "callerIdentityType": "ObjectID",
-            "callerIdentity": "<some object ID>"
-        },
-        {
-            "callerIdentityType": "TenantId",
-            "callerIdentity": "<some tenant ID>"
-        }
-    ],
-    "targetResources": [
-        {
-            "targetResourceType": "Environment",
-            "targetResourceName": "PublicCloud"
-        },
-        {
-            "targetResourceType": "ServiceRegion",
-            "targetResourceName": "EastUS2"
-        },
-        {
-            "targetResourceType": "ServiceRole",
-            "targetResourceName": "AttestationRpType"
-        },
-        {
-            "targetResourceType": "ServiceRoleInstance",
-            "targetResourceName": "<some service role instance>"
-        },
-        {
-            "targetResourceType": "ResourceId",
-            "targetResourceName": "/subscriptions/<some subscription ID>/resourceGroups/<some resource group name>/providers/Microsoft.Attestation/attestationProviders/<some instance name>"
-        },
-        {
-            "targetResourceType": "ResourceRegion",
-            "targetResourceName": "EastUS2"
-        }
-    ],
-    "ifxAuditFormat": "Json",
-    "env_ver": "2.1",
-    "env_name": "#Ifx.AuditSchema",
-    "env_time": "2020-11-23T18:23:29.9427158Z",
-    "env_epoch": "MKZ6G",
-    "env_seqNum": 1277,
-    "env_popSample": 0.0,
-    "env_iKey": null,
-    "env_flags": 257,
-    "env_cv": "##00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000",
-    "env_os": null,
-    "env_osVer": null,
-    "env_appId": null,
-    "env_appVer": null,
-    "env_cloud_ver": "1.0",
-    "env_cloud_name": null,
-    "env_cloud_role": null,
-    "env_cloud_roleVer": null,
-    "env_cloud_roleInstance": null,
-    "env_cloud_environment": null,
-    "env_cloud_location": null,
-    "env_cloud_deploymentUnit": null
-}
+{  
+
+        "Time": "2021-11-03T19:33:54.3318081Z", 
+
+        "resourceId": "/SUBSCRIPTIONS/F782B158-10B8-4A42-B9E4-F7FBAF769F35/RESOURCEGROUPS/DESCHUMA-MAA-TEST-RG/PROVIDERS/MICROSOFT.ATTESTATION/ATTESTATIONPROVIDERS/DESCHUMATESTRP", 
+
+        "region": "EastUS", 
+
+        "operationName": "AttestSgxEnclave", 
+
+        "category": "Operational", 
+
+        "resultType": "Succeeded", 
+
+        "resultSignature": "400", 
+
+        "durationMs": 636, 
+
+        "callerIpAddress": "::ffff:24.17.183.201", 
+
+        "traceContext": "{\"traceId\":\"e4c24ac88f33c53f875e5141a0f4ce13\",\"parentId\":\"0000000000000000\",}", 
+
+        "identity": "{\"callerAadUPN\":\"deschuma@microsoft.com\",\"callerAadObjectId\":\"6ab02abe-6ca2-44ac-834d-42947dbde2b2\",\"callerId\":\"deschuma@microsoft.com\"}", 
+
+        "uri": "https://deschumatestrp.eus.test.attest.azure.net:443/attest/SgxEnclave?api-version=2018-09-01-preview", 
+
+        "level": "Informational", 
+
+        "location": "EastUS", 
+
+        "properties": { 
+
+            "failureResourceId": "", 
+
+            "failureCategory": "None", 
+
+            "failureDetails": "", 
+
+            "infoDataReceived": { 
+
+                "Headers": { 
+
+                    "User-Agent": "PostmanRuntime/7.28.4" 
+
+                }, 
+
+                "HeaderCount": 10, 
+
+                "ContentType": "application/json", 
+
+                "ContentLength": 6912, 
+
+                "CookieCount": 0, 
+
+                "TraceParent": "" 
+
+            } 
+
+        } 
+
+    } 
 ```
 
 Most of these fields are documented in the [Top-level common schema](/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The following table lists the field names and descriptions for the entries not included in the top-level common schema: 
