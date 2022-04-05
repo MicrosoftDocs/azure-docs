@@ -29,67 +29,7 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
 
 
 ```json
-    {  
-
-        "Time": "2021-11-03T19:33:54.3318081Z", 
-
-        "resourceId": "/SUBSCRIPTIONS/F782B158-10B8-4A42-B9E4-F7FBAF769F35/RESOURCEGROUPS/DESCHUMA-MAA-TEST-RG/PROVIDERS/MICROSOFT.ATTESTATION/ATTESTATIONPROVIDERS/DESCHUMATESTRP", 
-
-        "region": "EastUS", 
-
-        "operationName": "AttestSgxEnclave", 
-
-        "category": "Operational", 
-
-        "resultType": "Succeeded", 
-
-        "resultSignature": "400", 
-
-        "durationMs": 636, 
-
-        "callerIpAddress": "::ffff:24.17.183.201", 
-
-        "traceContext": "{\"traceId\":\"e4c24ac88f33c53f875e5141a0f4ce13\",\"parentId\":\"0000000000000000\",}", 
-
-        "identity": "{\"callerAadUPN\":\"deschuma@microsoft.com\",\"callerAadObjectId\":\"6ab02abe-6ca2-44ac-834d-42947dbde2b2\",\"callerId\":\"deschuma@microsoft.com\"}", 
-
-        "uri": "https://deschumatestrp.eus.test.attest.azure.net:443/attest/SgxEnclave?api-version=2018-09-01-preview", 
-
-        "level": "Informational", 
-
-        "location": "EastUS", 
-
-        "properties": { 
-
-            "failureResourceId": "", 
-
-            "failureCategory": "None", 
-
-            "failureDetails": "", 
-
-            "infoDataReceived": { 
-
-                "Headers": { 
-
-                    "User-Agent": "PostmanRuntime/7.28.4" 
-
-                }, 
-
-                "HeaderCount": 10, 
-
-                "ContentType": "application/json", 
-
-                "ContentLength": 6912, 
-
-                "CookieCount": 0, 
-
-                "TraceParent": "" 
-
-            } 
-
-        } 
-
-    } 
+gfhgj
 ```
 
 Most of these fields are documented in the [Top-level common schema](/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The following table lists the field names and descriptions for the entries not included in the top-level common schema: 
