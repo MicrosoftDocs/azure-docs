@@ -4,7 +4,7 @@ description: Learn how to configure native role-based access control in the API 
 author: gahl.levy
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/08/2021
+ms.date: 04/05/2022
 ms.author: gahllevy
 ---
 
@@ -112,149 +112,79 @@ from pymongo import MongoClient
 client = MongoClient("mongodb://<YOUR_HOSTNAME>:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000", username="<YOUR_USER>", password="<YOUR_PASSWORD>", authSource='<YOUR_DATABASE>', authMechanism='SCRAM-SHA-256', appName="<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>")
 ```
 
-## RBAC Commands
-The RBAC management commands will only work with a preview version of the Azure CLI or Powershell installed. See the Quickstarts above on how to get started. 
+## Azure CLI RBAC Commands
+The RBAC management commands will only work with a preview version of the Azure CLI installed. See the Quickstart above on how to get started. 
 
-### CLI - Create Role Definition
+#### Create Role Definition
 ```powershell
 az cosmosdb mongodb role definition create --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.My_Read_Only_Role101\",\"RoleName\":\"My_Read_Only_Role101\",\"Type\":\"CustomRole\",\"DatabaseName\":\"test\",\"Privileges\":[{\"Resource\":{\"Db\":\"test\",\"Collection\":\"test\"},\"Actions\":[\"insert\",\"find\"]}],\"Roles\":[]}
 ```
 
-### CLI - Create Role by passing JSON file body
+#### Create Role by passing JSON file body
 ```powershell
 az cosmosdb mongodb role definition create --account-name <account-name> --resource-group <resource-group-name> --body role.json
 ```
 
-### CLI - Update Role Definition
+#### Update Role Definition
 ```powershell
 az cosmosdb mongodb role definition update --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.My_Read_Only_Role101\",\"RoleName\":\"My_Read_Only_Role101\",\"Type\":\"CustomRole\",\"DatabaseName\":\"test\",\"Privileges\":[{\"Resource\":{\"Db\":\"test\",\"Collection\":\"test\"},\"Actions\":[\"insert\",\"find\"]}],\"Roles\":[]}
 ```
 
-### CLI - Update Role by passing JSON file body
+#### Update Role by passing JSON file body
 ```powershell
 az cosmosdb mongodb role definition update --account-name <account-name> --resource-group <resource-group-name> --body role.json
 ```
 
-### CLI - List Roles
+#### List Roles
 ```powershell
 az cosmosdb mongodb role definition list --account-name <account-name> --resource-group <resource-group-name>
 ```
 
-### CLI - Check If Role Exists
+#### Check If Role Exists
 ```powershell
 az cosmosdb mongodb role definition exists --account-name <account-name> --resource-group <resource-group-name> --id test.My_Read_Only_Role
 ```
     
-### CLI - Delete Role
+#### Delete Role
 ```powershell
 az cosmosdb mongodb role definition delete --account-name <account-name> --resource-group <resource-group-name> --id test.My_Read_Only_Role
 ```
-    
-### Powershell - Create Privilege Resource
-Note: First create PrivilegeResource then Privileges and then Roles.
-```powershell
-New-AzCosmosDBMongoDBPrivilegeResource -Database <String> -Collection <String>
-```
 
-### Powershell - Create Privilege
-```powershell
-New-AzCosmosDBMongoDBPrivilege -PrivilegeResource <PSMongoPrivilegeResource> -Action <String[]>
-```
-
-### Powershell - Create Roles List
-```powershell
-New-NewAzCosmosDBMongoDBRole -Role <String> [-Db <String>]
-```
-
-### Powershell - Create Role Definition
-Note: Use Privilege and Roles created above to create a Role Definition
-```powershell
-New-AzCosmosDBMongoDBRoleDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -RoleName <String> -Type <String> -DatabaseName <String> -Privilege <PSMongoPrivilege[]> [-Role <PSMongoRole[]>]
-```
-    
-### Powershell - Update Role Definition
-```powershell
-Update-AzCosmosDBMongoDBRoleDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -RoleName <String> -Type <String> -DatabaseName <String> -Privilege <PSMongoPrivilege[]> [-Role <PSMongoRole[]>]
-```
-
-### Powershell - List Roles
-```powershell
-Get-AzCosmosDBMongoDBRoleDefinition -Id <String> -ResourceGroupName <String> -AccountName <String>
-```
-    
-### Powershell - Delete Role
-```powershell
-Remove-AzCosmosDBMongoDBRoleDefinition -AccountName <String> -ResourceGroupName <String> -Id <String>
-```
-
-
-### CLI - Create User Definition
+#### Create User Definition
 ```powershell
 az cosmosdb mongodb user definition create --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.myName\",\"UserName\":\"myName\",\"Password\":\"pass\",\"DatabaseName\":\"test\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"My_Read_Only_Role101\",\"Db\":\"test\"}]}
 ```
 
-### CLI - Create User by passing JSON file body
+#### Create User by passing JSON file body
 ```powershell
 az cosmosdb mongodb user definition create --account-name <account-name> --resource-group <resource-group-name> --body user.json
 ```
 
-### CLI - Update User Definition
+#### Update User Definition
 To update the user's password, send the new password in the password field. 
 
 ```powershell
 az cosmosdb mongodb user definition update --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.myName\",\"UserName\":\"myName\",\"Password\":\"pass\",\"DatabaseName\":\"test\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"My_Read_Only_Role101\",\"Db\":\"test\"}]}
 ```
 
-### CLI - Update User by passing JSON file body
+#### Update User by passing JSON file body
 ```powershell
 az cosmosdb mongodb user definition update --account-name <account-name> --resource-group <resource-group-name> --body user.json
 ```
 
-### CLI - List Users
+#### List Users
 ```powershell
 az cosmosdb mongodb user definition list --account-name <account-name> --resource-group <resource-group-name>
 ```
 
-### CLI - Check If User Exists
+#### Check If User Exists
 ```powershell
 az cosmosdb mongodb user definition exists --account-name <account-name> --resource-group <resource-group-name> --id test.myName
 ```
 
-### CLI - Delete User
+#### Delete User
 ```powershell
 az cosmosdb mongodb user definition delete --account-name <account-name> --resource-group <resource-group-name> --id test.myName
-```
-
-### Powershell - Create Roles List
-Note: Role name should be a Valid existing role name.
-```powershell
-New-NewAzCosmosDBMongoDBRole -Role <String> [-Db <String>]
-```
-
-### Powershell - Create User Definition
-Note: Use Roles created above to create a User Definition
-```powershell
-New-AzCosmosDBMongoDBUserDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -UserName <String> -Password <String> -Mechanism <String> [[CustomData <String>] -DatabaseName <String>] -Role <PSMongoRole[]>
-```
-    
-### Powershell - Update existing User Definition
-```powershell
-Update-AzCosmosDBMongoDBUserDefinition -ResourceId <String> -Id <String> -UserName <String> -Password <String> -Mechanism <String> [-CustomData <String>] -DatabaseName <String> -Role <PSMongoRole[]>
-```
-### or
-### The PSMongoDBUserDefinitionGetResults object is the response object of the Get-AzCosmosDBMongoDBUserDefinition call.
-```powershell
-Update-AzCosmosDBMongoDBUserDefinition -ResourceGroupName <String>] -AccountName <String> -InputObject <PSMongoDBUserDefinitionGetResults>
-```
-
-### Powershell - List Users
-```powershell
-Get-AzCosmosDBMongoDBUserDefinition -AccountName <String> -ResourceGroupName <String> -Id <String> -ResourceId <String>
-```
-
-### Powershell - Delete Role
-```powershell
-Remove-AzCosmosDBMongoDBUserDefinition -AccountName <String> -ResourceGroupName <String> -Id <String>
 ```
 
 ## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
