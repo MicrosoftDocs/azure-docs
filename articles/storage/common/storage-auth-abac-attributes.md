@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 04/05/2022
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -53,7 +53,8 @@ The following table lists the supported actions and suboperations for conditions
 > | Display name | Description | DataAction |
 > | --- | --- | --- |
 > | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
-> | Read a blob | DataAction for reading blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+> | List blobs | REST operations: List Blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.List` |
+> | Read a blob | REST operations: Read Blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**NOT Suboperation**<br/>`Blob.List` |
 > | Read content from a blob with tag conditions  | REST operations: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges and Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.Read.WithTagConditions` |
 > | Write to a blob | DataAction for writing to blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
 > | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
