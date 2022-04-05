@@ -121,7 +121,7 @@ Alert criteria is applied to selected container app revisions and replicas.
 
 ### Log alerts
 
-Log alerts allow you to run Log Analytics queries at set intervals and trigger an alert based on the results.  Similar to alerts in Metrics, you can set alerts to perform actions based on a set of conditions that you define.
+Log alerts allow you to run Log Analytics queries at set intervals and trigger an alert based on the results.  Similar to alerts in metrics, you can set alerts to perform actions based on a set of conditions that you define.
 
 Alerts can be split by dimensions, such as, revision and replica.  
 
