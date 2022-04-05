@@ -1,6 +1,6 @@
 ---
-title: Maintenance control for Azure virtual machines using the Azure portal 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and the Azure portal.
+title: Maintenance Configurations for Azure virtual machines using the Azure portal 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Configurations and the Azure portal.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance

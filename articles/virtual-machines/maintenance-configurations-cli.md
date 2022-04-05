@@ -11,11 +11,11 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Control updates with Maintenance Control and the Azure CLI
+# Control updates with Maintenance Configurations and the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance Control lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-configurations.md).
+Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Maintenance Configurations. For more about benefits of using Maintenance COnfigurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
 ## Create a maintenance configuration
 
