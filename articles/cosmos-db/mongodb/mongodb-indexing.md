@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 4/5/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
@@ -242,16 +242,17 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 #### Limitations
 
-* On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
+On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
 
 #### Unique partial indexes
 
-Unique partial indexes can be created by specifying a partialFilterExpression along with the 'unique' constraint in the index. This results in the unique constraint being applied only to the documents that meet the specified filter expression. \
+Unique partial indexes can be created by specifying a partialFilterExpression along with the 'unique' constraint in the index. This results in the unique constraint being applied only to the documents that meet the specified filter expression.
+
 The unique constraint will not be effective for documents that do not meet the specified criteria. As a result, other documents will not be prevented from being inserted into the collection.
 
 This feature is supported with the Cosmos DB API for MongoDB versions 3.6 and above.
 
-To create a unique partial index from Mongo Shell, use the command db.collection.createIndex() with the 'partialFilterExpression' option and 'unique' constraint.
+To create a unique partial index from Mongo Shell, use the command `db.collection.createIndex()` with the 'partialFilterExpression' option and 'unique' constraint.
 The partialFilterExpression option accepts a json document that specifies the filter condition using:
 
 * equality expressions (i.e. field: value or using the $eq operator),
