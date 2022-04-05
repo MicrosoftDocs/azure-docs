@@ -45,7 +45,7 @@ You can purchase any of the following appliances for your OT network sensors:
     |:----|:----|:----|:----|:----|
     | [Enterprise] | Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
 
-- **HPE ProLiant DL20 Plus**, for [SMB rugged deployments](#hpe-proliant-dl20-plus-smb-rugged):
+- **HPE ProLiant DL20 Plus**, for [SMB deployments](#hpe-proliant-dl20-plus-smb):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
@@ -59,7 +59,7 @@ You can purchase any of the following appliances for your OT network sensors:
     |L500|60 Mbp/s|1000|Wall mount|
 -->
 
-- **YS-Techsystems YS-FIT2**, for [SMB rugged deployments](#ys-techsystems-ys-fit2):
+- **YS-Techsystems YS-FIT2**, for [rugged deployments](#ys-techsystems-ys-fit2-office):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
@@ -295,12 +295,10 @@ Optional modules for port expansion include:
 
 # [SMB](#tab/smb)
 
-For an SMB deployment, use one of the following options and specifications:
-
-- HPE ProLiant DL20 Plus
-- YS-techsystems YS-FIT2
-
 ### HPE ProLiant DL20 Plus (SMB)
+
+For an SMB deployment, use the **HPE ProLiant DL20 Plus** with the following specifications:
+
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus." border="false":::
 
@@ -341,6 +339,9 @@ For an SMB deployment, use one of the following options and specifications:
 
 # [Rugged](#tab/rugged)
 ### YS-techsystems YS-FIT2 (Office)
+
+For a rugged deployment, use the **YS-techsystems YS-FIT2** with the following specifications:
+
 
 |Components|Technical specifications|
 |:----|-----|
