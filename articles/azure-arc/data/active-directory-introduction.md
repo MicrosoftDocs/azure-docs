@@ -24,7 +24,7 @@ Active Directory integration modes describes the management the keytab file
 Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed instances uses an existing on-premises Active Directory (AD) domain for authentication. Users need to follow the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance : 
 
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
-- [Deploy a Bring your own keytab (BYOK) AD connector](deploy-boky-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
+- [Deploy a Bring your own keytab (BYOK) AD connector](deploy-byok-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
 - [Deploy SQL Managed instances](deploy-active-directory-sql-managed-instance.md)
 
 The following diagram shows how user proceed to enable Active Directory authentication for Arc-enabled SQL Managed Instance :
@@ -46,7 +46,7 @@ To enable Active Directory Authentication for Arc-enabled SQL Managed Instances,
 In the Bring your own keytab (BYOK) mode, users will bring in : 
 - A a pre-created Active Directory (AD) account prior to the AD deployment
 - Service Principal Names (SPNs) under that AD account
-- Your own Keytab file
+- Your own [Keytab file](sql/linux/sql-server-linux-ad-auth-understanding.md#what-is-a-keytab-file)
 
 When you deploy the Bring your own keytab (BYOK) AD connector, it is up to users to create the AD account, take care of the SPN registration and create the keytab file. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
