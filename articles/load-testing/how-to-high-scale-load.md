@@ -88,7 +88,7 @@ You can increase certain default limits and quotas. If your resource supports an
 
 1. Select **Issue type** as *Technical*.
 
-1. Select your Subscription. Select **Service Type** as *Azure Load Testing - Preview*.
+1. Select your subscription. Then, select **Service Type** as *Azure Load Testing - Preview*.
 
 1. Select **Problem type** as *Test Execution*.
 
