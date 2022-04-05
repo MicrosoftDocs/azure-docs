@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -26,8 +26,6 @@ To learn more about Form Recognizer features and development options, visit our 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
 * [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
-
-* [**Read**](#read-model)-Analyze and extract printed and handwritten text lines, words, locations, and detected languages.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -71,29 +69,15 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**General document**](#general-document-model)
 
-    * [**Read**](#read-model)
-
     * [**Layout**](#layout-model)
 
     * [**Prebuilt Invoice**](#prebuilt-model)
-
-1. [Run your program](#run-the-application)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Run the application
-
-Once you've added a code sample to your application, build and run your program:
-
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
-1. Type the following command in your terminal:
-
-    ```console
-    python form_recognizer_quickstart.py
-    ```
+<!-- markdownlint-disable MD036 -->
 
 ## General document model
 
@@ -241,6 +225,17 @@ if __name__ == "__main__":
     analyze_general_documents()
 ```
 
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
+
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -256,105 +251,6 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
-
-## Read model
-
-Extract printed and handwritten text lines, words, locations, and detected languages from documents and images.
-
-> [!div class="checklist"]
->
-> * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * We've added the file URL value to the `formUrl` variable in the `analyze_read` function.
-> * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-read` as the model Id. The returned value is a `result` object containing data about the submitted document.
-
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
-
-```python
-
-# import libraries
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.formrecognizer import DocumentAnalysisClient
-
-# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
-key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
-
-def format_bounding_box(bounding_box):
-    if not bounding_box:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
-
-def analyze_read():
-    # sample form document
-    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
-    
-    # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
-    
-    poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-read", formUrl)
-    result = poller.result()
-
-    print ("Document contains content: ", result.content)
-    
-    for idx, style in enumerate(result.styles):
-        print(
-            "Document contains {} content".format(
-                "handwritten" if style.is_handwritten else "no handwritten"
-            )
-        )
-
-    for page in result.pages:
-        print("----Analyzing Read from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
-
-        for line_idx, line in enumerate(page.lines):
-            print(
-                "...Line # {} has text content '{}' within bounding box '{}'".format(
-                    line_idx,
-                    line.content,
-                    format_bounding_box(line.bounding_box),
-                )
-            )
-
-        for word in page.words:
-            print(
-                "...Word '{}' has a confidence of {}".format(
-                    word.content, word.confidence
-                )
-            )
-
-    print("----------------------------------------")
-
-
-if __name__ == "__main__":
-    analyze_read()
-
-```
-
-### Read model output
-
-Here's a snippet of the expected output:
-
-```console
-  ----Analyzing Read from page #1----
-Page has width: 8.5 and height: 11.0, measured with unit: inch
-...Line # 0 has text content 'UNITED STATES' within bounding box '[3.4915, 0.6828], [5.0116, 0.6828], [5.0116, 0.8265], [3.4915, 0.8265]'
-...Line # 1 has text content 'SECURITIES AND EXCHANGE COMMISSION' within bounding box '[2.1937, 0.9061], [6.297, 0.9061], [6.297, 1.0498], [2.1937, 1.0498]'      
-...Line # 2 has text content 'Washington, D.C. 20549' within bounding box '[3.4629, 1.1179], [5.031, 1.1179], [5.031, 1.2483], [3.4629, 1.2483]'
-...Line # 3 has text content 'FORM 10-Q' within bounding box '[3.7352, 1.4211], [4.7769, 1.4211], [4.7769, 1.5763], [3.7352, 1.5763]'
-...Line # 4 has text content '☒' within bounding box '[0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]'
-...Line # 5 has text content 'QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF' within bounding box '[0.996, 1.7804], [7.8449, 1.7804], [7.8449, 1.9108], [0.996, 1.9108]'
-
-```
-
-To view the entire output, visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-read-output.md)
 
 ## Layout model
 
@@ -476,6 +372,17 @@ if __name__ == "__main__":
     analyze_layout()
 
 ```
+
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
 
 ### Layout model output
 
@@ -801,6 +708,17 @@ def analyze_invoice():
 if __name__ == "__main__":
     analyze_invoice()
 ```
+
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
 
 ### Prebuilt model output
 
