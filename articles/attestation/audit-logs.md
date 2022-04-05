@@ -31,7 +31,7 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
 ```json
 {  
  "Time": "2021-11-03T19:33:54.3318081Z", 
- "resourceId": "/SUBSCRIPTIONS/F782B158-10B8-4A42-B9E4-F7FBAF769F35/RESOURCEGROUPS/DESCHUMA-MAA-TEST-RG/PROVIDERS/MICROSOFT.ATTESTATION/ATTESTATIONPROVIDERS/DESCHUMATESTRP", 
+ "resourceId": "/SUBSCRIPTIONS/<subscription-Id/RESOURCEGROUPS/<Resource group ID>/PROVIDERS/MICROSOFT.ATTESTATION/ATTESTATIONPROVIDERS/<provider name>", 
  "region": "EastUS", 
  "operationName": "AttestSgxEnclave", 
  "category": "Operational", 
