@@ -11,53 +11,22 @@ ms.author: mbaldwin
 
 ---
 
-# Audit logs for Azure Attestation
+# Azure Attestation logging
 
-Audit logs are secure, immutable, timestamped records of discrete events that happened over time. These logs capture important events that may affect the functionality of your attestation instance.
+If you create one or more Azure Attestation resources, you’ll want to monitor how and when your attestation instance is accessed, and by whom. You can do this by enabling logging for Microsoft Azure Attestation, which saves information in an Azure storage account you provide.  
 
-Azure Attestation manages attestation instances and the policies associated with them. Actions associated with instance management and policy changes are audited and logged.
+Logging information will be available up to 10 minutes after the operation occurred (in most cases, it will be quicker than this). Since you provide the storage account, you can secure your logs via standard Azure access controls and delete logs you no longer want to keep in your storage account. 
 
-This article contains information on the events that are logged, the information collected, and the location of these logs.
+## Interpret your Azure Attestation logs
 
-## About Audit logs
+When logging is enabled, up to three containers may be automatically created for you in your specified storage account:  insights-logs-auditevent, insights-logs-operational, insights-logs-notprocessed. It is recommended to only use insights-logs-operational and insights-logs-notprocessed. insights-logs-auditevent was created to provide early access to logs for customers using VBS. Future enhancements to logging will occur in the insights-logs-operational and insights-logs-notprocessed.  
 
-Azure Attestation uses code to produce audit logs for events that affect the way attestation is performed. This typically boils down to how or when policy changes are made to your attestation instance as well as some admin actions.
+Insights-logs-operational contains generic information across all TEE types. 
 
-### Auditable Events
-Here are some of the audit logs we collect:
+Insights-logs-notprocessed contains requests which the service was unable to process, typically due to malformed HTTP headers, incomplete message bodies, or similar issues.  
 
-|     Event/API                              |     Event Description                                                                         |
-|--------------------------------------------|-----------------------------------------------------------------------------------------------|
-|     Create Instance                        |     Creates a new instance of an attestation service. |
-|     Destroy Instance                       |     Destroys an instance of an attestation service. |
-|     Add Policy Certificate                 |     Addition of a certificate to the current set of policy management certificates. |
-|     Remove Policy Certificate              |     Remove a certificate from the current set of policy management certificates. |
-|     Set Current Policy                     |     Sets the attestation policy for a given TEE type. |
-|     Reset Attestation Policy               |     Resets the attestation policy for a given TEE type. |
-|     Prepare to Update Policy               |     Prepare to update attestation policy for a given TEE type. |
-|     Rehydrate Tenants After Disaster       |     Re-seals all of the attestation tenants on this instance of the attestation service. This can only be performed by Attestation Service admins. |
+Individual blobs are stored as text, formatted as a JSON blob. Let’s look at an example log entry: 
 
-### Collected  information
-For each of these events, Azure Attestation collects the following information:
-
-- Operation Name
-- Operation Success
-- Operation Caller, which could be any of the following:
-    - Azure AD UPN
-    - Object ID
-    - Certificate
-    - Azure AD Tenant ID
-- Operation Target, which could be any of the following:
-    - Environment
-    - Service Region
-    - Service Role
-    - Service Role Instance
-    - Resource ID
-    - Resource Region
-
-### Sample Audit log
-
-Audit logs are provided in JSON format. Here is an example of what an audit log may look like.
 
 ```json
 {
@@ -131,3 +100,19 @@ Audit logs are provided in JSON format. Here is an example of what an audit log 
     "env_cloud_deploymentUnit": null
 }
 ```
+
+Most of these fields are documented in the [Top-level common schema](/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The following table lists the field names and descriptions for the entries not included in the top-level common schema: 
+
+|     Field Name                           |     Description                                                                         |
+|------------------------------------------|-----------------------------------------------------------------------------------------------|
+|     traceContext                        |     JSON blob representing the W3C trace-context |
+|    uri                       |     Request URI  |
+
+The properties contains additional Azure attestation specific context: 
+
+|     Field Name                           |     Description                                                                         |
+|------------------------------------------|-----------------------------------------------------------------------------------------------|
+|     failureResourceId                        |     Resource ID of component which resulted in request failure  |
+|    failureCategory                       |     Broad category indicating category of a request failure. Includes categories such as AzureNetworkingPhysical, AzureAuthorization etc.   |
+|    failureDetails                       |     Detailed information about a request failure, if available   |
+|    infoDataReceived                       |     Information about the request received from the client. Includes some HTTP headers, the number of headers received, the conent type and content length    |
