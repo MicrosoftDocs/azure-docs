@@ -144,7 +144,7 @@ After completing your analysis to determine which source or sources are generati
 
 The following are examples of what changes you can apply to your cluster by modifying the ConfigMap file to help control cost.
 
-1. Disable stdout logs across all namespaces in the cluster by modifying the following in the ConfigMap file:
+1. Disable stdout logs across all namespaces in the cluster by modifying the following in the ConfigMap file for the Azure Container Insights service pulling the metrics:
 
     ```
     [log_collection_settings]       
