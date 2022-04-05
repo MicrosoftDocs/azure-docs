@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -40,7 +40,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
-If you have enabled [Split project data manually toggle](https://docs.microsoft.com/azure/cognitive-services/language-service/custom-classification/how-to/tag-data#tag-your-data) in Tag page, you will see two training options:
+If you have enabled the [**Split project data manually** selection](tag-data.md#tag-your-data) when you were tagging your data, you will see two training options:
 
 * **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
 
