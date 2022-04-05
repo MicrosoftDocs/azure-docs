@@ -113,7 +113,7 @@ Alerts can be configured to send notifications based on metrics and log criteria
 
 :::image type="content" source="media/observability/create-alert-1.png" alt-text="Metrics selection for alerts":::
 
-Alert criteria can be applied to selected container app revisions and replicas.
+Alert criteria is applied to selected container app revisions and replicas.
 
 :::image type="content" source="media/observability/create-alert-2.png" alt-text="Select replica for alert criteria":::
 
