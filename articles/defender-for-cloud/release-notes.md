@@ -22,7 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in April include:
 
 - [New Defender for Servers plans](#new-defender-for-servers-plans)
-- [Guidance change for Azure Cache for Redis recommendation](#guidance-change-for-azure-cache-for-redis-recommendation)
+- [Deprecated the recommendation Azure Cache for Redis recommendation](#deprecated-the-recommendation-azure-cache-for-redis-recommendation)
 
 ### New Defender for Servers plans
 
@@ -37,9 +37,9 @@ If you have been using Defender for Servers until now – no action is required.
  
 In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploy the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
 
-### Guidance change for Azure Cache for Redis recommendation
+### Deprecated the recommendation Azure Cache for Redis recommendation
 
-The guidance for how to secure Azure Cache for Redis is changing. The recommendation `Azure Cache for Redis should reside within a virtual network` has been deprecated.  We now recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. We have many recommendations about using private endpoints;
+The recommendation `Azure Cache for Redis should reside within a virtual network` has been deprecated. The guidance for how to secure Azure Cache for Redis has changed. We now recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. We have many recommendations about using private endpoints;
 
 - [Container registries should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/13e7d036-6903-821c-6018-962938929bf0)
 - [App Configuration should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8318c3a1-fcac-2e1d-9582-50912e5578e5)
