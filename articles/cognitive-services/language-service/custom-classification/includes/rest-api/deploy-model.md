@@ -8,7 +8,7 @@ ms.date: 04/05/2022
 ms.author: aahi
 ---
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploying a text classification model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom text classification model.
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview

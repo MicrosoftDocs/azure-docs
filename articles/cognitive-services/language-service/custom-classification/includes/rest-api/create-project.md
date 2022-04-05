@@ -8,7 +8,7 @@ ms.date: 04/05/2022
 ms.author: aahi
 ---
 
-To start creating a custom classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
+To start creating a custom text classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models.
 
 > [!NOTE]
 > The project name is case-sensitive for all operations.
@@ -75,7 +75,7 @@ For the metadata key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `modelType  `    | Your Model type, for single classification use `singleClassification`.   | multiClassification |
+| `modelType  `    | Your Model type, for single label classification use `singleClassification`.   | multiClassification |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 This request will return an error if:

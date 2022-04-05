@@ -29,7 +29,7 @@ Before you can use custom text classification, you will need to create a Languag
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments. 
+2. In the **Custom named entity recognition (NER) & custom text classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -42,7 +42,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ## Upload sample data to blob container
 
-[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
+[!INCLUDE [Uploading sample data for custom text classification](blob-storage-upload.md)]
 
 ### Get your resource keys and endpoint
 
@@ -64,14 +64,13 @@ Before you can use custom text classification, you will need to create a Languag
 
 [!INCLUDE [deploy a model using the REST API](../rest-api/deploy-model.md)]
 
-### Submit text classification task
+### Submit a custom text classification task
 
 [!INCLUDE [submit a text classification task using the REST API](../rest-api/deploy-model.md)]
 
-### Get the classification task status and results
+### Get the custom text classification task status and results
 
-[!INCLUDE [Get text classification status and results](../rest-api/deploy-model.md)]
-
+[!INCLUDE [Get text classification status and results](../rest-api/get-results.md)]
 
 ## Clean up resources
 

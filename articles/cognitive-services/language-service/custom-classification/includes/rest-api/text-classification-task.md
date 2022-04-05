@@ -1,15 +1,5 @@
----
-author: aahill
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
-ms.topic: include
-ms.date: 04/05/2022
-ms.author: aahi
----
-
 > [!NOTE]
-> The project name is case sensitive.
+> Project names are case sensitive.
 
 Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
@@ -59,7 +49,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |ID|"doc1"|a string document identifier|
 |text|"Lorem ipsum dolor sit amet"| You document in string format|
 |"tasks"|[]| List of tasks we want to perform.|
-|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
+|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for single label classification tasks and `customMultiClassificationTasks` for multi label classification tasks. |
 |parameters|[]|List of parameters to pass to task|
 |project-name| "MyProject"| Your project name. The project name is case-sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
@@ -73,4 +63,4 @@ You will receive a 202 response indicating success. In the response **headers**,
 
  `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
-You will use this endpoint to get the custom classification task results.
+You will use this endpoint in the next step to get the custom text classification task results.
