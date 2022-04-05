@@ -57,19 +57,20 @@ This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-c
 Use `az acr import` to import those images into your ACR.
 
 ```azurecli
-REGISTRY_NAME=<REGISTRY_NAME>
-SOURCE_REGISTRY=k8s.gcr.io
-CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.0.4
-PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v1.1.1
-DEFAULTBACKEND_IMAGE=defaultbackend-amd64
-DEFAULTBACKEND_TAG=1.5
-CERT_MANAGER_REGISTRY=quay.io
-CERT_MANAGER_TAG=v1.5.4
-CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
-CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
-CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
+export REGISTRY_NAME="<REGISTRY_NAME>"
+export SOURCE_REGISTRY="k8s.gcr.io"
+export CONTROLLER_IMAGE="ingress-nginx/controller"
+export CONTROLLER_TAG="v1.0.4"
+export PATCH_IMAGE="ingress-nginx/kube-webhook-certgen"
+export PATCH_TAG="v1.1.1"
+export DEFAULTBACKEND_IMAGE="defaultbackend-amd64"
+export DEFAULTBACKEND_TAG="1.5"
+export CERT_MANAGER_REGISTRY="quay.io"
+export CERT_MANAGER_TAG="v1.5.4"
+export CERT_MANAGER_IMAGE_CONTROLLER="jetstack/cert-manager-controller"
+export CERT_MANAGER_IMAGE_WEBHOOK="jetstack/cert-manager-webhook"
+export CERT_MANAGER_IMAGE_CAINJECTOR="jetstack/cert-manager-cainjector"
+export ACR_URL="<REGISTRY_URL>"
 
 az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
 az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
@@ -100,6 +101,7 @@ $CertManagerTag = "v1.3.1"
 $CertManagerImageController = "jetstack/cert-manager-controller"
 $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
 $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
+$ACR_URL = "<REGISTRY_URL>"
 
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
