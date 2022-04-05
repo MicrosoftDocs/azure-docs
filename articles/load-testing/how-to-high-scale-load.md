@@ -84,7 +84,7 @@ You can increase the default limits and quotas by requesting the increase throug
 
 1. Click on **create a support ticket**.
 
-1. Provide summary of your issue.
+1. Provide a summary of your issue.
 
 1. Select **Issue type** as *Technical*.
 
