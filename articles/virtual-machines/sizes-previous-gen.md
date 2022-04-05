@@ -299,11 +299,9 @@ Premium Storage caching:  Not Supported
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8000  |
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
-| Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
+| Standard_L32s | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
 The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Design for high performance](premium-storage-performance.md).
-
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 
 ### GS-series
 
