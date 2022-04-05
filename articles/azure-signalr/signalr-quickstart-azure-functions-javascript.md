@@ -3,7 +3,7 @@ title: Use JavaScript to create a chat room with Azure Functions and SignalR Ser
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using JavaScript.
 author: vicancy
 ms.author: lianwei
-ms.date: 06/09/2021
+ms.date: 04/04/2022
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
@@ -11,49 +11,40 @@ ms.custom: devx-track-js, mode-api
 ---
 # Quickstart: Use JavaScript to create an App showing GitHub star count with Azure Functions and SignalR Service
 
-Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with JavaScript to broadcast messages to clients.
+ In this quickstart, you'll learn how to use SignalR Service, Azure Functions, and JavaScript to build a serverless application to broadcast messages to clients.
 
 > [!NOTE]
-> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/javascript)
+> You can get all code mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/javascript).
 
 ## Prerequisites
 
-- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 or above. Used to run Azure Function apps locally.
 - [Node.js](https://nodejs.org/en/download/), version 10.x
 
-   > [!NOTE]
-   > The examples should work with other versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) for more information.
+The examples should work with other versions of Node.js, for more information see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
-> [!NOTE]
-> This quickstart can be run on macOS, Windows, or Linux.
+This quickstart can be run on macOS, Windows, or Linux.
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjs).
-
-## Log in to Azure
-
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjs).
+## Create an Azure SignalR Service instance
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjs).
-
-
 ## Setup and run the Azure Function locally
 
-1. Make sure you have Azure Function Core Tools installed. And create an empty directory and navigate to the directory with command line.
+Make sure you have Azure Functions Core Tools installed.
+
+1. Using the command line, create an empty directory and then change to it. Initialize a new project:
 
     ```bash
     # Initialize a function project
     func init --worker-runtime javascript
     ```
 
-2. After you initialize a project, you need to create functions. In this sample, we need to create 3 functions.
+2. After you initialize a project, you need to create functions. In this sample, we will create three functions.
 
-    1. Run the following command to create a `index` function, which will host a web page for client.
+    1. Run the following command to create a `index` function, which will host a web page for clients.
 
         ```bash
         func new -n index -t HttpTrigger
@@ -105,13 +96,13 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
         ```
     
-    2. Create a `negotiate` function for clients to get access token.
+    2. Create a `negotiate` function for clients to get an access token.
     
         ```bash
         func new -n negotiate -t SignalRNegotiateHTTPTrigger
         ```
         
-        Open `negotiate/function.json` and copy the following json codes:
+        Open `negotiate/function.json` and copy the following json code:
     
         ```json
         {
@@ -143,7 +134,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
         ```
     
-    3. Create a `broadcast` function to broadcast messages to all clients. In the sample, we use time trigger to broadcast messages periodically.
+    3. Create a `broadcast` function to broadcast messages to all clients. In the sample, we use a time trigger to broadcast messages periodically.
     
         ```bash
         func new -n broadcast -t TimerTrigger

@@ -12,28 +12,22 @@ ms.custom: devx-track-java, mode-api
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
 
-In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with Java to broadcast messages to clients.
+In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with Java to broadcast messages to clients. You can run the example app on macOS, Windows, or Linux.
 
 > [!NOTE]
-> You can get the code mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java).
+> The code in this article is available on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java).
 
 ## Prerequisites
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Used to run Azure Function apps locally.
-
-   > [!NOTE]
-   > The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
-
-   > [!NOTE]
-   > To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
+  
+  - The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
+  - To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 11
-- [Apache Maven](https://maven.apache.org), version 3.0 or above
-
-> [!NOTE]
-> This quickstart can be run on macOS, Windows, or Linux.
+- [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 ## Create an Azure SignalR Service instance
 
