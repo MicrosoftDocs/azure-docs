@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -33,7 +33,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 2. Select **View model details** from the menu on the left side of the screen.
 
-3. In this page you can only view the sucessfuly trained models. You can click on the model name for more details.
+3. In this page you can only view the successfully trained models. You can click on the model name for more details.
 
 4. You can find the **model-level** evaluation metrics under **Overview**, and the **entity-level** evaluation metrics under **Entity performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**
     

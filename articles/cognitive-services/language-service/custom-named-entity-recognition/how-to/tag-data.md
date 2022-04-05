@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -46,21 +46,23 @@ The precision, consistency and completeness of your tagged data are key factors 
 
 4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down filter.
 
+    :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
 
-:::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
-
-*Section 1*: is where the content of the text file is displayed and tagging takes place. You have [two options for tagging](#tagging-options) your files.
-
-*Section 2*: includes your project's entities and distribution across your files and tags.
-For distribution section, you can **View tag distribution across**:
-
-* Files: View the distribution of files across one single entity.
-* Tags: view the distribution of tags across all files.
-
-:::image type="content" source="../media/distribution-ner.png" alt-text="A screenshot showing the destribution section." lightbox="../media/distribution-ner.png":::
-
-*Section 3*: This is the split project data toggle. You can choose to add a selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.
-
+    In the image above:
+    
+    * *Section 1*: is where the content of the text file is displayed and tagging takes place. You have [two options for tagging](#tagging-options) your files.
+    
+    * *Section 2*: includes your project's entities and distribution across your files and tags.
+    If you click **Distribution**, you can view your tag distribution across:
+        
+        * Files: View the distribution of files across one single entity.
+        * Tags: view the distribution of tags across all files.
+    
+        :::image type="content" source="../media/distribution-ner.png" alt-text="A screenshot showing the distribution section." lightbox="../media/distribution-ner.png":::
+        
+    
+    * *Section 3*: This is the split project data toggle. You can choose to add a selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.
+    
 To add a text file to a training or testing set, simply choose from the radio buttons to which set it belongs.
 
 >[!TIP]

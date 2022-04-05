@@ -39,7 +39,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new training job" lightbox="../media/train-model.png":::
     
-If you have enabled [Split project data manually toggle](tag-data.md) when you were tagging your data, you will see two training options:
+If you have enabled [your project data to be split manually](tag-data.md) when you were tagging your data, you will see two training options:
 
 * **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
 * **Use a manual split**: Assign each document to either the training or testing set, this required first adding files in the test dataset.
