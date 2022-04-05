@@ -129,7 +129,7 @@ To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-
 
 ## Observability throughout the application lifecycle
 
-Container Apps provides continuous monitoring across each phase of your development-to-production life cycle. This monitoring helps to continuously ensure the health, performance, and reliability  of your application as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
+Container Apps provides continuous monitoring across each phase of your development-to-production life cycle. This monitoring helps to ensure the health, performance, and reliability of your application as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
 
 ### Development and Test
 
