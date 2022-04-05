@@ -46,7 +46,7 @@ To complete the remaining steps, make sure you have:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** from the left navigation pane, then type in **Event Grid Partner Registrations** in the search bar, and select it. 
-1. On the **Event Grid Partner Registrations** page, select **+ Create** on the commandbar or **Create Event Grid partner registrations** link on the page. 
+1. On the **Event Grid Partner Registrations** page, select **+ Create** on the command bar or **Create Event Grid partner registrations** link on the page. 
 
     :::image type="content" source="./media/onboard-partner/add-partner-registration-link.png" alt-text="Add partner registration link":::
 1. On the **Create Partner Topic Type Registrations - Basics** page, enter the following information: 
