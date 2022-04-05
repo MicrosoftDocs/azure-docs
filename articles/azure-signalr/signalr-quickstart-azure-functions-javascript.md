@@ -141,7 +141,7 @@ Make sure you have Azure Functions Core Tools installed.
         func new -n broadcast -t TimerTrigger
         ```
   
-        Open *broadcast/function.json* and copy the following codes.
+        Open *broadcast/function.json* and copy the following code:
   
         ```json
         {
@@ -209,7 +209,7 @@ Make sure you have Azure Functions Core Tools installed.
         }
         ```
 
-3. The client interface of this sample is a web page. We read HTML content from `content/index.html` in the `index` function, create a new file named `index.html` in the `content` directory under your project root folder. Copy the following code:
+3. The client interface of this sample is a web page. We read HTML content from *content/index.html* in the `index` function, create a new file named *index.html* in the `content` directory under your project root folder. Copy the following code:
 
     ```html
     <html>
@@ -253,7 +253,7 @@ Make sure you have Azure Functions Core Tools installed.
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
   
-5. Run the Azure Function in local:
+5. Run the Azure function in local host:
 
     ```bash
     func start
@@ -271,8 +271,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Next steps
 
-In this quickstart, you built and ran a real-time serverless application in local. Learn more how to use SignalR Service bindings for Azure Functions.
-Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
+In this quickstart, you built and ran a real-time serverless application in localhost. Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)

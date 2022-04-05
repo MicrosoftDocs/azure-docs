@@ -162,7 +162,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     </dependency>
     ```
 
-1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in the `index` function, and then create a new file *content/index.html* in the `resources` directory. Your directory tree should look like this:
+1. The client interface for this sample is a web page. We read HTML content from *content/index.html* in the `index` function, and then create a new file *content/index.html* in the `resources` directory. Your directory tree should look like this:
 
   ```    nsProject
      | - src
