@@ -107,4 +107,4 @@ For more information about multiple NICs, see [Multiple NICs support](https://gi
 
 Read more about [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
 
-Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md)
+Learn how to manage EFLOW networking [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
