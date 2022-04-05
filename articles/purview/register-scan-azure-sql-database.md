@@ -95,8 +95,8 @@ It's important to register the data source in Azure Purview before setting up a 
 
 If your database server has a firewall enabled, you'll need to update the firewall to allow access in one of two ways:
 
-1. Allow Azure connections through the firewall.
-1. Install a Self-Hosted Integration Runtime and give it access through the firewall.
+1. [Allow Azure connections through the firewall](#allow-azure-connections).
+1. [Install a Self-Hosted Integration Runtime and give it access through the firewall](#self-hosted-integration-runtime).
 
 #### Allow Azure Connections
 
@@ -139,7 +139,7 @@ Select your method of authentication from the tabs below for steps to authentica
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Azure Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
+1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign-in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal.
 
@@ -234,7 +234,7 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Navigate to your key vault in the Azure portal
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for for Service Principal.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for Service Principal.":::
 
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
@@ -258,7 +258,7 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Then, [create a new credential](manage-credentials.md#create-a-new-credential).
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="Screenshot that shows the key vault option to add a credentials for Service Principal.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="Screenshot that shows the key vault option to add a credential for Service Principal.":::
 
 1. The **Service Principal ID** will be the **Application ID** of your service principal. The **Secret name** will be the name of the secret you created in the previous steps.
 

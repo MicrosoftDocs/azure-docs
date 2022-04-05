@@ -65,7 +65,7 @@ To get started, you'll need:
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -80,7 +80,7 @@ To get started, you'll need:
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
 
 - Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 ::: zone-end

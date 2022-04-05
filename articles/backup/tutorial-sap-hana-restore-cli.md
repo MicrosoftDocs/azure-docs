@@ -340,6 +340,9 @@ Typically, a network share path, or path of a mounted Azure file share when spec
 
 Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential and incremental).
 
+>[!Note]
+>If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
+
 Move these restored files to the SAP HANA server where you want to restore them as a database. Then follow these steps to restore the database:
 
 1. Set permissions on the folder / directory where the backup files are stored using the following command:
