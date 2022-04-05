@@ -272,7 +272,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 -----
 ### Setup Group Call or Teams Meeting Options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
+Depending on what type of Call/Meeting you would like to set up, use the appropriate options object.
 
 ### Group Call
 
