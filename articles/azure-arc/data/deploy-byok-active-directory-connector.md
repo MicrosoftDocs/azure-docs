@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
-description: Tutorial to deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
+title: Tutorial – Deploy a bring your own keytab (BYOK) Active Directory (AD) connector
+description: Tutorial to deploy a bring your own keytab (BYOK) Active Directory (AD) connector
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,11 @@ ms.date: 04/05/2022
 ms.topic: how-to
 ---
 
-# Tutorial – Deploy a Bring your own keytab (BYOK) Active Directory (AD) Connector
+# Tutorial – Deploy a bring your own keytab (BYOK) Active Directory (AD) connector
 
-This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) integration mode.
+This article explains how to deploy an automatic Active Directory (AD) connector custom resource. It is a key component to enable the Azure Arc-enabled SQL Managed Instance with Active Directory. It applies to both integration modes (bring your own keytab (BYOK) or automatic).
+
+>>>>This article explains how to deploy an automatic Active Directory (AD) connector custom resource. It is a key component to enable the Azure Arc-enabled SQL Managed Instance with Active Directory. It applies to either integration mode (bring your own keytab (BYOK) or automatic).
 
 ## Prerequisites
 
@@ -22,7 +24,7 @@ Before you proceed, you must have:
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
 
-The following instructions expect that the users can bring in the Active Directory domain and provide to the AD Bring your own keytab (BYOK) deployment.
+The following instructions expect that the users can bring in the Active Directory domain and provide to the AD bring your own keytab (BYOK) deployment.
 
 * An Active Directory user account for the SQL Managed Instance
 * Service Principal Names (SPNs) under the user account
@@ -96,16 +98,16 @@ The following instructions expect that the users can bring in the Active Directo
    SQL Server will use this file as its credential against Active Directory.
 
    There are multiple tools available to generate a keytab file.
-   - **`ktutil`**: This tool is available on Linux
-   - **`ktpass`**: This tool is available on Windows
-   - **`adutil`**: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+   - `ktutil`: This tool is available on Linux
+   - `ktpass`: This tool is available on Windows
+   - `adutil`: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
    To generate the keytab file specifically for SQL Managed Instance, use a bash shell script we have published. It wraps `ktutil` and `adutil` together. It is for use on Linux.
 
    A bash script works on Linux-based OS can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
    A PowerShell script works on Windows server based OS can be found here: [create-sql-keytab.ps1](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.ps1).
 
-   This script accepts several parameters and will output a keytab file and a yaml spec file for the Kubernetes secret containing the keytab.
+   This script accepts several parameters and will output a keytab file and a yaml specification file for the Kubernetes secret containing the keytab.
 
    Use the following command to run the script after replacing the parameter values with the ones for your SQL Managed Instance deployment.
 
@@ -114,13 +116,13 @@ The following instructions expect that the users can bring in the Active Directo
    ```
 
    The input parameters are expecting the following values : 
-   * **--realm** expects the uppercase of the AD domain, such as CONTOSO.LOCAL
-   * **--account** expects the AD account under where the SPNs are registered, such sqlmi-account
-   * **--port** expects the SQL endpoint port number 31433
-   * **--dns-name** expects the DNS name for the SQL endpoint
-   * **--keytab-file** expects the path to the keytab file
-   * **--secret-name** expects the name of the keytab secret to generate a spec for
-   * **--secret-namespace** expects the Kubernetes namespace containing the keytab secret
+   * `--realm` expects the uppercase of the AD domain, such as CONTOSO.LOCAL
+   * `--account` expects the AD account under where the SPNs are registered, such sqlmi-account
+   * `--port` expects the SQL endpoint port number 31433
+   * `--dns-name` expects the DNS name for the SQL endpoint
+   * `--keytab-file` expects the path to the keytab file
+   * `--secret-name` expects the name of the keytab secret to generate a specification for
+   * `--secret-namespace` expects the Kubernetes namespace containing the keytab secret
 
    Using the examples chosen in this document, the command should look like the following.
 
@@ -138,8 +140,8 @@ The following instructions expect that the users can bring in the Active Directo
 
 ## Deploy Kubernetes secret for the keytab
 
-Use the Kubernetes secret spec file generated in the previous step to deploy the secret.
-The spec file should look like the following:
+Use the Kubernetes secret specification file generated in the previous step to deploy the secret.
+The specification file should look like the following:
 
 ```yaml
 apiVersion: v1
@@ -158,7 +160,7 @@ Deploy the Kubernetes secret with `kubectl apply -f <file>`. For example:
 kubectl apply –f sqlmi-keytab-secret.yaml
 ```
 
-## Active directory (AD) Bring your own keytab (BYOK) integration mode
+## Active directory (AD) bring your own keytab (BYOK) integration mode
 
 The following are the steps for user to set up:
 1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
@@ -172,7 +174,7 @@ An Active Directory Connector instance stores the information needed to enable c
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
 
-The following diagram Active Directory Connector and SQL Managed Instance describes how the AD Bring your own keytab (BYOK) integration mode works : 
+The following diagram Active Directory Connector and SQL Managed Instance describes how the AD bring your own keytab (BYOK) integration mode works : 
 
 ![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
 
@@ -180,7 +182,7 @@ The following diagram Active Directory Connector and SQL Managed Instance descri
 
 To deploy an instance of Active Directory Connector, several inputs are needed from the Active Directory domain environment.
 
-These inputs are provided in a YAML spec of AD Connector instance.
+These inputs are provided in a YAML specification of AD Connector instance.
 
 Following metadata about the AD domain must be available before deploying an instance of AD Connector:
 * Name of the Active Directory domain
@@ -191,21 +193,24 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
 - **Required**
 
-   - **spec.activeDirectory.realm**
+   - `spec.activeDirectory.realm`
      Name of the Active Directory domain in uppercase. This is the AD domain that this instance of AD Connector will be associated with.
 
-   - **spec.activeDirectory.domainControllers.primaryDomainController.hostname**
-      Fully-qualified domain name of the Primary Domain Controller (PDC) in the AD domain.
+   - `spec.activeDirectory.domainControllers.primaryDomainController.hostname`
+      Fully-qualified domain name of the primary domain controller in the AD domain.
 
-      If you do not know which domain controller in the domain is primary, you can find out by running this command on any Windows machine joined to the AD domain: `netdom query fsmo`.
+      To identify the primary domain controller, run this command on any Windows machine joined to the AD domain:
+
+      ```console
+      netdom query fsmo
+      ```
    
-   - **spec.activeDirectory.dns.nameserverIpAddresses**
+   - `spec.activeDirectory.dns.nameserverIpAddresses`
       List of Active Directory DNS server IP addresses. DNS proxy service will forward DNS queries in the provided domain name to these servers.
-
 
 - **Optional**
 
-   - **spec.activeDirectory.netbiosDomainName**
+   - `spec.activeDirectory.netbiosDomainName`
       NETBIOS name of the Active Directory domain. This is the short domain name that represents the Active Directory domain.
 
       This is often used to qualify accounts in the AD domain. e.g. if the accounts in the domain are referred to as CONTOSO\admin, then CONTOSO is the NETBIOS domain name.
@@ -214,24 +219,24 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
       In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
-  - **spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname** 
+  - `spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname` 
       List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
 
       If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
 
       This field is optional and not needed if your domain is served by only one domain controller.
 
-  - **spec.activeDirectory.dns.domainName** 
+  - `spec.activeDirectory.dns.domainName` 
       DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
 
       A DNS lookup for any name belonging to this domain or its descendant domains will get forwarded to Active Directory.
 
       This field is optional. When not provided, it defaults to the value provided for `spec.activeDirectory.realm` converted to lowercase.
 
-  - **spec.activeDirectory.dns.replicas** 
+  - `spec.activeDirectory.dns.replicas` 
       Replica count for DNS proxy service. This field is optional and defaults to 1 when not provided.
 
-  - **spec.activeDirectory.dns.preferK8sDnsForPtrLookups**
+  - `spec.activeDirectory.dns.preferK8sDnsForPtrLookups`
       Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
 
       DNS proxy service relies on this field to determine which upstream group of DNS servers to prefer for IP address lookups.
@@ -241,10 +246,11 @@ Following input fields are exposed to the users in the Active Directory Connecto
       If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
 
 
-## Deploy a Bring your own keytab (BYOK) Active Directory (AD) connector
-To deploy an AD connector, create a YAML spec file called `active-directory-connector.yaml`.
+## Deploy a bring your own keytab (BYOK) Active Directory (AD) connector
 
-The following example is an example of a Bring your own keytab (BYOK) AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain.
+To deploy an AD connector, create a .yaml specification file called `active-directory-connector.yaml`.
+
+The following example is an example of a bring your own keytab (BYOK) AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain.
 
 ```yaml
 apiVersion: arcdata.microsoft.com/v1beta1

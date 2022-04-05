@@ -12,9 +12,9 @@ ms.topic: how-to
 ---
 
 
-# Tutorial – Deploy an Automatic Active Directory (AD) Connector
+# Tutorial – deploy an automatic Active Directory (AD) connector
 
-This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) integration mode.
+This article explains how to deploy an automatic Active Directory (AD) connector custom resource. It is a key component to enable the Azure Arc-enabled SQL Managed Instance with Active Directory. It applies to either integration mode (bring your own keytab (BYOK) or automatic).
 
 ## Prerequisites
 
@@ -25,9 +25,10 @@ Before you proceed, you must have:
 * A pre-created organizational unit (OU) in the Active Directory
 * An Domain service AD account
 
-Note that the AD domain service account should have suffcient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
+The AD domain service account should have sufficient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 
-The sufficient permission including the following : 
+The sufficient permission including the following:
+ 
 - Read all properties
 - Write all properties
 - Create Computer objects
@@ -37,42 +38,40 @@ The sufficient permission including the following :
 - Create User objects
 - Delete User objects
 
-## Input for deploying an Automatic Active Directory (AD) Connector
+## Input for deploying an automatic Active Directory (AD) connector
 
-To deploy an instance of Active Directory Connector, several inputs are needed from the Active Directory domain environment.
+To deploy an instance of Active Directory connector, several inputs are needed from the Active Directory domain environment.
 
-These inputs are provided in a YAML spec of AD Connector instance.
+These inputs are provided in a .yaml specification for an AD connector instance.
 
-Following metadata about the AD domain must be available before deploying an instance of AD Connector:
+The following metadata about the AD domain must be available before deploying an instance of AD connector:
+
 * Name of the Active Directory domain
 * List of the domain controllers (fully-qualified domain names)
 * List of the DNS server IP addresses
 
-Following input fields are exposed to the users in the Active Directory Connector spec:
+The following input fields are exposed to the users in the Active Directory Connector specification:
 
 - **Required**
-
-   - **spec.activeDirectory.realm**
+   - `spec.activeDirectory.realm`
      Name of the Active Directory domain in uppercase. This is the AD domain that this instance of AD Connector will be associated with.
 
-   - **spec.activeDirectory.domainControllers.primaryDomainController.hostname**
+   - `spec.activeDirectory.domainControllers.primaryDomainController.hostname`
       Fully-qualified domain name of the Primary Domain Controller (PDC) in the AD domain.
 
       If you do not know which domain controller in the domain is primary, you can find out by running this command on any Windows machine joined to the AD domain: `netdom query fsmo`.
    
-   - **spec.activeDirectory.dns.nameserverIpAddresses**
+   - `spec.activeDirectory.dns.nameserverIpAddresses`
       List of Active Directory DNS server IP addresses. DNS proxy service will forward DNS queries in the provided domain name to these servers.
 
-
 - **Optional**
+  - `spec.activeDirectory.serviceAccountProvisioning` This is an optional field defines your AD connector deployment mode with possible value `bring your own keytab (BYOK)` or `automatic`. This field indicating whether the service account provisioning including SPN and keytab generation should be automatic or bring your own keytab (BYOK). The default is bring your own keytab (BYOK). When set to bring your own keytab (BYOK), the system will not take care of AD service account generation, SPN registration and keytab generation. When set to automatic, the service AD account is automatically generated and SPNs are registered on that account. A keytab file is generated then transported to SQL Managed Instance. 
 
-  - **spec.activeDirectory.serviceAccountProvisioning** This is an optional field defines your AD connector deployment mode with possible value Bring your own keytab (BYOK) or automatic. This field indicating whether the service account provisioning including SPN and keytab generation should be automatic or Bring your own keytab (BYOK). Once it sets to automatic, the service AD account is automatically generated and set SPNs on that account, and a keytab file is generated then transport to SQL Managed instance. In case it sets to Bring your own keytab (BYOK) which is the default value, the system will not take care of AD service account generation, SPN registration and keytab generation. 
+  - `spec.activeDirectory.ouDistinguishedName` This is an optional field. Though it becomes conditionally mandatory when the value of `serviceAccountProvisioning` is set to `automatic`. This field accepts the Distinguished Name (DN) of an Organizational Unit (OU) that the users must create in Active Directory domain before deploying AD Connector. It stores the system-generated AD accounts in active directory for AD LDAP server. The example of the value would look like: `OU=arcou,DC=contoso,DC=local`.
 
-  - **spec.activeDirectory.ouDistinguishedName** This is an optional field. Though it becomes conditionally mandatory when the value of **serviceAccountProvisioning** is set to automatic. This field accepts the Distinguished Name (DN) of an Organizational Unit (OU) that the users must create in Active Directory domain before deploying AD Connector. It stores the system-generated AD accounts in active directory for AD LDAP server. The example of the value would look as follows : "OU=arcou,DC=contoso,DC=local"
+  - `spec.activeDirectory.domainServiceAccountSecret` This is an optional field. it becomes conditionally mandatory when the value of `serviceAccountProvisioning` is set to automatic. This field accepts a name of the Kubernetes secret that contains the username and password of the service Domain Service Account that was created prior to the AD deployment, the Security Support Service will use it to generate other AD users in the OU and perform actions on those AD accounts.
 
-  - **spec.activeDirectory.domainServiceAccountSecret** This is an optional field. it becomes conditionally mandatory when the value of **serviceAccountProvisioning** is set to automatic. This field accepts a name of the Kubernetes secret that contains the username and password of the service Domain Service Account that was created prior to the AD deployment, the Security Support Service will use it to generate other AD users in the OU and perform actions on those AD accounts.
-
-   - **spec.activeDirectory.netbiosDomainName**
+   - `spec.activeDirectory.netbiosDomainName`
       NETBIOS name of the Active Directory domain. This is the short domain name that represents the Active Directory domain.
 
       This is often used to qualify accounts in the AD domain. e.g. if the accounts in the domain are referred to as CONTOSO\admin, then CONTOSO is the NETBIOS domain name.
@@ -81,24 +80,24 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
       In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
-  - **spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname** 
+  - `spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname` 
       List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
 
       If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
 
       This field is optional and not needed if your domain is served by only one domain controller.
 
-  - **spec.activeDirectory.dns.domainName** 
+  - `spec.activeDirectory.dns.domainName` 
       DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
 
       A DNS lookup for any name belonging to this domain or its descendant domains will get forwarded to Active Directory.
 
       This field is optional. When not provided, it defaults to the value provided for `spec.activeDirectory.realm` converted to lowercase.
 
-  - **spec.activeDirectory.dns.replicas** 
+  - `spec.activeDirectory.dns.replicas` 
       Replica count for DNS proxy service. This field is optional and defaults to 1 when not provided.
 
-  - **spec.activeDirectory.dns.preferK8sDnsForPtrLookups**
+  - `spec.activeDirectory.dns.preferK8sDnsForPtrLookups`
       Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
 
       DNS proxy service relies on this field to determine which upstream group of DNS servers to prefer for IP address lookups.
@@ -107,14 +106,14 @@ Following input fields are exposed to the users in the Active Directory Connecto
 
       If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
 
-
 ## Deploy an Automatic Active Directory (AD) connector
-To deploy an AD connector, create a YAML spec file called `active-directory-connector.yaml`.
+
+To deploy an AD connector, create a YAML specification file called `active-directory-connector.yaml`.
 
 The following example is an example of an Automatic AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain. The `adarc-dsa-secret` contains the AD domain service account that was created prior to the AD deployment. 
 
 > [!NOTE]
-Make sure the password of provided domain service AD acccount here  doesn't contain '!' as special characaters. 
+> Make sure the password of provided domain service AD acccount here  doesn't contain `!` as special characters. 
 > 
 
 ```yaml
@@ -159,7 +158,7 @@ The following command deploys the AD connector instance. Currently, only kube-na
 kubectl apply –f active-directory-connector.yaml
 ```
 
-After submitting the deployment of AD Connector instance, you may check the status of the deployment using the following command.
+After submitting the deployment for the AD connector instance, you may check the status of the deployment using the following command.
 
 ```console
 kubectl get adc -n <namespace>
@@ -169,4 +168,3 @@ kubectl get adc -n <namespace>
 * [Deploy an Bring your own keytab (BYOK) Active Directory (AD) connector](deploy-byok-active-directory-connector.md)
 * [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
-
