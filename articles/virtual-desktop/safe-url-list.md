@@ -90,7 +90,8 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 >
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
-### Azure Gov
+### Azure government cloud
+
 The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure Government cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
