@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a full Azure Private 5G Core deployment - ARM template
+    href: create-a-full-private-5g-core-deployment-arm-template.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
