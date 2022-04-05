@@ -39,25 +39,25 @@ This article uses a GitHub repository as the source to import code into a Bitbuc
 1. Under the *Old repository* label, in the *URL* box, enter the repository URL for your choice of framework.
 
     # [No Framework](#tab/vanilla-javascript)
-    
+
     [https://github.com/staticwebdev/vanilla-basic.git](https://github.com/staticwebdev/vanilla-basic.git)
-    
+
     # [Angular](#tab/angular)
-    
+
     [https://github.com/staticwebdev/angular-basic.git](https://github.com/staticwebdev/angular-basic.git)
-    
+
     # [Blazor](#tab/blazor)
-    
+
     [https://github.com/staticwebdev/blazor-basic.git](https://github.com/staticwebdev/blazor-basic.git)
-    
+
     # [React](#tab/react)
-    
+
     [https://github.com/staticwebdev/react-basic.git](https://github.com/staticwebdev/react-basic.git)
-    
+
     # [Vue](#tab/vue)
-    
+
     [https://github.com/staticwebdev/vue-basic.git](https://github.com/staticwebdev/vue-basic.git)
-    
+
     ---
 
 1. Next to the *Project* label, select **Create new project**.
