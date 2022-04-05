@@ -5,17 +5,17 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 04/05/2022
 ---
 
 # Dapr integration with Azure Container Apps (preview)
 
-When building a microservices or distributed application, you may encounter common patterns and challenges, like how you: 
+When building a microservice application, you may encounter common patterns and challenges, like how you: 
 
 - Integrate external systems with your application.
 - Create applications that reliably send events between services.
 - Handle secure resilient communication between services.
-- Discover other services and call methods on them.
+- Discover other services.
 
 For example, you may want to apply the pub/sub pattern to handle distributed communication without implementing resource-specific SDKs or libraries in your Container App.  
 
@@ -23,7 +23,7 @@ Thanks to Distributed Application Runtime ([Dapr][dapr-concepts]), you can simpl
 
 ## How Dapr works in Container Apps
 
-Dapr is a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container App. Dapr exposes these APIs, or building blocks, to your Container App as a sidecar. 
+In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps. Dapr exposes these APIs, or building blocks, to your Container Apps as a sidecar. 
 
 ### Dapr building blocks available to Container Apps
 
@@ -45,7 +45,7 @@ Dapr's portable building blocks are built on best practice industry standards, t
 
 ### Dapr settings in Container Apps
 
-#### Environment-level
+#### Container App environment level
 
 **Dapr components**
 
@@ -73,25 +73,16 @@ ARM
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
 
-**Dapr scopes**
-
 By default, the Dapr component will make itself available to all container apps in your environment. To maintain application speed and efficiency, we recommend adding application scopes to the Dapr component. 
 
 Scope the Dapr component to a particular container app by adding the `scope` array to your component definition. 
 
-#### Application-level
+#### Container App level
 
 **Dapr settings**
 
-Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With these settings, you:
+Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
 
-- Enable Dapr on the app.
-- Scope the `app-id`, the `app-protocol`, and the `app-port` to the app.
-
-Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
-
-> [!NOTE]
-> Setting ACL policies on the Dapr sidecar configuration is currently not supported.
 
 # [YAML](#tab/yaml)
 
@@ -99,13 +90,33 @@ yaml
 
 # [Bicep](#tab/bicep)
 
-bicep
+```bicep
+dapr: {
+      enabled: true
+      appPort: 3000
+      appProtocol: 'http'
+      appId: 'nodeapp'
+    }
+```
+
+| Field | Description |
+| ----- | ----------- |
+| `enabled` | Enable Dapr at the container app level. |
+| `appPort` |  |
+| `appProtocol` | Enter either `http` or `grpc`. |
+| `appId` | Your container app's unique identifier. |
+
 
 # [ARM](#tab/arm)
 
 ARM
 
 ---
+
+Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
+
+> [!NOTE]
+> Setting ACL policies on the Dapr sidecar configuration is currently not supported.
 
 ### Current supported Dapr version
 
