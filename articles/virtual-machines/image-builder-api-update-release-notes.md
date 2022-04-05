@@ -76,7 +76,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 ### February 2020
 
-Swagger: https://msazure.visualstudio.com/One/_git/Compute-AzLinux-ImageBuilderRp?version=GBdevelop&path=/swagger/api/2020-02-14/imagebuilder.json
+Swagger: https://msazure.visualstudio.com/One/_git/Compute-AzLinux-ImageBuilderRp?version=GBdevelop&path=/swagger/api/2020-02-14/imagebuilder.json <!-- Clarification needed on this link. -->
 
 **Improvements:**
 
@@ -102,4 +102,4 @@ Swagger: https://msazure.visualstudio.com/One/_git/Compute-AzLinux-ImageBuilderR
 
 ### November 2021
 
-Added support for Gen2 images. Learn more here: https://docs.microsoft.com/azure/virtual-machines/image-builder-overview#hyper-v-generation
+Added support for [Gen2 images.](https://docs.microsoft.com/azure/virtual-machines/image-builder-overview#hyper-v-generation)
