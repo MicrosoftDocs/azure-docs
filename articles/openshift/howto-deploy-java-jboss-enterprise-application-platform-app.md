@@ -12,9 +12,9 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy a Java application with Red Hat JBoss Enterprise Application Platform on an Azure Red Hat OpenShift 4 cluster
 
-This guide demonstrates how to deploy a Microsoft SQL Server database driven Jakarta EE application, running on Red Hat JBoss Enterprise Application Platform (JBoss EAP) to an Azure Red Hat OpenShift (ARO) 4 cluster by using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
+This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (JBoss EAP) app to an Azure Red Hat OpenShift (ARO) 4 cluster. The application is a Jakarta EE application that uses Microsoft SQL server database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
-The guide takes a traditional Jakarta EE application and walks you through the process of migrating it to a container orchestrator such as Azure Red Hat OpenShift. First, it describes how you can package your application as a [Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_xp_3.0.0/the-bootable-jar_default) to run it locally. Finally, it shows you how you can deploy on OpenShift three replicas of the JBoss EAP application by using Helm Charts.
+The guide takes a traditional Jakarta EE application and walks you through the process of migrating it to a container orchestrator such as Azure Red Hat OpenShift. First, it describes how you can package your application as a [Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_xp_3.0.0/the-bootable-jar_default) to run it locally. Finally, it shows you how you can deploy on OpenShift with three replicas of the JBoss EAP application by using Helm Charts.
 
 The application is a stateful application that stores information in an HTTP Session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE 8 and MicroProfile 4.0 technologies:
 
@@ -24,7 +24,7 @@ The application is a stateful application that stores information in an HTTP Ses
 * MicroProfile Health
 
 > [!IMPORTANT]
-> This article assumes you have access a Microsoft SQL Server server running on a Linux container on Red Hat OpenShift. Before choosing to run a SQL Server container for production use cases, please review the [support policy for SQL Server Containers](https://support.microsoft.com/help/4047326/support-policy-for-microsoft-sql-server) to ensure that you are running on a supported configuration.
+> This article assumes you have access a Microsoft SQL Server instance accessible to your ARO cluster. Please review the [support policy for SQL Server Containers](https://support.microsoft.com/help/4047326/support-policy-for-microsoft-sql-server) to ensure that you are running on a supported configuration.
 
 > [!IMPORTANT]
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
@@ -77,7 +77,7 @@ The application is a stateful application that stores information in an HTTP Ses
 
 ## Prepare the application
 
-At this stage, you have cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Jakarta EE 8 application that creates, reads, updates, and deletes records on a Microsoft SQL Server. This application can be deployed as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server available in your local environment.
+At this stage, you have cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Jakarta EE 8 application that creates, reads, updates, and deletes records on a Microsoft SQL Server. This application can be deployed as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
 
 However, when you are targeting OpenShift, you might want to trim the capabilities of your JBoss EAP server. For example, to reduce the security exposure of the provisioned server and reduce the overall footprint. You might also want to include some MicroProfile specs to make your application more suitable for running on an OpenShift environment. When using JBoss EAP, one way to accomplish this is by packaging your application and your server in a single deployment unit known as a Bootable JAR. Let's do that by adding the required changes to our demo application.
 
@@ -91,17 +91,26 @@ $
 
 Let's do a quick review about what we have changed:
 
-- We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit will be now our server with our application.
-- On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Gallean, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
-- Our application uses Jakarta Faces with Ajax requests, which means there will be information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml` that together with the server clustering capabilities will make the HTTP Session distributable across all pods.
-- We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
+* We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
+* On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
+* Our application uses Jakarta Faces with Ajax requests, which means there will be information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities will make the HTTP Session distributable across all pods.
+* We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
 
 ## Run the application locally
 
-Before deploying the application on OpenShift, we are going to run it locally to verify how it works. The following steps assume you have a Microsoft SQL Server running and available on your local environment, and you have created a database by using the following information:
+Before deploying the application on OpenShift, we are going to run it locally to verify how it works. The following steps assume you have a Microsoft SQL Server running and available from your local environment. This database must be created using the following information:
 
-- Database name: `todos_db`
-- SA password: `Passw0rd!`
+* Database name: `todos_db`
+* SA password: `Passw0rd!`
+
+To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
+
+* For **Database name** use `todos_db`.
+* For **Password** use `Passw0rd!`.
+
+On the **Additional settings** page, you don't have to choose the option to pre-populate the database with sample data, but there is no harm in doing so.
+
+Once the database has been created with the above database name and password, obtain the value for the `MSSQLSERVER_HOST` from the overview page for the database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this aside for use later.
 
 Follow the next steps to build and run the application locally.
 
@@ -119,7 +128,7 @@ Follow the next steps to build and run the application locally.
     MSSQLSERVER_PASSWORD=Passw0rd! \
     MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds \
     MSSQLSERVER_DATABASE=todos_db \
-    MSSQLSERVER_HOST=localhost \
+    MSSQLSERVER_HOST=<server name saved aside earlier> \
     MSSQLSERVER_PORT=1433 \
     mvn wildfly-jar:run
     ```
@@ -133,7 +142,7 @@ Follow the next steps to build and run the application locally.
     MSSQLSERVER_PASSWORD=Passw0rd! \
     MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds \
     MSSQLSERVER_DATABASE=todos_db \
-    MSSQLSERVER_HOST=localhost \
+    MSSQLSERVER_HOST=<server name saved aside earlier> \
     MSSQLSERVER_PORT=1433 \
     mvn wildfly-jar:run -Dwildfly.bootable.arguments="-Djboss.node.name=node2 -Djboss.socket.binding.port-offset=1000"
     ```
