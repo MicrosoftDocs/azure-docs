@@ -55,12 +55,15 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 >
 > In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), the case may be closed. Where possible, we will also provide recommendations and guidance on remediation. We therefore recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above. 
 
+>[!WARNING]
+> Azure Managed Instance for Apache Cassandra also let's you run `nodetool` and `sstable` commands for routine DBA administration - see article [here](dba-commands.md). Some of these commands can destabilize the cassandra cluster and should only be run carefully and after being tested in non-production environments. Where possible, a `--dry-run` option should be deployed first. Microsoft cannot offer any SLA or support on issues with running commands which alter the default database configuration and/or tables.
+
 ## Backup and restore
 
 Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There is no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
-> Backups are restored to new clusters only. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md). 
+> Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md). 
 
 ## Security
 
@@ -72,6 +75,8 @@ Azure Managed Instance for Apache Cassandra provides many built-in explicit secu
 * Active vulnerability scanning.
 * Active virus scanning.
 * Secure coding practices.
+
+For more information on security features, see our article [here](security.md).
 
 ## Hybrid support
 

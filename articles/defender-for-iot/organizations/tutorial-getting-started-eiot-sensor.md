@@ -46,17 +46,17 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
 **To set up a server, or VM**:
 
-1. Ensure the minimum resources are set to:
+1. Ensure that your resources are set to one of the following specifications:
 
-    * 4C CPU
-
-    * 8-GB ram
-
-    * 250 GB HDD
-
-    * Two Network Adapters
-
-    * OS: Ubuntu 18.04
+    | Tier | Requirements |
+    |--|--|
+    | **Minimum** | To support at least 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16 GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32 GB RAM of DDR4 or better<br>- 500 GB HDD |
+   
+    Make sure that your server or VM also has:
+   
+    * Two network adapters
+    * Ubuntu 18.04 operating system.
 
 1. Connect a NIC to a switch.
 
@@ -96,9 +96,9 @@ The environment will now have to be prepared.
 
     * **Storage**: *.blob.core.windows.net
 
-    * **IoT Hub**: *.azure-devices.net
-
     * **Download Center**: download.microsoft.com
+
+    * **IoT Hub**: *.azure-devices.net
 
 You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall will allow the Azure resources that are specified above along with their region.
 

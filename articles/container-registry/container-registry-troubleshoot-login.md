@@ -33,11 +33,11 @@ May include one or more of the following:
 
 ## Further diagnosis 
 
-Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using the registry with Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+If you're experiencing problems using the registry with Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
 
 > [!NOTE]
 > Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
@@ -61,7 +61,7 @@ When using `docker login`, provide the full login server name of the registry, s
 docker login myregistry.azurecr.io
 ```
 
-When using [az acr login](/cli/azure/acr#az_acr_login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
+When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
 ```azurecli
 az acr login --name myregistry
@@ -91,7 +91,7 @@ Related links:
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Login with admin account](container-registry-authentication.md#admin-account)
 * [Azure AD authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
-* [az acr login](/cli/azure/acr#az_acr_login) reference
+* [az acr login](/cli/azure/acr#az-acr-login) reference
 
 ### Confirm credentials are authorized to access registry
 
@@ -122,7 +122,7 @@ Tokens and Active Directory credentials may expire after defined periods, preven
 
 Related links:
 
-* [Reset service principal credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset)
+* [Reset service principal credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
 * [Regenerate token passwords](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 

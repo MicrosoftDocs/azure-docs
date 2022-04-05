@@ -89,12 +89,21 @@ Available regions for speaker recognition are in the following table.
 | Americas     | West Central US  | `westcentralus`  |
 | Americas     | West US  | `westus`  |
 | Americas     | West US 2  | `westus2`  |
+| Americas     | West US 3  | `westus3`  |
 | Asia Pacific  | East Asia   | `eastasia` |
 | Asia Pacific  | Southeast Asia   | `southeastasia` |
 | Asia Pacific  | Central India   | `centralindia` |
+| Asia Pacific  | Japan East   | `japaneast` |
+| Asia Pacific  | Japan West   | `japanwest` |
+| Asia Pacific  | Korea Central   | `koreacentral` |
 | Australia     | Australia East   | `australiaeast` |
+| Canada     | Canada Central   | `canadacentral` |
 | Europe     | North Europe   | `northeurope` |
 | Europe     | West Europe   | `westeurope` |
+| Europe     | France Central   | `francecentral` |
+| Europe     | Germany West Central   | `germanywestcentral` |
+| Europe     | Norway East   | `norwayeast` |
+| Europe     | Switzerland West   | `switzerlandwest` |
 | Europe     | UK South   | `uksouth` |
 
 ### Keyword recognition

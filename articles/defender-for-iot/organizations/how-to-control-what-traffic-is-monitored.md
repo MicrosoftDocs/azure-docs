@@ -258,7 +258,9 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 1. When the scan is finished, select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
-## See also
+## Next steps
 
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-[Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
+For more information, see:
+
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

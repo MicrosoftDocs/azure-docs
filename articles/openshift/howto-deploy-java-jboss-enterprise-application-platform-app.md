@@ -47,7 +47,7 @@ The application is a stateful application that stores information in an HTTP Ses
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
-   * [Azure CLI to create a cluster](/cli/azure/aro#az_aro_create)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
    * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
 
 1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](./tutorial-connect-cluster.md).

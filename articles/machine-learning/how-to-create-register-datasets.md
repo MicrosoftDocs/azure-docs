@@ -296,7 +296,7 @@ partition_keys = new_dataset.partition_keys # ['country']
 
 After you're done wrangling your data, you can [register](#register-datasets) your dataset, and then load it into your notebook for data exploration prior to model training.
 
-For FileDatasets, you can either **mount** or **download** your dataset, and apply the python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
+For FileDatasets, you can either **mount** or **download** your dataset, and apply the Python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
 ```python
 # download the dataset 

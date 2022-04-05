@@ -22,7 +22,7 @@ Before you begin scanning, create a firewall rule that allows outgoing traffic f
 
 ## Set up scanning
 
-1. In Defender for Cloud select **System Settings**.
+1. In Defender for IoT select **System Settings**.
 1. Under **Network monitoring**, select **Windows Endpoint Monitoring (WMI)**
 1. In the **Windows Endpoint Monitoring (WMI) dialog, select **Add ranges**. You can also import and export ranges.
 1. Specify the IP address range you want to scan. You can add multiple ranges.
@@ -32,3 +32,6 @@ Before you begin scanning, create a firewall rule that allows outgoing traffic f
 1. Select **Save** to save the automatic scan settings.
 1. When the scan is finished, select to view/export scan results.
 
+## Next steps
+
+For more information, see [Work with device notifications](how-to-work-with-device-notifications.md).

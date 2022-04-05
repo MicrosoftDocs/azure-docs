@@ -46,7 +46,7 @@ In this scenario, you should select a different region or SKU to deploy your Clo
 ### List SKUs in region using Azure CLI
 
 You can use the [az vm list-skus](/cli/azure/vm
-#az_vm_list_skus) command.
+#az-vm-list-skus) command.
 
 - Use the `--location` parameter to filter output to location you're using.
 - Use the `--size` parameter to search by a partial size name.

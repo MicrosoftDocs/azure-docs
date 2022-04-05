@@ -1,11 +1,11 @@
 ---
 title: Azure Files scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/31/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -107,6 +107,8 @@ For Azure File Sync, performance is critical in two stages:
 
 1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
+> [!Note]  
+> When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced. 
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 

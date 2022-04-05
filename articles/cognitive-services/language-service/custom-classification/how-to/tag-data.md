@@ -41,7 +41,7 @@ Use the following steps to tag your data
 
 1. From the left side menu, select **Tag data**
 
-3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the Back and Next button from the bottom of the page to navigate.  
+3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.  
     
 4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
 
@@ -52,23 +52,25 @@ Use the following steps to tag your data
 
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
 
-6. Start tagging your files.
+6. Start tagging your files. In the images below:
 
-*Section 1*: is where the content of the text file is displayed.
+    * *Section 1*: is where the content of the text file is displayed.
 
-*Section 2*: includes your project's classes and distribution across your files and tags. 
+    * *Section 2*: includes your project's classes and distribution across your files and tags. 
 
-* **Single label classification**: your file can only be tagged with one class; you can do so by selecting one of the buttons next to the class you want to tag this file with.
-      :::image type="content" source="../media/single.png" alt-text="A screenshot showing the single label classification tag page" lightbox="../media/single.png":::
+    * *Section 3* is the split project data toggle. You can choose to add the selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.     
 
-* **Multiple label classification**: your file can be tagged with multiple classes, you can do so by selecting all applicable check boxes next to the classes you want to tag this file with.
-   :::image type="content" source="../media/multiple.png" alt-text="A screenshot showing the multiple label classification tag page." lightbox="../media/multiple.png":::
+    **Single label classification**: your file can only be tagged with one class; you can do so by selecting one of the buttons next to the class you want to tag this file with.
+
+    :::image type="content" source="../media/single.png" alt-text="A screenshot showing the single label classification tag page" lightbox="../media/single.png":::
+
+    **Multi label classification**: your file can be tagged with multiple classes, you can do so by selecting all applicable check boxes next to the classes you want to tag this file with.
+
+    :::image type="content" source="../media/multiple.png" alt-text="A screenshot showing the multiple label classification tag page." lightbox="../media/multiple.png":::
 
 For distribution section, you can **View class distribution across** Training and Testing sets.
    
 :::image type="content" source="../media/distribution.png" alt-text="A screenshot showing the distribution options" lightbox="../media/distribution.png":::
-
-*Section 3* is the split project data toggle. You can choose to add the selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.     
 
 To add a text file to a training or testing set, use the buttons choose the set it belongs to.
 

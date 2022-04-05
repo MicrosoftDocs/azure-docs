@@ -1,8 +1,8 @@
 ---
-author: v-dalc
+author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/17/2021
+ms.date: 02/18/2022
 ms.author: alkohli
 ---
 
@@ -54,6 +54,6 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
     The **Create** button isn't available until all validation checks have passed.
 
-6. When the process completes, the Overview pane for new resource opens.
+6. When the process completes, the **Overview** pane for new resource opens.
 
     ![Screenshot showing a completed management resource in Azure Stack Edge.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05\.png) 

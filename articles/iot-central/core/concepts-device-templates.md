@@ -19,13 +19,51 @@ A solution builder adds device templates to an IoT Central application. A device
 
 A device template includes the following sections:
 
-- _A device model_. This part of the device template defines how the device interacts with your application. A device developer implements the behaviors defined in the model.
-    - _Root component_. Every device model has a root component. The root component's interface describes capabilities that are specific to the device model.
-    - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example several phone device models could use the same camera interface.
-    - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
+- _A device model_. This part of the device template defines how the device interacts with your application. Every device model has a unique ID. A device developer implements the behaviors defined in the model.
+  - _Root component_. Every device model has a root component. The root component's interface describes capabilities that are specific to the device model.
+  - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example, several phone device models could use the same camera interface.
+  - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
 - _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 - _Customizations_. This part of the device template lets the solution developer override some of the definitions in the device model. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the device model.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the device model, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the device model.
+
+## Assign a device to a device template
+
+For a device to interact with IoT Central, it must be assigned to a device template. This assignment is done in one of four ways:
+
+- When you register a device on the **Devices** page, you can identify the template the device should use.
+- When you bulk import a list of devices, you can choose the device template all the devices on the list should use.
+- You can manually assign an unassigned device to a device template after it connects.
+- You can automatically assign a device to a device template by sending a model ID when the device first connects to your application.
+
+### Automatic assignment
+
+IoT Central can automatically assign a device to a device template when the device connects. A device should send a [model ID](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
+
+1. If the device template is already published in the IoT Central application, the device is assigned to the device template.
+1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
+1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can either create a device template for the device and then migrate the unassigned device to the new device template, or [autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
+
+The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
+
+:::image type="content" source="media/concepts-device-templates/model-id.png" alt-text="Screenshot showing model I D in thermostat device template.":::
+
+You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) in the public model repository. The model ID definition looks like:
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
+
+Use the following DPS payload to assign the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+ 
 
 ## Device models
 

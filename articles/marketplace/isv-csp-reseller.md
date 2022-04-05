@@ -144,7 +144,7 @@ Cloning a private offer helps you create a new private offer quickly.
 By withdrawing a private offer, your CSP partners will immediately no longer receive a margin and all future purchases will be at the list price.
 
 > [!IMPORTANT]
-> Private offers can only be withdrawn if no CSP partners has sold it to a customer.
+> Private offers can only be withdrawn if no CSP partner has sold it to a customer.
 
 To withdraw a private offer:
 

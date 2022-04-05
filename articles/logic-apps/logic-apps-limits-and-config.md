@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 03/07/2022
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -30,7 +30,7 @@ The following tables list the values for a single workflow definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Workflows per region per subscription | 1,000 workflows ||
-| Workflow - Maximum name length | 43 characters | Previously 80 characters |
+| Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 43 characters ||
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
@@ -465,7 +465,7 @@ The following table lists the message size limits that apply to B2B protocols:
 
 ## Firewall configuration: IP addresses and service tags
 
-If your environment has strict network requirements or firewalls that limit traffic to specific IP addresses, your environment or firewall needs to allow access for *both* the [inbound](#inbound) and [outbound](#outbound) IP addresses used by the Azure Logic Apps service or runtime in the Azure region where your logic app resource exists. To set up this access, you can create [Azure Firewall rules](../firewall/rule-processing.md). *All* logic apps in the same region use the same IP address ranges.
+If your environment has strict network requirements and uses a firewall that limits traffic to specific IP addresses, your environment or firewall needs to permit incoming communication received by Azure Logic Apps and outgoing communication sent by Azure Logic Apps. To set up this access, you can create [Azure Firewall rules](../firewall/rule-processing.md) for your firewall to allow access for *both* [inbound](#inbound) and [outbound](#outbound) IP addresses used by Azure Logic Apps in your logic app's Azure region.  *All* logic apps in the same region use the same IP address ranges.
 
 > [!NOTE]
 > If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, 
@@ -513,8 +513,8 @@ Before you set up your firewall with IP addresses, review these considerations:
 
 ### Inbound IP addresses
 
-This section lists the inbound IP addresses for the Azure Logic Apps service only. If you're using Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
-
+For Azure Logic Apps to receive incoming communication through your firewall, you have to allow traffic through the inbound IP addresses described in this section for your logic app's Azure region. If you're using Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
+               
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 
 > **LogicAppsManagement**, rather than specify inbound Logic Apps IP address prefixes for each region.
@@ -597,7 +597,9 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 
 ### Outbound IP addresses
 
-This section lists the outbound IP addresses for the Azure Logic Apps service. If you're using Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound). If your workflow uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in your logic app's Azure region. If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses). For more information about setting up communication settings on the gateway, review these topics:
+For Azure Logic Apps to send outgoing communication through your firewall, you have to allow traffic in your logic app's Azure region for *all the outbound IP addresses* described in this section. If you're using Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound).
+
+Also, if your workflow also uses any [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses any [custom connectors](/connectors/custom-connectors/), your firewall has to allow traffic in your logic app's Azure region for [*all the managed connector outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps). For more information about setting up communication settings on the gateway, review these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
@@ -611,6 +613,8 @@ This section lists the outbound IP addresses for the Azure Logic Apps service. I
 <a name="multi-tenant-outbound"></a>
 
 #### Multi-tenant & single-tenant - Outbound IP addresses
+
+This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 
 | Region | Logic Apps IP |
 |--------|---------------|

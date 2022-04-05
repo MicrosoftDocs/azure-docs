@@ -176,9 +176,9 @@ vf_tx_dropped: 0
 Accelerated Networking is now enabled for your VM.
 
 ## Handle dynamic binding and revocation of virtual function 
-Applications must run over the synthetic NIC that is exposed in VM. If the application runs directly over the VF NIC, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface.
-If you run an application over the synthetic NIC, it guarantees that the application receives **all** packets that are destined to it. It also makes sure that the application keeps running, even if the VF is revoked during host servicing. 
-Applications binding to the synthetic NIC is a **mandatory** requirement for all applications taking advantage of **Accelerated Networking**.
+Applications must run over the synthetic NIC that is exposed in VM. If the application runs directly over the VF NIC, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. If you run an application over the synthetic NIC, it guarantees that the application receives **all** packets that are destined to it. It also makes sure that the application keeps running, even if the VF is revoked during host servicing. Applications binding to the synthetic NIC is a **mandatory** requirement for all applications taking advantage of **Accelerated Networking**.
+
+For more details on application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
 ## Enable Accelerated Networking on existing VMs
 If you've created a VM without Accelerated Networking, it's possible to enable this feature on an existing VM. The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined:
@@ -265,4 +265,3 @@ A VM with Accelerated Networking enabled can't be resized to a VM instance that 
 * Learn [how Accelerated Networking works](./accelerated-networking-how-it-works.md)
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
-

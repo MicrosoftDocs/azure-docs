@@ -19,7 +19,7 @@ After you have completed [tagging your utterances](./tag-utterances.md), you can
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
-The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
+The training times can be anywhere from a few seconds up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
 
 ## Train model
 

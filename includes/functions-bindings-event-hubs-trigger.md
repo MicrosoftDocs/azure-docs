@@ -1,39 +1,20 @@
 ---
-author: craigshoemaker
+author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
-ms.author: cshoe
+ms.date: 11/15/2021
+ms.author: glenga
 ---
 
-Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string.
+Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string. 
 
-## Scaling
+## Example
 
-Each instance of an event triggered function is backed by a single [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance. The trigger (powered by Event Hubs) ensures that only one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance can get a lease on a given partition.
+::: zone pivot="programming-language-csharp"
 
-For example, consider an Event Hub as follows:
+# [In-process](#tab/in-process)
 
-* 10 partitions
-* 1,000 events distributed evenly across all partitions, with 100 messages in each partition
-
-When your function is first enabled, there is only one instance of the function. Let's call the first function instance `Function_0`. The `Function_0` function has a single instance of [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) that holds a lease on all ten partitions. This instance is reading events from partitions 0-9. From this point forward, one of the following happens:
-
-* **New function instances are not needed**: `Function_0` is able to process all 1,000 events before the Functions scaling logic take effect. In this case, all 1,000 messages are processed by `Function_0`.
-
-* **An additional function instance is added**: If the Functions scaling logic determines that `Function_0` has more messages than it can process, a new function app instance (`Function_1`) is created. This new function also has an associated instance of [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor). As the underlying Event Hubs detect that a new host instance is trying read messages, it load balances the partitions across the host instances. For example, partitions 0-4 may be assigned to `Function_0` and partitions 5-9 to `Function_1`.
-
-* **N more function instances are added**: If the Functions scaling logic determines that both `Function_0` and `Function_1` have more messages than they can process, new `Functions_N` function app instances are created.  Apps are created to the point where `N` is greater than the number of event hub partitions. In our example, Event Hubs again load balances the partitions, in this case across the instances `Function_0`...`Functions_9`.
-
-As scaling occurs, `N` instances is a number greater than the number of event hub partitions. This pattern is used to ensure [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instances are available to obtain locks on partitions as they become available from other instances. You are only charged for the resources used when the function instance executes. In other words, you are not charged for this over-provisioning.
-
-When all function execution completes (with or without errors), checkpoints are added to the associated storage account. When check-pointing succeeds, all 1,000 messages are never retrieved again.
-
-<a id="example" name="example"></a>
-
-# [C#](#tab/csharp)
-
-The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the event hub trigger.
+The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -43,7 +24,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.Azure.EventHubs`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
+To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -82,14 +63,17 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
     }
 }
 ```
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function logs the message body of the Event Hubs trigger.
 
-The following examples show Event Hubs binding data in the *function.json* file.
-
-### Version 2.x and higher
+The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
 
 ```json
 {
@@ -97,18 +81,6 @@ The following examples show Event Hubs binding data in the *function.json* file.
   "name": "myEventHubMessage",
   "direction": "in",
   "eventHubName": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-### Version 1.x
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -124,7 +96,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.Azure.EventHubs`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
+To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
 
 ```cs
 #r "Microsoft.Azure.EventHubs"
@@ -163,14 +135,16 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
     }
 }
 ```
+---
 
-# [JavaScript](#tab/javascript)
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
 
-The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
 
-The following examples show Event Hubs binding data in the *function.json* file.
+The following example shows an Event Hubs binding data in the *function.json* file, which is different for version 1.x of the Functions runtime compared to later versions. 
 
-### Version 2.x and higher
+# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -182,7 +156,7 @@ The following examples show Event Hubs binding data in the *function.json* file.
 }
 ```
 
-### Version 1.x
+# [Functions 1.x](#tab/functionsv1)
 
 ```json
 {
@@ -193,6 +167,7 @@ The following examples show Event Hubs binding data in the *function.json* file.
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+---
 
 Here's the JavaScript code:
 
@@ -209,7 +184,7 @@ module.exports = function (context, myEventHubMessage) {
 
 To receive events in a batch, set `cardinality` to `many` in the *function.json* file, as shown in the following examples.
 
-### Version 2.x and higher
+# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -222,7 +197,7 @@ To receive events in a batch, set `cardinality` to `many` in the *function.json*
 }
 ```
 
-### Version 1.x
+# [Functions 1.x](#tab/functionsv1)
 
 ```json
 {
@@ -234,6 +209,7 @@ To receive events in a batch, set `cardinality` to `many` in the *function.json*
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+---
 
 Here's the JavaScript code:
 
@@ -252,9 +228,14 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
-The following example shows an event hub trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -286,9 +267,10 @@ def main(event: func.EventHubEvent):
         logging.info(f'Metadata: {key} = {event.metadata[key]}')
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
-The following example shows an Event Hub trigger binding which logs the message body of the Event Hub trigger.
+The following example shows an Event Hubs trigger binding which logs the message body of the Event Hubs trigger.
 
 ```java
 @FunctionName("ehprocessor")
@@ -302,114 +284,165 @@ public void eventHubProcessor(
  }
 ```
 
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value would come from Event Hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value comes from the event hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
- ---
+::: zone-end
+::: zone pivot="programming-language-csharp"
+## Attributes
 
-## Attributes and annotations
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
 
-# [C#](#tab/csharp)
+# [In-process](#tab/in-process)
 
-In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
+In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute], which supports the following properties.
 
-The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see the [trigger configuration section](#configuration). Here's an `EventHubTriggerAttribute` attribute example:
+| Parameters | Description|
+|---------|----------------------|
+|**EventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced in [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings), like `%eventHubName%` |
+|**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. When omitted, the `$Default` consumer group is used. |
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-```csharp
-[FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
-{
-    ...
-}
-```
+# [Isolated process](#tab/isolated-process)
 
-For a complete example, see [Trigger - C# example](#example).
+Use the `EventHubTriggerAttribute` to define a trigger on an event hub, which supports the following properties.
+
+| Parameters | Description|
+|---------|----------------------|
+|**EventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced in [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings), like `%eventHubName%` |
+|**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. When omitted, the `$Default` consumer group is used. |
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
 # [C# Script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
-
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-From the Java [functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) annotation on parameters whose value would come from Event Hub. Parameters with these annotations cause the function to run when an event arrives. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the event item in function code. |
+|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%`. In version 1.x, this property is named `path`. |
+|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) annotation, which supports the following settings:
+
++ [name](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.name)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.datatype)
++ [eventHubName](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.eventhubname)
++ [connection](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.connection)
++ [cardinality](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger.cardinality)
++ [consumerGroup](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger.consumergroup)
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `EventHubTrigger` attribute.
+The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the event item in function code. |
-|**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
-|**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | n/a | Used for all non-C# languages. Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.<br><br>In C#, this property is automatically assigned whenever the trigger has an array for the type.|
-|**connection** |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+# [Functions 2.x+](#tab/functionsv2)
 
-[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the event item in function code. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
+|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
-[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
+# [Functions 1.x](#tab/functionsv1)
 
-## Usage
-
-# [C#](#tab/csharp)
-
-### Default
-
-You can use the following parameter types for the triggering Event Hub:
-
-* `string`
-* `byte[]`
-* `POCO`
-* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata).
-
-### Additional types 
-Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) instead of the one in [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata). This version drops support for the legacy `Body` type in favor of the following types:
-
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
-
-# [C# Script](#tab/csharp-script)
-
-### Default
-
-You can use the following parameter types for the triggering Event Hub:
-
-* `string`
-* `byte[]`
-* `POCO`
-* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata).
-
-### Additional types 
-Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) instead of the one in [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata). This version drops support for the legacy `Body` type in favor of the following types:
-
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
-
-# [Java](#tab/java)
-
-Refer to the Java [trigger example](#example) for details.
-
-# [JavaScript](#tab/javascript)
-
-Refer to the JavaScript [trigger example](#example) for details.
-
-# [Python](#tab/python)
-
-Refer to the Python [trigger example](#example) for details.
-
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the event item in function code. |
+|**path** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 ---
 
+::: zone-end
+
+[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## Usage
+
+To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-trigger).
+
+::: zone pivot="programming-language-csharp"  
+The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
+
+# [Extension v5.x+](#tab/extensionv5/in-process)
+
+In-process C# class library functions supports the following types:
+
++ [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata)
++ String
++ Byte array
++ Plain-old CLR object (POCO)
+
+This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
+
+# [Extension v3.x+](#tab/extensionv3/in-process)
+
+In-process C# class library functions supports the following types:
+
++ [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata)
++ String
++ Byte array
++ Plain-old CLR object (POCO)
+
+# [Extension v5.x+](#tab/extensionv5/isolated-process)
+
+Requires you to define a custom type, or use a string. 
+
+# [Extension v3.x+](#tab/extensionv3/isolated-process)
+
+Requires you to define a custom type, or use a string.
+
+# [Extension v5.x+](#tab/extensionv5/csharp-script)
+
+C# script functions support the following types:
+
++ [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata)
++ String
++ Byte array
++ Plain-old CLR object (POCO)
+
+This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
+
+# [Extension v3.x+](#tab/extensionv3/csharp-script)
+
+C# script functions support the following types:
+
++ [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata)
++ String
++ Byte array
++ Plain-old CLR object (POCO)
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"  
+The parameter type can be one of the following:
+
++ Any native Java types such as int, String, byte[].
++ Nullable values using Optional.
++ Any POJO type.
+
+To learn more, see the [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) reference.
+
+::: zone-end
 
 ## Event metadata
 
@@ -419,10 +452,12 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|The `PartitionContext` instance.|
 |`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`Offset`|`string`|The offset of the data relative to the Event Hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
+|`Offset`|`string`|The offset of the data relative to the event hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
 |`PartitionKey`|`string`|The partition to which event data should be sent.|
 |`Properties`|`IDictionary<String,Object>`|The user properties of the event data.|
 |`SequenceNumber`|`Int64`|The logical sequence number of the event.|
 |`SystemProperties`|`IDictionary<String,Object>`|The system properties, including the event data.|
 
 See [code examples](#example) that use these properties earlier in this article.
+
+[EventHubTriggerAttribute]: /dotnet/api/microsoft.azure.webjobs.eventhubtriggerattribute

@@ -115,7 +115,7 @@ var client = new CommunicationIdentityClient(connectionString);
 Use the `GetTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
-var accessToken = await client.GetTokenForTeamsUser(teamsUserAadToken.AccessToken);
+var accessToken = await client.GetTokenForTeamsUserAsync(teamsUserAadToken.AccessToken);
 Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 

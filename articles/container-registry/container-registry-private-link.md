@@ -16,7 +16,7 @@ This article shows how to configure a private endpoint for your registry using t
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az_acr_show_usage) command to see the limit for your registry.
+> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command to see the limit for your registry.
 
 ## Prerequisites
 
@@ -376,7 +376,7 @@ xxxx.westeurope.cloudapp.azure.com. 10	IN A 20.45.122.144
 
 Also verify that you can perform registry operations from the virtual machine in the network. Make an SSH connection to your virtual machine, and run [az acr login][az-acr-login] to login to your registry. Depending on your VM configuration, you might need to prefix the following commands with `sudo`.
 
-```bash
+```azurecli
 az acr login --name $REGISTRY_NAME
 ```
 
@@ -443,7 +443,7 @@ az group delete --name $RESOURCE_GROUP
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
 
-* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md) 
+* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md) 
 
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
