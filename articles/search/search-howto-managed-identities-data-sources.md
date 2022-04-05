@@ -25,20 +25,20 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user-assigned managed identity is specified through an "identity" property.
 
+A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
+
 | Scenario | System managed identity | User-assigned managed identity (preview) |
 |----------|-------------------------|---------------------------------|
 | [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1</sup>| Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	<sup>1</sup> | Yes | No |
-| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1</sup>, <sup>2</sup> | Yes | Yes |
+| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1,</sup> <sup>2</sup> | Yes | Yes |
 | [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) <sup>1</sup>| Yes | Yes |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | Yes |
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
 <sup>2</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user-assigned managed identity, and then rerun the indexer.
-
-A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
 ## Create a system managed identity
 
