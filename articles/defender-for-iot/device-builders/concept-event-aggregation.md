@@ -7,7 +7,11 @@ ms.topic: conceptual
 
 # Micro agent event collection (Preview)
 
-Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
+Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing.
+
+If you've configured and connected a Log Analytics workspace, you'll see these events in Log Analytics. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
+
+The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
