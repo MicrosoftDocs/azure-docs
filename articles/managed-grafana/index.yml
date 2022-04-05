@@ -36,7 +36,7 @@ landingContent:
           - text: Call APIs in your automation
             url: how-to-api-calls.md
 
-  - title: Manage Access
+  - title: Manage your dashboard
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -44,3 +44,5 @@ landingContent:
             url: how-to-permissions.md
           - text: Share your Managed Grafana workspace
             url: how-to-share-grafana-workspace.md
+          - text: Monitor your Managed Grafana workspace
+            url: how-to-monitor-managed-grafana-workspace.md
