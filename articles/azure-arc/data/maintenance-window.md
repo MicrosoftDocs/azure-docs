@@ -60,7 +60,7 @@ az arcdata dc update --maintenance-start <date and time> --maintenance-duration 
 Example:
 
 ```cli
-az arcdata dc update --maintenance-start "2022-01-01T23:00" --maintenance-duration 3:00 --maintenance-recurrence Monthly First Saturday" --maintenance-time-zone US/Pacific --k8s-namespace arc --use-k8s
+az arcdata dc update --maintenance-start "2022-01-01T23:00" --maintenance-duration 3:00 --maintenance-recurrence "Monthly First Saturday" --maintenance-time-zone US/Pacific --k8s-namespace arc --use-k8s
 ```
 
 ## Monitor the upgrades
