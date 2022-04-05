@@ -1,5 +1,5 @@
 ---
-title: How to train your custom classification model - Azure Cognitive Services
+title: How to train your custom text classification model - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Learn about how to train your model for custom text classification.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-# How to train a text classification model
+# How to train a custom text classification model
 
 
 Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
@@ -30,7 +30,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Data split
 
-Before starting the training process, files in your dataset are divided into three groups at random:
+Before you start the training process, files in your dataset are divided into three groups at random:
 
 * The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
 

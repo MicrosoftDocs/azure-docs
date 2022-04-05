@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 03/08/2022
 ---
 
 # Add a preview audience for a SaaS offer
@@ -16,6 +16,9 @@ As you create your software as a service (SaaS) offer in Partner Center, you nee
 
 > [!NOTE]
 > If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
+
+> [!TIP]
+> Previews are not supported by offers configured to be available to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md).
 
 ## Define a preview audience
 

@@ -40,7 +40,7 @@ After installing Python, you can install the latest version of the Form Recogniz
 pip install azure-ai-formrecognizer 
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python application named `form-recognizer.py` in your preferred editor or IDE. Then import the following libraries.
 

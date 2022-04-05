@@ -70,20 +70,36 @@
       items:
         - name: Overview
           href: tutorial-connect-overview.md
-        - name: With secrets in App Settings
+        - name: With secrets in app settings
           href: configure-common.md?tabs=portal
-        - name: With Managed Identity
+        - name: With managed identity
           items: 
-          - name: Connect to SQL DB
-            href: tutorial-connect-msi-sql-database.md
-          - name: Connect to Storage
-            href: scenario-secure-app-access-storage.md
+          - name: Connect to databases
+            items: 
+              - name: .NET
+                href: tutorial-connect-msi-sql-database.md
+          - name: Connect to services
+            items:
+              - name: .NET
+                href: scenario-secure-app-access-storage.md
+              - name: JavaScript
+                href: tutorial-connect-app-access-storage-javascript.md
           - name: Connect to Microsoft Graph
-            href: scenario-secure-app-access-microsoft-graph-as-app.md            
+            items: 
+              - name: .NET
+                href: scenario-secure-app-access-microsoft-graph-as-app.md
+              - name: JavaScript
+                href: tutorial-connect-app-access-microsoft-graph-as-app-javascript.md
         - name: With Key Vault
           items: 
           - name: Connect to Cognitive Services
-            href: tutorial-connect-msi-key-vault.md
+            items: 
+              - name: .NET
+                href: tutorial-connect-msi-key-vault.md
+              - name: JavaScript
+                href: tutorial-connect-msi-key-vault-javascript.md    
+              - name: PHP
+                href: tutorial-connect-msi-key-vault-php.md              
     - name: Securely connect to Azure resources on behalf of user
       items:
         - name: Overview
@@ -134,6 +150,8 @@
       href: deploy-best-practices.md
     - name: Azure Arc hosting (preview)
       href: overview-arc-integration.md
+    - name: Monitoring overview
+      href: overview-monitoring.md      
     - name: Security
       items:
         - name: Recommendations
@@ -241,6 +259,8 @@
               href: configure-authentication-provider-aad.md
             - name: Authenticate with Facebook
               href: configure-authentication-provider-facebook.md
+            - name: Authenticate with GitHub
+              href: configure-authentication-provider-github.md
             - name: Authenticate with Google
               href: configure-authentication-provider-google.md
             - name: Authenticate with Twitter
@@ -397,7 +417,7 @@
         - name: Migrate ASP.NET
           href: app-service-asp-net-migration.md
         - name: Migrate containerized ASP.NET
-          href: /azure/migrate/tutorial-app-containerization-aspnet-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+          href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fapp-service%2ftoc.json
         - name: Migrate Java
           href: app-service-java-migration.md
         - name: Migrate Spring Boot
@@ -430,18 +450,6 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
-    - name: FAQ
-      items:
-      - name: Availability, performance, and application FAQ
-        href: faq-availability-performance-application-issues.yml
-      - name: Deployment FAQ
-        href: faq-deployment.yml
-      - name: Open-source technologies FAQ
-        href: faq-open-source-technologies.yml
-      - name: Configuration and management FAQ
-        href: faq-configuration-and-management.yml
-      - name: App Service on Linux
-        href: faq-app-service-linux.yml
     - name: IP address change
       items:
       - name: Inbound IP address

@@ -456,12 +456,7 @@ You can read account-level metric values of your storage account or the Blob sto
 
 ```powershell
    $resourceId = "<resource-ID>"
-   
-   
-   
-   
-   
-   $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
+   Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
 ```
 
 #### Reading metric values with dimensions
@@ -639,8 +634,8 @@ This table shows how this feature is supported in your account and the impact on
 
 | Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)               | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)   | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)               | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)   | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ### Metrics in Azure Monitor
 

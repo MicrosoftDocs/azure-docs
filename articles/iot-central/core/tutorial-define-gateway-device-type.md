@@ -207,7 +207,7 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 In the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial, the sample code shows how to include the model ID from the device template in the provisioning payload the device sends.
 
-When you connect a downstream device, you can modify the provisioning payload to include the the ID of the gateway device. The model ID lets IoT Central associate the device with the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
+When you connect a downstream device, you can modify the provisioning payload to include the the ID of the gateway device. The model ID lets IoT Central assign the device to the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
 
 ```json
 {

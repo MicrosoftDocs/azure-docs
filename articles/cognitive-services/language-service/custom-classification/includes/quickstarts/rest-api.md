@@ -29,7 +29,7 @@ Before you can use custom text classification, you will need to create a Languag
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments. 
+2. In the **Custom named entity recognition (NER) & custom text classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments. 
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -42,7 +42,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ## Upload sample data to blob container
 
-[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
+[!INCLUDE [Uploading sample data for custom text classification](blob-storage-upload.md)]
 
 ### Get your resource keys and endpoint
 
@@ -54,7 +54,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ## Create project
 
-To start creating a custom classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
+To start creating a custom text classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
 > [!NOTE]
 > The project name is case-sensitive for all operations.
@@ -121,7 +121,7 @@ For the metadata key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `modelType  `    | Your Model type, for single classification use `singleClassification`.   | multiClassification |
+| `modelType  `    | Your Model type, for single label classification use `singleClassification`.   | multiClassification |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 This request will return an error if:
@@ -130,7 +130,7 @@ This request will return an error if:
 
 ## Start training your model
 
-After your project has been created, you can begin training a text classification model. Create a **POST** request using the following URL, headers, and JSON body to start training a text classification model.
+After your project has been created, you can begin training a custom text classification model. Create a **POST** request using the following URL, headers, and JSON body to start training a custom text classification model.
 
 ### Request URL
 
@@ -238,7 +238,7 @@ Once you send the request, you will get the following response.
 
 ## Deploy your model
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploying a text classification model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom text classification model.
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
@@ -300,7 +300,7 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
-### Submit text classification task
+### Submit a custom text classification task
 
 > [!NOTE]
 > Project names is case sensitive.
@@ -353,7 +353,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |ID|"doc1"|a string document identifier|
 |text|"Lorem ipsum dolor sit amet"| You document in string format|
 |"tasks"|[]| List of tasks we want to perform.|
-|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
+|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for single label classification tasks and `customMultiClassificationTasks` for multi label classification tasks. |
 |parameters|[]|List of parameters to pass to task|
 |project-name| "MyProject"| Your project name. The project name is case-sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
@@ -367,11 +367,11 @@ You will receive a 202 response indicating success. In the response **headers**,
 
  `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
-You will use this endpoint in the next step to get the custom classification task results.
+You will use this endpoint in the next step to get the custom text classification task results.
 
-### Get the classification task status and results
+### Get the custom text classification task status and results
 
-Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
+Use the following **GET** request to query the status/results of the custom text classification task. You can use the endpoint you received from the previous step.
 
 `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
 

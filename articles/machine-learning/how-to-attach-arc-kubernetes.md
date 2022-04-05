@@ -28,7 +28,6 @@ To use Azure Kubernetes Service clusters for Azure Machine Learning training and
 Before deploying the Azure Machine Learning extension on Azure Kubernetes Service clusters, you have to:
 
 - Register the feature in your AKS cluster. For more information, see [Azure Kubernetes Service prerequisites](#aks-prerequisites).
-- Configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
 
 To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
 
@@ -40,13 +39,7 @@ To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy 
     > [!NOTE]
     > For AKS clusters, connecting them to Azure Arc is **optional**.
 
-* Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements)
-
-    > [!IMPORTANT]
-    > Clusters running behind an outbound proxy server or firewall need additional network configurations.
-    >
-    > For more information, see [Configure inbound and outbound network traffic (Azure Arc-enabled Kubernetes)](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
-
+* Clusters running behind an outbound proxy server or firewall need additional network configurations. See [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#azure-arc-enabled-kubernetes-).
 * Fulfill [Azure Arc-enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
   * Azure CLI k8s-extension extension version >= 1.0.0
@@ -59,7 +52,6 @@ To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy 
     az login
     az account set --subscription <your-subscription-id>
     ```  
-
 ### Azure Kubernetes Service (AKS) <a id="aks-prerequisites"></a>
 
 For AKS clusters, connecting them to Azure Arc is **optional**.
@@ -69,6 +61,8 @@ However, you have to register the feature in your cluster. Use the following com
 ```azurecli
 az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManager
 ```
+> [!NOTE]
+> For more information, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md)
 
 ### Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only
 
@@ -97,7 +91,7 @@ az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManag
 
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
 
-* [Training](#training)
+* [Training only](#training)
 * [Real-time inferencing only](#inferencing)
 * [Training and inferencing](#training-inferencing)
 
@@ -119,20 +113,22 @@ You can use ```--config``` or ```--config-protected``` to specify list of key-va
 | Configuration Setting Key Name  | Description  | Training | Inference | Training and Inference |
    |--|--|--|--|--|
    |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
-   |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAnalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to use this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
-   |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```True```. Nvidia Device Plugin is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this configuration setting to False if Nvidia Device Plugin installation is not required (either it is installed already or there is no plan to use GPU for workload). | Optional |Optional |Optional |
    | ```enableInference``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference support. |N/A| **&check;** |  **&check;** |
    | ```allowInsecureConnections``` |```True``` or ```False```, default False. This **must** be set to ```True``` for AzureML extension deployment with HTTP endpoints support for inference, when ```sslCertPemFile``` and ```sslKeyPemFile``` are not provided. |N/A| Optional |  Optional |
    | ```privateEndpointNodeport``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML deployment with Machine Learning inference private endpoints support using serviceType nodePort. | N/A| Optional |  Optional |
    | ```privateEndpointILB``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference private endpoints support using serviceType internal load balancer | N/A| Optional |  Optional |
+   |```sslSecret```| The Kubernetes secret under azureml namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to ```False```. Use this config or give static cert and key file path in configuration protected settings.|N/A| Optional |  Optional |
+   |```sslCname``` |A SSL CName to use if enabling SSL validation on the cluster.  |  N/A | Optional |  Optional |
    | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy three ingress controller replicas for high availability, which requires at least three workers in a cluster. Set this config to ```False``` if you have fewer than three workers and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional |  Optional |
    |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster. The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional |  Optional |
    |```nodeSelector``` | Set the node selector so the extension components and the training/inference workloads will only be deployed to the nodes with all specified selectors. Usage: `nodeSelector.key=value`, support multiple selectors. Example: `nodeSelector.node-purpose=worker nodeSelector.node-region=eastus`| Optional| Optional |  Optional |
-   |```sslCname``` |The cname for if SSL is enabled.  |  N/A | Optional |  Optional |
+   |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```True```. Nvidia Device Plugin is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this configuration setting to ```False``` if Nvidia Device Plugin installation is not required (either it is installed already or there is no plan to use GPU for workload). | Optional |Optional |Optional |
+   |```reuseExistingPromOp```|```True``` or ```False```, default ```False```. AzureML extension needs prometheus operator to manage prometheus. Set to ```True``` to reuse existing prometheus operator. | Optional| Optional |  Optional |
+   |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAnalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to use this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
 
    |Configuration Protected Setting Key Name  |Description  |Training |Inference |Training and Inference
    |--|--|--|--|--|
-   | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. | N/A| Optional |  Optional |
+   | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to ```False```. | N/A| Optional |  Optional |
 
 > [!WARNING]
 > If Nvidia Device Plugin, is already installed in your cluster, reinstalling them may result in an extension installation error. Set `installNvidiaDevicePlugin` to `False` to prevent deployment errors.
@@ -259,7 +255,7 @@ kubectl get pods -n azureml
 ```
 ## Update Azure Machine Learning extension
 
-Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension#az_k8s_extension_update).
+Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-update&preserve-view=true). 
 
 1.	Azure Arc supports update of  ``--auto-upgrade-minor-version``, ``--version``,  ``--configuration-settings``, ``--configuration-protected-settings``.  
 2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
@@ -280,7 +276,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 
 ## Delete Azure Machine Learning extension
 
-Use [`k8s-extension delete`](/cli/azure/k8s-extension#az_k8s_extension_delete) CLI command to delete the Azure Machine Learning extension. 
+Use [`k8s-extension delete`](/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-delete&preserve-view=true) CLI command to delete the Azure Machine Learning extension. 
 
 It takes around 10 minutes to delete all components deployed to the Kubernetes cluster. Run `kubectl get pods -n azureml` to check if all components were deleted.
 
@@ -381,7 +377,7 @@ Use the `identity_type` parameter to enable `SystemAssigned` or `UserAssigned` m
 
 You can attach an AKS or Azure Arc enabled Kubernetes cluster using the Azure Machine Learning 2.0 CLI (preview).
 
-Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute) command and set the `--type` argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute) command and set the `--type` argument to `Kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
 
 > [!NOTE]
 > Compute attach support for AKS or Azure Arc enabled Kubernetes clusters requires a version of the Azure CLI `ml` extension >= 2.0.1a4. For more information, see [Install and set up the CLI (v2)](how-to-configure-cli.md).
@@ -391,7 +387,7 @@ The following commands show how to attach an Azure Arc-enabled Kubernetes cluste
 **AKS**
 
 ```azurecli
-az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/managedclusters/<cluster-name>" --type kubernetes --identity-type UserAssigned --user-assigned-identities "subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>" --no-wait
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/managedclusters/<cluster-name>" --type Kubernetes --identity-type UserAssigned --user-assigned-identities "subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>" --no-wait
 ```
 
 **Azure Arc enabled Kubernetes**

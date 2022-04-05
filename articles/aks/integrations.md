@@ -67,7 +67,7 @@ The below table shows a few examples of open-source and third-party integrations
 [helm-qs]: quickstart-helm.md
 [prometheus]: https://prometheus.io/
 [prometheus-helm-chart]: https://github.com/prometheus-community/helm-charts#usage
-[prometheus-az-monitor]: /monitor-aks.md#container-insights
+[prometheus-az-monitor]: monitor-aks.md#container-insights
 [istio]: https://istio.io/
 [istio-install]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/

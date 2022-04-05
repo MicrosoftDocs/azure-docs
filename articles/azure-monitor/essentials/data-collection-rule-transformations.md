@@ -118,7 +118,7 @@ print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
 ### Supported statements
 
 ####	let statement
-The right-hand side of [let](/data-explorer/kusto/query/letstatement) can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
+The right-hand side of [let](/azure/data-explorer/kusto/query/letstatement) can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
 
 #### tabular expression statements
 The only supported data sources for the KQL statement are as follows:
@@ -206,9 +206,9 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [tobool](/azure/data-explorer/kusto/query/toboolfunction)
 - [todatetime](/azure/data-explorer/kusto/query/todatetimefunction)
 - [todouble/toreal](/azure/data-explorer/kusto/query/todoublefunction)
-- [toguid](/azure/data-explorer/kusto/query/toguid)
-- [toint](/azure/data-explorer/kusto/query/toint)
-- [tolong](/azure/data-explorer/kusto/query/tolong)
+- [toguid](/azure/data-explorer/kusto/query/toguidfunction)
+- [toint](/azure/data-explorer/kusto/query/tointfunction)
+- [tolong](/azure/data-explorer/kusto/query/tolongfunction)
 - [tostring](/azure/data-explorer/kusto/query/tostringfunction)
 - [totimespan](/azure/data-explorer/kusto/query/totimespanfunction)
 
@@ -246,7 +246,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [pack_array](/azure/data-explorer/kusto/query/packarrayfunction)
 - [pack](/azure/data-explorer/kusto/query/packfunction)
 - [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
-- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction.html)
+- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)
 - [zip](/azure/data-explorer/kusto/query/zipfunction)
 
 #### Mathematical functions
