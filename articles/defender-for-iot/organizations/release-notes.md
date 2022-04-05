@@ -43,9 +43,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## April 2022
 
-- [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
 
-### More device properties in the Device inventory
+### Extended device property data in the Device inventory
 
 Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
 
