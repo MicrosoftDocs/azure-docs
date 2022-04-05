@@ -24,9 +24,9 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 ## Important caveats for this functionality
 
 - Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Those limits are 150 groups for a SAML token and 200 for a JSON Web Token (JWT). Exceeding a limit can lead to unpredictable results. 
+- The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results.
 
-  If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application. If assigning groups to your applications is not possible, you can configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. 
+    In order to avoid the number of groups limit if your users have large numbers of group memberships, you restrict the groups emitted in claims to the relevant groups for the application. If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering only applies to SAML tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
@@ -136,7 +136,10 @@ Some applications require the group membership information to appear in the role
 > If you use the option to emit group data as roles, only groups will appear in the role claim. Any application roles that the user is assigned to won't appear in the role claim.
 
 #### Group filtering
-Group filtering allows for fine control of the list of groups that's included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the group's claim that's sent to that application. The filter will be applied against all groups regardless of the group hierarchy. 
+Group filtering allows for fine control of the list of groups that's included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the group's claim that's sent to that application. The filter will be applied against all groups regardless of the group hierarchy.
+
+> [!NOTE]
+> Group filtering only applies to SAML tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
 
 You can configure filters to be applied to the group's display name or `SAMAccountName` attribute. The following filtering operations are supported: 
 
