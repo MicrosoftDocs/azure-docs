@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 04/05/2022
 ---
 
 # Indexes in Azure Cognitive Search
@@ -114,11 +114,13 @@ You can monitor index size in the Indexes tab in the Azure portal, or by issuing
 
 ### Factors influencing index size
 
-Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
+The size of your index is affected by document composition and quantity, field attributes, and suggesters.
 
-Index configuration can include other components besides documents, such as suggesters, customer analyzers, scoring profiles, CORS settings, and encryption key information. From the above list, the only component that has the potential for impacting index size is suggesters. [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
++ Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
 
-Field attributes are the third consideration of index size. Attributes determine behaviors. To support those behaviors, the indexing process will create the supporting data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings.
++ Field attributes determine behaviors. To support those behaviors, the indexing process creates the necessary data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings. The example in the next section shows variations in index size based on the selected attributes.
+
++ [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
 
 ### Example demonstrating the storage implications of attributes and suggesters
 
