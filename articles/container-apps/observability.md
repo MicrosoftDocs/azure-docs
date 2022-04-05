@@ -95,7 +95,7 @@ The data entries are accessed through Log Analytic queries via the Azure portal 
 
 ### Log Analytics via the Azure portal
 
-In the Azure portal, logs can be viewed from either the **Monitor**->**Logs** page or by navigating to your container app and selecting the **Logs** page.  Some there you can query the logs based on **LogManagement**->**Usage** or **CustomLogs**->**ContainerAppConsoleLogs_CL**
+In the Azure portal, logs are available from either the **Monitor**->**Logs** page or by navigating to your container app and selecting the **Logs** page.  From there you can query the logs based on **LogManagement**->**Usage** or **CustomLogs**->**ContainerAppConsoleLogs_CL**.
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Log Analytics query page":::
 
