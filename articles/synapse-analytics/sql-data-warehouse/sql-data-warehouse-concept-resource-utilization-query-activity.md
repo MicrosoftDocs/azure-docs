@@ -33,7 +33,7 @@ The following metrics are available in the Azure portal for Synapse SQL. These m
 | DWU limit               | Service level objective of the data warehouse                | Avg, Min, Max    |
 | DWU percentage          | Maximum between CPU percentage and Data IO percentage        | Avg, Min, Max    |
 | DWU used                | DWU limit * DWU percentage                                   | Avg, Min, Max    |
-| Cache hit percentage    | (cache hits / (cache hits + cache miss)) * 100, where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
+| Cache hit percentage    | (cache hits / (cache hits + cache miss)) * 100, where cache hits are the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
 
