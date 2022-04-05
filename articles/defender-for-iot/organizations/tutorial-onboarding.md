@@ -32,7 +32,7 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- VMWare, ESXi 5.5 or later, installed and operational:
+- VMware, ESXi 5.5 or later, installed and operational:
 
 
 - <a name="hw"></a>Available hardware resources for your VM as follows:
@@ -56,7 +56,7 @@ Before you start, make sure that you have the following:
 
 Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis.
 
-You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine, with either VMWare or Hyper-V hypervisor, and describes how to download and install the sensor software yourself.
+You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine and VMware and describes how to download and install the sensor software yourself.
 
 **To download software for your virtual sensors**:
 
@@ -68,11 +68,13 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 ## Create a VM for your sensor
 
-This procedure describes how to create a VM for your sensor with VMWare ESXi.
+This procedure describes how to create a VM for your sensor with VMware ESXi. 
+
+Defender for IoT also supports other processes, such as using Hyper-V or physical sensors. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 **To create a VM for your sensor**:
 
-1. Make sure that you have the sensor software downloaded and accessible, and that VMWare is running on your machine.
+1. Make sure that you have the sensor software downloaded and accessible, and that VMware is running on your machine.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -104,7 +106,7 @@ This procedure describes how to create a VM for your sensor with VMWare ESXi.
 
 ## Install sensor software
 
-This procedure describes how to install the sensor software on your VM, whether you've used ESXi or Hyper-V to [create a VM](#create-a-vm-for-your-sensor).
+This procedure describes how to install the sensor software on your VM.
 
 **To install the software on the virtual sensor**:
 
@@ -126,7 +128,7 @@ This procedure describes how to install the sensor software on your VM, whether 
 
 1. Enter **Y** to accept the settings.
 
-1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords will not be presented again.
+1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
 
     - **Support**: The administrative user for user management.
 
@@ -152,9 +154,9 @@ This procedure describes how to validate your installation using the sensor's ow
 
 ## Configure a SPAN port
 
-Virtual switches do not have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
+Virtual switches don't have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
 
-This procedure describes how to configure a SPAN port using a workaround with VMWare ESXi.
+This procedure describes how to configure a SPAN port using a workaround with VMware ESXi.
 
 
 > [!NOTE]
@@ -187,45 +189,7 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Connect to the sensor, and verify that mirroring works.
 
-<<<<<<< HEAD
 ## Verify cloud connections
-=======
-# [Hyper-V hypervisor](#tab/hyper-v)
-
-**Prerequisites**:
-
-- Ensure that there is no instance of a virtual appliance running.
-
-- Enable Ensure SPAN on the data port, and not the management port.
-
-- Ensure that the data port SPAN configuration is not configured with an IP address.
-
-**To configure a SPAN port with Hyper-V**:
-
-1. Open the Virtual Switch Manager.
-
-1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
-
-    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
-
-1. Select **Create Virtual Switch**.
-
-1. Under connection type, select **External Network**.
-
-1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
-
-   :::image type="content" source="media/tutorial-onboarding/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
-
-1. Select **OK**.
-
-### Attach a SPAN virtual interface to the virtual switch
-
-Use PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch.
-
-**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
-
-The examples in this procedure use the following parameter definitions. Replace their values with the correct values for your system.
->>>>>>> a7a6138733bdf18dcc087098eef9b323a6dcd7ab
 
 This tutorial describes how to create a cloud-connected sensor, connecting directly to the Defender for IoT on the cloud.
 
@@ -236,12 +200,12 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 - **Eventhub**: `*.servicebus.windows.net`
 
 > [!TIP]
-> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), and [Cloud connected vs local sensors](#cloud-connected-vs-local-sensors).
+> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).
 >
 
 ## Onboard and activate the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you'll need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
 
 ### Onboard the virtual sensor
 
@@ -283,7 +247,7 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign in page.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign-in page.":::
 
 1. Enter the credentials defined during the sensor installation.
 
@@ -301,25 +265,7 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
-### Cloud-connected vs local sensors
 
-Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
-
-When you have a cloud connected sensor:
-
-- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
-
-- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
-
-- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
-
-In contrast, when working with locally managed sensors:
-
-- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
-
-- You must manually upload any threat intelligence packages
-
-- Sensor names can be updated in the sensor console.
 
 ## Next steps
 

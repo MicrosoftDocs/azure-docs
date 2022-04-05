@@ -9,6 +9,26 @@ ms.topic: how-to
 
 This article describes how to onboard, view, and manage sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
+## Purchase sensors or download software for sensors
+
+This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances. 
+
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Sensor**.
+
+1. Do one of the following:
+
+    - To buy a pre-configured appliance, select **Contact** under **Buy preconfigured appliance**. This open an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances.
+
+    - To install software on your own appliances, do the following:
+
+        1. Make sure that you have a supported appliance available. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+
+        1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+
+        1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+
+        1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+
 ## Onboard sensors
 
 Onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
@@ -79,7 +99,7 @@ In such cases, do the following:
 
 ### Reactivate a sensor for upgrades to version 22.x from a legacy version
 
-If you are updating your sensor version from a legacy version to 22.1.x or higher, you'll need a somewhat different activation procedure than for earlier releases.
+If you're updating your sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
 
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 

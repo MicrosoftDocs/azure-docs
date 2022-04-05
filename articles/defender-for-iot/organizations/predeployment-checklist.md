@@ -8,7 +8,9 @@ ms.topic: reference
 
 # Predeployment checklist
 
-Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. We recommend printing this page or saving it as a PDF file where you can check things off as you go.
+Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. 
+
+We recommend printing this browser page or using the print function to save it as a PDF file where you can check off things as you go. For example, on Windows machines, press **CTRL+P** to access the Print dialog for this page.
 
 Use this checklist together with [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md).
 
@@ -18,24 +20,15 @@ Review the following items before deploying your site:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | Order appliances. | ☐ |  |
-| 2 | Prepare a list of subnets in the network. | ☐ |  |
-| 3 | Provide a VLAN list of the production networks. | ☐ |  |
-| 4 | Provide a list of switch models in the network. | ☐ |  |
-| 5 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
-| 6 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 7 | Third-party switch management | ☐ |  |
-| 8 | Create necessary firewall rules and the access list. | ☐ |  |
-| 9 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 10 | Prepare rack space for sensor appliances. | ☐ |  |
-| 11 | Prepare a workstation for personnel. | ☐ |  |
-| 12 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 13 | Rack and cable the appliances. | ☐ |  |
-| 14 | Allocate site resources to support deployment. | ☐ |  |
-| 15 | Create Active Directory groups or local users. | ☐ |  |
-| 16 | Set up training (self-learning). | ☐ |  |
-| 17 | Go or no-go. | ☐ |  |
-| 18 | Schedule the deployment date. | ☐ |  |
+| 1 | If you're using physical appliances, order your appliances. <br>For more information, see [Identify required appliances](how-to-identify-required-appliances.md). | ☐ |  |
+| 2 | Identify the managed switches you want to monitor | ☐ |  |
+| 3 | Provide network details for sensors (IP address, subnet, D-GW, DNS, host). | ☐ |  |
+| 4 | Create necessary firewall rules and the access list. For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).| ☐ |  |
+| 5 | Configure port mirroring, defining the *source* as the physical ports or VLANs you want to monitor, and the *destination* as the output port that connected to OT sensor. | ☐ |  |
+| 7 |  Connect the switch to the OT sensor. | ☐ |  |
+| 8 | Create Active Directory groups or local users. | ☐ |  |
+| 9 | On the Azure portal, add a Defender for IoT subscription and an OT sensor and then activate your sensor. | ☐ |  |
+| 10 | Validate the link and incoming traffic to the OT sensor  | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
@@ -55,7 +48,7 @@ Review your industrial network architecture to define the proper location for th
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You'll need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you'll be prompted to enter the number of devices in increments of 1000.
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional).
 
@@ -165,7 +158,7 @@ Review your industrial network architecture to define the proper location for th
 
     Are you planning to use SMTP to forward alerts to an email server? Yes or No
 
-    If yes, what authentication method you will use?  
+    If yes, what authentication method will you use?  
 
 1. **Active Directory or local users**
 

@@ -12,17 +12,17 @@ This quickstart takes you through the initial steps of setting up Defender for I
 - Add an Azure subscription to Defender for IoT
 - Identify and plan solution architecture
 
-You can use this procedure to set up a Defender for IoT trial. The trial provides 30-day support for 1000 devices and a virtual sensor, which iyou can use to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities and more.
+You can use this procedure to set up a Defender for IoT trial. The trial provides 30-day support for 1000 devices and a virtual sensor, which you can use to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities and more.
 
 ## Prerequisites
 
 Before you start, make sure that you have:
 
-- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 - Access to an Azure subscription with the **Subscription Contributor** role.
 
-If you are using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
+If you're using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
 ### Permissions
 
@@ -39,13 +39,13 @@ Defender for IoT users require the following permissions:
 
 Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *Central US* regional datacenter.
 
-If you are using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+If you're using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Identify and plan your OT solution architecture
 
-If you are working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
+If you're working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
 
-If you are setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a subscription to Defender for IoT](#add-a-subscription-to-defender-for-iot).
+If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a subscription to Defender for IoT](#add-a-subscription-to-defender-for-iot).
 
 **When working with an OT network**:
 
@@ -69,7 +69,7 @@ For more information, see:
 
 ## Add a subscription to Defender for IoT
 
-This procedure describes how to add a new Azure subscription to Defender for IoT. If you are planning to monitor both OT and enterprise IoT networks, we recommend adding separate subscriptions.
+This procedure describes how to add a new Azure subscription to Defender for IoT. If you're planning to monitor both OT and enterprise IoT networks, we recommend adding separate subscriptions.
 
 **To add your subscription**
 
@@ -83,7 +83,7 @@ This procedure describes how to add a new Azure subscription to Defender for IoT
 
    - **Subscription**. Select a subscription where you have a **Subscription Contributor** role.
 
-   - **Committed devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section does not appear as you have a default of 1000 devices.
+   - **Committed devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
 1. Select the **I accept the terms** option, and then select **Save**.
 

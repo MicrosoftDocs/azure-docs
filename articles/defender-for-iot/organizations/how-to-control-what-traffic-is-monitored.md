@@ -43,7 +43,7 @@ The learning capabilities (Learning and Smart IT Learning) are enabled by defaul
 
 **To enable or disable learning:**
 
-1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modelling**.
+1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modeling**.
 1. Enable or disable the **Learning** and **Smart IT Learning** options.
 
 

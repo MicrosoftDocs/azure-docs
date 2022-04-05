@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-The Internet of Things (IoT) supports billions of connected devices that use operational technology (OT) networks. IoT/OT devices and networks are often designed without security in priority, and therefore cannot be protected by traditional systems. With each new wave of innovation, the risk to IoT devices and OT networks increases the possible attack surfaces.
+The Internet of Things (IoT) supports billions of connected devices that use operational technology (OT) networks. IoT/OT devices and networks are often designed without security in priority, and therefore can't be protected by traditional systems. With each new wave of innovation, the risk to IoT devices and OT networks increases the possible attack surfaces.
 
 Microsoft Defender for IoT is a unified security solution for identifying IoT and OT devices, vulnerabilities, and threats and managing them through a central interface. This set of documentation describes how end-user organizations can secure their entire IoT/OT environment, including protecting existing devices or building security into new IoT innovations.
 
@@ -18,7 +18,7 @@ Microsoft Defender for IoT is a unified security solution for identifying IoT an
 
 **For end-user organizations**, Microsoft Defender for IoT provides an agentless, network-layer monitoring that integrates smoothly with industrial equipment and SOC tools. You can deploy Microsoft Defender for IoT in Azure-connected and hybrid environments or completely on-premises.
 
-**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the to the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](/device-builders/index.md).
+**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](/device-builders/index.md).
 
 ## Agentless device monitoring
 
@@ -36,13 +36,13 @@ Agentless monitoring in Defender for IoT provides visibility and security into n
 
     - Detect advanced threats that you may have missed by static IOCs, such as zero-day malware, fileless malware, and living-off-the-land tactics.
 
-- **Respond to threats** by integrating with Microsoft services, such as Microsoft Sentinel, as well as third-party systems and APIs. Use advanced integrations for security information and event management (SIEM), security operations and response (SOAR), and extended detection and response (XDR) services, and more.
+- **Respond to threats** by integrating with Microsoft services, such as Microsoft Sentinel, and third-party systems and APIs. Use advanced integrations for security information and event management (SIEM), security operations and response (SOAR), and extended detection and response (XDR) services, and more.
 
 A centralized user experience lets the security team visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
 
 ## Support for cloud, on-premises, and hybrid networks
 
-Defender for IoT can support a variety of network configurations:
+Defender for IoT can support various network configurations:
 
 - **Cloud**. Extend your journey to the cloud by having your data delivered to Azure, where you can visualize data from a central location and also share data with other Microsoft services for end-to-end security monitoring and response.
 
@@ -65,13 +65,13 @@ For more information, see [Horizon proprietary protocol dissector](references-ho
 
 ## Extend Defender for IoT to enterprise networks
 
-Microsoft Defender for IoT can protect IoT and OT devices, whether they are connected to IT, OT, or dedicated IoT networks. 
+Microsoft Defender for IoT can protect IoT and OT devices, whether they're connected to IT, OT, or dedicated IoT networks. 
 
 Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment may include printers, cameras, and purpose-built, proprietary, unique devices.
 
 When you expand Microsoft Defender for IoT into the enterprise network, you can apply Microsoft 365 Defender's features for asset discovery and use Microsoft Defender for Endpoint for a single, integrated package that can secure all of your IoT/OT infrastructure.
 
-Use Microsoft Defender for IoT's sensors as additional data sources, providing visibility in area's of your organizations network where Microsoft Defender for Endpoint is not deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any devices discovered on the network by either service.
+Use Microsoft Defender for IoT's sensors as extra data sources, providing visibility in area's of your organizations network where Microsoft Defender for Endpoint isn't deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any devices discovered on the network by either service.
 
 For more information, see the [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint).
 

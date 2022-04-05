@@ -9,7 +9,7 @@ ms.date: 03/24/2022
 
 The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
-The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and third party sources to to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
+The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and third party sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
 :::image type="content" source="media/architecture/system-architecture.png" alt-text="Diagram of the Defender for IoT system architecture." border="false":::
 
@@ -32,6 +32,26 @@ Defender for IoT network sensors discover and continuously monitor network traff
 
 Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high latency connectivity because only metadata is transferred on, either to the Azure portal for cloud management, or an on-premises management console.
 
+### Cloud-connected vs local sensors
+
+Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
+
+When you have a cloud connected sensor:
+
+- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
+
+- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
+
+- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
+
+In contrast, when working with locally managed sensors:
+
+- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+
+- You must manually upload any threat intelligence packages
+
+- Sensor names can be updated in the sensor console.
+
 ## Analytics engines
 
 Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
@@ -46,7 +66,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 - **Industrial malware detection engine**. Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.
 
-- **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign in attempts, and PLC Scan Detected alerts.
+- **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign-in attempts, and PLC Scan Detected alerts.
 
 - **Operational incident detection**. Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
@@ -54,7 +74,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 Defender for IoT provides hybrid network support using the following management options:
 
-- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides additional value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
+- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
 
     Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
