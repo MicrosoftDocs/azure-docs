@@ -4,4 +4,4 @@
      expanded: true
      items:
      - name: What is Zero Trust Network Access?
-       href: ../active-directory/app-proxy/what-is-application-proxy.md
+       href: what-is-network-access.md
