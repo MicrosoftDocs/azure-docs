@@ -66,9 +66,9 @@ From this view, you can pin one or more charts to your dashboard.  When you sele
 
 ### Metrics explorer
 
-The Metrics explorer can be accessed from the *Metrics* menu option in your container app page or Azure Monitor.
+The metrics explorer is available from the *Metrics* menu option in your container app page or Azure Monitor.
 
-The Metric page allows you to select create charts by selecting  Container Apps metrics, filtering based on revisions and replicas and apply splitting by revisions or replicas.    Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
+The metric page allows you to select create charts by selecting  Container Apps metrics, filtering based on revisions and replicas and apply splitting by revisions or replicas. Refer to [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
 :::image type="content" source="media/observability/metrics-main-page-cropped.png" alt-text="Container Apps metrics main page." lightbox="media/observability/metrics-main-page.png":::
 
