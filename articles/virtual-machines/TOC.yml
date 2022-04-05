@@ -686,7 +686,7 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Capacity reservation (preview)
+  - name: Capacity reservation
     items:
     - name: Overview
       displayName: on-demand capacity reservation

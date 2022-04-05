@@ -133,6 +133,9 @@ See the sections in this article for the phonemes that are specific to each loca
 ## zh-CN
 [!INCLUDE [zh-CN](./includes/phonetic-sets/text-to-speech/zh-cn.md)]
 
+## zh-HK
+[!INCLUDE [zh-HK](./includes/phonetic-sets/text-to-speech/zh-hk.md)]
+
 ## zh-TW
 [!INCLUDE [zh-TW](./includes/phonetic-sets/text-to-speech/zh-tw.md)]
 
