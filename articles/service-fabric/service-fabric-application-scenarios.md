@@ -16,9 +16,10 @@ Consider using the Service Fabric platform for the following types of applicatio
 
 * **Data gathering, processing, and IoT**: Service Fabric handles large scale and has low latency through its stateful services. It can help process data on millions of devices where the data for the device and the computation are colocated.
 
-    Customers who have built IoT services by using Service Fabric include [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure),  [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/),
-[Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric), and
-[Mesh Systems](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
+    Customers who have built IoT services by using Service Fabric include [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Citrix](https://customers.microsoft.com/story/citrix),  [ASOS](https://customers.microsoft.com/story/asos-retail-and-consumer-goods-azure),
+[Oman Data Park](https://customers.microsoft.com/story/821095-oman-data-park-partner-professional-services-azure), 
+[Kohler](https://customers.microsoft.com/story/kohler-konnect-azure-iot), and
+[Dover Fueling Systems](https://customers.microsoft.com/story/775087-microsoft-country-corner-dover-fueling-solutions-oil-and-gas-azure).
 
 * **Gaming and session-based interactive applications**: Service Fabric is useful if your application requires low-latency reads and writes, such as in online gaming or instant messaging. Service Fabric enables you to build these interactive, stateful applications without having to create a separate store or cache. Visit [Azure gaming solutions](https://azure.microsoft.com/solutions/gaming/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
