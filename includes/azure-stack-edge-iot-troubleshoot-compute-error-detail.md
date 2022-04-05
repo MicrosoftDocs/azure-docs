@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 04/05/2022
 ---
 
 ### Compute modules have Unknown status and can't be used
@@ -88,3 +88,10 @@ You can use the create options via the K8s-experimental section. The following s
   }
 }
 ```
+#### Problem description
+
+When configuring the IoT device during Setup, you may see the following error: (Http status code: 400) Could not create or update IoT role on '<YourDeviceName>'. An error occurred with the error code {NO_PARAM}. For more information, refer to the error code details (http://aka.ms/dbe-error-codes). If the error persists, contact Microsoft Support.
+
+#### Suggested solution
+
+If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
