@@ -18,7 +18,7 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
-    - name: Create an accout - ARM
+    - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
