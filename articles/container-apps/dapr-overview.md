@@ -25,12 +25,12 @@ Thanks to Distributed Application Runtime ([Dapr][dapr-concepts]), you can simpl
 
 Dapr is a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container App. Dapr exposes these APIs, or building blocks, to your Container App as a sidecar. 
 
+### Dapr building blocks available to Container Apps
+
 Dapr's portable building blocks are built on best practice industry standards, that:
 
 - Seamlessly fit with your preferred language or framework.
 - You can add to or remove from your Container App, based on your needs.
-
-### Dapr building blocks available to Container Apps
 
 :::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Visualization of Dapr building blocks":::
 
