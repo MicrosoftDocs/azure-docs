@@ -1,7 +1,7 @@
 ---
 title: View amortized reservation costs
 titleSuffix: Azure Cost Management + Billing
-description: This article helps you understand what amortized reservation costs are and how to view them in Cost Management + Billing Cost analysis.
+description: This article helps you understand what amortized reservation costs are and how to view them in cost analysis.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
@@ -13,13 +13,13 @@ ms.author: banders
 
 # View amortized reservation costs
 
-This article helps you understand what amortized reservation costs are and how to view them in Cost Management + Billing Cost analysis. When you buy a reservation, you're normally committing to a one-year or three-years plan to save money compared to pay-as-you-go costs. You can choose to pay for the reservation up front or with monthly payments. If you pay up front, the one-time payment is charged to your subscription. If your organization needs to charge back or show back partial costs of the reservation to users or departments that use it, then you might need to determine what the monthly or daily cost of the reservation is. _Amortization_ is the process of breaking the one-time cost into periodic costs.
+This article helps you understand what amortized reservation costs are and how to view them in cost analysis. When you buy a reservation, you're normally committing to a one-year or three-years plan to save money compared to pay-as-you-go costs. You can choose to pay for the reservation up front or with monthly payments. If you pay up front, the one-time payment is charged to your subscription. If your organization needs to charge back or show back partial costs of the reservation to users or departments that use it, then you might need to determine what the monthly or daily cost of the reservation is. _Amortization_ is the process of breaking the one-time cost into periodic costs.
 
 However, if your organization doesn't charge back or show back reservation use to the users or departments that use them, then you might not need to worry about amortized costs.
 
 ## How Azure calculates amortized costs
 
-To understand how amortized costs are shown in Cost Management + Billing Cost analysis, let's look at some examples.
+To understand how amortized costs are shown in cost analysis, let's look at some examples.
 
 First, let's look at a one-year virtual machine reservation that was purchased on January 1. Depending on your view, instead of seeing a $365 purchase on January 1, 2022, you'll see a $1.00 purchase every day from January 1, 2022 to December 31, 2022. In addition to basic amortization, the costs are also reallocated and associated to the specific resources that used the reservation. For example, if the $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of _UnusedReservation_. Unused reservation costs can be seen only when viewing amortized cost.
 
@@ -39,18 +39,18 @@ In Cost analysis, you view costs with a metric. They include Actual cost and Amo
 
 ## View amortized costs
 
-By default, cost analysis in Cost Management + Billing shows charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
+By default, cost analysis shows charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
 
 > [!NOTE]
 > You can buy a reservation with a pay-as-you-go (MS-AZR-0003P) subscription. However, Cost Analysis doesn't support viewing amortized reservation costs for a pay-as-you-go subscription.
 
-Depending on the view you use in Cost analysis, you'll see different reservation costs. For example:
+Depending on the view you use in cost analysis, you'll see different reservation costs. For example:
 
 When you use the **DailyCosts** view with a date filter applied, you'll easily see when a reservation was purchased with an increase in actual daily costs. If you try to view costs with the **Amortized cost** metric, you'll see the same results as **Actual Cost**.
 
 Let's look at an example one-year reservation purchased for $12,016.00, purchased on October 23, 2019. The term ends on October 23, 2020, and a leap year day is included in the term, so the term's duration is 366 days.
 
-In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management** > **Cost analysis**.
 
 1. Select a date range that includes a period of the reservation term.
 2. Add a filter for **Pricing Model: Reservation** to see only reservation costs.
