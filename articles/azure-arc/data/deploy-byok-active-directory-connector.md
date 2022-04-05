@@ -15,8 +15,6 @@ ms.topic: how-to
 
 This article explains how to deploy an automatic Active Directory (AD) connector custom resource. It is a key component to enable the Azure Arc-enabled SQL Managed Instance with Active Directory. It applies to both integration modes (bring your own keytab (BYOK) or automatic).
 
->>>>This article explains how to deploy an automatic Active Directory (AD) connector custom resource. It is a key component to enable the Azure Arc-enabled SQL Managed Instance with Active Directory. It applies to either integration mode (bring your own keytab (BYOK) or automatic).
-
 ## Prerequisites
 
 Before you proceed, you must have:
@@ -26,33 +24,33 @@ Before you proceed, you must have:
 
 The following instructions expect that the users can bring in the Active Directory domain and provide to the AD bring your own keytab (BYOK) deployment.
 
-* An Active Directory user account for the SQL Managed Instance
+* An Active Directory user account for the managed instance
 * Service Principal Names (SPNs) under the user account
-* DNS record for the endpoint DNS name for SQL Managed Instance
+* DNS record for the endpoint DNS name for managed instance
 
-## Steps Before the Deployment of SQL Managed Instance
+## Before you deploy the managed instance
 
-1. Identify a DNS name for the SQL Managed Instance endpoint.
+1. Identify a DNS name for the managed instance endpoint.
 
-   The DNS name for the endpoint the SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
+   The DNS name for the endpoint the managed instance will listen on for connections coming from outside the Kubernetes cluster.
 
    This DNS name should be in the Active Directory domain or its descendant domains.
 
    The examples in these instructions use `sqlmi.contoso.local` for the DNS name .
 
-2. Identify the port number for the SQL Managed Instance endpoint.
+2. Identify the port number for the managed instance endpoint.
 
-   You must decide a port number for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
+   You must decide a port number for the endpoint managed instance will listen on for connections coming from outside the Kubernetes cluster.
 
    This port number must be in the acceptable range of port numbers to Kubernetes cluster.
 
    The examples in these instructions use `31433` for the port number.
 
-3. Create an Active Directory account for the SQL Managed Instance.
+3. Create an Active Directory account for the managed instance.
 
-    Choose a name for the Active Directory account that will represent your SQL Managed Instance. This name should be unique in the Active Directory domain.
+    Choose a name for the Active Directory account that will represent your managed instance. This name should be unique in the Active Directory domain.
 
-   Use `Active Directory Users and Computers` on the Domain Controllers, create an account for the SQL Managed Instance name.
+   Use `Active Directory Users and Computers` on the Domain Controllers, create an account for the managed instance name.
 
    Provide a complex password to this account that is acceptable to the Active Directory domain password policy. This password will be needed in some of the next steps.
 
@@ -60,15 +58,15 @@ The following instructions expect that the users can bring in the Active Directo
 
    The examples in these instructions use `sqlmi-account` for the AD account name.
 
-4. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
+4. Create a DNS record for the managed instance endpoint in the Active Directory DNS servers.
 
-   In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
+   In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the managed instance endpoint will listen on for connections from outside the Kubernetes cluster.
 
    You do not need to create a PTR record (reverse lookup record) in association with the A record.
 
 5. Create Service Principal Names (SPNs)
 
-   In order for SQL Managed Instance to be able to accept AD authentication against the SQL Managed Instance endpoint DNS name, we need to register two SPNs under the account generated in the previous step. These two SPNs should be of the following format:
+   In order for managed instance to be able to accept AD authentication against the managed instance endpoint DNS name, we need to register two SPNs under the account generated in the previous step. These two SPNs should be of the following format:
 
    ```output
    MSSQLSvc/<DNS name>
@@ -91,9 +89,9 @@ The following instructions expect that the users can bring in the Active Directo
 
 6. Generate a keytab file containing entries for the account and SPNs
 
-   For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file using a Kubernetes secret.
+   For the managed instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file using a Kubernetes secret.
 
-   The keytab file contains encrypted entries for the Active Directory account generated for SQL Managed Instance and the SPNs.
+   The keytab file contains encrypted entries for the Active Directory account generated for the managed instance and the SPNs.
 
    SQL Server will use this file as its credential against Active Directory.
 
@@ -102,14 +100,14 @@ The following instructions expect that the users can bring in the Active Directo
    - `ktpass`: This tool is available on Windows
    - `adutil`: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
-   To generate the keytab file specifically for SQL Managed Instance, use a bash shell script we have published. It wraps `ktutil` and `adutil` together. It is for use on Linux.
+   To generate the keytab file specifically for the managed instance, use a bash shell script we have published. It wraps `ktutil` and `adutil` together. It is for use on Linux.
 
    A bash script works on Linux-based OS can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
    A PowerShell script works on Windows server based OS can be found here: [create-sql-keytab.ps1](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.ps1).
 
    This script accepts several parameters and will output a keytab file and a yaml specification file for the Kubernetes secret containing the keytab.
 
-   Use the following command to run the script after replacing the parameter values with the ones for your SQL Managed Instance deployment.
+   Use the following command to run the script after replacing the parameter values with the ones for your managed instance deployment.
 
    ```console
    AD_PASSWORD=<password> ./create-sql-keytab.sh --realm <AD domain in uppercase> --account <AD account name> --port <endpoint port> --dns-name <endpoint DNS name> --keytab-file <keytab file name/path> --secret-name <keytab secret name> --secret-namespace <keytab secret namespace>
@@ -126,7 +124,7 @@ The following instructions expect that the users can bring in the Active Directo
 
    Using the examples chosen in this document, the command should look like the following.
 
-   Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the SQL Managed Instance will be deployed in.
+   Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the managed instance will be deployed in.
 
    ```console
    AD_PASSWORD=<password> ./create-sql-keytab.sh --realm CONTOSO.LOCAL --account sqlmi-account --port 31433 --dns-name sqlmi.contoso.local --keytab-file sqlmi.keytab --secret-name sqlmi-keytab-secret --secret-namespace sqlmi-ns
@@ -163,14 +161,14 @@ kubectl apply –f sqlmi-keytab-secret.yaml
 ## Active directory (AD) bring your own keytab (BYOK) integration mode
 
 The following are the steps for user to set up:
-1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
-1. Providing a DNS name belonging to the Active Directory DNS domain for the SQL Managed Instance endpoint.
+1. Creating and providing an Active Directory account for each managed instance that must accept AD authentication.
+1. Providing a DNS name belonging to the Active Directory DNS domain for the managed instance endpoint.
 1. Creating a DNS record in Active Directory for the SQL endpoint.
-1. Providing a port number for the SQL Managed Instance endpoint.
+1. Providing a port number for the managed instance endpoint.
 1. Registering Service Principal Names (SPNs) under the AD account in Active Directory domain for the SQL endpoint.
-1. Creating and providing a keytab file for SQL Managed Instance containing entries for the AD account and SPNs.
+1. Creating and providing a keytab file for managed instance containing entries for the AD account and SPNs.
 
-An Active Directory Connector instance stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts and it deploys a DNS proxy service that proxies the DNS requests coming from the SQL Managed Instance to either of the two upstream DNS services:
+An Active Directory Connector instance stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts and it deploys a DNS proxy service that proxies the DNS requests coming from the managed instance to either of the two upstream DNS services:
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
 
@@ -186,7 +184,7 @@ These inputs are provided in a YAML specification of AD Connector instance.
 
 Following metadata about the AD domain must be available before deploying an instance of AD Connector:
 * Name of the Active Directory domain
-* List of the domain controllers (fully-qualified domain names)
+* List of the domain controllers (fully qualified domain names)
 * List of the DNS server IP addresses
 
 Following input fields are exposed to the users in the Active Directory Connector spec:
@@ -197,7 +195,7 @@ Following input fields are exposed to the users in the Active Directory Connecto
      Name of the Active Directory domain in uppercase. This is the AD domain that this instance of AD Connector will be associated with.
 
    - `spec.activeDirectory.domainControllers.primaryDomainController.hostname`
-      Fully-qualified domain name of the primary domain controller in the AD domain.
+      Fully qualified domain name of the primary domain controller in the AD domain.
 
       To identify the primary domain controller, run this command on any Windows machine joined to the AD domain:
 
@@ -220,9 +218,9 @@ Following input fields are exposed to the users in the Active Directory Connecto
       In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
   - `spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname` 
-      List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
+      List of the fully qualified domain names of the secondary domain controllers in the AD domain.
 
-      If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
+      If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully qualified domain names in this list. This allows high-availability for Kerberos operations.
 
       This field is optional and not needed if your domain is served by only one domain controller.
 

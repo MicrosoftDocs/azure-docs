@@ -23,7 +23,7 @@ Before you proceed, you must have:
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
 * A pre-created organizational unit (OU) in the Active Directory
-* An Domain service AD account
+* An Active Directory (AD) domain service account
 
 The AD domain service account should have sufficient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 
@@ -47,7 +47,7 @@ These inputs are provided in a .yaml specification for an AD connector instance.
 The following metadata about the AD domain must be available before deploying an instance of AD connector:
 
 * Name of the Active Directory domain
-* List of the domain controllers (fully-qualified domain names)
+* List of the domain controllers (fully qualified domain names)
 * List of the DNS server IP addresses
 
 The following input fields are exposed to the users in the Active Directory Connector specification:
@@ -81,9 +81,9 @@ The following input fields are exposed to the users in the Active Directory Conn
       In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
   - `spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname` 
-      List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
+      List of the fully qualified domain names of the secondary domain controllers in the AD domain.
 
-      If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
+      If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully qualified domain names in this list. This allows high-availability for Kerberos operations.
 
       This field is optional and not needed if your domain is served by only one domain controller.
 

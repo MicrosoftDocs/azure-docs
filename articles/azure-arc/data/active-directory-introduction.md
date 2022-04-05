@@ -21,7 +21,7 @@ In Active Directory, the integration mode describes the management the keytab fi
 
 ## Background
 
-Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed instances uses an existing on-premises Active Directory (AD) domain for authentication. Users need to do the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance: 
+Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed Instance uses an existing on-premises Active Directory (AD) domain for authentication. Users need to do the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance: 
 
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
 - [Deploy a bring your own keytab AD connector](deploy-byok-active-directory-connector.md) or [Deploy an automatic AD connector](deploy-automatic-active-directory-connector.md)
@@ -36,22 +36,27 @@ The following diagram shows how to enable Active Directory authentication for Az
 
 In order to enable Active Directory authentication for SQL Managed Instance, the managed instance must be deployed in an environment that allows it to communicate with the Active Directory domain. 
 
-To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`, it provide Azure Arc-enabled managed instances running on the same data controller the ability to perform Active Directory authentication.
+To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`, it provides Azure Arc-enabled managed instances running on the same data controller the ability to perform Active Directory authentication.
 
 
-## What is the difference between a bring your own keytab Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
+## What is the difference between the modes?
 
-To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you determine the mode of the AD deployment. The two modes are bring your own keytab or Automatic. 
+To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you determine the mode of the AD deployment. The two modes are:
+
+- Bring your own keytab
+- Automatic 
+
+The following sections describe the compare these modes.
 
 ### Bring your own keytab mode
 
 In this mode, you provide:
  
-- A pre-created Active Directory (AD) account prior to the AD deployment
+- An Active Directory account
 - Service Principal Names (SPNs) under that AD account
 - Your own [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file)
 
-When you deploy the bring your own keytab AD connector, you need to create the AD account, register the service principal names (SPN), and create the keytab file. You can create the account using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+When you deploy the bring your own keytab AD connector, you need to create the AD account, register the service principal names (SPN), and create the keytab file. You can create the account using [Active Directory utility (`adutil`)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
 For more information, see [deploy a bring your own keytab Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 
@@ -65,7 +70,7 @@ Furthermore, the system:
 - Sets SPNs automatically on that AD account.
 - Creates and delivers a keytab file to the managed instance.
 
-The mode of the AD connector is determined by the value of `spec.activeDirectory.serviceAccountProvisioning`. Set to either `bring your own keytab` or `automatic`. Once this parameter is set to automatic, the following parameter becomes mandatory too : 
+The mode of the AD connector is determined by the value of `spec.activeDirectory.serviceAccountProvisioning`. Set to either `bring your own keytab` or `automatic`. Once this parameter is set to automatic, the following parameters become mandatory: 
 - `spec.activeDirectory.ouDistinguishedName`
 - `spec.activeDirectory.domainServiceAccountSecret`
 
@@ -73,7 +78,7 @@ When you deploy SQL Managed Instance with the intention to enable Active Directo
 
 ## Next steps
 
-* [Deploy an bring your own keytab Active Directory (AD) connector](deploy-byok-active-directory-connector.md)
+* [Deploy and bring your own keytab Active Directory (AD) connector](deploy-byok-active-directory-connector.md)
 * [Deploy an automatic Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 * [Deploy Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)
