@@ -72,7 +72,9 @@ The metric page allows you to select create charts by selecting  Container Apps 
 
 :::image type="content" source="media/observability/metrics-main-page-cropped.png" alt-text="Container Apps metrics main page." lightbox="media/observability/metrics-main-page.png":::
 
-Filtering by replica:
+To filter by a replica, select a replica from the *Value* drop down.
+
+``
 :::image type="content" source="media/observability/add-filter.png" alt-text="Add a filter to chart":::
 
 Splitting by Replica:
