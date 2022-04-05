@@ -179,6 +179,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
      |Binding|SSL|
      |User Name|How the ECMA Connector will authenticate itself to your directory server. In this sample, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
      |Password|The password of the user name specified|
+     |Allow manual anchor selection |Allows you to update the anchor in the object types page if required. |
 
      >[!NOTE]
      >If you experience and issue trying to connect, ensure that the service account in AD LDS or your other directory server is enabled.
@@ -195,9 +196,9 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
      |Delta import|Run profile that will import only changes from LDAP since the last full or delta import.|
  12. On the **Export** page, leave the defaults and click **Next**. 
  13. On the **Full Import** page,  leave the defaults and click **Next**. 
- 14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
+ 14. On the **Object Types** page, fill in the boxes and select **Next**. 
       - **Target object**: This object is the target object in the LDAP directory.
-      - **Anchor**: This attribute should be unique in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle.
+      - **Anchor**: This attribute should be unique in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. If you are unable to change the anchor, please ensure that manual anchor selection is enabled in the connectivity page of the ECMA connector host.  
       - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.  You'll refer to this attribute again subsequently in the Azure portal, when configuring attribute mappings, as an attribute to use for matching.
       - **DN**: The distinguishedName of the target object.
      
