@@ -22,7 +22,7 @@ This guide summarizes known limitations related to using private endpoints for A
 - Using Azure portal, the ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
 - Creating DNS A records for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints is not supported via the Azure Purview portal experience. A records can be added manually in the destination DNS Zones in the other subscription. 
 - Self-hosted integration runtime machine must be deployed in the same VNet or a peered VNet where Azure Purview account and ingestion private endpoints are deployed.
-- We currently do not support scanning a Power BI tenant, which has a private endpoint configured with public access blocked.
+- We currently do not support scanning a cross-tenant Power BI tenant, which has a private endpoint configured with public access blocked.
 - For limitation related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Recommended troubleshooting steps  

@@ -50,14 +50,18 @@ items:
     href:  generate-sas-tokens.md
   - name: Custom models
     items:
-    - name: Assemble a training data set
-      href: build-training-data-set.md
-    - name:   Deploy the sample-labeling tool
-      href: deploy-label-tool.md
-    - name: Train a custom model with the sample-labeling tool
-      href: label-tool.md
-    - name: Use table tags to train your custom model
-      href: supervised-table-tags.md
+    - name: Build a custom model (v2.1)
+      items:
+      - name: Assemble a training data set
+        href: build-training-data-set.md
+      - name: Deploy the sample-labeling tool
+        href: deploy-label-tool.md
+      - name: Train a custom model with the sample-labeling tool
+        href: label-tool.md
+      - name: Use table tags to train your custom model
+        href: supervised-table-tags.md
+    - name: Build a custom model (v3.0)
+      href: how-to-guides/build-custom-model-v3.md
   - name: Composed models
     items:
      - name: Compose models v3.0 (preview)
@@ -148,6 +152,8 @@ items:
   items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
+  - name: Use managed identities to access Azure storage
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:

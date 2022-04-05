@@ -2,10 +2,7 @@
 title: Log-based and pre-aggregated metrics in Azure Application Insights | Microsoft Docs
 description: Why to use log-based versus pre-aggregated metrics in Azure Application Insights
 ms.topic: conceptual
-author: vgorbenko
-ms.author: vitalyg
 ms.date: 09/18/2018
-
 ms.reviewer: mbullwin
 ---
 

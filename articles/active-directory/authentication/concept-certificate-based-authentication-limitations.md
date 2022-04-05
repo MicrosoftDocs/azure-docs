@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/18/2022
 
 ms.author: justinha
 author: vimrang
@@ -50,5 +50,5 @@ The following scenarios aren't supported:
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot AZure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
 

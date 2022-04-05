@@ -40,7 +40,6 @@ ms.reviewer: kendralittle, mathoma
 | = 1 | The database engine uses a single serial thread to execute queries. Parallel threads are not used. | 
 | > 1 | The database engine sets the number of additional [schedulers](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the MAXDOP value, or the total number of logical processors, whichever is smaller. |
 | = 0 | The database engine sets the number of additional [schedulers](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the total number of logical processors or 64, whichever is smaller. | 
-| | |
 
 > [!Note]
 > Each query executes with at least one scheduler, and one worker thread on that scheduler.

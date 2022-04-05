@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, sureshja, hirsin
+ms.reviewer: marsma, ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 #Customer intent: As an application developer, I want to learn about the basic authentication concepts in Azure AD for developers (v1.0), including the app model, API, provisioning, and supported scenarios, so I understand what I need to do when I create apps that integrate Microsoft sign-in.

@@ -4,12 +4,11 @@ metadata:
   description: Common questions encountered when creating a virtual machine in Azure Marketplace.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: guide
+  ms.topic: faq
   author: kriti-ms
   ms.author: krsh
   ms.date: 03/10/2021 
   ms.custom: devx-track-azurepowershell
-    
 title: Common questions about VM in Azure Marketplace
 summary: These frequently asked questions (FAQ) cover common issues you might encounter when creating a virtual machine (VM) offer in Azure Marketplace.
 

@@ -55,7 +55,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **Configure** on the image tile that displays the Northwind brand image. 
+1. Select **Edit** on the image tile that displays the Northwind brand image. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-edit.png" alt-text="Azure IoT Central edit brand image.":::
 

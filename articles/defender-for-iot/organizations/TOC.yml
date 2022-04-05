@@ -12,9 +12,6 @@
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: Agentless solution architecture
-    displayName: deployment, where to deploy
-    href: architecture.md
 - name: Quickstarts
   expanded: false
   items: 
@@ -52,7 +49,13 @@
     - name: Detect threats with Microsoft Sentinel
       href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
-  items:  
+  items:
+    - name: Architecture
+      items:
+      - name: Agentless solution architecture
+        href: architecture.md
+      - name: Sensor connection methods
+        href: architecture-connections.md
     - name: Key concepts
       href: concept-key-concepts.md
     - name: OT threat monitoring in enterprise SOCs
@@ -77,7 +80,9 @@
       - name: Install software
         displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
         href: how-to-install-software.md
-      - name: Connect sensors with a proxy
+      - name: Connect sensors to Defender for IoT
+        href: connect-sensors.md
+      - name: Connect sensors with a proxy (legacy)
         displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
         href: how-to-connect-sensor-by-proxy.md
   - name: Manage subscriptions
@@ -149,13 +154,8 @@
     displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
   - name: Work with alerts detected by a sensor
     items:
-    - name: Understand sensor alerts
-      href: how-to-work-with-alerts-on-your-sensor.md
-    - name: Filter and manage alerts from the Alerts page 
+    - name: View alerts details on the Alerts page 
       href: how-to-view-alerts.md
-    - name: About alert messages
-      href: how-to-view-information-provided-in-alerts.md
-      displayName: PCAP, metadata, alerts, link, device map,  
     - name: Alert types and descriptions
       href: alert-engine-messages.md
       displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
@@ -168,6 +168,9 @@
     - name: Forward alert information
       href: how-to-forward-alert-information-to-partners.md
       displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
+  - name: Manage cloud alerts
+    href: how-to-manage-cloud-alerts.md
+    displayName: MITRE ATT&CK, remediation, severity, status, alert exclusion, learn, important, mute, new, active, close
   - name: Gain insight into global, regional, and local threats
     href: how-to-gain-insight-into-global-regional-and-local-threats.md
     displayName: site, business unit, region, map
@@ -178,6 +181,8 @@
     href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Create reports
     items:
+    - name: View and create Azure Monitor workbooks
+      href: workbooks.md
     - name: Create risk assessment reports
       href: how-to-create-risk-assessment-reports.md
       displayName: vulnerability, security score, score, CVE
@@ -190,6 +195,9 @@
     - name: Create trends and statistics reports
       href: how-to-create-trends-and-statistics-reports.md
       displayName: widgets, charts      
+  - name: Analyze programming details and changes
+    displayName: programming, unauthorized 
+    href: how-to-analyze-programming-details-changes.md
   - name: Enrich device information
     items: 
     - name: Work with device notifications
@@ -228,6 +236,8 @@
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
+  - name: Release notes archive
+    href: release-notes-archive.md
   - name: Pre-deployment checklist
     displayNAme: pre-deployment
     href: resources-sensor-deployment-checklist.md
@@ -244,8 +254,6 @@
     items:
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
-    - name: Microsoft Defender for Cloud documentation
-      href: ../../defender-for-cloud/
     - name: Azure security documentation 
       href: ../../security/index.yml
     - name: Azure IoT Security, Privacy, & Compliance blog

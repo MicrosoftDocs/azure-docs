@@ -12,6 +12,9 @@
     href: expressroute-howto-circuit-arm.md
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
+  - name: Create an ExpressRoute circuit - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-expressroute-vnet-bicep.md
   - name: Create an ExpressRoute circuit - ARM template
     displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
@@ -167,7 +170,11 @@
       - name: Azure PowerShell
         href: expressroute-howto-reset-peering.md
     - name: Configure BGP community value for VNet
-      href: how-to-configure-custom-bgp-communities.md
+      items:
+      - name: Azure portal
+        href: how-to-configure-custom-bgp-communities-portal.md
+      - name: Azure PowerShell
+        href: how-to-configure-custom-bgp-communities.md
     - name: Move from public peering to Microsoft peering
       href: how-to-move-peering.md
   - name: Encrypt traffic over circuits

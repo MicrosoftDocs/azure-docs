@@ -1,7 +1,7 @@
 ---
-title: Voice control your inventory and visualize with Power BI dashboard
+title: Voice control your inventory with Azure Percept Audio 
 description: This article will give detailed instructions for building the main components of the solution and deploying the edge speech AI.
-author: leannhuang 
+author: nkhuyent
 ms.author: leannhuang
 ms.service: azure-percept 
 ms.topic: tutorial 
@@ -11,8 +11,8 @@ ms.custom: template-tutorial
 
 
 
-# Tutorial: Voice control your inventory and visualize with Power BI Dashboard 
-This article will give detailed instructions for building the main components of the solution and deploying the edge speech AI. The solution uses Azure Percept DK device and the Audio SoM, Azure Speech Services -Custom Commands, Azure Function App, SQL Database, and Power BI. Users can learn how to manage their inventory with voice using Azure Percept Audio and visualize results with Power BI. The goal of this article is to empower users to create a basic inventory management solution.
+# Voice control your inventory with Azure Percept Audio  
+This article will give detailed instructions for building the main components of the solution and deploying the edge speech AI. The solution uses the Azure Percept DK device and the Audio SoM, Azure Speech Services -Custom Commands, Azure Function App, SQL Database, and Power BI. Users can learn how to manage their inventory with voice using Azure Percept Audio and visualize results with Power BI. The goal of this article is to empower users to create a basic inventory management solution.
 
 Users who want to take their solution further can add an additional edge module for visual inventory inspection or expand on the inventory visualizations within Power BI.
 
@@ -41,11 +41,11 @@ In this tutorial, you learn how to:
 - Create an [Azure SQL server](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-sql/database/single-database-create-quickstart.md)
 
 
-## Software Architecture 
+## Software architecture 
 ![Solution Architecture](./media/voice-control-your-inventory-images/voice-control-solution-architect.png)
 
 
-## Section 1: Create an Azure SQL Server and SQL Database
+## Step 1: Create an Azure SQL Server and SQL Database
 In this section, you will learn how to create the table for this lab. This table will be the main source of truth for your current inventory and the basis of data visualized in Power BI.
 
 1. Set SQL server firewall
@@ -70,14 +70,14 @@ In this section, you will learn how to create the table for this lab. This table
 
    ```
     
-    ![create the table](./media/voice-control-your-inventory-images/create-sql-table.png) 
+    :::image type="content" source="./media/voice-control-your-inventory-images/create-sql-table.png" alt-text="Create SQL table.":::
  
-## Section 2: Create an Azure function project and publish to Azure
+## Step 2: Create an Azure Functions project and publish to Azure
 In this section, you will use Visual Studio Code to create a local Azure Functions project in Python. Later in this article, you'll publish your function code to Azure.
 
 1. Go to the [GitHub link](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/voice-control-inventory-management) and clone the repository
    1. Click Code and HTTPS tab
-        ![Code and HTTPS tab](./media/voice-control-your-inventory-images/clone-git.png) 
+        :::image type="content" source="./media/voice-control-your-inventory-images/clone-git.png" alt-text="Code and HTTPS tab."::: 
    2. Copy the command below in your terminal to clone the repository
         ![clone the repository](./media/voice-control-your-inventory-images/clone-git-command.png)
 
@@ -85,7 +85,8 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         git clone https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/voice-control-inventory-management
         ```
 
-2. Enable Azure Function
+2. Enable Azure Functions. 
+
    1. Click Azure Logo in the task bar
 
         ![Azure Logo in the task bar](./media/voice-control-your-inventory-images/select-azure-icon.png) 
@@ -95,13 +96,13 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
 3. Create your local project
    1. Create a folder (ex: airlift_az_func) for your project workspace
         ![Create a folder](./media/voice-control-your-inventory-images/create-new-folder.png) 
-   2. Choose the Azure icon in the Activity bar, then in the Azure: Functions area, select the <strong>Create new project...</strong> icon
+   2. Choose the Azure icon in the Activity bar, then in Functions, select the <strong>Create new project...</strong>icon.
         ![select Azure icon](./media/voice-control-your-inventory-images/select-function-visio-studio.png) 
    3. Choose the directory location you just created for your project workspace and choose **Select**.
         ![the directory location](./media/voice-control-your-inventory-images/select-airlift-folder.png) 
    4. <strong>Provide the following information at the prompts</strong>: Select a language for your function project: Choose <strong>Python</strong>.
         ![following information at the prompts](./media/voice-control-your-inventory-images/language-python.png) 
-   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have python installed.
+   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have Python installed.
         ![create a virtual environment](./media/voice-control-your-inventory-images/skip-virtual-env.png) 
    6. <strong>Select a template for your project's first function</strong>: Choose <strong>HTTP trigger</strong>.
         ![Select a template](./media/voice-control-your-inventory-images/http-trigger.png) 
@@ -109,23 +110,24 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         ![Provide a function name](./media/voice-control-your-inventory-images/http-example.png) 
    8. <strong>Authorization level</strong>: Choose <strong>Anonymous</strong>, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-bindings-http-webhook-trigger.md).
         ![power pi dashboard](./media/voice-control-your-inventory-images/create-http-trigger.png) 
-   9.  <strong>Select how you would like to open your project</strong>: Choose Add to workspace. Trust folder and enable all features
+   9.  <strong>Select how you would like to open your project</strong>: Choose Add to workspace. Trust folder and enable all features.
+   
         ![Authorization keys](./media/voice-control-your-inventory-images/trust-authorize.png) 
-   10. You will see the HTTPExample function has been initiated
+   1. You will see the HTTPExample function has been initiated
         ![ HTTPExample function](./media/voice-control-your-inventory-images/modify-init-py.png) 
    
 4. Develop CRUD.py to update Azure SQL on Azure Function
    1. Replace the content of the <strong>__init__.py</strong> in [here](https://github.com/microsoft/Azure-Percept-Reference-Solutions/blob/main/voice-control-inventory-management/azure-functions/__init__.py) by copying the raw content of <strong>__init__.py</strong>
-        [ ![copying the raw content](./media/voice-control-your-inventory-images/copy-raw-content-mini.png) ](./media/voice-control-your-inventory-images/copy-raw-content.png#lightbox) 
+        :::image type="content" source="./media/voice-control-your-inventory-images/copy-raw-content-mini.png" alt-text="Copy raw contents." lightbox="./media/voice-control-your-inventory-images/copy-raw-content.png":::
    2. Drag and drop the <strong>CRUD.py</strong> to the same layer of <strong>init.py</strong>
         ![Drag and drop-1](./media/voice-control-your-inventory-images/crud-file.png)
         ![Drag and drop-2](./media/voice-control-your-inventory-images/show-crud-file.png)
    3. Update the value of the <strong>sql server full address</strong>, <strong>database</strong>, <strong>username</strong>, <strong>password</strong> you created in section 1 in <strong>CRUD.py</strong>
-        [ ![Update the value-1](./media/voice-control-your-inventory-images/server-name-mini.png) ](./media/voice-control-your-inventory-images/server-name.png#lightbox)
+        :::image type="content" source="./media/voice-control-your-inventory-images/server-name-mini.png" alt-text="Update the values."lightbox="./media/voice-control-your-inventory-images/server-name.png":::
         ![Update the value-2](./media/voice-control-your-inventory-images/server-parameter.png)
    4. Replace the content of the <strong>requirements.txt</strong>  in here by copying the raw content of requirements.txt
         ![Replace the content-1](./media/voice-control-your-inventory-images/select-requirements-u.png)
-        [ ![Replace the content-2](./media/voice-control-your-inventory-images/view-requirement-file-mini.png) ](./media/voice-control-your-inventory-images/view-requirement-file.png#lightbox)
+        :::image type="content" source="./media/voice-control-your-inventory-images/view-requirement-file-mini.png" alt-text="Replace the content." lightbox= "./media/voice-control-your-inventory-images/view-requirement-file.png":::
    5. Press “Ctrl + s” to save the content
    
 5. Sign in to Azure
@@ -166,11 +168,11 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
     1. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.
         ![a notification](./media/voice-control-your-inventory-images/example-output.png)
    
-## Section 3: Import an Inventory Speech template to Custom Commands
+## Step 3: Import an inventory speech template to Custom Commands
 In this section, you will import an existing application config json file to Custom Commands.
 
 1. Create an Azure Speech resource in a region that supports Custom Commands.
-   1. Click [Create Speech Services portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
+   1. Click [Create Speech Services portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
       1. Select your Subscription
       2. Use the Resource group you just created in exercise 1
       3. Select the Region(Please check here to see the support region in custom commands)
@@ -180,7 +182,7 @@ In this section, you will import an existing application config json file to Cus
       1. In a web browser, go to [Speech Studio](https://speech.microsoft.com/portal).
       2. Select <strong>Custom Commands</strong>.
         The default view is a list of the Custom Commands applications you have under your selected subscription.
-        ![Custom Commands applications](./media/voice-control-your-inventory-images/cognitive-service.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/cognitive-service.png" alt-text="Custom Commands applications.":::
       3. Select your Speech <strong>subscription</strong> and <strong>resource group</strong>, and then select <strong>Use resource</strong>.
         ![Select your Speech](./media/voice-control-your-inventory-images/speech-studio.png)
    3. Import an existing application config as a new Custom Commands project
@@ -202,37 +204,37 @@ In this section, you will import an existing application config json file to Cus
       10. Next, select <strong>Create</strong> to create your project. After the project is created, select your project. You should now see overview of your new Custom Commands application.
 
 
-## Section 4: Train, test, and publish the Custom Command
+## Step 4: Train, test, and publish the Custom Commands
 In this section, you will train, test, and publish your Custom Commands
 
 1. Replace the web endpoints URL
    1. Click Web endpoints and replace the URL
    2. Replace the value in the URL to the <strong>HTTP Trigger Url</strong> you noted down in section 2 (ex: `https://xxx.azurewebsites.net/api/httpexample`)
-    ![Replace the value in the URL](./media/voice-control-your-inventory-images/web-point-url.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/web-point-url.png" alt-text="Replace the value in the URL.":::
 2. Create LUIS prediction resource
    1. Click <strong>settings</strong> and create a <strong>S0</strong> prediction resource under LUIS <strong>prediction resource</strong>.
-    ![prediction resource-1](./media/voice-control-your-inventory-images/predict-source.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/predict-source.png" alt-text="Prediction resource-1.":::
     ![prediction resource-2](./media/voice-control-your-inventory-images/tier-s0.png)
 3. Train and Test with your custom command
    1. Click <strong>Save</strong> to save the Custom Commands Project
    2. Click <strong>Train</strong> to Train your custom commands service
-    ![custom commands service-1](./media/voice-control-your-inventory-images/train-model.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/train-model.png" alt-text="Custom commands train model.":::
    3. Click <strong>Test</strong> to test your custom commands service
-    ![custom commands service-2](./media/voice-control-your-inventory-images/test-model.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/test-model.png" alt-text="Custom commands test model.":::
    4. Type “Add 2 green boxes” in the pop-up window to see if it can respond correctly
     ![pop-up window](./media/voice-control-your-inventory-images/outcome.png)
 4. Publish your custom command
    1. Click Publish to publish the custom commands
-    ![publish the custom commands](./media/voice-control-your-inventory-images/publish.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/publish.png" alt-text="Publish the custom commands.":::
 5. Note down your application ID, speech key in the settings for further use
-    ![application id](./media/voice-control-your-inventory-images/application-id.png)
+    :::image type="content" source="./media/voice-control-your-inventory-images/application-id.png" alt-text="Application ID.":::
 
-## Section 5: Deploy modules to your Devkit
+## Step 5: Deploy modules to your Devkit
 In this section, you will learn how to use deployment manifest to deploy modules to your device.
 1. Set IoT Hub Connection String
    1. Go to your IoT Hub service in Azure portal. Click <strong>Shared access policies</strong> -> <strong>Iothubowner</strong>
    2. Click <strong>Copy</strong> the get the <strong>primary connection string</strong>
-        ![primary connection string](./media/voice-control-your-inventory-images/iot-hub-owner.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/iot-hub-owner.png" alt-text="Primary connection string.":::
    3. In Explorer of VS Code, click "Azure IoT Hub".
         ![click on hub](./media/voice-control-your-inventory-images/azure-iot-hub-studio.png)
    4. Click "Set IoT Hub Connection String" in context menu
@@ -261,15 +263,15 @@ In this section, you will learn how to use deployment manifest to deploy modules
     ![choose device](./media/voice-control-your-inventory-images/iot-hub-device.png)
    4. Check your log of the azurespeechclient module
       1. Go to Azure portal to click your Azure IoT Hub
-        ![select hub](./media/voice-control-your-inventory-images/voice-iothub.png)
+        !:::image type="content" source="./media/voice-control-your-inventory-images/voice-iothub.png" alt-text="Select IoT hub.":::
       2. Click IoT Edge
-        ![go to edge](./media/voice-control-your-inventory-images/portal-iotedge.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/portal-iotedge.png" alt-text="Go to IoT edge.":::
       3. Click your Edge device to see if the modules run well
-        ![confirm module](./media/voice-control-your-inventory-images/device-id.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/device-id.png" alt-text="Confirm modules.":::
       4. Click <strong>azureearspeechclientmodule</strong> module
-        ![select ear mod](./media/voice-control-your-inventory-images/azure-ear-module.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/azure-ear-module.png" alt-text="Select ear module.":::
       5. Click <strong>Troubleshooting</strong> tab of the azurespeechclientmodule
-        ![selct client mod](./media/voice-control-your-inventory-images/troubleshoot.png)
+        ![select client mod](./media/voice-control-your-inventory-images/troubleshoot.png)
     
    5. Check your log of the azurespeechclient module
       1. Change the Time range to 3 minutes to check the latest log
@@ -277,12 +279,12 @@ In this section, you will learn how to use deployment manifest to deploy modules
       2. Speak <strong>“Computer, remove 2 red boxes”</strong> to your Azure Percept Audio
         (Computer is the wake word to wake Azure Percept DK, and remove 2 red boxes is the command)
         Check the log in the speech log if it shows <strong>“sure, remove 2 red boxes. 2 red boxes have been removed.”</strong>
-        ![verify log](./media/voice-control-your-inventory-images/speech-regconizing.png)
+        :::image type="content" source="./media/voice-control-your-inventory-images/speech-regconizing.png" alt-text="Verify log.":::
       >[!NOTE] 
       >If you have set up the wake word before, please use the wake work you set up to wake your DK.
  
 
-## Section 6: Import dataset from Azure SQL to Power BI
+## Step 6: Import dataset from Azure SQL to Power BI
 In this section, you will create a Power BI report and check if the report has been updated after you speak commands to your Azure Percept Audio.
 1. Open the Power BI Desktop Application and import data from Azure SQL Server
    1. Click close of the pop-up window
@@ -321,7 +323,7 @@ In this section, you will create a Power BI report and check if the report has b
    2. Click “Refresh”. You will see the number of green boxes has been updated.
         ![Power BI report-9](./media/voice-control-your-inventory-images/refresh-power-bi.png)
 
-Congratulations! You finally know how to develop your own voice assistant. It is not easy to configure such a lot of configurations and set up the custom commands for the first time. But you did it! You can start trying more complex scenarios after this tutorial. Looking forward to seeing you design more interesting scenarios and let voice assistant help in the future.
+Congratulations! You now know how to develop your own voice assistant! You went through a lot of configuration and set up the custom commands for the first time. Great job! Now you can start trying more complex scenarios after this tutorial. Looking forward to seeing you design more interesting scenarios and let voice assistant help in the future.
 
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
@@ -335,7 +337,7 @@ resources with the following steps:
 
 1. Login to the [Azure portal](https://portal.azure.com), go to `Resource Group` you have been using for this tutorial. Delete the SQL DB, Azure Function, and Speech Service resources.
 
-2. Go into [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
+2. Go into [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
 
 3. Go in to [Speech Studio](https://speech.microsoft.com/portal) and delete project created for this tutorial. 
 
@@ -351,8 +353,7 @@ customer can do.
 
 ## Next steps
 
-Check out the other tutorial under Advanced prototyping with Azure Percept section for your Azure Percept DK.
-
+Check out the tutorial [Create a people counting solution with Azure Percept Vision](./create-people-counting-solution-with-azure-percept-devkit-vision.md).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

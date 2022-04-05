@@ -3,7 +3,7 @@ title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
+ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
 ms.date: 09/21/2021
 ---
 
@@ -122,7 +122,7 @@ az hdinsight azure-monitor enable --name $cluster --resource-group $resourceGrou
 az hdinsight azure-monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) command.
 
 ```azurecli
 az hdinsight azure-monitor disable --name $cluster --resource-group $resourceGroup
@@ -263,7 +263,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## Enable Azure Monitor using Azure CLI
 
-You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_enable) command.
+You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable) command.
 
 ```azurecli
 # set variables
@@ -278,7 +278,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) command.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

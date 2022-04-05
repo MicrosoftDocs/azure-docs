@@ -1,7 +1,7 @@
 ---
 title: Process data from Event Hubs Azure using Stream Analytics | Microsoft Docs
 description: This article shows you how to process data from your Azure event hub using an Azure Stream Analytics job. 
-ms.date: 09/15/2021
+ms.date: 03/14/2022
 ms.topic: article
 ---
 
@@ -16,6 +16,9 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 - **Deploy your query to production** – You can deploy the query into production by creating and starting an Azure Stream Analytics job.
 
 ## End-to-end flow
+
+> [!IMPORTANT]
+> If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to your **Event Hubs namespace** and then navigate to the **event hub**, which has the incoming data. 

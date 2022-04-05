@@ -1,13 +1,14 @@
 ---
 title: Create an image definition and image version
 description: Learn how to create an image in an Azure Compute Gallery.
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: 
 
 ---
@@ -95,7 +96,7 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -119,7 +120,7 @@ az sig image-definition create \
 
 **Create the image version**
 
-Create an image version using [az sig image version create](/cli/azure/sig/image-version#az_sig_image_version_create).  
+Create an image version using [az sig image version create](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 The syntax for creating the image will change, depending on what you are using as your source. You can mix the source types, as long as you only have one OS source. You can also have different sources for each data disk.
 
@@ -134,7 +135,7 @@ The syntax for creating the image will change, depending on what you are using a
 | Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
 | VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 
-For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version#az_sig_image_version_create-examples).
+For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version#az-sig-image-version-create-examples).
 
 In the example below, we are creating an image from a **VM**. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
 

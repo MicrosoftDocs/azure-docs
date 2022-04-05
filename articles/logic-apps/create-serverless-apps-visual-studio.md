@@ -1,6 +1,6 @@
 ---
 title: Create an example serverless app with Visual Studio
-description: Using an Azure quickstart template, create, deploy, and manage an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio
+description: Create, deploy, and manage an example serverless app with an Azure quickstart template, Azure Logic Apps and Azure Functions in Visual Studio.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -31,7 +31,7 @@ For more information, review the following articles:
 
 * Download and install the following tools, if you don't already have them:
 
-  * [Visual Studio 2019, 2017, or 2015 (Community or other edition)](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2019, which is free.
+  * [Visual Studio 2019, 2017, or 2015 (Community or other edition)](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2019, which is free.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure to select the **Azure development** workload.
@@ -40,10 +40,12 @@ For more information, review the following articles:
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
-  * Azure Logic Apps Tools for the Visual Studio version that you're using. You can either [learn how install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions), or you can download the respective versions of the Azure Logic Apps Tools from the Visual Studio Marketplace:
+  * The latest Azure Logic Apps Tools extension for the Visual Studio version that you want. You can either [learn how install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions), or you can download the respective versions of the Azure Logic Apps Tools from the Visual Studio Marketplace:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
+
     * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
     > [!IMPORTANT]

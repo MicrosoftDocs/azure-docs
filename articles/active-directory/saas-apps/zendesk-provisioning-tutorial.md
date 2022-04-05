@@ -155,6 +155,8 @@ For information on how to read the Azure AD provisioning logs, see [Reporting on
 
 * When a custom role is assigned to a user or group, the Azure AD automatic user provisioning service also assigns the default role **Agent**. Only Agents can be assigned a custom role. For more information, see the [Zendesk API documentation](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
+* Import of all roles will fail if any of the custom roles has a display name similar to the built in roles of "agent" or "end-user". To avoid this, ensure that none of the custom roles being imported has the above display names. 
+
 ## Additional resources
 
 * [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -70,7 +70,6 @@ Certain machine learning scenarios involve training models with private data. In
   
   Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an [existing one via the Python SDK](how-to-manage-workspace.md#connect-to-a-workspace). 
 
-
 ## Create and register datastores
 
 When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. You also have the option to manually create the storage you want to connect to without any special permissions, and you just need the name.
@@ -144,6 +143,8 @@ sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
 ## Storage access permissions
 
 To help ensure that you securely connect to your storage service on Azure, Azure Machine Learning requires that you have permission to access the corresponding data storage. 
+> [!WARNING]
+>  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the AzureML Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
 
 Identity-based data access supports connections to **only** the following storage services.
 

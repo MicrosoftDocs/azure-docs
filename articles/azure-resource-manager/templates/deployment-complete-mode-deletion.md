@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 02/18/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -1953,7 +1953,7 @@ Jump to a resource provider namespace:
 > | hsmPools | Yes |
 > | managedHSMs | Yes |
 > | vaults | Yes |
-> | vaults / accessPolicies | No |
+> | vaults / accessPolicies | Yes |
 > | vaults / eventGridFilters | No |
 > | vaults / keys | No |
 > | vaults / keys / versions | No |

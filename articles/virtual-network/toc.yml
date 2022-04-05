@@ -28,7 +28,23 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Samples overview
+      href: cli-samples.md
+    - name: Create a virtual network for multi-tier applications
+      href: ./scripts/virtual-network-cli-sample-multi-tier-application.md
+    - name: Peer two virtual networks
+      href: ./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md
+    - name: Route traffic through nva
+      href: ./scripts/virtual-network-cli-sample-route-traffic-through-nva.md
+    - name: Filter network traffic
+      href: ./scripts/virtual-network-cli-sample-filter-network-traffic.md
+    - name: Basic load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
+    - name: Standard load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
+    - name: Create and test a NAT gateway
+      href: ./nat-gateway/tutorial-create-nat-gateway-cli.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Resource Manager templates
@@ -230,6 +246,8 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
+    - name: Migrate a virtual machine public IP address
+      href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
     - name: Add or remove network interfaces
       href: virtual-network-network-interface-vm.md
     - name: Create VM - multiple NICs

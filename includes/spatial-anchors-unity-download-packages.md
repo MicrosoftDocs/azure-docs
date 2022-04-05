@@ -1,9 +1,9 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/12/2021
-ms.author: parkerra
+ms.author: pamistel
 ---
 
 The next step is to download the Azure Spatial Anchors packages for Unity. 

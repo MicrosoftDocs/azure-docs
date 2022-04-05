@@ -3,7 +3,6 @@ title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
 ms.date: 10/12/2021
-
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -29,6 +28,9 @@ With Live Metrics Stream, you can:
 
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
+> [!NOTE]
+>  The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
+
 ## Get started
 
 1. Follow language specific guidelines to enable Live Metrics.
@@ -42,6 +44,11 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
+
+> [!IMPORTANT]
+> Monitoring ASP.NET Core 3.X applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable LiveMetrics using code for any .NET application
 

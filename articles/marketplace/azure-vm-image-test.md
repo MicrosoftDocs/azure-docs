@@ -4,8 +4,9 @@ description: Test and submit an Azure virtual machine offer in Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: ebolton-cyber
-ms.author: edewebolton
+author: mathapli
+ms.author: mathapli
+ms.reviewer: edewebolton
 ms.date: 02/01/2022
 ---
 
@@ -43,7 +44,7 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 1. Download and install the most recent [Certification Test Tool for Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Open the certification tool, then select **Start New Test**.
 3. From the Test Information screen, enter a **Test Name** for the test run.
-4. Select the Platform for your VM, either **Windows Server** or **Linux**. Your platform choice affects the remaining options.
+4. Select the Platform for your VM, either **Windows Server** (allow port 5986 for Windows) or **Linux** (allow port 22 for Linux). Your platform choice affects the remaining options.
 5. If your VM is using this database service, select the **Test for Azure SQL Database** check box.
 
 #### Connect the certification tool to a VM image
@@ -96,7 +97,7 @@ $accessToken = $response.access_token
 
 :::image type="content" source="media/vm/generate-access-token.png" lightbox="media/vm/generate-access-token.png" alt-text="Shows a screen example for generating an access token in PowerShell.":::
 
-This example shows a PowerShell call to the API:
+This example shows a PowerShell call to the API (allow port 22 during VM creation):
 
 ```POWERSHELL
 $accesstoken = "token"
@@ -167,7 +168,7 @@ Call the API in PowerShell:
 2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
 3. Create the body parameters in JSON format.
 
-This code sample shows a PowerShell call to the API:
+This code sample shows a PowerShell call to the API (allow port 5986 during VM creation):
 
 ```PowerShell
 $accesstoken = "Get token for your Client AAD App"

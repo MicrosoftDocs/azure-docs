@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Get report queries API
@@ -29,11 +29,11 @@ The Get report queries API gets all queries that are available for use in report
 | Content-Type | string | `Application/JSON` |
 ||||
 
-**Path Parameter**
+**Path parameter**
 
 None
 
-**Query Parameter**
+**Query parameter**
 
 | **Parameter name** | **Type** | **Required** | **Description** |
 | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ None
 | `IncludeOnlySystemQueries` | boolean | No | Include only system queries in the response |
 |||||
 
-**Request Payload**
+**Request payload**
 
 None
 

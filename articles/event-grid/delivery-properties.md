@@ -2,7 +2,7 @@
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 02/23/2022
 ---
 
 # Custom delivery properties
@@ -85,6 +85,8 @@ Azure Service Bus supports the use of following message properties when sending 
 > - The default value of `MessageId` is the internal ID of the Event Grid event. You can override it. For example, `data.field`.
 > - You can only set either `SessionId` or `MessageId`. 
 
+You can also specify custom properties when sending messages to Service Bus queues or topics. Don't use the `aeg-` prefix as it's used by system properties in message headers. For a list of message header properties, see [Service Bus as an event handler](handler-service-bus.md#message-headers)
+
 ### Event Hubs example
 
 If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
@@ -92,6 +94,8 @@ If you need to publish events to a specific partition within an event hub, set t
 | Header name | Header type |
 | :-- | :-- |
 |`PartitionKey` | Static |
+
+You can also specify custom properties when sending messages to an event hub. Don't use the `aeg-` prefix for the property name as it's used by system properties in message headers. For a list of message header properties, see [Event Hubs as an event handler](handler-event-hubs.md#message-headers)
 
 
 ### Configure time to live on outgoing events to Azure Storage Queues

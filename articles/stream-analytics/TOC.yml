@@ -37,7 +37,7 @@
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
-    href: custom-deserializer.md
+    href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
     href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
@@ -170,6 +170,8 @@
         href: manage-jobs-cluster.md
       - name: Scale cluster size
         href: scale-cluster.md
+      - name: Move cluster to another region
+        href: move-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials
@@ -198,6 +200,12 @@
       href: geo-redundancy.md
   - name: Authenticate with managed identity
     items:
+    - name: Managed Identities Overview
+      href: stream-analytics-managed-identities-overview.md
+      displayName: managed identity, identities, authenticate
+    - name: User Assigned Managed Identities
+      href: stream-analytics-user-assigned-managed-identity-overview.md
+      displayName: managed identity, identities, authenticate
     - name: ADLS Gen 1
       href: stream-analytics-managed-identities-adls.md
       displayName: managed identity, identities, authenticate
@@ -280,6 +288,8 @@
       href: stream-analytics-vs-tools.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
+    - name: Create a custom .NET deserializer
+      href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline

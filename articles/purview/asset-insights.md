@@ -40,7 +40,7 @@ In Azure Purview, you can register and scan source types. Once the scan is compl
 > [!NOTE]
 > After you have scanned your source types, give Asset Insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact the field support team.
 
-1. Navigate to your Azure Purview resource in the Azure portal.
+1. Navigate to your Azure Purview account in the Azure portal.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Open Azure Purview Studio** tile.
 

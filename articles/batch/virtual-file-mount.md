@@ -71,7 +71,7 @@ You can mount an Azure file share on a Batch pool using [Azure PowerShell](/powe
 1. Create a Batch pool with the following settings. Replace the sample values with your own information as needed.
 
     ```powershell
-    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<Storage-Account-name>", https://<Storage-Account-name>.file.core.windows.net/batchfileshare1, "S", "Storage-Account-key")
+    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<Storage-Account-name>", "https://<Storage-Account-name>.file.core.windows.net/batchfileshare1", "S", "Storage-Account-key")
     
     $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
     
@@ -79,7 +79,7 @@ You can mount an Azure file share on a Batch pool using [Azure PowerShell](/powe
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.windows amd64")
     
-    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $Context
+    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $context
     ```
 
 1. Access the mount files using your drive's direct path. For example:
@@ -428,7 +428,7 @@ new PoolAddParameter
                 RelativeMountPath = "cifsmountpoint",
                 Source = "source",
                 Password = "StorageAccountKey",
-                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino"
+                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino,domain=MyDomain"
             },
         }
     }

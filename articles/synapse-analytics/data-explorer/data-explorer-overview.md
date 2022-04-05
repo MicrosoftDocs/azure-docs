@@ -6,7 +6,6 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
@@ -17,6 +16,11 @@ ms.custom: ignite-fall-2021
 Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
 
 :::image type="content" border="false" source="../media/overview-what-is/synapse-architecture.png" alt-text="Diagram showing the Azure Synapse architecture.":::
+
+To learn more, see the following video:
+
+>
+> [!VIDEO https://docs.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
 
 ## What makes Azure Synapse Data Explorer unique?
 

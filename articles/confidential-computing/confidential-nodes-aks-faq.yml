@@ -5,10 +5,9 @@ metadata:
   author: agowdamsft
   ms.service: container-service
   ms.subservice: confidential-computing
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 06/30/2021
   ms.author: amgowda
-    
 title: Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
 summary: |
   This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.

@@ -1,42 +1,49 @@
 ---
-title: Create an Azure DevTest Labs custom image from a VM
-description: Learn how to create a custom image in Azure DevTest Labs from a provisioned VM using the Azure portal
+title: Create a custom image from a lab VM
+description: Learn how to create a custom image from a provisioned virtual machine in Azure DevTest Labs by using the Azure portal.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 02/15/2022
 ---
 
 # Create a custom image from a VM
 
+In this article, you learn how to create a custom image from a provisioned Azure DevTest Labs virtual machine (VM).
+
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
+
+The custom image includes the OS disk and all the data disks attached to the VM. Lab users can use the custom image to create identical provisioned lab VMs.
 
 ## Step-by-step instructions
 
-You can create a custom image from a provisioned VM, and afterwards use that custom image to create identical VMs. The following steps illustrate how to create a custom image from a VM:
+To create a custom image from a lab VM, take the following steps:
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), on your lab's **Overview** page, select the VM to use for the image from the **My virtual machines** list.
 
-1. Select **All services**, and then select **DevTest Labs** from the list.
+   :::image type="content" source="./media/devtest-lab-create-custom-image-vm/overview-page.png" alt-text="Screenshot that shows a V M selected on a lab's Overview page.":::
 
-1. From the list of labs, select the desired lab.  
+1. On the VM's **Overview** page, select **Create custom image** under **Operations** in the left navigation.
 
-1. On the lab's main pane, select **My virtual machines**.
- 
-1. On the **My virtual machines** pane, select the VM from which you want to create the custom image.
+1. On the **Create custom image** page, enter a **Name** and optional **Description** for the custom image.
 
-1. On the VM's management pane, select **Create custom image** under **OPERATIONS**.
+1. Under **Image preparation**, select one of the following options:
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Create custom image menu item":::
-1. On the **Custom image** pane, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM. The custom image will include the OS disk and all the data disks attached to the virtual machine.
+   - **I have not generalized this virtual machine** if you haven't run [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) and don't want to run sysprep on the VM when creating the custom image.
+   - **I have already generalized this virtual machine** if you already ran sysprep on the VM.
+   - **Generalize this virtual machine (Run sysprep)** if you haven't run sysprep and you want sysprep to be run on the VM when creating the custom image.
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Create custom image page":::
-1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep to be run on the VM when the custom image is created.
-1. Select **OK** when finished to create the custom image.
+1. Select **OK**.
 
-    After a few minutes, the custom image is created and is stored inside the lab’s storage account. When a lab user wants to create a new VM, the image is available in the list of base images.
+   :::image type="content" source="./media/devtest-lab-create-custom-image-vm/create-custom-image.png" alt-text="Screenshot that shows the Create custom image selection on a V M's Overview page.":::
 
-    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="custom image available in list of base images":::
+The custom image is created and stored in the lab's storage account. The image is now available in the list of base images for creating a new lab VM.
 
+:::image type="content" source="./media/devtest-lab-create-custom-image-vm/custom-image-available-as-base.png" alt-text="Screenshot that shows custom images available in the list of VM base images.":::
 
 ## Next steps
 
 - [Add a VM to your lab](devtest-lab-add-vm.md)
+- [Create a custom image from a VHD file](devtest-lab-create-template.md)
+- [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
+- [Create a custom image factory in Azure DevTest Labs](image-factory-create.md)

@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 10/25/2021
+ms.date: 03/01/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -18,13 +18,11 @@ While a blob is in the Archive access tier, it's considered to be offline and ca
 
 - [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Microsoft recommends this option for most scenarios.
 
-- [Change a blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+- [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends rehydrating larger blobs for optimal performance. Rehydrating several small blobs concurrently may require additional time. A maximum of 10 GiB per storage account may be rehydrated per hour.
+Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs may require additional time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
 
-You can configure [Azure Event Grid](../../event-grid/overview.md) to raise an event when you rehydrate a blob from the Archive tier to an online tier and to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
-
-For more information about access tiers in Azure Storage, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+To learn how rehydrate an archived blob to an online tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 ## Rehydration priority
 
@@ -92,7 +90,7 @@ During the blob rehydration operation, you can call the [Get Blob Properties](/r
 
 ## Handle an event on blob rehydration
 
-Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete offers better performance and cost optimization.
+Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Microsoft recommends that you use [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete for better performance and cost optimization.
 
 Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
@@ -109,13 +107,14 @@ A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-
 
 Copying an archived blob to an online tier with [Copy Blob](/rest/api/storageservices/copy-blob) is billed for data read transactions and data retrieval size. Creating the destination blob in an online tier is billed for data write transactions. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the Archive tier. High-priority retrieval charges do apply if selected.
 
-Blobs in the Archive tier should be stored for a minimum of 180 days. Deleting or changing the tier of an archived blob before the 180-day period elapses incurs an early deletion fee. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
+Blobs in the Archive tier should be stored for a minimum of 180 days. Deleting or changing the tier of an archived blob before the 180-day period elapses incurs an early deletion fee.For example, if a blob is moved to the Archive tier and then deleted or moved to the Hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the Archive tier. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
 
 For more information about pricing for block blobs and data rehydration, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## See also
 
-- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
+- [Archive a blob](archive-blob.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

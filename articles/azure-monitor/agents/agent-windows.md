@@ -2,9 +2,7 @@
 title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 12/16/2021
+ms.date: 03/31/2021
 
 ---
 
@@ -105,7 +103,7 @@ The following table highlights the specific parameters supported by setup for th
 |OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
-|OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
+|OPINSIGHTS_PROXY_URL               | URI for the proxy to use. Example: OPINSIGHTS_PROXY_URL=IPAddress:Port or OPINSIGHTS_PROXY_URL=FQDN:Port |
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 

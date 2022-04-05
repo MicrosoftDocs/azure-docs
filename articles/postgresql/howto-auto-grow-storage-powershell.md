@@ -1,10 +1,11 @@
 ---
 title: Auto grow storage - Azure PowerShell - Azure Database for PostgreSQL
 description: This article describes how you can enable auto grow storage using PowerShell in Azure Database for PostgreSQL.
-author: sunilagarwal 
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal 
 ms.date: 06/08/2020 
 ms.custom: devx-track-azurepowershell
 ---

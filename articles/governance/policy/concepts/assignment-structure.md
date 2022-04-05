@@ -133,8 +133,10 @@ after creation of the initial assignment.
 ## Policy definition ID
 
 This field must be the full path name of either a policy definition or an initiative definition.
-`policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
-often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
+`policyDefinitionId` is a string and not an array. The latest content of the assigned policy
+definition or initiative will be retrieved each time the policy assignment is evaluated. It's
+recommended that if multiple policies are often assigned together, to use an
+[initiative](./initiative-definition-structure.md) instead.
 
 ## Non-compliance messages
 
@@ -222,3 +224,4 @@ For policy assignments with effect set to **deployIfNotExisit** or **modify**, i
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
+  

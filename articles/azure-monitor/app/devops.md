@@ -3,7 +3,6 @@ title: Web app performance monitoring - Azure Application Insights
 description: How Application Insights fits into the DevOps cycle
 ms.topic: conceptual
 ms.date: 12/21/2018
-
 ---
 
 # Deep diagnostics for web apps and services with Application Insights

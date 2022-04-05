@@ -4,7 +4,7 @@ description: Alert at scale using a single alert rule for multiple time series
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 2/23/2022
 ---
 
 # Monitor multiple time-series in a single metric alert rule

@@ -20,6 +20,8 @@ ms.custom: include file
 |Number of private link services per subscription         |   800      |
 |Number of IP Configurations on a private link service     |  8 (This number is for the NAT IP addresses used per PLS)       |
 |Number of private endpoints on the same private link service   |  1000       |
+|Number of subscriptions allowed in visibility setting on private link service   |  100       |
+|Number of subscriptions allowed in auto-approval setting on private link service   |  100       |
 |Number of private endpoints per key vault | 64 |
 |Number of key vaults with private endpoints per subscription | 400 |
 |Number of private DNS zone groups that can be linked to a private endpoint | 1 |

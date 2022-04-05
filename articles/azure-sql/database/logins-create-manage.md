@@ -112,7 +112,7 @@ You can create accounts for non-administrative users using one of two methods:
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using Azure SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
 > [!IMPORTANT]
-> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
+> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account in the database in Azure SQL Database. In SQL Managed Instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
 
 For examples showing how to create logins and users, see:
 

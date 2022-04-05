@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Database for PostgreSQL - Hyperscale (Citus)
 description: Provides an overview of the Hyperscale (Citus) deployment option
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus

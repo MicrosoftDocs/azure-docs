@@ -7,7 +7,7 @@ metadata:
     
   ms.service: databox
   ms.subservice: pod
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/13/2022
   ms.author: alkohli
   ms.custom: references_regions
@@ -466,6 +466,3 @@ additionalContent: |
   - Review the [Data Box system requirements](data-box-system-requirements.md) and [Data Box Heavy system requirements](data-box-heavy-system-requirements.md).
   - Understand the [Data Box limits](data-box-limits.md) and [Data Box Heavy limits](data-box-heavy-limits.md).
   - Quickly deploy [Data Box](data-box-quickstart-portal.md) or [Data Box Heavy](data-box-heavy-quickstart-portal.md) in the Azure portal.
-
-
-

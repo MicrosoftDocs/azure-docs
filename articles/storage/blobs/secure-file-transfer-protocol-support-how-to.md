@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 03/04/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -15,10 +15,10 @@ ms.reviewer: ylunagaria
 
 You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP, and then connect to Blob Storage by using an SFTP client. 
 
-To learn more about SFTP support in Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -28,11 +28,9 @@ To learn more about SFTP support in Azure Blob Storage, see [SSH File Transfer P
 
 - A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-- The account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
-
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
-- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP uses that port.
+- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22 used by SFTP.
 
 ## Register the feature
 
@@ -115,7 +113,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name AllowSFTP
@@ -146,7 +144,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFT
 
 #### [Azure CLI](#tab/azure-cli)
 
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name AllowSFTP
@@ -202,7 +200,7 @@ Azure Storage doesn't support shared access signature (SAS), or Azure Active dir
 
 In this section, you'll learn how to create a local user, choose an authentication method, and assign permissions for that local user. 
 
-To learn more about the SFTP permissions model, see [SFTP Permissions model](secure-file-transfer-protocol-support.md#sftp-permissions-model).
+To learn more about the SFTP permissions model, see [SFTP Permissions model](secure-file-transfer-protocol-support.md#sftp-permission-model).
 
 > [!TIP]
 > This section shows you how to configure local users for an existing storage account. To view an Azure Resource Manager template that configures a local user as part of creating an account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
@@ -364,7 +362,16 @@ After the transfer is complete, you can view and manage the file in the Azure po
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
+## Connect using a custom domain
+
+When using custom domains the connection string is `myaccount.myuser@customdomain.com`. If home directory has not been specified for the user, it is `myaccount.mycontainer.myuser@customdomain.com`.
+	
+> [!IMPORTANT]
+> Ensure your DNS provider does not proxy requests. Proxying may cause the connection attempt to time out.
+
 ## See also
 
-- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
-- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

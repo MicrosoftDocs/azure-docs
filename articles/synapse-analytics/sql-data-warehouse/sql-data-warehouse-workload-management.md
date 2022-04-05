@@ -1,7 +1,6 @@
 ---
 title: Workload management 
 description: Guidance for implementing workload management in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
