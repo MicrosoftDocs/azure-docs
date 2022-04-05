@@ -10,7 +10,7 @@ metadata:
    ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 03/08/2022
+   ms.date: 04/05/2022
    author: kenwith
    ms.author: kenwith
    manager: 
@@ -21,4 +21,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Zero Trust Network Access?
-            url: ../active-directory/app-proxy/what-is-application-proxy.md
+            url: what-is-network-access.md
