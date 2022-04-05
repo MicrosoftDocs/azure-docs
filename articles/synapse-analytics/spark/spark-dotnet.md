@@ -24,20 +24,25 @@ You can analyze data with .NET for Apache Spark through Spark batch job definiti
 Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache Spark job definitions for Synapse Spark pools](apache-spark-job-definitions.md). If you haven't packaged your app to submit to Azure Synapse, complete the following steps.
 
 1. Configure your dotnet application dependencies for compatibility with Synapse Spark.
-```
-<Project Sdk="Microsoft.NET.Sdk">
+The required .NET Spark version will be noted in the Studio interface under your Spark Pool configuration. 
+![image](https://user-images.githubusercontent.com/12169942/161816341-ca13b48f-fb18-49bd-a61b-6af60bf9846e.png)
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Spark" Version="1.0.0" />
-  </ItemGroup>
+Create your project as a .Net Console Application that outputs an ubuntu x86 executable.
+  ```
+  <Project Sdk="Microsoft.NET.Sdk">
 
-</Project>
-```
+    <PropertyGroup>
+      <OutputType>Exe</OutputType>
+      <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Spark" Version="2.1.0" />
+    </ItemGroup>
+
+  </Project>
+  ```
 
 2. Run the following commands to publish your app. Be sure to replace *mySparkApp* with the path to your app.
    
