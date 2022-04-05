@@ -1,8 +1,11 @@
 ---
 title: Use the Azure Application Insights Profiler settings pane | Microsoft Docs
 description: See Profiler status and start profiling sessions
+ms.author: hannahhunter
+author: hhunter-ms
+ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 04/05/2022
 ms.reviewer: mbullwin
 ---
 
@@ -37,9 +40,10 @@ This option allows you to start a profiling session on demand. When you click th
 For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. In most cases, you get this access automatically and no additional work is needed. If you're having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](./resources-roles-access-control.md).
 
 ## Trigger Settings
-![Trigger Settings Flyout][trigger-settings-flyout]
 
-Clicking the Triggers button on the menu bar opens the trigger settings box. You can set up trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
+Clicking the Triggers button on the menu bar opens the CPU, Memory, and Sampling trigger settings box. You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
+
+:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.md" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers":::
 
 | Setting | Description |
 |-|-|
@@ -47,6 +51,16 @@ On / Off Button | On: profiler can be started by this trigger; Off: profiler won
 Memory threshold | When this percentage of memory is in use, the profiler will be started.
 Duration | Sets the length of time the profiler will run when triggered.
 Cooldown | Sets the length of time the profiler will wait before checking for the memory or CPU usage again after it's triggered.
+
+For Sampling trigger, you can set up how often profiling can occur and the duration of a profiling session.
+
+:::image type="content" source="./media/profiler-settings/sampling-trigger-settings.md" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
+
+| Setting | Description |
+|-|-|
+On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger.
+Sample rate | The rate at which the profiler can occur. Normal is recommended for production environments.
+Duration | Sets the length of time the profiler will run when triggered.
 
 ## Recent Profiling Sessions
 This section of the page shows information about recent profiling sessions. A profiling session represents the period of time when the profiler agent was taking a profile on one of the machines hosting your application. You can open the profiles from a session by clicking on one of the rows. For each session, we show:
