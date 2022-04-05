@@ -103,7 +103,7 @@ For more information regarding the Log Analytics interface and log queries, see 
 
 ### Log Analytics via the Azure CLI and PowerShell
 
-Application logs can be queried from the Azure CLI and PowerShell cmdlets.  For more information, see [Viewing Logs](monitor.md#viewing-logs).
+You can query Application logs from the Azure CLI and PowerShell cmdlets.  For more information, see [Viewing Logs](monitor.md#viewing-logs).
 
 ## Alerts
 
