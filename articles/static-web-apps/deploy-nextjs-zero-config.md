@@ -96,13 +96,7 @@ Before deploying to Azure, you'll need to create a GitHub repo and push the appl
     | _Repository_ | Select **nextjs-app**. |
     | _Branch_ | Select **main**. |
 
-1. In the _Build Details_ section, select **Custom** from the _Build Presets_. Add the following values as for the build configuration.
-
-    | Property | Value |
-    | --- | --- |
-    | _App location_ | Enter **/** in the box. |
-    | _Api location_ | Leave this box empty. |
-    | _Output location_ | Enter **out** in the box. |
+1. In the _Build Details_ section, select **Next.js** from the _Build Presets_ and leave the values it sets as default.
 
 ### Review and create
 
