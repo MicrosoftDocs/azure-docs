@@ -29,8 +29,6 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
 
 
 ```json
-[ 
-
     {  
 
         "Time": "2021-11-03T19:33:54.3318081Z", 
@@ -92,7 +90,6 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
         } 
 
     } 
-]
 ```
 
 Most of these fields are documented in the [Top-level common schema](/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The following table lists the field names and descriptions for the entries not included in the top-level common schema: 
