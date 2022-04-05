@@ -46,7 +46,7 @@ To enable sign-in for users with a Google account in Azure Active Directory B2C 
 1. In the left menu, select **OAuth consent screen**, select **External**, and then select **Create**.
     1. Enter a **Name** for your application. 
     1. Select a **User support email**. 
-    1. In the **Authorized domains** section, enter *b2clogin.com*
+    1. In the **Authorized domains** section, enter *b2clogin.com*.
     1. In the **Developer contact information** section, enter comma separated emails for Google to notify you about any changes to your project. 
     1. Select **Save**.
 1. Select **Credentials** in the left menu, and then select **Create credentials** > **Oauth client ID**.
