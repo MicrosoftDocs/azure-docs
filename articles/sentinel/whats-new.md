@@ -27,19 +27,16 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
-## April 2022
+## March 2022
 
 - [Automation rules now generally available](#automation-rules-now-generally-available)
+- [Create a large watchlist from file in Azure Storage (public preview)](#create-a-large-watchlist-from-file-in-azure-storage-public-preview)
 
 ### Automation rules now generally available
 
 Automation rules are now generally available (GA) in Microsoft Sentinel.
 
 [Automation rules](automate-incident-handling-with-automation-rules.md) allow users to centrally manage the automation of incident handling. They allow you to assign playbooks to incidents, automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules streamline automation use in Microsoft Sentinel and enable you to simplify complex workflows for your incident orchestration processes.
-
-## March 2022
-
-- [Create a large watchlist from file in Azure Storage (public preview)](#create-a-large-watchlist-from-file-in-azure-storage-public-preview)
 
 ### Create a large watchlist from file in Azure Storage (public preview)
 
