@@ -17,7 +17,7 @@ The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling 
 The Log Analytics gateway supports:
 
 * Reporting up to the same Log Analytics workspaces configured on each agent behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
-* Windows computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
+* Windows computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor. Note that it only works if both servers (the source and the LA Gateway server) are running the same agent. It will not work if you try to stream events from a server running AMA through a server running the LA Gateway and MMA.
 * Linux computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
 
