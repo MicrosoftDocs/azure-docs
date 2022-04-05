@@ -15,7 +15,7 @@ Azure Container Apps provides built-in  observability features that give you a h
 
 These features include: 
 
-- Azure Monitor Metrics
+- Azure Monitor metrics
 - Azure Monitor Log Analytics
 - Alerts
 
