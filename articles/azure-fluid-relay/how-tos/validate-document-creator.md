@@ -1,6 +1,6 @@
 ---
 title: "How to: Validate a User Created a Document"
-description: How to validate that the user who created a document is the same user who is claming to be creating the document.
+description: How to validate that the user who created a document is the same user who is claiming to be creating the document.
 services: azure-fluid
 author: hickeys
 ms.author: hickeys
