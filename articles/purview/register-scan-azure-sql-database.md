@@ -127,7 +127,7 @@ The following options are supported:
 
 * **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that allows Azure Purview to authenticate against Azure Active Directory. The **user-assigned** managed by users in Azure, rather than by Azure itself, which gives you more control over security. The UAMI cannot currently be used with a self-hosted integration runtime for Azure SQL. For more information, see our [guide for user-assigned managed identities.](manage-credentials.md#create-a-user-assigned-managed-identity)
 
-* **SQL Authentication** - connect to the SQL database with a username and password. If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](sql/t-sql/statements/create-login-transact-sql)
+* **SQL Authentication** - connect to the SQL database with a username and password. If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
     > Be sure to select the Azure SQL Database option on the page.
 
