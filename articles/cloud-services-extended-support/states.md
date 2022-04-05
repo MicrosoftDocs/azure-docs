@@ -8,10 +8,12 @@ ms.author: surbhijain16
 ms.date: 04/05/2022
 ms.custom: 
 ---
+# Available Provisioning and Power States for Azure Cloud Services (extended support)
 
-# Available Provisioning States for Azure Cloud Services (extended support)
+## Available Provisioning States for Azure Cloud Services (extended support)
 
-This table lists the different provisoning states for Cloud Services (extended support) resource.  
+This table lists the different provisoning states for Cloud Services (extended support) resource. 
+
 | Status |  Description | 
 |---|---|
 |Creating|The CSES resource is in the process of creating|
@@ -20,7 +22,10 @@ This table lists the different provisoning states for Cloud Services (extended s
 |Succeeded|The CSES resource is successfully deployed with the latest deployment request|
 |Deleting|The CSES resource is in the process of deleting|
 
-# Available Role Instance/Power States for Azure Cloud Services (extended support)
+## Available Role Instance/Power States for Azure Cloud Services (extended support)
+
+This table lists the different power states for Cloud Services (extended support) instances. 
+
 |State|Details|
 |---|---|
 |Started|The Role Instance is healthy and is currently running|
