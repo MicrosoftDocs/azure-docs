@@ -180,6 +180,9 @@ When you are selecting the attribute for providing the value of UPN to be used i
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute does not contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.
 
+>[!NOTE]
+>It is recommended as best practice that UPN prefix contains more than one character.
+
 ### Custom domain state and UPN
 It is important to ensure that there is a verified domain for the UPN suffix.
 
