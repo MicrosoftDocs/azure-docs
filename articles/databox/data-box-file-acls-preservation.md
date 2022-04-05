@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 04/04/2022
 ms.author: alkohli
 ---
 
@@ -17,11 +17,11 @@ Azure Data Box lets you preserve access control lists (ACLs), timestamps, and fi
 
 ## Transferred metadata
 
-ACLs, timestamps, and file attributes is the metadata that is transferred when the data from data box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
+ACLs, timestamps, and file attributes are the metadata that is transferred when the data from Data Box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
 
-Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
+The metadata can be copied with with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
-The following metadata is transferred when data from the Data Box is uploaded to Azure Files.
+The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box is uploaded to Azure Files. 
 
 ## Timestamps
 
@@ -89,9 +89,9 @@ During an [data copy service file transfer](data-box-deploy-copy-data-via-copy-s
 
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
 
-In order for you to copy SACLs from your files, you must have the **SeBackupPrivilege** credential granted. SeBackupPrivilege is required to read SACLs. If you are a member of the Administrators or Backup Operators group, you will have this privilege by default. 
+In order for you to copy SACLs from your files, you must have the **SeBackupPrivilege** credential granted. **SeBackupPrivilege** is required to read SACLs. If you are a member of the Administrators or Backup Operators group, you will have this privilege by default. 
 
-If you do not have the SeBackupPrivilege credential:
+If you do not have the **SeBackupPrivilege** credential:
 - You will not be able to copy SACLs for Azure Files copy service jobs.
 - You may experience access issues and receive this error: Could not read SACLs from share due to insufficient privileges.
 
