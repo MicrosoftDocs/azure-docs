@@ -1,5 +1,5 @@
 ---
-title: 'COnfigured forced tunneling for Virtual WAN Point-to-site VPN'
+title: 'Configure forced tunneling for Virtual WAN point-to-site VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 services: virtual-wan
@@ -11,7 +11,7 @@ ms.date: 3/25/2022
 ms.author: wellee
 
 ---
-# Configure forced tunneling for Virtual WAN Point-to-site VPN
+# Configure forced tunneling for Virtual WAN point-to-site VPN
 
 Forced tunneling allows you to to send **all** traffic (including Internet-bound traffic) from remote users to Azure. In Virtual WAN, forced tunneling for Point-to-site VPN remote users signifies that the 0.0.0.0/0 default route is advertised to remote VPN users.
 
@@ -25,9 +25,9 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a Virtual WAN](virtual-wan-site-to-site-portal.md#openvwan)
 * [Create a Virtual Hub](virtual-wan-site-to-site-portal.md#hub)
 
-## Setting up  Point-to-site VPN
+## Setting up point-to-site VPN
 
-The steps in this article also assume that you already deployed a Point-to-site VPN Gateway in the Virtual WAN hub. It also assumes you have created Point-to-site VPN profiles to assign to the Gateway.
+The steps in this article also assume that you already deployed a point-to-site VPN Gateway in the Virtual WAN hub. It also assumes you have created Point-to-site VPN profiles to assign to the Gateway.
 
 To create the Point-to-site VPN Gateway and related profiles, use the steps in the following articles:
 
@@ -37,8 +37,8 @@ To create the Point-to-site VPN Gateway and related profiles, use the steps in t
 
 There are a couple ways to configure forced-tunneling and advertise the default route (0.0.0.0/0) to your remote user VPN clients connected to Virtual WAN.
 
-* You can specify a static 0.0.0.0/0 route in the defaultRouteTable with next hop Virtual Network Connection. This will force all internet-bound traffic to be sent to a Network Virtual Appliance deployed in that spoke Virtual Network. For more detailed instructions, consider the alternate workflow described in [route through NVA's](scenario-route-through-nvas-custom.md) document.
-* You can use Azure Firewall Manager to configure Virtual WAN to send all internet-bound traffic via Azure Firewall deployed in the Virtual WAN hub. For configuration steps and a tutorial,  reference the Azure Firewall Manager documentation for [securing Virtual Hubs](/firewall-manager/secure-cloud-network.md). Alternatively, this can also be configured via using an Internet Traffic Routing Policy. For more information,  reference [Routing Intent and Routing Policies](how-to-routing-policies.md).
+* You can specify a static 0.0.0.0/0 route in the defaultRouteTable with next hop Virtual Network Connection. This will force all internet-bound traffic to be sent to a Network Virtual Appliance deployed in that spoke Virtual Network. For more detailed instructions, consider the alternate workflow described in [route through N V A's](scenario-route-through-nvas-custom.md) document.
+* You can use Azure Firewall Manager to configure Virtual WAN to send all internet-bound traffic via Azure Firewall deployed in the Virtual WAN hub. For configuration steps and a tutorial,  reference the Azure Firewall Manager documentation for [securing Virtual Hubs](../firewall-manager/secure-cloud-network.md). Alternatively, this can also be configured via using an Internet Traffic Routing Policy. For more information,  reference [Routing Intent and Routing Policies](how-to-routing-policies.md).
 * You can use Firewall Manager to send internet traffic via a third-party security provider. For more information on this capability,  reference [trusted security providers](../firewall-manager/deploy-trusted-security-partner.md).
 * You can configure one of your branches (Site-to-site VPN, ExpressRoute Circuit) to advertise the 0.0.0.0/0 route to  Virtual WAN.
 
@@ -50,21 +50,22 @@ To turn on the EnableInternetSecurity flag, please use the following PowerShell 
    Update-AzP2sVpnGateway -ResourceGroupName "sampleRG" -Name "p2sgwsamplename" -EnableInternetSecurityFlag
    ```
 
-## Downloading the Point-to-site VPN Profile
+## Downloading the point-to-site VPN profile
 
 To download the Point-to-site VPN profile,  reference [global and hub profiles](global-hub-profile.md). The information in the zip-file downloaded from Azure portal is critical to properly configuring your clients.
 
 ## Configuring forced-tunneling for Azure VPN clients (OpenVPN)
 
+The steps to configure forced-tunneling is different depending on the operating system of the end user device. 
 
-## Windows Clients
+## Windows clients
 > [!NOTE]
 > 
 > For Windows clients, forced tunneling with the Azure VPN client is only available with software version 2:1900:39.0 or newer.
 
 1.   Validate the version of your Azure VPN client is compatible with forced tunneling. To do this, click on the three dots at the bottom of the Azure VPN client, and click on Help. Alternatively, the keyboard short cut to navigate to Help is Ctrl-H. The version number can be found towards the top of the screen. Ensure your version number is **2:1900:39.0** or later. 
 
-:::image type="content" source="./media/virtual-wan-forced-tunnel/vpn-client-version.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/virtual-wan-forced-tunnel/vpn-client-version.png":::
+    :::image type="content" source="./media/virtual-wan-forced-tunnel/vpn-client-version.png"alt-text="Screenshot showing how to configure N V A private routing policies."lightbox="./media/virtual-wan-forced-tunnel/vpn-client-version.png":::
 
 
 2.  Open the zip-file downloaded from the previous section. You should see a folder titled **AzureVPN**. Open  the folder and open **azurevpnconfig.xml** in your favorite XML editing tool. 
@@ -76,7 +77,7 @@ To download the Point-to-site VPN profile,  reference [global and hub profiles](
 4. Import the profile into the Azure VPN client. For more information on how to import a profile,  reference [Azure VPN client import instructions](openvpn-azure-ad-client.md).
 5. Connect to the newly added connection. You are now force-tunneling all traffic to Azure Virtual WAN.
 
-## MacOS 
+## MacOS clients
 
  Once a macOS client learns the default route from Azure, forced tunneling is automatically configured on the client device. There are no extra steps to take. For instructions on how to use the macOS Azure VPN client to connect to the Virtual WAN Point-to-site VPN Gateway,  reference the [macOS Configuration Guide](openvpn-azure-ad-client-mac.md)
 
