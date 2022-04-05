@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure a service and SIM policy using an ARM template
 
-*Services* and *SIM policies* are the key components of Azure Private 5G Core Preview's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. For more information, see [Policy control](policy-control.md). In this how-to guide, you'll learn how to use an Azure Resource Manager template (ARM template) to create a service and SIM policy.
+*Services* and *SIM policies* are the key components of Azure Private 5G Core Preview's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. For more information, see [Policy control](policy-control.md). In this how-to guide, you'll learn how to use an Azure Resource Manager template (ARM template) to create a simple service and SIM policy.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -25,7 +25,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network and the resource group containing it.
 - Identify the name of the data network to which your private mobile network connects. 
-- The template is currently populated with values to configure a default service and SIM policy that allows all traffic in both directions. If you want to create a service and SIM policy for another purpose, use the information in [Collect the required information for a service for Azure Private 5G Core Preview](collect-required-information-for-service.md) and [Collect the required information for a SIM policy for Azure Private 5G Core Preview](collect-required-information-for-sim-policy.md) to design a service and SIM policy to meet your requirements.
+- The ARM template is populated with values to configure a default service and SIM policy that allows all traffic in both directions. 
+
+    If you want to create a service and SIM policy for another purpose, use the information in [Collect the required information for a service for Azure Private 5G Core Preview](collect-required-information-for-service.md) and [Collect the required information for a SIM policy for Azure Private 5G Core Preview](collect-required-information-for-sim-policy.md) to design a service and SIM policy to meet your requirements. You'll enter these new values as part of deploying the ARM template.
 
 ## Review the template
 
