@@ -23,7 +23,7 @@ These features include:
 > While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
 > While Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
-## Azure Monitor Metrics
+## Azure Monitor metrics
 
 The Azure Monitor Metrics feature allows you to monitor your app's compute and network usage.  These metrics can be viewed and analyzed through the Metrics Explorer in the Azure portal.  Metric data can be retrieved through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets and custom applications.
 
