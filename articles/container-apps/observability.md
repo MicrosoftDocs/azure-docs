@@ -62,7 +62,7 @@ In the **Overview** page for your container app, the **Monitoring** section disp
 
 :::image type="content" source="media/observability/metrics-in-overview-page.png" alt-text="Monitoring section in container app overview":::
 
-From this view, you can pin one or more charts to your dashboard.  When you select a chart, it's opened in Metrics Explorer.
+From this view, you can pin one or more charts to your dashboard.  When you select a chart, it's opened in the metrics explorer.
 
 ### Metrics explorer
 
