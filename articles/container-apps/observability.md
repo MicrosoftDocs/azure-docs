@@ -133,7 +133,7 @@ Container Apps provides continuous monitoring across each phase of your developm
 
 ### Development and Test
 
-During the development and test phase, Log Analytics provides access to your applications log information.  All output from stdout and stderr is made available so you can examine the behavior of your application.
+During the development and test phase, Log Analytics provides access to your applications log information.  All output from `stdout` and `stderr` is made available so you can examine the behavior of your application.
 
 ### Deployment and Runtime
 
