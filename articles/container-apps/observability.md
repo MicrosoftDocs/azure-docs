@@ -99,7 +99,7 @@ In the Azure portal, logs are available from either the **Monitor**->**Logs** pa
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Log Analytics query page":::
 
-For more information regarding the Log Analytics interface and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
+For more information regarding the Log Analytics interface and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### Log Analytics via the Azure CLI and PowerShell
 
