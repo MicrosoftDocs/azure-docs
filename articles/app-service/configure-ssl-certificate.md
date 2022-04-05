@@ -286,6 +286,11 @@ Export your merged TLS/SSL certificate with the private key that your certificat
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
+> [!NOTE]
+> OpenSSL v3 creates certificate serials with 20 octets (40 chars) as the X.509 specification allows. Currently only 10 octets (20 chars) is supportet when uploading certificate PFX files.
+> OpenSSL v3 also changed default cipher from 3DES to AES256, but this can be overridden on the command line.
+> OpenSSL v1 uses 3DES as default and only uses 8 octets (16 chars) in the serial, so the PFX files generated are supported without any special modifications.
+
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
