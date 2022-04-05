@@ -20,10 +20,9 @@ Alternately, you can install Defender for IoT software on [virtual appliances](o
 > We recommend purchasing [pre-configured appliances](ot-preconfigured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
 >
 
-## Required operating system
+## OS compatibility
 
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04.
-
 All hardware components must be compatible with Ubuntu version 18.04.
 
 ## Central processing unit (CPU) requirements
