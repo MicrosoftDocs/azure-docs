@@ -147,11 +147,11 @@ Figure out what Azure Cosmos DB resources you'll create. This means stepping thr
 ### Immutable decisions
 
 The following Azure Cosmos DB configuration choices cannot be modified or undone once you have created an Azure Cosmos DB resource; therefore it is important to get these right during pre-migration planning, before you kick off any migrations:
-* Follow [this guide](../partitioning-overview.md) to choose the best shard key. Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
+* Refer to [Partitioning and horizontal scaling in Azure Cosmos DB](../partitioning-overview.md) to choose the best shard key. Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
    * In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](../partitioning-overview.md#choose-partitionkey). 
-* Follow [this guide](../modeling-data.md) to choose a data model
-* Follow [this guide](../optimize-cost-throughput.md#optimize-by-provisioning-throughput-at-different-levels) to choose between dedicated and shared throughput for each resource that you will migrate
-* [Here](../how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decision-making process
+* Follow the guide for [Data modeling in Azure Cosmos DB](../modeling-data.md) to choose a data model.
+* Follow [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md#optimize-by-provisioning-throughput-at-different-levels) to choose between dedicated and shared throughput for each resource that you will migrate
+* [How to model and partition data on Azure Cosmos DB using a real-world example](../how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decision-making process
 
 ### Cost of ownership
 
@@ -159,7 +159,7 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 
 ### Estimating throughput
 
-* In Azure Cosmos DB, the throughput is provisioned in advance and is measured in Request Units (RU's) per second. Unlike VMs or on-premises servers, RUs are easy to scale up and down at any time. You can change the number of provisioned RUs instantly. For more information, see [Request units in Azure Cosmos DB](../request-units.md).
+* In Azure Cosmos DB, the throughput is provisioned in advance and is measured in Request Units (RUs) per second. Unlike VMs or on-premises servers, RUs are easy to scale up and down at any time. You can change the number of provisioned RUs instantly. For more information, see [Request units in Azure Cosmos DB](../request-units.md).
 
 * You can use the [Azure Cosmos DB Capacity Calculator](https://cosmos.azure.com/capacitycalculator/) to determine the amount of Request Units based on your database account configuration, amount of data, document size, and required reads and writes per second.
 
@@ -208,7 +208,7 @@ Finally, now that you have a view of your existing data estate and a design for 
    Watch this video for an [overview and demo of the migration solutions](https://www.youtube.com/watch?v=WN9h80P4QJM) mentioned above.
 
 * Once you have chosen migration tools for each resource, the next step is to prioritize the resources you will migrate. Good prioritization can help keep your migration on schedule. A good practice is to prioritize migrating those resources which need the most time to be moved; migrating these resources first will bring the greatest progress toward completion. Furthermore, since these time-consuming migrations typically involve more data, they are usually more resource-intensive for the migration tool and therefore are more likely to expose any problems with your migration pipeline early on. This minimizes the chance that your schedule will slip due to any difficulties with your migration pipeline.
-* Plan how you will monitor the progress of migration once it has started. If you are coordinating your data migration effort among a team, plan a regular cadence of team syncs to so that you have a comprehensive view of how the high-priority migrations are going.
+* Plan how you will monitor the progress of migration once it has started. If you are coordinating your data migration effort among a team, plan a regular cadence of team syncs too, so that you have a comprehensive view of how the high-priority migrations are going.
   
 
 ### Supported migration scenarios
@@ -232,12 +232,12 @@ Given that you are migrating from a particular MongoDB version, the supported to
 In the pre-migration phase, spend some time to plan what steps you will take toward app migration and optimization post-migration.
 * In the post-migration phase, you will execute a cutover of your application to use Azure Cosmos DB instead of your existing MongoDB data estate. 
 * Make your best effort to plan out indexing, global distribution, consistency, and other *mutable* Azure Cosmos DB properties at a per resource level - however, these Azure Cosmos DB configuration settings *can* be modified later, so expect to make adjustments to these settings down the road. Don’t let these aspects be a cause of analysis paralysis. You will apply these mutable configurations post-migration.
-* The best guide to post-migration can be found [here](post-migration-optimization.md).
+* For a post-migration guide, see [Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB](post-migration-optimization.md).
 
 ## Next steps
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 * Migrate to Azure Cosmos DB API for MongoDB
    * [Offline migration using MongoDB native tools](tutorial-mongotools-cosmos-db.md)
