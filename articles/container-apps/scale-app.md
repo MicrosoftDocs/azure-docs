@@ -88,7 +88,7 @@ In the following example, the container app scales out up to five replicas and c
 
 1. Select **Edit and deploy**.
 
-    :::image type="content" source="media/scalers/edit-revision.png.png" alt-text="A screenshot showing how to edit a revision.":::
+    :::image type="content" source="media/scalers/edit-revision.png" alt-text="A screenshot showing how to edit a revision.":::
 
 1. Select **Scale**, and then select **Add**.
 
@@ -160,7 +160,7 @@ To set up a custom scale trigger, we must create a connection string to authenti
 
 1. Select **Edit and deploy**.
 
-    :::image type="content" source="media/scalers/edit-revision.png.png" alt-text="A screenshot showing how to edit a revision.":::
+    :::image type="content" source="media/scalers/edit-revision.png" alt-text="A screenshot showing how to edit a revision.":::
 
 1. Select **Scale**, and then select **Add**.
 
@@ -262,7 +262,7 @@ The following example shows how to create a memory scaling rule.
 
 ## KEDA scalers conversion
 
-Azure container apps supports all the available [scalers](https://keda.sh/docs/scalers/) from KEDA. To convert KEDA templates, it's easier to start with a boiler Container apps custom JSON template and add the parameters you need based on the scenario and the scale trigger we want to set up.
+Azure container apps supports all the available [scalers](https://keda.sh/docs/scalers/) from KEDA. To convert KEDA templates, it's easier to start with a  Container apps custom JSON template and add the parameters you need based on the scenario and the scale trigger you want to set up.
 
 ```json
 {
@@ -299,7 +299,7 @@ Azure container apps supports all the available [scalers](https://keda.sh/docs/s
 
 Let's go through an example of setting up an [Azure Storage Queue](https://keda.sh/docs/scalers/azure-storage-queue/) scaler where we will be auto scaling based on Azure Storage Queues.
 
-Below is the Azure Storage Queue trigger specification from Keda docs. For this example, we will need the trigger type `azure-queue`, the `accountName` and the name of the cloud environment that the queue belongs to `cloud` to set up our scaler in Azure Container Apps.  
+Below is the Azure Storage Queue trigger specification from Keda docs. You will need the trigger `type` and any other required parameters. You can also add other optional parameters depending on your need. In this example, you will need the `accountName` and the name of the cloud environment that the queue belongs to `cloud` to set up your scaler in Azure Container Apps.
 
 ```yml
 triggers:
@@ -312,7 +312,7 @@ triggers:
     cloud: AzureUSGovernmentCloud
 ```
 
-Now our JSON config file should look like this:
+Now your JSON config file should look like this:
 
 ```json
 {
@@ -348,6 +348,9 @@ Now our JSON config file should look like this:
     }]
 }
 ```
+
+> [!NOTE]
+> Azure Container Apps does not support [ScaledJobs](https://keda.sh/docs/concepts/scaling-jobs/#scaledjob-spec).
 
 ## Considerations
 
