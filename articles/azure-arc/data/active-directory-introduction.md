@@ -13,9 +13,11 @@ ms.topic: how-to
 
 # Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
-This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication in : 
--  Active Directory (AD) in Bring your own keytab (BYOK) mode 
--  Active Directory (AD) in automatic autentfication mode 
+This article describes enabling Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication, with two possible Active Directory integration modes: 
+-  Bring your own keytab (BYOK) mode 
+-  Automatic mode 
+
+Active Directory integration modes describes the management the keytab file
 
 ## Background
 
@@ -46,14 +48,26 @@ coming from the SQL Managed Instance to either of the two upstream DNS services:
 To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you dermine the mode of the AD deployment : Bring your own keytab (BYOK) or Automatic. 
 
 In the Bring your own keytab (BYOK) mode, users will bring in : 
-- A an Active Directory account was created prior to the AD deployment
-- Service Principal Names 
+- A a pre-created Active Directory (AD) account prior to the AD deployment
+- Service Principal Names (SPNs) under that AD account
 - Your own Keytab file
-And you need an Bring your own keytab (BYOK) AD connector, the system will not take care of AD service account generation, SPN registration and keytab generation. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
-In the automatic mode, you need an automatic Active Directory (AD) connector, system will take care of the following work : 
-- The domain service AD account is automatically generated.
-- The system sets SPNs automatically on that account.
+When you deploy the Bring your own keytab (BYOK) AD connector, it is up to users to create the AD account, take care of the SPN registration and create the keytab file. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+
+In the automatic mode, you need an automatic Active Directory (AD) connector, you will bring an Organisational Unit (OU) and an AD domain service account has sufficient permissions in the Active Directory. The sufficient permission including the following : 
+- Read all properties
+- Write all properties
+- Create Computer objects
+- Delete Computer objects
+- Create Group objects
+- Delete Group objects
+- Create User objects
+- Delete User objects
+
+
+Furthermore,  the system will take care of the following work : 
+- An domain service AD account is automatically generated for SQL managed instance.
+- The system sets SPNs automatically on that AD account.
 - A keytab file is generated then delivered to the SQL Managed instance.
 
 The mode of the AD connector is determined by the value of **spec.activeDirectory.serviceAccountProvisioning** which can be set to Bring your own keytab (BYOK) or automatic. Note that once this parameter is set to automatic, the following parameter becomes mandatory too : 

@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Tutorial – Deploy an Automatic Active Directory (AD) Connector
 
-This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) authentication mode.
+This article explains how to deploy an automatic Active Directory (AD) Connector Custom Resource. It is a key component to enable the Arc-enabled SQL Managed instance in both Bring your own keytab (BYOK) and automatic Active Directory (AD) integration mode.
 
 ## Prerequisites
 
