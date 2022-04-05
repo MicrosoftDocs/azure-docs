@@ -19,7 +19,7 @@ When creating a document in Azure Fluid Relay, the JWT provided by the `ITokenPr
 
 ## Inform an Authorization Service when a document is Created
 
-An applicationc an tie into the document creation lifecycle by implementing a public `documentPostCreateCallback()` property in its `TokenProvider`. This callback will be triggered directly after creating the document, before a client requests the new JWT it needs to gain read/write permissions to the document that was created.
+An application can tie into the document creation lifecycle by implementing a public `documentPostCreateCallback()` property in its `TokenProvider`. This callback will be triggered directly after creating the document, before a client requests the new JWT it needs to gain read/write permissions to the document that was created.
 
 The `documentPostCreateCallback()` receives 2 parameters: 1) the ID of the document that was created and 2) a JWT signed by the service with no permission scopes. The authorization service can verify the given JWT and use the information in the JWT to grant the correct user permissions for the newly created document.
 
