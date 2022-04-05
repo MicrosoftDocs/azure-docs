@@ -2,6 +2,8 @@
 title: Application migration and integration
 description: This article provides governance guidance for Azure DevTest Labs infrastructure. The context is application migration and integration. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---

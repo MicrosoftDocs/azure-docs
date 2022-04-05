@@ -79,36 +79,13 @@ In such cases, do the following:
 
 ### Reactivate a sensor for upgrades to version 22.x from a legacy version
 
-This procedure describes how to reactivate a sensor specifically when upgrading to version 22.x from version 10.5.x.
+If you are updating your sensor version from a legacy version to 22.1.x or higher, you'll need a somewhat different activation procedure than for earlier releases.
 
-**To reactivate your sensor after a legacy upgrade**:
+Make sure that you've started with the relevant updates steps for this update. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
-1. Make sure that your sensor is fully upgraded. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
-
-1. In Defender for IoT, select **Sites and sensors** on the left.
-
-1. Select the site where you want to update your sensor, and then navigate to the sensor you want to update.
-
-1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
-
-1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
-
-1. When the new activation file is ready, download it and verify that the sensor status has switched to **Pending activation**.
-
-1. Use your newly downloaded activation file to activate your upgraded sensor.
-
-    1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
-
-    1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select your new activation file.
-
-1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
-
-    - The sensor's **Overview** page shows an activation status of **Valid**.
-    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
-
-Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [above](#manage-on-boarded-sensors).
+> [!NOTE]
+> After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
+>
 
 ## Next steps
 

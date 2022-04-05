@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
+The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
 Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
@@ -72,7 +72,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 import logging
 ```
 
-Next, add the AzureLogHandler to the python logger.
+Next, add the AzureLogHandler to the Python logger.
 
 ```python
 logger = logging.getLogger(__name__)

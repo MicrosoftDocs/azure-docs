@@ -30,10 +30,6 @@ For example, to improve a calender bot's performance with users, a developer mig
 * "_Reply as **tentative** to the **weekly update** meeting._" (English)
 * "_Cancelar mi **próxima** reunión_." (Spanish)
 
-In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the data from the connected service (such as connected LUIS applications, Conversational Language Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
-
-For example, a developer might create an intent for each of their skills, and connect it to a respective calendar project, email project, and company FAQ knowledge base. 
-
 ## Tag utterances
 
 :::image type="content" source="../media/tag-utterances.png" alt-text="A screenshot of the page for tagging utterances in Language Studio." lightbox="../media/tag-utterances.png":::

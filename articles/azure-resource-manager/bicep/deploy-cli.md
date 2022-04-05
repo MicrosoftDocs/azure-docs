@@ -143,7 +143,7 @@ To pass in an object, for example, to set tags, use JSON. For example, your Bice
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
 
-```bash
+```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
 --template-file $bicepFile \

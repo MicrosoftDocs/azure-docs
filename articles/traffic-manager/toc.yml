@@ -35,7 +35,11 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Overview
+      href: cli-samples.md
+    - name: Direct traffic across regions for HA
+      href: scripts/traffic-manager-cli-websites-high-availability.md
   - name: Azure PowerShell
     href: powershell-samples.md
 - name: Concepts

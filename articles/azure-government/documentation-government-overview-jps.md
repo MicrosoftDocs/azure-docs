@@ -6,7 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 03/01/2022
+ms.date: 03/02/2022
 ---
 
 # Public safety and justice in Azure Government
@@ -29,27 +29,11 @@ Microsoft treats Criminal Justice Information Services (CJIS) compliance as a co
 
 The [Criminal Justice Information Services](https://www.fbi.gov/services/cjis) (CJIS) Division of the US Federal Bureau of Investigation (FBI) gives state, local, and federal law enforcement and criminal justice agencies access to criminal justice information (CJI), for example, fingerprint records and criminal histories. Law enforcement and other government agencies in the United States must ensure that their use of cloud services for the transmission, storage, or processing of CJI complies with the [CJIS Security Policy](https://www.fbi.gov/services/cjis/cjis-security-policy-resource-center/view), which establishes minimum security requirements and controls to safeguard CJI.
 
-The CJIS Security Policy integrates presidential and FBI directives, federal laws, and the criminal justice community's Advisory Policy Board decisions, along with guidance from the National Institute of Standards and Technology (NIST). The CJIS Security Policy is updated periodically to reflect evolving security requirements.
+### Azure Government and CJIS Security Policy
 
-The CJIS Security Policy defines 13 areas that private contractors such as cloud service providers must evaluate to determine if their use of cloud services can be consistent with CJIS requirements. These areas correspond closely to control families in [NIST SP 800-53](https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/800-53), which is also the basis for the US Federal Risk and Authorization Management Program (FedRAMP). The FBI CJIS Information Security Officer (ISO) Program Office has published a [security control mapping of CJIS Security Policy requirements to NIST SP 800-53](https://www.fbi.gov/file-repository/csp-v5_5-to-nist-controls-mapping-1.pdf/view). The corresponding NIST SP 800-53 controls are listed for each CJIS Security Policy section.
+Microsoft's commitment to meeting the applicable CJIS regulatory controls help criminal justice organizations be compliant with the CJIS Security Policy when implementing cloud-based solutions. For more information about Azure support for CJIS, see [Azure CJIS compliance offering](/azure/compliance/offerings/offering-cjis).
 
-All private contractors who process CJI must sign the CJIS Security Addendum, a uniform agreement approved by the US Attorney General that helps ensure the security and confidentiality of CJI required by the Security Policy. It commits the contractor to maintaining a security program consistent with federal and state laws, regulations, and standards. The addendum also limits the use of CJI to the purposes for which a government agency provided it.
-
-### Azure and CJIS Security Policy
-
-Microsoft will sign the CJIS Security Addendum in states with CJIS Information Agreements. These agreements tell state law enforcement authorities responsible for compliance with CJIS Security Policy how Microsoft's cloud security controls help protect the full lifecycle of data and ensure appropriate background screening of operating personnel with potential access to CJI.  
-
-Microsoft has agreements signed with nearly all 50 states and the District of Columbia except for the following states: Delaware, Louisiana, Maryland, New Mexico, Ohio, and South Dakota. Microsoft continues to work with state governments to enter into CJIS Information Agreements.
-
-Microsoft's commitment to meeting the applicable CJIS regulatory controls help criminal justice organizations be compliant with the CJIS Security Policy when implementing cloud-based solutions. Microsoft can accommodate customers subject to the CJIS Security Policy requirements in:
-
-- [Azure Government](./documentation-government-welcome.md)
-- [Dynamics 365 US Government](/power-platform/admin/microsoft-dynamics-365-government#certifications-and-accreditations)
-- [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc#us-government-community-compliance)
-
-Microsoft has assessed the operational policies and procedures of Microsoft Azure Government, Dynamics 365 US Government, and Office 365 GCC, and will attest to their ability in the applicable services agreements to meet FBI requirements. For more information about Azure support for CJIS, see [Azure CJIS compliance offering](/azure/compliance/offerings/offering-cjis).
-
-The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. These technologies can help you establish sole control over CJI that you're responsible for.
+The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. **These technologies can help you establish sole control over CJI that you're responsible for.**
 
 > [!NOTE]
 > You are wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article does not constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.

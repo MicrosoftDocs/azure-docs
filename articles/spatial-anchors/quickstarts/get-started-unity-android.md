@@ -11,9 +11,10 @@ ms.service: azure-spatial-anchors
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-# Quickstart: Create a Unity Android app with Azure Spatial Anchors
 
-This quickstart covers how to create a Unity Android app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
+# Run the sample app: Android - Unity (C#)
+
+This quickstart covers how to run the [Azure Spatial Anchors](../overview.md) sample app for Android devices using Unity (C#). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -39,7 +40,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download and open the Unity sample project
+## Download sample project and import SDK
 
 ### Clone Samples Repository
 
@@ -49,7 +50,7 @@ To complete this quickstart, make sure you have:
 
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the Android platform.
 
-### Configure Unity
+## Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

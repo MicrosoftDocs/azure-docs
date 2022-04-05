@@ -82,13 +82,13 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
-    - name: Scalability and high availability
-      href: core/concepts-scalability-availability.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
-      - name: Device connectivity concepts
-        href: core/concepts-get-connected.md
+      - name: Device implementation and best practices
+        href: core/concepts-device-implementation.md
+      - name: Device authentication
+        href: core/concepts-device-authentication.md
       - name: Device templates
         href: core/concepts-device-templates.md      
       - name: Connect IoT Edge devices
@@ -102,6 +102,8 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Application administration guide
       href: core/overview-iot-central-admin.md
+    - name: Network security using private endpoints
+      href: core/concepts-private-endpoints.md
     - name: FAQ
       href: core/howto-faq.yml
       items:
@@ -109,6 +111,8 @@
         href: core/concepts-faq-start-iot-central.md
       - name: How do I extend IoT Central?
         href: core/concepts-faq-extend.md
+      - name: How does IoT Central scale and enable HADR?
+        href: core/concepts-faq-scalability-availability.md
       - name: What are IoT Central's scale limits?
         href: core/concepts-quotas-limits.md
       - name: How do I move between aPaaS and PaaS solutions?
@@ -190,6 +194,8 @@
           href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Manage organizations
+          href: core/howto-manage-organizations-with-rest-api.md
         - name: Data export
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
@@ -225,7 +231,8 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-
+        - name: Create a private endpoint
+          href: core/howto-create-private-endpoint.md
 - name: Reference
   items:
   - name: Azure CLI

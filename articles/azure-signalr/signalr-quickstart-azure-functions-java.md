@@ -50,7 +50,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Configure and run the Azure Function app
 
-1. Make sure you have Azure Function Core Tools, java (version 11 in the sample) and maven installed.
+1. Make sure you have Azure Function Core Tools, Java (version 11 in the sample) and maven installed.
     
     ```bash
     mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=11

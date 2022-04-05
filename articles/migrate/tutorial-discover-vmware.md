@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.custom: mvc
+ms.custom: mvc, subject-rbac-steps
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
@@ -57,24 +57,30 @@ To set Contributor or Owner permissions in the Azure subscription:
     :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
 
 1. In **Subscriptions**, select the subscription in which you want to create a project.
-1. In the left menu, select **Access control (IAM)**.
-1. On the **Check access** tab, under **Check access**, search for the user account you want to use.
-1. In the **Add a role assignment** pane, select **Add**.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/azure-account-access.png" alt-text="Screenshot that shows how to search for a user account to check access and add a role assignment.":::
-    
-1. In **Add role assignment**, select the Contributor or Owner role, and then select the account. Select **Save**.
+1. Select **Access control (IAM)**.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Screenshot that shows the Add role assignment page to assign a role to the account.":::
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
 To give the account the required permissions to register Azure AD apps:
 
 1. In the portal, go to **Azure Active Directory** > **Users** > **User Settings**.
+
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Screenshot that shows verifying user setting to register apps.":::
 
-9. If **App registrations** is set to **No**, request the tenant or global admin to assign the required permissions. Alternately, the tenant or global admin can assign the Application Developer role to an account to allow Azure AD app registration by users. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. If **App registrations** is set to **No**, request the tenant or global admin to assign the required permissions. Alternately, the tenant or global admin can assign the Application Developer role to an account to allow Azure AD app registration by users. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare VMware
 
@@ -187,7 +193,7 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 #### Create the appliance server
 
@@ -339,4 +345,4 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 - Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
 - Learn how to [assess servers running SQL Server to migrate to Azure SQL](./tutorial-assess-sql.md).
 - Learn how to [assess web apps to migrate to Azure App Service](./tutorial-assess-webapps.md).
-- Review [data the Azure Migrate appliance collects](migrate-appliance.md#collected-data---vmware) during discovery.
+- Review [data the Azure Migrate appliance collects](discovered-metadata.md#collected-metadata-for-vmware-servers) during discovery.

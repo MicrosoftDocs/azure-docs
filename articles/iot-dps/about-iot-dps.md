@@ -179,7 +179,7 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 
 IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
 
-* [Get connected to Azure IoT Central](../iot-central/core/concepts-get-connected.md)
+* [How devices connect to IoT Central](../iot-central/core/overview-iot-central-developer.md)
 * [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
 
 ## Next steps

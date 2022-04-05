@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/04/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -17,7 +17,7 @@ ms.reviewer: ylunagaria
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management.  
 
 > [!IMPORTANT]
-> SFTP support currently is in PREVIEW and is available in only [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support currently is in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -73,13 +73,16 @@ If you choose to authenticate with private-public key pair, you can either gener
 
 In the current release, you can specify only container-level permissions. Directory-level permissions are not supported. You can choose which containers you want to grant access to and what level of access you want to provide (Read, Write, List, Delete, and Create). Those permissions apply to all directories and subdirectories in the container. You can grant each local user access to as many as 100 containers. Container permissions can also be updated after creating a local user. The following table describes each permission in more detail.
 
-| Permission | Permission code | Description |
+| Permission | Symbol | Description |
 |---|---|---|
 | Read | r | <li>Read file contents</li> |
 | Write | w | <li>Upload file</li><li>Create directory</li><li>Upload directories</li> |
 | List | l | <li>List contents within container</li><li>List contents within directories</li> |
 | Delete | d | <li>Delete files/directories</li> |
-| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li><li>Create directories</li>|
+| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li> |
+
+> [!IMPORTANT]
+> When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
 ## Home directory
 
@@ -117,25 +120,13 @@ SFTP support for Azure Blob Storage currently limits its cryptographic algorithm
 
 SFTP clients commonly found to not support algorithms listed above include Apache SFTP server, Axway, Moveit, Five9, Workday, Mule, Kemp, Salesforce, XFB. 
 
-## Known issues and limitations
+## Connecting with SFTP
 
-See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.
+To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
-## Regional availability
+## Limitations and known issues
 
-SFTP support is available in the following regions: 
-
-- North Central US
-- East US 2
-- Canada East
-- Canada Central
-- North Europe
-- Australia East
-- Switzerland North
-- Germany West Central
-- East Asia
-- France Central
-- West Europe
+See the [limitations and known issues article](secure-file-transfer-protocol-known-issues.md) for a complete list of limitations and issues with SFTP support for Azure Blob Storage.
 
 ## Pricing and billing
 
@@ -146,5 +137,7 @@ Transaction and storage costs are based on factors such as storage account type 
 
 ## See also
 
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
-- [Known issues with SSH File Transfer Protocol (SFTP) in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

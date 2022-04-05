@@ -56,7 +56,7 @@ This script uses some of the following commands. For more information about used
 | [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Sets the goal state for a route table. |
 | [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Creates a managed instance. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group, including all nested resources. |
-|||
+
 
 ## Next steps
 

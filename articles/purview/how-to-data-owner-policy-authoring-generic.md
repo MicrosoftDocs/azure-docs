@@ -6,16 +6,16 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 2/24/2022
+ms.date: 3/02/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Access policies allow data owners to manage access to datasets from Azure Purview. Data owners can monitor and manage data use from within the Azure Purview Studio, without directly modifying the resource where the data is housed.
+Access policies allow data owners to manage access to datasets from Azure Purview. Data owners can author policies directly from Azure Purview Studio, and then have those policies enforced by the data source.
 
-This tutorial describes how a data owner can create, update, and publish access policies in Azure Purview.
+This tutorial describes how a data owner can create, update, and publish access policies in Azure Purview Studio.
 
 ## Prerequisites
 
@@ -24,20 +24,19 @@ This tutorial describes how a data owner can create, update, and publish access 
 >[!IMPORTANT]
 > - Currently, policy operations are only supported at **root collection level** and not child collection level.
 
-- User needs Azure Purview *Data source administrator* role at the root collection level to:
-  - Register a data source, resource group or subscription for *Data use governance*.
-  - Publish a policy.
-- User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
+These permissions are required in Azure Purview at root collection level:
+- *Policy authors* role can create or edit policies.
+- *Data source administrator* role can publish a policy.
 
 For more information, see the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
-### Source configuration
+### Data source configuration
 
-To apply these policies to data sources in your environment, you'll need to configure your sources.
+Before authoring data policies in Azure Purview Studio, you'll need to configure the data sources so that they can enforce those policies.
 
-1. Your source needs to already be registered to Azure Purview. To register a resource, follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
-1. [Enable data use governance on your resource](how-to-enable-data-use-governance.md#enable-data-use-governance).
 1. Follow any policy-specific prerequisites for your source. Check the [Azure Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Register the data source in Azure Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
+1. [Enable the data use governance toggle on the data source](how-to-enable-data-use-governance.md#enable-data-use-governance). Additional permissions for this step are described in the linked document.
 
 ## Create a new policy
 

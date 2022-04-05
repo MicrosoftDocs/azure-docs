@@ -51,7 +51,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 
 ## Viewing Application Insights usage on your Azure bill
 
-The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need elevated access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
+The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-based resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need elevated access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
 
 To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
 
@@ -210,6 +210,8 @@ The volume of data you send can be managed using the following techniques:
     We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
     
 * **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Manage your maximum daily data volume
 

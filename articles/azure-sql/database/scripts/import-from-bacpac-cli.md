@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use CLI to import a BACPAC file into a database in SQL Database
+# Import a BACPAC file into a database in SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example imports a database from a *.bacpac* file into a da
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/import-from-bacpac/import-from-bacpac.sh" range="4-48":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/import-from-bacpac/import-from-bacpac.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -46,7 +46,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
-| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | Database import command. |
+| [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Database import command. |
 
 ## Next steps
 

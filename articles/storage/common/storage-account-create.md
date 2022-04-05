@@ -78,7 +78,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az_login) command:
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
 ```azurecli-interactive
 az login
@@ -100,7 +100,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
 :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/storage-account-create/menu-expand-lrg.png":::
 1. On the **Storage accounts** page, select **Create**.
 
@@ -235,7 +235,7 @@ The following table shows which values to use for the `SkuName` and `Kind` param
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
+To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az-group-create) command.
 
 ```azurecli-interactive
 az group create \
@@ -243,7 +243,7 @@ az group create \
   --location westus
 ```
 
-If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list) command.
+If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list) command.
 
 ```azurecli-interactive
 az account list-locations \
@@ -251,7 +251,7 @@ az account list-locations \
   --out table
 ```
 
-Next, create a standard general-purpose v2 storage account with read-access geo-redundant storage by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Next, create a standard general-purpose v2 storage account with read-access geo-redundant storage by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 az storage account create \
@@ -330,7 +330,7 @@ Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-gro
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete the storage account, use the [az storage account delete](/cli/azure/storage/account#az_storage_account_delete) command:
+To delete the storage account, use the [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) command:
 
 ```azurecli-interactive
 az storage account delete --name <storage-account> --resource-group <resource-group>

@@ -80,5 +80,5 @@ You're now ready to use your C500 device in your IoT Central application.
 
 Some suggested next steps are to:
 
-- Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Read about [How devices connect](overview-iot-central-developer.md#how-devices-connect)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

@@ -37,32 +37,19 @@ To set the default workspace retention policy:
 
 ## Set retention and archive policy by table
 
-You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You cannot currently configure data retention for individual tables in the Azure portal.
+You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You can’t currently configure data retention for individual tables in the Azure portal.
 
 You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
-Each table is a sub-resource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+Each table is a subresource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the table name is case-sensitive. 
+The table name is case-sensitive. 
 
-### Get retention and archive policy by table
-
-To get the retention policy of a particular table (in this example, `SecurityEvent`), Call the **Tables - Get** API:
-
-```JSON
-GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
-```
-
-To get all table-level retention policies in your workspace, don't set a table name; for example:
-
-```JSON
-GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
-```
-### Set the retention and archive policy for a table
+# [API](#tab/api-1)
 
 To set the retention and archive duration for a table, call the **Tables - Update** API: 
 
@@ -79,8 +66,8 @@ You can use either PUT or PATCH, with the following difference:
 - The **PUT** API sets *retentionInDays* and *totalRetentionInDays* to the default value if you don't set non-null values.
 - The **PATCH** API doesn't change the *retentionInDays* or *totalRetentionInDays* values if you don't specify values. 
 
+**Request body**
 
-#### Request body
 The request body includes the values in the following table.
 
 |Name | Type | Description |
@@ -88,15 +75,17 @@ The request body includes the values in the following table.
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
-#### Example
-The following table sets table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
-###### Request
+**Example**
+
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
+
+**Request**
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/CustomLog_CL?api-version=2021-12-01-preview
 ```
 
-#### Request body
+**Request body**
 ```http
 {
     "properties": {
@@ -106,7 +95,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-###### Response
+**Response**
 
 Status code: 200
 
@@ -121,15 +110,63 @@ Status code: 200
    ...
 }
 ```
+
+# [CLI](#tab/cli-1)
+
+To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
+
+This example sets table's interactive retention to 30 days, and the total retention to two years. This means the archive duration is 23 months:
+
+```azurecli
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
+```
+
+To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` parameters set to `-1`.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --retention-time -1 --total-retention-time -1
+```
+
+---
  
+## Get retention and archive policy by table
+
+# [API](#tab/api-2)
+
+To get the retention policy of a particular table (in this example, `SecurityEvent`), call the **Tables - Get** API:
+
+```JSON
+GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
+```
+
+To get all table-level retention policies in your workspace, don't set a table name; for example:
+
+```JSON
+GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
+```
+
+# [CLI](#tab/cli-2)
+
+To get the retention policy of a particular table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name SecurityEvent
+``` 
+
+---
+
 ## Purge retained data
 When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep. 
 
-If you set the data retention policy to 30 days, you can purge older data immediately using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. This can be useful when you need to remove personal data immediately. The immediate purge functionality is not available through the Azure portal. 
+If you set the data retention policy to 30 days, you can purge older data immediately using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal. 
  
 Note that workspaces with a 30-day retention policy might actually keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
 
-You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You cannot purge data from archived logs. 
+You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You can’t purge data from archived logs. 
 
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 

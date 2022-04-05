@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
 description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
-author: matjazl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
-ms.author: zxue
-ms.date: 10/27/2021
+ms.author: dseven
+ms.date: 02/15/2022
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
