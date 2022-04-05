@@ -29,7 +29,7 @@ The Azure Monitor metrics feature allows you to monitor your app's compute and n
 
 ### Available metrics
 
-Container Apps provides these metrics for your container app.  
+Container Apps provides the following metrics for your container app.  
 
 - CPU usage nanocores
   - CPU usage in nanocores
