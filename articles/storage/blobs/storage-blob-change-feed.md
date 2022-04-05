@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 03/10/2022
+ms.date: 03/29/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -390,7 +390,7 @@ The following example shows a change event record in JSON format that uses event
         },
         "asyncOperationInfo": {
             "DestinationTier": "Hot",
-            "WasAsyncOperation": true,
+            "WasAsyncOperation": "true",
             "CopyId": "copyId"
         },
         "storageDiagnostics": {
@@ -472,7 +472,7 @@ The following example shows a change event record in JSON format that uses event
         },
         "asyncOperationInfo": {
             "DestinationTier": "Hot",
-            "WasAsyncOperation": true,
+            "WasAsyncOperation": "true",
             "CopyId": "copyId"
         },
         "blobTagsUpdated": {

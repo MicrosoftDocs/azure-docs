@@ -121,7 +121,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering - [registered](#registration) | core |
-| Microsoft.Media | [Media Services](../../media-services/index.yml) |
+| Microsoft.Media | [Media Services](/media-services/) |
 | Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |

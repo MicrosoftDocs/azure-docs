@@ -381,7 +381,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 > [!NOTE]
 > The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
 >
-> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services.md#azure-information-protection-analytics).
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
 >
 
 ## Azure Key Vault
@@ -1115,7 +1115,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
+| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents<br>**Defender for Identity events:**<br>IdentityDirectoryEvents<br>IdentityInfo<br>IdentityLogonEvents<br>IdentityQueryEvents<br>**Defender for Cloud Apps events:**<br>CloudAppEvents<br>**Defender alerts as events:**<br>AlertInfo<br>AlertEvidence |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
 

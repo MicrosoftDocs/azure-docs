@@ -22,6 +22,30 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 >
 > To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
+## Client support
+
+### Known supported clients
+
+- OpenSSH 7.4+
+- WinSCP 5.17.10+
+- PuTTY 0.74+
+- FileZilla 3.53.0+
+- SSH.NET 2020.0.0+
+- libssh 1.8.2+
+- Cyberduck 7.8.2+
+- Maverick Legacy 1.7.15+
+
+### Known unsupported clients
+
+- SSH.NET 2016.1.0
+- libssh2 1.7.0
+- paramiko 1.16.0
+- AsyncSSH 2.1.0
+- SSH Go
+
+> [!NOTE]
+> The client support lists above are not exhaustive and may change over time.
+
 ## Authentication and authorization
 
 - _Local users_ is the only form of identity management that is currently supported for the SFTP endpoint.
@@ -41,6 +65,8 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 - When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
 
+- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
+
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys may rotate frequently.
@@ -53,21 +79,11 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 ## Performance
 
-- Upload performance with default settings for some clients can be slow. Some of this is expected because SFTP is a chatty protocol and sends small message requests. Increasing the buffer size and using multiple concurrent connections can significantly improve speed. 
-
-  - For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. 
-
-  - For OpenSSH on Windows, you can increase buffer size to 100000: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
-
-  - For OpenSSH on Linux, you can increase buffer size to 262000: sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
-
-- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
+For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
 
 ## Other
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
-
-- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
 
 - Symbolic links are not supported.
 
@@ -98,3 +114,4 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
 - [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
 - [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting performance"
+title: "Troubleshoot performance"
 titleSuffix: Azure Digital Twins
 description: Tips for troubleshooting performance of an Azure Digital Twins instance.
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Troubleshooting Azure Digital Twins performance
+# Troubleshoot Azure Digital Twins performance
 
 If you're experiencing delays or other performance issues when working with Azure Digital Twins, use the tips in this article to help you troubleshoot.
 

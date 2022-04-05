@@ -395,6 +395,8 @@
     items:
     - name: Plan the offer
       href: plan-saas-offer.md
+    - name: Plan a test SaaS offer
+      href: plan-saas-dev-test-offer.md  
     - name: Azure AD auth for SaaS
       items:
         - name: Azure AD and SaaS overview
@@ -419,12 +421,20 @@
         href: create-new-saas-offer-technical.md  
       - name: Plans
         href: create-new-saas-offer-plans.md
-      - name: Create a test SaaS offer
-        href: create-saas-dev-test-offer.md          
-      - name: Test and publish
-        href: test-publish-saas-offer.md
+    - name: Test the offer
+      items:            
+      - name: Test SaaS overview
+        href: test-saas-overview.md
+      - name: Preview and subscribe
+        href: test-saas-preview-offer.md
+      - name: Test a SaaS plan
+        href: test-saas-plan.md
+      - name: Unsubscribe from and deactivate a test plan
+        href: test-saas-unsubscribe.md  
     - name: Market your offer
       href: create-new-saas-offer-marketing.md 
+    - name: Go live
+      href: test-publish-saas-offer.md
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
