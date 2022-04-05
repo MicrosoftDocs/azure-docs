@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure Purview account using an ARM Template'
 description: This Quickstart describes how to create an Azure Purview account using an ARM Template.
 author: whhender
 ms.author: whhender
-ms.date: 03/30/2022
+ms.date: 04/05/2022
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-arm
@@ -11,9 +11,13 @@ ms.custom: mode-arm
 
 # Quickstart: Create an Azure Purview account using an ARM template
 
-This quickstart describes the steps to deploy an Azure Purview account using an Azure Resource Manager (ARM) template. From there you can begin registering your data source, and using Azure Purview to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+This quickstart describes the steps to deploy an Azure Purview account using an Azure Resource Manager (ARM) template. 
+
+After you have created an Azure Purview account you can begin registering your data sources and using Azure Purview to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+
+To deploy an Azure Purview account to your subscription using an ARM template, follow the guide below.
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -61,7 +65,7 @@ At this time, these actions aren't able to be taken through an Azure Resource Ma
 
 ## Clean up resources
 
-To clean up the resources deployed in this quickstart, delete the resource group, which deletes the resources in the resource group.
+To clean up the resources deployed in this quickstart, delete the resource group, which deletes all resources in the group.
 You can delete the resources either through the Azure portal, or using the PowerShell script below.
 
 ```azurepowershell-interactive
@@ -84,20 +88,3 @@ Follow these next articles to learn how to navigate the Azure Purview Studio, cr
 > [Using the Azure Purview Studio](use-azure-purview-studio.md)
 > [Create a collection](quickstart-create-collection.md)
 > [Add users to your Azure Purview account](catalog-permissions.md)
-
-
-
-```json
-        "resources": [
-        {
-        "type": "Microsoft.DataShare/accounts",
-        "apiVersion": "2021-08-01",
-        "name": "[parameters('accounts_my_datashare_account_name')]",
-        "location": "<target-region>",
-        "identity": {
-            "type": "SystemAssigned"
-        }
-        "properties": {}
-        }
-       ]
-```
