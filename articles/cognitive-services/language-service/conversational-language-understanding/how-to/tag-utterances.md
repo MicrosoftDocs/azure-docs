@@ -55,11 +55,11 @@ When you select your distribution, you can also view tag distribution across:
 * Unique utterances per tagged entity: How your entities are distributed among the different utterances you have.
 * Utterances per intent: The distribution of utterances among intents across your training and testing sets.
 
-:::image type="content" source="../media/label-distribution.png" alt-text="Distribution" lightbox="../media/label-distribution.png":::
+:::image type="content" source="../media/label-distribution.png" alt-text="A screenshot showing entity distribution in the Language Studio." lightbox="../media/label-distribution.png":::
 
 *Section 4* includes the utterances you've added. You can drag over the text you want to label, and a contextual menu of the entities will appear.
 
-:::image type="content" source="../media/label-utterance-menu.png" alt-text="An example of selecting text to add a label." lightbox="../media/label-utterance-menu.png":::
+:::image type="content" source="../media/label-utterance-menu.png" alt-text="A screenshot showing the contextual menu when selecting text." lightbox="../media/label-utterance-menu.png":::
 
 > [!NOTE]
 > Unlike LUIS, you cannot label overlapping entities. The same characters cannot be labeled by more than one entity.
