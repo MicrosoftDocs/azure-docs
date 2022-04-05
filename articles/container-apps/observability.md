@@ -1,5 +1,5 @@
 ---
-title: 'Observability in Azure Container Apps Preview'
+title: Observability in Azure Container Apps Preview
 description: Observability in Container Apps
 services: container-apps
 author: cebundy
