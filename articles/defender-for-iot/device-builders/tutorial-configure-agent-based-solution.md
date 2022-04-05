@@ -13,7 +13,7 @@ In this tutorial you will learn how to:
 
 > [!div class="checklist"]
 > - Enable data collection
-> - Create a log analytics workspace
+> - Create a Log Analytics workspace
 > - Enable geolocation and IP address handling
 
 ## Prerequisites
