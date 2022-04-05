@@ -156,7 +156,7 @@ If access to Web.config is available, then CORS can be added through the followi
 ```
 
 ### Example
-If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
+If access to web.config is not available, then CORS can be configured by adding the following C# code: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```

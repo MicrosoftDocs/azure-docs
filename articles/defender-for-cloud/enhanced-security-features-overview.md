@@ -23,7 +23,7 @@ Defender for Cloud is offered in two modes:
 
 - **Defender for Cloud with all enhanced security features** - Enabling enhanced security extends the capabilities of the free mode to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major benefits include:
 
-    - **Microsoft Defender for Endpoint** - Microsoft Defender for servers includes [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) for comprehensive endpoint detection and response (EDR). Learn more about the benefits of using Microsoft Defender for Endpoint together with Defender for Cloud in [Use Defender for Cloud's integrated EDR solution](integration-defender-for-endpoint.md).
+    - **Microsoft Defender for Endpoint** - Microsoft Defender for Servers includes [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) for comprehensive endpoint detection and response (EDR). Learn more about the benefits of using Microsoft Defender for Endpoint together with Defender for Cloud in [Use Defender for Cloud's integrated EDR solution](integration-defender-for-endpoint.md).
     - **Vulnerability assessment for virtual machines, container registries, and SQL resources** - Easily enable vulnerability assessment solutions to discover, manage, and resolve vulnerabilities. View, investigate, and remediate the findings directly from within Defender for Cloud.
     - **Multi-cloud security** - Connect your accounts from Amazon Web Services (AWS) and Google Cloud Platform (GCP) to protect resources and workloads on those platforms with a range of Microsoft Defender for Cloud security features.
     - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.
@@ -42,9 +42,9 @@ Defender for Cloud is offered in two modes:
     - [How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?](#how-can-i-track-who-in-my-organization-enabled-a-microsoft-defender-plan-in-defender-for-cloud)
     - [What are the plans offered by Defender for Cloud?](#what-are-the-plans-offered-by-defender-for-cloud)
     - [How do I enable Defender for Cloud's enhanced security for my subscription?](#how-do-i-enable-defender-for-clouds-enhanced-security-for-my-subscription)
-    - [Can I enable Microsoft Defender for servers on a subset of servers in my subscription?](#can-i-enable-microsoft-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-    - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-defender-for-servers)
-    - [My subscription has Microsoft Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-microsoft-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+    - [Can I enable Microsoft Defender for Servers on a subset of servers in my subscription?](#can-i-enable-microsoft-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+    - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for Servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-defender-for-servers)
+    - [My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?](#my-subscription-has-microsoft-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
     - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
     - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
     - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
@@ -78,20 +78,20 @@ You can use any of the following ways to enable enhanced security for your subsc
 | Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
 
 
-### Can I enable Microsoft Defender for servers on a subset of servers in my subscription?
-No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for servers.
+### Can I enable Microsoft Defender for Servers on a subset of servers in my subscription?
+No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for Servers.
 
-An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
+An alternative is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
 
-### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?
-If you've already got a license for **Microsoft Defender for Endpoint for Servers Plan 2**, you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
+### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for Servers?
+If you've already got a license for **Microsoft Defender for Endpoint for Servers Plan 2**, you won't have to pay for that part of your Microsoft Defender for Servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
-### My subscription has Microsoft Defender for servers enabled, do I pay for not-running servers? 
-No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
+### My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers? 
+No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
 
 | State        | Description                                                                                                                                      | Instance usage billed |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -105,7 +105,7 @@ No. When you enable [Microsoft Defender for servers](defender-for-servers-introd
 :::image type="content" source="media/enhanced-security-features-overview/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
 
 ### Will I be charged for machines without the Log Analytics agent installed?
-Yes. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent. This is applicable for Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers.
+Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent. This is applicable for Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers.
 
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice? 
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solution installed. 
@@ -119,7 +119,7 @@ You'll get 500-MB free data ingestion per day, for every Windows machine connect
 This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed the **[number of machines] x 500-MB** free limit, you won't be charged extra.
 
 ### What data types are included in the 500-MB data daily allowance?
-Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for Windows machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for Windows machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 - SecurityAlert
 - SecurityBaseline
 - SecurityBaselineSummary
