@@ -213,6 +213,8 @@
       href: how-to-create-virtual-switch.md
     - name: Configure GPU acceleration
       href: gpu-acceleration.md
+    - name: Configure networking
+      href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2019
