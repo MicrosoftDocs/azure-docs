@@ -78,6 +78,11 @@ To charge back or show back costs for a reservation, you need to know which reso
 8. To see the cost more easily for individual resources, select **Table** in the chart list. Expand items as needed. Here's an example for November 2019 showing the amortized reservation costs for the eight resources that used the reservation. The highlighted cost is the unused portion of the reservation.  
     :::image type="content" source="./media/reservation-amortization/reservation-cost-resource-table.png" alt-text="Screenshot showing the amortized cost of all resources that used a reservation for a specific month." lightbox="./media/reservation-amortization/reservation-cost-resource-table.png" :::
 
+Another easy way to view reservation amortized cost is to use the **Reservations** preview view. To easily navigate to it, in Cost analysis in the top menu under **Cost by resource**, select the **Reservations (preview)** view.
+
+:::image type="content" source="./media/reservation-amortization/reservations-preview.png" alt-text="Screenshot showing Reservations (preview) view item."  :::
+
+
 ## Next steps
 
 - Read [Charge back Azure Reservation costs](charge-back-usage.md) to learn more about charge back processes.
