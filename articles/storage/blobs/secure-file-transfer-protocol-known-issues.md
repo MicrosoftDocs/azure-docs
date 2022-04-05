@@ -22,6 +22,27 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 >
 > To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
+## Client support
+
+### Known supported clients
+
+- OpenSSH 7.4+
+- WinSCP 5.17.10+
+- PuTTY 0.74+
+- libssh 1.8.2+
+- Cyberduck 7.8.2+
+- Maverick Legacy 1.7.15+
+
+### Known unsupported clients
+
+- libssh2 1.7.0
+- paramiko 1.16.0
+- AsyncSSH 2.1.0
+- SSH Go
+
+> [!NOTE]
+> The client support lists above are not exhaustive and may change over time.
+
 ## Authentication and authorization
 
 - _Local users_ is the only form of identity management that is currently supported for the SFTP endpoint.
