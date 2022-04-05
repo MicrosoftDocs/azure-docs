@@ -10,17 +10,27 @@ ms.service: azure-object-anchors
 ms.custom: mode-other
 ---
 # Quickstart: Using Unity Remoting with Azure Object Anchors
-In this quickstart, you'll learn how to use Unity Remoting with Azure Object Anchors to enable a more efficient
+In this quickstart, you'll learn how to use Unity Remoting with [Azure Object Anchors](../overview.md) to enable a more efficient
 inner-loop for application development. With Unity Remoting, you can use Play Mode in the Unity Editor to preview your
 changes in real time without waiting through a full build and deployment cycle. The latest versions of Unity Remoting
-and Azure Object Anchors support using Object Anchors while in Play Mode, so you can detect real physical objects
+and the Object Anchors SDK support using Object Anchors while in Play Mode, so you can detect real physical objects
 while running inside the Unity Editor.
 
 ## Prerequisites
 To complete this quickstart, make sure you have:
 * All prerequisites from either the [Unity HoloLens](get-started-unity-hololens.md) or the [Unity HoloLens with MRTK](get-started-unity-hololens-mrtk.md) quickstarts.
-* Followed the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 * Reviewed the general instructions for <a href="/windows/mixed-reality/develop/native/holographic-remoting-overview">Holographic remoting</a>.
+* Followed the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
+
+### Minimum component versions
+
+|Component                       |Unity 2019   |Unity 2020   |
+|--------------------------------|-------------|-------------|
+|Unity Editor                    | 2019.4.36f1 | 2020.3.30f1 |
+|Windows Mixed Reality XR Plugin | 2.9.2       | 4.6.2       |
+|Holographic Remoting Player     | 2.7.5       | 2.7.5       |
+|Azure Object Anchors SDK        | 0.19.0      | 0.19.0      |
+|Mixed Reality WinRT Projections | 0.5.2009    | 0.5.2009    |
 
 ## One-time setup
 1. On your HoloLens, install version 2.7.5 or newer of the [Holographic Remoting Player](https://www.microsoft.com/en-us/p/holographic-remoting-player/9nblggh4sv40) via the Microsoft Store.
@@ -39,5 +49,5 @@ To complete this quickstart, make sure you have:
 1. Enter and exit Play Mode as needed; iterate on changes in the Editor; use Visual Studio to debug script execution, and all the normal Unity development activities you're used to in Play Mode!
 
 ## Known limitations
-* Some Object Anchors SDK features are not supported since they rely on access to the HoloLens cameras which is not currently available via Remoting. These include <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode?view=object-anchors-dotnet">Active Observation Mode</a> and <a href="/dotnet/api/microsoft.azure.objectanchors.objectinstancetrackingmode?view=object-anchors-dotnet">High Accuracy Tracking Mode</a>.
-* The Object Anchors SDK currently only supports Unity Remoting while using the **Windows Mixed Reality XR Plugin**. If the **OpenXR XR Plugin** is used, <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode?view=object-anchors-dotnet">`ObjectObserver.IsSupported`</a> will return `false` in **Play Mode** and other APIs may throw exceptions.
+* Some Object Anchors SDK features are not supported since they rely on access to the HoloLens cameras which is not currently available via Remoting. These include <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode">Active Observation Mode</a> and <a href="/dotnet/api/microsoft.azure.objectanchors.objectinstancetrackingmode">High Accuracy Tracking Mode</a>.
+* The Object Anchors SDK currently only supports Unity Remoting while using the **Windows Mixed Reality XR Plugin**. If the **OpenXR XR Plugin** is used, <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode">`ObjectObserver.IsSupported`</a> will return `false` in **Play Mode** and other APIs may throw exceptions.
