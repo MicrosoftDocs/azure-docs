@@ -535,6 +535,9 @@
       - name: Overview
         displayName: Image builder, images, building
         href: image-builder-overview.md
+      - name: API changelog and features updates
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: CLI
         items:
         - name: Linux
