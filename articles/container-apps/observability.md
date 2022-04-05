@@ -23,11 +23,11 @@ These features include:
 > While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
 > Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
-## Azure Monitor Metrics
+## Azure Monitor metrics
 
-The Azure Monitor Metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the metrics explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets, and custom applications.
+The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the metrics explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets, and custom applications.
 
-### Available metrics
+### Available metrics for Container Apps
 
 Container Apps provides the following metrics for your container app.
 
@@ -51,7 +51,7 @@ From this view, you can pin one or more charts to your dashboard.  When you sele
 
 ### View and analyze metric data with metrics explorer
 
-The Azure Monitor metrics explorer is available from the Azure portal.  You can access it through the **Metrics** menu option in your container app page or the Azure **Monitor**->**Metrics** page.
+The Azure Monitor metrics explorer is available from the Azure portal, through the **Metrics** menu option in your container app page or the Azure **Monitor**->**Metrics** page.
 
 The metric page allows you to create and view charts to display your container apps metrics.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
@@ -74,7 +74,7 @@ You can view metrics across multiple container apps to view resource utilization
 
 ## Azure Monitor Log Analytics
 
-Application logs are accessed through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for each container app in the environment.  
+Application logs are available through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for each container app in the environment.  
 
 Application logs, consisting of the logs written to `stdout` and `stderr` from each running container (replica), are collected and stored in the Log Analytics workspace.
 
