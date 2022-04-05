@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
+author: Madhumitatripathy
+ms.author: matripathy
 ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 04/05/2022
 tags: azure-synpase
