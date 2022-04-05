@@ -18,8 +18,8 @@ ms.date: 04/05/2022
 
 * The user account that you use to sign in to Azure must be a member  of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, follow these steps:
   1. Go to the [Azure portal](https://portal.azure.com)
-  1. Select your username in the upper-right corner
-  1. Select the ellipsis button ("**...**") for more options
+  1. Select your username in the upper-right corner.
+  1. Select the ellipsis button ("**...**") for more options.
   1. Then select **My permissions**. 
   1. If you have access to multiple subscriptions, select the appropriate subscription.
 
