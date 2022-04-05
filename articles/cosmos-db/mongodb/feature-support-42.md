@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB API for MongoDB 4.2 server version supp
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 04/05/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -615,5 +615,5 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB API for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).
