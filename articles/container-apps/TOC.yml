@@ -26,6 +26,8 @@
           href: get-started-existing-container-image-portal.md
         - name: Azure CLI
           href: get-started-existing-container-image.md
+        - name: Deploy using Visual Studio
+          href: deploy-visual-studio.md
 - name: Concepts
   items:
     - name: Environment
@@ -38,6 +40,8 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Health probes
+      href: health-probes.md
 - name: How-to guides
   items:
     - name: Scale an app
@@ -72,8 +76,8 @@
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-apps/
+    - name: Billing
+      href: billing.md
     - name: Quotas
       href: quotas.md
     - name: Frequently asked questions
