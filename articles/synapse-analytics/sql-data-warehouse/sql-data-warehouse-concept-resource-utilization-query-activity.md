@@ -58,4 +58,4 @@ Both metrics and logs can be exported to Azure Monitor, specifically the [Azure 
 The following How-to guide describes common scenarios and use cases when monitoring and managing your data warehouse:
 
 - [Monitor your data warehouse workload with DMVs](sql-data-warehouse-manage-monitor.md)
-- ]Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md)
+- [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md)
