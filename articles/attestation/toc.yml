@@ -45,7 +45,7 @@
   - name: Workflow
     href: workflow.md
   - name: Azure Attestation logging
-    href: view-auditlogs.md
+    href: audit-logs.md
 - name: References
   items:
   - name: Regional availability
