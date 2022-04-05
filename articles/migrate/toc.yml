@@ -227,6 +227,8 @@
       items:
       - name: Migrate VMware VMs to encrypted Azure VMs
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Test migration
+      href: how-to-test-replicating-virtual-machines.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method
