@@ -29,12 +29,15 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 - OpenSSH 7.4+
 - WinSCP 5.17.10+
 - PuTTY 0.74+
+- FileZilla 3.53.0+
+- SSH.NET 2020.0.0+
 - libssh 1.8.2+
 - Cyberduck 7.8.2+
 - Maverick Legacy 1.7.15+
 
 ### Known unsupported clients
 
+- SSH.NET 2016.1.0
 - libssh2 1.7.0
 - paramiko 1.16.0
 - AsyncSSH 2.1.0
