@@ -19,7 +19,7 @@ Azure Data Box lets you preserve access control lists (ACLs), timestamps, and fi
 
 ACLs, timestamps, and file attributes are the metadata that is transferred when the data from Data Box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
 
-The metadata can be copied with with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
+The metadata can be copied with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
 The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box is uploaded to Azure Files. 
 
