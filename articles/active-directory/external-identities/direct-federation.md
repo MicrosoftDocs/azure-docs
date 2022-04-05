@@ -68,7 +68,7 @@ No, we block SAML/WS-Fed IdP federation for Azure AD verified domains in favor o
 Yes, you can set up SAML/WS-Fed IdP federation with domains that aren't DNS-verified in Azure AD, including unmanaged (email-verified or "viral") Azure AD tenants. Such tenants are created when a user redeems a B2B invitation or performs self-service sign-up for Azure AD using a domain that doesn’t currently exist. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up federation with that domain.
 
 ### How many federation relationships can I create?
-Currently, a maximum of 1,000 federation relationships is supported. This limit includes both internal federations and SAML/WS-Fed IdP federations.
+Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](/powershell/module/msonline/set-msoldomainfederationsettings) and SAML/WS-Fed IdP federations.
 
 ### Can I set up federation with multiple domains from the same tenant?
 We don’t currently support SAML/WS-Fed IdP federation with multiple domains from the same tenant.
@@ -171,7 +171,7 @@ Required claims for the WS-Fed token issued by the IdP:
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
-Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the Microsoft Graph API. It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
+Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
 - Issuer URI of partner IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
@@ -179,26 +179,28 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 
 ### To configure federation in the Azure AD portal
 
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
+1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 2. Select **External Identities** > **All identity providers**.
 3. Select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. On the **New SAML/WS-Fed IdP** page, under **Identity provider protocol**, select **SAML** or **WS-FED**.
+4. On the **New SAML/WS-Fed IdP** page, enter the following:
+   - **Display name** - Enter a name to help you identify the partner's IdP.
+   - **Identity provider protocol** - Select **SAML** or **WS-FED**.
+   - **Domain name of federating IdP** - Enter your partner’s IdP target domain name for federation. Currently, one domain name is supported, but we're working on allowing more.
 
     ![Screenshot showing parse button on the SAML or WS-Fed IdP page](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
-5. Enter your partner organization’s domain name, which will be the target domain name for federation. Currently, one domain name is supported, but we're working on allowing more.
-6. You can upload a metadata file to populate metadata details. If you choose to input metadata manually, enter the following information:
-   - Domain name of partner IdP
-   - Entity ID of partner IdP
-   - Passive requestor endpoint of partner IdP
-   - Certificate
+5. Select a method for populating metadata. You can **Input metadata manually**, or if you have a file that contains the metadata, you can automatically populate the fields  by selecting **Parse metadata file** and browsing for the file.
+   - **Issuer URI** - The partner IdP's domain name.
+   - **Passive authentication endpoint** - The partner IdP's passive requestor endpoint.
+   - **Certificate** - The signing certificate ID.
+   - **Metadata URL** - The location of the IdP's metadata for automatic renewal of the signing certificate.
    > [!NOTE]
    > Metadata URL is optional, however we strongly recommend it. If you provide the metadata URL, Azure AD can automatically renew the signing certificate when it expires. If the certificate is rotated for any reason before the expiration time or if you do not provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
-7. Select **Save**.
+6. Select **Save**.
 
 ### To configure federation using the Microsoft Graph API
 
@@ -207,32 +209,50 @@ You can use the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph
 ## Step 4: Test SAML/WS-Fed IdP federation in Azure AD
 Now test your federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
  
-## How do I manage a SAML/WS-Fed IdP federation relationship?
+## How do I update the certificate or configuration details?
 
-On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured, including the domain configuration and the date the certificate will expire. You can also modify identity provider configuration values.
+On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured and their certificate expiration dates. From this list, you can renew certificates and modify other identity provider configuration values.
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/saml-ws-fed-identity-provider-list.png)
 
-To modify the configuration:
-
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
+1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 1. Select **External Identities**.
 1. Select **All identity providers**.
-1. Under **SAML/WS-Fed identity providers**, view details for an identity provider, including the certificate expiration date.
-   - To update the certificate or other configuration values, select the **Edit** link in the **Configuration** column.
-   - To update the domain for the identity provider, select the link in the **Domains** column.
- 1. Select **Save**.
+1. Under **SAML/WS-Fed identity providers**, scroll to an identity provider in the list or use the search box.
+1. To update the certificate or modify configuration details:
+   - In the **Configuration** column for the identity provider, select the **Edit** link.
+   - On the configuration page, modify any of the following details:
+     - **Display name** - Display name for the partner's organization.
+     - **Identity provider protocol** - Select **SAML** or **WS-FED**.
+     - **Issuer URI** - The partner IdP's domain name.
+     - **Passive authentication endpoint** - The partner IdP's passive requestor endpoint.
+     - **Certificate** - The ID of the signing certificate. To renew it, enter a new certificate ID.
+     - **Metadata URL** - The URL containing the partner's metadata, used for automatic renewal of the signing certificate.
+   - Select **Save**.
+
+   ![Screenshot of the IDP configuration details](media/direct-federation/modify-configuration.png)
+
+1. To view the domain for the IdP, select the link in the **Domains** column to view the partner's target domain name for federation.
+   > [!NOTE]
+   > If you need to update the partner's domain, you'll need to [delete the configuration](#how-do-i-remove-federation) and reconfigure federation with the identity provider using the new domain.
+
+   ![Screenshot of the domain configuration page](media/direct-federation/view-domain.png)
 
 ## How do I remove federation?
 
-You can remove your federation setup. If you do, federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
-To remove federation with an IdP in the Azure AD portal:
+You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
+To remove a configuration for an IdP in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
-2. Select **External Identities**.
-3. Select **All identity providers**.
-4. Select the identity provider, and then select **Delete**.
-5. Select **Yes** to confirm deletion.
+1. Select **External Identities**.
+1. Select **All identity providers**.
+1. Under **SAML/WS-Fed identity providers**, scroll to the identity provider in the list or use the search box.
+1. Select the link in the **Domains** column to view the IdP's domain details.
+1. Select **Delete Configuration**.
+
+   ![Screenshot of deleting a configuration](media/direct-federation/delete-configuration.png)
+
+1. Select **OK** to confirm deletion.
 
 You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta) resource type.
 
