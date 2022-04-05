@@ -69,7 +69,7 @@ Use the following command to promote the subdomain:
 POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
 ```
 
-#### Error conditions and messages
+#### Promote command error conditions
 
 Scenario | Method | Code | Message
 -------- | ------ | ---- | -------
