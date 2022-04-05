@@ -80,7 +80,7 @@ All Azure services set default limits and quotas for resources and features. The
 |Maximum concurrent engine instances that can be utilized per region per subscription     |    100     |
 |Maximum concurrent test runs per region per subscription     |    25     |
 
-You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+You can increase the default limits and quotas by requesting the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 1. Click on **create a support ticket**.
 
