@@ -39,7 +39,7 @@ The following table of `languageCode` with out of the box translations. If you w
 
 You can also obtain list of `languageCode` by the static function `LanguageCode.values()`.
 
-:::image type="content" source="media/android_localization.png" alt-text="Android localization":::
+:::image type="content" source="media/android-localization.png" alt-text="Android localization":::
 
 #### Usage
 
@@ -59,7 +59,7 @@ val callComposite: CallComposite =  CallCompositeBuilder().localization(Localiza
 
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| :::image type="content" source="media/android_rtl.png" alt-text="Android RTL"::: | :::image type="content" source="media/android_ltr.png" alt-text="Android LTR":::  |
+| :::image type="content" source="media/android-rtl.png" alt-text="Android RTL"::: | :::image type="content" source="media/android-ltr.png" alt-text="Android LTR":::  |
 
 ### Customizing Translations
 

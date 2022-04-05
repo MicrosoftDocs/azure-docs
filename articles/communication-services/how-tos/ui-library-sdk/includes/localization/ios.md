@@ -56,7 +56,7 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationConfig
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-:::image type="content" source="media/ios_localization.png" alt-text="iOS localization":::
+:::image type="content" source="media/ios-localization.png" alt-text="iOS localization":::
 
 ### Layout Direction
 
@@ -83,7 +83,7 @@ You can see below the right-to-left layout mirroring, by default without specify
 
 |`layoutDirection = .leftToRight` (default) | `layoutDirection = .rightToLeft`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| :::image type="content" source="media/ios_righttoleft_false.png" alt-text="iOS layout direction left-to-right"::: | :::image type="content" source="media/ios_righttoleft_true.png" alt-text="iOS layout direction right-to-left":::  |
+| :::image type="content" source="media/ios-righttoleft-false.png" alt-text="iOS layout direction left-to-right"::: | :::image type="content" source="media/ios-righttoleft-true.png" alt-text="iOS layout direction right-to-left":::  |
 
 ### Customizing Translations
 
@@ -95,7 +95,7 @@ Let's say you wish to have the `ControlBar` with strings from our English (US) l
 
 Enable Localization in the Project, below for the `languageCode` you want to override. Create a `Localizable.strings` file (or other filename with extension `.strings`) with the key-value pair for selected keys you want to override. In the example below, we're overriding the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
 
-:::image type="content" source="media/ios_setup_project.png" alt-text="iOS setup project":::
+:::image type="content" source="media/ios-setup-project.png" alt-text="iOS setup project":::
 
 To specify you're overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `languageCode` and `localizationFilename`.
 
@@ -106,4 +106,4 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationConfig
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-:::image type="content" source="media/ios_custom_string.png" alt-text="iOS custom string":::
+:::image type="content" source="media/ios-custom-string.png" alt-text="iOS custom string":::

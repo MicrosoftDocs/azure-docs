@@ -96,7 +96,7 @@ These client libraries also require the context for the call they will join. Sim
 
 |Platform | Versions|
 |---------|---------|
-| iOS     | iOS 13+ |
+| iOS     | iOS 14+ |
 | Android | v21+    |
 
 > [!div class="nextstepaction"]
