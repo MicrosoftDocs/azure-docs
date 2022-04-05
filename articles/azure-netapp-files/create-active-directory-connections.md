@@ -323,7 +323,7 @@ This feature is currently in preview. You need to register the feature before us
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Reset Active Directory 
+## Reset Active Directory computer account
 
 If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
 
@@ -331,7 +331,7 @@ If you accidentally reset the password of the AD computer account on the AD serv
 
 The reset Active Directory feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
 
-1. Register the **reset Active Directory** feature:   
+1. Register the **reset Active Directory computer account** feature:   
 ```azurepowershell-interactive
 Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
 ```
