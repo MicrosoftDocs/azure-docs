@@ -66,7 +66,7 @@ To use the Required URL Check tool:
 You'll need to make sure that the Azure virtual machines you create for Azure Virtual Desktop have access to the URLs in one of the following sections based on which cloud you're using.
 
 ### Azure public cloud
-The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure commercial cloud:
+The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure public cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
