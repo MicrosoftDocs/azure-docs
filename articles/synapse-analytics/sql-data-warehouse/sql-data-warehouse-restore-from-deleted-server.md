@@ -1,6 +1,6 @@
 ---
 title: Restore a dedicated SQL pool (formerly SQL DW) from a deleted server
-description: How-to guide for restoring a dedicated SQL pool from a dropped server.
+description: How-to guide for restoring a dedicated SQL pool from a deleted server.
 author: realAngryAnalytics
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -21,7 +21,7 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## Restore the SQL pool from the dropped workspace
+## Restore the SQL pool from the deleted server
 
 <ol>
     <li>Open PowerShell</li>
