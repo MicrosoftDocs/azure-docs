@@ -94,10 +94,10 @@ Azure Logic Apps provides the following built-in triggers and actions:
 :::row-end:::
 :::row:::
     :::column:::
-        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
-        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.

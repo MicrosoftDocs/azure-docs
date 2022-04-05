@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use data history (preview) with Azure Data Explorer
+title: Use data history with Azure Data Explorer (preview)
 titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
