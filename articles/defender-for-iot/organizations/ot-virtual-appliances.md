@@ -12,16 +12,10 @@ This article lists the virtual appliance requirements for Microsoft Defender for
 ## About hypervisors
 
 The virtualized hardware used to run guest operating systems is supplied by virtual machine hosts, also known as *hypervisors*.
-
 There are generally two distinct categories of virtual machine hypervisors:
 
-- **Type 1**, bare-metal hypervisors.
-
-    Type 1 hypervisors run directly on the host server's hardware. Hardware resources are directly allocated to guest virtual machines, and the hardware is managed directly. This type of hypervisor provides specific resources for specific virtual machines; in some instances, hardware can be passed directly to a guest. Microsoft Hyper-V Server and VMware vSphere/ESXi are examples of Type 1 hypervisors.
-
-- **Type 2**, hosted hypervisors.
-
-    Type 2 hypervisors run within the host operating system. In contrast to Type 1 hypervisors, they don't have exclusive hardware control and don't reserve dedicated resources for their guest virtual machines. Type 2 hypervisors include Microsoft Hyper-V (when running on Windows), Parallels, Oracle VirtualBox, and VMware Workstation or Fusion.
+- **Type 1**, bare-metal hypervisors - run directly on the host server's hardware with resources directly allocated to guest virtual machines (eg. VMWare ESXi, Microsoft Hyper-V).
+- **Type 2**, hosted hypervisors - run within the host operating system, and don't have exclusive hardware control or reserve resources (eg. Parallels, Oracle VirtualBox, and VMware Workstation or Fusion).
 
 We recommend Type 1 hypervisors for Defender for IoT virtual machines. They provide deterministic performance and the ability to dedicate resources.
 
@@ -37,10 +31,10 @@ This section outlines considerations for virtual appliance components, for both 
 
 |Specification  |Considerations  |
 |---------|---------|
-|**CPU**     |   Depending on capacity, we recommend dedicating non-dynamically allocated CPU cores, with at least 2.4 Ghz. <br><br>Expect a high CPU usage as the appliance constantly records network traffic and performs analytics. The CPU performance for OT sensors is critical in capturing and analyzing network traffic, and any slowdown is likely to result in packet drops and degraded performance. We recommend that you dedicate (pin) any physical cores, based on your required appliance capacity.      |
-|**Memory**     | We recommend that you allocate non-dynamic RAM, based on required capacity. <br><br>Expect high RAM usage as the appliance is constantly records network traffic and performs analytics.        |
-|**Network interfaces**     | We recommend that you physically map your virtual machines using SR-IOV or an NIC dedicated to the virtual machine. Physical mapping provides maximum performance, lowest latency and efficient CPU utilization. <br><br>When using a vSwitch, set the promiscuous mode to **Accept**, which allows all traffic to reach the VM. <br><br>Expect a high network usage as traffic monitoring volumes are high. vSwitch may block certain protocols if it isn't configured correctly.|
-|**Storage**     | We recommend that you provide enough resources to ensure that there's enough read and write IOPs and throughput to match the performance of the appliances listed in this article. <br><br> Expect a high storage usage as traffic monitoring volumes, for both IOPs and throughput, are high. on this page.      |
+|**CPU**     |   We recommend CPU cores with at least 2.4 GHz, which are not dynamically allocated. <br><br>CPU usage will be high since the appliance continuously records and analyzes network traffic. For OT sensors, CPU performance is critical to capturing and analyzing network traffic, and any slowdown could lead to packet drops and performance degradation. We recommend that you dedicate (pinning) all physical cores necessary for your appliance.      |
+|**Memory**     | RAM should be allocated based on required capacity, not dynamically. <br><br>Due to its constant network traffic recording and analytics, expect high RAM usage.       |
+|**Network interfaces**     | Our recommendation is to physically map virtual machines with SR-IOV or a dedicated NIC. Physical mapping provides best performance, lowest latency and efficient CPU usage. <br><br>  As a result of high traffic monitoring levels, expect high network usage. <br><br> Set the promiscuous mode on your vSwitch to **Accept**, which allows all traffic to reach the VM. vSwitch may block certain protocols if it isn't configured correctly.|
+|**Storage**     | Make sure to allocate enough read and write IOPs and throughput to match the performance of the appliances listed in this article. You should expect high storage usage due to the large traffic monitoring volumes.      |
 
 
 ## OT network sensor requirements
@@ -49,7 +43,7 @@ The following tables list system requirements for OT network sensors on virtual 
 
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
-# [Corporate deployments](#tab/corporate)
+# [Corporate](#tab/corporate)
 
 
 |Specification  |Requirements  |
@@ -58,9 +52,9 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |   12,000      |
 |**vCPU**     |   32      |
 |**Memory**     |   32 GB      |
-|**Storage**     |   5.6 TB - 500 IOPSm      |
+|**Storage**     |   5.6 TB (600 IOPS)      |
 
-# [Enterprise deployments](#tab/enterprise)
+# [Enterprise](#tab/enterprise)
 
 |Specification  |Requirements  |
 |---------|---------|
@@ -68,17 +62,37 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |  10,000     |
 |**vCPU**     |   8      |
 |**Memory**     |   32 GB      |
-|**Storage**     |  1.8 TB - 300 IOPS     |
+|**Storage**     |  1.8 TB  (300 IOPS)     |
 
-# [SBM and SMB rugged deployments](#tab/smb-smb-rugged)
+# [SMB](#tab/smb)
 
 |Specification  |Requirements  |
 |---------|---------|
 |**Maximum bandwidth**     |   160 Mb/sec     |
+|**Maximum monitored assets**     |  1000     |
+|**vCPU**     |   4      |
+|**Memory**     |   8 GB      |
+|**Storage**     |  500 GB:<br> (150 IOPS)     |
+
+# [Office](#tab/office)
+
+|Specification  |Requirements  |
+|---------|---------|
+|**Maximum bandwidth**     |   100 Mb/sec     |
 |**Maximum monitored assets**     |  800     |
 |**vCPU**     |   4      |
 |**Memory**     |   8 GB      |
-|**Storage**     |  500 GB:<br> -200 IOPS 100 GB <br>- ~150 IOPS     |
+|**Storage**     |  100 GB:<br> (150 IOPS)     |
+
+# [Rugged](#tab/office)
+
+|Specification  |Requirements  |
+|---------|---------|
+|**Maximum bandwidth**     |   10 Mb/sec     |
+|**Maximum monitored assets**     |  100     |
+|**vCPU**     |   4      |
+|**Memory**     |   8 GB      |
+|**Storage**     |  60 GB:<br> (150 IOPS)     |
 
 ---
 
