@@ -751,7 +751,7 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 ## managementGroupResourceId
 
-`managementGroupResourceId(resourceType, resourceName1, [resourceName2], ...)`
+`managementGroupResourceId([managementGroupResourceId],resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the management group level.
 
@@ -761,6 +761,7 @@ In Bicep, use the [managementGroupResourceId](../bicep/bicep-functions-resource.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
+| managementGroupResourceId |No |string (in GUID format) |Default value is the current management group. Specify this value when you need to retrieve a resource in another management group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
