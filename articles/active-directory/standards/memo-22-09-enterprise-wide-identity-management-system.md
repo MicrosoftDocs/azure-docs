@@ -1,6 +1,6 @@
 ---
 title: Memo 22-09 enterprise-wide identity management systems
-description: Guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09
+description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
