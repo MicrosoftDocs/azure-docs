@@ -35,9 +35,6 @@ Use this sample code if:
 * You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
 * You cannot or do not want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
 
-If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
-
-
 ## Prerequisites
 
 Be sure you have the following items before you begin this guide:
@@ -68,3 +65,9 @@ Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/simple-pattern-matching.md)]
 ::: zone-end
+
+## Next steps
+
+> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
+
+> Look through our [github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
