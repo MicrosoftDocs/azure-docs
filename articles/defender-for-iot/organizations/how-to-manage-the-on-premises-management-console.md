@@ -19,7 +19,7 @@ This procedure describes how to use the Azure portal to download software for yo
 
 1. Make sure that you have a supported appliance available. For more information, see [OT hardware system requirements for your own installations](ot-physical-appliances.md) and [OT virtual system requirements for your own installations](ot-virtual-appliances.md).
 
-1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
 
 1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 

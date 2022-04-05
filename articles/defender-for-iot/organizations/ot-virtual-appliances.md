@@ -84,7 +84,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Memory**     |   8 GB      |
 |**Storage**     |  100 GB:<br> (150 IOPS)     |
 
-# [Rugged](#tab/office)
+# [Rugged](#tab/rugged)
 
 |Specification  |Requirements  |
 |---------|---------|

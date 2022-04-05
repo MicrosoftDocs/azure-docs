@@ -56,7 +56,7 @@
         href: architecture.md
       - name: Sensor connection methods
         href: architecture-connections.md
-      - name: OT system-requirements
+      - name: OT system requirements
         items:
         - name: Deployment options
           href: ot-deployment-options.md
@@ -78,9 +78,6 @@
   items:
   - name: Prepare your network
     items:
-      - name: Identify required appliances
-        displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
-        href: how-to-identify-required-appliances.md
       - name: Set up your network
         displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel
         href: how-to-set-up-your-network.md

@@ -93,7 +93,7 @@ The following tabs describe supported bill of materials, depending on your monit
 
 For corporate deployments, use the **HPE ProLiant DL360** with the following specifications:
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360" border="false":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360." border="false":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -137,7 +137,7 @@ For enterprise deployments, use one of the following options and specifications:
 
 ### HPE ProLiant DL20 Plus (enterprise)
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20 Plus panel" border="false":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus.png" alt-text="Photo of the DL20 Plus panel." border="false":::
 
 
 |Component  |Specifications|
@@ -176,7 +176,7 @@ Optional modules for port expansion include:
 
 For example:
 
-:::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20" border="false":::
+:::image type="content" source="media/ot-system-requirements/dl20-profile-back-view.png" alt-text="Profile view of back of DL20." border="false":::
 
 ### HPE ProLiant DL20
 
@@ -236,7 +236,7 @@ For example:
 |Power|	Dual Hot Plug Power Supplies 350 W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes, or tooled mounting in 4-post threaded hole racks with support for optional tool-less cable management arm.
 
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340" border="false":::
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340." border="false":::
 
 Optional modules for port expansion include:
 
@@ -302,7 +302,7 @@ For an SMB deployment, use one of the following options and specifications:
 
 ### HPE ProLiant DL20 Plus (SMB)
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus" border="false":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus." border="false":::
 
 |Component|Technical specifications|
 |----|----|
@@ -515,7 +515,7 @@ Legacy options for SMB rugged deployments include:
 
 ### Neousys Nuvo-5006LP (legacy SMB rugged)
 
-:::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP":::
+:::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP.":::
 
 
 |Component|Technical Specifications|
