@@ -36,7 +36,7 @@ The following instructions expect that the users can bring in the Active Directo
 
    This DNS name should be in the Active Directory domain or its descendant domains.
 
-   The examples in these instructions use `sqlmi.contoso.local` for the DNS name .
+   The examples in these instructions use `sqlmi.contoso.local` for the DNS name.
 
 2. Identify the port number for the managed instance endpoint.
 
@@ -113,7 +113,7 @@ The following instructions expect that the users can bring in the Active Directo
    AD_PASSWORD=<password> ./create-sql-keytab.sh --realm <AD domain in uppercase> --account <AD account name> --port <endpoint port> --dns-name <endpoint DNS name> --keytab-file <keytab file name/path> --secret-name <keytab secret name> --secret-namespace <keytab secret namespace>
    ```
 
-   The input parameters are expecting the following values : 
+   The input parameters are expecting the following values: 
    * `--realm` expects the uppercase of the AD domain, such as CONTOSO.LOCAL
    * `--account` expects the AD account under where the SPNs are registered, such sqlmi-account
    * `--port` expects the SQL endpoint port number 31433
@@ -122,9 +122,9 @@ The following instructions expect that the users can bring in the Active Directo
    * `--secret-name` expects the name of the keytab secret to generate a specification for
    * `--secret-namespace` expects the Kubernetes namespace containing the keytab secret
 
-   Using the examples chosen in this document, the command should look like the following.
-
    Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the managed instance will be deployed in.
+
+   The following command creates a keytab. It uses values that this article describes:
 
    ```console
    AD_PASSWORD=<password> ./create-sql-keytab.sh --realm CONTOSO.LOCAL --account sqlmi-account --port 31433 --dns-name sqlmi.contoso.local --keytab-file sqlmi.keytab --secret-name sqlmi-keytab-secret --secret-namespace sqlmi-ns
@@ -172,7 +172,7 @@ An Active Directory Connector instance stores the information needed to enable c
 * Active Directory DNS Servers
 * Kubernetes DNS Servers
 
-The following diagram Active Directory Connector and SQL Managed Instance describes how the AD bring your own keytab (BYOK) integration mode works : 
+The following diagram Active Directory Connector and SQL Managed Instance describes how the AD bring your own keytab (BYOK) integration mode works: 
 
 ![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
 
