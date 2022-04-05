@@ -66,7 +66,7 @@ using (GremlinClient client = new GremlinClient(server, new GraphSON2Reader(), n
 }
 ```
 
-An example that demonstrates how to read status attribute from Gremlin java client:
+An example that demonstrates how to read status attribute from Gremlin Java client:
 
 ```java
 try {

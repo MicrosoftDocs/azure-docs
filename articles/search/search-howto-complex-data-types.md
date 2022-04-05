@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Nested or hierarchical data structures can be modeled in an Azure Cognitive Search index using ComplexType and Collections data types.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: how-to

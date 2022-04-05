@@ -108,7 +108,7 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure portal | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net` |
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net` |
 
 #### Sensor access to the on-premises management console
 

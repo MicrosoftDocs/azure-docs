@@ -39,7 +39,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
-    az ad sp create-for-rbac -o json > auth.json
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```

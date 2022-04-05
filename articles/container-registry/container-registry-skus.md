@@ -60,7 +60,7 @@ Throttling could occur temporarily when you generate a burst of image pull or pu
 
 ## Show registry usage
 
-Use the [az acr show-usage](/cli/azure/acr#az_acr_show_usage) command, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
+Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
 
 Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices.md#manage-registry-size). 
 

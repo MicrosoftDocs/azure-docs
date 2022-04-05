@@ -38,7 +38,7 @@ See the following tutorials for a complete walkthrough of configuring ingestion-
 
 ## Limits
 
-- Transformation queries use a subset of KQL. See [Supported KSQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
+- Transformation queries use a subset of KQL. See [Supported KQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
 
 ## Next steps
 

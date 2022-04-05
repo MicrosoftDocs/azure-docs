@@ -28,8 +28,6 @@ Microsoft Defender for IoT includes the following components:
 - Microsoft Defender for IoT sensor VM or appliance
 - On-premises management console for local site management
 
-:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="The architecture for Defender for IoT.":::
-
 ### Microsoft Defender for IoT sensors
 
 The Defender for IoT sensors discover, and continuously monitor network devices. Sensors collect ICS network traffic using passive (agentless) monitoring on IoT and OT devices. 
@@ -68,7 +66,7 @@ Managing Microsoft Defender for IoT across hybrid environments is accomplished v
 ### Sensor console
 Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
 
-:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender for IoT sensor console":::
+:::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
 ### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
@@ -86,8 +84,6 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 - Aggregation and correlation – display, aggregate, and analyze data and alerts collected from all sites.
 
 - Control all sensors – configure and monitor all sensors from a single location.
-
-   :::image type="content" source="media/architecture/initial-dashboard.png" alt-text="Screen shot of dashboard." lightbox="media/architecture/initial-dashboard.png":::
 
 ### Azure portal
 

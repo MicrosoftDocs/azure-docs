@@ -31,6 +31,8 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
+### Network connectivity requirements
+
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
 - `https://enterpriseregistration.windows.net`

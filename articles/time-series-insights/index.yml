@@ -74,7 +74,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Rest APIs Overview
+          - text: REST APIs Overview
             url: /rest/api/time-series-insights/
           - text: Data Access Concepts Gen2
             url: /rest/api/time-series-insights/reference-data-access-overview

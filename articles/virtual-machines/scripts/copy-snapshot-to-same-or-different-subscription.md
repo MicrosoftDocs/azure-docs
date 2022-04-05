@@ -34,7 +34,7 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh" range="3-36":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh" id="FullScript":::
 
 ## Clean up resources
 

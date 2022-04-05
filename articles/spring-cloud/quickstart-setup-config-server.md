@@ -53,7 +53,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to "https://github.com/azure-samples/spring-petclinic-microservices-config".
+2. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
 
 3. Select **Validate**.
 

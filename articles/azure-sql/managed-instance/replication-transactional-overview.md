@@ -43,7 +43,7 @@ The key components in transactional replication are the **Publisher**, **Distrib
 | **Distributor** | No | Yes|
 | **Pull subscriber** | No | Yes|
 | **Push Subscriber**| Yes | Yes|
-| &nbsp; | &nbsp; | &nbsp; |
+
 
 The **Publisher** publishes changes made on some tables (articles) by sending the updates to the Distributor. The publisher can be an Azure SQL Managed Instance or a SQL Server instance.
 
@@ -74,7 +74,7 @@ There are different [types of replication](/sql/relational-databases/replication
 | [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
 | [**Bidirectional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
 | [**Updatable subscriptions**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
-| &nbsp; | &nbsp; | &nbsp; |
+
 
 ### Supportability Matrix
 
@@ -88,7 +88,7 @@ There are different [types of replication](/sql/relational-databases/replication
 | SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
 | SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
 | SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
-| &nbsp; | &nbsp; | &nbsp; |
+
 
 ## When to use
 

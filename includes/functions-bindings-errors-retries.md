@@ -124,7 +124,7 @@ Here's the retry policy in the *function.json* file:
 }
 ```
 
-Here's a python sample to use retry context in a function:
+Here's a Python sample to use retry context in a function:
 
 ```Python
 import azure.functions
@@ -262,7 +262,7 @@ Here's the retry policy in the *function.json* file:
 }
 ```
 
-Here's a python sample to use retry context in a function:
+Here's a Python sample to use retry context in a function:
 
 ```Python
 import azure.functions

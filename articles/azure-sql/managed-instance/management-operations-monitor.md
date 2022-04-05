@@ -43,7 +43,7 @@ The following table compares management operation monitoring options:
 | Resource group deployments | Infinite<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
 | Managed instance operations API | 24 hours | [Yes](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
-|  |  |  |  |  |  |  | |
+
 
 <sup>1</sup> The deployment history for a resource group is limited to 800 deployments.
 

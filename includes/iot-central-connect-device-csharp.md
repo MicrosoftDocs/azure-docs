@@ -26,7 +26,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 In *Program.cs*, the `Main` method calls `SetupDeviceClientAsync` to:
 
-* Use the model ID `dtmi:com:example:TemperatureController;2` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Use the model ID `dtmi:com:example:TemperatureController;2` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Create a **DeviceClient** instance to connect to IoT Central.
 
 ```csharp
@@ -252,6 +252,9 @@ private Task<MethodResponse> HandleMaxMinReportCommand(MethodRequest request, ob
 [!INCLUDE [iot-central-connection-configuration](iot-central-connection-configuration.md)]
 
 ## Run the code
+
+> [!NOTE]
+> Set up **TemperatureController** as startup project before you run the code.
 
 To run the sample application in Visual Studio:
 

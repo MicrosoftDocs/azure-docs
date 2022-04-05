@@ -98,7 +98,7 @@ And for system-assigned managed identities:
     }
 ```
 
-For more details, please see [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+For more details, please see [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 
 ## Next steps
 * [Deploy an application with Managed Identity to a Service Fabric managed cluster](how-to-managed-cluster-application-managed-identity.md)
