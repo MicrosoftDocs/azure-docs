@@ -50,4 +50,4 @@ To complete this quickstart, make sure you have:
 
 ## Known limitations
 * Some Object Anchors SDK features are not supported since they rely on access to the HoloLens cameras which is not currently available via Remoting. These include <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode">Active Observation Mode</a> and <a href="/dotnet/api/microsoft.azure.objectanchors.objectinstancetrackingmode">High Accuracy Tracking Mode</a>.
-* The Object Anchors SDK currently only supports Unity Remoting while using the **Windows Mixed Reality XR Plugin**. If the **OpenXR XR Plugin** is used, <a href="/dotnet/api/microsoft.azure.objectanchors.objectobservationmode">`ObjectObserver.IsSupported`</a> will return `false` in **Play Mode** and other APIs may throw exceptions.
+* The Object Anchors SDK currently only supports Unity Remoting while using the **Windows Mixed Reality XR Plugin**. If the **OpenXR XR Plugin** is used, <a href="/dotnet/api/microsoft.azure.objectanchors.objectobserver.issupported">`ObjectObserver.IsSupported`</a> will return `false` in **Play Mode** and other APIs may throw exceptions.
