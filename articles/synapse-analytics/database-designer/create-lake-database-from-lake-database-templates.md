@@ -52,8 +52,9 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - The General tab has information on the table such as its name and description.
     - The Columns tab has the details about all the columns that make up the table such as column names and datatypes.
     - The Relationships tab lists the incoming and outgoing relationships of the table with other tables on the canvas.
-    - Toggle to view all from & to relationships of the table using **select all**.
-    - Add related tables to the canvas using the check boxes next to the relationships in the toggle pane.    
+         i. Use the **Select all** toggle to view all the 'from' & 'to' relationships to that table.
+         ii. Add related tables to the canvas using the check boxes next to each relationship in the relationship tab.    
+![Relationship tab on the canvas, showing new toggle feature.](./media/create-lake-database-from-lake-database-template/relationship-toggle.png)         
     
 7. To quickly add tables that are related to the tables on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas. If this adds too many tables to the canvas, use the **Undo Last Action** to undo this change. 
 
