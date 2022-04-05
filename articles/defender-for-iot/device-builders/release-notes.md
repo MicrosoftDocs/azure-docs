@@ -15,7 +15,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## April 2022
 
-**Version 4.22**
+**Version 4.2.1**
 
 - **Proxy connection updates**: Now you can connect your micro-agent to an IoT Hub via a proxy. For more information, see [Connect via a proxy](tutorial-standalone-agent-binary-installation.md#connect-via-a-proxy).
 
