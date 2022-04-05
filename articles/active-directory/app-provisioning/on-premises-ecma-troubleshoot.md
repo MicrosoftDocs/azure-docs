@@ -100,7 +100,7 @@ The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wiz
 ## Query the ECMA Host Cache
 
 The ECMA Host has a cache of users in your application that is updated according to the schedule you specify in the properties page of the ECMA Host wizard. In order to query the cache, perform the steps below:
-1. Set the Debug flag to 'true'.
+1. Set the Debug flag to `true`.
 2. Restart the ECMA Host service.
 3. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
 
