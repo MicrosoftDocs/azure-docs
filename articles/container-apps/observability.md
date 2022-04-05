@@ -25,7 +25,7 @@ These features include:
 
 ## Azure Monitor metrics
 
-The Azure Monitor Metrics feature allows you to monitor your app's compute and network usage.  These metrics can be viewed and analyzed through the Metrics Explorer in the Azure portal.  Metric data can be retrieved through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets and custom applications.
+The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the Metrics Explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets, and custom applications.
 
 ### Available metrics
 
