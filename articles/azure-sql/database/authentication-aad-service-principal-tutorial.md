@@ -159,7 +159,7 @@ Register your application if you have not already done so. To register an app, y
 
 Completing an app registration generates and displays an **Application ID**.
 
-To register and set necessary permissions for your application:
+To register your application:
 
 1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New registration**.
 
@@ -169,21 +169,9 @@ To register and set necessary permissions for your application:
 
     ![App ID displayed](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Select **API permissions** > **Add a permission**.
+1. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-    ![Permissions settings for registered app](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
-
-3. Select **APIs my organization uses** > type **Azure SQL Database** into the search > and select **Azure SQL Database**.
-
-    ![Add access to API for Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
-
-4. Select **Delegated permissions** > **user_impersonation** > **Add permissions**.
-
-    ![Delegate permissions to API for Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
-
-5. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
-
-6. Record the following from your application registration. It should be available from your **Overview** pane:
+1. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
     - **Tenant ID** - This should be the same as before
 

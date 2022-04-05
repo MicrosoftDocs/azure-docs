@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 03/29/2022
+ms.date: 04/05/2022
 ---
 # Connect to Azure SQL Database with Azure AD Multi-Factor Authentication
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
+For more information about Multi-Factor Authentication support for SQL tools, see [Using multi-factor Azure Active Directory authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview).
 
 ## Multi-Factor Authentication for Azure SQL Database
 
@@ -59,7 +59,7 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 The C# example relies on the [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) namespace. For more information, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
 
 > [!NOTE]
-> The Azure Active Directory Authentication Library (ADAL) will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, [migrate applications to the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration).
+> [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) uses the Azure Active Directory Authentication Library (ADAL), which will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, migrate applications to [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) and the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). For more information about using Azure AD authentication with SqlClient, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
 
 ## Verify with SQL Server Management Studio
 
@@ -76,7 +76,9 @@ Run SSMS again, this time with **Authentication** set to **Azure Active Director
 For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!NOTE]
-> If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
+> If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. If you are running SSMS 18.x or later, the AD domain name or tenant ID is no longer needed for guest users because 18.x or later automatically recognizes it.
+>
+>To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
 
 ## C# code example
 
