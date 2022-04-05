@@ -33,7 +33,7 @@ To complete this quickstart, make sure you have:
 |Mixed Reality WinRT Projections | 0.5.2009    | 0.5.2009    |
 
 ## One-time setup
-1. On your HoloLens, install version 2.7.5 or newer of the [Holographic Remoting Player](https://www.microsoft.com/en-us/p/holographic-remoting-player/9nblggh4sv40) via the Microsoft Store.
+1. On your HoloLens, install version 2.7.5 or newer of the [Holographic Remoting Player](https://www.microsoft.com/p/holographic-remoting-player/9nblggh4sv40) via the Microsoft Store.
 1. In the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a>, under the **Platform Support** section, install the **Mixed Reality WinRT Projections** feature package, version 0.5.2009 or newer, into your Unity project folder.
 1. In the Unity **Package Manager** window, ensure that the **Windows XR Plugin** is updated to version 2.9.2 or newer for Unity 2019, or version 4.6.2 or newer for Unity 2020.
 1. In the Unity **Project Settings** window, click on the **XR Plug-in Management** section, select the **PC Standalone** tab, and ensure that the box for **Windows Mixed Reality** is checked, as well as **Initialize XR on Startup**.
