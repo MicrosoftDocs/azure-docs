@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/25/2022
 ms.author: helohr
 manager: femila
 ---
@@ -148,59 +148,55 @@ The most urgent items that you need to take care of right away. If you don't add
 
 ## Time to connect
 
-Time to connect is the time between when a user clicks a resource to start their session and when their desktop has loaded and is ready to use. For remote app use cases this is the time to launch the application. For new sessions this time encompasses two primary stages: connection, Azure service timing related to the time to route the user to a session host, and logon, the length of time taken to perform personalization and other tasks to establish a session on the session host. When monitoring time to connect, keep in mind the following things:
+Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for RemoteApps, this is the time it takes to launch the application.
 
-* Time to connect is measured with the following checkpoints from AVD’s service data:
+Time to connect has two stages:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Begins: [WVDConnection](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdconnections) state = started
+- Connection, which is how long it takes for the Azure service to route the user to a session host.
+- "Logon," which is how long it takes for the service to perform tasks related to signing in the user and establishing the session on the session host.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ends: [WVDCheckpoints](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
+When monitoring time to connect, keep in mind the following things:
 
-As an example, the time for a desktop experience to launch would be measured up to the launch of Windows Explorer (explorer.exe).
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service data:
 
--   Establishing new sessions tends to take longer than reestablishing connections to existing sessions due to Logon stages required in new session setup. 
+  - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
--   The time it takes the user to provide credentials is subtracted from their time to connect to help avoid signaling long connection times where a user may have had a long delay to enter credentials or use alternative authentication methods.
+  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
 
-When troubleshooting a high time to connect, you can breakdown total connection time into a few components to help identify actionable ways to reduce logon time. 
+  For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe).
+
+- Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
+
+- The time it takes for the user to provide credentials is subtracted from their time to connect to account for situations where a user either takes a while to enter credentials or use alternative authentication methods to sign in.
+
+When troubleshooting a high time to connect, Azure Monitor will break down total connection time data into four components to help you identify how to reduce sign-in time.
 
 >[!NOTE]
->Only primary connection steps are surfaced in the stages, and these components can run in parallel, meaning they will not add up to equal a total time to connect. 
+>The components in this section only show the primary connection stages. These components can run in parallel, which means they won't add up to equal the total time to connect. The total time to connect is a measurement that Azure Monitor determines in a separate process.
 
-Connection stages:
+The following flowchart shows the four stages of the sign-in process:
  
- ```mermaid
-flowchart LR
-    id0{{User Initiates Connection}}
-    id1[User Route]
-    id2[Stack Connect]
-    id3[Logon]
-    id4[Shell Start]
-    id5{{Session is Ready}}
-    id0 --> id1
-    id1 --> id2
-    id2 --> id3
-    id2 --> id4
-    id3 --> id5
-    id4 --> id5
-```
-- User route: Time from when the user clicks the icon to launch a session to when the service identifies a host to connect to. Network load, service load, or unique network traffic routing could lead to high routing times. Troubleshooting may require more detailed network path investigation.
+:::image type="content" source="media/time-to-connect.png" alt-text="A flowchart showing the four stages of the sign-in process: User Route, Stack Connected, Logon, and Shell Start to Shell Ready.":::
 
-- Stack connected: Time from when the service has resolved a target session host for the user to when the connection is established from the session host to the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing could lead to high connection times. An additional consideration for network routing would be ensuring proxy configurations on both the client and session host side are appropriately configured and routing to the service is optimal.
+The flowchart shows the following four components:
 
-- Logon: Time from when the connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high logon time; you can use Logon stages in Insights to identify peaks and see Logon stages documentation below to learn more. More details on the logon stages are provided in the next section.
+- User route: the time it takes from when the user selects the Azure Virtual Desktop icon to launch a session to when the service identifies a host to connect to. High network load, high service load, or unique network traffic routing can lead to high routing times. To troubleshoot user route issues, look at your network paths.
 
-- Shell start to shell ready: Time from when the shell starts to load to when it is fully loaded and ready for use. The most likely sources of delays in this phase include session host overload (high CPU, memory, or disk activity) or configuration issues.
+- Stack connected: the time it takes from when the service resolves a target session host for the user to when the service establishes a connection between the session host and the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing can affect connection time. For this component, you'll also need to pay attention to your network routing. To reduce connection time, make sure you've appropriately configured all proxy configurations on both the client and session hosts, and that routing to the service is optimal.
 
-Logon stages:
+- Logon: the time it takes between when a connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can view data for the "logon" stage in Insights to see if there are unexpected peaks in average times.
 
-- Profiles: The time it takes to load a user’s profile for new sessions. This time will largely relate to profile sizes or user profile solutions in use (e.g., User Experience Virtualization). For solutions making use of a network stored profile excess latency may also lead to longer profile loading times.
+  The "logon" process is divided into four stages:
 
-- Group Policy (GPOs): Time it takes to apply group policies to new sessions. A spike in this time bucket indicates that you have too many group policies, the policies take too long to apply, or the session host is experiencing resource issues. As a further note, the Domain Controller (DC) needs to be close to session hosts for optimal GPO processing times.
+  - Profiles: the time it takes to load a user’s profile for new sessions. How long loading takes depends on user profile size or the user profile solutions you're using (such as User Experience Virtualization). If you're using a solution that depends on network-stored profiles, excess latency can also lead to longer profile loading times.
 
-- Shell Start: The time it takes to launch the shell (usually explorer.exe).
+  - Group Policy Objects (GPOs): the time it takes to apply group policies to new sessions. A spike in this area of the data is a sign that you have too many group policies, the policies take too long to apply, or the session host is experiencing resource issues. One thing you can do to optimize processing times is make sure the domain controller is close to session hosts as possible.
 
-- FSLogix (Frxsvc): Time it takes to launch FSLogix in new sessions. If this time is slow, it may indicate issues with the shares used to host the FSLogix user profiles; ensure the shares are collocated with the session hosts and appropriately scaled for the user volume logging into hosts. Additionally, larger profile sizes could contribute to slowness.
+  - Shell Start: the time it takes to launch the shell (usually explorer.exe).
+
+  - FSLogix (Frxsvc): the time it takes to launch FSLogix in new sessions. A long launch time may indicate issues with the shares used to host the FSLogix user profiles. To troubleshoot these issues, make sure the shares are collocated with the session hosts and appropriately scaled for the average number of users signing in to the hosts. Another area you should look at is profile size. Large profile sizes can slow down launch times.
+
+- Shell start to shell ready: the time from when the shell starts to load to when it's fully loaded and ready for use. Delays in this phase can be caused by session host overload (high CPU, memory, or disk activity) or configuration issues.
 
 ## User report
 

@@ -163,7 +163,7 @@
       items:
         - name: Scale an AKS cluster
           href: scale-cluster.md
-        - name: Stop/Deallocate nodes with Scale-down Mode (preview)
+        - name: Stop/Deallocate nodes with Scale-down Mode
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
@@ -226,6 +226,8 @@
           href: kubernetes-portal.md
         - name: Use tags
           href: use-tags.md
+        - name: Use labels
+          href: use-labels.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -315,6 +317,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Bring your own CNI
+          href: use-byo-cni.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
@@ -447,8 +451,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Configure Azure Monitor
-          href: open-service-mesh-azure-monitor.md
+        - name: Open Service Mesh integrations
+          href: open-service-mesh-integrations.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on

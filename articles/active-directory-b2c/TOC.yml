@@ -357,6 +357,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: xID
+          href: partner-xid.md
     - name: Set up direct sign-in
       href: direct-signin.md
   - name: Tokens and session management
@@ -451,6 +453,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology

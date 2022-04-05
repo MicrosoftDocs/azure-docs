@@ -8,7 +8,9 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 10/21/2021
+ms.date: 04/05/2022
+ms.custom: cliv1
+
 ---
 # Git integration for Azure Machine Learning
 
@@ -31,6 +33,9 @@ To clone a Git repository into this file share, we recommend that you create a c
 Once the terminal is opened, you have access to a full Git client and can clone and work with Git via the Git CLI experience.
 
 We recommend that you clone the repository into your users directory so that others will not make collisions directly on your working branch.
+
+> [!TIP]
+> There is a performance difference between cloning to the local file system of the compute instance or cloning to the mounted filesystem (mounted as  the `~/cloudfiles/code` directory). In general, cloning to the local filesystem will have better performance than to the mounted filesystem. However, the local filesystem is lost if you delete and recreate the compute instance. The mounted filesystem is kept if you delete and recreate the compute instance.
 
 You can clone any Git repository you can authenticate to (GitHub, Azure Repos, BitBucket, etc.)
 

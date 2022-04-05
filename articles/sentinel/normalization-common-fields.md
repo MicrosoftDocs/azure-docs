@@ -81,7 +81,6 @@ The currently supported list of vendors and products used in the [EventVendor](#
 
 | Vendor | Products |
 | ------ | -------- | 
-| Apache | Squid Proxy | 
 | AWS | - CloudTrail<br> - VPC | 
 | Cisco | - ASA<br> - Umbrella |
 | Corelight | Zeek | 
@@ -90,11 +89,13 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
 | Okta | Okta | 
 | Palo Alto | - PanOS<br> - CDL<br> |
+| Squid | Squid Proxy | 
 | Vectra AI | Vectra Steam |
 | Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
 
 
 If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
+
 
 ## Next steps
 

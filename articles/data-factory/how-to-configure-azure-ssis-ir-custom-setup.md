@@ -314,7 +314,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * An *ORACLE STANDARD OLEDB* folder, which contains a custom setup script (*main.cmd*) to install the Oracle OLEDB driver on each node of your Azure-SSIS IR. This setup lets you use the OLEDB Connection Manager, Source, and Destination to connect to the Oracle server. 
      
-        First, [download the latest Oracle OLEDB driver](https://www.oracle.com/partners/campaign/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
+        First, [download the latest Oracle OLEDB driver](https://oracle.com/technetwork/database/windows/downloads/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
 
       * A *POSTGRESQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager, Source, and Destination to connect to the PostgreSQL server. 
      

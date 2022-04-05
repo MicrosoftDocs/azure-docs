@@ -77,8 +77,8 @@ Validate that the `maxmemory-reserved` and `maxfragmentationmemory-reserved` val
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-- [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-- [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
+- [Configure a memory policy](cache-configure.md#memory-policies) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+- [Configure a maxmemory-reserved value](cache-configure.md#memory-policies) that is large enough to compensate for memory fragmentation.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 

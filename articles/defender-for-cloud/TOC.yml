@@ -83,7 +83,7 @@
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
-    - name: Secure score and security controls
+    - name: Security posture
       href: secure-score-security-controls.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
@@ -136,7 +136,7 @@
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
-    - name: Overview of Defender for servers
+    - name: Overview of Defender for Servers
       displayName: VM
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines

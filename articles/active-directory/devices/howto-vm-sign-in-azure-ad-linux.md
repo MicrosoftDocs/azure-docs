@@ -463,6 +463,14 @@ Solution 2: Perform these actions:
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade hasn’t been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
 
+### AllowGroups / DenyGroups statements in sshd_config cause first login to fail for Azure AD users
+
+Cause 1: If sshd_config contains either AllowGroups or DenyGroups statements, the very first login fails for Azure AD users. If the statement was added after a user already has a successful login, they can log in.
+
+Solution 1: Remove AllowGroups and DenyGroups statements from sshd_config.
+
+Solution 2: Move AllowGroups and DenyGroups to a "match user" section in sshd_config. Make sure the match template excludes Azure AD users.
+
 ## Next steps
 
 [What is a device identity?](overview.md)

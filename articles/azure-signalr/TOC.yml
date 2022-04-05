@@ -47,6 +47,8 @@
     href: signalr-concept-internals.md
   - name: Service mode
     href: concept-service-mode.md
+  - name: Connection string
+    href: concept-connection-string.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
