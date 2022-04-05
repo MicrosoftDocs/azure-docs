@@ -18,6 +18,14 @@ Azure NetApp Files is an Azure service is an enterprise-class, high-performance,
 
 By using NFS datastores backed by Azure NetApp Files you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
+Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Make sure there is connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. This is a native integration and no additional permissions configured via vSphere are needed.
+
+For best performance, create multiple datastores. Create your VMs with VMDKs from those datastores and stripe your logical volumes across the disks.
+
+The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
+
+:::image type="content" source="media/attach-azure-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores-attached-to-azure-vmware.png" alt text="Image shows diagram of the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud using ExpressRoute."lightbox="media/attach-azure-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores-attached-to-azure-vmware.png":::
+
 ## Supported Regions
 
 East US, US South Central, North Europe, West Europe, North Central US, Australia Southeast, France Central, Australia East, Brazil South, Canada Central, Canada East, Central US, Germany West Central, Japan West, Southeast Asia, Switzerland West, UK South, UK West and West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
