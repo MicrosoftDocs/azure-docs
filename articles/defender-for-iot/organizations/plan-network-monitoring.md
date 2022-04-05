@@ -214,7 +214,7 @@ TAP aggregators can also be used for port monitoring. These devices are processo
 
 The following diagram shows an example of a network setup with an active and passive TAP:
 
-:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram of active and passive TAPs.":::
+:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs.":::
 
 #### Common TAP models
 
@@ -248,13 +248,13 @@ This section provides sample network models for Defender for IoT sensor connecti
 
 The following diagram shows an example of a ring network topology, in which each switch or node connects to exactly two other switches, forming a single continuous pathway for the traffic.
 
-:::image type="content" source="media/how-to-set-up-your-network/ring-topology.PNG" alt-text="Diagram of the ring topology.":::
+:::image type="content" source="media/how-to-set-up-your-network/ring-topology.png" alt-text="Diagram of the ring topology.":::
 
 ### Sample: Linear bus and star topology
 
 In a star network, every host is connected to a central hub. In its simplest form, one central hub acts as a conduit to transmit messages. In the following example, lower switches aren't monitored, and traffic that remains local to these switches won't be seen. Devices might be identified based on ARP messages, but connection information will be missing.
 
-:::image type="content" source="media/how-to-set-up-your-network/linear-bus-star-topology.PNG" alt-text="Diagram of the linear bus and star topology.":::
+:::image type="content" source="media/how-to-set-up-your-network/linear-bus-star-topology.png" alt-text="Diagram of the linear bus and star topology.":::
 
 ### Sample: Multi-layer, multi-tenant network
 
