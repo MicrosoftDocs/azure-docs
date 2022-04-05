@@ -25,7 +25,7 @@ These features include:
 
 ## Azure Monitor metrics
 
-The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the metrics explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics?view=azure-cli-latest), Azure PowerShell cmdlets, and custom applications.
+The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the metrics explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), Azure PowerShell cmdlets, and custom applications.
 
 ### Available metrics for Container Apps
 
@@ -57,7 +57,7 @@ The metric page allows you to create and view charts to display your container a
 
 When you first navigate to the metric explorer, you'll see the main page.  From here, you can select the information specific to Container Apps to display in your chart.  
 
-:::image type="content" source=" media/observability/metrics-main-page.png":::
+:::image type="content" source=" media/observability/metrics-main-page.png" alt-text="Main metrics page.":::
 
 To filter by a replica, select a replica from the *Value* drop-down.   You can also filter by your container app's revision.
 
