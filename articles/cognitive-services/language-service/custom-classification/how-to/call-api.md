@@ -71,7 +71,7 @@ To delete a deployment, select the deployment you want to delete and click **Del
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
-See the below section for using the REST API to retrieve the results. 
+You will need to use the REST API. Click on the **REST API** tab above for more information.
 
 # [Using the API](#tab/rest-api)
 
