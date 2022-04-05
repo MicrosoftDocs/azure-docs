@@ -143,7 +143,7 @@ Make a note of your Blob storage account name and key. The sample app uses these
 
 ## Create an App Service plan
 
-An [App Service plan](../../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app.
+An [App Service plan](../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app.
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
@@ -321,13 +321,13 @@ The following classes and methods are used in the preceding task:
 
 # [JavaScript v12 SDK](#tab/javascript)
 
-Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
+Select **Choose File** to select a file, then select **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
 
 :::image type="content" source="media/storage-upload-process-images/upload-app-nodejs.png" alt-text="Screenshot of the page to upload photos in the Image Resizer JavaScript app.":::
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
-- [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
+- [Multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
 - [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [uploadStream](/javascript/api/%40azure/storage-blob/blockblobclient#uploadstream-readable--number--number--blockblobuploadstreamoptions-).
 
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.

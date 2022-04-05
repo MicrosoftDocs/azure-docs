@@ -199,7 +199,7 @@ az functionapp deployment source config --name $functionapp \
 
 ---
 
-The image resize function is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription. For this tutorial you subscribe to blob-created events.
+The image resize function is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription. For this tutorial, you subscribe to blob-created events.
 
 The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage. The function generates a thumbnail image and writes the resulting stream to a separate container in Blob storage.
 
@@ -221,7 +221,7 @@ The function project code is deployed directly from the public sample repository
 
 An event subscription indicates which provider-generated events you want sent to a specific endpoint. In this case, the endpoint is exposed by your function. Use the following steps to create an event subscription that sends notifications to your function in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), at the top of the page search for and select `Function App` and choose the function app that you just created. Select **Functions** and choose the **Thumbnail** function.
+1. In the [Azure portal](https://portal.azure.com), at the top of the page search for and select `Function App` and choose the function app that you created. Select **Functions** and choose the **Thumbnail** function.
 
     :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Choose the Thumbnail function in the portal":::
 
@@ -247,11 +247,11 @@ An event subscription indicates which provider-generated events you want sent to
 
 1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
-    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/**.
+    1. For **Subject begins with**, enter the following value: **/blobServices/default/containers/images/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-1. Select **Create** to add the event subscription. This creates an event subscription that triggers the `Thumbnail` function when a blob is added to the `images` container. The function resizes the images and adds them to the `thumbnails` container.
+1. Select **Create** to add the event subscription to create an event subscription that triggers the `Thumbnail` function when a blob is added to the `images` container. The function resizes the images and adds them to the `thumbnails` container.
 
 Now that the backend services are configured, you test the image resize functionality in the sample web app.
 
