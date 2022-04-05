@@ -82,7 +82,7 @@ Your SQL Managed Instance needs permissions to read Azure AD to successfully acc
 
 To grant your SQL Managed Instance Azure AD read permission using the Azure portal, log in as Global Administrator in Azure AD and follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), in the upper-right corner, select **Switch directories** to confirm which Active Directory is currently your active directory. 
+1. In the [Azure portal](https://portal.azure.com), in the upper-right corner select your account, and then choose **Switch directories** to confirm which Active Directory is currently your active directory. Switch directories, if necessary. 
 
    :::image type="content" source="media/authentication-aad-configure/switch-directory.png" alt-text="Screenshot of the Azure portal showing where to switch your directory":::
 
