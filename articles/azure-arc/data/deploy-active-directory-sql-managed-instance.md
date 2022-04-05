@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Deploy AD-integrated SQL Managed Instance
-description: Tutorial to deploy AD-integrated SQL Managed Instance
+title: Tutorial – Deploy AD-integrated Arc-enabled SQL Managed Instance
+description: Tutorial to deploy AD-integrated Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -27,7 +27,7 @@ Before you proceed, verify that you have:
 * An instance of Active Directory Connector deployed
 
 
-## SQL Managed Instance Spec for Active Directory Authentication
+## Arc-enabled SQL Managed Instance Spec for Active Directory Authentication
 
 To enable an Arc-enabled SQL Managed Instance Active Directory Authentication, it needs to reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication. 
 
@@ -49,7 +49,7 @@ To support Active Directory authentication on SQL Managed Instance, new spec fie
   - **spec.security.activeDirectory.connector.namespace**
      Kubernetes namespace of the pre-existing Active Directory Connector instance to join for AD authentication. When not provided, system will assume the same namespace as the SQL Managed Instance.
 
-### Prepare SQL Managed Instance spec
+### Prepare Arc-enabled SQL Managed Instance yaml spec
 
 Prepare the following yaml specification to deploy a SQL Managed Instance. The fields described above should be specified in the spec.
 
