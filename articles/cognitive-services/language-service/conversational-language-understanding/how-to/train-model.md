@@ -15,7 +15,7 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 # Train and evaluate models
 
-After you have completed [tagging your utterances](#tag-utterances), you can train your model. Training is the process of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you must name your training instance.
+After you have completed [tagging your utterances](tag-utterances.md), you can train your model. Training is the process of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you must name your training instance.
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
