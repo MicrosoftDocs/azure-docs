@@ -3,7 +3,7 @@ title: Use Java to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Java.
 author: vicancy
 ms.author: lianwei
-ms.date: 04/01/2022
+ms.date: 04/04/2022
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, mode-api
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
 
-In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with Java to broadcast messages to clients. You can run the example app on macOS, Windows, or Linux.
+In this article, you'll use Azure SignalR Service, Azure Functions, and Java to build a serverless application to broadcast messages to clients.
 
 > [!NOTE]
 > The code in this article is available on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java).
@@ -20,7 +20,7 @@ In this article, you'll learn how to use SignalR Service and Azure Functions to 
 ## Prerequisites
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Used to run Azure Function apps locally.
   
   - The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
@@ -28,6 +28,8 @@ In this article, you'll learn how to use SignalR Service and Azure Functions to 
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 11
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
+This quickstart can be run on macOS, Windows, or Linux.
 
 ## Create an Azure SignalR Service instance
 
@@ -50,9 +52,9 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     | **groupId** | `com.signalr` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
     | **artifactId** | `java` | A value that is the name of the jar, without a version number. |
     | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-    | **package** | `com.signalr` | A value that is the Java package for the generated function code. Use the default. |   
+    | **package** | `com.signalr` | A value that is the Java package for the generated function code. Use the default. |  
 
-1. Go to the folder `src/main/java/com/signalr` and copy the following code to `Function.java`
+1. Go to the folder `src/main/java/com/signalr` and copy the following code to *Function.java*:
 
     ```java
     package com.signalr;
@@ -140,7 +142,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     }
     ```
 
-1. Some dependencies need to be added. Open the `pom.xml` and add the dependencies  used in the code:
+1. Some dependencies need to be added. Open  *pom.xml* and add the following dependencies used in the code:
 
     ```xml
     <dependency>
@@ -160,7 +162,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     </dependency>
     ```
 
-1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in `index` function, then create a new file `content/index.html` in the `resources` directory. Your directory tree should look like this:
+1. The client interface for this sample is a web page. We read HTML content from `content/index.html` in the `index` function, and then create a new file *content/index.html* in the `resources` directory. Your directory tree should look like this:
 
   ```    nsProject
      | - src
@@ -177,7 +179,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
      | - local.settings.json
   ```
 
-  Open `index.html` and copy the following content:
+1. Open *index.html* and copy the following content:
 
   ```html
     <html>
@@ -205,9 +207,9 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     </html>
   ```
 
-1. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
+1. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
-    1. Confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
+    1. Search for the Azure SignalR instance you deployed earlier using the **Search** box in Azure portal. Select the instance to open it.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
@@ -215,7 +217,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string. And execute the command below.
+    1. Copy the primary connection string, and then run the following command:
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
@@ -230,13 +232,11 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     mvn azure-functions:run
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
+    After Azure Function is running locally, go to  `http://localhost:7071/api/index` and you'll see the current star count. If you star or "unstar" in the GitHub, you'll get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
     > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -244,8 +244,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Next steps
 
-In this quickstart, you built and ran a real-time serverless application in local. Learn more how to use SignalR Service bindings for Azure Functions.
-Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
+In this quickstart, you built and ran a real-time serverless application in the local host. Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
