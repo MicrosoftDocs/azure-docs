@@ -21,7 +21,7 @@ These features include:
 
 >[!NOTE]
 > While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
-> Container Apps doesn't support the Application Insights auto-instrumentation agent however, you can instrument your application code using Application Insights SDKs.  
+> While Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
 ## Azure Monitor Metrics
 
