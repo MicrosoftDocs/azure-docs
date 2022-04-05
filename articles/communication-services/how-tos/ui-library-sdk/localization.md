@@ -17,7 +17,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 Localization is a key to making products that can be used across the world and by people who speak different languages. UI Library will provide out of the box support for some languages and capabilities such as RTL. Developers can provide their own localization files to be used for the UI Library.
 
-Learn how to setup the localization correctly using the UI Library in your application.
+Learn how to set up the localization correctly using the UI Library in your application.
 
 ## Prerequisites
 
