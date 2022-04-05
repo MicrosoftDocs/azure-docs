@@ -46,7 +46,7 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 
 The following is a quick checklist of VM size best practices for running your SQL Server on Azure VM:
 
-- The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
+- The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
 - Use VM sizes with 4 or more vCPUs like the [E4ds_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) or higher.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
 - The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. 

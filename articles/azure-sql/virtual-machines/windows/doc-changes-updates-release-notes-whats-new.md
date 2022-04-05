@@ -24,7 +24,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 
 | Changes | Details |
 | --- | --- |
-| **Ebdsv5-series** | The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads. To learn more, see the updates in [VM sizes](performance-guidelines-best-practices-vm-size.md).  | 
+| **Ebdsv5-series** | The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series#ebdsv5-series) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads. To learn more, see the updates in [VM sizes](performance-guidelines-best-practices-vm-size.md).  | 
 
 
 ## March 2022

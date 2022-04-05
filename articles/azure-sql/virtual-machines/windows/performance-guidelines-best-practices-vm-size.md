@@ -30,7 +30,7 @@ For comprehensive details, see the other articles in this series: [Checklist](pe
 
 Review the following checklist for a brief overview of the VM size best practices that the rest of the article covers in greater detail:
 
-- The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
+- The new [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
 - Use VM sizes with 4 or more vCPUs like the [E4ds_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) or higher.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
 - The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. 
@@ -50,10 +50,10 @@ Start the development environments with the lower-tier D-Series, B-Series, or Av
 
 Use the SQL Server VM marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput necessary for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more.
 
-Use the SQL Server VM Azure Marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput required for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. Currently, the [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) provides the highest I/O throughput-to-vCore ratio available in Azure. If you do not know the I/O requirements for your SQL Server workload, this series is the one most likely to meet your needs. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more. 
+Use the SQL Server VM Azure Marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput required for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. Currently, the [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) provides the highest I/O throughput-to-vCore ratio available in Azure. If you do not know the I/O requirements for your SQL Server workload, this series is the one most likely to meet your needs. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more. 
 
 > [!NOTE]
-> If you are interested in participating in the [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) public preview, please sign up at [https://aka.ms/signupEbsv5Preview](https://aka.ms/signupEbsv5Preview).
+> If you are interested in participating in the [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) public preview, please sign up at [https://aka.ms/signupEbsv5Preview](https://aka.ms/signupEbsv5Preview).
 
 SQL Server data warehouse and mission critical environments will often need to scale beyond the 8 memory-to-vCore ratio. For medium environments, you may want to choose a 16 memory-to-vCore ratio, and a 32 memory-to-vCore ratio for larger data warehouse environments.
 
@@ -67,7 +67,7 @@ The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-mem
 
 ### Ebdsv5-series
 
-The [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure. These VMs have a memory-to-vCore ratio of 8 which, together with the high I/O throughput, makes them ideal for SQL Server workloads. The Ebdsv5-series VMs offer the best price-performance for SQL Server workloads running on Azure virtual machines and we strongly recommend them for most of your production SQL Server workloads.
+The [Ebdsv5-series](../../../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure. These VMs have a memory-to-vCore ratio of 8 which, together with the high I/O throughput, makes them ideal for SQL Server workloads. The Ebdsv5-series VMs offer the best price-performance for SQL Server workloads running on Azure virtual machines and we strongly recommend them for most of your production SQL Server workloads.
 
 ### Edsv5-series
 
