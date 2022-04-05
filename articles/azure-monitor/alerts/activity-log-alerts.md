@@ -26,7 +26,10 @@ You can create activity log alert rules to receive notifications on one of the f
 
 > [!NOTE]
 > Alerts **cannot** be created for events in Alert category of activity log.
-> 
+
+
+## Configuring activity log alert rules
+
 You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](../essentials/activity-log.md#view-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 An alternative simple way for creating conditions for activity log alerts is to explore or filter events via [Activity log in Azure portal](../essentials/activity-log.md#view-the-activity-log). In Azure Monitor - Activity log, one can filter and locate a required event and then create an alert to notify on similar by using the **New alert rule** button.
@@ -34,10 +37,9 @@ An alternative simple way for creating conditions for activity log alerts is to 
 > [!NOTE]
 > An activity log alert rule monitors only for events in the subscription in which the alert rule is created.
 
+Activity log events have a few common properties which can be used to define a the activity log alert rule condition:
 
-Activity log alerts have a few common options:
-
-- **Category**: Administrative, Service Health, Autoscale, Security, Policy, and Recommendation. 
+- **Category**: Administrative, Service Health, Resource Health, Autoscale, Security, Policy, or Recommendation. 
 - **Scope**: The individual resource or set of resource(s) for which the alert on activity log is defined. Scope for an activity log alert can be defined at various levels:
     - Resource Level: For example, for a specific virtual machine
     - Resource Group Level: For example, all virtual machines in a specific resource group
@@ -49,15 +51,23 @@ Activity log alerts have a few common options:
 - **Status**: The status of the event, typically Started, Failed, or Succeeded.
 - **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user (or application) who performed the operation.
 
-> [!NOTE]
-> In a subscription up to 100 alert rules can be created for an activity of scope at either: a single resource, all resources in resource group (or) entire subscription level.
+In addition to these comment properties, different activity log events categories have categpry-specific properties that can be used to define an alert rule for events of this category. For example, when creating a service health alert rule you can configure a condition on the impacted region name or service name that appear in the event.
 
-When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
+## Using action groups 
 
-* Use an existing action group in your activity log alert.
+When an activity log alert is fired, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert rule, you have two options. You can:
+
+* Use an existing action group in your activity log alert rule.
 * Create a new action group.
 
 To learn more about action groups, see [Create and manage action groups in the Azure portal](./action-groups.md).
+
+## Activity log alert rules limit
+You can create up to 100 active activity log alert rules per subscription (including alert rules all activity log categories, such as resource health or service health ). This limit can't be increased.
+If you are reaching near this limit, there are several guidelines you can follow to optimize the use of activity log alerts rules so that you can cover more resources and events with the same number of rules:
+ * A single activity log alert rule can be configured to cover the scope of a single resource, a resource group, or an entire subscription. To reduce the number of rules you're using, consider to replace multiple rules covering a narrow scope with a single rule covering a broad scope. For example, if you have multiple VMs in a subscription, and you want an alert to be triggered whenever one of them is restarted, you can use a single activity log alert rule to cover all the VMs in your subscription. The alert will be triggered whenever any VM in the subscription is restarted.  
+   * A single service health alert rule can cover all the services and Azure regions used by your subscription. If you're using multiple service health alert rules per subscription, you can replace them with a single rule (or with a small number of rules, if you prefer). 
+   * A single resource health alert rule can cover multiple resource types and resources in your subscription. If you're using multiple resource health alert rules per subscription, you can replace them with a smaller number of rules (or even a single rule) that covers multiple resource types.
 
 
 ## Next steps
@@ -65,4 +75,6 @@ To learn more about action groups, see [Create and manage action groups in the A
 - Get an [overview of alerts](./alerts-overview.md).
 - Learn about [create and modify activity log alerts](alerts-activity-log.md).
 - Review the [activity log alert webhook schema](../alerts/activity-log-alerts-webhook.md).
-- Learn about [service health notifications](../../service-health/service-notifications.md).
+- Learn more about [service health alerts](../../service-health/service-notifications.md).
+- Learn more about [Resource health alerts](../../service-health/resource-health-alert-monitor-guide.md).
+- Learn more about [Recommendation alerts](../../advisor/advisor-alerts-portal.md).
