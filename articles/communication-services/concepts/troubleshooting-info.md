@@ -236,6 +236,17 @@ To find your User ID, follow the steps listed below:
 
    ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
+## Getting Immutable Resource ID 
+Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. Open your Communication Service resource.
+1. From the left-pane, select **Overview**, and switch to a **JSON view**
+![Screenshot of how to switch Communication Resource overview to a JSON view.](./media/troubleshooting/switch-communication-resource-to-json.png)
+1. From **Resource JSON** page, copy the `immutableResourceId` value, and provide it to your support team.
+
+    ![Screenshot of Resource JSON.](./media/troubleshooting/communication-resource-id-json.png)
+
 ## Calling SDK error codes
 
 The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
