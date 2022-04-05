@@ -13,9 +13,9 @@ Pre-configured physical appliances have been validated for Defender for IoT OT s
 
 - **Performance** over the total assets monitored
 - **Compatibility** with new Defender for IoT releases, with validations for upgrades and driver support
-- **Stability**, as validated physical appliances undergo long-term traffic monitoring and packet loss tests
-- **In-lab experience**, where Microsoft support teams have been trained using validated physical appliances and have a working knowledge of the hardware
-- **Availability**, as these physical appliances are available worldwide and long term
+- **Stability**, validated physical appliances undergo traffic monitoring and packet loss tests
+- **In-lab experience**, Microsoft support teams train using validated physical appliances and have a working knowledge of the hardware
+- **Availability**, components are selected to offer long-term worldwide availability
 
 Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
@@ -31,25 +31,25 @@ You can purchase any of the following appliances for your OT network sensors:
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
-    |C5600|15 RJ45 or eight SFP (OPT)|3Gbp/s|12,000|1U|
+    |[Corporate] |15 RJ45 or eight SFP (OPT)|3Gbp/s|12,000|1U|
 
 - **HPE ProLiant DL20 Plus**, for [enterprise deployments](#hpe-proliant-dl20-plus-enterprise):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
-    |  E1800|Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
+    | [Enterprise] |Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
 
 - **Dell PowerEdge R340**, for [enterprise deployments](#dell-poweredge-r340-xl):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
-    |XL E1800| Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
+    | [Enterprise] | Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
 
 - **HPE ProLiant DL20 Plus**, for [SMB rugged deployments](#hpe-proliant-dl20-plus-smb-rugged):
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
-    | L500|Four RJ45|200Mbp/s|1,000|1U|
+    | [SMB] |Four RJ45|200Mbp/s|1,000|1U|
 
 <!--
 - **Dell Edge Gateway 5200**:
@@ -63,7 +63,7 @@ You can purchase any of the following appliances for your OT network sensors:
 
     |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
     |:----|:----|:----|:----|:----|
-    | L100|One RJ45|10Mbp/s|100|DIN/VESA|
+    | [Office] |One RJ45|10Mbp/s|100|DIN/VESA|
 
 > [!NOTE]
 > Bandwidth capacity may vary depending on protocol distribution.
@@ -77,19 +77,15 @@ You can purchase any of the following appliances for your OT network sensors.
 
     |Bandwidth capacity| Monitoring ports|Monitored sensors|Mounting|
     |:----|:----|:----|:----|
-    |E1800|Eight RJ45 or Six SFP (OPT)|Up to 300|1U|
+    | [Enterprise] |Eight RJ45 or Six SFP (OPT)|Up to 300|1U|
 
 - **Dell PowerEdge R340**, for [enterprise deployments](#dell-poweredge-r340-xl):
 
     |Bandwidth capacity| Monitoring ports|Monitored sensors|Mounting|
     |:----|:----|:----|:----|
-    |E1800|Eight RJ45 or six SFP (OPT)|Up to 300|1U|
+    | [Enterprise] |Eight RJ45 or six SFP (OPT)|Up to 300|1U|
 
-> [!NOTE]
-> Bandwidth capacity may vary depending on protocol distribution.
-## Supported appliances per deployment type
-
-The following tabs describe supported specifications, depending on your system deployment type.
+The following tabs describe supported bill of materials, depending on your monitoring needs.
 
 # [Corporate](#tab/corporate)
 
@@ -297,14 +293,14 @@ Optional modules for port expansion include:
 |Enterprise Program Management Support |973-3700|1|
 
 
-# [SMB rugged](#tab/smb-rugged)
+# [SMB](#tab/smb)
 
 For an SMB deployment, use one of the following options and specifications:
 
 - HPE ProLiant DL20 Plus
 - YS-techsystems YS-FIT2
 
-### HPE ProLiant DL20 Plus (SMB rugged)
+### HPE ProLiant DL20 Plus (SMB)
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus" border="false":::
 
@@ -343,7 +339,8 @@ For an SMB deployment, use one of the following options and specifications:
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
-### YS-techsystems YS-FIT2
+# [Rugged](#tab/rugged)
+### YS-techsystems YS-FIT2 (Office)
 
 |Components|Technical specifications|
 |:----|-----|
