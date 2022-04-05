@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/31/2022
+ms.date: 04/05/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -21,7 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
-[New Defender for Servers plans](#new-defender-for-servers-plans)
+- [New Defender for Servers plans](#new-defender-for-servers-plans)
+- [Guidance change for Azure Cache for Redis recommendation](#guidance-change-for-azure-cache-for-redis-recommendation)
 
 ### New Defender for Servers plans
 
@@ -35,6 +36,20 @@ While Microsoft Defender for Servers Plan 2 continues to provide complete protec
 If you have been using Defender for Servers until now – no action is required.
  
 In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploy the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
+
+### Guidance change for Azure Cache for Redis recommendation
+
+The guidance for how to secure Azure Cache for Redis is changing. The recommendation `Azure Cache for Redis should reside within a virtual network` has been deprecated.  We now recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. We have many recommendations about using private endpoints;
+
+- [Container registries should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/13e7d036-6903-821c-6018-962938929bf0)
+- [App Configuration should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8318c3a1-fcac-2e1d-9582-50912e5578e5)
+- [Azure Event Grid domains should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/bef092f5-bea7-3df3-1ee8-4376dd9c111e)
+- [Azure Event Grid topics should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/bdac9c7b-b9b8-f572-0450-f161c430861c)
+- [Azure Machine Learning workspaces should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/692343df-7e70-b082-7b0e-67f97146cea3)
+- [Azure SignalR Service should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b6f84d18-0137-3176-6aa1-f4d9ac95155c)
+- [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7)
+
+Please note that this change may have an impact on the secure scores of those who had this recommendation outstanding in their environments. 
 
 ## March 2022
 
