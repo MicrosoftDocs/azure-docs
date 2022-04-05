@@ -71,7 +71,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 **Improvements**:
 
-- Added support for Build VM MSIs. Learn more here: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#user-assigned-identity-for-the-image-builder-build-vm 
+- Added support for [Build VM MSIs.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#user-assigned-identity-for-the-image-builder-build-vm)
 - Added support for Proxy VM size customization.
 
 ### February 2020
