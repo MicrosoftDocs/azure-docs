@@ -82,7 +82,7 @@ All Azure services set default limits and quotas for resources and features. The
 
 You can increase the default limits and quotas by requesting the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-1. Click on **create a support ticket**.
+1. Select **create a support ticket**.
 
 1. Provide a summary of your issue.
 
