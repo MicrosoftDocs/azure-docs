@@ -71,8 +71,7 @@ To delete a deployment, select the deployment you want to delete and click **Del
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
-[!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
-
+See the below section for using the REST API to retrieve the results. 
 
 # [Using the API](#tab/rest-api)
 
@@ -90,7 +89,9 @@ First you will need to get your resource key and endpoint
 
 [!INCLUDE [submit a text classification task using the REST API](../includes/rest-api/text-classification-task.md)]
 
-[!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
+### Get the results for a custom text classification task
+
+[!INCLUDE [Get results for a text classification task using the REST API](../includes/rest-api/get-results.md)]
 
 # [Using the client libraries (Azure SDK)](#tab/client)
 

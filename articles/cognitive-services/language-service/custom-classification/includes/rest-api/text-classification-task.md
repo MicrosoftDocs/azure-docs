@@ -63,4 +63,4 @@ You will receive a 202 response indicating success. In the response **headers**,
 
  `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
-You will use this endpoint in the next step to get the custom text classification task results.
+You will use this endpoint to get the custom text classification task results.
