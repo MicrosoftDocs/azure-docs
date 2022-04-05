@@ -28,7 +28,7 @@ This is the basic template format:
       "<name>": "<value>"
     },
     "identity": {},			 
-    "properties": { 
+    "properties": {
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
         "vmSize": "<vmSize>",
@@ -50,8 +50,6 @@ This is the basic template format:
     } 
   } 
 ```
-
-
 
 ## Type and API version
 
@@ -80,6 +78,22 @@ The location is the region where the custom image will be created. The following
 - Australia East
 - UK South
 - UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+
 
 ```json
     "location": "<region>",
@@ -185,7 +199,6 @@ The API requires a `SourceType` that defines the source for the image build, cur
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
-
 
 > [!NOTE]
 > When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.

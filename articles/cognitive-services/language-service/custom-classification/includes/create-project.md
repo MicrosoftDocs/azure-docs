@@ -9,11 +9,11 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
 1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
 
-2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
+2. Under the **Classify text** section of Language Studio, select **Custom text classification** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 

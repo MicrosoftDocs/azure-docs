@@ -21,7 +21,7 @@ To learn more about Azure Virtual Networks, see:
 
 - [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
 - [Azure private endpoints](/azure/private-link/private-endpoint-overview)
-- [Azure private links](/private-link/private-link-overview)
+- [Azure private links](/azure/private-link/private-link-overview)
 
 Private endpoints in your IoT Central application enable you to:
 
@@ -49,7 +49,7 @@ The size of the subnet in your virtual network can't be altered once the subnet 
 
 IoT Central creates multiple customer visible FQDNs as part of a private endpoint deployment. In addition to the FQDN for IoT Central, there are FQDNs for underlying IoT Hub, Event Hubs, and Device Provisioning Service resources.
 
-:::image type="content" source="media/concepts-private-endpoints/visible-fqdns.png" alt-text="Screenshot from the Azure portal that shows the customer visible FQDNs.":::
+:::image type="content" source="media/concepts-private-endpoints/visible-fqdns.png" alt-text="Screenshot from the Azure portal that shows the customer visible F Q D Ns.":::
 
 The IoT Central private endpoint uses multiple IP addresses from your virtual network and subnet. Also, based on application's load profile, IoT Central [autoscales its underlying IoT Hubs](/azure/iot-central/core/concepts-scalability-availability) so the number of IP addresses used by a private endpoint may increase. Plan for this possible increase when you determine the size for the subnet.
 
