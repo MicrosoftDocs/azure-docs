@@ -35,25 +35,25 @@ When setting up scan, you can choose to scan an entire Salesforce organization, 
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
-You can use the managed Azure integration runtime for scan - make sure to provide the security token to authenticate to Salesforce, learn more from the credential configuration in [Scan](#scan) section. Otherwise, if you want the scan to be initiated from a Salesforce trusted IP range for your organization, you can configure a self-hosted integration runtime to connect to it:
+    You can use the managed Azure integration runtime for scan - make sure to provide the security token to authenticate to Salesforce, learn more from the credential configuration in [Scan](#scan) section. Otherwise, if you want the scan to be initiated from a Salesforce trusted IP range for your organization, you can configure a self-hosted integration runtime to connect to it:
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce.
+    * Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce.
 
 ### Required permissions for scan
 
-In the event that users will be submitting Salesforce Documents, certain security settings must be configured to allow this access on Standard Objects and Custom Objects. To configure permissions:
+If users will be submitting Salesforce Documents, certain security settings must be configured to allow this access on Standard Objects and Custom Objects. To configure permissions:
 
-- Within Salesforce, click on Setup and then click on Manage Users.
-- Under the Manage Users tree click on Profiles.
-- Once the Profiles appear on the right, select which Profile you want to edit and click on the Edit link next to the corresponding profile.
+- Within Salesforce, select Setup and then select Manage Users.
+- Under the Manage Users tree select Profiles.
+- Once the Profiles appear on the right, select which Profile you want to edit and select the Edit link next to the corresponding profile.
 
 For Standard Objects, ensure that the "Documents" section has the Read permissions selected. For Custom Objects, ensure that the Read permissions selected for each custom objects.
 
@@ -96,7 +96,7 @@ The supported authentication type for a Salesforce source is **Consumer key auth
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -138,7 +138,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
