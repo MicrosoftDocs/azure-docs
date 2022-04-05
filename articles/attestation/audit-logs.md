@@ -19,11 +19,11 @@ Logging information will be available up to 10 minutes after the operation occur
 
 ## Interpret your Azure Attestation logs
 
-When logging is enabled, up to three containers may be automatically created for you in your specified storage account:  insights-logs-auditevent, insights-logs-operational, insights-logs-notprocessed. It is recommended to only use insights-logs-operational and insights-logs-notprocessed. insights-logs-auditevent was created to provide early access to logs for customers using VBS. Future enhancements to logging will occur in the insights-logs-operational and insights-logs-notprocessed.  
+When logging is enabled, up to three containers may be automatically created for you in your specified storage account:  **insights-logs-auditevent, insights-logs-operational, insights-logs-notprocessed**. It is recommended to only use **insights-logs-operational** and **insights-logs-notprocessed**. **insights-logs-auditevent** was created to provide early access to logs for customers using VBS. Future enhancements to logging will occur in the **insights-logs-operational** and **insights-logs-notprocessed**.  
 
-Insights-logs-operational contains generic information across all TEE types. 
+**Insights-logs-operational** contains generic information across all TEE types. 
 
-Insights-logs-notprocessed contains requests which the service was unable to process, typically due to malformed HTTP headers, incomplete message bodies, or similar issues.  
+**Insights-logs-notprocessed** contains requests which the service was unable to process, typically due to malformed HTTP headers, incomplete message bodies, or similar issues.  
 
 Individual blobs are stored as text, formatted as a JSON blob. Let’s look at an example log entry: 
 
