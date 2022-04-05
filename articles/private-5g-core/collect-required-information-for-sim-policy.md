@@ -17,7 +17,7 @@ SIM policies allow you to define different sets of policies and interoperability
 In this how-to guide, we'll collect all the required information to configure a SIM policy.
 
 - You can use this information to configure a SIM policy through the Azure portal. You'll enter each value you collect into its corresponding field (given in the **Field name in Azure portal** columns in the tables below) as part of the procedure in [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md).
-- Alternatively, you can use the information to create a simple service and SIM policy using the Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). This template only requires a subset of information, and uses default values for all other settings. The **Included in ARM template** column indicates which settings you'll need to collect.
+- Alternatively, you can use the information to create a simple service and SIM policy using the Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). This template only requires a subset of information, and uses default values for all other settings. The **Included in example ARM template** column indicates which settings you'll need to collect.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ SIM policies have top-level settings that are applied to every SIM to which the 
 
 Collect each of the values in the table below for your SIM policy.
 
-| Value | Azure portal field name | Included in ARM template |
+| Value | Azure portal field name | Included in example ARM template |
 |--|--|--|
 | The name of the private mobile network for which you're configuring this SIM policy. | N/A | Yes |
 | The SIM policy name. The name must be unique across all SIM policies configured for the private mobile network. | **Policy name** |Yes|
@@ -43,7 +43,7 @@ Within each SIM policy, you'll have a *network scope*. The network scope represe
 
 Collect each of the values in the table below for the network scope.
 
-| Value | Azure portal field name | Included in ARM template |
+| Value | Azure portal field name | Included in example ARM template |
 |--|--|--|
 |The Data Network Name (DNN) of the data network. The DNN must match the one you used when creating the private mobile network.     | **Data network** | Yes |
 |The names of the services permitted on the data network. You must have already configured your chosen services. For more information on services, see [Policy control](policy-control.md).    | **Service configuration**        | No. The SIM policy will only use the service you configure using the same template. |
@@ -58,4 +58,8 @@ Collect each of the values in the table below for the network scope.
 
 ## Next steps
 
+You can use this information to either create a SIM policy using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
+
 - [Configure a SIM policy for Azure Private 5G Core](configure-sim-policy-azure-portal.md)
+- [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md)
+

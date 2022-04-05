@@ -19,7 +19,7 @@ Each service has a set of rules to identify the service data flows (SDFs) to whi
 In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
 
 - You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md).
-- Alternatively, you can use the information to create a simple service and SIM policy using the Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). This template only requires a subset of information, and uses default values for all other settings. The **Included in ARM template** column indicates which settings you'll need to collect.
+- Alternatively, you can use the information to create a simple service and SIM policy using the Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). This template only requires a subset of information, and uses default values for all other settings. The **Included in example ARM template** column indicates which settings you'll need to collect.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Each service has many top-level settings that determine its name and the QoS cha
 
 Collect each of the values in the table below for your service.
 
-| Value | Azure portal field name | Included in ARM template |  
+| Value | Azure portal field name | Included in example ARM template |  
 |--|--|--|
 | The name of the service. This name must only contain alphanumeric characters, dashes, or underscores. You also must not use any of the following reserved strings: *default*; *requested*; *service*. | **Service name** |Yes|
 | A precedence value that the packet core instance must use to decide between services when identifying the QoS values to offer. This value must be an integer between 0 and 255 and must be unique among all services configured on the packet core instance. A lower value means a higher priority. | **Service precedence** |Yes|
@@ -55,7 +55,7 @@ For each data flow policy rule, take the following steps:
 
 Collect the values in the table below for each data flow policy rule you want to use on this service.
 
-| Value | Azure portal field name | Included in ARM template | 
+| Value | Azure portal field name | Included in example ARM template | 
 |--|--|--|
 | The name of the data flow policy rule. This name must only contain alphanumeric characters, dashes, or underscores. It must not match any other rule configured on the same service. You also must not use any of the following reserved strings: *default*; *requested*; *service*. | **Rule name** |Yes|
 | A precedence value that the packet core instance must use to decide between data flow policy rules. This value must be an integer between 0 and 255 and must be unique among all data flow policy rules configured on the packet core instance. A lower value means a higher priority. | **Policy rule precedence** |Yes|
@@ -65,7 +65,7 @@ Collect the values in the table below for each data flow policy rule you want to
 
 Collect the following values for each data flow template you want to use for a particular data flow policy rule.
 
-| Value | Azure portal field name | Included in ARM template |
+| Value | Azure portal field name | Included in example ARM template |
 |--|--|--|
 | The name of the data flow template. This name must only contain alphanumeric characters, dashes, or underscores. It must not match any other template configured on the same rule. You also must not use any of the following reserved strings: *default*; *requested*; *service*. | **Template name** |Yes|
 | The protocol(s) allowed for this flow. </br></br>If you want to allow the flow to use any protocol within the Internet Protocol suite, you can set this field to **All**.</br></br>If you want to allow a selection of protocols, you can select them from the list displayed in the field. If a protocol isn't in the list, you can specify it by entering its corresponding IANA Assigned Internet Protocol Number, as described in the [IANA website](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). For example, for IGMP, you must use 2. | **Protocols**  |Yes|
@@ -75,6 +75,7 @@ Collect the following values for each data flow template you want to use for a p
 
 ## Next steps
 
-You can use this information to either create a service using the Azure portal, or create a simple service and SIM policy using an ARM template.
+You can use this information to either create a service using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
 
 - [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md)
+- [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md)

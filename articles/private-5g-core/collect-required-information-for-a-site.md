@@ -1,7 +1,7 @@
 ---
 title: Collect information for a site
 titleSuffix: Azure Private 5G Core Preview
-description: Learn about the information you'll need to create a site in an existing private mobile network using the Azure portal.
+description: Learn about the information you'll need to create a site in an existing private mobile network.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,9 @@ ms.custom: template-how-to
 
 # Collect the required information for a site
 
-Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. You'll use this information to complete the steps in [Create a site](create-a-site.md).
+Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. 
+
+You can use this information to create a site using the [Azure portal](create-a-site.md) or an [Azure Resource Manager template (ARM template)](create-a-site-arm-template.md).
 
 ## Prerequisites
 
@@ -32,7 +34,10 @@ Collect all the values in the following table for the Mobile Network Site resour
 
 ## Collect custom location information
 
-Collect the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
+Identify the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
+
+- If you're going to create your site using the Azure portal, collect the name of the custom location.
+- If you're going to create your site using an ARM template, collect the full resource ID of the custom location. 
 
 
 ## Collect access network values
@@ -68,4 +73,5 @@ Collect all the values in the following table to define the packet core instance
 
 You can now use the information you've collected to create the site.
 
-- [Create a site](create-a-site.md)
+- [Create a site - Azure portal](create-a-site.md)
+- [Create a site - ARM template](create-a-site-arm-template.md)
