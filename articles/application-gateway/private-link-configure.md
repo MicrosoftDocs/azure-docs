@@ -25,7 +25,7 @@ Application Gateway Private Link can be configured via multiple options, such as
 
 **Define a subnet for Private Link Configuration**
 
-To enable Private Link Configuration, a subnet is required for the private link IP configuration. Private Link must use a subnet that doesn't contain any Application Gateways. Subnet sizing can be determined by the number of connections required for your deployment. Each IP address allocated to this subnet ensures 64-K concurrent TCP connections that can be established via Private Link at single point in time. Allocate more IP addresses to allow more connections via Private Link.  For example: `n * 64K`; where `n` is the number of IP addresses s being provisioned.
+To enable Private Link Configuration, a subnet, different from the Application Gateway subnet, is required for the private link IP configuration. Private Link must use a subnet that doesn't contain any Application Gateways. Subnet sizing can be determined by the number of connections required for your deployment. Each IP address allocated to this subnet ensures 64-K concurrent TCP connections that can be established via Private Link at single point in time. Allocate more IP addresses to allow more connections via Private Link.  For example: `n * 64K`; where `n` is the number of IP addresses being provisioned.
 
 > [!Note]
 > The maximum number of IP addresses per private link configuration is eight. Only dynamic allocation is supported.
