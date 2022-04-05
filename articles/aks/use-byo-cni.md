@@ -59,7 +59,7 @@ Deploying a BYOCNI cluster requires passing the `--network-plugin` parameter wit
 
 1. Then create the cluster itself:
     ```azurecli-interactive
-    az aks create -l <Region> -g <ResourceGroupName> -n <ClusterName> --network-plugin none
+    az aks create -l <Region> -g <ResourceGroupName> -n <ClusterName> --generate-ssh-keys --network-plugin none
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
