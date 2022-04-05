@@ -63,7 +63,7 @@ With that done, we can apply a sliding scale on each indicator and define exact 
 |90% of devices reported metrics no longer than 10 mins ago (were online) for the observation interval| Coverage |
 |95% of online devices send temperature 10 times per minute for the observation interval| Freshness, Throughput |
 |99% of online devices deliver messages successfully with less than 5% of errors for the observation interval| Correctness |
-|95% of online devices deliver 90th percentile of messages within 50ms for the observation interval|Throughput|
+|95% of online devices deliver 90th percentile of messages within 50 ms for the observation interval|Throughput|
 
 SLOs definition must also describe the approach of how the indicator values are measured:
 
@@ -84,12 +84,12 @@ Let's clarify what components the La Niña service consists of:
 
 There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees Celsius). If the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
 
-In the cloud the message is processed by the backend. The backend consists of a chain of two Azure Functions and storage account. 
+In the cloud, the message is processed by the backend. The backend consists of a chain of two Azure Functions and storage account. 
 Azure .NET Function picks up the telemetry message from the IoT Hub events endpoint, processes it and sends it to Azure Java Function. The Java function saves the message to the storage account blob container.
 
 An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](how-to-access-built-in-metrics.md). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [metrics collector module](how-to-collect-and-transport-metrics.md) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we've defined can be measured with the built-in metrics only. So, we don't really need to implement anything else at this point. 
 
-In this scenario, we have a fleet of 10 buoys. One of the buoys has been intentionally setup to malfunction so that we can demonstrate the issue detection and the follow up troubleshooting. 
+In this scenario, we have a fleet of 10 buoys. One of the buoys has been intentionally set up to malfunction so that we can demonstrate the issue detection and the follow-up troubleshooting. 
 
 ### How do we monitor
 
@@ -140,11 +140,11 @@ In this scenario, all parameters of the trouble device look normal and it's not 
 
 The `Temperature Sensor` (tempSensor) module produced 120 telemetry messages, but only 49 of them went upstream to the cloud.
 
-The first step we want to do is to check the logs produced by the `Filter` module. Click the **Troubleshoot live!** button and select the the `Filter` module.
+The first step we want to do is to check the logs produced by the `Filter` module. Click the **Troubleshoot live!** button and select the `Filter` module.
 
 ![Screenshot of the filter module log in the Azure portal](media/how-to-observability/ete-sample-basic-logs.png)
 
-Analysis of the module logs doesn't discover the issue. The module receives messages, there is no errors. Everything looks good here.
+Analysis of the module logs doesn't discover the issue. The module receives messages, there are no errors. Everything looks good here.
 
 ### Deep troubleshooting
 
@@ -184,7 +184,7 @@ Our logs are correlated with the traces, so we can query logs specifying the `Tr
 
 ![Sample trace query filtering based on Trace ID and Span ID.](media/how-to-observability/ete-sample-logs.png)
 
-The logs show that the module received a message with 70.465 degrees temperature. But the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently, this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
+The logs show that the module received a message with 70.465-degrees temperature. But the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently, this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
 
 Let's fix the `Filter` module configuration on this device by updating properties in the module twin. We also want to reduce back the `loggingLevel` to `Information` and `traceSampleRatio` to `0`: 
 
