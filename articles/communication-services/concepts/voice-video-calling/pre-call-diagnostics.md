@@ -112,6 +112,6 @@ For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callM
 
 When the Pre-Call diagnostic test runs, behind the scenes it uses calling minutes to run the diagnostic. The test lasts for roughly 1 minute, using up 1 minute of calling which is charged at the standard rate of $0.004 per participant per minute. For the case of Pre-Call diagnostic, the charge will be for 1 participant x 1 minutes = $0.004. 
 
-## Feedback
+## Next Steps
 
 This feature is currently in private preview. Please provide feedback on the API design, capabilities and pricing. Feedback is key for the team to move forward and push the feature into public preview and general availability. 
