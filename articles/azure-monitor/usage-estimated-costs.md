@@ -30,7 +30,7 @@ Sending data to Azure Monitor can incur data bandwidth charges. As described in 
 ## Estimate Azure Monitor usage and costs
 If you're new to Azure Monitor, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate your costs. In the **Search** box, enter *Azure Monitor*, and then select the **Azure Monitor** tile. The pricing calculator will help you estimate your likely costs based on your expected utilization.
 
-The bulk of your costs will typically be from data ingestion and retention for your Log Analytics workspaces and Application Insights resources. It's difficult to give accurate estimates for data volumes that you can expect since they'll vary significantly based on your configuration. A common strategy is to enable monitoring for a small group of resources and then use those data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
+The bulk of your costs will typically be from data ingestion and retention for your Log Analytics workspaces and Application Insights resources. It's difficult to give accurate estimates for data volumes that you can expect since they'll vary significantly based on your configuration. A common strategy is to enable monitoring for a small group of resources and use the observed data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
 
 Following is basic guidance that you can use for common resources:
 
@@ -42,7 +42,7 @@ Following is basic guidance that you can use for common resources:
 There are two methods that you can use to estimate the amount of data from an application monitored with Application Insights.
 
 ### Learn from what similar applications collect
-In the Azure Monitoring Pricing calculator for Application Insights, enable **Estimate data volume based on application activity**m which allows you to provide inputs about your application. The calculator will then tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration, so you can still use options such as [sampling]() to reduce the volume of data you ingest for your application below the median level. 
+In the Azure Monitoring Pricing calculator for Application Insights, enable **Estimate data volume based on application activity** which allows you to provide inputs about your application. The calculator will then tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration, so you can still use options such as [sampling]() to reduce the volume of data you ingest for your application below the median level. 
 
 ### Data collection when using sampling
 With the ASP.NET SDK's [adaptive sampling](app/sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Considering a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application since the sampling is done local to each node.
@@ -58,7 +58,7 @@ There are two primary tools to view and analyze your Azure Monitor billing and e
 
 
 ## Azure Cost Management + Billing
-To analyze your Azure Monitor charges, open [Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) in the Azure portal. Select **Cost Management** and then **Cost analysis**. Select your subscription or another [scope](../cost-management-billing/costs/understand-work-scopes.md).
+Azure Cost Management + Billing includes several built-in dashboards for deep cost analysis like cost by resource and invoice details. To get started analyzing your Azure Monitor charges, open [Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) in the Azure portal. Select **Cost Management** and then **Cost analysis**. Select your subscription or another [scope](../cost-management-billing/costs/understand-work-scopes.md).
 
 >[!NOTE]
 >You might need additional access to Cost Management data. See [Assign access to Cost Management data](../cost-management-billing/costs/assign-access-acm-data.md).
