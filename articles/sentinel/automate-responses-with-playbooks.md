@@ -20,7 +20,7 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an [automation rule](automate-incident-handling-with-automation-rules.md), respectively.
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
