@@ -44,6 +44,8 @@
         href: claim-sets.md
   - name: Workflow
     href: workflow.md
+  - name: Azure Attestation logging
+    href: view-auditlogs.md
 - name: References
   items:
   - name: Regional availability
