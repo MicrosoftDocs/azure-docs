@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/18/2022
+ms.date: 04/05/2022
 ms.author: mbaldwin
 
 ---
@@ -19,12 +19,12 @@ Microsoft uses TLS certificates from the set of Root Certificate Authorities (CA
 
 All Azure services are impacted by this change. Details for some services are listed below:
 
-- [Azure Active Directory]( https://docs.microsoft.com/en-us/azure/active-directory/) (Azure AD) services began this transition on July 7, 2020.
-- [Azure IoT Hub]( https://azure.microsoft.com/services/iot-hub) and [DPS]( https://docs.microsoft.com/en-us/azure/iot-dps/) remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. Explore other details provided in [this Azure IoT blog post]( https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-- [Azure Cosmos DB]( https://docs.microsoft.com/en-us/azure/cosmos-db/) began this transition in July 2022 with an expected completion in October 2022.
-- Details on [Azure Storage]( https://docs.microsoft.com/en-us/azure/storage/) TLS certificate changes can be found in [this Azure Storage blog post]( https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis]( https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article]( https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-whats-new).
-- Details on the [Azure Instance Metadata Service]( https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service?tabs=linux) can be found in [this Azure Governance and Management blog post]( https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) services began this transition on July 7, 2020.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](https://docs.microsoft.com/azure/iot-dps/) remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. Explore other details provided in [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) began this transition in July 2022 with an expected completion in October 2022.
+- Details on [Azure Storage](https://docs.microsoft.com/azure/storage/) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
+- [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-whats-new).
+- Details on the [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service?tabs=linux) can be found in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
 
 ## What changed?
 
@@ -45,7 +45,7 @@ After the change, TLS certificates used by Azure services will chain up to one o
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
-## Was my application impacted? 
+## <a id="will-this-change-affect-me"></a>Was my application impacted?
 
 If your application explicitly specifies a list of acceptable CAs, your application was likely impacted. This practice is known as certificate pinning. Review the [Microsoft Tech Community article on Azure Storage TLS changes]( https://techcommunity.microsoft.com/t5/azure-storage-blog/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581) for more information on how to determine if your services were impacted and next steps.
 
