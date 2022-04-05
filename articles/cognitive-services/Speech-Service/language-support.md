@@ -394,18 +394,26 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 
 ## Text-to-speech
 
-Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices).
+Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
+You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
+
 ### Prebuilt neural voices
 
-The following table lists the prebuilt neural voices supported in each language. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-> [!NOTE]
-> Prebuilt neural voices are created from samples that use a 24-khz sample rate.
-> All voices can upsample or downsample to other sample rates when synthesizing.
+> [!IMPORTANT]
+> The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021.
+> 
+> If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+> 
+> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+
+The following table lists the prebuilt neural voices supported in each language. 
 
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
@@ -516,6 +524,7 @@ The following table lists the prebuilt neural voices supported in each language.
 | English (United States) | `en-US` | Female | `en-US-CoraNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-ElizabethNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` as the primary default. Additional locales are supported [using SSML](speech-synthesis-markup.md#adjust-speaking-languages) | Female | `en-US-JennyMultilingualNeural`  | General |
 | English (United States) | `en-US` | Female | `en-US-MichelleNeural`| General |
 | English (United States) | `en-US` | Female | `en-US-MonicaNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-SaraNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -707,16 +716,12 @@ The following table lists the prebuilt neural voices supported in each language.
 | Zulu (South Africa) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` | General |
 | Zulu (South Africa) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` | General |
 
-> [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021.
-
-> If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30,2021, all requests with previous versions will be rejected.
-
-> Two styles for `fr-FR-DeniseNeural` now are available for public preview:  `cheerful` and `sad` in 3 regions: East US, West Europe, and Southeast Asia.
-
 ### Prebuilt neural voices in preview
 
 The following neural voices are in public preview.
+
+> [!NOTE]
+> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
@@ -731,7 +736,6 @@ The following neural voices are in public preview.
 | English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural`  | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
 | French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural` <sup>New</sup> | General |
@@ -758,20 +762,13 @@ The following neural voices are in public preview.
 | German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` <sup>New</sup> | General |
 
-> [!IMPORTANT]
-> Voices/Styles in public preview are only available in three service regions: East US, West Europe, and Southeast Asia.
-
-> The `en-US-JennyNeuralMultilingual` voice supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for a supported languages list.
-
-> For more information about regional availability, see [regions](regions.md#prebuilt-neural-voices).
-
-> To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
-
-> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
 
 ### Voice styles and roles
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
+
+> [!NOTE]
+> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
 
 To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
@@ -796,8 +793,6 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
 
-> [!IMPORTANT]
-> Voices/Styles in public preview are only available in three service regions: East US, West Europe, and Southeast Asia.
 
 ### Custom Neural Voice
 

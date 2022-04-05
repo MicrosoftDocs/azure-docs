@@ -10,7 +10,7 @@ ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.author: larryfr
 author: blackmist
-ms.custom: deploy
+ms.custom: deploy, cliv1
 ---
 
 # Profile your model to determine resource utilization

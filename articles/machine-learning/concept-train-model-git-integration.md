@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/21/2021
+ms.custom: cliv1
+
 ---
 # Git integration for Azure Machine Learning
 

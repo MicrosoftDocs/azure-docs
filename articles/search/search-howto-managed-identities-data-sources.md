@@ -34,7 +34,7 @@ Cognitive Search can use a system-assigned or user-assigned managed identity on 
 | [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes <sup>2</sup>| Yes |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | Yes |
 
-<sup>1</sup> The Import data wizard doesn't currently accept a managed identity connection string for incremental enrichment, but after the wizard completes, you can update the connection string in indexer JSON definition to specify the managed identity, and then rerun the indexer.
+<sup>1</sup> The Import data wizard doesn't currently accept a managed identity connection string for enrichment cache, but after the wizard completes, you can update the connection string in indexer JSON definition to specify the managed identity, and then rerun the indexer.
 
 <sup>2</sup> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
 
