@@ -25,12 +25,12 @@ In the trial accounts the Custom Vision integration is managed by Video Analyzer
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Video Analyzer for Media paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
+If you own a Video Analyzer for Media paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
 
-Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
+Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
 Note that the training of the model should be done only via Video Analyzer for Media, and not via the Custom Vision website. 
 
@@ -103,7 +103,7 @@ Before tagging and training the model, all animated characters will be named “
 1. Paid accounts only: Review the groups in Custom Vision 
 
     > [!NOTE]
-    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Video Analyzer for Media (as described in this topid), and not via the Custom Vision website. 
+    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Video Analyzer for Media (as described in this topid), and not via the Custom Vision website. 
 
     1. Go to the **Custom Models** page in Video Analyzer for Media and choose the **Animated characters** tab. 
     1. Click on the Edit button for the model you are working on to manage it in Custom Vision. 
@@ -148,7 +148,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
 1. Connect a Custom Vision account.
 
     If you own a Video Analyzer for Media paid account, you need to connect a Custom Vision account first. <br/>
-    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
+    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../cognitive-services/custom-vision-service/overview.md).
 
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Connect-Custom-Vision-Account).
 1. Create an animated characters model.

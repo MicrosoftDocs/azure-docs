@@ -18,7 +18,7 @@ ms.author: juliako
 
 Azure Video Analyzer for Media (formerly Video Indexer) doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
 
-We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../../availability-zones/cross-region-replication-azure.md).
+We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../availability-zones/cross-region-replication-azure.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To implement BCDR, you need to have two Video Analyzer for Media accounts to han
 1. If there's a failure in your primary region, switch to indexing using the secondary account.
 
 > [!TIP]
-> You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).
+> You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Analyzer for Media account per tenant](./manage-multiple-tenants.md#video-analyzer-for-media-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
 

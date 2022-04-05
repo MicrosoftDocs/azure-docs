@@ -5,7 +5,7 @@
   - name: What is Video Analyzer for Media?
     href: video-indexer-overview.md
   - name: About Video Analyzer
-    href: ../video-analyzer-docs/overview.md
+    href: video-analyzer-docs/overview.md
   - name: Language support
     href: language-support.md    
 - name: Quickstarts

@@ -39,7 +39,7 @@ When you upload videos using URL, you just need to provide a path to the locatio
 > [!TIP]
 > Use the `videoUrl` optional parameter of the upload video API.
 
-To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../../storage/common/storage-sas-overview.md). Video Analyzer for Media recommends using *readonly* SAS URLs.
+To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../storage/common/storage-sas-overview.md). Video Analyzer for Media recommends using *readonly* SAS URLs.
 
 ## Automatic Scaling of Media Reserved Units
 
