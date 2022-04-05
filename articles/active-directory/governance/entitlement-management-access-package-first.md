@@ -39,7 +39,7 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management.  You can also follow a tutorial to [manage access to resources via Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json) or [via PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta).
+This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management. 
 
 ## Prerequisites
 

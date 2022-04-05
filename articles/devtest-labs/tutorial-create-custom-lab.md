@@ -2,6 +2,8 @@
 title: Set up a lab & lab VM & lab user
 description: Use the Azure portal to create a lab, create a virtual machine in the lab, and add a lab user in Azure DevTest Labs.
 ms.topic: tutorial
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/30/2022
 ---
 
