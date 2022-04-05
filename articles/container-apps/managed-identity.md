@@ -15,7 +15,7 @@ A managed identity from Azure Active Directory (Azure AD) allows your container 
 
 Your container app can be granted two types of identities:
 
-- A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted/deactivated. An app can only have one system-assigned identity.
+- A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted. An app can only have one system-assigned identity.
 - A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app and other resources. A container app can have multiple user-assigned identities. The identity exists until you delete them.
 
 ## Why use a managed identity?
@@ -24,10 +24,10 @@ You can use a managed identity in a running container app to authenticate to any
 
 With managed identities:
 
-- You connect to resources with the managed identity. You don't need to manage credentials in your container app.
+- Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They are deleted when your container app is deleted.
-- You can add and delete user-assigned identities and assign them to multiple resources. They are independent of the life cycle of your container app.
+- You can add and delete user-assigned identities and assign them to multiple resources. They are independent your container app's life cycle.
 
 ### Common use cases
 
@@ -41,19 +41,18 @@ User-assigned identities are ideal for workloads that:
 
 ## Current limitations
 
-There are a few limitations that will be addressed in future releases of Container Apps.
+There are a few limitations that will be addressed in future releases of Container Apps. Currently, the identity is only available within a running container.
 
-- Currently, the identity is only available within a running container.
 - You can't use a managed identity to pull an image from Azure Container Registry.
-- You can't use a managed identity in scaling rules.  To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the`secretRef` of the scaling rule.
+- You can't use a managed identity in scaling rules or Dapr configuration.  To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the`secretRef` of the scaling rule.
 
 ## How to configure managed identities
 
 There are different ways to configure managed identities.  
 
-- Add managed identities to your ARM template.
 - Add and delete managed identities via the Azure portal.
 - Add and delete managed identities via the Azure CLI.
+- Add managed identities to your ARM template.
 
 When a managed identity is added, deleted or modified on a running container app, the app won't automatically restart and a new revision won't be created.
 
@@ -75,12 +74,6 @@ Run the `az containerapp identity assign` command to create a system-assigned id
 az containerapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-# [Azure PowerShell](#tab/ps)
-
-```powershell
-az containerapp identity assign --name myApp --resource-group myResourceGroup
-```
-
 # [ARM template](#tab/arm)
 
 An Azure Resource Manager (ARM) template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your ARM template.
@@ -91,7 +84,7 @@ An Azure Resource Manager (ARM) template can be used to automate deployment of y
 }
 ```
 
-Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md#container-app-examples).
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md&tabs=arm-template#container-app-examples).
 
 -----
 
@@ -127,21 +120,6 @@ First, you'll need to create a user-assigned identity resource.
     az containerapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
     ```
 
-# [Azure PowerShell](#tab/ps)
-
-1. Create a user-assigned identity.
-
-    ```powershell
-    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
-    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName <group-name>
-    ```
-
-1. Run the `az containerapp identity assign` command to assign the identity:
-
-    ```powershell
-    az containerapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
-    ```
-
 # [ARM template](#tab/arm)
 
 To add one or more user-assigned identities, add an `identity` section to your ARM template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
@@ -154,12 +132,11 @@ To add one or more user-assigned identities, add an `identity` section to your A
         "<IDENTITY2_RESOURCE_ID>": {}
     }
 }
-
 ```
 
 Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
 
-For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md#container-app-examples).
+For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md&tabs=arm-template#container-app-examples).
 
 > [!NOTE]
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
@@ -168,7 +145,7 @@ For a complete ARM template example, see [ARM API Specification](azure-resource-
 
 ## Configure a target resource
 
-For some resources, you'll need to configure an access policy for your app's managed identity. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, will be rejected even if you use a valid token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+For some resources, you'll need to configure an access policy for your app's managed identity. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, will be rejected even if you use a valid token for that identity. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
 > The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
@@ -292,11 +269,10 @@ To get a token for a resource, make an HTTP GET request to this endpoint, includ
 > [!IMPORTANT]
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
 
------
-
 For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
 
 -----
+
 ## Remove a managed identity
 
 When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the container app resource itself.
@@ -322,23 +298,6 @@ To remove one or more user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
-```
-
-You can also remove the system assigned identity by specifying `[system]` in `--identities`.
-
-# [Azure PowerShell](#tab/ps)
-
-
-To remove the system-assigned identity:
-
-```azurecli
-az containerapp identity remove --name <app-name> --resource-group <group-name>
-```
-
-To remove one or more user-assigned identities:
-
-```azurecli
-az containerapp identity remove --name <app-name> --resource-group <group-name> --identities <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID2>
 ```
 
 You can also remove the system assigned identity by specifying `[system]` in `--identities`.
