@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 04/05/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,7 +43,7 @@ Azure AD Conditional Access supports the following device platforms:
 - iOS
 - Windows
 - macOS
-- Linux (Preview)
+- Linux
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
@@ -186,7 +186,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 ## Device state (preview)
 
 > [!CAUTION]
-> **This preview feature has being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
+> **This preview feature has been deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
 
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
