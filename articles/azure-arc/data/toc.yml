@@ -238,7 +238,11 @@ items:
             - name: Introduction
               href: active-directory-introduction.md
             - name: Deploy connector
-              href: deploy-active-directory-connector.md
+              items:
+                - name: Automatic
+                  href: deploy-automatic-active-directory-connector.md
+                - name: Bring your own keytab
+                  href: deploy-byok-active-directory-connector.md
             - name: Deploy SQL Managed Instance
               href: deploy-active-directory-sql-managed-instance.md
             - name: Connect SQL Managed Instance
