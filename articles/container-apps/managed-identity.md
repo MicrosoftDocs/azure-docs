@@ -84,7 +84,7 @@ An Azure Resource Manager (ARM) template can be used to automate deployment of y
 }
 ```
 
-Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md&tabs=arm-template#container-app-examples).
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
 -----
 
@@ -136,7 +136,7 @@ To add one or more user-assigned identities, add an `identity` section to your A
 
 Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
 
-For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md&tabs=arm-template#container-app-examples).
+For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
 > [!NOTE]
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
