@@ -36,7 +36,7 @@ Event Grid topic provides an endpoint where the source sends events. The publish
 ### System topics
 System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md). 
 
-### Customer topics
+### Custom topics
 Custom topics are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription. For more information, see [Custom topics](custom-topics.md). When designing your application, you have flexibility when deciding how many topics to create. For large solutions, create a custom topic for each category of related events. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
 ### Partner topics
