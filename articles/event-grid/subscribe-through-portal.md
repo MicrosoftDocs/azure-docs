@@ -36,7 +36,9 @@ To create an Event Grid subscription for any of the supported [event sources](ov
 1. Provide additional details about the event subscription, such as the endpoint for handling events and a subscription name.
 
    ![Screenshot that shows the "Endpoint Details" and "Event Subscription Details" sections with a subscription name value entered.](./media/subscribe-through-portal/provide-subscription-details.png)
-
+    
+    > [!NOTE]
+    > For a list of supported event handlers, see [Event handlers](event-handlers.md).
 1. To enable dead lettering and customize retry policies, select **Additional Features**.
 
    ![Select additional features](./media/subscribe-through-portal/select-additional-features.png)

@@ -266,7 +266,7 @@ items:
       items:
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
-      - name: Support compressed input audio
+      - name: How to use compressed audio files
         href: how-to-use-codec-compressed-audio-input-streams.md
         displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
       - name: Select a specific microphone input device
@@ -309,7 +309,7 @@ items:
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Swagger documentation
+    - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest
     - name: Speech containers
@@ -408,9 +408,12 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference 
-        - name: Speech-to-text REST API
-          href: rest-speech-to-text.md 
-          displayName: reference          
+        - name: Speech-to-text REST API v3.0
+          href: rest-speech-to-text.md
+          displayName: reference 
+        - name: Speech-to-text REST API for short audio
+          href: rest-speech-to-text-short.md    
+          displayName: reference       
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
           displayName: reference 

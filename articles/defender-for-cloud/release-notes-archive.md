@@ -1,8 +1,10 @@
 ---
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
+author: bmansheim
+ms.author: benmansheim
 ms.topic: reference
-ms.date: 03/14/2022
+ms.date: 04/04/2022
 ---
 # Archive for what's new in Defender for Cloud?
 
@@ -35,7 +37,7 @@ Learn more about using these recommendations in [Harden a machine's OS configura
 
 Updates in August include:
 
-- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for Servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
 - [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
 - [Regulatory compliance dashboard's Azure Audit reports released for general availability (GA)](#regulatory-compliance-dashboards-azure-audit-reports-released-for-general-availability-ga)
@@ -46,9 +48,9 @@ Updates in August include:
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
-### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
+### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for Servers (in preview)
 
-[Azure Defender for servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
+[Azure Defender for Servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
 
 When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack.
 
@@ -189,14 +191,14 @@ Learn more in [Connect Azure Defender alerts from Azure Security Center](../sent
 
 The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
 
-As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
+As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for Servers**.
 
 The alerts are organized according to two main principles:
 
 - Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
 - Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
 
-These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
+These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for Servers:
 
 - ARM_AmBroadFilesExclusion
 - ARM_AmDisablementAndCodeExecution
@@ -220,7 +222,7 @@ These are the alerts that were part of Azure Defender for Resource Manager, and 
 - ARM_VMAccessUnusualPasswordReset
 - ARM_VMAccessUnusualSSHReset
 
-Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for Servers](defender-for-servers-introduction.md) plans.
 
 
 ### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
@@ -436,7 +438,7 @@ For more information, see:
 
 ### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
 
-Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Actions workflows.
 
 The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
 
@@ -613,7 +615,7 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for Servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for Servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
@@ -925,7 +927,7 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for Servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for Servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
@@ -1020,13 +1022,13 @@ To learn more, see the following pages:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)
 
-In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
+In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
 It's now released for general availability (GA).
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
-With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+With this update, you can unleash the power of **Azure Defender for Servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
 
 Main capabilities:
 
@@ -1355,7 +1357,7 @@ These tools have been enhanced and expanded in the following ways:
     
     - **Support exporting secure score data.**
 
-- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national clouds.
+- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hubs. This feature is unavailable on national clouds.
 
     :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliance assessment information with your continuous export data.":::
 
@@ -1487,11 +1489,11 @@ Updates in October include:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
 
-[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
+[Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
-With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+With this update, you can unleash the power of **Azure Defender for Servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
 
 Main capabilities:
 
@@ -1539,7 +1541,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multifactor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -1664,7 +1666,7 @@ Learn more about the [overview page](overview-page.md).
 
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for Servers](defender-for-servers-introduction.md)
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [Azure Defender for Storage](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
@@ -1851,7 +1853,7 @@ The details page for recommendations now includes a freshness interval indicator
 Updates in August include:
 
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
+- [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
@@ -1868,13 +1870,13 @@ You can use the view and its filters to explore your security posture data and t
 Learn more about [asset inventory](asset-inventory.md).
 
 
-### Added support for Azure Active Directory security defaults (for multifactor authentication)
+### Added support for Azure Active Directory security defaults (for multi-factor authentication)
 
 Security Center has added full support for [security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), Microsoft's free identity security protections.
 
 Security defaults provide preconfigured identity security settings to defend your organization from common identity-related attacks. Security defaults already protecting more than 5 million tenants overall; 50,000 tenants are also protected by Security Center.
 
-Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multifactor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
+Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
 
 Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](secure-score-security-controls.md).
 
@@ -2139,7 +2141,7 @@ The policy definitions can be found in Azure Policy:
 
 |Goal  |Policy  |Policy ID  |
 |---------|---------|---------|
-|Continuous export to Event Hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Continuous export to Event Hubs|[Deploy export to Event Hubs for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
@@ -2303,7 +2305,7 @@ Learn more about [enhancing your custom recommendations with detailed informatio
 
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
-We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-microsoft-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
 
 Some of the benefits of this transition:
 
@@ -2352,7 +2354,7 @@ Security recommendations for identity and access on the Azure Security Center fr
 
 Examples of identity and access recommendations include:
 
-- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
+- "Multi-factor authentication should be enabled on accounts with owner permissions on your subscription."
 - "A maximum of three owners should be designated for your subscription."
 - "Deprecated accounts should be removed from your subscription."
 
@@ -2360,7 +2362,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
+Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 
 
@@ -2584,10 +2586,10 @@ Use Security Center to receive recommendations not only from Microsoft but also 
 
 ### Advanced integrations with export of recommendations and alerts (preview)
 
-In order to enable enterprise level scenarios on top of Security Center, it's now possible to consume Security Center alerts and recommendations in additional places except the Azure portal or API. These can be directly exported to an Event Hub and to Log Analytics workspaces. Here are a few workflows you can create around these new capabilities:
+In order to enable enterprise level scenarios on top of Security Center, it's now possible to consume Security Center alerts and recommendations in additional places except the Azure portal or API. These can be directly exported to an event hub and to Log Analytics workspaces. Here are a few workflows you can create around these new capabilities:
 
 - With export to Log Analytics workspace, you can create custom dashboards with Power BI.
-- With export to Event Hub, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution, or Azure Data Explorer.
+- With export to Event Hubs, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution, or Azure Data Explorer.
 
 
 ### Onboard on-prem servers to Security Center from Windows Admin Center (preview)
