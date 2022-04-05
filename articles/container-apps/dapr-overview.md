@@ -14,16 +14,16 @@ When building a microservices or distributed application, you may encounter comm
 
 - Integrate external systems with your application.
 - Create applications that reliably send events between services.
-- Handle securec resilient communication between services.
+- Handle secure resilient communication between services.
 - Discover other services and call methods on them.
 
-For example, you may want to leverage the pub/sub pattern to handle distributed communication without implementing resource-specific SDKs or libraries in your Container App.  
+For example, you may want to apply the pub/sub pattern to handle distributed communication without implementing resource-specific SDKs or libraries in your Container App.  
 
 Thanks to Distributed Application Runtime ([Dapr][dapr-concepts]), you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
 ## How Dapr works in Container Apps
 
-Dapr is a fully-managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container App. Dapr exposes these APIs, or building blocks, to your Container App as a sidecar. 
+Dapr is a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container App. Dapr exposes these APIs, or building blocks, to your Container App as a sidecar. 
 
 Dapr's portable building blocks are built on best practice industry standards, that:
 
@@ -83,7 +83,7 @@ Scope the Dapr component to a particular container app by adding the `scope` arr
 
 **Dapr settings**
 
-Define Dapr settings for your container app using a YAML file, bicep, or ARM template declaring Dapr sidecars or the Dapr control plane settings. With these settings, you:
+Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With these settings, you:
 
 - Enable Dapr on the app.
 - Scope the `app-id`, the `app-protocol`, and the `app-port` to the app.
