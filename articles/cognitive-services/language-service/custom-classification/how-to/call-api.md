@@ -88,52 +88,8 @@ First you will need to get your resource key and endpoint
 
 ### Submit text classification task
 
-1. Start constructing a POST request by updating the following URL with your endpoint.
-    
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+[!INCLUDE [submit a text classification task using the REST API](../includes/rest-api/text-classification-task.md)]
 
-2. In the header for the request, add your key to the `Ocp-Apim-Subscription-Key` header.
-
-3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
- 
-    > [!tip]
-    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-text-classification-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
-    
-    ```json
-    {
-        "displayName": "MyJobName",
-        "analysisInput": {
-            "documents": [
-                {
-                    "id": "doc1", 
-                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
-                },
-                {
-                    "id": "doc2",
-                    "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-                }
-            ]
-        },
-        "tasks": {
-            "customMultiClassificationTasks": [      
-                {
-                    "parameters": {
-                          "project-name": "MyProject",
-                          "deployment-name": "MyDeploymentName"
-                          "stringIndexType": "TextElements_v8"
-                    }
-                }
-            ]
-        }
-    }
-    ```
-
-4. You will receive a 202 response indicating success. In the response headers, extract `operation-location`.
-`operation-location` is formatted like this:
-
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
-
-    You will use this endpoint in the next step to get the custom recognition task results.
 
 5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
 
