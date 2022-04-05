@@ -89,7 +89,7 @@ You can view metrics across multiple container apps to view resource utilization
 
 Application logs are accessed through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for each container app in the environment.  
 
-Application logs, consisting of the stdout and stderr from each running container (replica), are collected and stored in the Log Analytics workspace.
+Application logs, consist of the results of calls to `stdout` and `stderr` from each running container (replica), are collected and stored in the Log Analytics workspace.
 
 The data entries are accessed through Log Analytic queries via the Azure portal or using the Azure CLI.
 
