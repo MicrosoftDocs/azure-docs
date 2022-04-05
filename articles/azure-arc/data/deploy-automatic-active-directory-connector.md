@@ -23,7 +23,19 @@ Before you proceed, you must have:
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
 * A pre-created organizational unit (OU) in the Active Directory
-* An Domain service AD account which has  necessary permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
+* An Domain service AD account
+
+Note that the AD domain service account should have suffcient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
+
+The sufficient permission including the following : 
+- Read all properties
+- Write all properties
+- Create Computer objects
+- Delete Computer objects
+- Create Group objects
+- Delete Group objects
+- Create User objects
+- Delete User objects
 
 ## Input for deploying an Automatic Active Directory (AD) Connector
 

@@ -22,7 +22,7 @@ Before you proceed, you must have:
 * An instance of Data Controller deployed on a supported version of Kubernetes
 * An Active Directory (AD) domain
 
-The following instructions expect that the users are able to generate the following in the Active Directory domain and provide to the AD Bring your own keytab (BYOK) deployment.
+The following instructions expect that the users can bring in the Active Directory domain and provide to the AD Bring your own keytab (BYOK) deployment.
 
 * An Active Directory user account for the SQL Managed Instance
 * Service Principal Names (SPNs) under the user account
@@ -158,7 +158,7 @@ Deploy the Kubernetes secret with `kubectl apply -f <file>`. For example:
 kubectl apply –f sqlmi-keytab-secret.yaml
 ```
 
-## Active directory (AD ) in Bring your own keytab (BYOK) or Bring Your Own Keytab (BYOK) mode
+## Active directory (AD) Bring your own keytab (BYOK) integration mode
 
 The following are the steps for user to set up:
 1. Creating and providing an Active Directory account for each SQL Managed Instance that must accept AD authentication.
@@ -168,13 +168,18 @@ The following are the steps for user to set up:
 1. Registering Service Principal Names (SPNs) under the AD account in Active Directory domain for the SQL endpoint.
 1. Creating and providing a keytab file for SQL Managed Instance containing entries for the AD account and SPNs.
 
-The following diagram Active Directory Connector and SQL Managed Instance describes how the Bring your own keytab (BYOK) mode works : 
+An Active Directory Connector instance stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts and it deploys a DNS proxy service that proxies the DNS requests coming from the SQL Managed Instance to either of the two upstream DNS services:
+* Active Directory DNS Servers
+* Kubernetes DNS Servers
+
+The following diagram Active Directory Connector and SQL Managed Instance describes how the AD Bring your own keytab (BYOK) integration mode works : 
 
 ![Actice Directory Connector](media/active-directory-deployment/active-directory-connector-byok.png)
 
 ## Input for deploying Active Directory (AD) Connector
 
 To deploy an instance of Active Directory Connector, several inputs are needed from the Active Directory domain environment.
+
 These inputs are provided in a YAML spec of AD Connector instance.
 
 Following metadata about the AD domain must be available before deploying an instance of AD Connector:

@@ -38,10 +38,6 @@ In order to enable Active Directory authentication for SQL Managed Instance, a S
 
 To facilitate this, Azure Arc introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`, it provide arc-enabled SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
 
-An Active Directory Connector instance stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts and it deploys a DNS proxy service that proxies the DNS requests
-coming from the SQL Managed Instance to either of the two upstream DNS services:
-* Active Directory DNS Servers
-* Kubernetes DNS Servers
 
 ## What is the difference between a Bring your own keytab (BYOK) Active Directory (AD) connector and Automatic Active Directory (AD) connector ?
 
@@ -54,16 +50,9 @@ In the Bring your own keytab (BYOK) mode, users will bring in :
 
 When you deploy the Bring your own keytab (BYOK) AD connector, it is up to users to create the AD account, take care of the SPN registration and create the keytab file. You can create then using [Active Directory utility (adutil)](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
-In the automatic mode, you need an automatic Active Directory (AD) connector, you will bring an Organisational Unit (OU) and an AD domain service account has sufficient permissions in the Active Directory. The sufficient permission including the following : 
-- Read all properties
-- Write all properties
-- Create Computer objects
-- Delete Computer objects
-- Create Group objects
-- Delete Group objects
-- Create User objects
-- Delete User objects
+To know further about how to [deploy a Bring your own keytab (BYOK) Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 
+In the automatic mode, you need an automatic Active Directory (AD) connector, you will bring an Organisational Unit (OU) and an AD domain service account has sufficient permissions in the Active Directory. 
 
 Furthermore,  the system will take care of the following work : 
 - An domain service AD account is automatically generated for SQL managed instance.
@@ -75,6 +64,8 @@ The mode of the AD connector is determined by the value of **spec.activeDirector
 - spec.activeDirectory.domainServiceAccountSecret
 
 When a SQL Managed Instance is deployed with the intention to enable Active Directory Authentication, it needs to reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in SQL MI spec will automatically set up the needed environment in the SQL Managed Instance container for SQL MI to perform Active Directory authentication. 
+
+To know further about how to [Deploy an automatic Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 
 ## Next steps
 
