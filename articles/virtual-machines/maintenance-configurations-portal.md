@@ -15,7 +15,7 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-With Maintenance Configurations, you can now take more control over when to apply updates to various Azure resources. This topic covers the Azure portal options for creating Maintenance Configurations. For more about benefits of using Maintenance Control, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
+With Maintenance Configurations, you can now take more control over when to apply updates to various Azure resources. This topic covers the Azure portal options for creating Maintenance Configurations. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
 ## Create a Maintenance Configuration
 
@@ -29,8 +29,11 @@ With Maintenance Configurations, you can now take more control over when to appl
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-2.png" alt-text="Screenshot showing how to add a maintenance configuration":::
 
-1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the *scopes* we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
+1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the scopes we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
     
+    > [!IMPORTANT]
+    > There are different **scopes** which support certain machine types, so please ensure you are selecting the right scope for your virtual machine.
+
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
 1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence if your resource requires it. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 

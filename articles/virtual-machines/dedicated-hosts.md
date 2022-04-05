@@ -110,7 +110,7 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order which may not follow the user defined fault domains.
 
-For more information, see [Managing platform updates with Maintenance Control](./maintenance-control.md).
+For more information, see [Managing platform updates with Maintenance Control](./maintenance-configurations.md).
 
 ## Capacity considerations
 

@@ -1,5 +1,5 @@
 ---
-title: Overview of Maintenance Configurations for Azure virtual 
+title: Overview of Maintenance Configurations for Azure virtual machines
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
@@ -20,14 +20,14 @@ Manage platform updates, that don't require a reboot, using Maintenance Configur
 
 With Maintenance Configurations, you can:
 - Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
+- Wait up to 35 days to apply updates for Host machines. 
 - Automate platform updates by configuring your maintenance schedule.
 - Maintenance Configurations work across subscriptions and resource groups. 
 
 ## Limitations
 
 - Maintenance window duration can vary month over month and sometimes it can take up to 2 hours to apply the pending updates once it is initiated by the user.  
-- After 35 days, an update will automatically be applied.
+- After 35 days, an update will automatically be applied to your Host machines.
 - Rack level maintenance cannot be controlled through maintenance configurations.
 - User must have **Resource Contributor** access.
 
@@ -35,11 +35,11 @@ With Maintenance Configurations, you can:
 
 You can create and manage maintenance configurations using any of the following options:
 
-- [Azure CLI](maintenance-control-cli.md)
-- [Azure PowerShell](maintenance-control-powershell.md)
-- [Azure portal](maintenance-control-portal.md)
+- [Azure CLI](maintenance-configurations-cli.md)
+- [Azure PowerShell](maintenance-configurations-powershell.md)
+- [Azure portal](maintenance-configurations-portal.md)
 
-For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Control and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
 ## Next steps
 
