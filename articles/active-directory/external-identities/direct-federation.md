@@ -190,13 +190,16 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
    - **Identity provider protocol** - Select **SAML** or **WS-FED**.
    - **Domain name of federating IdP** - Enter your partner’s IdP target domain name for federation. Currently, one domain name is supported, but we're working on allowing more.
 
-    ![Screenshot showing parse button on the SAML or WS-Fed IdP page](media/direct-federation/new-saml-wsfed-idp-parse.png)
+    ![Screenshot showing the new SAML or WS-Fed IdP page](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
 5. Select a method for populating metadata. You can **Input metadata manually**, or if you have a file that contains the metadata, you can automatically populate the fields  by selecting **Parse metadata file** and browsing for the file.
    - **Issuer URI** - The partner IdP's domain name.
    - **Passive authentication endpoint** - The partner IdP's passive requestor endpoint.
    - **Certificate** - The signing certificate ID.
    - **Metadata URL** - The location of the IdP's metadata for automatic renewal of the signing certificate.
+
+   ![Screenshot showing metadata fields](media/direct-federation/new-saml-wsfed-idp-input.png)
+
    > [!NOTE]
    > Metadata URL is optional, however we strongly recommend it. If you provide the metadata URL, Azure AD can automatically renew the signing certificate when it expires. If the certificate is rotated for any reason before the expiration time or if you do not provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
