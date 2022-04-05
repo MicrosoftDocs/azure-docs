@@ -8,9 +8,9 @@ ms.topic: reference
 ms.date: 3/31/2022 
 --- 
 
-# Grafana application UI
+# Grafana UI
 
-This reference covers the main Grafana UI components, including panels, visualizations, and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation.
+This reference covers the Grafana web application's main UI components, including panels, visualizations, and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation.
 
 ## Panels
 
@@ -72,3 +72,8 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 * [Dashboard export and import](https://grafana.com/docs/grafana/latest/dashboards/export-import/)
 * [Dashboard JSON model](https://grafana.com/docs/grafana/latest/dashboards/json-model/)
 * [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/scripted-dashboards/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [How to share an Azure Managed Grafana Preview workspace](./how-to-share-grafana-workspace.md)
