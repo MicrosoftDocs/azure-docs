@@ -66,7 +66,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ### Submit a custom text classification task
 
-[!INCLUDE [submit a text classification task using the REST API](../rest-api/deploy-model.md)]
+[!INCLUDE [submit a text classification task using the REST API](../rest-api/text-classification-task.md)]
 
 ### Get the custom text classification task status and results
 
