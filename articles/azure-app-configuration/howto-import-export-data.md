@@ -100,7 +100,6 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     |  At a specific time          |                     Optional. Fill out to export key-values from a specific point in time.       |           01/28/2021 12:00:00 AM                       |
     | File type    | Select the type of file you' a're importing between YAML, properties or JSON.              | JSON    |
     | Separator  | The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `.`, `,`,`:`, `;`, `/`, `-`. | ;                                |
-    |
 
     > [!IMPORTANT]
     > If you don't select a label, only keys without labels will be exported. To export a key-value with a label, you must select its label. Note that you can only select one label per export, so to export keys with multiple labels, you may need to export multiple times, once per label you select.
