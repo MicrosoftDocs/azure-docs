@@ -69,6 +69,8 @@ Use the following command to promote the subdomain:
 POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
 ```
 
+#### Error conditions and messages
+
 Scenario | Method | Code | Message
 -------- | ------ | ---- | -------
 Invoking API with a subdomain whose parent domain is unverified | POST | 400 | Unverified domains cannot be promoted. Please verify the domain before promotion.
