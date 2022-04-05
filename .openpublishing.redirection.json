@@ -43927,6 +43927,27 @@
           "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
           "redirect_url": "/partner-center/co-sell-overview",
           "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/storage/blobs/storage-upload-process-images.md",
+          "redirect_url": "/articles/storage/blobs/blob-upload-function-trigger",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
+          "redirect_url": "/articles/storage/blobs/blob-upload-function-trigger",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/storage/blobs/storage-secure-access-application.md",
+          "redirect_url": "/articles/storage/blobs/blob-upload-function-trigger",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/storage/blobs/storage-monitor-troubleshoot-storage-application.md",
+          "redirect_url": "/articles/storage/blobs/blob-upload-function-trigger",
+          "redirect_document_id": false
       }
+
   ]
 }
