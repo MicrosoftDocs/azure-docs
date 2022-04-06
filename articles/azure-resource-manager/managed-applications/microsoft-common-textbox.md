@@ -96,7 +96,7 @@ The following example uses a text box with the [Microsoft.Solutions.ArmApiContro
         "constraints": {
             "validations": [
                 {
-                    "isValid": "[bool(basics('nameApi').nameAvailable)]",
+                    "isValid": "[basics('nameApi').nameAvailable]",
                     "message": "[basics('nameApi').message]"
                 }
             ]
