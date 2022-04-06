@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 04/06/2022
 ms.custom: devx-track-csharp
 
 ---
@@ -73,6 +73,8 @@ Azure Cosmos DB RBAC is the ideal access control method in situations where:
 - You wish to materialize your access control policies as "roles" that you can assign to multiple identities.
 
 See [Configure role-based access control for your Azure Cosmos DB account](how-to-setup-rbac.md) to learn more about Azure Cosmos DB RBAC.
+
+For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](how-to-setup-rbac.md).
 
 ## <a id="resource-tokens"></a> Resource tokens
 
@@ -196,4 +198,5 @@ As a database service, Azure Cosmos DB enables you to search, select, modify and
 
 - To learn more about Cosmos database security, see [Cosmos DB Database security](database-security.md).
 - To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
-- User management samples with users and permissions, [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For user management samples with users and permissions, see [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](how-to-setup-rbac.md)
