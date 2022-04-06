@@ -126,7 +126,7 @@
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
   - name: Move a managed identity to a new region
-    href: how-to-managed-identities-regional-move.md
+    href: how-to-managed-identity-regional-move.md
 
 - name: Reference
   items:
