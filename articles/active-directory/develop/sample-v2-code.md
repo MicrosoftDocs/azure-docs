@@ -98,7 +98,7 @@ The following samples show public client mobile applications that access the Mic
 > | iOS | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | MSAL iOS | Authorization code with PKCE |
 > | Java | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | MSAL Android | Authorization code with PKCE |
 > | Kotlin | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | MSAL Android | Authorization code with PKCE |
-> | Xamarin | &#8226; [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic) <br/>&#8226; [Sign in users with broker and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | MSAL.NET | Authorization code with PKCE |
+> | Xamarin | &#8226; [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic) <br/>&#8226; [Sign in users with broker and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) <br/>&#8226; [Sign in users with broker and Intune MAM SDK](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/3-With-Intune%20MAM) | MSAL.NET | Authorization code with PKCE |
 
 ## Service / daemon
 
