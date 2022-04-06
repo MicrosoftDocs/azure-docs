@@ -10,7 +10,7 @@ ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
 ms.date: 04/01/2022
 ---
 
-# Azure Data Factory managed virtual network
+# Azure Data Factory Managed Virtual Network
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
