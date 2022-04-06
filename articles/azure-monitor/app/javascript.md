@@ -261,7 +261,13 @@ Correlation generates and sends data that enables distributed tracing and powers
 
 In JavaScript correlation is turned off by default in order to minimize the telemetry we send, the following examples show standard configuration options for enabling correlation.
 
-### [snippet](#tab/snippet)
+> [!NOTE]
+> If you are using Application Insights JS SDK version 2.5.11 or earlier, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps). For Application Insights JS SDK version 2.6.0 or later this recommendation does not apply.
+
+> [!WARNING] 
+> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
+
+### [Snippet](#tab/snippet)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -278,7 +284,7 @@ cfg: { // Application Insights Configuration
 </script>
 ``` 
 
-### [npm](#tab/npm)
+### [NPM](#tab/npm)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -293,9 +299,6 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
   /* ...Other Configuration Options... */
 } });
 ``` 
-
-> [!NOTE]
-> If you are using Application Insights JS SDK version 2.5.11 or earlier, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps). For Application Insights JS SDK version 2.6.0 or later this recommendation does not apply.
 
 ### Correlation header excluded domains
 
@@ -346,9 +349,6 @@ Sample using Razor and a dynamic JS snippet:
 ```
 
 When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
-
-> [!WARNING] 
-> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
 
 ## Extensions
 
