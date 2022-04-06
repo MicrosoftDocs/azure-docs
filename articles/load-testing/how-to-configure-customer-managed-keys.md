@@ -16,7 +16,7 @@ Data stored in your Azure Load Testing resource is automatically and seamlessly 
 
 You must store customer-managed keys in [Azure Key Vault](/azure/key-vault/general/overview) and provide a key for each Azure Load Testing resource that is enabled with customer-managed keys. This key is used to encrypt the following data stored in that resource:
 
-- Test details like test description
+- Test details, such as the test description
 - Test script and configuration files
 - Secrets
 - Environment variables
