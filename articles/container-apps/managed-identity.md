@@ -225,7 +225,7 @@ The token service address is provided to all containers in your app in an enviro
 
 The `X-IDENTITY-HEADER` in this example shows a GUID. That GUID is provided to all container app containers in an environment variable named `IDENTITY_HEADER`, and is unique for each container app. The GUID shown here's just an example. You should get the GUID value from the environment variable if you're sending a raw HTTP request. If you're using an Azure Identity client library, the client library gets this value automatically.
 
-A raw HTTP GET request looks like this example:
+A raw HTTP GET request looks like this example, which uses a sample GUID value.
 
 ```http
 GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
