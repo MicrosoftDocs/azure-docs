@@ -92,7 +92,7 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Windows Update (Windows) (with search criteria, filters, and update limit)
 - Added support for the following distribution types:
     - Managed Image
-    - Azure Artifact Glery Image Version (including replication and the ability to exclude from latest)
+    - Azure Artifact Gallery Image Version (including replication and the ability to exclude from latest)
     - VHD
 - Added support for customers to use their own VNet.
 - Added support for customers to customize the build VM (VM size, OS disk size)
