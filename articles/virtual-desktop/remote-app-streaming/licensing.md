@@ -66,7 +66,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Only supports Windows Client host licensing
 
 > [!IMPORTANT]
-> Per-user access pricing only supports the use of Windows 10 Multi-session and Windows 11 Multi-session hosts.  Server OS hosts are not supported for the per-user access option.
+> Per-user access pricing only supports the use of Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Windows Server session hosts are not currently supported with per-user access pricing.
 
 ## Licensing other products and services for use with Azure Virtual Desktop
 
