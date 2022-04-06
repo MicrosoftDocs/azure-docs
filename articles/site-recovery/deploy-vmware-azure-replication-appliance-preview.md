@@ -22,7 +22,9 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
 
-## Hardware requirements
+## Pre-requisites
+
+### Hardware requirements
 
 **Component** | **Requirement**
 --- | ---
@@ -30,7 +32,7 @@ CPU cores | 8
 RAM | 32 GB
 Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
 
-## Software requirements
+### Software requirements
 
 **Component** | **Requirement**
 --- | ---
@@ -41,7 +43,7 @@ Group policies | Don't enable these group policies: <br> - Prevent access to the
 IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting
 FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 
-## Network requirements
+### Network requirements
 
 |**Component** | **Requirement**|
 |--- | ---|
@@ -50,7 +52,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
 
 
-### Allow URLs
+#### Allow URLs
 
 Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity:
 
@@ -72,9 +74,9 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
 > [!NOTE]
 > Private links are not supported with the preview release.
 
-## Folder exclusions from Antivirus program
+### Folder exclusions from Antivirus program
 
-### If Antivirus Software is active on appliance
+#### If Antivirus Software is active on appliance
 
 Exclude following folders from Antivirus software for smooth replication and to avoid connectivity issues.
 
@@ -94,9 +96,23 @@ C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
 
-### If Antivirus software is active on Source machine
+#### If Antivirus software is active on Source machine
 
 If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
+
+## Sizing and capacity
+An appliance that uses an in-built process server to protect the workload can handle up to 200 virtual machines, based on the following configurations:
+
+  |CPU |    Memory |    Cache disk size |    Data change rate |    Protected machines |
+  |---|-------|--------|------|-------|
+  |16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)    | 32 GB |    1 TB |    >1 TB to 2 TB    | Use to replicate 151 to 200 machines.|
+
+- You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
+
+- You can [switch a protected machine](switch-replication-appliance-preview.md), between different appliances in the same vault, given the selected appliance is healthy.
+
+For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
+
 
 ## Prepare Azure account
 
@@ -108,7 +124,7 @@ To create and register the Azure Site Recovery replication appliance, you need a
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 
-## Prerequisites
+## Required permissions
 
 **Here are the required key vault permissions**:
 
@@ -283,18 +299,6 @@ You will also be able to see a tab for **Discovered items** that lists all of th
 
 ![Replication appliance preview](./media/deploy-vmware-azure-replication-appliance-preview/discovered-items.png)
 
-## Sizing and capacity
-An appliance that uses an inbuilt process server to protect the workload can handle up to 200 virtual machines, based on the following configurations:
-
-  |CPU |    Memory |    Cache disk size |    Data change rate |    Protected machines |
-  |---|-------|--------|------|-------|
-  |16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)    | 32 GB |    1 TB |    >1 TB to 2 TB    | Use to replicate 151 to 200 machines.|
-
-- You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
-
-- You can [switch a protected machine](switch-replication-appliance-preview.md), between different appliances in the same vault, given the selected appliance is healthy.
-
-For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
 ## Next steps
 Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md) to Azure.
