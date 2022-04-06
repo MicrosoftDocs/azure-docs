@@ -235,7 +235,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 4. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-5. Ensure the [prerequisites](#prerequisites) are met, proceed with registration.
+5. Ensure the [prerequisites](#pre-requisites) are met, proceed with registration.
 
     ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
 
