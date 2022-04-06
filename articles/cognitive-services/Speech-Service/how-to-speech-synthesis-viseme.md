@@ -178,7 +178,7 @@ For 3D characters, think of the characters as string puppets. The puppet master 
 
 ## Map phonemes to visemes
 
-Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)  documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
 
 
 ## Next steps
