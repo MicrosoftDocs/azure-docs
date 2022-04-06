@@ -6,7 +6,7 @@ ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/16/2022
+ms.date: 04/06/2022
 ms.author: cynthn
 
 ---
@@ -51,7 +51,7 @@ Open your SSH client of choice.
 
 ## WSL, MacOS, or native Linux client
 
-### SSH Public Key Authentication with New Key Pair
+### [SSH with a new key pair](#tab/new) 
 1. Ensure your public and private keys are in the correct directory. This is usually the ~/.ssh directory 
 If you generated keys manually or generated them with the CLI, then the keys are probably already there. However, if you downloaded them in pem format from the Azure portal, you may need to move them to the right location. To move the keys type:
     ```
@@ -80,7 +80,7 @@ If you generated keys manually or generated them with the CLI, then the keys are
 
 5.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
-### SSH With existing public key on Client
+### [SSH With existing public key](#tab/exist)
 1.	Run the following command in your SSH client. In this example, *20.51.230.13* is the public IP Address of your VM and *username* is the user name you created when you created the VM.
     ```bash
     ssh  <username>@<20.51.230.13>
@@ -95,7 +95,7 @@ If you generated keys manually or generated them with the CLI, then the keys are
 
 3.	Success! You should now be connected to your VM. If you are unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
-### Password Authentication
+### [Password Authentication](#tab/pass)  
  
 > [!WARNING]
 > This type of authentication method is not as secure and is not recommended.
@@ -118,11 +118,11 @@ If you generated keys manually or generated them with the CLI, then the keys are
     
 
 3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
-
+---
 
 ## Windows 10 PowerShell or cmd.exe
 
-### SSH Public Key Authentication with New Key Pair
+### [SSH with a new key pair](#tab/new2) 
 1. Locate your private SSH Key
 2.	Run the SSH command 
     ```bash
@@ -141,7 +141,7 @@ If you generated keys manually or generated them with the CLI, then the keys are
    ```
 4.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
-### Password Authentication
+### [Password Authentication](#tab/pass2) 
  
 > [!WARNING]
 > This type of authentication method is not as secure and is not our recommended way to connect.
@@ -163,6 +163,8 @@ If you generated keys manually or generated them with the CLI, then the keys are
    ```
 
 3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+
+---
 
 ## Next steps
 In this quickstart, you learned how to SSH into an existing Linux VM. To learn more about Azure virtual machines, see [Deploy A Linux Application on a VM](./linux/tutorial-lamp-stack.md).
