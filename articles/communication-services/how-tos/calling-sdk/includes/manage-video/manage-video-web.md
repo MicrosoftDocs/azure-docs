@@ -58,8 +58,8 @@ You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams
 ```js
 const cameras = await deviceManager.getCameras();
 const camera = cameras[0];
-const localCameraStream = new LocalVideoStream(camera);
-const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const localVideoStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
 ```
@@ -84,9 +84,30 @@ console.log(result.video);
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection is not supported on Android Chrome, iOS Safari, nor macOS Safari.
 
-## Start and stop sending local video
+## Place a call with video camera
 
-To start a video, you have to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
+> [!IMPORTANT]
+> Currently only one outgoing local video stream is supported.
+
+To place a video call, you have to  enumerate local cameras by using the `getCameras()` method in `deviceManager`.
+
+After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
+
+```js
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
+const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
+const userCallee = { communicationUserId: '<ACS_USER_ID>' }
+const call = callAgent.startCall([userCallee], placeCallOptions);
+```
+- You can also join a call with video with `CallAgent.join()` API, and accept and call with video with `Call.Accept()` API.
+- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant.
+
+## Start and stop sending local video while on a call
+
+To start a video while on a call, you have to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -102,15 +123,13 @@ After you successfully start sending video, a `LocalVideoStream` instance is add
 call.localVideoStreams[0] === localVideoStream;
 ```
 
-To stop local video, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
+To stop local video while on a call, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
 
 ```js
 await call.stopVideo(localVideoStream);
 // or
 await call.stopVideo(call.localVideoStreams[0]);
 ```
-
-There are 4 methods in which you can pass a `localVideoStream` instance to start video in a call, `callAgent.startCall()`, `callAgent.join()`, `call.accept()`, and `call.startVideo()`. To use `call.stopVideo()`, you must pass that same `localVideoStream` instance that you passed to the original method used to start video.
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
 
@@ -124,27 +143,6 @@ If the specified video device is being used by another process, or if it is disa
 - While in a call, if your video is off and you start video using `call.startVideo()`, this method will throw with a `SourceUnavailableError` and `cameraStartFiled` will be set to true.
 - A call to the `localVideoStream.switchSource()` method will cause `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
-
-## Place a 1:1 call with video camera
-
-> [!IMPORTANT]
-> Currently only one outgoing local video stream is supported.
-
-To place a video call, you have to  enumerate local cameras by using the `getCameras()` method in `deviceManager`.
-
-After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
-
-```js
-const deviceManager = await callClient.getDeviceManager();
-const cameras = await deviceManager.getCameras();
-const camera = cameras[0]
-localVideoStream = new LocalVideoStream(camera);
-const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const userCallee = { communicationUserId: '<ACS_USER_ID>' }
-const call = callAgent.startCall([userCallee], placeCallOptions);
-```
-
-- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ## Render remote participant video streams
 

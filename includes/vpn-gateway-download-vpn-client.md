@@ -1,17 +1,14 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/19/2021
+ms.date: 03/24/2022
 ms.service: vpn-gateway
 ms.topic: include
 
 #This include is used in multiple articles, both for Virtual WAN and VPN Gateway. Before modifying, verify that any changes apply to all articles that use this include.
 ---
-1. Download the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) to each computer.
+1. Download the Azure VPN Client to each computer.
+   *  Option 1: Install from the [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554)
+   *  Option 2: Install an .exe from the [Visual Studio App Center](https://install.appcenter.ms/users/user-microsoft/apps/azure-vpn-client-1/distribution_groups/publicgroup/releases/7) and follow "Installation Instructions"
 
-1. Verify that the Azure VPN Client has permission to run in the background. To check and enable permissions, navigate to **Start -> Settings -> Privacy -> Background Apps**.
-
-   * Under **Background Apps**, make sure **Let apps run in the background** is turned **On**.
-   * Under **Choose which apps can run in the background**, turn settings for **Azure VPN Client** to **On**.
-
-      :::image type="content" source="media/vpn-gateway-download-vpn-client/permissions.png" alt-text="Screenshot shows background permissions.":::
+2. Verify that the Azure VPN Client has permission to run in the background. For steps, see [Windows background apps](https://support.microsoft.com/windows/windows-background-apps-and-your-privacy-83f2de44-d2d9-2b29-4649-2afe0913360a#ID0EBD=Windows_11).

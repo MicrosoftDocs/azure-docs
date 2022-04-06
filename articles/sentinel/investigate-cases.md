@@ -193,7 +193,7 @@ Using advanced search options changes the search behavior as follows:
 | **Search strings**     | Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
 | **Cross workspace support**     | Advanced searches are not supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
-|     |     |
+
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.

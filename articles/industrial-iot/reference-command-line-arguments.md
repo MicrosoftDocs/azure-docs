@@ -262,19 +262,19 @@ There are a couple of environment variables, which can be used to control the ap
       --tb, --addtrustedcertbase64=VALUE
                                        adds the certificate to the applications trusted
                                        cert store passed in as base64 string (multiple
-                                       comma-seperated strings supported)
+                                       comma-separated strings supported)
       --tf, --addtrustedcertfile=VALUE
                                        adds the certificate file(s) to the applications
                                        trusted cert store passed in as base64 string (
-                                       multiple comma-seperated filenames supported)
+                                       multiple comma-separated filenames supported)
       --ib, --addissuercertbase64=VALUE
                                        adds the specified issuer certificate to the
                                        applications trusted issuer cert store passed in
-                                       as base64 string (multiple comma-seperated strings supported)
+                                       as base64 string (multiple comma-separated strings supported)
       --if, --addissuercertfile=VALUE
                                        adds the specified issuer certificate file(s) to
                                        the applications trusted issuer cert store (
-                                       multiple comma-seperated filenames supported)
+                                       multiple comma-separated filenames supported)
       --rb, --updatecrlbase64=VALUE
                                        update the CRL passed in as base64 string to the
                                        corresponding cert store (trusted or trusted
@@ -285,7 +285,7 @@ There are a couple of environment variables, which can be used to control the ap
                                        issuer)
       --rc, --removecert=VALUE
                                        remove cert(s) with the given thumbprint(s) (
-                                       multiple comma-seperated thumbprints supported)
+                                       multiple comma-separated thumbprints supported)
       --dt, --devicecertstoretype=VALUE
                                        the iothub device cert store type.
                                        (allowed values: Directory, X509Store)

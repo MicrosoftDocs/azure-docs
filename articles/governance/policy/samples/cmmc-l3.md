@@ -1,14 +1,14 @@
 ---
 title: Regulatory Compliance details for CMMC Level 3
 description: Details of the CMMC Level 3 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/15/2022
+ms.date: 04/01/2022
 ms.topic: sample
 ms.custom: generated
 ---
 # Details of the CMMC Level 3 Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in CMMC Level 3.
+definition maps to **compliance domains** and **controls** in Cybersecurity Maturity Model Certification (CMMC) Level 3.
 For more information about this compliance standard, see
 [CMMC Level 3](https://www.acq.osd.mil/cmmc/documentation.html). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
@@ -21,10 +21,10 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **CMMC Level 3** Regulatory Compliance built-in
 initiative definition.
 
-This built-in initiative is deployed as part of the
-[CMMC Level 3 blueprint sample](../../blueprints/samples/cmmc-l3.md).
-
 > [!IMPORTANT]
+> This policy initiative was built to CMMC version 1.0 and will be updated in the future".
+> CMMC Level 2 under CMMC 2.0 is similar to CMMC Level 3 under CMMC 1.0, but has different control mappings.
+> 
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
 > control; however, there often is not a one-to-one or complete match between a control and one or
@@ -34,7 +34,7 @@ This built-in initiative is deployed as part of the
 > definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your
 > overall compliance status. The associations between compliance domains, controls, and Azure Policy
 > definitions for this compliance standard may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json).
+> [GitHub commit history](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json).
 
 ## Access Control
 

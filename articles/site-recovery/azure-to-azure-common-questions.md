@@ -231,7 +231,7 @@ When you enable replication for a VM, you can add it to a new replication group,
 
 ### How do we ensure capacity in the target region?
 
-The Site Recovery team, and Azure capacity management team, plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+The Site Recovery team, and Azure capacity management team, plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region. 
 
 ### Is failover automatic?
 
@@ -323,7 +323,15 @@ After reprotection, failback takes about the same amount of time it took to fail
 
 ### How do we ensure capacity in the target region?
 
-The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+
+### Does Site Recovery work with Capacity Reservation?
+
+Yes, you can create a Capacity Reservation for your VM SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target VM. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](../virtual-machines/capacity-reservation-overview.md).
+
+### Why should I reserve capacity using Capacity Reservation at the destination location?
+
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-ca.pacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 

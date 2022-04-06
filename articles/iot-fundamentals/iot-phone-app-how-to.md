@@ -127,7 +127,7 @@ After you register the device in IoT Central, you can connect the smartphone app
 
 1. On the **Settings > Registration** page, you can see the device ID and ID scope that the app used to connect to IoT Central.
 
-To learn more about how devices connect to IoT Central, see [Get connected to Azure IoT Central](../iot-central/core/concepts-get-connected.md).
+To learn more about how devices connect to IoT Central, see [How devices connect](../iot-central/core/overview-iot-central-developer.md).
 
 ### Verify the connection
 
