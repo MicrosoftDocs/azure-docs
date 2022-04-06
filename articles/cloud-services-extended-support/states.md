@@ -12,7 +12,7 @@ ms.date: 04/05/2022
 
 ## Available Provisioning States for Azure Cloud Services (extended support)
 
-This table lists the different provisoning states for Cloud Services (extended support) resource. 
+This table lists the different provisioning states for Cloud Services (extended support) resource. 
 
 | Status |  Description | 
 |---|---|
