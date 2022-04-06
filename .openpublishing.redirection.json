@@ -21205,7 +21205,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
       "redirect_document_id": false
     },
     {

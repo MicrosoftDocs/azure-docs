@@ -7,4 +7,4 @@ ms.author: larryfr
 ---
 
 > [!IMPORTANT]
-> The Azure CLI commands in this article __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. We recommend you select **v2 (current)** for the enhanced v2 CLI using the `ml` extension . For more information, see [Machine Learning CLI (v1)](../articles/machine-learning/v1/introduction.md)
+> The Azure CLI commands in this article __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. We recommend you select **v2 (current)** for the enhanced v2 CLI using the `ml` extension. For more information, see [Machine Learning CLI (v1)](../articles/machine-learning/v1/introduction.md).
