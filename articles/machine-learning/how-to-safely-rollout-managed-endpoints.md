@@ -13,11 +13,11 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2
 ---
 
-# Safe rollout for online endpoints (preview)
+# Safe rollout for online endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-You've an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+You've an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 In this article, you'll learn to:
 
@@ -30,13 +30,11 @@ In this article, you'll learn to:
 > * Fully cut-over all live traffic to the green deployment
 > * Delete the now-unused v1 blue deployment
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
@@ -49,7 +47,7 @@ In this article, you'll learn to:
    az configure --defaults workspace=<azureml workspace name> group=<resource group>
    ```
 
-* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
 * If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
 
@@ -78,7 +76,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 ## Scale your existing deployment to handle more traffic
 
-In the deployment described in [Deploy and score a machine learning model with an online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
+In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
