@@ -80,6 +80,9 @@ Additional connection security features include:
 
 From encrypted communications to processing data in the cloud, the solution accelerators help keep data secure. It provides flexibility to implement additional encryption and management of security keys.
 
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the region where you deploy the service instance.
+
 Using Azure Active Directory (AAD) for user authentication and authorization, Azure IoT solution accelerators can provide a policy-based authorization model for data in the cloud, enabling easy access management that can be audited and reviewed. This model also enables near-instant revocation of access to data in the cloud, and of devices connected to the Azure IoT solution accelerators.
 
 Once data is in the cloud, it can be processed and stored in any user-defined workflow. Access to each part of the data is controlled with Azure Active Directory, depending on the storage service used.
