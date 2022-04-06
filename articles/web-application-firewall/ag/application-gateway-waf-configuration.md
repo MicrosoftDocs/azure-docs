@@ -98,7 +98,7 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 # [Azure CLI](#tab/cli)
 
 > [!NOTE]
-> Currently, there's a known issue with configuring per-rule exclusions by using the Azure CLI. You need to create a global exclusion before you can create a rule group exclusion. This issue will be fixed in an upcoming release of the Azure CLI.
+> Currently, there's a known issue with configuring per-rule exclusions by using the Azure CLI. You need to create a global exclusion before you can create a rule group exclusion.
 
 ```azurecli
 az network application-gateway waf-policy managed-rule exclusion add \
