@@ -58,7 +58,7 @@ To start transitioning your VMs off the current agents to the new agent, conside
  
   Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
-## Coexistence with Log Analytics agents
+## Coexistence with other agents
 The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
 - Be careful in collecting duplicate data because it could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data. As such, ensure you're not collecting the same data from both agents. If you are, ensure they're **collecting from different machines** or **going to separate destinations**.
 - Besides data duplication, this would also generate more charges for data ingestion and retention.
@@ -151,15 +151,15 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Settings $settingsString -ProtectedSettings $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
 ```powershell
-$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}};
-$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Settings $settingsString -ProtectedSettings $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Windows Arc enabled server](#tab/PowerShellWindowsArc)
