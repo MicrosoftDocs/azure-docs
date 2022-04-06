@@ -47,7 +47,7 @@ To enable preview environments, make the following changes to your [configuratio
 - Set the `production_branch` environment variable to your production branch name.
 - List the branches you want to include in preview environments in the `on > push > branches` array in your site configuration.
   - Set this array to `**` if you want to track all non-production branches.
-- If you want a single named environment, define the `deployment_environment_name` environment variable.
+- If you want a single named environment, define the `deployment_environment` input on the `static-web-apps-deploy` GitHub action.
 
 ## Examples
 
