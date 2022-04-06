@@ -191,11 +191,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/toc.yml",
-            "redirect_url": "/azure/azure-video-indexer/toc.yml",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos.md",
             "redirect_url": "/azure/azure-video-indexer/upload-index-videos",
             "redirect_document_id": false
