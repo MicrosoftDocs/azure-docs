@@ -148,9 +148,9 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 Provides a serverless event-driven compute platform for automation that allows you to write code to react to critical events from various sources, third-party services, and on-premises systems. For example, an HTTP trigger without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
 
   - You can use a variety of languages to write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code. Functions runtime is an open source.
-  - You can choose the hosting plan according to your function app scaling requirements, functionality a, and resources required.
+  - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
   - You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
-  - You can avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
+  - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
   - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](/azure/azure-functions/functions-reference-powershell?tabs=portal). 
 
   **Scenarios** | **Users**
@@ -190,9 +190,9 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 Provides a serverless event-driven compute platform for automation that allows you to write code to react to critical events from various sources, third-party services, and on-premises systems. For example, an HTTP trigger without worrying about the underlying platform [Learn more](/azure/azure-functions/functions-overview).
 
   - You can use a variety of languages to write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code. Functions runtime is an open source.
-  - You can choose the hosting plan according to your function app scaling requirements, functionality a, and resources required.
+  - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
   - You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
-  - You can avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
+  - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
   - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
   **Scenarios** | **Users**
