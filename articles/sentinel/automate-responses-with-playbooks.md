@@ -74,6 +74,27 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
 
+#### Two kinds of Logic Apps
+
+Microsoft Sentinel now supports two Logic Apps resource types:
+
+- **Logic App (Standard)**, based on the new Logic Apps engine, and
+- **Logic App (Consumption)**, based on the classic, original Logic Apps engine.
+
+**Logic Apps Standard** features a single-tenant, containerized environment that provides fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
+
+You can leverage this powerful new version of Logic Apps by creating new Standard workflows in the Logic Apps environment. These workflows will then be available to you as playbooks in Microsoft Sentinel, where you can attach them to automation rules, run them on demand and manage them in the Active Playbooks tab.
+
+There are many differences between these two resource types, which affect how they can be used in playbooks in Microsoft Sentinel. See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
+
+> [!IMPORTANT]
+> - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
+
+> [!NOTE]
+> You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*.
+
+***(ANYTHING ELSE TO MENTION HERE? -YL)***
+
 ### Permissions required
 
  To give your SecOps team the ability to use Logic Apps to create and run playbooks in Microsoft Sentinel, assign Azure roles to your security operations team or to specific users on the team. The following describes the different available roles, and the tasks for which they should be assigned:
@@ -251,9 +272,11 @@ If you want to run an incident-trigger playbook that you don't see in the list, 
 
 ## Manage your playbooks
 
-In the **Playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
+In the **Active playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
 
 Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled.
+
+The **Plan** column indicates whether the playbook uses the **Standard** or **Consumption** resource type in Azure Logic Apps. You can filter the list by plan type to see only one type of playbook. You'll notice that playbooks of the Standard type use the `LogicApp/Workflow` naming convention. This convention reflects the fact that a Standard playbook represents a workflow that exists *alongside other workflows* in a single Logic App.
 
 **Trigger kind** represents the Logic Apps trigger that starts this playbook.
 
