@@ -734,7 +734,7 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "networking"
+        "articles/web-application-firewall/*.yml": "anetworking"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",
@@ -802,7 +802,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer",            
-        "articles/azure-video-indexer/*.md": "video-indexer"
+        "articles/azure-video-indexer/*.md": "applied-ai-services"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
@@ -1078,7 +1078,9 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer",
         "articles/azure-video-analyzer/video-analyzer-media-docs/*.md": "Azure Video Analyzer for Media",
-        "articles/azure-video-analyzer/video-analyzer-media-docs/*.yml": "Azure Video Analyzer for Media"     
+        "articles/azure-video-analyzer/video-analyzer-media-docs/*.yml": "Azure Video Analyzer for Media",
+        "articles/azure-video-indexer/*.yml": "Azure Video Indexer",
+        "articles/azure-video-indexer/*.md": "Azure Video Indexer"          
       }
     },
     "template": [
