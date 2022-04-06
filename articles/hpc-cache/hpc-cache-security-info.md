@@ -16,7 +16,7 @@ This security information applies to Microsoft Azure HPC Cache. It addresses com
 
 The HPC Cache Service is only accessible through your private virtual network. Microsoft cannot access your virtual network.
 
-More information about connecting private networks is available [here](../security/benchmark/azure/baselines/hpc-cache-security-baseline.md#ns-2-connect-private-networks-together).
+More information about connecting private networks is available [here](/security/benchmark/azure/baselines/hpc-cache-security-baseline.md).
 
 ## Network infrastructure requirements
 
@@ -48,4 +48,4 @@ You can also optionally configure network security groups (NSGs) to control inbo
 
 ## Next steps
 
-* Review [Azure HPC Cache security baseline](https://docs.microsoft.com/security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json).
+* Review [Azure HPC Cache security baseline](/security/benchmark/azure/baselines/hpc-cache-security-baseline).
