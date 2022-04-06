@@ -16,6 +16,60 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## April 2022
+
+This release is published April 6, 2022.
+
+### Image tag
+
+`v1.5.0_2022-04-05`
+
+For complete release version information, see [Version log](version-log.md).
+
+### Data controller
+
+- Logs are retained in ElasticSearch for 2 weeks by default now.
+- Upgrades are now limited to only upgrading to the next incremental minor or major version. For example:
+   - Supported version upgrades: 
+      - 1.1 -> 1.2 
+      - 1.3 -> 2.0 
+   - Not supported version upgrade.
+      - 1.1. -> 1.4
+         Not supported because one or more minor versions are skipped.
+- Updates to open source projects included in Azure Arc-enabled data services to patch vulnerabilities.
+
+### Azure Arc-enabled SQL Managed Instance
+
+You can create a maintenance window on the data controller, and if you have SQL managed instances with a desired version set to `auto`, they will be upgraded in the next maintenance windows after a data controller upgrade. 
+
+Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
+
+AD authentication connectors can now be set up in an `automatic mode` which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the `Bring Your Own Keytab` mode.
+
+Backup and point-in-time-restore when a database has Transparent Data Encryption (TDE) enabled is now supported.
+
+Change Data Capture (CDC) is now enabled in Azure Arc-enabled SQL Managed Instance.
+
+Bug fixes for replica scaling in Arc SQL MI Business Critical and database restore when there is insufficient disk space.
+
+Distributed availability groups have been renamed to failover groups. The `az sql mi-arc dag` command group has been moved to `az sql instance-failover-group-arc`. Before upgrade, delete all resources of the 'dag' resource type.
+
+### User experience improvements
+
+You can now use the Azure CLI `az arcdata dc create` command to create:
+- A custom location
+- A data services extension
+- A data controller in one command.
+
+New enforcements of constraints:
+
+- The data controller and managed instance resources it manages must be in the same resource group.
+- There can only be one data controller in a given custom location.
+
+#### Azure Data Studio
+
+During direct connected mode data controller creation, you can now specify the log analytics workspace information for auto sync upload of the logs.
+
 ## March 2022
 
 This release is published March 8, 2022.
