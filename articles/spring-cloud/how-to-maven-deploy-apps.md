@@ -1,12 +1,11 @@
 ---
 title:  "Tutorial: Deploy Spring Boot applications using Maven"
-
 description: Use Maven to deploy applications to Azure Spring Cloud.
-author: Jialuogan
-ms.author: Jialuogan
+author: jialuogan
+ms.author: KarlErickson
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 28/03/2022
+ms.date: 04/07/2022
 ms.custom: devx-track-java
 ---
 
@@ -14,85 +13,83 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
-The Azure Spring Cloud Maven plugin helps developer configure and deploy microservices applications to Azure Spring Cloud.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use the Azure Spring Cloud Maven plugin to configure and deploy applications to Azure Spring Cloud.
 
 ## Prerequisites
-* [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install Maven](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). If you use the Azure Cloud Shell, this installation isn't needed.
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 
-
-## Tutorial procedures
-
-The following procedures deploy a Spring applications to Azure Spring Cloud using Maven.
-
-* Generate a Spring Cloud project
-* Build the Spring applications locally
-* Generate configurations and deploy to the Azure Spring Cloud
-* Verify the services
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An already provisioned Azure Spring Cloud instance.
+* [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
+* [Apache Maven](https://maven.apache.org/download.cgi)
+* [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) with the Azure Spring Cloud extension. You can install the extension by using the following command: `az extension add --name spring-cloud`
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
+To create a Spring Cloud project for use in this article, use the following steps:
 
-```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
-```
-The following image shows the recommended Spring Initializr set up for this sample project. 
+1. Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with the recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you.
 
-This example uses Java version 8.  If you want to use Java version 11, change the option under **Project Metadata**.
+   ```url
+   https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
+   ```
 
-![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
+   The following image shows the recommended Spring Initializr setup for this sample project.
 
-1. Select **Generate** when all the dependencies are set. 
+   :::image type="content" source="media/how-to-maven-deploy-apps/initializr-page.png" alt-text="Screenshot of Spring Initializr.":::
+
+   This example uses Java version 8. If you want to use Java version 11, change the option under **Project Metadata**.
+
+1. Select **Generate** when all the dependencies are set.
 1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
 
-    ```java
-    package com.example.hellospring;
+   ```java
+   package com.example.hellospring;
 
-    import org.springframework.web.bind.annotation.RestController;
-    import org.springframework.web.bind.annotation.RequestMapping;
+   import org.springframework.web.bind.annotation.RestController;
+   import org.springframework.web.bind.annotation.RequestMapping;
 
-    @RestController
-    public class HelloController {
+   @RestController
+   public class HelloController {
 
-        @RequestMapping("/")
-        public String index() {
-            return "Greetings from Azure Spring Cloud!";
-        }
+       @RequestMapping("/")
+       public String index() {
+           return "Greetings from Azure Spring Cloud!";
+       }
 
-    }
-    ```
+   }
+   ```
 
 ## Build the Spring applications locally
 
-1. Build the project using Maven:
+To build the project by using Maven, run the following commands:
 
-   ```azurecli
-   cd hellospring 
-   mvn clean package -DskipTests -Denv=cloud
-   ```
+```azurecli
+cd hellospring 
+mvn clean package -DskipTests -Denv=cloud
+```
 
-Compiling the project takes several minutes. Once completed, you should have individual JAR files for each service in their respective folders.
-
+Compiling the project takes several minutes. After it's completed, you should have individual JAR files for each service in their respective folders.
 
 ## Generate configurations and deploy to the Azure Spring Cloud
 
-1. Generate configurations by running the following command in the root folder of Hello Spring containing the POM File. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+To generate configurations and deploy the app, follow these steps:
+
+1. Run the following command from the *hellospring* root folder, which contains the POM file. If you've already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, the command will prompt you with sign-in instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository on GitHub.
 
    ```azurecli
    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
    ```
 
-   You will be asked to select:
+   You'll be asked to select:
 
-   * **Subscription Id:** This is your subscription used to create an Azure Spring Cloud instance.
+   * **Subscription ID:** This is the subscription you used to create an Azure Spring Cloud instance.
    * **Service Instance:** This is the name of your Azure Spring Cloud instance.
-   * **App name:** Provide the app name or accept default as artifactId.
+   * **App name:** Provide the app name or accept the default as `artifactId`.
    * **Public endpoint:** Provide whether or not to expose the public access to this app.
 
-1. Verify the `appName` elements in the POM files are correct:
+1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.
 
    ```xml
    <build>
@@ -107,9 +104,9 @@ Compiling the project takes several minutes. Once completed, you should have ind
                    <appName>customers-service</appName>
    ```
 
-   Please make sure `appName` texts match the following, remove any prefix if needed and save the file.
+   The POM file now contains the plugin dependencies and configurations.
 
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
+1. Deploy the app using the following command.
 
    ```azurecli
    mvn azure-spring-cloud:deploy
@@ -117,9 +114,20 @@ Compiling the project takes several minutes. Once completed, you should have ind
 
 ## Verify the services
 
-Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
+After deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
-[![Access app from browser](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
+:::image type="content" source="media/how-to-maven-deploy-apps/access-app-browser.png" alt-text="Screenshot of app in browser.":::
+
+## Clean up resources
+
+If you plan to continue working with the example application, you might want to leave the resources in place. When no longer needed, delete the resource group containing your Azure Spring Cloud instance. To delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
 
