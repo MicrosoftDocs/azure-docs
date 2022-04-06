@@ -24,7 +24,7 @@ The application is a stateful application that stores information in an HTTP Ses
 * MicroProfile Health
 
 > [!IMPORTANT]
-> This article assumes you have access a Microsoft SQL Server instance accessible to your ARO cluster. Please review the [support policy for SQL Server Containers](https://support.microsoft.com/help/4047326/support-policy-for-microsoft-sql-server) to ensure that you are running on a supported configuration.
+> This article assumes you have access to a Microsoft SQL Server instance accessible to your ARO cluster. Please review the [support policy for SQL Server Containers](https://support.microsoft.com/help/4047326/support-policy-for-microsoft-sql-server) to ensure that you are running on a supported configuration.
 
 > [!IMPORTANT]
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
@@ -231,7 +231,7 @@ Before deploying the application, let's create the expected Secret object that w
 
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
-5. Since our application uses MicroProfile capabilities, we are going to select select for this demo the Helm Chart for EAP XP (at the time of this writing, the exact version of the Helm Chart is **EAP Xp3 v1.0.0**). The `Xp3` stands for Expansion Pack version 3.0.0. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
+5. Since our application uses MicroProfile capabilities, we are going to select for this demo the Helm Chart for EAP XP (at the time of this writing, the exact version of the Helm Chart is **EAP Xp3 v1.0.0**). The `Xp3` stands for Expansion Pack version 3.0.0. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
 6. Open the **EAP Xp** Helm Chart, and then select **Install Helm Chart**.
 
