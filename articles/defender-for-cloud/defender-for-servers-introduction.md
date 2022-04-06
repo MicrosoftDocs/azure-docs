@@ -38,9 +38,9 @@ To enable the Microsoft Defender for Servers plans:
 2. If Microsoft Defender for Servers is not enabled, set it to **On**.
     Plan 2 is selected by default.
 
-    If you want to change the Defender for server plan:
-   1. In the **Plan/Pricing** column, click **configure**.
-   2. Select the plan that you want.
+    If you want to change the Defender for Servers plan:
+   1. In the **Plan/Pricing** column, click **Change plan**.
+   2. Select the plan that you want and click **Confirm**.
 
 The following table describes what's included in each plan at a high level.
 
