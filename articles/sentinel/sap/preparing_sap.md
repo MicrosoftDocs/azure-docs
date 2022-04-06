@@ -1,5 +1,5 @@
 ---
-title: Express - Deploy SAP CRs and configuring Authorization | Microsoft Docs
+title: Deploy SAP Change Requests (CRs) and configure authorization | Microsoft Docs
 description: Express - Deploy SAP CRs and configuring Authorization
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 2/01/2022
 ---
 
-# Deploying SAP CRs and configuring authorization
+# Deploy SAP Change Requests (CRs) and configure authorization
 
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-The following article provides a step-by-step guidance to deploy the  CRs required to enable Continuos threat monitoring for SAP agent to connect to a SAP system.
+This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
