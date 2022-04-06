@@ -1,6 +1,6 @@
 ---
-title: Outbound firewall rules (preview)
-description: Overview of the outbound firewall rules feature.
+title: Outbound firewall rules
+description: Overview of the outbound firewall rules feature for Azure SQL Database and Azure Synapse Analytics.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
@@ -8,26 +8,26 @@ ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 11/10/2021
+ms.date: 4/6/2022
 ---
 
 # Outbound firewall rules for Azure SQL Database and Azure Synapse Analytics 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
-Outbound firewall rules limit network traffic from the Azure SQL logical server to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or SQL Databases not in this list is denied. The following Azure SQL Database features support this feature:
+Outbound firewall rules limit network traffic from the Azure SQL [logical server](logical-servers.md) to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or databases not in this list is denied. The following [Azure SQL Database](sql-database-paas-overview.md) features support this feature:
 
 - [Auditing](auditing-overview.md)
 - [Vulnerability assessment](sql-vulnerability-assessment.md)
-- [I/E service](database-import-export-azure-services-off.md)
-- OPENROWSET
-- Bulk Insert
+- [Import/Export service](database-import-export-azure-services-off.md)
+- [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)
+- [Bulk Insert](/sql/t-sql/statements/bulk-insert-transact-sql)
 - [Elastic query](elastic-query-overview.md)
 
 > [!IMPORTANT]
 > This article applies to both Azure SQL Database and [dedicated SQL pool (formerly SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. These settings apply to all SQL Database and dedicated SQL pool (formerly SQL DW) databases associated with the server. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. This article does *not* apply to Azure SQL Managed Instance or dedicated SQL pools in Azure Synapse Analytics workspaces.
 
 > [!IMPORTANT]
-> Outbound firewall rules are defined at the [logical SQL server](logical-servers.md). Geo-replication and Auto-failover groups require the same set of rules to be defined on the primary and all secondarys 
+> Outbound firewall rules are defined at the [logical SQL server](logical-servers.md). Geo-replication and Auto-failover groups require the same set of rules to be defined on the primary and all secondaries.
 
 ## Set outbound firewall rules in the Azure portal
 
@@ -115,8 +115,10 @@ az sql server outbound-firewall-rule delete -g sql-server-group -s sql-server-na
 
 ## Next steps
 
-- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md)
-- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
+- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md).
+- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md).
+- Learn more about [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
+- Learn about [Azure Private Link for Azure SQL Database and Azure Synapse Analytics](private-endpoint-overview.md).
 
 <!--Image references-->
 [1]: media/outbound-firewall-rules/Step1.jpg
