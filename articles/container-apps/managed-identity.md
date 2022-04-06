@@ -99,7 +99,7 @@ Creating an app with a user-assigned identity requires that you first create the
 
 First, you'll need to create a user-assigned identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to the steps found in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 1. In the left navigation for your container app's page, scroll down to the **Settings** group.
 
