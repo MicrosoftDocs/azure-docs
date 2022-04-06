@@ -44394,8 +44394,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
-      "redirect_url": "/azure/openshift/howto-secure-openshift-with-front-door",
+      "source_path_from_root": "/articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
+      "redirect_url": "azure/openshift/howto-secure-openshift-with-front-door",
       "redirect_document_id": false
     }
   ]
