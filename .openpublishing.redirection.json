@@ -21199,6 +21199,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-azure-machine-learning-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": true

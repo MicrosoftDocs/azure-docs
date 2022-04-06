@@ -655,9 +655,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Deploy encrypted inferencing service
-        displayName: homomorphic,encryption,deployment
-        href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
