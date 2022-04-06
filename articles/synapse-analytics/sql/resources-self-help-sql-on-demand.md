@@ -501,8 +501,147 @@ The error *The query references an object that is not supported in distributed p
 
 ### `WaitIOCompletion` call failed
 
-The error message *WaitIOCompletion call failed* indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake).
-Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+The error message `WaitIOCompletion call failed` indicates that the query failed while waiting to complete I/O operation that reads data from the remote storage (Azure Data Lake).
+
+The error message has the following pattern:
+
+```
+Error handling external file: 'WaitIOCompletion call failed. HRESULT = ???'. File/External table name...
+```
+
+Make sure that your storage is placed in the same region as serverless SQL pool. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate I/O requests.
+
+The field HRESULT contains the result code, below are the most common error codes and potential solutions:
+
+#### [0x80070002](#tab/x80070002)
+
+This error code means the source file is not in storage.
+
+There are reasons why this can happen:
+
+- The file was deleted by another application.
+ - A common scenario: the query execution starts, it enumerates the files and the files are found. Later, during the query execution, a file is deleted (for example by Databricks, Spark or ADF). The query fails because the file is not found.
+ - This issue can also occur with delta format. The query might succeed on retry because there is a new version of the table and the deleted file is not queried again.
+
+- Invalid execution plan cached
+  - As a temporary mitigation, run the command ```DBCC FREEPROCCACHE```. If the problem persists create a support ticket.
+
+
+#### [0x80070005](#tab/x80070005)
+
+This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure AD access token expires.
+
+The error message might also resemble:
+
+```
+File {path} cannot be opened because it does not exist or it is used by another process.
+```
+
+- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+
+- Azure AD authentication token might be cached by the client applications. For example Power BI caches AAD token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
+
+Consider the following mitigations:
+
+- Restart the client application to obtain a new AAD token.
+- Consider switching to: 
+  - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
+
+
+#### [0x80070008](#tab/x80070008)
+
+This error message can occur when the serverless SQL pool is experiencing resource contraints, or if there was a transient platform issue.
+
+- Transient issues:
+  - This error can occur when Azure detects a potential platform issue that results in a change in topology to keep the service in a healthy state.
+  - This type of issue happens infrequently and is transient. Retry the query.
+
+- High concurrency or query complexity:
+  - Serverless SQL doesn't impose a maximum limit in query concurrency, it depends on the query complexity and the amount of data scanned.
+  - One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. [Concurrency limits for Serverless SQL Pool](https://docs.microsoft.com/azure/synapse-analytics/sql/resources-self-help-sql-on-demand#constraints)  
+  - Try reducing the number of queries executing simultaneously or the query complexity. 
+
+If the issue is non-transient or you confirmed the problem is not related to high concurrency or query complexity, create a support ticket.
+
+
+#### [0x8007000C](#tab/x8007000C)
+
+This error code occurrs when a query is executing and the source files are modified at the same time.
+The default behavior is to terminate the query execution with an error message.
+
+The error message returned can also have the following format:
+
+```
+"Cannot bulk load because the file 'https://????.dfs.core.windows.net/????' could not be opened. Operating system error code 12 (The access code is invalid.)."
+```
+
+If the source files are updated while the query is executing, it can cause inconsistent reads. For example, half row is read with the old version of the data, and half row is read with the newer version of the data.
+
+
+### CSV files
+
+If the problem occurs when reading CSV files, you can allow appendable files to be queried and updated at the same time, by using the option ALLOW_INCONSISTENT_READS.  
+
+More information about syntax and usage:
+
+  - [OPENROWSET syntax](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file#querying-appendable-files)  
+  ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+  - [External Tables syntax](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#external-table-on-appendable-files)  
+  TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+### Parquet files
+
+When reading Parquet files, the query will not recover automatically. It needs to be retried by the client application.
+
+### Synapse Link for Dataverse
+
+This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this.
+
+
+#### [0x800700A1](#tab/x800700A1)
+
+Confirm the storage account accessed is using the "Archive" access tier.
+
+The `archive access` tier is an offline tier. While a blob is in the `archive access` tier, it can't be read or modified.
+
+To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/access-tiers-overview#archive-access-tier)
+
+
+#### [0x80070057](#tab/x80070057)
+
+This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the AAD access token expires.
+
+The error message might also resemble the following:
+
+```
+File {path} cannot be opened because it does not exist or it is used by another process.
+```
+
+- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like the query editor in SQL Server Management Studio (SSMS) and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+
+- Azure AD authentication token might be cached by the client applications. For example Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
+
+Consider the following mitigations to resolve the issue:
+
+- Restart the client application to obtain a new AAD token.
+- Consider switching to: 
+  - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
+   
+
+#### [0x80072EE7](#tab/x80072EE7)
+
+This error code can occur when there is a transient issue in the serverless SQL pool.
+It happens infrequently and is temporary by nature. Retry the query.
+
+If the issue persists create a support ticket.
+
+---
+
 
 ### Incorrect syntax near 'NOT'
 
