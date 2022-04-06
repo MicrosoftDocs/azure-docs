@@ -11,7 +11,7 @@ ms.custom: references_regions, cosmos-db-video
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 📺 <B><a href="https://aka.ms/cosmos-db-video-continuous-backup-restore-intro" target="_blank">Video: Learn more about continuous backup and point-in-time restore</a></b>
 
