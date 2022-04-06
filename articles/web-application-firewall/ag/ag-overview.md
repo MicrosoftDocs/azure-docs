@@ -89,7 +89,7 @@ A web application delivered by Application Gateway can have a WAF policy associa
 
 ### Core rule sets
 
-Application Gateway supports multiple rule sets, including CRS 3.2, CRS 3.1, CRS 3.0, and CRS 2.2.9. These rules protect your web applications from malicious activity.
+Application Gateway supports multiple rule sets, including CRS 3.2, CRS 3.1, and CRS 3.0. These rules protect your web applications from malicious activity.
 
 For more information, see [Web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
@@ -119,7 +119,7 @@ The Application Gateway WAF can be configured to run in the following two modes:
 
 ### WAF engines
 
-The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the [Azure WAF engine](azure-waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs the ModSecurity engine.
+The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the [Azure WAF engine](azure-waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on a ModSecurity-based engine. New features will only be available on the new Azure WAF engine.
 
 ### Anomaly Scoring mode
 

@@ -30,9 +30,7 @@ There are many new features that are only supported in the Azure WAF engine. The
 - [CRS 3.2](application-gateway-crs-rulegroups-rules.md#owasp-crs-32)
   - Increased request body size limit to 2MB
   - Increased file upload limit to 4GB
-- WAF v2 metrics
-- Per-rule exclusions
-- New exclusion match variables for key and values
+- [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
 - Any operator in custom rules
 
 New WAF features will only be released on the Azure WAF engine.
