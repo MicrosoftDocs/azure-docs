@@ -122,7 +122,7 @@ First, you'll need to create a user-assigned identity resource.
 1. Run the `az containerapps identity assign` command to assign the identity to the app.
 
     ```azurecli
-    az containerapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
+    az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> --identities <IDENTITY_NAME>
     ```
 
 # [ARM template](#tab/arm)
