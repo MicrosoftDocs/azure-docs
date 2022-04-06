@@ -154,7 +154,7 @@ This feature is currently available only for new resources.
 
 ### How do I revoke an encryption key?
 
-Key revocation is done by disabling the latest version of the key. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the Managed identity.
+You can revoke a key by disabling the latest version of the key in Azure Key Vault. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the managed identity of the Azure Load Testing resource.
 
 ### What operations are available after a customer-managed key is revoked?
 
