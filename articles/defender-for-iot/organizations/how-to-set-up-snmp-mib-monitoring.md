@@ -42,9 +42,9 @@ Note that:
 ## Set up SNMP monitoring
 
 1. On the side menu, select **System Settings**.
-2. Expand **Sensor Management**, and select **SNMP MIB Monitoring** :
-3. Select **Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
-4. In **Authentication** section, select the SNMP version.
+1. Expand **Sensor Management**, and select **SNMP MIB Monitoring** :
+1. Select **Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
+1. In **Authentication** section, select the SNMP version.
     - If you select V2, type the string in **SNMP v2 Community String**. You can enter up to 32 characters, and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed.
     - If you select V3, specify the following:
     
@@ -53,14 +53,14 @@ Note that:
         | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Auth Type** | Select MD5 or SHA-1. |
-        | **Encryption** | Select DES (56 bit key size)[^1] or AES (AES 128 bits supported)[^2]. |
+        | **Encryption** | Select DES (56 bit key size)<sup>[1](#1)</sup> or AES (AES 128 bits supported)<sup>[2](#2)</sup>. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
 
-[^1] RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
+    <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
 
-[^2] RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model
+    <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model
 
-5. Select **Save**.
+1. Select **Save**.
 
 ## Next steps
 

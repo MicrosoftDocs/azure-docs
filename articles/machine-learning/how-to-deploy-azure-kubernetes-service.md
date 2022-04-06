@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: contperf-fy21q1, deploy
+ms.custom: contperf-fy21q1, deploy, cliv1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr

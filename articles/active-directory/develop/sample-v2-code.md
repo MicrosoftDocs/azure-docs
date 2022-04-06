@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 08/27/2021
+ms.date: 03/29/2022
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
@@ -17,12 +17,12 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform code samples
 
-These code samples, built and maintained by Microsoft, demonstrate authentication and authorization by using Azure AD and the Microsoft identity platform in several [application types](v2-app-types.md), development languages, and frameworks.
+These code samples are built and maintained by Microsoft to demonstrate usage of our authentication libraries with the Microsoft identity platform. Common authentication and authorization scenarios are implemented in several [application types](v2-app-types.md), development languages, and frameworks.
 
 - Sign in users to web applications and provide authorized access to protected web APIs.
 - Protect a web API by requiring an access token to perform API operations.
 
-Each code sample includes a _README.md_ file that describes how to build the project (if applicable) and run the sample application. Comments in the code help you understand critical sections that implementing authentication and authorization using authentication libraries and the identity platform.
+Each code sample includes a _README.md_ file describing how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
 
 ## Single-page applications
 

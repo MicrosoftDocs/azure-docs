@@ -20,7 +20,7 @@ The section below gives an overview of the call flows in Azure Communication Ser
 
 When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media.
 
-Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). The ACS uses TLS 1.2. For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
+Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). Azure Communication Services uses TLS 1.2. For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
 
 Let's review the signaling and media protocols in various scenarios.
 
@@ -42,7 +42,7 @@ For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT o
 
 ### Case 3: VoIP where neither a direct nor NAT connection is possible
 
-If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. Use of Microsoft's TURN service is charged separately.
+If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. 
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram showing a VOIP call which utilizes a TURN connection.":::
 
