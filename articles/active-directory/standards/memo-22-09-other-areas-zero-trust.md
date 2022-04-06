@@ -87,12 +87,10 @@ The following articles are a part of this documentation set:
 
 [Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
 
-[Multi-factor authentication](memo-22-09-multi-factor-authentication.md)
+[Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 
 [Authorization](memo-22-09-authorization.md)
 
-[Other areas of Zero Trust](memo-22-09-other-areas-zero-trust.md)
-
-Additional Zero Trust Documentation
+For more information about Zero Trust, see:
 
 [Securing identity with Zero Trust](/security/zero-trust/deploy/identity)

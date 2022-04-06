@@ -82,8 +82,6 @@ The following articles are part of this documentation set:
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 
-[Authorization](memo-22-09-authorization.md)
-
 [Other areas of Zero Trust](memo-22-09-other-areas-zero-trust.md)
 
 For more information about Zero Trust, see:

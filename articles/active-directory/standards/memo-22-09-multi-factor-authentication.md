@@ -1,6 +1,6 @@
 ---
-title: Memo 22-09 multi-factor authentication requirements overview
-description: Guidance on meeting multi-factor authentication requirements outlined in US government OMB memorandum 22-09
+title: Memo 22-09 multifactor authentication requirements overview
+description: Guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Multi-factor authentication
+# Multifactor authentication
 
 This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document we refer to it as "The Memo."
 
-The Memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multi-factor authentication (MFA) protect those personnel from sophisticated online attacks. *Phishing* is the attempt to obtain and compromise credentials, for example through sending a spoofed email that leads to an inauthentic site.
+The Memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. *Phishing* is the attempt to obtain and compromise credentials, for example through sending a spoofed email that leads to an inauthentic site.
 
 Adoption of MFA is critical to preventing unauthorized access to accounts and data. The Memo requires MFA usage with phishing resistant methods, defined as "authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system." The first step is to establish what MFA methods qualify as phishing resistant.
 
@@ -39,7 +39,7 @@ Adoption of MFA is critical to preventing unauthorized access to accounts and da
 
 ### MFA requirements by method
 
-Your current device capabilities, user personas, and other requirements may dictate specific multi-factor methods. For example, if you are adopting FIDO2 security keys that have only USB-C support, they can only be leveraged from devices with USB-C ports. 
+Your current device capabilities, user personas, and other requirements may dictate specific multifactor methods. For example, if you are adopting FIDO2 security keys that have only USB-C support, they can only be leveraged from devices with USB-C ports. 
 
 Consider an approach to evaluating phishing resistant MFA methods that encompasses the following aspects:
 
@@ -119,12 +119,10 @@ The following articles are a part of this documentation set:
 
 [Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
 
-[Multi-factor authentication](memo-22-09-multi-factor-authentication.md)
-
 [Authorization](memo-22-09-authorization.md)
 
 [Other areas of Zero Trust](memo-22-09-other-areas-zero-trust.md)
 
-Additional Zero Trust Documentation
+For more information about Zero Trust, see:
 
 [Securing identity with Zero Trust](/security/zero-trust/deploy/identity)
