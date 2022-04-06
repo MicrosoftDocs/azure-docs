@@ -82,9 +82,9 @@ For the documents key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `location `    | Document name on the blob store. | doc1.txt |
-|`language`   | The language of the document.   | en-us |
-|`dataset`   |  Optional field to specify the dataset which this document will belong to. | Train or Test |
+| `location`    | Document name on the blob store. | `doc2.txt` |
+|`language`   | The language of the document.   | `en-us` |
+|`dataset`   |  Optional field to specify the dataset which this document will belong to. | `Train` or `Test` |
 
 This request will return an error if:
 
