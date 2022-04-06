@@ -98,6 +98,7 @@ Follow these steps to synthesize speech in a macOS application.
             {
                 let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
                 print("cancelled, error code: \(cancellationDetails.errorCode) detail: \(cancellationDetails.errorDetails!) ")
+                print("did you set the speech resource key and region values?");
                 return
             }
         }
