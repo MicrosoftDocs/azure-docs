@@ -24,7 +24,7 @@ After you run the script, take note of the service principal's **ID** and **pass
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
-:::code language="azurecli" source="~/azure_cli_scripts/container-registry/create-registry/create-registry-service-principal-assign-role.sh" id="service-principal-create.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/container-registry/create-registry/create-registry-service-principal-assign-role.sh" id="Create":::
 
 ### Use an existing service principal
 
@@ -35,7 +35,7 @@ The following script uses the [az role assignment create][az-role-assignment-cre
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh -->
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
-:::code language="azurecli" source="~/azure_cli_scripts/container-registry/create-registry/create-registry-service-principal-assign-role.sh" id="service-principal-assign-role.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/container-registry/create-registry/create-registry-service-principal-assign-role.sh" id="Assign":::
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
