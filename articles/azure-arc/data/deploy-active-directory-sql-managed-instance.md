@@ -27,7 +27,7 @@ Before you proceed, verify that you have:
 
 ## Azure Arc-enabled SQL Managed Instance specification for Active Directory Authentication
 
-To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory Authentication, the deployment specification needs to reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in managed instance specification will automatically set up the needed environment in the managed instance container for the instance to perform Active Directory authentication. 
+To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory Authentication, the deployment specification needs to reference the Active Directory Connector instance it wants to use. Referencing the Active Directory Connector in managed instance specification will automatically set up the managed instance to perform Active Directory authentication. 
 
 To support Active Directory authentication on managed instance, the deployment specification uses the following fields:
 

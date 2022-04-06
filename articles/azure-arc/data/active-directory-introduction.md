@@ -39,7 +39,9 @@ In order to enable Active Directory authentication for SQL Managed Instance, the
 To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`, it provides Azure Arc-enabled managed instances running on the same data controller the ability to perform Active Directory authentication.
 
 
-## What is the difference between the modes?
+## Compare AD integration modes
+
+What is the difference between the two AD integration modes?
 
 To enable Active Directory Authentication for Arc-enabled SQL Managed Instances, you need an Active Directory (AD) connector where you determine the mode of the AD deployment. The two modes are:
 
@@ -60,7 +62,7 @@ When you deploy the bring your own keytab AD connector, you need to create the A
 
 For more information, see [deploy a bring your own keytab Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 
-### Automatic mode
+### Active Directory automatic integration mode
 
 In automatic mode, you need an automatic Active Directory (AD) connector. You will bring an Organizational Unit (OU) and an AD domain service account has sufficient permissions in the Active Directory. 
 
@@ -70,7 +72,7 @@ Furthermore, the system:
 - Sets SPNs automatically on that AD account.
 - Creates and delivers a keytab file to the managed instance.
 
-The mode of the AD connector is determined by the value of `spec.activeDirectory.serviceAccountProvisioning`. Set to either `bring your own keytab` or `automatic`. Once this parameter is set to automatic, the following parameters become mandatory: 
+The mode of the AD connector is determined by the value of `spec.activeDirectory.serviceAccountProvisioning`. Set to either `manual` for bring your own keytab, or `automatic`. Once this parameter is set to automatic, the following parameters become mandatory: 
 - `spec.activeDirectory.ouDistinguishedName`
 - `spec.activeDirectory.domainServiceAccountSecret`
 
