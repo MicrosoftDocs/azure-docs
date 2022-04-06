@@ -259,7 +259,9 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send, the following example shows standard configuration options for enabling correlation:
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send, the following examples show standard configuration options for enabling correlation.
+
+### [snippet](#tab/snippet)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -274,7 +276,22 @@ cfg: { // Application Insights Configuration
     /* ...Other Configuration Options... */
 }});
 </script>
+``` 
 
+### [npm](#tab/npm)
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+const appInsights = new ApplicationInsights({ config: { // Application Insights Configuration
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  disableFetchTracking: false,
+  enableCorsCorrelation: true,
+  enableRequestHeaderTracking: true,
+  enableResponseHeaderTracking: true,
+  correlationHeaderExcludedDomains: ['*.queue.core.windows.net']
+  /* ...Other Configuration Options... */
+} });
 ``` 
 
 > [!NOTE]
@@ -309,7 +326,8 @@ For Single Page Applications, please reference plugin documentation for plugin s
 
 ### Advanced Correlation
 
-Support for correlation requests requires the returned HTML page contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the Server-Side Operation ID.
+During initialization of the SDK the Operation ID is populated as a random value.
+To enable end-to-end correlation the returned HTML page needs to contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the server-side Operation ID. 
 
 Sample using Razor and a dynamic JS snippet:
 
@@ -327,7 +345,10 @@ Sample using Razor and a dynamic JS snippet:
 </script>
 ```
 
-If not using a snippet a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+
+> [!WARNING] 
+> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
 
 ## Extensions
 
