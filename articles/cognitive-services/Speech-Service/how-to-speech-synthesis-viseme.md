@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> At this time, viseme events are available only for English (US) [neural voices](language-support.md#text-to-speech).
+> At this time, viseme events are available only for [neural voices](language-support.md#text-to-speech).
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
 
@@ -178,7 +178,7 @@ For 3D characters, think of the characters as string puppets. The puppet master 
 
 ## Map phonemes to visemes
 
-Visemes vary by language. Each language has a set of visemes that correspond to its specific phonemes. [Visemes](speech-ssml-phonetic-sets.md)  shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs.
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)  documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
 
 
 ## Next steps
