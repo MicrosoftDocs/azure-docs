@@ -513,7 +513,7 @@ Make sure that your storage is placed in the same region as serverless SQL pool.
 
 The field HRESULT contains the result code, below are the most common error codes and potential solutions:
 
-#### [0x80070002](#tab/x80070002)
+### [0x80070002](#tab/x80070002)
 
 This error code means the source file is not in storage.
 
@@ -527,7 +527,7 @@ There are reasons why this can happen:
   - As a temporary mitigation, run the command ```DBCC FREEPROCCACHE```. If the problem persists create a support ticket.
 
 
-#### [0x80070005](#tab/x80070005)
+### [0x80070005](#tab/x80070005)
 
 This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure AD access token expires.
 
@@ -550,7 +550,7 @@ Consider the following mitigations:
   - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
 
 
-#### [0x80070008](#tab/x80070008)
+### [0x80070008](#tab/x80070008)
 
 This error message can occur when the serverless SQL pool is experiencing resource contraints, or if there was a transient platform issue.
 
@@ -566,7 +566,7 @@ This error message can occur when the serverless SQL pool is experiencing resour
 If the issue is non-transient or you confirmed the problem is not related to high concurrency or query complexity, create a support ticket.
 
 
-#### [0x8007000C](#tab/x8007000C)
+### [0x8007000C](#tab/x8007000C)
 
 This error code occurrs when a query is executing and the source files are modified at the same time.
 The default behavior is to terminate the query execution with an error message.
@@ -601,7 +601,7 @@ When reading Parquet files, the query will not recover automatically. It needs t
 This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this.
 
 
-#### [0x800700A1](#tab/x800700A1)
+### [0x800700A1](#tab/x800700A1)
 
 Confirm the storage account accessed is using the "Archive" access tier.
 
@@ -610,7 +610,7 @@ The `archive access` tier is an offline tier. While a blob is in the `archive ac
 To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/access-tiers-overview#archive-access-tier)
 
 
-#### [0x80070057](#tab/x80070057)
+### [0x80070057](#tab/x80070057)
 
 This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the AAD access token expires.
 
@@ -633,7 +633,7 @@ Consider the following mitigations to resolve the issue:
   - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
    
 
-#### [0x80072EE7](#tab/x80072EE7)
+### [0x80072EE7](#tab/x80072EE7)
 
 This error code can occur when there is a transient issue in the serverless SQL pool.
 It happens infrequently and is temporary by nature. Retry the query.
