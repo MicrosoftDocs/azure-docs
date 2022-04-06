@@ -234,7 +234,7 @@ A pipeline endpoint is a collection of published pipelines. This logical organiz
 
 ### Azure Machine Learning CLI 
 
-The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
+The [Azure Machine Learning CLI](v1/reference-azure-machine-learning-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
 
 ### ML Pipelines
 
@@ -276,7 +276,7 @@ The studio is also where you access the interactive tools that are part of Azure
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 + Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
-+ Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) for automation.
++ Use [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) for automation.
 
 ## Next steps
 

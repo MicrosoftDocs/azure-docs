@@ -156,7 +156,7 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
-If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+If you have the [Azure CLI and the machine learning extension](v1/reference-azure-machine-learning-cli.md), you can use the following command to get a token:
 
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 

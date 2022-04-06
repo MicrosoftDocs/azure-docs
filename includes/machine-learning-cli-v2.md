@@ -7,4 +7,4 @@ ms.author: sgilley
 ---
 
 
-**APPLIES TO: [Azure CLI ml extension](../articles/machine-learning/how-to-configure-cli.md)** :::image type="icon" source="media/applies-to/no.png" border="false":::v1 :::image type="icon" source="media/applies-to/yes.png" border="false":::[**v2 (preview)**](../articles/machine-learning/how-to-configure-cli.md)
+**APPLIES TO: [Azure CLI ml extension](../articles/machine-learning/how-to-configure-cli.md)** :::image type="icon" source="media/applies-to/no.png" border="false":::v1 :::image type="icon" source="media/applies-to/yes.png" border="false":::[**v2 (current)**](../articles/machine-learning/how-to-configure-cli.md)

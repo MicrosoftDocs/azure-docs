@@ -211,7 +211,7 @@ A minimal inference configuration can be written as:
 Save this file with the name `dummyinferenceconfig.json`.
 
 
-[See this article](./reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
+[See this article](./v1/reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
 # [Python](#tab/python)
 
@@ -238,7 +238,7 @@ The options available for a deployment configuration differ depending on the com
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
-For more information, see the [deployment schema](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+For more information, see the [deployment schema](./v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
 
@@ -401,7 +401,7 @@ The options available for a deployment configuration differ depending on the com
 
 Save this file as `re-deploymentconfig.json`.
 
-For more information, see [this reference](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+For more information, see [this reference](./v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
 

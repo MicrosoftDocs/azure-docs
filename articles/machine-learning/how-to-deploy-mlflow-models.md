@@ -68,7 +68,7 @@ client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
 
 If you prefer not to use the defaults, you can set up your deployment configuration with a deployment config json file that uses parameters from the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method as reference. 
 
-For your deployment config json file, each of the deployment config parameters need to be defined in the form of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
+For your deployment config json file, each of the deployment config parameters need to be defined in the form of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](v1/reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
 
 ```json
 {"computeType": "aci",

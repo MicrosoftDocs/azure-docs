@@ -31,7 +31,7 @@ In this article, you'll learn how to use managed identities to:
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md)
+- The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md)
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
 - You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
