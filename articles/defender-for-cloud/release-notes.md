@@ -39,7 +39,7 @@ In addition, Defender for Cloud also begins gradual support for the [Defender fo
 
 ### Deprecated the Azure Cache for Redis recommendation
 
-The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. The guidance has changed as to how to secure Azure Cache for Redis. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
 
 Learn more about [Azure Private Link](../private-link/private-link-overview.md).
 
