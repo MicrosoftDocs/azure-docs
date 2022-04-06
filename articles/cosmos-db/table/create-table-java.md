@@ -22,15 +22,15 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Python](how-to-use-python.md)
 > 
 
-This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a java application.  The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
+This quickstart shows how to access the Azure Cosmos DB [Tables API](introduction.md) from a Java application. The Cosmos DB Tables API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
-Java applications can access the Cosmos DB Table API using the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) jar package.
+Java applications can access the Cosmos DB Tables API using the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) client library.
 
 ## Prerequisites
 
 The sample application is written in [Spring Boot 2.6.4](https://spring.io/projects/spring-boot), You can use either [Visual Studio Code](https://code.visualstudio.com/), or [IntelliJ IDEA](https://www.jetbrains.com/idea/) as an IDE.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note-dotnet.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note-java.md)]
 
 ## Sample application
 
@@ -40,17 +40,17 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-java
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the Table API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Table API.
+The sample application uses weather data as an example to demonstrate the capabilities of the Tables API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Tables API.
 
 :::image type="content" source="./media/create-table-java/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in a Cosmos DB table using the Table API." lightbox="./media/create-table-java/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create a Cosmos DB Tables API account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create a Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure Portal, Azure CLI, or Azure PowerShell.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
-Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Cosmos DB account.
+Log in to the [Azure Portal](https://portal.azure.com/) and follow these steps to create an Cosmos DB account.
 
 | Instructions                                                                                          |                                                                                                                                                                                                                                                                                                                              Screenshot |
 |:------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -119,9 +119,9 @@ New-AzCosmosDBAccount `
 
 Next, you need to create a table within your Cosmos DB account for your application to use.  Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Cosmos DB account.
+In the [Azure Portal](https://portal.azure.com/), complete the following steps to create a table inside your Cosmos DB account.
 
 | Instructions                                                                                      | Screenshot |
 |:--------------------------------------------------------------------------------------------------|-----------:|
@@ -161,9 +161,9 @@ New-AzCosmosDBTable `
 
 ## 3 - Get Cosmos DB connection string
 
-To access your table(s) in Cosmos DB, your app will need the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
+To access your table(s) in Cosmos DB, your app will need the table connection string for the CosmosDB Storage account. The connection string can be retrieved using the Azure Portal, Azure CLI or Azure PowerShell.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
 | Instructions                                                                                                              | Screenshot |
 |:--------------------------------------------------------------------------------------------------------------------------|-----------:|
@@ -217,9 +217,9 @@ The connection string for your Cosmos DB account is considered an app secret and
 </profiles>
 ```
 
-## 4 - Include the Azure.Data.Tables package
+## 4 - Include the azure-data-tables package
 
-To access the Cosmos DB Table API from a java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
+To access the Cosmos DB Tables API from a java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
 
 ```xml
 <dependency>
@@ -233,7 +233,7 @@ To access the Cosmos DB Table API from a java application, include the [azure-da
 
 ## 5 - Configure the Table client in TableServiceConfig.java
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/java/api/com.azure.data.tables.tableclient) object is the object used to communicate with the Cosmos DB Table API.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The [TableClient](/java/api/com.azure.data.tables.tableclient) object is the object used to communicate with the Cosmos DB Tables API.
 
 An application will typically create a single [TableClient](/java/api/com.azure.data.tables.tableclient) object per table to be used throughout the application.  It's recommended to indicate that a method produces a [TableClient](/java/api/com.azure.data.tables.tableclient) object bean to be managed by the Spring container and  as a singleton to accomplish this.
 
@@ -550,7 +550,7 @@ public List<WeatherDataModel> retrieveEntitiesByFilter(FilterResultsInputModel m
 
 ### Insert data using a TableEntity object
 
-The simplest way to add data to a table is by using a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object.  In this example, data is mapped from an input model object to a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object.  The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey`) properties respectively which together form a unique key for the row in the table.  Then the additional properties on the input model object are mapped to dictionary properties on the TableEntity object.  Finally, the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) method on the [TableClient](/java/api/com.azure.data.tables.models.tableentity) object is used to insert data into the table.
+The simplest way to add data to a table is by using a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object.  In this example, data is mapped from an input model object to a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object.  The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey`) properties respectively which together form a unique key for the row in the table.  Then the additional properties on the input model object are mapped to dictionary properties on the [TableClient](/java/api/com.azure.data.tables.models.tableentity) object.  Finally, the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) method on the [TableClient](/java/api/com.azure.data.tables.models.tableentity) object is used to insert data into the table.
 
 Modify the `insertEntity` class in the example application to contain the following code.
 
@@ -562,7 +562,7 @@ public void insertEntity(WeatherInputModel model) {
 
 ### Upsert data using a TableEntity object
 
-If you try to insert a row into a table with a partition key/row key combination that already exists in that table, you will receive an error.  For this reason, it is often preferable to use the [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) instead of the AddEntity method when adding rows to a table.  If the given partition key/row key combination already exists in the table, the [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) method will update the existing row.  Otherwise, the row will be added to the table.
+If you try to insert a row into a table with a partition key/row key combination that already exists in that table, you will receive an error.  For this reason, it is often preferable to use the [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) instead of the `insertEntity` method when adding rows to a table.  If the given partition key/row key combination already exists in the table, the [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) method will update the existing row.  Otherwise, the row will be added to the table.
 
 ```java
 public void upsertEntity(WeatherInputModel model) {
@@ -572,7 +572,7 @@ public void upsertEntity(WeatherInputModel model) {
 
 ### Insert or upsert data with variable properties
 
-One of the advantages of using the Cosmos DB Table API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB.  There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
+One of the advantages of using the Cosmos DB Tables API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB.  There is no need to run DDL statements like `ALTER TABLE` to add columns as in a traditional database.
 
 This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
 
@@ -652,7 +652,7 @@ public void upsertExpandableEntity(ExpandableWeatherObject model) {
 
 ### Update an entity
 
-Entities can be updated by calling the [updateEntity](/java/api/com.azure.data.tables.tableclient.updateentity) method on the [TableClient](/java/api/com.azure.data.tables.tableclient) object.  Because an entity (row) stored using the Table API could contain any arbitrary set of properties, it is often useful to create an update object based around a Dictionary object similar to the `ExpandableWeatherObject` discussed earlier.  In this case, the only difference is the addition of an `etag` property which is used for concurrency control during updates.
+Entities can be updated by calling the [updateEntity](/java/api/com.azure.data.tables.tableclient.updateentity) method on the [TableClient](/java/api/com.azure.data.tables.tableclient) object.  Because an entity (row) stored using the Tables API could contain any arbitrary set of properties, it is often useful to create an update object based around a dictionary object similar to the `ExpandableWeatherObject` discussed earlier. In this case, the only difference is the addition of an `etag` property which is used for concurrency control during updates.
 
 ```java
 public class UpdateWeatherObject {
@@ -699,7 +699,7 @@ public class UpdateWeatherObject {
 }
 ```
 
-In the sample app, this object is passed to the `updateEntity` method in the `TableServiceImpl` class.  This method first loads the existing entity from the Table API using the [getEntity](/java/api/com.azure.data.tables.tableclient.getentity) method on the [TableClient](/java/api/com.azure.data.tables.tableclient).  It then updates that entity object and uses the `updateEntity` method save the updates to the database.  Note how the [updateEntity](/java/api/com.azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `etag` to the `updateEntity` method.
+In the sample app, this object is passed to the `updateEntity` method in the `TableServiceImpl` class.  This method first loads the existing entity from the Tables API using the [getEntity](/java/api/com.azure.data.tables.tableclient.getentity) method on the [TableClient](/java/api/com.azure.data.tables.tableclient).  It then updates that entity object and uses the `updateEntity` method save the updates to the database.  Note how the [updateEntity](/java/api/com.azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to ensure the object has not changed since it was initially loaded. If you want to update the entity regardless, you may pass a value of `etag` to the `updateEntity` method.
 
 ```java
 public void updateEntity(UpdateWeatherObject model) {
@@ -723,7 +723,7 @@ public void deleteEntity(WeatherInputModel model) {
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the buttons at the top of application to add data to the table.
+Run the sample application to interact with the Cosmos DB Tables API.  The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
 
 :::image type="content" source="./media/create-table-java/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table A P I." lightbox="./media/create-table-java/table-api-app-data-insert-buttons.png":::
 
@@ -731,15 +731,15 @@ Selecting the **Insert using Table Entity** button opens a dialog allowing you t
 
 :::image type="content" source="./media/create-table-java/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/create-table-java/table-api-app-insert-table-entity.png":::
 
-Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
+Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Tables API automatically adds properties (columns) to the table when needed. Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
 :::image type="content" source="./media/create-table-java/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/create-table-java/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Cosmos DB Table.
+Use the **Insert Sample Data** button to load some sample data into your Cosmos DB table.
 
 :::image type="content" source="./media/create-table-java/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/create-table-java/table-api-app-sample-data-insert.png":::
 
-Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Table API.
+Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Tables API.
 
 :::image type="content" source="./media/create-table-java/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/create-table-java/table-api-app-filter-data.png":::
 
@@ -747,9 +747,9 @@ Select the **Filter Results** item in the top menu to be taken to the Filter Res
 
 When you are finished with the sample application, you should remove all Azure resources related to this article from your Azure account.  You can do this by deleting the resource group.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
-A resource group can be deleted using the [Azure portal](https://portal.azure.com/) by doing the following.
+A resource group can be deleted using the [Azure Portal](https://portal.azure.com/) by doing the following.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -777,7 +777,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the Tables API.
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table-import.md)
+> [Import table data to the Tables API](table-import.md)
