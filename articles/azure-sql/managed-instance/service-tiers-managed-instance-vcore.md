@@ -64,7 +64,7 @@ SQL Managed Instance compute provides a specific amount of compute resources tha
 
 Hardware configuration options in the vCore model include standard-series (Gen5), premium-series, and memory optimized premium-series. Hardware configuration generally defines the compute and memory limits and other characteristics that impact workload performance.
 
-For more information on the hardware configuration specifics and limitations, see [Hardware configuration characteristics](resource-limits.md#hardware-generation-characteristics).
+For more information on the hardware configuration specifics and limitations, see [Hardware configuration characteristics](resource-limits.md#hardware-configuration-characteristics).
 
 In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for instances using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for instances using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. The Intel&reg; 8370C (Ice Lake) CPUs used by premium-series and memory optimized premium-series hardware generations appear as Gen8. Resource limits for all standard-series (Gen5) instances are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
@@ -122,7 +122,7 @@ Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-ha
 
 Standard-series (Gen5) hardware is available in all public regions worldwide.
   
-Premium-series and memory optimized premium-series hardware is in preview, and has limited regional availability. For more details, see [Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#hardware-generation-characteristics).
+Premium-series and memory optimized premium-series hardware is in preview, and has limited regional availability. For more details, see [Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#hardware-configuration-characteristics).
 
 ## Next steps
 

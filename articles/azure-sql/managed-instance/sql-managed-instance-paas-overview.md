@@ -10,7 +10,7 @@ ms.topic: overview
 author: niko-neugebauer
 ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
-ms.date: 01/14/2021
+ms.date: 04/06/2022
 ---
 
 # What is Azure SQL Managed Instance?
@@ -78,7 +78,7 @@ In the vCore model, you can choose between generations of hardware.
 - **Premium Series** logical CPUs are based on Intel&reg; 8370C (Ice Lake) 2.8 GHz processors, with **7 GB of RAM per CPU vCore**, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 - **Premium Series Memory-Optimized** logical CPUs are based on Intel&reg; 8370C (Ice Lake) 2.8 GHz processors, with **13.6 GB of RAM per CPU vCore**, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 64 cores.
 
-Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-generation-characteristics).
+Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-configuration-characteristics).
 
 ## Service tiers
 
