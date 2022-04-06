@@ -31,17 +31,17 @@ There are many new features that are only supported in the Azure WAF engine. The
   - Increased request body size limit to 2MB
   - Increased file upload limit to 4GB
 - [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
-- Any operator in custom rules
+- *Any* operator in custom rules
 
 New WAF features will only be released on the Azure WAF engine.
 
-## Request logging
+## Request logging for custom rules
 
-There is a difference between how the ModSecurity engine and the Azure WAF engine log requests.
+There is a difference between how the ModSecurity engine and the Azure WAF engine log requests when a custom rule defines the action type as *Log*.
 
-The ModSecurity engine uses the *Blocked* action type when it blocks a request in prevention mode. When running in detection mode, the ModSecurity engine logs the *Detected* action type to indicate the request has an attack detected.
+When your WAF runs in prevention mode, the ModSecurity engine logs the request's action type as *Blocked* even though the request is actually allowed through by the custom rule. In detection mode, the ModSecurity engine logs the same request's action type as *Detected*.
 
-The Azure WAF engine uses the *Blocked* action type when it blocks a request in prevention mode, and logs the action type *Log* when an attack is detected in detection mode.
+In contrast, the Azure WAF engine logs the request action type as *Log*, whether the WAF is running in prevention or detection mode.
 
 ## Performance
 
