@@ -96,7 +96,7 @@ Open your SSH client of choice.
 
 3.	Success! You should now be connected to your VM. If you are unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
-### [Password Authentication](#tab/pass)  
+### [Password authentication](#tab/pass)  
  
 > [!WARNING]
 > This type of authentication method is not as secure and is not recommended.
@@ -142,7 +142,7 @@ Open your SSH client of choice.
    ```
 4.	Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
-### [Password Authentication](#tab/pass2) 
+### [Password authentication](#tab/pass2) 
  
 > [!WARNING]
 > This type of authentication method is not as secure and is not our recommended way to connect.
