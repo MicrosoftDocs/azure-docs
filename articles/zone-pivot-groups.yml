@@ -1695,6 +1695,21 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cshoe
+- id: container-apps-identity-providers
+  title: Identity provider
+  prompt: Select an identity provider
+  pivots:
+  - id: aad
+    title: Azure Active Directory
+  - id: facebook
+    title: Facebook
+  - id: google
+    title: Google
+  - id: twitter
+    title: Twitter
+  - id: openid
+    title: Custom OpenID Connect provider
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
