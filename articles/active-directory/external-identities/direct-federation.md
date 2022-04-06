@@ -130,7 +130,7 @@ Required attributes for the SAML 2.0 response from the IdP:
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up federation with.<br></br> In the SAML request sent by Azure AD for external federations, the Issuer URL is a tenanted endpoint (for example, `https://login.microsoftonline.com/<tenant ID>/`). For any new federations, we recommend that all our partners set the audience of the SAML or WS-Fed based IdP to a tenanted endpoint. Any existing federations configured with the global endpoint (for example, `urn:federation:MicrosoftOnline`) will continue to work, but new federations will stop working if your external IdP is expecting a global issuer URL in the SAML request sent by Azure AD.|
-|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Issuer     |The issuer URI of the partner's IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Required claims for the SAML 2.0 token issued by the IdP:
@@ -160,7 +160,7 @@ Required attributes in the WS-Fed message from the IdP:
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up federation with.<br></br> In the SAML request sent by Azure AD for external federations, the Issuer URL is a tenanted endpoint (for example, `https://login.microsoftonline.com/<tenant ID>/`). For any new federations, we recommend that all our partners set the audience of the SAML or WS-Fed based IdP to a tenanted endpoint. Any existing federations configured with the global endpoint (for example, `urn:federation:MicrosoftOnline`) will continue to work, but new federations will stop working if your external IdP is expecting a global issuer URL in the SAML request sent by Azure AD.          |
-|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Issuer     |The issuer URI of the partner's IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Required claims for the WS-Fed token issued by the IdP:
 
@@ -173,7 +173,7 @@ Required claims for the WS-Fed token issued by the IdP:
 
 Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
-- Issuer URI of partner IdP
+- Issuer URI of the partner's IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
 - Certificate
 
@@ -187,13 +187,13 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 
 4. On the **New SAML/WS-Fed IdP** page, enter the following:
    - **Display name** - Enter a name to help you identify the partner's IdP.
-   - **Identity provider protocol** - Select **SAML** or **WS-FED**.
+   - **Identity provider protocol** - Select **SAML** or **WS-Fed**.
    - **Domain name of federating IdP** - Enter your partner’s IdP target domain name for federation. Currently, one domain name is supported, but we're working on allowing more.
 
     ![Screenshot showing the new SAML or WS-Fed IdP page](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
 5. Select a method for populating metadata. You can **Input metadata manually**, or if you have a file that contains the metadata, you can automatically populate the fields  by selecting **Parse metadata file** and browsing for the file.
-   - **Issuer URI** - The partner IdP's domain name.
+   - **Issuer URI** - The issuer URI of the partner's IdP.
    - **Passive authentication endpoint** - The partner IdP's passive requestor endpoint.
    - **Certificate** - The signing certificate ID.
    - **Metadata URL** - The location of the IdP's metadata for automatic renewal of the signing certificate.
@@ -214,7 +214,7 @@ Now test your federation setup by inviting a new B2B guest user. For details, se
  
 ## How do I update the certificate or configuration details?
 
-On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured and their certificate expiration dates. From this list, you can renew certificates and modify other identity provider configuration values.
+On the **All identity providers** page, you can view the list of SAML/WS-Fed identity providers you've configured and their certificate expiration dates. From this list, you can renew certificates and modify other configuration details.
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/saml-ws-fed-identity-provider-list.png)
 
@@ -226,8 +226,7 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
    - In the **Configuration** column for the identity provider, select the **Edit** link.
    - On the configuration page, modify any of the following details:
      - **Display name** - Display name for the partner's organization.
-     - **Identity provider protocol** - Select **SAML** or **WS-FED**.
-     - **Issuer URI** - The partner IdP's domain name.
+     - **Identity provider protocol** - Select **SAML** or **WS-Fed**.
      - **Passive authentication endpoint** - The partner IdP's passive requestor endpoint.
      - **Certificate** - The ID of the signing certificate. To renew it, enter a new certificate ID.
      - **Metadata URL** - The URL containing the partner's metadata, used for automatic renewal of the signing certificate.
