@@ -69,9 +69,9 @@ You can alert on metrics and logs, as described in [monitoring data sources](./.
 The Alerts page provides a summary of the alerts created in the last 24 hours.
 ### Alert Recommendations (preview)
 > [!NOTE]
-> The alert recommendations feature is currently in preview and is only enabled for VMs.
+> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 
-If you don't have any alerts defined for the selected resource, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
+If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
 
 :::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 ### Alerts summary pane
