@@ -6,6 +6,7 @@ ms.date: 04/06/2022
 ms.topic: conceptual
 description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes and Azure GitOps"
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
+ms.custom: references_regions
 ---
 
 # Frequently Asked Questions - Azure Arc-enabled Kubernetes and GitOps
