@@ -56,14 +56,12 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Paid in advance through a subscription
   - Same cost per user each month regardless of user behavior
   - Includes entitlements to some other Microsoft products and services
-  - May include Windows Server host licensing (depends on specific license)
 
 - Per-user access pricing:
   - Grants Azure Virtual Desktop access rights for external users only
   - Pay-as-you-go through an Azure meter
   - Cost per user each month depends on user behavior
   - Only includes access rights to Azure Virtual Desktop
-  - Only supports Windows Client host licensing
 
 > [!IMPORTANT]
 > Per-user access pricing only supports the use of Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Windows Server session hosts are not currently supported with per-user access pricing.
