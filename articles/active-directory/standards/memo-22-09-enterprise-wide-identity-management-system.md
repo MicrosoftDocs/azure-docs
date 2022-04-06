@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Enterprise-wide identity management system
+# Enterprise-wide identity management systems
 
-Memorandum M-22-09 requires agencies to develop a plan to consolidate their identity platforms to "as few agency managed identity systems as possible" within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating your identity platform:
+Memorandum M-22-09 requires agencies to develop a plan to consolidate their identity platforms to as few agency-managed identity systems as possible within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating your identity platform:
 
 * Centralized management of identity lifecycle, policy enforcement, and auditable controls
 
@@ -33,7 +33,7 @@ Memorandum M-22-09 requires agencies to develop a plan to consolidate their iden
 
 ## Azure AD for implementation and management
 
-Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from M-22-09. It also provides broad identity controls that support Zero Trust initiatives. Additionally, if your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
+Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from M-22-09. It also provides broad identity controls that support Zero Trust initiatives. If your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
 
 ## Single sign-on requirements
 
@@ -48,18 +48,16 @@ The memo requires that users sign in once and then directly access applications.
 
 ## Connecting applications
 
-To consolidate your enterprise to using Azure AD as the enterprise-wide identity system, you must first understand the relevant assets that will be in scope. 
+To consolidate your enterprise to using Azure AD as the enterprise-wide identity system, you must first understand the assets that will be in scope. 
 
-### Document applications and services
+### Classify applications and services
 
 You must inventory the applications and services that users will access. An identity management system can protect only what it knows. 
 
 Classify assets in terms of:
 
 - The sensitivity of data that they contain.
-- Laws and regulations that establish specific requirements for confidentiality, integrity, or availability of data/information in each major system and that apply to the system's particular information protection requirements.
-
-### Classify applications and services
+- Laws and regulations that establish specific requirements for confidentiality, integrity, or availability of data/information in each major system and that apply to the system's information protection requirements.
 
 As a part of your application inventory, you need to determine if your current applications use cloud-ready or [legacy authentication protocols](../fundamentals/auth-sync-overview.md):
 
@@ -74,10 +72,10 @@ Microsoft offers the following tools to help with your discovery of applications
 | Tool| Usage |
 | - | - |
 | [Usage Analytics for Active Directory Federation Services (AD FS)](../hybrid/how-to-connect-health-adfs.md)| Analyzes the authentication traffic of your federated servers. |
-| [Microsoft Defender for Cloud Apps](%20/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously known as Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
+| [Microsoft Defender for Cloud Apps](%20/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously called Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
 | [Application Discovery worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)| Helps you document the current states of your applications. |
 
-We recognize that your apps might be in systems other than Microsoft's, and that our tools might not discover those apps. Ensure that you do a complete inventory. All providers should have mechanisms for discovering applications that use their services. 
+We recognize that your apps might be in systems other than Microsoft's, and that Microsoft tools might not discover those apps. Ensure that you do a complete inventory. All providers should have mechanisms for discovering applications that use their services. 
 
 #### Prioritizing applications for connection
 
@@ -111,7 +109,7 @@ During your inventory and scope phase, consider identifying your devices and inf
 
 You can use [Azure Automation accounts](../../automation/change-tracking/manage-inventory-vms.md) to identify devices through inventory collection connected to Azure Monitor. 
 
-[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview?view=o365-worldwide) also features device inventory capabilities and discovery. This feature looks at devices that have Defender for Endpoint configured as well as network discovery of devices not configured with Defender for Endpoint. Device inventory can also come from on-premises systems such as [System Center Configuration Manager](/mem/configmgr/core/clients/manage/inventory/introduction-to-hardware-inventory) to do device inventory or other systems used to manage devices and clients. 
+[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview?view=o365-worldwide) also features device inventory capabilities and discovery. This feature discovers which devices have Defender for Endpoint configured and which devices don't. Device inventory can also come from on-premises systems such as [System Center Configuration Manager](/mem/configmgr/core/clients/manage/inventory/introduction-to-hardware-inventory) or other systems that manage devices and clients. 
 
 ### Integration of devices with Azure AD
 
