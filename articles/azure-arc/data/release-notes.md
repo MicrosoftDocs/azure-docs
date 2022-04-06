@@ -52,7 +52,7 @@ Change Data Capture (CDC) is now enabled in Azure Arc-enabled SQL Managed Instan
 
 Bug fixes for replica scaling in Arc SQL MI Business Critical and database restore when there is insufficient disk space.
 
-Distributed availability groups have been renamed to failover groups. The `az sql mi-arc dag` command group has been moved to `az sql instance-failover-group-arc`. Before upgrade, delete all resources of the 'dag' resource type.
+Distributed availability groups have been renamed to failover groups. The `az sql mi-arc dag` command group has been moved to `az sql instance-failover-group-arc`. Before upgrade, delete all resources of the `dag` resource type.
 
 ### User experience improvements
 
@@ -131,7 +131,7 @@ For complete release version information, see [Version log](version-log.md).
 ### Data controller
 
 - Initiate an upgrade of the data controller from the portal in the direct connected mode
-- Removed block on data controller upgrade if there are Azure Arc-enabled SQL Managed Instance business critical instances that exist
+- Removed block on data controller upgrade if there are business critical instances that exist
 - Better handling of delete user experiences in Azure portal
 
 ### SQL Managed Instance
@@ -339,7 +339,7 @@ Use the following tools:
 
 - Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
 	
-- Custom metrics in Azure portal is in preview.
+- Custom metrics in Azure portal - preview.
 
 - Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
@@ -377,7 +377,7 @@ Use the following tools:
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
 - At this time, PosgreSQL Hyperscale can't be used on Kubernetes version 1.22 and higher. 
-- Backup and restore operations no longer work in the July 30 release. This is a temporary limitation. Use the June 2021 release for now if you need to do to back up or restore. This will be fixed in a future release.
+- Backup and restore no longer work in the July 30 release. This is a temporary limitation. Use the June 2021 release for now if you need to do to back up or restore. This will be fixed in a future release.
 
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
 
@@ -410,7 +410,7 @@ Use the following tools:
 ##### Point-in-time restore(PITR) supportability and limitations:
 	
 - Doesn't support restore from one Azure Arc-enabled SQL Managed Instance to another Azure Arc-enabled SQL Managed Instance.  The database can only be restored to the same Azure Arc-enabled SQL Managed Instance where the backups were created.
-- Renaming of a databases is currently not supported, for point in time restore purposes.
+- Renaming a database is currently not supported, for point in time restore purposes.
 - Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
 - No support for restoring a TDE enabled database.
 - A deleted database cannot be restored currently.
@@ -423,7 +423,7 @@ Use the following tools:
 - System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
 - Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
 - Only `ONLINE` user databases are backup up.
-- Default recovery point objective (RPO): 5 minutes. Can not be modified in current release.
+- Default recovery point objective (RPO): 5 minutes. Can't be modified in current release.
 - Backups are retained indefinitely. To recover space, manually delete backups.
 
 ##### Other limitations
@@ -439,7 +439,7 @@ This preview release is published July 13, 2021.
 
 #### New deployment templates
 
-- Kubernetes native deployment templates have been modified for for data controller, bootstrapper, & SQL Managed Instance. Update your .yaml templates. [Sample yaml files](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml)
+- Kubernetes native deployment templates have been modified for data controller, bootstrapper, & SQL Managed Instance. Update your .yaml templates. [Sample yaml files](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml)
 
 #### New Azure CLI extension for data controller and Azure Arc-enabled SQL Managed Instance
 
@@ -666,7 +666,7 @@ Additional updates include:
 - Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
 - The pg_audit extension is now available for PostgreSQL Hyperscale
 - A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
-- The status (health state) is reported for each of the PostgreSQL instances that constitute a sever group
+- The status (health state) is reported for each of the PostgreSQL instances in a sever group
 
    In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
 
@@ -755,7 +755,7 @@ This release introduces the following breaking changes:
 
 ## September 2020
 
-Azure Arc-enabled data services is released for public preview. Azure Arc-enabled data services allow you to manage data services anywhere.
+Azure Arc-enabled data services allow you to manage data services anywhere. This is a preview release.
 
 - SQL Managed Instance
 - PostgreSQL Hyperscale
