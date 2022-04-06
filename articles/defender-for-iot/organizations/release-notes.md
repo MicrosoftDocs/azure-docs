@@ -36,8 +36,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.1 | 04/2022 | 12/2022 |
-| 22.2.4 | 04/2022 | 12/2022 |
+| 22.2.1 | 05/2022 | 1/2023 |
+| 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
@@ -45,16 +45,26 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## April 2022
+## May 2022
 
 **Sensor version**: 22.2.1
 
+- [Active discovery scans](#active-discovery-scans-public-preview)
 - [Device detection enhancements](#device-detection-enhancements)
 - [Download PCAP files from the Azure portal](#download-pcap-files-from-the-azure-portal)
 - [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal)
 - [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements)
 - [Documentation improvements](#documentation-improvements)
+
+### Active discovery scans (Public preview)
+
+Now you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network. Active discovery scans:
+
+- Allow for faster deployments, enriching your existing device data with more details
+- Discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device
+
+Active scans run detection activity directly in your network and must be configured carefully. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
 
 ### Device detection enhancements
 

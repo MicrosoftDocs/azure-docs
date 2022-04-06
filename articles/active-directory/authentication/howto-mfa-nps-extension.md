@@ -107,6 +107,8 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 The NPS server must be able to communicate with the following URLs over ports 80 and 443:
 
 * *https:\//strongauthenticationservice.auth.microsoft.com*
+* *https:\//strongauthenticationservice.auth.microsoft.us*
+* *https:\//strongauthenticationservice.auth.microsoft.cn*
 * *https:\//adnotifications.windowsazure.com*
 * *https:\//login.microsoftonline.com*
 * *https:\//credentials.azure.com*
@@ -266,14 +268,14 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
-    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
 
 1. For Azure China 21Vianet customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
-    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.cn   |
     | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repeat the previous two steps to set the registry key values for each NPS server.
@@ -393,7 +395,7 @@ Verify that AD Connect is running, and that the user is present in both the on-p
 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
-Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
+Verify that https://adnotifications.windowsazure.com, https://strongauthenticationservice.auth.microsoft.com is reachable from the server running the NPS extension.
 
 ### Why is authentication not working, despite a valid certificate being present?
 
