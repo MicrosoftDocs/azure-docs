@@ -1,4 +1,4 @@
----
+--
 title: Certificate management in a Service Fabric cluster 
 description: Learn about managing certificates in a Service Fabric cluster secured with X.509 certificates.
 ms.topic: conceptual
@@ -80,15 +80,17 @@ This topic is covered in detail in the [Key Vault documentation](../key-vault/ce
    - Under `{vaultUri}/keys/{name}`: The certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify).
    - Under `{vaultUri}/secrets/{name}`: The certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file.
 	
-Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
+Recall that a certificate in the vault contains a chronological list of certificate instances that share a policy. Certificate versions will be created according to the lifetime and renewal attributes of this policy. It is highly recommended that vault certificates not share subjects or domains/DNS names, as it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
 
 At this point, a certificate exists in the vault, ready for consumption. Onward to:
 
 ### Certificate provisioning
+
 We mentioned a 'provisioning agent', which is the entity that retrieves the certificate, inclusive of its private key, from the vault and installs it on to each of the hosts of the cluster. (Recall that Service Fabric does not provision certificates.) In our context, the cluster will be hosted on a collection of Azure VMs and/or virtual machine scale sets. In Azure, provisioning a certificate from a vault to a VM/VMSS can be achieved with the following mechanisms - assuming, as above, that the provisioning agent was previously granted 'get' permissions on the vault by the vault owner: 
-  - ad-hoc: an operator retrieves the certificate from the vault (as pfx/PKCS #12 or pem) and installs it on each node
-  - as a virtual machine scale set 'secret' during deployment: the Compute service retrieves, using its first party identity on behalf of the operator, the certificate from a template-deployment-enabled vault and installs it on each node of the virtual machine scale set ([like so](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml)); note this allows the provisioning of versioned secrets only
-  - using the [Key Vault VM extension](../virtual-machines/extensions/key-vault-windows.md); this allows the provisioning of certificates using version-less declarations, with periodic refreshing of observed certificates. In this case, the VM/VMSS is expected to have a [managed identity](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), an identity that has been granted access to the vault(s) containing the observed certificates.
+
+  - Ad-hoc: an operator retrieves the certificate from the vault (as pfx/PKCS #12 or pem) and installs it on each node
+  - As a virtual machine scale set 'secret' during deployment: the Compute service retrieves, using its first party identity on behalf of the operator, the certificate from a template-deployment-enabled vault and installs it on each node of the virtual machine scale set ([like so](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml)); note this allows the provisioning of versioned secrets only
+  - Using the [Key Vault VM extension](../virtual-machines/extensions/key-vault-windows.md); this allows the provisioning of certificates using version-less declarations, with periodic refreshing of observed certificates. In this case, the VM/VMSS is expected to have a [managed identity](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), an identity that has been granted access to the vault(s) containing the observed certificates.
 
 The ad-hoc mechanism is not recommended for multiple reasons, ranging from security to availability, and won't be discussed here further; for details, refer to [certificates in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml).
 
