@@ -480,9 +480,6 @@ The following procedures show you how to connect to a SQL Database with an Azure
 
 To use integrated Windows authentication, your domain's Active Directory must be federated with Azure Active Directory, or should be a managed domain that is configured for seamless single sign-on for pass-through or password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 
-> [!NOTE]
-> [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) for integrated Windows authentication is not supported for seamless single sign-on for pass-through and password hash authentication.
-
 Your client application (or a service) connecting to the database must be running on a domain-joined machine under a user's domain credentials.
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to `Active Directory Integrated`. The following C# code sample uses ADO .NET.
