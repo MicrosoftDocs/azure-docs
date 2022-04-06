@@ -7,7 +7,7 @@ ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 04/06/2022
 ms.custom: [amqp, mqtt]
 ---
 
@@ -25,7 +25,7 @@ Use the following table to help determine which operations are charged. All bill
 - The operations that result in charges, with either:
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
-- One or more terms in *italics* following each operation (or endpoint) that represents terms that may be returned by customer support for billable operations. These terms are provided to help customers relate them to operations that produce the associated charges. If you're not working with customer support, you can ignore them.
+- One or more terms in *italics* following each operation (or endpoint). These terms represent billable operations that are charged against quota for your IoT hub. They're displayed in the quota usage section in the support pages in Azure portal. They may also be returned by customer support. You can use the table below to cross-reference these terms with the corresponding operation to help you understand quota usage and billing for your IoT solution.  
 
 | Operation category | Billing information |
 | --------- | ------------------- |
@@ -43,7 +43,7 @@ Use the following table to help determine which operations are charged. All bill
 | Jobs operations <br/> (create, cancel, get, query) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal in 4-KB chunks. For example, a job resulting in 1000 method calls with 1-KB requests and empty-payload responses is charged 2000 messages (one message each for the request and response * 1000). <br/><br/> *Update Twin Device Job* <br/> *Invoke Method Device Job* |
 | Configuration operations <br/> (create, update, get, list, delete, test query) | Not charged.|
-| Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. <br/><br/> [Apply on Edge Device](/rest/api/iothub/service/configuration/apply-on-edge-device), *Configuration Service Apply* |
+| Configuration per-device operations | Not charged. <br/><br/> [Apply on Edge Device](/rest/api/iothub/service/configuration/apply-on-edge-device), *Configuration Service Apply* |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation or to keep the connection open and alive are not charged. |
 | Device streams (preview) | Device streams is in preview and operations are not yet charged. <br/><br/> **Endpoint**: `/twins/{deviceId}/streams/{streamName}`, *Device Streams* <br/> **Endpoint**: `/twins/{deviceId}/modules/{moduleId}/streams/{streamName}`, *Device Streams Module* |
 
@@ -60,8 +60,9 @@ A device sends one 1-KB device-to-cloud message per minute to IoT Hub, which is 
 
 The device consumes:
 
-* One message * 60 minutes * 24 hours = 1440 messages per day for the device-to-cloud messages.
-* Two messages (request plus response) * 6 times per hour * 24 hours = 288 messages for the methods.
+- One message * 60 minutes * 24 hours = 1440 messages per day for the device-to-cloud messages.
+
+- Two messages (request plus response) * 6 times per hour * 24 hours = 288 messages for the methods.
 
 This calculation gives a total of 1728 messages per day.
 
@@ -71,8 +72,9 @@ A device sends one 100-KB device-to-cloud message every hour. It also updates it
 
 The device consumes:
 
-* 25 (100 KB / 4 KB) messages * 24 hours for device-to-cloud messages.
-* One message (1 KB / 4 KB) * six times per day for device twin updates.
+- 25 (100 KB / 4 KB) messages * 24 hours for device-to-cloud messages.
+
+- One message (1 KB / 4 KB) * six times per day for device twin updates.
 
 This calculation gives a total of 606 messages per day.
 
@@ -86,8 +88,24 @@ Depending on your scenario, batching messages can reduce your quota usage.
 
 For example, consider a device that has a sensor that only generates 100 bytes of data each time it's read:
 
-- If the device batches 40 sensor reads into a single device-to-cloud message with a 4-KB payload (40 * 100 bytes), then only one message is charged against quota.
+- If the device batches 40 sensor reads into a single device-to-cloud message with a 4-KB payload (40 * 100 bytes), then only one message is charged against quota. If the device reads the sensor 40 times each hour and batches those reads into a single device-to-cloud message per hour, it would send 24 messages/day.
 
-- If the device sends a device-to-cloud message with a 100-byte payload for each sensor read, then it consumes 40 messages against quota for the same amount of data.
+- If the device sends a device-to-cloud message with a 100-byte payload for each sensor read, then it consumes 40 messages against quota for the same amount of data. If the device reads the sensor 40 times each hour and sends each message individually, it would send 960 messages/day (40 messages * 24).
 
 Your batching strategy will depend on your scenario and on how time-critical the data is. If you're sending large amounts of data, you can also consider implementing data compression to further reduce the impact on message quota.
+
+## Example #4
+
+The terms in italics in the table above are displayed for quota usage in the support pages in Azure portal. They can also be returned by customer support. To see quota usage information in a support request:
+
+1. In Azure portal, select **New Support Request** on the left pane of your IoT hub. Provide a summary, select **Technical** for the **Issue type**, and select appropriate values for the issue you're experiencing in the rest of the required fields. Then select **Next Solutions** to go to the **Solutions** page.
+
+    The following screenshot shows values selected for a problem with device-to-cloud telemetry.
+
+    :::image type="content" source="./media/iot-hub-devguide-pricing/self-help-select-problem.png" alt-text="Screenshot that shows selecting an issue in Azure portal support request.":::
+
+1. On the **Solutions** page, you can see quota usage appropriate to your selected issue under **IoT Hub daily message quota breakdown**.
+
+    The following screenshot shows the breakdown for device to cloud messages sent to the IoT hub selected in step 1. In this case, message routing is enabled on the IoT hub, so the messages are shown as *Device to Cloud Telemetry Routing*.
+
+    :::image type="content" source="./media/iot-hub-devguide-pricing/self-help-solutions.png" alt-text="Screenshot that shows quota usage in Azure portal support request.":::
