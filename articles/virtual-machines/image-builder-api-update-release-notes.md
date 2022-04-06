@@ -23,7 +23,7 @@ This document contains all major API changes and feature updates for the Azure I
 
 
 
-<!-- ### February 2022
+### February 2022
 
 (not released to public yet) 
 
@@ -33,7 +33,7 @@ This document contains all major API changes and feature updates for the Azure I
 - Shell (Linux) - Script or Inline. 
 - PowerShell (Windows) - Script or Inline, run elevated, run as system. 
 - Source-Validation-Only mode .
-- Customized staging resource group support.  , commenting this for now -->
+- Customized staging resource group support.  , commenting this for now
 
 
 ### October 2021
@@ -76,7 +76,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 ### February 2020
 
-Swagger: https://msazure.visualstudio.com/One/_git/Compute-AzLinux-ImageBuilderRp?version=GBdevelop&path=/swagger/api/2020-02-14/imagebuilder.json <!-- Clarification needed on this link. -->
+
 
 **Improvements:**
 
