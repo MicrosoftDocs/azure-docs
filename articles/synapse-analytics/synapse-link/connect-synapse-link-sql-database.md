@@ -22,7 +22,7 @@ Azure Synapse Link enables a seamless data pipeline between OLTP and OLAP platfo
 
 Azure Synapse Link for Azure SQL Database enables a seamless and fully managed data pipeline from Azure SQL Databases to Synapse SQL Pools with one to one column and data type mapping. It adds minimum impact on source databases with a new change feed technology. Azure Synapse Link for Azure SQL Database supports an average minimum latency to publish incremental data changes from Azure SQL DB to Azure Synapse Link tables with full consistency. In a healthy state, it guarantees no data loss and transactional consistency at Synapse Link connection level for all the link tables.
 
-If at any point you run into issues, check the [Known issues and restrictions page](./known-issues-restrictions-link-sql-db.md), then reach out to [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20issue).
+If at any point you run into issues, check the [Known issues and restrictions page](#known-issues), then reach out to [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20issue).
 
 ## Prerequisites
 
@@ -133,7 +133,7 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 1. Select one or more source tables to replicate to your Synapse workspace and select **Continue**.
 
    > [!NOTE]
-   > A given source table can only be enabled in at most one link connection at a time. See the [Known issues and restrictions page](./known-issues-restrictions-link-sql-db.md) section to learn more about the supported data types.
+   > A given source table can only be enabled in at most one link connection at a time. See the [Known issues and restrictions page](#known-issues) section to learn more about the supported data types.
 
 1. Select a target Synapse SQL database and pool.
 
@@ -156,8 +156,6 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 
 1. Select **Publish all** to save the new link connection to the service.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-database/studio-publish-all.png" alt-text="Select publish all to save the new link connection.":::
-
 ## Start the Synapse Link connection
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
@@ -176,8 +174,6 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 1. Try making changes to your source table(s) in your source Azure SQL Database. You may also add additional tables to the source database.
 
 1. To include new tables to your running connection, go back to the Synapse Link connection in the **Integrate** hub. Select **New table**, select your additional table(s), Save, and select **Publish all** to persist the change.
-
-   :::image type="content" source="./media/connect-synapse-link-sql-database/studio-new-link-connection-table.png" alt-text="Include new tables into the link connection table.":::
 
 ## Monitor the status of the Synapse Link connection
 
@@ -205,7 +201,7 @@ You may now explore the replicated tables in your target Synapse SQL database.
 
 1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as an additional connection string parameter when connecting via SSMS (or other tools).
 
-## Known issues and restrictions
+## <a name="known-issues"></a>Known issues and restrictions
 
 The following is the list of known issues, restrictions, and limits for Synapse Link for Azure SQL Database. If you encounter an issue that is not documented in the following section, please reach out to the [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20issue) team.
 
