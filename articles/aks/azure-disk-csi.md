@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/09/2022
+ms.date: 04/06/2022
 author: palma21
 
 ---
@@ -265,7 +265,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 [Azure shared disks](../virtual-machines/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
 
 > [!IMPORTANT]
-> Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
+> Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device. **Multi-node read write is not supported by common file systems (e.g. ext4, xfs), it's only supported by cluster file systems**.
 
 Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
 
