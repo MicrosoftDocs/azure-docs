@@ -22,9 +22,7 @@ You can configure exclusions to apply when specific WAF rules are evaluated, or 
 
 ## Identify request attributes to exclude
 
-When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. The values of the specified attributes aren't evaluated against WAF rules, but their names are still evaluated.
-
-You can configure a WAF exclusion for the following request attributes:
+When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. You can configure a WAF exclusion for the following request attributes:
 
 * Request headers
 * Request cookies
@@ -46,6 +44,23 @@ In all cases matching is case insensitive. Regular expression aren't allowed as 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
 
+### Request attributes by keys and values
+
+When you configure an exclusion, you need to determine whether you want to exclude the key or the value from WAF evaluation.
+
+For example, suppose your requests include this header:
+
+```
+My-Header: 1=1
+```
+
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValue** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
+
+> [!NOTE]
+> In CRS 3.2 and newer, use the **RequestHeaderValue** match condition. In CRS 3.1 and earlier, use the **RequestHeaderNames** match condition.
+
+In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
+
 ## Exclusion scopes
 
 Exclusions can be configured to apply to a specific set of WAF rules, to rulesets, or globally across all rules.
@@ -61,7 +76,7 @@ Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3
 
 #### Example
 
-Suppose you want the WAF to ignore the `User-Agent` request header. The `User-Agent` header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
+Suppose you want the WAF to ignore the value of the `User-Agent` request header. The `User-Agent` header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
 
 There can be any number of reasons to disable evaluating this header. There could be a string that the WAF detects and assumes it’s malicious. For example, the `User-Agent` header might include the classic SQL injection attack `x=x` in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
