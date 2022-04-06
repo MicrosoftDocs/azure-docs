@@ -62,7 +62,7 @@ When you deploy the bring your own keytab AD connector, you need to create the A
 
 For more information, see [deploy a bring your own keytab Active Directory (AD) connector](deploy-automatic-active-directory-connector.md)
 
-### Active Directory automatic integration mode
+### AD automatic integration mode
 
 In automatic mode, you need an automatic Active Directory (AD) connector. You will bring an Organizational Unit (OU) and an AD domain service account has sufficient permissions in the Active Directory. 
 
