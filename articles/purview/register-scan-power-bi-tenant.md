@@ -147,7 +147,7 @@ This section describes how to register a Power BI tenant in Azure Purview for sa
 
 #### Scan same tenant using Azure IR and Managed Identity
 
-This is a suitable scenario, if both Azure Purview and Power PI tenant are configured to allow public access in the network settings. 
+This is a suitable scenario, if both Azure Purview and Power BI tenant are configured to allow public access in the network settings. 
 
 To create and run a new scan, do the following:
 
@@ -183,7 +183,7 @@ To create and run a new scan, do the following:
 
 #### Scan same tenant using Self-hosted IR and Delegated authentication
 
-This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power PI tenant are configured to allow public access.
+This scenario can be used when Azure Purview and Power BI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power BI tenant are configured to allow public access.
 
 > [!IMPORTANT]
 > Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied.
