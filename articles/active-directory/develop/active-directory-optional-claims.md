@@ -250,7 +250,9 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list.
 1. Under **Manage**, select **Token configuration**.
 1. Select **Add groups claim**.
-1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
+1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**): 
+    - The **Groups assigned to the application** option includes only groups assigned to the application. The **Groups assigned to the application** option is recommended for large organizations due to the group number limit in token. To change the groups assigned to the application, select the application from the **Enterprise applications** list.  Select **Users and groups** and then **Add user/group**. Select the group(s) you want to add to the application from **Users and groups**.
+    - The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role.
 1. Select **Save**.
 
