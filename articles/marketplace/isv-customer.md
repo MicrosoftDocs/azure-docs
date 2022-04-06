@@ -13,7 +13,7 @@ ms.date: 04/05/2022
 
 ## Overview
 
-Private offers allow publishers and customers to transact one or more products in Azure Marketplace by creating time-bound pricing with customized terms. This article explains the requirements and steps for a publisher to create a private offer for a customer in Azure Marketplace. Private offers are not yet available in Microsoft AppSource.
+Private offers allow publishers and customers to transact one or more products in Azure Marketplace by creating time-bound pricing with customized terms. This article explains the requirements and steps for a publisher to create a private offer for a customer in Azure Marketplace. Private offers aren't yet available in Microsoft AppSource.
 
 This is what the private offer experience looks like from the publisher's perspective:
 
@@ -39,7 +39,7 @@ Private offers provide new deal-making capabilities to the marketplace that can'
 
 Creating a private offer for a customer has these prerequisites:
 
-- You have created a [commercial marketplace account](create-account.md) in Partner Center.
+- You've created a [commercial marketplace account](create-account.md) in Partner Center.
 - Your account is enrolled in the commercial marketplace program.
 - The offer you want to sell privately has been published to the marketplace and is publicly transactable.
 
@@ -100,11 +100,11 @@ Use this page to define private offer terms, notification contacts, and pricing 
 
 1. **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
 
-1. **Pricing** – Configure the percentage-based discount or absolute price for up to ten offers/plans in a private offer. For a percentage-based discount, the customer will receive this discount off your plan's list price in the marketplace.
+1. **Pricing** – Configure the percentage-based discount or absolute price for up to 10 offers/plans in a private offer. For a percentage-based discount, the customer will receive this discount off your plan's list price in the marketplace.
 
     - Select **+ Add Offers/plans** to choose the offers/plans you want to provide a private offer for.
     - Choose to provide a custom price or discount at either an offer level (all current and future plans under that offer will have a discount associated to it) or at a plan level (only the plan you selected will have a private price associated with it).
-    - Choose up to ten offers/plans and select **Add**.
+    - Choose up to 10 offers/plans and select **Add**.
     - Enter the discount percentage or configure the absolute price for each item in the pricing table.
 
         > [!NOTE]
@@ -112,9 +112,9 @@ Use this page to define private offer terms, notification contacts, and pricing 
 
 ### Review and submit
 
-Use this page to review the information you've provided. Once submitted, a private offers is locked for edits. You can still withdraw a private offer while it is pending acceptance by the customer..
+Use this page to review the information you've provided. Once submitted, a private offer is locked for edits. You can still withdraw a private offer while it's pending acceptance by the customer.
 
-When you're ready, select **Submit**. You will be returned to the dashboard where you can view the offer's status. The notification contact(s) will be emailed once the offer is ready to be shared with your customer.
+When you're ready, select **Submit**. You'll be returned to the dashboard where you can view the offer's status. The notification contact(s) will be emailed once the offer is ready to be shared with your customer.
 
 > [!NOTE]
 > Microsoft will not send an email to your customer. You can copy the private offer link and share it with your customer for acceptance. Your customer will also be able to see the private offer under the **Private Offer Management** blade in the Azure portal.
@@ -134,7 +134,7 @@ You can clone an existing offer and update its customer information to send it t
 
 ## Withdraw a private offer
 
-Withdrawing a private offer means your customer will no longer be able to access it. A private offer can only be withdrawn if your customer has not accepted it.
+Withdrawing a private offer means your customer will no longer be able to access it. A private offer can only be withdrawn if your customer hasn't accepted it.
 
 To withdraw a private offer:
 
@@ -169,10 +169,10 @@ To view the status of a private offer:
 
 The status of the private offer will be one of the following:
 
-- **Draft** – You have started the process of creating a private offer but have not submitted it yet.
+- **Draft** – You've started the process of creating a private offer but haven't submitted it yet.
 - **In Progress** – A private offer you submitted is currently being published; this can take up to 15 minutes.
-- **Pending acceptance** – Your private offer is pending customer acceptance. Ensure you have sent the private offer link to your customer.
-- **Accepted** – Your private offer was accepted by your customer. Once accepted, the private offer cannot be changed.
+- **Pending acceptance** – Your private offer is pending customer acceptance. Ensure you've sent the private offer link to your customer.
+- **Accepted** – Your private offer was accepted by your customer. Once accepted, the private offer can't be changed.
 - **Expired** – Your private offer expired before the customer accepted it. You can withdraw the private offer to make changes and submit it again.
 - **Ended** – Your private offer has passed its end date.
 

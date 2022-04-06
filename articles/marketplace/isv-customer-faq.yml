@@ -19,7 +19,7 @@ sections:
         answer: |
           Private offers let you transact private deals with your customers in the marketplace. It supports many new capabilities and addresses limitations associated with private plans. Use the new private offers feature to:
 
-          1. Create a private deal with more than up to ten offers/plans; for example, SaaS and virtual machine.
+          1. Create a private deal with more than up to 10 offers/plans; for example, SaaS and virtual machine.
           2. Give a time-bound discount for consumption-based (VM) offers.
           3. Give a deal at the customer organization level (using billing account) instead of the customer tenant or subscription level.
           4. Specify custom terms and conditions associated with the private deal with a simple PDF upload.
@@ -39,7 +39,7 @@ sections:
       - question: |
           Does the new private offers feature support all offers in the marketplace?
         answer: |
-          Yes, it supports all transact offer types in the marketplace: SaaS (flat-rate and user-based), VMs, and Managed Apps (Azure Apps). It does not yet support offers in Microsoft AppSource.
+          Yes, it supports all transact offer types in the marketplace: SaaS (flat-rate and user-based), VMs, and Managed Apps (Azure Apps). It doesn't yet support offers in Microsoft AppSource.
 
       - question: |
           Why do I see tabs for Customers and CSP Partners?
@@ -51,21 +51,21 @@ sections:
       - question: |
           What is a customer billing account ID and where can I find it for my customer?
         answer: |
-          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer does not have a billing account, they can create one by signing up on Azure.com. See Billing account scopes in the Azure portal.
+          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See Billing account scopes in the Azure portal.
 
-          Applying the private offer at the Biling Account ID level means that if new subscriptions are added to the customer's Azure plan, the private offer will automatically apply to those subscriptions also and no edits need to be made to the private offer.
+          Applying the private offer at the Billing Account ID level means that if new subscriptions are added to the customer's Azure plan, the private offer will automatically apply to those subscriptions also and no edits need to be made to the private offer.
 
-          Billing account information is only available to the customer and cannot be accessed by the Publishers.
+          Billing account information is only available to the customer and can't be accessed by the Publishers.
 
       - question: |
           When should I use Accepted date vs. Specific month for the start date? Or can I use a specific date in the month as the start or end date for the private offer?
         answer: |
           While creating a new private offer, select “Accepted date” as the start date to make the price available for the customer to transact as soon as the private offer is accepted. If you want a private price to be available to the customer immediately on acceptance, choose “Accepted date”.
 
-          Choose specific month to make the private price available in a future calendar month. Example: If you create a private offer on May 15th and want the private price to be available to the customer on June 1st, select June. The private offer will start on the first day of the month and end on the last day. You can't select specific start and end dates. If a customer purchases the public offer/plan prior to June 1st, they will not receive the private offer price for any transactions before June 1st.
+          Choose specific month to make the private price available in a future calendar month. Example: If you create a private offer on May 15 and want the private price to be available to the customer on June 1, select June. The private offer will start on the first day of the month and end on the last day. You can't select specific start and end dates. If a customer purchases the public offer/plan prior to June 1, they won't receive the private offer price for any transactions before June 1.
 
           > [!NOTE]
-          > If a private offer is extended to an existing customer of pay-as-you-go (PAYG; consumption-based) products (like Virtual machines, selecting Accepted date will make the private price applicable for the entire month. For example: If you create a private offer on May 15th for a Virtual Machine product for an existing customer and select Accepted date, the private price will be applied for the entire month on the month of acceptance.
+          > If a private offer is extended to an existing customer of pay-as-you-go (PAYG; consumption-based) products (like Virtual machines, selecting Accepted date will make the private price applicable for the entire month. For example: If you create a private offer on May 15 for a Virtual Machine product for an existing customer and select Accepted date, the private price will be applied for the entire month on the month of acceptance.
 
       - question: |
           How is **Accept by date** different from **End date**?
@@ -77,7 +77,7 @@ sections:
         answer: |
           You can document and upload any custom terms that were discussed/agreed upon as part of the private deal. The customer will be required to legally accept these terms as part of the private offer acceptance. Uploading custom terms is optional in a private offer. You can upload only one document and it must be in PDF format.
 
-          These custom terms between you and the customer should not violate any terms included as part of the Marketplace Publisher Agreement.
+          These custom terms between you and the customer shouldn't violate any terms included as part of the Marketplace Publisher Agreement.
 
       - question: |
           I have already specified public terms of use for my offer. Do I still need to include these in the private offer?
@@ -87,7 +87,7 @@ sections:
       - question: |
           What is the difference between Absolute price and Discounted price type in a private offer?
         answer: |
-          You can use a discounted price to provide a percentage-based discount on top of a publicly listed plan. This can only be used when the private price is lower than the publicly listed plan price. The percentage-based discount can be given at an offer level so it applies to all plans within the offer, or only for a specific plan. The absolute price can be used to specify a price point higher, lower or equal to the publicly listed plan price, and can be only be applied at a plan level. Absolute price cannot be applied for Virtual Machine offer types.
+          You can use a discounted price to provide a percentage-based discount on top of a publicly listed plan. This can only be used when the private price is lower than the publicly listed plan price. The percentage-based discount can be given at an offer level so it applies to all plans within the offer, or only for a specific plan. The absolute price can be used to specify a price point higher, lower or equal to the publicly listed plan price, and can only be applied at a plan level. Absolute price can't be applied for Virtual Machine offer types.
 
       - question: |
           What is Clone?
@@ -97,17 +97,17 @@ sections:
       - question: |
           What is Upgrade?
         answer: |
-          This allows you to upgrade an existing accepted private offer. Marketplace only supports upgrade at renewal; for example, the upgraded offer start/end date cannot overlap with the existing private offer. ISVs can only edit pricing, dates, terms and notification contacts for the upgraded private offer. If other required changes are needed ie. additional plan, a new private offer should be created.
+          This allows you to upgrade an existing accepted private offer. Marketplace only supports upgrade at renewal; for example, the upgraded offer start/end date can't overlap with the existing private offer. ISVs can only edit pricing, dates, terms and notification contacts for the upgraded private offer. If other required changes are needed, such as an additional plan, create a new private offer.
 
       - question: |
           What is Withdraw?
         answer: |
-          A private offer in a Pending Acceptance state cannot be changed. If the customer has not accepted the private offer, you can withdraw a private offer from the customer to make changes. After withdrawing, a customer will not be able to access the private offer and you will have to resubmit the private offer.
+          A private offer in a Pending Acceptance state can't be changed. If the customer hasn't accepted the private offer, you can withdraw a private offer from the customer to make changes. After withdrawing, a customer won't be able to access the private offer and you'll have to resubmit the private offer.
 
       - question: |
           What happens if I publish multiple private offers to the same customer with overlapping offers?
         answer: |
-          If you publish multiple private offers to the same customer with the same offers/plans and the customer accepts them, we will determine the price for the customer as follows:
+          If you publish multiple private offers to the same customer with the same offers/plans and the customer accepts them, we'll determine the price for the customer as follows:
 
           -	If you have overlapping percentage-based discounts and absolute pricing for the same plan, the absolute price will apply
           -	If you have overlapping percentage-based discounts for the same plan, the customer gets the best price (highest percentage discount)
@@ -118,24 +118,24 @@ sections:
       - question: |
           What notifications are sent for private offers?
         answer: |
-          Partner Center uses the Notifications contact to notify you of any changes to the private offer status. The notification email is sent when the private offer status changes from In Progress to Pending Acceptance, Pending Acceptance to Accepted, Pending Acceptance to Expired or Accepted to Ended.
+          Partner Center uses the Notifications contact to notify you of any changes to the private offer status. The notification email is sent when the private offer status changes from In Progress to Pending Acceptance, Pending Acceptance to Accepted, Pending Acceptance to Expired, or Accepted to Ended.
 
       - question: |
           Does Microsoft notify the customer when a private offer is published?
         answer: |
-          No, Microsoft does not send any notifications to the customer. You should copy the private offer link and send it to the customer for acceptance.
+          No, Microsoft doesn't send any notifications to the customer. You should copy the private offer link and send it to the customer for acceptance.
 
       - question: |
           Does Microsoft notify me when the customer has activated my private offer (SaaS)?
         answer: |
-          No, you are notified via the SaaS fulfillment API that a SaaS offer is activated but not that it has a private offer associated. You can see if a private offer has been accepted using the Insights reporting.
+          No, you're notified via the SaaS fulfillment API that a SaaS offer is activated but not that it has a private offer associated. You can see if a private offer has been accepted using the Insights reporting.
 
   - name: Private offer upgrade
     questions:
       - question: |
           My customer accepted a private offer and is already using it. Can I submit another upgrade to extend the private offer?
         answer: |
-          Private offers cannot be upgraded mid-term. An ISV can create an upgrade at any time and a customer may accept it, but the upgrade will only take effect at the end of the existing private offer.
+          Private offers can't be upgraded mid-term. An ISV can create an upgrade at any time and a customer may accept it, but the upgrade will only take effect at the end of the existing private offer.
 
       - question: |
           Why can't I add or remove any additional offers with an upgrade?
@@ -150,7 +150,7 @@ sections:
           To accept a private offer, the user in the customer organization needs to be an owner, contributor, or admin on the Azure account. Without appropriate permissions, the user can't accept the private offer. To get access to the billing account, the user should contact the billing account admin or owner.
 
       - question: |
-          Why can't I make changes to a private offer after it is accepted?
+          Why can't I make changes to a private offer after it's accepted?
         answer: |
           Once a private offer is accepted, it's a legal agreement between you and the customer and hence can't be changed.
 
@@ -169,7 +169,7 @@ sections:
       - question: |
           My customer accepted the private offer. When will they be billed?
         answer: |
-          Accepting a private offer will not initiate billing. The customer must also activate their subscription in the Azure portal before billing will begin.
+          Accepting a private offer won't initiate billing. The customer must also activate their subscription in the Azure portal before billing will begin.
 
           For a private offer that includes SaaS, the customer must activate within 30 days of accepting the private offer.
 
@@ -178,14 +178,14 @@ sections:
       - question: |
           What happens when my private offer ends?
         answer: |
-          If the customer has auto-renew enabled, and you do not create a new private offer which is accepted by the customer, the customer will be charged at the list price of the public plan
+          If the customer has auto-renew enabled, and you don't create a new private offer which is accepted by the customer, the customer will be charged at the list price of the public plan
 
   - name: MACC and private offers
     questions:
       - question: |
           Is MACC decrement supported for offers discounted using private offers?
         answer: |
-          Yes, MACC-enabled customers will be able to decrement MACC for any products discounted using the ISV to customer private offers feature. MACC-enabled customers will not be able to decrement MACC for any products discounted using the ISV to CSP partner private offers.
+          Yes, MACC-enabled customers will be able to decrement MACC for any products discounted using the ISV to customer private offers feature. MACC-enabled customers won't be able to decrement MACC for any products discounted using the ISV to CSP partner private offers.
 
   - name: Payouts
     questions:
