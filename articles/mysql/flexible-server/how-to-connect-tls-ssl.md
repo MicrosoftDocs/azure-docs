@@ -28,9 +28,9 @@ Following are the different configurations of SSL and TLS settings you can have 
 
 > [!Note]
 > * Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
-> * MySQL open-source community editions starting with the release of MySQL versions 8.0.26 and 5.7.35, the TLSv1 and TLSv1.1 protocols are deprecated. These protocols released in 1996 and 2006, respectively to encrypt data in motion, are considered weak, outdated, and vulnerable to security threats. For more details, see [Removal of Support for the TLSv1 and TLSv1.1 Protocols.](https://dev.mysql.com/doc/refman/8.0/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-deprecated-protocols).Azure Database for MySQL – Flexible Server will also stop supporting TLS versions once the community stops the support for the protocol, to align with modern security standards. 
+> * MySQL open-source community editions starting with the release of MySQL versions 8.0.26 and 5.7.35, the TLSv1 and TLSv1.1 protocols are deprecated. These protocols released in 1996 and 2006, respectively to encrypt data in motion, are considered weak, outdated, and vulnerable to security threats. For more information, see [Removal of Support for the TLSv1 and TLSv1.1 Protocols.](https://dev.mysql.com/doc/refman/8.0/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-deprecated-protocols).Azure Database for MySQL – Flexible Server will also stop supporting TLS versions once the community stops the support for the protocol, to align with modern security standards. 
 
-In this article, you will learn how to:
+In this article, you'll learn how to:
 
 * Configure your flexible server
   * With SSL disabled
@@ -43,7 +43,7 @@ In this article, you will learn how to:
 
 ## Disable SSL enforcement on your flexible server
 
-If your client application doesn't support encrypted connections, you will need to disable encrypted connections enforcement on your flexible server. To disable encrypted connections enforcement, you will need to set require_secure_transport server parameter to OFF as shown in the screenshot and save the server parameter configuration for it to take effect. require_secure_transport is a **dynamic server parameter** which takes effect immediately and doesn't require server restart to take effect.
+If your client application doesn't support encrypted connections, you'll need to disable encrypted connections enforcement on your flexible server. To disable encrypted connections enforcement, you'll need to set require_secure_transport server parameter to OFF as shown in the screenshot and save the server parameter configuration for it to take effect. require_secure_transport is a **dynamic server parameter** which takes effect immediately and doesn't require server restart to take effect.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot showing how to disable SSL with Azure Database for MySQL flexible server.":::
 
@@ -55,7 +55,7 @@ The following example shows how to connect to your server using the mysql comman
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
-It is important to note that setting require_secure_transport to OFF doesn't mean encrypted connections will not supported on server side. If you set require_secure_transport to OFF on flexible server but if the client connects with encrypted connection, it will still be accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF will also work as shown below.
+It's important to note that setting require_secure_transport to OFF doesn't mean encrypted connections won't supported on server side. If you set require_secure_transport to OFF on flexible server but if the client connects with encrypted connection, it will still be accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF will also work as shown below.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
@@ -87,24 +87,24 @@ In summary, require_secure_transport=OFF setting relaxes the enforcement of encr
 
 ## Enforce SSL with TLS version 
 
-To set TLS versions on your flexible server, you will need to set *tls_version* server parameter. The default setting for TLS protocol is TLSv1.2. If your application supports connections to MySQL server with SSL, but require any protocol other than TLSv1.2, you will require to set the TLS versions in [server parameter](./how-to-configure-server-parameters-portal.md). *tls_version* is a **static server parameter** which will require a server restart for the parameter to take effect. Following are the Supported protocols for the available versions of Azure Database for MySQL – Flexible Server
+To set TLS versions on your flexible server, you'll need to set *tls_version* server parameter. The default setting for TLS protocol is TLSv1.2. If your application supports connections to MySQL server with SSL, but require any protocol other than TLSv1.2, you'll require to set the TLS versions in [server parameter](./how-to-configure-server-parameters-portal.md). *tls_version* is a **static server parameter** which will require a server restart for the parameter to take effect. Following are the Supported protocols for the available versions of Azure Database for MySQL – Flexible Server
 
 | Flexible Server version  | Supported Values of tls_version      | Default Setting            |
 |------------|--------------------------------|------------------------------------------------|
-|MySQL 5.7   |TLSv1,TLSv1.1,TLSv1.2 | TLSv1.2|
-|MySQL 8.0	 | TLSv1.2,TLSv1.3 | TLSv1.2|
+|MySQL 5.7   |TLSv1, TLSv1.1, TLSv1.2 | TLSv1.2|
+|MySQL 8.0	 | TLSv1.2, TLSv1.3 | TLSv1.2|
 
 ## Connect using mysql command-line client with TLS/SSL
 
 ### Download the public SSL certificate
 
-To use encrypted connections with your client applications,you will need to download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) which is also available in Azure portal Networking blade as shown in the screenshot below.
+To use encrypted connections with your client applications,you'll need to download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) which is also available in Azure portal Networking blade as shown in the screenshot below.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/download-ssl.png" alt-text="Screenshot showing how to download public SSL certificate from Azure portal.":::
 
 Save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl` or `\var\www\html\bin` on your local environment or the client environment where your application is hosted. This will allow applications to connect securely to the database over SSL.
 
-If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server.
+If you created your flexible server with *Private access (VNet Integration)*, you'll need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server.
 
 If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server.
 
@@ -124,7 +124,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 
 
 
-If you try to connect to your server with unencrypted connections, you will see error stating connections using insecure transport are prohibited similar to one below:
+If you try to connect to your server with unencrypted connections, you'll see error stating connections using insecure transport are prohibited similar to one below:
 
 ```output
 ERROR 3159 (HY000): Connections using insecure transport are prohibited while --require_secure_transport=ON.
@@ -132,7 +132,7 @@ ERROR 3159 (HY000): Connections using insecure transport are prohibited while --
 
 ## Verify the TLS/SSL connection
 
-Execute the mysql **status** command to verify that you have connected to your MySQL server using TLS/SSL:
+Execute the mysql **status** command to verify that you've connected to your MySQL server using TLS/SSL:
 
 ```dos
 mysql> status
