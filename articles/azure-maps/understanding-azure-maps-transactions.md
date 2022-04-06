@@ -16,9 +16,9 @@ When you use any [Azure Maps API](/rest/api/maps/) with an Azure Maps Key (you m
 
 ## Azure Maps transaction tables
 
-# [Azure Maps Gen2](#tab/azure-maps/Gen2)
+# [Azure Maps Gen2](#tab/Gen2)
 
-Gen2 is Azure Maps newest pricing tier that provides access to all map features and gives volume-based discounts. Pricing is based on four tiers that operate under a waterfall model, meaning once you reach the transaction ceiling for the current pricing tier, all transactions thereafter will be priced at the next tier’s rate. You only pay for the services you use. For detailed pricing information, see [Azure Maps pricing](https://azure.microsoft.com/en-us/pricing/details/azure-maps/).
+Gen2 is Azure Maps newest pricing tier that provides access to all map features and gives volume-based discounts. Pricing is based on four tiers that operate under a waterfall model, meaning once you reach the transaction ceiling for the current pricing tier, all transactions thereafter will be priced at the next tier’s rate. You only pay for the services you use. For detailed pricing information, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
 
 ## Azure Maps Transaction information by service
 
@@ -60,7 +60,7 @@ Gen2 is Azure Maps newest pricing tier that provides access to all map features 
 | Web feature      | 1k transactions         | $21    |
 -->
 
-# [Azure Maps Gen1](#tab/azure-maps/Gen1)
+# [Azure Maps Gen1](#tab/Gen1)
 
 Azure Maps Gen1
 
@@ -89,10 +89,10 @@ Gen1 pricing will remain in effect for existing Azure Maps customers but you're 
 The following are links to Azure Maps pricing, a pricing calculator to help estimate costs and information on how to view Azure Maps API usage metrics that enable you to track costs in your Azure Maps resource in Azure.
 
 > [!div class="nextstepaction"]
-> [Azure Maps pricing](https://azure.microsoft.com/en-us/pricing/details/azure-maps/)
+> [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/)
 
 > [!div class="nextstepaction"]
-> [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+> [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 > [!div class="nextstepaction"]
 > [View Azure Maps API usage metrics](how-to-view-api-usage.md)
