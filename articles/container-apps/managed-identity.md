@@ -79,7 +79,7 @@ az containerapp identity assign --name myApp --resource-group myResourceGroup
 
 # [ARM template](#tab/arm)
 
-An Azure Resource Manager (ARM) template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your ARM template.
+An ARM template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your ARM template.
 
 ```json
 "identity": {
