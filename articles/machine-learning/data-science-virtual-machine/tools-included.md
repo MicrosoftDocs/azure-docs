@@ -79,7 +79,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 **Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
 * Python3.8-default</br>  
 * Python3.8-Tensorflow-Pytorch</br>  
-* Python3.8-AzureML-AutoML</br>   
+* Python3.8-AzureML</br>   
 * R</br>  
 * Python 3.7 - Spark (local)</br>  
 * Julia 1.6.0</br>  
@@ -90,7 +90,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 **Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
 * Python3.8-default  </br>
 * Python3.8-Tensorflow-Pytorch </br> 
-* Python3.8-AzureML-AutoML  </br>
+* Python3.8-AzureML  </br>
 
 ## Use your preferred editor or IDE
 
