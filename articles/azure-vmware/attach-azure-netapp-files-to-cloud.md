@@ -95,7 +95,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 1. List all of the datastores in a private cloud cluster.
     1. `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
-## Delete an Azure NetApp Files-based datastore form your private cloud
+## Delete an Azure NetApp Files-based datastore from your private cloud
 
 
 
@@ -117,5 +117,5 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
-    We're currently validating and working on the benchmarking. However, for Azure NetApp Files volumes with "Basic" network features, the connectivity from Azure VMware Solution is bound by the bandwidth of the ExpressRoute circuit and the ExpressRoute Gateway along with the latency that comes with that architecture.
+    We're currently validating and working on the benchmarking. For Azure NetApp Files volumes with "Basic" network features, the connectivity from Azure VMware Solution is bound by the bandwidth of the ExpressRoute circuit and the ExpressRoute Gateway along with the latency that comes with that architecture.
 
