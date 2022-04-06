@@ -1,13 +1,13 @@
 ---
 title: "Log Analytics tutorial"
-description: Learn how to use features of Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
+description: Learn how to use Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
 ms.topic: tutorial
 ms.date: 06/28/2021
 
 ---
 
 # Log Analytics tutorial
-Log Analytics is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide a variety of insights into your data. 
+Log Analytics is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide various insights into your data. 
 
 This tutorial walks you through the Log Analytics interface, gets you started with some basic queries, and shows you how you can work with the results. You'll learn the following:
 
@@ -98,7 +98,7 @@ For example, set a filter on the **DurationMs** column to limit the records to t
 
 Let's search through the query results using the search box at the top right of the results pane.
 
-Enter **Chicago** in the query results search box and click the arrows to find all instances of this string in your search results.
+Enter **Chicago** in the query results search box and select the arrows to find all instances of this string in your search results.
 
 :::image type="content" source="media/log-analytics-tutorial/search-query-results.png" alt-text="Screenshot the search box at the top right of the result pane." lightbox="media/log-analytics-tutorial/search-query-results.png":::
 
@@ -110,7 +110,7 @@ Select **Columns** to the right of the results pane to open the **Columns** side
  
 :::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Screenshot the Column link at shows to the right of the results pane, which you select to open the Columns sidebar." lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
 
-In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Group** section. Results are now organized by that column, and you can collapse each group to help you with your analysis.
+In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Group** section. Results are now organized by that column, and you can collapse each group to help you with your analysis. This is similar to adding a filter condition to the query, but instead of refetching data from the server, you're processing the data your original query returned. When you run the query again, Log Analytics retrieves data based on your original query. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped by URL." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 ### Create a pivot table
@@ -132,7 +132,7 @@ Now let's sort the results by longest maximum call duration by selecting the **m
 ## Work with charts
 Let's look at a query that uses numerical data that we can view in a chart. Instead of building a query, we'll select an example query.
 
-Select **Queries** on the left pane. This pane includes example queries that you can add to the query window. If you're using your own workspace, you should have a variety of queries in multiple categories. If you're using the demo environment, you might see only a single **Log Analytics workspaces** category. Expand that to view the queries in the category.
+Select **Queries** on the left pane. This pane includes example queries that you can add to the query window. If you're using your own workspace, you should have various queries in multiple categories. If you're using the demo environment, you might see only a single **Log Analytics workspaces** category. Expand that to view the queries in the category.
 
 Select the query called **Function Error rate** in the **Applications** category. This step adds the query to the query window. Notice that the new query is separated from the other by a blank line. A query in KQL ends when it encounters a blank line, so these are considered separate queries. 
 
