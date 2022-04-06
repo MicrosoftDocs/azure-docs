@@ -38,7 +38,7 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 - XFB.Gateway
 
 > [!NOTE]
-> The client support lists above are not exhaustive and may change over time.
+> The unsupported client list above is not exhaustive and may change over time.
 
 ## Unsupported operations
 
