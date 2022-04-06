@@ -1177,7 +1177,7 @@
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
-        - name: Create a container - MongoDB API
+        - name: Create a collection - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
@@ -1198,6 +1198,8 @@
         - name: MongoDB extension commands
           href: mongodb/custom-commands.md
           displayName: custom commands
+        - name: Configure role based access control (RBAC)
+          href: mongodb/how-to-setup-rbac.md
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
