@@ -19,10 +19,10 @@ ms.reviewer: kumud
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
-You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and [user-defined routes](./virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview). Use service tags in place of specific IP addresses when you create security rules and routes. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a security rule, you can allow or deny the traffic for the corresponding service. By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. 
 
 > [!NOTE] 
-> As of March 2021, you can also use Service Tags in place of explicit IP ranges in [user defined routes](./virtual-networks-udr-overview.md). This feature is currently in Public Preview and will move to GA in March 2022.
+> As of March 2022, using service tags in place of explicit address prefixes in [user defined routes](./virtual-networks-udr-overview.md#user-defined) is out of preview and generally available.
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 

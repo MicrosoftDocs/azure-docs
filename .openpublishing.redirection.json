@@ -39059,6 +39059,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-conversation-scenarios.yml",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-transcription.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/keyword-recognition-region-support.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/regions",
       "redirect_document_id": true
