@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/31/2022
+ms.date: 04/06/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -21,7 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
-[New Defender for Servers plans](#new-defender-for-servers-plans)
+- [New Defender for Servers plans](#new-defender-for-servers-plans)
+- [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 
 ### New Defender for Servers plans
 
@@ -36,6 +37,14 @@ If you have been using Defender for Servers until now – no action is required.
  
 In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploy the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
 
+### Relocation of custom recommendations
+
+Custom recommendations are those created by users and have no impact on the secure score. The custom recommendations can now be found under the All recommendations tab.
+
+Use the new "recommendation type" filter, to locate custom recommendations.
+
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+
 ## March 2022
 
 Updates in March include:
@@ -48,7 +57,7 @@ Updates in March include:
 - [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
 - [Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moved-the-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices)
 - [Deprecated the recommendation to use service principals to protect your subscriptions](#deprecated-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)
-- [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)
+- [Legacy implementation of ISO 27001 replaced with new ISO 27001:2013 initiative](#legacy-implementation-of-iso-27001-replaced-with-new-iso-270012013-initiative)
 - [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
 - [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
 - [Posture management and threat protection for AWS and GCP released for general availability (GA)](#posture-management-and-threat-protection-for-aws-and-gcp-released-for-general-availability-ga)
@@ -131,7 +140,7 @@ Learn more:
 - [Overview of Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
 - [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](../cloud-services/cloud-services-workflow-process.md)
 
-### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
+### Legacy implementation of ISO 27001 replaced with new ISO 27001:2013 initiative
 
 The legacy implementation of ISO 27001 has been removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions.
 
