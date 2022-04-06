@@ -9,7 +9,7 @@ ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 04/05/2022
 ms.author: billmath
 author: billmath
 ---
@@ -21,13 +21,13 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 - Groups identified by their Azure AD object identifier (OID) attribute
 - Groups identified by the `sAMAccountName` or `GroupSID` attribute for Active Directory-synchronized groups and users
 
+> [!IMPORTANT]
+> The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
+
 ## Important caveats for this functionality
 
 - Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- > [!NOTE]
-> The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results.
-
-    In order to avoid the number of groups limit if your users have large numbers of group memberships, you restrict the groups emitted in claims to the relevant groups for the application. If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to SAML and JWT tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
+- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to SAML and JWT tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
