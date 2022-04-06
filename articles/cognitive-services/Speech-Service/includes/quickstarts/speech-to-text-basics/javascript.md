@@ -53,18 +53,18 @@ Follow these steps to create a new console application for speech recognition.
         speechRecognizer.recognizeOnceAsync(result => {
             switch (result.reason) {
                 case sdk.ResultReason.RecognizedSpeech:
-                    console.log("RECOGNIZED: Text=${result.text}");
+                    console.log(`RECOGNIZED: Text=${result.text}`);
                     break;
                 case sdk.ResultReason.NoMatch:
                     console.log("NOMATCH: Speech could not be recognized.");
                     break;
                 case sdk.ResultReason.Canceled:
-                    const cancellation = CancellationDetails.fromResult(result);
+                    const cancellation = sdk.CancellationDetails.fromResult(result);
                     console.log("CANCELED: Reason=${cancellation.reason}");
 
                     if (cancellation.reason == sdk.CancellationReason.Error) {
-                        console.log("CANCELED: ErrorCode=${cancellation.ErrorCode}");
-                        console.log("CANCELED: ErrorDetails=${cancellation.errorDetails}");
+                        console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
+                        console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
                         console.log("CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;

@@ -125,7 +125,7 @@ switch (result.reason) {
         console.log("NOMATCH: Speech could not be recognized.");
         break;
     case sdk.ResultReason.Canceled:
-        const cancellation = CancellationDetails.fromResult(result);
+        const cancellation = sdk.CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
         if (cancellation.reason == sdk.CancellationReason.Error) {
