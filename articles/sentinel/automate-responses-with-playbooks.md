@@ -91,7 +91,7 @@ There are many differences between these two resource types, which affect how th
 > - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
 
 > [!NOTE]
-> You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*.
+> You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time.
 
 ***(ANYTHING ELSE TO MENTION HERE? -YL)***
 
