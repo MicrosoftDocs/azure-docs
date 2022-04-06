@@ -16,27 +16,27 @@ This security information applies to Microsoft Azure HPC Cache. It addresses com
 
 The HPC Cache Service is only accessible through your private virtual network. Microsoft cannot access your virtual network.
 
-More information about connecting private networks is available [here](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/hpc-cache-security-baseline#ns-2-connect-private-networks-together).
+More information about connecting private networks is available [here](../security/benchmark/azure/baselines/hpc-cache-security-baseline.md#ns-2-connect-private-networks-together).
 
 ## Network infrastructure requirements
 
 Your network needs a dedicated subnet for the Azure HPC Cache, DNS support so the cache can access storage, and access from the subnet to additional Microsoft Azure infrastructure services like NTP servers and the Azure Queue Storage service.
 
-More information about network infrastructure requirements is available [here](../hpc-cache-prerequisites.md#network-infrastructure).
+More information about network infrastructure requirements is available [here](hpc-cache-prerequisites.md#network-infrastructure).
 
 ## Access to NFS storage
 
 The Azure HPC Cache needs specific NFS configurations like outbound NFS port access to on-premises storage.
 
-For details about configuring your NFS storage to work with Azure HPC Cache, refer to [this article with dots](../hpc-cache-prerequisites.md#nfs-storage-requirements) or [this article without dots](hpc-cache-prerequisites.md#nfs-storage-requirements).
+For details about configuring your NFS storage to work with Azure HPC Cache, refer to [this article](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 ## Encryption
 
 HPC Cache data is encrypted at rest. Encryption keys may be Azure-managed or customer-managed.
 
-For more information about implementing customer-managed keys for encrypting data, see [this article](../customer-keys.md).
+For more information about implementing customer-managed keys for encrypting data, see [this article](customer-keys.md).
 
-HPC Cache only supports AUTH_SYS security for NFSv3 so it’s not possible to encrypt NFS traffic between clients and the cache. If, however, data is traveling over ExpressRoute, you could [tunnel traffic with IPSEC](../../virtual-wan/vpn-over-expressroute.md) for in-transit traffic encryption.
+HPC Cache only supports AUTH_SYS security for NFSv3 so it’s not possible to encrypt NFS traffic between clients and the cache. If, however, data is traveling over ExpressRoute, you could [tunnel traffic with IPSEC](../virtual-wan/vpn-over-expressroute.md) for in-transit traffic encryption.
 
 ## Access policies based on IP address
 
@@ -48,4 +48,4 @@ You can also optionally configure network security groups (NSGs) to control inbo
 
 ## Next steps
 
-* Review [Azure HPC Cache security baseline](/security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json).
+* Review [Azure HPC Cache security baseline](../security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json).
