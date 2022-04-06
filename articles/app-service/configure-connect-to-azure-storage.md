@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-containers-code
 
 ::: zone pivot="code-windows"
 > [!NOTE]
-> Azure Storage is in preview for Windows code.
+> Mounting Azure Storage as a local share for App Service on Windows code is currently in preview.
 >
 This guide shows how to mount Azure Storage Files as a network share in Windows code in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
