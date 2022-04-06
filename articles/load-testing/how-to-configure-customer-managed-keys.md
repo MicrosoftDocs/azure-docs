@@ -132,6 +132,18 @@ To change the managed identity for customer-managed keys on an existing resource
 > [!NOTE]
 > The managed identity selected should have access granted on the Azure Key Vault.
 
+## Change the key
+
+You can change the key that you are using for Azure Load Testing encryption at any time. To change the key with the Azure portal, follow these steps:
+
+1. Navigate to your Azure Load Testing resource.
+
+1. On the Settings blade for the resource, click Encryption. The **Encryption type** shows the encryption selected for the resource while creation.
+
+1. If the selected encryption type is *Customer-managed keys*, you can edit the key URI field with the new key URI.
+
+1. Save your changes.
+
 ## Key rotation
 
 Azure Load Testing can automatically update the customer-managed key that is used for encryption to use the latest key version if the key version is omitted from the key URI. When the customer-managed key is rotated in Azure Key Vault, Azure Load Testing will automatically begin using the latest version of the key for encryption. To configure automatic key rotation, omit the key version from the key URI while configuring customer managed key on your Azure Load Testing resource.
@@ -146,9 +158,9 @@ No, there's no charge to enable this feature.
 
 This feature is currently available only for new resources.
 
-### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
+### How can I tell if customer-managed keys are enabled on my Azure Load Testing account?
 
-1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource. 
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 1. Go to the **Encryption** item in the left navigation bar.
 1. You can verify the **Encryption type** on your resource.
 
