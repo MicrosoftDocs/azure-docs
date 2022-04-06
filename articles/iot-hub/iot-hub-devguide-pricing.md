@@ -43,7 +43,7 @@ Use the following table to help determine which operations are charged. All bill
 | Jobs operations <br/> (create, cancel, get, query) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal in 4-KB chunks. For example, a job resulting in 1000 method calls with 1-KB requests and empty-payload responses is charged 2000 messages (one message each for the request and response * 1000). <br/><br/> *Update Twin Device Job* <br/> *Invoke Method Device Job* |
 | Configuration operations <br/> (create, update, get, list, delete, test query) | Not charged.|
-| Configuration per-device operations | Not charged. |
+| Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. Responses are not charged. For example, an apply configuration operation with a 6-KB body is charged as two messages. <br/><br/> [Apply on Edge Device](/rest/api/iothub/service/configuration/apply-on-edge-device), *Configuration Service Apply*. |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation or to keep the connection open and alive are not charged. |
 | Device streams (preview) | Device streams is in preview and operations are not yet charged. <br/><br/> **Endpoint**: `/twins/{deviceId}/streams/{streamName}`, *Device Streams* <br/> **Endpoint**: `/twins/{deviceId}/modules/{moduleId}/streams/{streamName}`, *Device Streams Module* |
 
