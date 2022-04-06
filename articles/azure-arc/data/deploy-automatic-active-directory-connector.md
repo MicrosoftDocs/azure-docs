@@ -37,6 +37,9 @@ The sufficient permission including the following:
 - Delete Group objects
 - Create User objects
 - Delete User objects
+- Reset Password for Descendant Computer objects
+- Reset Password for Descendant User objects
+
 
 ## Input for deploying an automatic Active Directory (AD) connector
 
