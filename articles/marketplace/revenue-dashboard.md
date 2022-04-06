@@ -175,7 +175,6 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 
 | Data field | Definition |
 |----|---------|
-| <img width=130/> | |
 | Billed revenue | Represents billed sales of a partner for customer’s offer purchases and consumption through the commercial marketplace. This is in transaction currency and will always be present in download reports. |
 | Estimated revenue (USD) | Estimated revenue reported in US dollars. This column will always be present in download reports. |
 | Estimated revenue (PC) | Estimated revenue reported in partner preferred currency. This column will always be present in download reports. |
