@@ -106,7 +106,7 @@ Example:
 az sql mi-arc upgrade --name sql01 --desired-version v1.2.0_2021-12-15
 ```
 
-## Disable Maintenance Window
+## Disable maintenance window
 
 When the maintenance window is disabled, automatic upgrades will not run. 
 
@@ -120,7 +120,7 @@ Example:
 az arcdata dc update --maintenance-enabled false --k8s-namespace arc --use-k8s
 ```
 
-## Enable Maintenance Window
+## Enable maintenance window
 
 When the maintenance window is enabled, automatic upgrades will resume. 
 
@@ -134,7 +134,7 @@ Example:
 az arcdata dc update --maintenance-enabled true --k8s-namespace arc --use-k8s
 ```
 
-## Change Maintenance Window Start Time 
+## Change maintenance window start time 
 
 The update command can be used to change the maintenance start time.
 
