@@ -1,17 +1,15 @@
 ---
-title: Configure ISV to customer private offers in Microsoft Partner Center
-description: Configure ISV to customer private offers in Microsoft Partner Center. 
+title: Configure ISV to customer private offers in Microsoft Partner Center for Azure Marketplace
+description: Configure ISV to customer private offers in Microsoft Partner Center for Azure Marketplace. 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
-ms.date: 04/05/2022
+ms.date: 04/06/2022
 ---
 
 # ISV to customer private offers
-
-## Overview
 
 Private offers allow publishers and customers to transact one or more products in Azure Marketplace by creating time-bound pricing with customized terms. This article explains the requirements and steps for a publisher to create a private offer for a customer in Azure Marketplace. Private offers aren't yet available in Microsoft AppSource.
 
@@ -54,7 +52,7 @@ Private Offers can be created for all transactable marketplace offer types: SaaS
 
 Create and manage private offers from the **Private Offers** dashboard in Partner Center's left-nav menu. This dashboard has two tabs:
 
-1. **Customers** – Create a private offer for a customer in Azure Marketplace. This opens the Customers private offer dashboard, which lets you:
+- **Customers** – Create a private offer for a customer in Azure Marketplace. This opens the Customers private offer dashboard, which lets you:
 
     - Create new private offers
     - View the status of all your private offers
@@ -62,7 +60,7 @@ Create and manage private offers from the **Private Offers** dashboard in Partne
     - Withdraw private offers
     - Delete private offers
 
-1. **CSP Partners** – Create a private offer for a CSP partner. See [ISV to CSP partner private offers](isv-csp-reseller.md).
+- **CSP Partners** – Create a private offer for a CSP partner. See [ISV to CSP partner private offers](isv-csp-reseller.md).
 
     The **Customers** tab looks like this:
 
@@ -81,14 +79,14 @@ Create and manage private offers from the **Private Offers** dashboard in Partne
 
 Use this page to define private offer terms, notification contacts, and pricing for your customer.
 
-1. **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
+- **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
 
     > [!NOTE]
     > Customers can find their billing account in the [Azure portal ](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
 
     :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
-1. **Private offer terms** – Specify the duration, accept-by date, and terms:
+- **Private offer terms** – Specify the duration, accept-by date, and terms:
 
     - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
     - **End date** – Choose the month for your private offer's **End date**. This will always be the last day of the selected month.
@@ -98,9 +96,9 @@ Use this page to define private offer terms, notification contacts, and pricing 
         > [!NOTE]
         > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](https://aka.ms/PrivateOfferPublisherAgreement).
 
-1. **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
+- **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
 
-1. **Pricing** – Configure the percentage-based discount or absolute price for up to 10 offers/plans in a private offer. For a percentage-based discount, the customer will receive this discount off your plan's list price in the marketplace.
+- **Pricing** – Configure the percentage-based discount or absolute price for up to 10 offers/plans in a private offer. For a percentage-based discount, the customer will receive this discount off your plan's list price in the marketplace.
 
     - Select **+ Add Offers/plans** to choose the offers/plans you want to provide a private offer for.
     - Choose to provide a custom price or discount at either an offer level (all current and future plans under that offer will have a discount associated to it) or at a plan level (only the plan you selected will have a private price associated with it).

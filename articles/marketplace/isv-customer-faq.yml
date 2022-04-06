@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Independent Software Vendor (ISV) to customer private offers FAQ"
+  title: "Frequently asked questions about Independent Software Vendor (ISV) to customer private offers in Partner Center."
   description: Get answers to frequently asked questions about Independent Software Vendor (ISV) to customer private offers in Partner Center.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
@@ -19,13 +19,13 @@ sections:
         answer: |
           Private offers let you transact private deals with your customers in the marketplace. It supports many new capabilities and addresses limitations associated with private plans. Use the new private offers feature to:
 
-          1. Create a private deal with more than up to 10 offers/plans; for example, SaaS and virtual machine.
-          2. Give a time-bound discount for consumption-based (VM) offers.
-          3. Give a deal at the customer organization level (using billing account) instead of the customer tenant or subscription level.
-          4. Specify custom terms and conditions associated with the private deal with a simple PDF upload.
-          5. Stop requiring the customer to redeploy VMs with new private offers just because the price changes (; for consumption-based products like VMs).
-          6. Close the private deal within 15 minutes.
-          7. Specify an expiration date (accept by) date to help close the private deal with the customer.
+          - Create a private deal with more than up to 10 offers/plans; for example, SaaS and virtual machine.
+          - Give a time-bound discount for consumption-based (VM) offers.
+          - Give a deal at the customer organization level (using billing account) instead of the customer tenant or subscription level.
+          - Specify custom terms and conditions associated with the private deal with a simple PDF upload.
+          - Stop requiring the customer to redeploy VMs with new private offers just because the price changes (for consumption-based products like VMs).
+          - Close the private deal within 15 minutes.
+          - Specify an expiration date (accept by) date to help close the private deal with the customer.
           
           :::image type="content" source="media/isv-customer/private-offer-plan-compare.png" lightbox="media/isv-customer/private-offer-plan-compare.png" alt-text="Shows the differences between private offers and private plans.":::
           
@@ -65,10 +65,10 @@ sections:
           Choose specific month to make the private price available in a future calendar month. Example: If you create a private offer on May 15 and want the private price to be available to the customer on June 1, select June. The private offer will start on the first day of the month and end on the last day. You can't select specific start and end dates. If a customer purchases the public offer/plan prior to June 1, they won't receive the private offer price for any transactions before June 1.
 
           > [!NOTE]
-          > If a private offer is extended to an existing customer of pay-as-you-go (PAYG; consumption-based) products (like Virtual machines, selecting Accepted date will make the private price applicable for the entire month. For example: If you create a private offer on May 15 for a Virtual Machine product for an existing customer and select Accepted date, the private price will be applied for the entire month on the month of acceptance.
+          > If a private offer is extended to an existing customer of pay-as-you-go (PAYG; consumption-based) products (like Virtual machines), selecting Accepted date will make the private price applicable for the entire month. For example: If you create a private offer on May 15 for a Virtual Machine product for an existing customer and select Accepted date, the private price will be applied for the entire month on the month of acceptance.
 
       - question: |
-          How is **Accept by date** different from **End date**?
+          How is Accept by date different from End date?
         answer: |
           Accept by date is the offer's expiration date. Your customer must accept the private offer on or before this date or it will expire. The End date specifies the date on which the private price/terms will end.
 
@@ -178,7 +178,7 @@ sections:
       - question: |
           What happens when my private offer ends?
         answer: |
-          If the customer has auto-renew enabled, and you don't create a new private offer which is accepted by the customer, the customer will be charged at the list price of the public plan
+          If the customer has auto-renew enabled, and you don't create a new private offer which is accepted by the customer, the customer will be charged at the list price of the public plan.
 
   - name: MACC and private offers
     questions:
