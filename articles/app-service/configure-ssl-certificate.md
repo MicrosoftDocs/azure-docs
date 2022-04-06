@@ -69,6 +69,9 @@ The free certificate comes with the following limitations:
 - Is not supported on App Service Environment (ASE).
 - Only supports alphanumeric characters, dashes (-), and periods (.).
 
+> [!IMPORTANT]
+> Due to the nature of these certificates, where they are fully managed by the Azure service on your behalf, the service may change any aspect of the certificate, including the root issuer, at will.  Although customers will be notified of substantial changes, this still means that changes are outside of the customer's direct control.  As such, customers much avoid practices such as "pinning" the certificate or any part of the certificate hierarchy.
+
 # [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
 - Is not supported on apps that are not publicly accessible.
