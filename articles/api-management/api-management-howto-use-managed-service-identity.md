@@ -77,7 +77,7 @@ For example, a complete Azure Resource Manager template might look like the foll
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
         "apiVersion": "2021-08-01",
@@ -239,8 +239,7 @@ The following example shows an Azure Resource Manager template that contains the
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
                 "objectId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').principalId]",
                 "permissions": {
-                    "secrets": ["get"],
-                    "secrets": ["list"]
+                     "secrets": ["get", "list"]
                 }
             }]
         }
@@ -282,7 +281,7 @@ You can use the system-assigned identity to authenticate to a backend service th
 ### <a name="apim-as-trusted-service"></a>Connect to Azure resources behind IP firewall using system-assigned managed identity
 
 
-API Management is a trusted Microsoft service to the following resources. This allows the service to connect to the following resources behind a firewall. After explicitly assigning the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for that resource instance, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+API Management is a trusted Microsoft service to the following resources. This allows the service to connect to the following resources behind a firewall. After you explicitly assign the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for that resource instance, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
 
 |Azure Service | Link|
