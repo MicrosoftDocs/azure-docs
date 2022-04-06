@@ -30,7 +30,7 @@ You can create activity log alert rules to receive notifications on one of the f
 
 ## Configuring activity log alert rules
 
-You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](../essentials/activity-log.md#view-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md). 
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](../essentials/activity-log.md#view-the-activity-log).  
 
 An alternative simple way for creating conditions for activity log alerts is to explore or filter events via [Activity log in Azure portal](../essentials/activity-log.md#view-the-activity-log). In Azure Monitor - Activity log, one can filter and locate a required event and then create an alert to notify on similar by using the **New alert rule** button.
 
