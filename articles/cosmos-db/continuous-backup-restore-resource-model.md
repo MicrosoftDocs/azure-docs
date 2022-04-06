@@ -11,7 +11,7 @@ ms.reviewer: wiassaf
 ---
 
 # Resource model for the Azure Cosmos DB point-in-time restore feature
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 
@@ -54,9 +54,9 @@ The following JSON is a sample database account resource with continuous backup 
     "databaseAccountOfferType": "Standard",
     "locations": [
       {
-        "failoverPriority": 0,
+        "failoverPriority": "0",
         "locationName": "southcentralus",
-        "isZoneRedundant": false
+        "isZoneRedundant": "false"
       }
     ],
     "createMode": "Restore",
@@ -84,6 +84,7 @@ The following JSON is a sample database account resource with continuous backup 
     "backupPolicy": {
       "type": "Continuous"
     }
+  }
 }
 ```
 
