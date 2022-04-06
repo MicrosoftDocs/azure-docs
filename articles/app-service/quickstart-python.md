@@ -122,6 +122,11 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
+In the application folder, open VS Code:
+```Console
+code .
+```
+
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-visual-studio-code-1-240px.png" alt-text="A Screenshot of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/create-app-service-visual-studio-code-1.png"::: |
