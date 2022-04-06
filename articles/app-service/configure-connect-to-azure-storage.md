@@ -11,7 +11,9 @@ zone_pivot_groups: app-service-containers-code
 # Mount Azure Storage as a local share in a custom container in App Service
 
 ::: zone pivot="code-windows"
-This is code windows.
+> [!NOTE]
+> Azure Storage is in preview for Windows code.
+>
 This guide shows how to mount Azure Storage Files as a network share in Windows code in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
@@ -247,7 +249,7 @@ To validate that the Azure Storage is mounted successfully for the app:
  
 - When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to [enable the **Route All** setting](configure-vnet-integration-routing.md).
 
-- When VNET integration is used, ensure the following ports are open:
+- When VNET integration is used, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1` and the following ports are open:
     - Azure Files: 80 and 445
 
 - The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See [the scalability and performance targets for Files](../storage/files/storage-files-scale-targets.md)
