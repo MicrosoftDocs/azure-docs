@@ -102,6 +102,9 @@ You have a choice of operating systems that you can use for session hosts to pro
 > [!NOTE]
 > Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
+> [!IMPORTANT]
+> The Per-User Remote App Streaming license option only supports the Windows client SKUs.  It does not support Windows Server.
+
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
 
 - [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
