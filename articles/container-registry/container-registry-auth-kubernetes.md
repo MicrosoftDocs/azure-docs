@@ -85,7 +85,7 @@ In the preceding example, `my-awesome-app:v1` is the name of the image to pull f
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
-[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry/create-registry
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
