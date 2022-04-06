@@ -326,7 +326,7 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako",
+        "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"        
@@ -690,7 +690,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",  
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "juliako",        
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako"
+        "articles/azure-video-indexer/*.md": "Juliako"
       },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
@@ -801,7 +801,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
+        "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
@@ -857,7 +857,6 @@
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",  
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",        
