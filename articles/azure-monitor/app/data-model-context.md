@@ -73,7 +73,7 @@ Anonymous user ID. Represents the end user of the application. When telemetry is
 
 [Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user ID is used for sampling score generation. So anonymous user ID should be a random enough value. 
 
-Anonoymous user IDs result in telemetry from a single user potentially being counted as multiple data points. They can be grouped together through device telemetry and would then be authenticated user IDs. 
+Anonymous user IDs result in telemetry from a single user potentially being counted as multiple data points. They can be grouped together through device telemetry and would then be authenticated user IDs. 
 
 Using anonymous user ID to store user name is a misuse of the field. Use Authenticated user ID.
 
