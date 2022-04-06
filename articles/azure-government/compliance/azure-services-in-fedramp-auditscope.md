@@ -172,7 +172,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
-| [Media Services](../../media-services/index.yml) | &#x2705; | &#x2705; |
+| [Media Services](/media-services/) | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Azure Attestation](../../attestation/index.yml)| &#x2705; | &#x2705; |
 | [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; |
@@ -272,9 +272,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Active Directory (Free and Basic)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory (Premium P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) | | | | | &#x2705; |
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml) | | | | | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; | | | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
@@ -370,7 +368,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Media Services](../../media-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Media Services](/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |

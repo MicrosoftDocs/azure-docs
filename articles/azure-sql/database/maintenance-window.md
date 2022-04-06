@@ -51,7 +51,7 @@ Once the maintenance window selection is made and service configuration complete
 
 ## Advance notifications
 
-Maintenance notifications can be configured to alert you of upcoming planned maintenance events for your Azure SQL Database. The alerts arrive 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
+Maintenance notifications can be configured to alert you of upcoming planned maintenance events for your Azure SQL Database and Azure SQL Managed Instance. The alerts arrive 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
 ## Feature availability
 
@@ -206,5 +206,5 @@ For the full reference of the sample queries and how to use them across tools li
 
 * [Maintenance window FAQ](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
-* [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md)
+* [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

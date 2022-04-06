@@ -22,6 +22,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli, mode-api
 > * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
+> * [Go](create-sql-api-go.md)
 
 Get started with the Azure Cosmos DB SQL API client library for .NET. Follow the steps in this doc to install the .NET package, build an app, and try out the example code for basic CRUD operations on the data stored in Azure Cosmos DB. 
 

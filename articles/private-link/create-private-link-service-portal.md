@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 08/18/2021
+ms.date: 03/30/2022
 ms.author: allensu
 ms.custom: mode-ui
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
@@ -70,45 +70,6 @@ In this section, you create a virtual network and subnet to host the load balanc
 10. Select the **Review + create** tab or select the **Review + create** button.
 
 11. Select **Create**.
-
-### Create NAT gateway
-
-In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously. The NAT gateway is used by the resources in the load balancer virtual network for outbound internet access. If the virtual machines in the backend pool of the load balancer don't require outbound internet access, you can proceed to the next section.
-
-1. On the upper-left side of the screen, select **Create a resource > Networking > NAT gateway** or search for **NAT gateway** in the search box.
-
-2. Select **Create**. 
-
-3. In **Create network address translation (NAT) gateway**, enter or select this information in the **Basics** tab:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription.                                  |
-    | Resource Group   | Select **CreatePrivLinkService-rg**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myNATGateway**                                    |
-    | Region           | Select **(US) East US 2**  |
-    | Availability Zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **10**. |
-
-4. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
-
-5. In the **Outbound IP** tab, enter or select the following information:
-
-    | **Setting** | **Value** |
-    | ----------- | --------- |
-    | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myNATgatewayIP**. </br> Select **OK**. |
-
-6. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
-
-7. In the **Subnet** tab, select **myVNet** in the **Virtual network** pull-down.
-
-8. Check the box next to **myBackendSubnet**.
-
-9. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
-
-10. Select **Create**.
 
 ### Create load balancer
 
@@ -360,7 +321,9 @@ When you're done using the private link service, delete the resource group to cl
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
+
 * Created a private link service.
+
 * Created a virtual network and a private endpoint for the private link service.
 
 To learn more about Azure Private endpoint, continue to:
