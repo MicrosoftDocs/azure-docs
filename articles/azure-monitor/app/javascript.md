@@ -277,7 +277,37 @@ cfg: { // Application Insights Configuration
 
 ``` 
 
-### Server side snippet
+> [!NOTE]
+> If you are using Application Insights JS SDK version 2.5.11 or earlier, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps). For Application Insights JS SDK version 2.6.0 or later this recommendation does not apply.
+
+### Correlation header excluded domains
+
+The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
+An example would be `*.queue.core.windows.net`, as seen in the code sample above.
+Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
+
+### Access control allow headers
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+
+### Route tracking
+
+By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
+
+### Single Page Applications
+
+For Single Page Applications, please reference plugin documentation for plugin specific guidance. 
+
+| Plugins |
+|---------------|
+| [React](javascript-react-plugin.md#enable-correlation)|
+| [React Native](javascript-react-native-plugin.md#enable-correlation)|
+| [Angular](javascript-angular-plugin.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
+
+### Advanced Correlation
 
 Support for correlation requests requires the returned HTML page contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the Server-Side Operation ID.
 
@@ -298,39 +328,6 @@ Sample using Razor and a dynamic JS snippet:
 ```
 
 If not using a snippet a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
-
-### Correlation header excluded domains
-
-The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
-An example would be `*.queue.core.windows.net`, as seen in the code sample above.
-Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
-
-### Access control allow headers
-
-The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
-
-Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
-
-> [!NOTE]
-> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
-
-### Route tracking
-
-By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
-
-> [!NOTE]
-> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
-
-### Single Page Applications
-
-For Single Page Applications, please reference plugin documentation for plugin specific guidance. 
-
-| Plugins |
-|---------------|
-| [React](javascript-react-plugin.md#enable-correlation)|
-| [React Native](javascript-react-native-plugin.md#enable-correlation)|
-| [Angular](javascript-angular-plugin.md#enable-correlation)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
 
 ## Extensions
 
