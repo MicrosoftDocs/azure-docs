@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/31/2022
+ms.date: 04/06/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -21,7 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
-[New Defender for Servers plans](#new-defender-for-servers-plans)
+- [New Defender for Servers plans](#new-defender-for-servers-plans)
+- [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 
 ### New Defender for Servers plans
 
@@ -35,6 +36,14 @@ While Microsoft Defender for Servers Plan 2 continues to provide complete protec
 If you have been using Defender for Servers until now – no action is required.
  
 In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploy the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
+
+### Relocation of custom recommendations
+
+Custom recommendations are those created by a user, and have no impact on the secure score. The custom recommendations are now relocated from the Secure score recommendations tab to the All recommendations tab.
+
+The custom recommendations can be found via the new "recommendation type" filter.
+
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
 ## March 2022
 
