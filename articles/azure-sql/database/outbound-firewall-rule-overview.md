@@ -14,11 +14,11 @@ ms.date: 4/6/2022
 # Outbound firewall rules for Azure SQL Database and Azure Synapse Analytics 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
-Outbound firewall rules limit network traffic from the Azure SQL [logical server](logical-servers.md) to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or databases in Azure SQL Database not in this list is denied. The following Azure SQL Database features support this feature:
+Outbound firewall rules limit network traffic from the Azure SQL [logical server](logical-servers.md) to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or databases not in this list is denied. The following [Azure SQL Database](sql-database-paas-overview.md) features support this feature:
 
 - [Auditing](auditing-overview.md)
 - [Vulnerability assessment](sql-vulnerability-assessment.md)
-- [I/E service](database-import-export-azure-services-off.md)
+- [Import/Export service](database-import-export-azure-services-off.md)
 - [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)
 - [Bulk Insert](/sql/t-sql/statements/bulk-insert-transact-sql)
 - [Elastic query](elastic-query-overview.md)
@@ -115,8 +115,10 @@ az sql server outbound-firewall-rule delete -g sql-server-group -s sql-server-na
 
 ## Next steps
 
-- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md)
-- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
+- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md).
+- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md).
+- Learn more about [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
+- Learn about [Azure Private Link for Azure SQL Database and Azure Synapse Analytics](private-endpoint-overview.md).
 
 <!--Image references-->
 [1]: media/outbound-firewall-rules/Step1.jpg
