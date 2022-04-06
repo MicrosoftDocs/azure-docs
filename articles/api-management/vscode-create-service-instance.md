@@ -6,7 +6,7 @@ ms.workload: integration
 author: dlepow
 ms.author: danlep
 ms.topic: quickstart
-ms.date: 03/30/2022
+ms.date: 04/06/2022
 ms.custom: mode-api, devdivchpfy22
 ---
 
@@ -53,7 +53,7 @@ A new API Management instance (and parent resource group) will be created with t
 
 At this point, you're ready to import and publish your first API. You can do that and also do common API Management actions within the extension for Visual Studio Code. See [the tutorial](visual-studio-code-tutorial.md) for more.
 
-![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
+![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance-updated.png)
 
 ## Clean up resources
 
@@ -61,7 +61,7 @@ When no longer needed, remove the API Management instance by right-clicking and 
 
 Alternately, you can select **Delete API Management** to only delete the API Management instance (this action doesn't delete its resource group).
 
-![Delete API Management instance from VS Code](./media/vscode-create-service-instance/vscode-apim-delete.png)
+![Delete API Management instance from VS Code](./media/vscode-create-service-instance/vscode-apim-delete-updated.png)
 
 ## Next steps
 
