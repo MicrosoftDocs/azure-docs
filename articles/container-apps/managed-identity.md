@@ -116,7 +116,7 @@ First, you'll need to create a user-assigned identity resource.
 1. Create a user-assigned identity.
 
     ```azurecli
-    az identity create --resource-group <group-name> --name <identity-name>
+    az identity create --resource-group <GROUP_NAME> --name <IDENTITY_NAME>
     ```
 
 1. Run the `az containerapps identity assign` command to assign the identity to the app.
