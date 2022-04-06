@@ -33,21 +33,6 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
 
-## Opt-out handling
-### How does Azure Communication Services handle opt-outs for toll-free numbers?
-
-Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
-- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
-- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
-- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
-
-### How does Azure Communication Services handle opt-outs for short codes?
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends the following default response for STOP: *"You have successfully been unsubscribed to messages from this number. Reply START to resubscribe"*
-- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. Azure Communication Service sends the following default response for START/UNSTOP: *“You have successfully been re-subscribed to messages from this number. Reply STOP to unsubscribe.”*
-- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
-- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
-
 ### How to send shortened URLs in messages?
 Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
 
@@ -63,6 +48,21 @@ Below is a list with examples of common URL shorteners you should avoid to maxim
 - Clicky.me
 - budurl.com
 - bc.vc
+
+## Opt-out handling
+### How does Azure Communication Services handle opt-outs for toll-free numbers?
+
+Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
+- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
+- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+
+### How does Azure Communication Services handle opt-outs for short codes?
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends the following default response for STOP: *"You have successfully been unsubscribed to messages from this number. Reply START to resubscribe"*
+- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. Azure Communication Service sends the following default response for START/UNSTOP: *“You have successfully been re-subscribed to messages from this number. Reply STOP to unsubscribe.”*
+- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
