@@ -2,7 +2,7 @@
 title: Attach or detach an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
 description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 04/06/2022
 ms.custom: devdivchpfy22
 ---
 

@@ -2,7 +2,7 @@
 title: Set up a lab focused on deep learning using Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 04/06/2022
 ms.custom: devdivchpfy22
 ---
 

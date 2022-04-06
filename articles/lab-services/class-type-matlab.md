@@ -3,7 +3,7 @@ title: Set up a lab to teach MATLAB with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach MATLAB with Azure Lab Services.
 author: emaher
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 04/06/2022
 ms.custom: devdivchpfy22
 ms.author: enewman
 ---
@@ -12,12 +12,7 @@ ms.author: enewman
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-[MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is a programming platform from [MathWorks](https://www.mathworks.com/). MATLAB also combines computational power and visualization making it a popular tool in the fields of:
-
-- Math
-- Engineering
-- Physics
-- Chemistry
+[MATLAB](https://www.mathworks.com/products/matlab.html) is a programming platform from [MathWorks](https://www.mathworks.com/), which combines computational power and visualization. MATLAB is a popular tool for mathematics, engineering, physics, and chemistry.
 
 If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-support-program/administrators.html), see directions at [download MATLAB installation files](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine) to download the MATLAB installer files on the template machine.  
 
