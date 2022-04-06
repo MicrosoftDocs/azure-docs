@@ -56,7 +56,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |  10,000     |
 |**vCPU**     |   8      |
 |**Memory**     |   32 GB      |
-|**Storage**     |  1.8 TB  (300 IOPS)     |
+|**Storage**     |  1.8 TB (300 IOPS)     |
 
 # [SMB](#tab/smb)
 
@@ -66,7 +66,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |  1000     |
 |**vCPU**     |   4      |
 |**Memory**     |   8 GB      |
-|**Storage**     |  500 GB:<br> (150 IOPS)     |
+|**Storage**     |  500 GB (150 IOPS)     |
 
 # [Office](#tab/office)
 
@@ -76,7 +76,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |  800     |
 |**vCPU**     |   4      |
 |**Memory**     |   8 GB      |
-|**Storage**     |  100 GB:<br> (150 IOPS)     |
+|**Storage**     |  100 GB (150 IOPS)     |
 
 # [Rugged](#tab/rugged)
 
@@ -86,7 +86,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Maximum monitored assets**     |  100     |
 |**vCPU**     |   4      |
 |**Memory**     |   8 GB      |
-|**Storage**     |  60 GB:<br> (150 IOPS)     |
+|**Storage**     |  60 GB (150 IOPS)     |
 
 ---
 
