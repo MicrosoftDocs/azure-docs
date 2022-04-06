@@ -23,18 +23,17 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 
 ## Restore the SQL pool from the deleted server
 
-<ol>
-    <li>Open PowerShell</li>
-    <li>Connect to your Azure account.</li>
-    <li>Set the context to the subscription that contains the server that was dropped.</li>
-    <li>Specify the approximate datetime the server was dropped.</li>
-    <li>Construct the resource id for the database you wish to recover from the dropped server.</li>
-    <li>Restore the database from the dropped server</li>
-    <li>Verify the status of the recovered database as 'online'.</li>
-</ol>
+1. Open PowerShell
+2. Connect to your Azure account.
+3. Set the context to the subscription that contains the server that was dropped.
+4. Specify the approximate datetime the server was dropped.
+5. Construct the resource ID for the database you wish to recover from the dropped server.
+6. Restore the database from the dropped server
+7. Verify the status of the recovered database as 'online'.
+
 
 ```powershell
-$SubscriptionId="<YourSubscriptionId>"
+$SubscriptionID="<YourSubscriptionID>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServereName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 $DatabaseName="<YourDatabaseName>"
@@ -42,17 +41,17 @@ $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $TargetDatabaseName="<YourDatabaseName>"
 
 Connect-AzAccount
-Set-AzContext -SubscriptionId $SubscriptionId
+Set-AzContext -SubscriptionId $SubscriptionID
 
 # Define the approximate point in time the server was dropped as DroppedDateTime "yyyy-MM-ddThh:mm:ssZ" (ex. 2022-01-01T16:15:00Z)
 $PointInTime=”<DroppedDateTime>” 
 $DroppedDateTime = Get-Date -Date $PointInTime 
 
-# construct the resource id of the database you wish to recover. The format required Microsoft.Sql. This includes the approximate date time the server was dropped.
-$SourceDatabaseId = "/subscriptions/"+$SubscriptionId+"/resourceGroups/"+$ResourceGroupName+"/providers/Microsoft.Sql/servers/"+$ServerName+"/restorableDroppedDatabases/"+$DatabaseName+","+$DroppedDateTime.ToUniversalTime().ToFileTimeUtc().ToString()
+# construct the resource ID of the database you wish to recover. The format required Microsoft.Sql. This includes the approximate date time the server was dropped.
+$SourceDatabaseID = "/subscriptions/"+$SubscriptionID+"/resourceGroups/"+$ResourceGroupName+"/providers/Microsoft.Sql/servers/"+$ServerName+"/restorableDroppedDatabases/"+$DatabaseName+","+$DroppedDateTime.ToUniversalTime().ToFileTimeUtc().ToString()
 
 # Restore to target workspace with the source database.
-$RestoredDatabase = Restore-AzSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DroppedDateTime -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName -ResourceId $SourceDatabaseId 
+$RestoredDatabase = Restore-AzSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DroppedDateTime -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName -ResourceId $SourceDatabaseID 
 
 # Verify the status of restored database
 $RestoredDatabase.status
