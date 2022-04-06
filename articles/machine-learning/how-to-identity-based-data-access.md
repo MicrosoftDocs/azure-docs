@@ -214,9 +214,9 @@ This authentication mode allows you to:
 * Audit storage access because the storage logs show which identities were used to access data.
 
 > [!WARNING] This functionality has the following limitations
->  * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI v2 (preview)](how-to-configure-cli.md)
->  * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
->  * User identity and compute managed identity cannot be used for authentication within same job.
+> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI v2 (preview)](how-to-configure-cli.md)
+> * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
+> * User identity and compute managed identity cannot be used for authentication within same job.
 
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 
@@ -225,7 +225,9 @@ The following steps outline how to set up identity-based data access for trainin
 1. Create an Azure Machine Learning datastore without cached credentials for the storage account. If a datastore has cached credentials, such as storage account key, those credentials are used instead of user identity.
 
 1. Submit a training job with property **identity** set to **type: user_identity**, as shown in following job specification. During the training job, the authentication to storage happens via  the identity of the user that submits the job.
-    >[!NOTE] If the **identity** property is left unspecified and datastore does not have cached credentials, then compute managed identity becomes the fallback option. 
+
+> [!NOTE] 
+> If the **identity** property is left unspecified and datastore does not have cached credentials, then compute managed identity becomes the fallback option. 
 
     ```yaml
     command: |
