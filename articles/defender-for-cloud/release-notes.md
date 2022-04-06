@@ -39,9 +39,9 @@ In addition, Defender for Cloud also begins gradual support for the [Defender fo
 
 ### Relocation of custom recommendations
 
-Custom recommendations are those created by a user, and have no impact on the secure score. The custom recommendations are now relocated from the Secure score recommendations tab to the All recommendations tab.
+Custom recommendations are those created by users and have no impact on the secure score. The custom recommendations can now be found under the All recommendations tab.
 
-The custom recommendations can be found via the new "recommendation type" filter.
+Use the new "recommendation type" filter, to locate custom recommendations.
 
 Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
