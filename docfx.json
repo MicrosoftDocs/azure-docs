@@ -467,7 +467,7 @@
         "articles/machine-learning/**/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/classic/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/d365community/forum/fe7451c9-7426-ec11-b6e6-000d3a4f032c",
-        "articles/machine-learning/studio/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
+        "articles/machine-learning/studio/*.md": "https://feedback.azure.com/d36a5community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/team-data-science-process/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/managed-applications/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/marketplace/**/*.md": "https://feedback.azure.com/d365community/forum/45156b35-0a25-ec11-b6e6-000d3a4f09d0",
@@ -802,7 +802,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer",            
-        "articles/azure-video-indexer/*.md": "azure-video-indexer"
+        "articles/azure-video-indexer/*.md": "video-indexer"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
