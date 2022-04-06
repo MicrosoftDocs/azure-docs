@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Pre-Call Diagnostics
+title: Azure Communication Services Pre-Call diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Overview of Pre-Call Diagnostic APIs
 author: ddematheu2
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Pre-Call Diagnostic
+# Pre-Call diagnostic
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -81,7 +81,7 @@ Permission check. Checks whether video and audio devices are available from a pe
 
 In the case that the test fails and the permissions are false for audio and video, the user shouldn't continue into joining a call. Rather you will need to prompt the user to enable the permissions. To do this, it is best to provide specific instruction on how to access permission access based on the OS, version and browser they are on. For more information on permissions check out our [recommendations](https://techcommunity.microsoft.com/t5/azure-communication-services/checklist-for-advanced-calling-experiences-in-mobile-web/ba-p/3266312).
 
-### Device Enumeration
+### Device enumeration
 Device availability. Checks whether microphone, camera and speaker devices are detected in the system and ready to use. Provides an `Available` or `NotAvailable` value back.
 
 ```javascript
@@ -124,6 +124,6 @@ For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callM
 
 When the Pre-Call diagnostic test runs, behind the scenes it uses calling minutes to run the diagnostic. The test lasts for roughly 1 minute, using up 1 minute of calling which is charged at the standard rate of $0.004 per participant per minute. For the case of Pre-Call diagnostic, the charge will be for 1 participant x 1 minutes = $0.004. 
 
-## Feedback
+## Next steps
 
 This feature is currently in private preview. Please provide feedback on the API design, capabilities and pricing. Feedback is key for the team to move forward and push the feature into public preview and general availability. 
