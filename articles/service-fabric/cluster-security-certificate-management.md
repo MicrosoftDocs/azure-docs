@@ -70,14 +70,15 @@ These steps are illustrated below; note the differences in provisioning between 
 ![Provisioning certificates declared by subject common name][Image2]
 
 ### Certificate enrollment
-This topic is covered in detail in the Key Vault [documentation](../key-vault/certificates/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
 
- - Creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) for details. 
- - creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
- - once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
- - under {vaultUri}/certificates/{name}: the certificate including the public key and metadata
- - under {vaultUri}/keys/{name}: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
- - under {vaultUri}/secrets/{name}: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
+This topic is covered in detail in the [Key Vault documentation](../key-vault/certificates/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
+
+ - By creating a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) for details. 
+ - Creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
+ - Once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
+ - Under `{vaultUri}/certificates/{name}`: the certificate including the public key and metadata
+ - Under `{vaultUri}/keys/{name}`: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
+ - Under `{vaultUri}/secrets/{name}`: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
 	Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
 
 At this point, a certificate exists in the vault, ready for consumption. Onward to:
