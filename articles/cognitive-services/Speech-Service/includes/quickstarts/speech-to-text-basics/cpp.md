@@ -77,7 +77,7 @@ Follow these steps to create a new console application and install the Speech SD
                 std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
             }
         }
-    }             
+    }
     ```
 
 1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 

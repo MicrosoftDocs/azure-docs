@@ -107,6 +107,7 @@ Follow these steps to recognize speech in a macOS application.
             if result.reason != SPXResultReason.recognizedSpeech {
                 let cancellationDetails = try! SPXCancellationDetails(fromCanceledRecognitionResult: result)
                 print("cancelled: \(result.reason), \(cancellationDetails.errorDetails)")
+                print("did you set the speech resource key and region values?")
                 updateLabel(text: "Error: \(cancellationDetails.errorDetails)", color: .red)
             }
         }
