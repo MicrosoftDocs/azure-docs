@@ -22,9 +22,7 @@ You can configure exclusions to apply when specific WAF rules are evaluated, or 
 
 ## Identify request attributes to exclude
 
-When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. The values of the specified attributes aren't evaluated against WAF rules, but their names are still evaluated.
-
-You can configure a WAF exclusion for the following request attributes:
+When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. You can configure a WAF exclusion for the following request attributes:
 
 * Request headers
 * Request cookies
@@ -46,7 +44,7 @@ In all cases matching is case insensitive. Regular expression aren't allowed as 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
 
-## Keys and values
+### Request attributes by keys and values
 
 When you configure an exclusion, you need to determine whether you want to exclude the key or the value from WAF evaluation.
 
