@@ -975,7 +975,7 @@
               href: sql/sql-api-sdk-async-java.md
             - name: Sync Java SDK v2 (legacy)
               href: sql/sql-api-sdk-java.md
-            - name: Spring Data Connector v2
+            - name: Spring Data Connector v2 (legacy)
               href: sql/sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql/sql-api-sdk-java-spring-v3.md
