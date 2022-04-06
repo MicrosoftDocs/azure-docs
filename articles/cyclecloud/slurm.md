@@ -206,6 +206,8 @@ The following are the Slurm specific configuration options you can toggle to cus
 | slurm.dampen_memory                  | Default: '5'. The percentage of memory to hold back for OS/VM overhead. |
 | slurm.suspend_timeout                | Default: '600'. The amount of time (in seconds) between a suspend call and when that node can be used again. |
 | slurm.resume_timeout                 | Default: '1800'. The amount of time (in seconds) to wait for a node to successfully boot. |
+| slurm.install                        | Default: 'true'.  Determines if Slurm is installed at node boot ('true').  If Slurm is installed in a custom image this should be set to 'false'.  (proj version 2.5.0+) |
+| slurm.use_pcpu                       | Default: 'true'.  This is a per-nodearray setting to control scheduling with hyperthreaded vcpus.  Set to 'false' to set CPUs=vcpus in cyclecloud.conf. |
 | slurm.user.name                      | Default: 'slurm'. This is the username for the Slurm service to use. |
 | slurm.user.uid                       | Default: '11100'. The User ID to use for the Slurm user. |
 | slurm.user.gid                       | Default: '11100'. The Group ID to use for the Slurm user. |
