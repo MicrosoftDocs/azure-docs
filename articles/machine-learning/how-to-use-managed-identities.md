@@ -224,11 +224,12 @@ Once you've configured ACR without admin user as described earlier, you can acce
 
 ## Create workspace with user-assigned managed identity
 
-When creating workspace, you can specify a user-assigned managed identity that will be used to access the associated resources: ACR, KeyVault, Storage, and App Insights.
+When creating a workspace, you can bring your own [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) that will be used to access the associated resources: ACR, KeyVault, Storage, and App Insights.
 
-First [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), and take note of the ARM resource ID of the managed identity.
+> [!IMPORTANT]
+> When creating workspace with user-assigned managed identity, you must create the associated resources yourself, and grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
 
-Then, use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
+Use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
 
 __Azure CLI__
 
@@ -249,29 +250,8 @@ ws = Workspace.create(name="workspace name",
 
 You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) to create a workspace with user-assigned managed identity.
 
-> [!IMPORTANT]
-> If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
-
 For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use argument
  __user-assigned-identity-for-cmk-encryption__ (CLI) or __user_assigned_identity_for_cmk_encryption__ (SDK) to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
-
-If you have an existing workspace, you can update it from system-assigned to user-assigned managed identity using ```az ml workspace update``` CLI command, or ```Workspace.update``` Python SDK method.
-
-
-## Create and use compute instance with managed identity (Preview)
-
-You can create a compute instance with managed identity enabled. This feature is useful in a case where users should have restricted access to data, only from the compute instance, but not directly as Azure AD users. Also, you can simplify and reduce the number of role assignments by creating a user-assigned managed identity to access a common storage account, and assigning that identity to many compute instances. 
-
- The compute instance manged identity can be configured either using Azure Machine Learning Studio, or [template-based deployment](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes).
-
-In Studio, navigate to **Compute** tab, select **Compute Instances**, and select **+New**. Fill in the required settings, and select **Advanced Settings**. Then, enable **Assign Managed Identity** and select the type of identity you intend to use. Finally, select **Create** to start the compute instance.
-
-To use the managed identity to access data stores, go to compute instance properties, and note the identity principal Id.
-Grant the managed identity required roles on the storage account, such as *Storage Blob Data Contributor* or *Storage Blob Data Reader*. For details on which storage systems support identity-based access, see [Connect to storage by using identity-based data access](how-to-identity-based-data-access.md).
-
-Once configured, the managed identity is used by default when accessing Azure Machine Learning data stores, except the workspace default data store for which user Azure AD identity is used.
-
-Note that updating managed identity forces the compute instance to restart,
 
 ## Next steps
 
