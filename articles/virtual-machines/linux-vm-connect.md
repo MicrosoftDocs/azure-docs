@@ -52,8 +52,9 @@ Open your SSH client of choice.
 ## WSL, MacOS, or native Linux client
 
 ### [SSH with a new key pair](#tab/new) 
-1. Ensure your public and private keys are in the correct directory. This is usually the ~/.ssh directory 
-If you generated keys manually or generated them with the CLI, then the keys are probably already there. However, if you downloaded them in pem format from the Azure portal, you may need to move them to the right location. To move the keys type:
+1. Ensure your public and private keys are in the correct directory. This is usually the ~/.ssh directory.
+
+    If you generated keys manually or generated them with the CLI, then the keys are probably already there. However, if you downloaded them in pem format from the Azure portal, you may need to move them to the right location. To move the keys type:
     ```
     – mv PRIVATE_KEY_SOURCE  PRIVATE_KEY_DESTINATION
     ```  
