@@ -182,4 +182,4 @@ The payout amount and agency fee that Microsoft charges is based on the private 
 
 ## Next steps
 
-- [Frequently Asked Questions](https://microsoft.sharepoint.com/teams/PartnerExperience/specstore/Shared%20Documents/MIX/ISV%20to%20Customer%20Private%20Pricing/isv-customer-faq.yml) about configuring ISV to customer private offers
+- [Frequently Asked Questions](isv-customer-faq.yml) about configuring ISV to customer private offers
