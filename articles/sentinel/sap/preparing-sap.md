@@ -1,14 +1,12 @@
 ---
 title: Deploy SAP Change Requests (CRs) and configure authorization | Microsoft Docs
-description: Express - Deploy SAP CRs and configuring Authorization
+description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
-ms.date: 2/01/2022
+ms.date: 04/07/2022
 ---
-
 # Deploy SAP Change Requests (CRs) and configure authorization
-
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -18,7 +16,8 @@ This article shows you how to deploy the SAP Change Requests (CRs) necessary to 
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Deployment milestones
-Deployment of the SAP continuous threat monitoring solution is divided into the following sections
+
+Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment overview](deployment-overview.md)
 
@@ -36,36 +35,57 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 
 
 > [!IMPORTANT]
-> This article outlines a step-by-step guide on how to deploy required CRs: [Express: Change request and authorization configuration step-by-step guide](#change-request-and-authorization-configuration-step-by-step-guide)
-> Experienced SAP administrators that are familiar with CR deployment process should obtain relevant CRs from [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that **NPLK900163** CR deploys a sample role and is optional. Instead, role can be manually defined following required authorizations list in [Required ABAP authorizations](#required-abap-authorizations)
+> - This article presents a [**step-by-step guide**](#change-request-and-authorization-configuration-step-by-step-guide) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
+> - Experienced SAP administrators that are familiar with CR deployment process should obtain the appropriate CRs from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900163* CR deploys a sample role and should not be used in this case. Instead, the administrator should manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 > [!NOTE]
 > 
-> It is strongly recommended that deployment of the CRs is carried out by an experienced SAP system administrator
+> It is *strongly recommended* that the deployment of SAP CRs be carried out by an experienced SAP system administrator.
 >
-> The steps below may differ depending on the version of the SAP system and should be considered as a sample only
+> The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 > 
-> Obtain details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning
-> For this guide, the following is assumed: a `SAP ABAP Platfor 1909 Developer edition`, SID `A4H`, System number `00` and Client number `001` installed on a host with IP address `192.168.136.4`. Administrator user of this instance is `a4hadm`, however SSH connection to the SAP system is established with `root` user credentials. 
+> Make sure you've copied the details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
+>
+> For the following example, the following details are assumed:
+> - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
+> - **SID:** `A4H`
+> - **System number:** `00`
+> - **Client number:** `001`
+> - **IP address:** `192.168.136.4`
+> - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
 
-
-
-Deployment of Sentinel continuous protection for SAP requires installation of several CRs, more details about the required CRs can be found in the [Validate and configure existing SAP environment](#required-abap-authorizations) step of this guide.
+The deployment of Microsoft Sentinel's Continuous Threat Monitoring for SAP solution requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
 
 To deploy the CRs, follow the steps outlined below:
 
 ### Change request and authorization configuration step-by-step guide
 
-1. Transfer the CR files to the SAP system, logon to SAP system via ssh or telnet and change ownership of the files to user \<sid\>adm and group sapsys
-1. Copy the cofiles (K-prefixed files) to `/usr/sap/trans/cofiles` folder and data files (R-prefixed files) to `/usr/sap/trans/data` folder, preserving the permissions (use `cp` with `-p` switch).
-1. Launch **SAP Logon** and logon to the SAP GUI<br>
-![Logon to SAP GUI](./media/preparing_sap/saplogon.png "Logon to SAP GUI")
-4. Run the **STMS_IMPORT** transaction<br>
-To run the transaction, type the name of the transaction **STMS_IMPORT** in the field in the top-left corner of the screen and press **Enter**<br>
-![Running STMS_IMPORT transaction](./media/preparing_sap/stms_import.png "Running STMS_IMPORT transaction")
-> [!NOTE]
-> If an error occurs at this step, SAP transport management system has to be configured. Expand section below to review the details, else proceed with next steps
-> 
+#### Set up the files
+
+1. Transfer the CR files to the SAP system.
+
+1. Sign in to the SAP system via *ssh* or *telnet*.
+
+1. Change the ownership of the files to user *\<sid\>adm* and group *sapsys*
+
+1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+
+1. Copy the data files (those beginning with R) to the `/usr/sap/trans/data` folder.  Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+
+#### Set up the applications
+
+1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
+
+1. Run the **STMS_IMPORT** transaction:
+
+    Type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
+
+    ![Running STMS_IMPORT transaction](./media/preparing_sap/stms_import.png "Running STMS_IMPORT transaction")
+
+    > [!NOTE]
+    > If an error occurs at this step, SAP transport management system has to be configured. Expand section below to review the details, else proceed with next steps
+
+<!-->
 <details>
 <summary>Steps to configure transport management system</summary>
 Transport management system is normally already configured on production systems, however in a lab environment, where CRs haven't been previously installed, configuration may be required.<br>
@@ -102,6 +122,8 @@ The following steps are a sample on how to configure a transport management syst
 After steps above have been carried out, Transport management system will be configured and `STMS_IMPORT` transaction will work.
 Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged on to client `001`
 </details>
+-->
+
 
 5. In **Import Queue** window, click **More**, select **Extras**->**Other Requests**->**Add**<br>
 ![Import Queue - More - Extras - Other Requests - Add](./media/preparing_sap/import_queue_add.png "Import Queue - More - Extras - Other Requests - Add")

@@ -1,10 +1,10 @@
 ---
 title: Prerequisites for deploying SAP continuous threat monitoring | Microsoft Docs
-description: Prerequisites for deploying SAP continuous threat monitoring.
+description: This article lists the prerequisites required for deployment of the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
-ms.date: 2/01/2022
+ms.date: 04/07/2022
 ---
 # Prerequisites for deploying SAP continuous threat monitoring
 
@@ -14,18 +14,16 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Deployment milestones
 
 Track your SAP solution deployment journey through this series of articles:
 
-
 1. [Deployment overview](deployment-overview.md)
 
 1. **Prerequisites (*You are here*)**
 
-1. [Prepare SAP environment by deploying SAP CRs, configure Authorization and create user](preparing_sap.md)
+1. [Deploy SAP CRs and configure authorization](preparing_sap.md)
 
 1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
 
@@ -62,7 +60,7 @@ The [SAP data connector deployment script](reference_kickstart.md) installs the 
 Besides all the prerequisites listed above, a successful deployment of the SAP data connector depends on your SAP environment being properly configured and updated. This includes ensuring that the relevant SAP change requests (CRs), as well as a Microsoft-provided CR, are deployed on the SAP system and that a role is created in SAP to enable access for the SAP data connector.
 
 > [!NOTE]
->  Step-by-step instructions for deploying a CR and assigning the required role are available in the [Deploying SAP CRs and configuring authorization](preparing_sap.md) guide. Retrieve the required CRs from the links in the tables below and proceed to the step-by-step guide.
+>  Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing_sap.md) guide. Retrieve the required CRs from the links in the tables below and proceed to the step-by-step guide.
 >
 > Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is **not** necessary to deploy the CR *NPLK900163*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing_sap.md#required-abap-authorizations). In any case, you must still deploy CR *NPLK900180* to enable the SAP data connector agent to collect data from your SAP system successfully.
 
