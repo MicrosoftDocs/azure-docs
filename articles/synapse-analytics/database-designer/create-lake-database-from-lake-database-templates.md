@@ -46,19 +46,19 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - **Business areas** are folders containing tables related to that business construct. For example, Budget & Forecasting contains tables related to managing budgets.
     - You can expand business area folders to view the tables, and select the checkbox to add them to the canvas. 
     - Selected tables can be removed via the checkbox.
-    - You can also click on the ellipes next to the business area folder and **Select All** or **UnSelect All** to add/remove all tables under that business area to the canvas.
+    - You can also click on the ellipses next to the business area folder and **Select All** or **UnSelect All** to add/remove all tables under that business area to the canvas.
 
 6. You can select a table on the canvas. It opens the table properties pane with the tabs General, Columns, and Relationships.
     - The General tab has information on the table such as its name and description.
     - The Columns tab has the details about all the columns that make up the table such as column names and datatypes.
     - The Relationships tab lists the incoming and outgoing relationships of the table with other tables on the canvas.
-         i. Use the **Select all** toggle to view all the 'from' & 'to' relationships to that table.
-         ii. Add related tables to the canvas using the check boxes next to each relationship in the relationship tab.    
-![Relationship tab on the canvas, showing new toggle feature.](./media/create-lake-database-from-lake-database-template/relationship-toggle.png)         
-    
+        - Use the **Select all** toggle to view all the 'from' & 'to' relationships to that table.
+        - Add related tables to the canvas using the check boxes next to each relationship in the relationship tab.    
+:::image type="content" source="media/create-lake-database-from-lake-database-template/relationship-toggle-inline.png" alt-text="Image alt text." lightbox="media/create-lake-database-from-lake-database-template/relationship-toggle-expanded.png":::
+
 7. To quickly add tables that are related to the tables on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas. If this adds too many tables to the canvas, use the **Undo Last Action** to undo this change. 
 
-8. Once the canvas has all the tables that meet your requirements, select **Create database** to continue with creation of lake database. The new database will show up in the database designer and you can customize it per your business needs. 
+8. Once the canvas has all the tables that meet your requirements, select **Create database** to continue with creation of lake database. The new database will show up in the database designer and you can customize it per your business needs.
 
 9. The database designer has more **Properties** on the right that need to be configured.
     - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
@@ -70,7 +70,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. If you are unsure of the folder hierarchy in the data lake, you can also specify wildcards to traverse the directory structure.
  
-![Screenshot showing the database designer with the properties panel open](./media/create-lake-database-from-lake-database-template/designer-overview.png)
+:::image type="content" source="media/create-lake-database-from-lake-database-template/designer-overview-inline.png" alt-text="Image alt text." lightbox="media/create-lake-database-from-lake-database-template/designer-overview-expanded.png" :::
 
 
 10. You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as needed in the database. For more information on modifying a lake database, see [Modify a lake database.](./modify-lake-database.md)
