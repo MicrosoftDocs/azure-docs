@@ -64,7 +64,7 @@ For more information, see:
 - [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
 - [Sensor connection methods](architecture-connections.md)
 - [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
-- [Predeployment checklist](predeployment-checklist.md)
+- [Predeployment checklist](pre-deployment-checklist.md)
 - [Identify required appliances](how-to-identify-required-appliances.md).
 
 ## Add a subscription to Defender for IoT

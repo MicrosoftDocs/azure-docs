@@ -1,5 +1,5 @@
 ---
-title: OT Network monitoring best practices for Microsoft Defender for IoT
+title: OT network monitoring best practices for Microsoft Defender for IoT
 description: Learn about best practices for planning your OT network monitoring with Microsoft Defender for IoT.
 ms.topic: conceptual
 ms.date: 03/27/2022
@@ -206,7 +206,7 @@ The advantages of TAPs include:
 
 - TAPs are hardware-based and can't be compromised
 - TAPs pass all traffic, even damaged messages, which the switches often drop
-- TAPs aren't not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
+- TAPs aren't processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
 
 For forensic purposes, a TAP is the best device.
 
