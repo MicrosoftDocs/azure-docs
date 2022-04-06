@@ -12,9 +12,15 @@ ms.reviewer: mbullwin
 # Configure Application Insights Profiler
 
 ## Updated Profiler Agent
-The trigger features only work with version 2.6 or newer of the profiler agent. If you are running an Azure App Service, your agent will be updated automatically. You can see what version of the agent you are running if you go to the Kudu URL for your website and append /DiagnosticServices to the end of it, like this:  `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. The Application Insights Profiler Webjob should be version 2.6 or newer. You can force an upgrade by restarting your web app. 
+The trigger features only work with version 2.6 or newer of the profiler agent. If you are running the profiler an Azure App Service, your agent will be updated automatically. See which profiler agent version you're running via the Kudu URL for your website and append `/DiagnosticServices` to the end. For example:  
+> `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`
 
-If you are running the profiler on a VM or Cloud Service, you need to have Windows Azure Diagnostics (WAD) extension version 16.0.4 or newer installed. You can check the version of WAD by logging onto your VM and looking this directory: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. The directory name is the version of WAD that is installed. The Azure VM agent will update WAD automatically when new versions are available.
+The Application Insights Profiler Webjob should be version 2.6 or newer. You can force an upgrade by restarting your web app. 
+
+If you are running the profiler on a VM or Cloud Service, verify you have Windows Azure Diagnostics (WAD) extension version 16.0.4 or newer installed. Check the WAD version by logging onto your VM and looking this directory:  
+> `C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4`
+
+The directory name shows the installed version of WAD. The Azure VM agent will update WAD automatically once new versions are available.
 
 ## Profiler settings page
 
@@ -35,13 +41,17 @@ Triggers | Allows you to configure triggers that cause the profiler to run.
 Recent profiling sessions | Displays information about past profiling sessions.
 
 ## Profile Now
-This option allows you to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
+Select **Profile Now** to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
 
-For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. In most cases, you get this access automatically and no additional work is needed. If you're having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](./resources-roles-access-control.md).
+To manually trigger a profiler session, you'll need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you'll need the "Application Insights Component Contributor" subscription scope role added. [See more about role access control with Azure Monitoring](./resources-roles-access-control.md).
 
 ## Trigger Settings
 
-Clicking the Triggers button on the menu bar opens the CPU, Memory, and Sampling trigger settings box. You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
+Select the Triggers button on the menu bar to open the CPU, Memory, and Sampling trigger settings pane. 
+
+**CPU or Memory triggers**
+
+You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
 :::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers":::
 
@@ -52,7 +62,9 @@ Memory threshold | When this percentage of memory is in use, the profiler will b
 Duration | Sets the length of time the profiler will run when triggered.
 Cooldown | Sets the length of time the profiler will wait before checking for the memory or CPU usage again after it's triggered.
 
-For Sampling trigger, you can set up how often profiling can occur and the duration of a profiling session.
+**Sampling trigger**
+
+For the Sampling trigger, you can set up how often profiling can occur and the duration of a profiling session.
 
 :::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
 
@@ -63,7 +75,7 @@ Sample rate | The rate at which the profiler can occur. Normal is recommended fo
 Duration | Sets the length of time the profiler will run when triggered.
 
 ## Recent Profiling Sessions
-This section of the page shows information about recent profiling sessions. A profiling session represents the period of time when the profiler agent was taking a profile on one of the machines hosting your application. You can open the profiles from a session by clicking on one of the rows. For each session, we show:
+This section of the Profiler page displays recent profiling session information. A profiling session represents the time taken by the profiler agent while profiling one of the machines hosting your application. Open the profiles from a session by clicking on one of the rows. For each session, we show:
 
 | Setting | Description |
 |-|-|
@@ -77,13 +89,14 @@ Memory % | Percentage of memory that was being used while the profiler was runni
 
 ## <a id="profileondemand"></a> Use web performance tests to generate traffic to your application
 
-You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
+You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. Controlling when traces are captured is crucial, because you know when the load test will be running, while the random sampling interval might miss it.
 
-The next sections illustrate how this scenario works:
+The next sections illustrate to manually trigger the profiler:
 
 ### Step 1: Generate traffic to your web app by starting a web performance test
 
-If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
+> [!NOTE]
+> If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
 
 1. In the Application Insights portal, select **Configure** > **Performance Testing**. 
 
