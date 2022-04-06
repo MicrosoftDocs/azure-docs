@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Pre-Call API enables developers to programmatically validate a client’s readiness to join an Azure Communication Services Call. The Pre-Call APIs can be accessed through the Calling SDK. They provide multiple diagnostics including device, connection, and call quality. 
+The Pre-Call API enables developers to programmatically validate a client’s readiness to join an Azure Communication Services Call. The Pre-Call APIs can be accessed through the Calling SDK. They provide multiple diagnostics including device, connection, and call quality. Pre-Call APIs are available only for Web (JavaScript). We will be enabling these capabilities across platforms in the future, please provide us feedback on what platforms you would like to see Pre-Call APIs on.
 
 ## Accessing Pre-Call APIs
 
