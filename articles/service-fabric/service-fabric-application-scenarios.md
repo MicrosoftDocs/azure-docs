@@ -16,7 +16,7 @@ Consider using the Service Fabric platform for the following types of applicatio
 
 * **Data gathering, processing, and IoT**: Service Fabric handles large scale and has low latency through its stateful services. It can help process data on millions of devices where the data for the device and the computation are colocated.
 
-    Customers who have built IoT services by using Service Fabric include [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Citrix](https://customers.microsoft.com/story/citrix),  [ASOS](https://customers.microsoft.com/story/asos-retail-and-consumer-goods-azure),
+    Customers who have built IoT services by using Service Fabric include [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Citrix](https://customers.microsoft.com/story/citrix),  [ASOS](https://customers.microsoft.com/story/asos-retail-and-consumer-goods-azure),
 [Oman Data Park](https://customers.microsoft.com/story/821095-oman-data-park-partner-professional-services-azure), 
 [Kohler](https://customers.microsoft.com/story/kohler-konnect-azure-iot), and
 [Dover Fueling Systems](https://customers.microsoft.com/story/775087-microsoft-country-corner-dover-fueling-solutions-oil-and-gas-azure).
@@ -28,7 +28,7 @@ Consider using the Service Fabric platform for the following types of applicatio
 
 * **Data analytics and workflow processing**: Applications that must reliably process events or streams of data benefit from the optimized reads and writes in Service Fabric. Service Fabric also supports application processing pipelines, where results must be reliable and passed on to the next processing stage without any loss. These pipelines include transactional and financial systems, where data consistency and computation guarantees are essential.
 
-    Customers who have built business workflow services include [Zeiss Group](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform) and
+    Customers who have built business workflow services include [Zeiss Group](https://customers.microsoft.com/story/1366745613299736251-zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform) and
     [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure).
 
 * **Computation on data**: Service Fabric enables you to build stateful applications that do intensive data computation. Service Fabric allows the colocation of processing (computation) and data in applications. 
