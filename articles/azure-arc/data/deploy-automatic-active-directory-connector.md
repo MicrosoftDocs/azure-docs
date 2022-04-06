@@ -27,9 +27,6 @@ Before you proceed, you must have:
 
 The AD domain service account should have sufficient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 
-> [!IMPORTANT]
-> Note that AD domain service account is case-sensitive. 
-
 
 The sufficient permission including the following:
  
