@@ -125,7 +125,7 @@
       href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
-  - name: View managed identity activity
+  - name: Move a managed identity to a new region
     href: how-to-managed-identities-regional-move.md
 
 - name: Reference
