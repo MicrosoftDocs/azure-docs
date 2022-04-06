@@ -174,7 +174,7 @@ This section covers final steps before migrating user phone numbers.
 
 ### Set federatedIdpMfaBehavior
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a **federatedIdpMfaBehavior** enum that determines whether Azure AD accepts, enforces, or rejects MFA performed by the on-premises federation provider. Rejecting claims provides extra security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta).
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a **federatedIdpMfaBehavior** enum that determines whether Azure AD accepts, enforces, or rejects MFA performed by the on-premises federation provider. Rejecting claims provides extra security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true).
 
 | Value | Description |
 | :--- | :--- |
