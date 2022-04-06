@@ -1,0 +1,13 @@
+- name: Azure CLI (v1) Machine Learning Documentation
+  href: introduction.md
+- name: Switch to current version documentation
+  href: ../index.yml
+- name: How-to guides
+  items:
+  - name: Install and set up the CLI (v1)
+    displayName: azurecli, mlops
+    href: reference-azure-machine-learning-cli.md
+- name: Reference
+  items: 
+  - name: Machine learning CLI pipeline YAML reference
+    href: reference-pipeline-yaml.md

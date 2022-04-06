@@ -1,7 +1,7 @@
 ---
-title: Machine Learning pipeline YAML
+title: Machine Learning pipeline YAML (v1)
 titleSuffix: Azure Machine Learning
-description: Learn how to define a machine learning pipeline using a YAML file. YAML pipeline definitions are used with the machine learning extension for the Azure CLI.
+description: Learn how to define a machine learning pipeline using a YAML file. YAML pipeline definitions are used with the machine learning extension for the Azure CLI (v1).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,12 +14,19 @@ ms.date: 07/31/2020
 ms.custom: devx-track-python, devx-track-azurecli, cliv1
 ---
 
-# Define machine learning pipelines in YAML
+# CLI (v1) pipeline job YAML schema
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](reference-pipeline-yaml.md)
+> * [v2 (current version)](../reference-yaml-job-pipeline.md)
 
-Learn how to define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the [Azure CLI **v1**](reference-azure-machine-learning-cli.md)., many of the pipeline-related commands expect a YAML file that defines the pipeline.
+> [!NOTE]
+> The YAML syntax detailed in this document is based on the JSON schema for the v1 version of the ML CLI extension. This syntax is guaranteed only to work with the ML CLI v1 extension.
+> Switch to the [v2 (current version)](../reference-yaml-job-pipeline.md) for the syntax for ML CLI v2.
+
+Define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the [Azure CLI **v1**](reference-azure-machine-learning-cli.md)., many of the pipeline-related commands expect a YAML file that defines the pipeline.
 
 The following table lists what is and is not currently supported when defining a pipeline in YAML for use with CLI v1:
 

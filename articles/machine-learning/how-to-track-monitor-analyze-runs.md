@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devx-track-azurecli, cliv1
 
 # Start, monitor, and track run history
 
-The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
+The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](v1/reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
 This article shows how to do the following tasks:
 
@@ -50,7 +50,7 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
 
 
 ## Monitor run performance
