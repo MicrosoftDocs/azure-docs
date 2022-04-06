@@ -7,9 +7,29 @@
   - name: Prerequisites
     href: prerequisites.md
   - name: What's new?
-    href: whats-new.md
-  - name: What's new for Azure Monitor
-    href: whats-new-azure-monitor.md
+    items:
+    - name: Azure Virtual Desktop
+      href: whats-new.md
+    - name: Azure Virtual Desktop Agent
+      href: whats-new-agent.md
+    - name: Azure Monitor for Azure Virtual Desktop
+      href: whats-new-azure-monitor.md
+    - name: FSLogix
+      href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
+    - name: Remote Desktop clients
+      items:
+      - name: Windows (Desktop)
+        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Windows (Microsoft Store)
+        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: macOS
+        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: iOS
+        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Android
+        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Web
+        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?context=/azure/virtual-desktop/context/context
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Quickstarts

@@ -5,7 +5,7 @@ author: rothja
 ms.author: jroth
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 04/02/2022
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
@@ -81,7 +81,7 @@ If you need help with capacity planning, consider reading our [guide to estimati
 |Offline|[cqlsh COPY command](cassandra/migrate-data.md#migrate-data-by-using-the-cqlsh-copy-command)|CSV Files | Azure Cosmos DB Cassandra API| &bull; Easy to set up. <br/>&bull; Not suitable for large datasets. <br/>&bull; Works only when the source is a Cassandra table.|
 |Offline|[Copy table with Spark](cassandra/migrate-data.md#migrate-data-by-using-spark) | &bull;Apache Cassandra<br/>&bull;Azure Cosmos DB Cassandra API| Azure Cosmos DB Cassandra API | &bull; Can make use of Spark capabilities to parallelize transformation and ingestion. <br/>&bull; Needs configuration with a custom retry policy to handle throttles.|
 |Online|[Striim (from Oracle DB/Apache Cassandra)](cassandra/migrate-data-striim.md)| &bull;Oracle<br/>&bull;Apache Cassandra<br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported sources.|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB Cassandra API <br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported targets.| &bull; Works with a large variety of sources like Oracle, DB2, SQL Server. <br/>&bull; Easy to build ETL pipelines and provides a dashboard for monitoring. <br/>&bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
-|Online|[Blitzz (from Oracle DB/Apache Cassandra)](cassandra/oracle-migrate-cosmos-db-blitzz.md)|&bull;Oracle<br/>&bull;Apache Cassandra<br/><br/>See the [Blitzz website](https://www.blitzz.io/) for other supported sources. |Azure Cosmos DB Cassandra API. <br/><br/>See the [Blitzz website](https://www.blitzz.io/) for other supported targets. | &bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
+|Online|[Arcion (from Oracle DB/Apache Cassandra)](cassandra/oracle-migrate-cosmos-db-arcion.md)|&bull;Oracle<br/>&bull;Apache Cassandra<br/><br/>See the [Arcion website](https://www.arcion.io/) for other supported sources. |Azure Cosmos DB Cassandra API. <br/><br/>See the [Arcion website](https://www.arcion.io/) for other supported targets. | &bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
 
 ## Other APIs
 

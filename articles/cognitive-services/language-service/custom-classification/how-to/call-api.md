@@ -1,5 +1,5 @@
 ---
-title: How to submit custom classification tasks
+title: How to submit custom text classification tasks
 titleSuffix: Azure Cognitive Services
 description: Learn about sending a request for custom text classification.
 services: cognitive-services
@@ -19,7 +19,7 @@ After you're satisfied with your model, and made any necessary improvements, you
 
 ## Prerequisites
 
-* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
@@ -86,7 +86,7 @@ First you will need to get your resource key and endpoint
 
     :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
-### Submit text classification task
+### Submit a custom text classification task
 
 1. Start constructing a POST request by updating the following URL with your endpoint.
     
@@ -97,7 +97,7 @@ First you will need to get your resource key and endpoint
 3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
  
     > [!tip]
-    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-text-classification-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
+    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-a-custom-text-classification-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
     
     ```json
     {
@@ -166,7 +166,7 @@ First you will need to get your resource key and endpoint
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_category_classify.py)
     
-    Multiple label classification:
+    Multi label classification:
     * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample11_MultiCategoryClassify.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentMultiCategory.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)

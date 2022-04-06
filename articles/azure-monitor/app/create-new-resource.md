@@ -46,9 +46,6 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
 ## Install the SDK in your app
 
 Install the Application Insights SDK in your app. This step depends heavily on the type of your application.
