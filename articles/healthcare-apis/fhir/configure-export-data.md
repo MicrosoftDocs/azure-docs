@@ -5,10 +5,9 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.custom: references_regions
+ms.custom: references_regions, subject-rbac-steps
 ms.date: 03/01/2022
 ms.author: cavoeg
-ms.custom: subject-rbac-steps
 ---
 
 # Configure export settings and set up a storage account
