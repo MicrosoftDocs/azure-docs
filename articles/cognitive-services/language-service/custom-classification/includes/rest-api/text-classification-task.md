@@ -1,3 +1,13 @@
+---
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: language-service
+ms.topic: include
+ms.date: 04/05/2022
+ms.author: aahi
+---
+
 > [!NOTE]
 > Project names are case sensitive.
 
