@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 04/06/2022
 ms.author: govindk
 ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
