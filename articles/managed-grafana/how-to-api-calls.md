@@ -10,7 +10,7 @@ ms.date: 3/31/2022
 
 # How to call Grafana APIs in your automation within Azure Managed Grafana Preview
 
-In this article, you'll learn how to call Grafana APIs within Managed Grafana using a service principal.
+In this article, you'll learn how to call Grafana APIs within Azure Managed Grafana Preview using a service principal.
 
 ## Prerequisites
 
@@ -21,15 +21,16 @@ In this article, you'll learn how to call Grafana APIs within Managed Grafana us
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Assign roles to the service principal of your application and of your Managed Grafana workspace 
+## Assign roles to the service principal of your application and of your Azure Managed Grafana workspace
 
-1. Start by [Creating an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This guide will take you through creating an application and assigning a role to its service principal. For simplicity, use an application located in the same Azure Active Directory (Azure AD) tenant as your Grafana instance.
+1. Start by [Creating an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This guide takes you through creating an application and assigning a role to its service principal. For simplicity, use an application located in the same Azure Active Directory (Azure AD) tenant as your Grafana workspace.
 1. Assign the role of your choice to the service principal for your Grafana resource. Refer to [How to share a Managed Grafana workspace](how-to-share-grafana-workspace.md) to learn how to grant access to a Grafana instance. Instead of selecting a user, select **Service principal**.
 
 ## Get an access token
+
 To access Grafana APIs, you first need to get an access token. Here's an example showing how you can call Azure AD to retrieve a token:
 
-```
+```bash
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'grant_type=client_credentials&client_id=<client-id>&client_secret=<application-secret>&resource=ce34e7e5-485f-4d76-964f-b3d2b16d1e4f' \
 https://login.microsoftonline.com/<tenant-id>/oauth2/token
@@ -39,7 +40,7 @@ Replace `<tenant-id>` with your own Azure AD tenant ID, replace `<client-id>` wi
 
 Here's an example of response:
 
-```
+```bash
 {
   "token_type": "Bearer",
   "expires_in": "599",
@@ -51,13 +52,19 @@ Here's an example of response:
 }
 ```
 
-## Call the Grafana API
+## Call a Grafana API
 
 You can now call the Grafana API using the access token retrieved in the previous step as the Authorization header. For example:
 
-```
+```bash
 curl -X GET \
 -H 'Authorization: Bearer <access-token>' \
 https://<grafana-url>/api/user
 ```
+
 Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance (for example *test.scus.azgrafana.io*).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Grafana UI](./grafana-app-ui.md)

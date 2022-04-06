@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and Marketplace** box, enter *Grafana* and select **Enter**.
 
-1. Select **Managed Grafana** from the search results, and then select Create.
+1. Select **Azure Managed Grafana** from the search results, and then Create.
 
     :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-create.png" alt-text="Screenshot of the Azure portal. Create Grafana workspace.":::
 
@@ -50,22 +50,22 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Select **Next : Review + create >** and then **Create**. Your Azure Managed Grafana resource is deploying.
 
-## Connect to your Managed Grafana workspace console
+## Connect to your Managed Grafana workspace
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.  
 
     :::image type="content" source="media/managed-grafana-quickstart-portal-deployment-complete.png" alt-text="Screenshot of the Azure portal. Message: Your deployment is complete.":::
 
-1. In the **Overview** tab, in the Essentials section, note the endpoint URL, and open it to access the Managed Grafana workspace console. Sign-in is automatically configured via Azure Active Directory. If prompted, connect to your Azure account.
+1. In the **Overview** tab's Essentials section, note the **Endpoint** URL. Open it to access the newly created Managed Grafana workspace. Single sign-on via Azure Active Directory should have been configured for you automatically. If prompted, enter your Azure account.
 
     :::image type="content" source="media/managed-grafana-quickstart-workspace-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 
     :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of a Managed Grafana dashboard.":::
 
-You can now start interacting with the Grafana console to configure data sources, create dashboards, reporting and alerts.
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reporting and alerts.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure permissions for Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md)
+> [Configure permissions for Azure Managed Grafana Preview](./how-to-data-source-plugins-managed-identity.md)
+> [Configure data source plugins for Azure Managed Grafana Preview with Managed Identity](./how-to-data-source-plugins-managed-identity.md)

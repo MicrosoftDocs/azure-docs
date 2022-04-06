@@ -10,35 +10,35 @@ ms.date: 3/31/2022
 
 # How to share an Azure Managed Grafana Preview workspace
 
-Dashboards are usually built to monitor and diagnose an application, or to report to management and customers. A dedicated support team may also build a Grafana monitoring solution for an external customer and create permissions to let this customer access their Managed Grafana dashboard. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal team and external customers.
+A DevOps team may build dashboards to monitor and diagnose an application or infrastructure that it manages. Likewise, a support team may use a Grafana monitoring solution for troubleshooting customer issues. In these scenarios, multiple users will be accessing one Grafana workspace. Azure Managed Grafana enables such sharing by allowing you to set the custom permissions on a workspace that you own. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal teams or external customers.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
 
-## Grafana roles supported
+## Supported Grafana roles
+
 Azure Managed Grafana supports the Admin, Viewer and Editor roles:
 
-- The Admin role provides full control of the workspace including viewing, editing, and configuring data sources. 
+- The Admin role provides full control of the workspace including viewing, editing, and configuring data sources.
 - The Editor role provides read-write access to the Managed Grafana workspace.
 - The Viewer role provides read-only access to dashboards in the workspace.
 
 The Admin role is automatically assigned to the creator of a Grafana workspace. More details on Admin, Editor, and Viewer roles can be found at [Grafana organization roles](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
-Grafana user roles are integrated within the Azure Active Directory roles and permissions, so that you can assign permissions from the Azure portal or the command line. This section explains how to assign users viewer or editor roles in Azure portal.
+Grafana user roles and assignments are fully integrated with the Azure Active Directory. You can manage these permissions from the Azure portal or the command line. This section explains how to assign users to the Viewer or Editor role in the Azure portal.
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Open the Azure Managed Grafana Access control (IAM) tab
-
-1. Open your Managed Grafana workspace
-1. Select **Access control (IAM)** in the navigation menu.
-
 ## Assign an Admin, Viewer or Editor role to a user
-1. Select **Add**, then **Add role assignment**
+
+1. Open your Managed Grafana workspace.
+1. Select **Access control (IAM)** in the navigation menu.
+1. Click **Add**, then **Add role assignment**
+
       :::image type="content" source="media/managed-grafana-how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 1. Select one of the Grafana roles to assign to a user or security group. The available roles are:
@@ -49,8 +49,8 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     :::image type="content" source="media/managed-grafana-how-to-share-role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
-> [NOTE!]
-> Dashboard and data source level sharing will be done from within the Grafana UI, with support provided by Grafana Labs. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
+> [!NOTE]
+> Dashboard and data source level sharing will be done from within the Grafana application. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
 
 ## Next steps
 

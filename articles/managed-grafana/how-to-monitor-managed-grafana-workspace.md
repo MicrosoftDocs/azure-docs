@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to monitor your workspace with logs in Azure Managed Grafana Preview 
+# How to monitor your workspace with logs in Azure Managed Grafana Preview
 
 In this article, you'll learn how to monitor an Azure Managed Grafana workspace by configuring diagnostic settings and accessing event logs.
 
