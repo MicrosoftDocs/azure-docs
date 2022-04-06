@@ -158,7 +158,7 @@ You can revoke a key by disabling the latest version of the key in Azure Key Vau
 
 ### What operations are available after a customer-managed key is revoked?
 
-The only operation possible when the encryption key has been revoked is resource deletion.
+When the encryption key is revoked, the only operation that is available is resource deletion.
 
 ## Next steps
 
