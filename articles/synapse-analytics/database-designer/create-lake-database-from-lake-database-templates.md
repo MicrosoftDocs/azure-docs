@@ -36,7 +36,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - **Zoom preview** to provide a preview of the canvas
     - **Expand all**/**Collapse all** to view more or less columns within a table on the canvas
     - **Clear canvas** to clear-off all the tables on the canvas
-![Exploration page of the canvas, showing sample tables and controls.](./media/create-lake-database-from-lake-database-template/canvas-overview.png)
+:::image type="content" source="media/create-lake-database-from-lake-database-template/canvas-overview-inline.png" alt-text="Canvas Overview." lightbox="media/create-lake-database-from-lake-database-template/canvas-overview-expanded.png" :::
 
 5. On the left, you'll see list of folders containing the items of the template you can add to the canvas. There are several controls to help.
     - **Search box** to search for tables based on a term. The term will be searched across the template tables, columns, and descriptions.
@@ -54,7 +54,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - The Relationships tab lists the incoming and outgoing relationships of the table with other tables on the canvas.
         - Use the **Select all** toggle to view all the 'from' & 'to' relationships to that table.
         - Add related tables to the canvas using the check boxes next to each relationship in the relationship tab.    
-:::image type="content" source="media/create-lake-database-from-lake-database-template/relationship-toggle-inline.png" alt-text="Image alt text." lightbox="media/create-lake-database-from-lake-database-template/relationship-toggle-expanded.png":::
+:::image type="content" source="media/create-lake-database-from-lake-database-template/relationship-toggle-inline.png" alt-text="Relationship toggle" lightbox="media/create-lake-database-from-lake-database-template/relationship-toggle-expanded.png":::
 
 7. To quickly add tables that are related to the tables on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas. If this adds too many tables to the canvas, use the **Undo Last Action** to undo this change. 
 
@@ -70,7 +70,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. If you are unsure of the folder hierarchy in the data lake, you can also specify wildcards to traverse the directory structure.
  
-:::image type="content" source="media/create-lake-database-from-lake-database-template/designer-overview-inline.png" alt-text="Image alt text." lightbox="media/create-lake-database-from-lake-database-template/designer-overview-expanded.png" :::
+:::image type="content" source="media/create-lake-database-from-lake-database-template/designer-overview-inline.png" alt-text="Designer Overview" lightbox="media/create-lake-database-from-lake-database-template/designer-overview-expanded.png" :::
 
 
 10. You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as needed in the database. For more information on modifying a lake database, see [Modify a lake database.](./modify-lake-database.md)
