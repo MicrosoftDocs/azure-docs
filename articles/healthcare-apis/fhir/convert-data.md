@@ -122,9 +122,9 @@ Change the status to **On** to enable managed identity in FHIR service.
 
 1. Select **Access Control (IAM)**.
 
-1. Select **Add > Add role assignment**. If the add role assignment option is grayed out, ask your Azure administrator to assign you permission to perform this task.
+1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
-   ![Screenshot that shows Access control (IAM) page with Add role assignment menu open.](../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Roles** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 

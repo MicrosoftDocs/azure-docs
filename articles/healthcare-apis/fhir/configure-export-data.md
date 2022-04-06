@@ -32,9 +32,9 @@ In this step, browse to your FHIR service in the Azure portal, and select the **
 
 1. Select **Access Control (IAM)**.
 
-1. Select **Add > Add role assignment**. If the add role assignment option is grayed out, ask your Azure administrator to assign you permission to perform this task.
+1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
-   ![Screenshot that shows Access control (IAM) page with Add role assignment menu open.](../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Roles** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
 
