@@ -23,6 +23,8 @@ Shared managed disks offer shared block storage that can be accessed from multip
 
 Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication and write locking.
 
+Multiple shared disks can be attached to the same VM depending on how many data disks the VM supports. For example, if the VM supports 5 data disks then you could instead mount 5 shared disks. Refer to the [Virtual Machine Sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) for information on the max data disks per VM.
+
 ## Limitations
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
