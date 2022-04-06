@@ -25,35 +25,35 @@ As we've seen in the [companion article](cluster-security-certificates.md), a ce
 The goal is to automate certificate management as much as possible to ensure uninterrupted availability of the cluster and offer security assurances, given that the process is user-touch-free. This goal is attainable currently in Azure Service Fabric clusters; the remainder of the article will first deconstruct certificate management, and later will focus on enabling autorollover.
 
 Specifically, the topics in scope are:
-  - assumptions related to the separation of attributions between owner and platform, in the context of managing certificates
-  - the long pipeline of certificates from issuance to consumption
-  - certificate rotation - why, how and when
-  - what could possibly go wrong?
+  - Assumptions related to the separation of attributions between owner and platform, in the context of managing certificates
+  - The long pipeline of certificates from issuance to consumption
+  - Certificate rotation - why, how and when
+  - What could possibly go wrong?
 
 Aspects such as securing/managing domain names, enrolling into certificates, or setting up authorization controls to enforce certificate issuance are beyond the scope of this article. Refer to the Registration Authority (RA) of your favorite Public Key Infrastructure (PKI) service. Microsoft-internal consumers: please reach out to Azure Security.
 
 ## Roles and entities involved in certificate management
 The security approach in a Service Fabric cluster is a case of "cluster owner declares it, Service Fabric runtime enforces it". By that we mean that almost none of the certificates, keys, or other credentials of identities participating in a cluster's functioning come from the service itself; they are all declared by the cluster owner. Furthermore, the cluster owner is also responsible for provisioning the certificates into the cluster, renewing them as needed, and ensuring the security of the certificates at all times. More specifically, the cluster owner must ensure that:
-  - certificates declared in the NodeType section of the cluster manifest can be found on each node of that type, according to the [presentation rules](cluster-security-certificates.md#presentation-rules)
-  - certificates declared above are installed inclusive of their corresponding private keys
-  - certificates declared in the presentation rules should pass the [validation rules](cluster-security-certificates.md#validation-rules) 
+  - Certificates declared in the NodeType section of the cluster manifest can be found on each node of that type, according to the [presentation rules](cluster-security-certificates.md#presentation-rules)
+  - Certificates declared above are installed with their corresponding private keys included.
+  - Certificates declared in the presentation rules should pass the [validation rules](cluster-security-certificates.md#validation-rules) 
 
-Service Fabric, for its part, assumes the responsibilities of:
-  - locating/finding certificates matching the declarations in the cluster definition  
-  - granting access to the corresponding private keys to Service Fabric-controlled entities on a 'need' basis
-  - validating certificates in strict accordance with established security best-practices and the cluster definition
-  - raising alerts on impending expiration of certificates, or failures to perform the basic steps of certificate validation
-  - validating (to some degree) that the certificate-related aspects of the cluster definition are met by the underlying configuration of the hosts 
+Service Fabric, for its part, assumes the following responsibilities:
+  - Locating certificates matching those declared in the cluster definition
+  - Granting access to the corresponding private keys to Service Fabric-controlled entities on a 'need' basis
+  - Validating certificates in strict accordance with established security best-practices and the cluster definition
+  - Raising alerts on impending expiration of certificates, or failures to perform the basic steps of certificate validation
+  - Validating (to some degree) that the certificate-related aspects of the cluster definitions are met by the underlying configuration of the hosts 
 
 It follows that the certificate management burden (as active operations) falls solely on the cluster owner. In the following sections, we'll take a closer look at each of the management operations, with available mechanisms and their impact on the cluster.
 
 ## The journey of a certificate
 Let us quickly revisit the progression of a certificate from issuance to consumption in the context of a Service Fabric cluster:
 
-  1. A domain owner registers with the RA of a PKI a domain or subject that they'd like to associate with ensuing certificates; the certificates will, in turn, constitute proofs of ownership of said domain or subject
+  1. A domain owner registers with the RA of a PKI a domain or subject that they'd like to associate with ensuing certificates; the certificates will, in turn, constitute proofs of ownership of said domain or subject.
   2. The domain owner also designates in the RA the identities of authorized requesters - entities that are entitled to request the enrollment of certificates with the specified domain or subject; in Microsoft Azure, the default identity provider is Azure Active Directory, and authorized requesters are designated by their corresponding AAD identity (or via security groups)
-  3. An authorized requester then enrolls into a certificate via a Secret Management Service; in Microsoft Azure, the SMS of choice is Azure Key Vault (AKV), which securely stores and allows the retrieval of secrets/certificates by authorized entities. AKV also renews/re-keys the certificate as configured in the associated certificate policy. (AKV uses AAD as the identity provider.)
-  4. An authorized retriever - which we'll refer to as a 'provisioning agent' - retrieves the certificate, inclusive of its private key, from the vault, and installs it on the machines hosting the cluster
+  3. An authorized requester then enrolls into a certificate via a Secret Management Service; in Microsoft Azure, the SMS of choice is Azure Key Vault (AKV), which securely stores and allows the retrieval of secrets and certificates by authorized entities. AKV also renews/re-keys the certificate as configured in the associated certificate policy (AKV uses AAD as the identity provider).
+  4. An authorized retriever - which we'll refer to as a 'provisioning agent' - retrieves the certificate, inclusive of its private key, from the vault, and installs it on the machines hosting the cluster.
   5. The Service Fabric service (running elevated on each node) grants access to the certificate to allowed Service Fabric entities; these are designated by local groups, and split between ServiceFabricAdministrators and ServiceFabricAllowedUsers
   6. The Service Fabric runtime accesses and uses the certificate to establish federation, or to authenticate to inbound requests from authorized clients
   7. The provisioning agent monitors the vault certificate, and triggers the provisioning flow upon detecting renewal; subsequently, the cluster owner updates the cluster definition, if needed, to indicate the intent to roll over the certificate.
@@ -71,12 +71,13 @@ These steps are illustrated below; note the differences in provisioning between 
 
 ### Certificate enrollment
 This topic is covered in detail in the Key Vault [documentation](../key-vault/certificates/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
-    - creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) for details. 
-    - creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
-    - once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
-      - under {vaultUri}/certificates/{name}: the certificate including the public key and metadata
-      - under {vaultUri}/keys/{name}: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
-      - under {vaultUri}/secrets/{name}: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
+
+ - Creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) for details. 
+ - creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
+ - once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
+ - under {vaultUri}/certificates/{name}: the certificate including the public key and metadata
+ - under {vaultUri}/keys/{name}: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
+ - under {vaultUri}/secrets/{name}: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
 	Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
 
 At this point, a certificate exists in the vault, ready for consumption. Onward to:
