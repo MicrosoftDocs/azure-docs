@@ -44,42 +44,39 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and KnowBe4 Security Awareness Training](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure KnowBe4 Security Awareness Training to support provisioning with Azure AD
-
-1. log into your [KnowBe4 Security Awareness Training account](https://directprint.io/login/).
-To connect your identity provider with your KnowBe4 account, you will need to enable some settings from your Account Settings page and then, finish configuration with your identity provider.
-
-Configuring SCIM for KnowBe4
 Follow the steps below to configure your SCIM settings in the console.
+>![NOTE]
+>If you are switching from ADI to SCIM, please note that if you are using alias email addresses, our integration with SCIM does not support that connection, so this information will be removed once you disable **Test Mode** and a sync runs.
 
-Note:
-If you are switching from ADI to SCIM, please note that if you are using alias email addresses, our integration with SCIM does not support that connection, so this information will be removed once you disable Test Mode and a sync runs.
+1. From your KnowBe4 console, click your email address in the top right corner and select **Account Settings**.
+1. Navigate to the **User Management > User Provisioning** section of your settings.
+1. Select **Enable User Provisioning (User Syncing)** to display more provisioning settings.
 
-From your KnowBe4 console, click your email address in the top right corner and select Account Settings.
-Navigate to the User Management > User Provisioning section of your settings.
-Select Enable User Provisioning (User Syncing) to display more provisioning settings. 
+	![User Provisioning (User Syncing)](media/knowbe4-security-awareness-training-provisioning-tutorial\user-sync.png) 
 
-By default, the toggle will be set to ADI. Click the SCIM toggle to begin setting up.
-Expand your SCIM settings by clicking + SCIM Settings.
-Note:
-Your identity provider will need the token (step 5) and the tenant ID (step 6) in order to establish a connection with KnowBe4. Make sure that you save this information so it is readily available when you are ready to set up the connection with your identity provider.
+1. By default, the toggle will be set to **ADI**. Click the **SCIM** toggle to begin setting up.
+1. Expand your SCIM settings by clicking **+ SCIM Settings**.
 
+	![Tenant Url](media/knowbe4-security-awareness-training-provisioning-tutorial\tenant-url.png)
 
-Click Generate SCIM Token. This will open a new window with your token ID. Copy this ID and save it to a place that you can easily access later. It is important that you save this token because once you close this window, you cannot view the token again. Once you’ve saved the information, click OK to close the window.
-Note:
-Once your SCIM token is generated, this button will change to the Regenerate SCIM Token button. See the Troubleshooting Options section of this article for more information.
+1. Click **Generate SCIM Token**. This will open a new window with your token ID. Copy this ID and save it to a place that you can easily access later. It is important that you save this token because once you close this window, you cannot view the token again. Once you’ve saved the information, click **OK** to close the window.
 
-Copy the Tenant URL and save it to a place that you can easily access later.
-Make sure that the Test Mode option is selected.
+   >![NOTE]
+   >Once your SCIM token is generated, this button will change to the **Regenerate SCIM Token** button. See the **Troubleshooting Tips** section of this article for more information.
 
-Note:
-We recommend keeping Test Mode enabled until you’ve configured the connection between KnowBe4 and your identity provider and have run a successful sync. Test Mode is used to generate a report of what will happen when SCIM is enabled. This means no changes are made to your console so you can configure your setup without worrying about changes to your console. When you are ready, you can disable Test Mode from your Account Settings to enable syncing.
+   >![NOTE]
+   >Your identity provider will need the token (step 5) and the tenant ID (step 6) in order to establish a connection with KnowBe4. Make sure that you save this information so it is readily available when you are ready to set up the connection with your identity provider.
 
-If you are switching from ADI to SCIM, Test Mode will be enabled automatically after you save your Account Settings.
+1. Copy the Tenant URL and save it to a place that you can easily access later.
+1. Make sure that the Test Mode option is selected.
 
-Scroll down to the bottom of the Account Settings page and click Save Changes.
+	![Tenant Mode](media/knowbe4-security-awareness-training-provisioning-tutorial\test-mode.png)
+
+   >![NOTE]
+   >We recommend keeping **Test Mode** enabled until you’ve configured the connection between KnowBe4 and your identity provider and have run a successful sync. Test Mode is used to generate a report of what will happen when SCIM is enabled. This means no changes are made to your console so you can configure your setup without worrying about changes to your console. When you are ready, you can disable **Test Mode** from your **Account Settings** to enable syncing.If you are switching from ADI to SCIM, **Test Mode** will be enabled automatically after you save your **Account Settings**.
+
+1. Scroll down to the bottom of the **Account Settings** page and click **Save Changes**.
 Now that you have enabled SCIM in your KnowBe4 account, you are ready to finalize the connection with your identity provider. See one of the articles below to find instructions on configuring SCIM for the identity provider that you are using.
-
-  ![Provisioning Tenant URL and Provision secret](media/directprint/sso-provisioning-screen.png)
 
 ## Step 3. Add KnowBe4 Security Awareness Training from the Azure AD application gallery
 
@@ -133,8 +130,24 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|Required by KnowBe4 Security Awareness Training|
    |---|---|---|---|
    |userName|String|&check;|&check;
-   |externalId|String|
-   |active|Boolean|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager.value|Reference||
+   |active|Boolean||
+   |title|String||
+   |name.givenName|String||
+   |name.familyName|String||
+   |externalId|String||
+   |displayName|Reference||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String||
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customDate1|DateTime||
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customDate2|DateTime|
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customField1|String||             
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customField2|String||
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customField3|String||
+   |urn:ietf:params:scim:schemas:extension:knowbe4:kmsat:2.0:User:customField4|String||
+|
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to KnowBe4 Security Awareness Training**.
 
@@ -169,6 +182,16 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Step 7. Troubleshooting Tips
+* Once SCIM has been enabled, you'll see three buttons in the SCIM section of your Account Settings that can be used for troubleshooting purposes. For more information on these options, see the list below.
+
+	![Troubleshooting Tips](media/knowbe4-security-awareness-training-provisioning-tutorial\troubleshoot.png)
+
+   * **Regenerate SCIM token**: Use this button to generate a new SCIM token. This token can only be viewed once, so make sure you save this information before closing the window. The link between your identity providers and your KnowBe4 console will be disabled until you provide the new SCIM token.
+
+   * **Revoke SCIM token**: Use this button to disable your current SCIM token. Identity providers currently using this token will no longer be linked to your KnowBe4 console.
+
+   * **Force Sync Now**: Use this button to manually force a SCIM sync at any time, without requiring a change from your identity provider.
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
