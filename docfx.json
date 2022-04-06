@@ -800,7 +800,8 @@
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer",            
         "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
       "ms.subservice": {
