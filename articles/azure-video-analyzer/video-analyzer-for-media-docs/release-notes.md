@@ -561,7 +561,10 @@ In addition to the closed captioning format already supported (SRT, VTT, and TTM
 In the past, the `Upload-Video` API was tolerant to calls to upload a video from a url where an empty multipart form body was also provided.
 This can happen if you has c# code that does:
 
-`var content = new MultipartFormDataContent();var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);`
+```
+var content = new MultipartFormDataContent();
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
+```
 
 In a couple of weeks, our service will fail these requests.
 
