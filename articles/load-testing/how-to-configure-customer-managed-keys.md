@@ -148,7 +148,9 @@ This feature is currently available only for new resources.
 
 ### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
 
-From the Azure portal, go to your Azure Load Testing resource. Go to the **Encryption** section in the left menu. Check the **Encryption type** on your resource.
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource. 
+1. Go to the **Encryption** item in the left navigation bar.
+1. You can verify the **Encryption type** on your resource.
 
 ### How do I revoke an encryption key?
 
