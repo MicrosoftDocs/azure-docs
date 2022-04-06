@@ -10,7 +10,7 @@ ms.date: 04/04/2022
 
 ## Overview
 
-Activity log alerts allow you to be notified on events and operations that are logged in [Azure Activity Log](../essentials/activity-log.md). An alert is fired when a new [activity log event](../essentials/activity-log-schema.md) occurs that matches the conditions specified in the alert rule. Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. For more information on creating or usage of activity log alert rules, see [Create and manage activity log alerts](.alerts-activity-log.md).
+Activity log alerts allow you to be notified on events and operations that are logged in [Azure Activity Log](../essentials/activity-log.md). An alert is fired when a new [activity log event](../essentials/activity-log-schema.md) occurs that matches the conditions specified in the alert rule. Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. For more information on creating or usage of activity log alert rules, see [Create and manage activity log alerts](./alerts-activity-log.md).
 
 ## Alerting on activity log event categories
 
