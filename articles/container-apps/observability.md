@@ -13,7 +13,7 @@ ms.author: v-bcatherine
 
 Azure Container Apps provides built-in  observability features that give you a holistic view of the behavior, performance and health of your running container apps.
 
-These features include: 
+These features include:
 
 - Azure Monitor metrics
 - Azure Monitor Log Analytics
@@ -33,7 +33,7 @@ Container Apps provides the following metrics for your container app.
 
 |Title  | Description | Metric ID |Unit  |
 |---------|---------|---------|---------|
-|CPU usage nanocores | CPU usage in nanocores | UsageNanoCores| nanocores |
+|CPU usage nanocores | CPU usage in nanocores (1,000,000,000 nanocores = 1 core) | UsageNanoCores| nanocores|
 |Memory working set byte |Working set memory used in bytes |WorkingSetBytes |bytes|
 |Network in bytes|Network received bytes|RxBytes|bytes|
 |Network out bytes|Network transmitted bytes|TxBytes|bytes|
@@ -76,7 +76,7 @@ You can view metrics across multiple container apps to view resource utilization
 
 Application logs are available through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for each container app in the environment.  
 
-Application logs, consisting of the logs written to `stdout` and `stderr` from each running container (replica), are collected and stored in the Log Analytics workspace.
+Application logs, consisting of the logs written to `stdout` and `stderr` from each running replica, are collected and stored in the Log Analytics workspace.
 
 Logs are viewed through Log Analytic queries via the Azure portal or using the Azure CLI.
 
@@ -118,11 +118,11 @@ To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-
 
 Container Apps provides continuous monitoring across each phase of your development-to-production life cycle. This monitoring helps to ensure the health, performance, and reliability of your application as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
 
-### Development and Test
+### Development and test
 
 During the development and test phase, Log Analytics provides access to your applications log information.  All output from `stdout` and `stderr` is made available so you can examine the behavior of your application.
 
-### Deployment and Runtime
+### Deployment and runtime
 
 You can monitor performance and resource utilization and set up notifications when important conditions occur in your container apps using:
 
@@ -137,3 +137,13 @@ Container Apps supports the monitoring of every active revision.  You can monito
 
 - Metrics
 - Log Analytics 
+
+
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Health probes in Azure Container Apps](health-probes.md)
+> [Monitor an App in Azure Container Apps](monitor.md)
