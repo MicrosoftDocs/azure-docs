@@ -535,9 +535,6 @@
       - name: Overview
         displayName: Image builder, images, building
         href: image-builder-overview.md
-      - name: API changelog and features updates
-        displayName: Image builder, images, building, api, features, updates, change log
-        href: image-builder-api-update-release-notes.md
       - name: CLI
         items:
         - name: Linux
@@ -602,6 +599,9 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
+      - name: API changelog and features updates
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
