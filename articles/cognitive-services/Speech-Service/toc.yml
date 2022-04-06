@@ -178,28 +178,23 @@ items:
         href: captioning-concepts.md
       - name: Captioning quickstart
         href: captioning-quickstart.md
-    - name: Conversation scenarios
+    - name: Handle call center scenarios
+      displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+      href: call-center-transcription.md
+    - name: Conversation transcription
       items:
-        - name: Conversation scenarios documentation
-          displayName: meeting, meetings, conversation, call center, transcription, multi-device conversation
-          href: index-conversation-scenarios.yml
-        - name: Conversation transcription
-          items:
-            - name: Conversation Transcription overview
-              href: conversation-transcription.md
-            - name: Real-time Conversation Transcription quickstart
-              href: how-to-use-conversation-transcription.md
-            - name: Handle call center scenarios
-              displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-              href: call-center-transcription.md
-            - name: Asynchronous Conversation transcription
-              href: how-to-async-conversation-transcription.md
-        - name: Multi-device conversation
-          items:
-            - name: Multi-device conversation overview
-              href: multi-device-conversation.md
-            - name: Multi-device conversation quickstart
-              href: quickstarts/multi-device-conversation.md
+        - name: Conversation Transcription overview
+          href: conversation-transcription.md
+        - name: Real-time Conversation Transcription quickstart
+          href: how-to-use-conversation-transcription.md
+        - name: Asynchronous Conversation transcription
+          href: how-to-async-conversation-transcription.md
+    - name: Multi-device conversation
+      items:
+        - name: Multi-device conversation overview
+          href: multi-device-conversation.md
+        - name: Multi-device conversation quickstart
+          href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
         - name: Voice assistants documentation

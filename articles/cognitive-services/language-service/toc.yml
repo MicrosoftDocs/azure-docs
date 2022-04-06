@@ -47,8 +47,8 @@ items:
     href: custom-classification/faq.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for custom classification
-      href: /legal/cognitive-services/language-service/ctc-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+    - name: Transparency note for custom text classification
+      href: /legal/cognitive-services/language-service/ctc-transparency-note?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for Custom classification, Custom classification transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/ctc-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
