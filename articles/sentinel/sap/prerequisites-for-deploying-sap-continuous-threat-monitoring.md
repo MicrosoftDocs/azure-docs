@@ -23,7 +23,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Prerequisites (*You are here*)**
 
-1. [Deploy SAP CRs and configure authorization](preparing_sap.md)
+1. [Deploy SAP CRs and configure authorization](preparing-sap.md)
 
 1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
 
@@ -60,9 +60,9 @@ The [SAP data connector deployment script](reference_kickstart.md) installs the 
 Besides all the prerequisites listed above, a successful deployment of the SAP data connector depends on your SAP environment being properly configured and updated. This includes ensuring that the relevant SAP change requests (CRs), as well as a Microsoft-provided CR, are deployed on the SAP system and that a role is created in SAP to enable access for the SAP data connector.
 
 > [!NOTE]
->  Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing_sap.md) guide. Retrieve the required CRs from the links in the tables below and proceed to the step-by-step guide.
+>  Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing-sap.md) guide. Retrieve the required CRs from the links in the tables below and proceed to the step-by-step guide.
 >
-> Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is **not** necessary to deploy the CR *NPLK900163*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing_sap.md#required-abap-authorizations). In any case, you must still deploy CR *NPLK900180* to enable the SAP data connector agent to collect data from your SAP system successfully.
+> Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is **not** necessary to deploy the CR *NPLK900163*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing-sap.md#required-abap-authorizations). In any case, you must still deploy CR *NPLK900180* to enable the SAP data connector agent to collect data from your SAP system successfully.
 
 
 ### SAP environment validation steps 
@@ -100,4 +100,4 @@ Besides all the prerequisites listed above, a successful deployment of the SAP d
 After verifying that all the prerequisites have been met, proceed to the next step to deploy the required CRs to your SAP system and configure authorization.
 
 > [!div class="nextstepaction"]
-> [Deploying SAP CRs and configuring authorization](preparing_sap.md)
+> [Deploying SAP CRs and configuring authorization](preparing-sap.md)
