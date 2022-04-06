@@ -296,13 +296,13 @@ When you remove a system-assigned identity, it's deleted from Azure Active Direc
 To remove the system-assigned identity:
 
 ```azurecli
-az containerapp identity remove --name <app-name> --resource-group <group-name>
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME>
 ```
 
 To remove one or more user-assigned identities:
 
 ```azurecli
-az containerapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --identities <IDENTITY_NAME1>,<IDENTITY_NAME2>,...
 ```
 
 You can also remove the system assigned identity by specifying `[system]` in `--identities`.
