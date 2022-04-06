@@ -67,6 +67,8 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - SSH commands, that are not SFTP, are not supported.
 
+- West Europe will temporarily still require registration of the SFTP preview feature.
+
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
