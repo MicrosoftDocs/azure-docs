@@ -53,7 +53,7 @@ There are different ways to configure managed identities.
 
 - Add and delete managed identities via the Azure portal.
 - Add and delete managed identities via the Azure CLI.
-- Add managed identities to your ARM template.
+- Add managed identities to your Azure Resource Manager (ARM) template.
 
 When a managed identity is added, deleted or modified on a running container app, the app won't automatically restart and a new revision won't be created.
 
