@@ -12,12 +12,13 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2022
+ms.date: 04/06/2022
 ms.author: barclayn
+ms.custom: subject-moving-resources
 
 ---
 
-# Move a user-assigned managed identity for Azure resources across regions
+# Move managed identity for Azure resources across regions
 
 There are situations in which you'd want to move your existing user-assigned managed identities from one region to another. For example, You may need to move a solution that uses user-assigned managed identities to another region. You may also want to move an existing identity to another region as part of disaster recovery planning, and testing.
 
@@ -25,11 +26,13 @@ Moving User-assigned managed identities across Azure regions is not supported.  
 
 ## Prerequisites
 
-- There are no pre-requisites
+- Permissions to create user-assigned managed identity in target region.
+- Permissions to enlist permissions granted to existing user-assigned managed identity. 
+- Permissions to grant a new user-assigned managed identity the required permissions.  
 
 ## Prepare and move
 
-- Copy the relevant user-assigned managed identity information such as assigned permissions. You need this information so you can create replacement resources in the target region. You can list [Azure role assignments](../../role-based-access-control/role-assignments-list-powershell.md) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
+- Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](../../role-based-access-control/role-assignments-list-powershell.md) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
 - Create a [new user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
 - Grant the managed identity the same permissions as the original identity that it's replacing. You can review [Assign Azure roles to a managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md)  
 - Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
