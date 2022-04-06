@@ -129,9 +129,9 @@ For the documents key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `location `    | Document name on the blob store. | doc1.txt |
-|`language`   | The language of the document.   | en-us |
-|`dataset`   |  Optional field to specify the dataset which this document will belong to. | Train or Test |
+| `location`    | Document name on the blob store. | `doc2.txt` |
+|`language`   | The language of the document.   | `en-us` |
+|`dataset`   |  Optional field to specify the dataset which this document will belong to. | `Train` or `Test` | 
 
 This request will return an error if:
 
@@ -181,11 +181,11 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 |Key  |Value  | Example |
 |---------|---------|---------|
 |`modelLabel  `    | Your Model name.   | MyModel |
-|`runValidation`     | Boolean value to run validation on the test set.   | True or False |
-|`evaluationOptions`     | Specifies evaluation options.   | -- |
+|`runValidation`     | Boolean value to run validation on the test set.   | `True` or `False` |
+|`evaluationOptions`     | Specifies evaluation options.   |  |
 |`type`     | Specifies datasplit type.   | set or percentage |
-|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | 30 |
-|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | 70 |
+|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | `30` |
+|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | `70` |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 

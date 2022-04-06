@@ -4,7 +4,7 @@ description: Lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/10/2019
+ms.date: 04/05/2022
 
 ---
 
