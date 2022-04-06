@@ -42,7 +42,7 @@ To create a Spring Cloud project for use in this article, use the following step
    This example uses Java version 8. If you want to use Java version 11, change the option under **Project Metadata**.
 
 1. Select **Generate** when all the dependencies are set.
-1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
+1. Download and unpack the package, then create a web controller for a web application. Add the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
 
    ```java
    package com.example.hellospring;
@@ -84,10 +84,10 @@ To generate configurations and deploy the app, follow these steps:
 
    You'll be asked to select:
 
-   * **Subscription ID:** This is the subscription you used to create an Azure Spring Cloud instance.
-   * **Service Instance:** This is the name of your Azure Spring Cloud instance.
-   * **App name:** Provide the app name or accept the default as `artifactId`.
-   * **Public endpoint:** Provide whether or not to expose the public access to this app.
+   * **Subscription ID** - the subscription you used to create an Azure Spring Cloud instance.
+   * **Service instance** - the name of your Azure Spring Cloud instance.
+   * **App name** - an app name of your choice, or use the default value `artifactId`.
+   * **Public endpoint** - whether or not to expose the public access to this app.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.
 
