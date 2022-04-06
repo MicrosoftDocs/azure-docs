@@ -22,7 +22,7 @@ ms.custom: devx-track-java
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2 (legacy)](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2 (legacy)](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2 (legacy)](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
 > * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
