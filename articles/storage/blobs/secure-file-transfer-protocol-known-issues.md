@@ -24,7 +24,7 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 ## Known unsupported clients
 
-The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](https://docs.microsoft.com/en-us/azure/storage/blobs/secure-file-transfer-protocol-support#supported-algorithms) for more information.
+The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
 
 - Axway
 - Five9
