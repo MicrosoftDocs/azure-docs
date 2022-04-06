@@ -70,12 +70,12 @@ Then, you’ll need to use the procedure specific to each SIEM to install the so
 
 ### Prerequisites
 
-In order to do these instructions, make sure you have: 
+Before you set up the Azure services for continuous export, make sure you have: 
 
 - Azure subscription ([Create a free account](https://azure.microsoft.com/free/))
 - Azure resource group ([Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md))
 
-### Step 1. Set up your streaming solution
+### Step 1. Set up the Azure services
 
 You can set up your Azure environment to support continuous export using either:
 
