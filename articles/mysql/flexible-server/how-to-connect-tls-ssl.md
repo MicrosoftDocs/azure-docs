@@ -147,7 +147,7 @@ You can run the command SHOW GLOBAL VARIABLES LIKE 'tls_version'; and check the 
 ```sql
 mysql> SHOW GLOBAL VARIABLES LIKE 'tls_version';
 ```
-**How to find which TLS protocol was used by my client to connected to server ?**
+**How to find which TLS protocol are being used by my clients to connect to the server ?**
 
 You can run the below command and look at tls_version for the session to identify which TLS version is used to connect
 ```sql
