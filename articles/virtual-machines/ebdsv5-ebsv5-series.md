@@ -10,7 +10,7 @@ ms.date: 04/05/2022
 ms.custom: template-sizes
 ---
 
-# Ebv5-series
+# Ebdsv5 and Ebsv5 series 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
