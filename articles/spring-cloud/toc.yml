@@ -202,6 +202,8 @@ items:
       href: troubleshooting-vnet.md
   - name: Secure
     items:
+    - name: Use managed identities for applications in Azure Spring Cloud
+      href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
     - name: Create roles and permissions
