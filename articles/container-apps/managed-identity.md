@@ -41,7 +41,7 @@ User-assigned identities are ideal for workloads that:
 
 ## Limitations
 
-There are a few limitations that will be addressed in future releases of Container Apps. Currently, the identity is only available within a running container.
+The identity is only available within a running container, which means you can't use a managed identity to:
 
 - You can't use a managed identity to pull an image from Azure Container Registry.
 - You can't use a managed identity in scaling rules or Dapr configuration.  To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the `secretRef` of the scaling rule.
