@@ -1,7 +1,7 @@
 ---
 title: What are endpoints (preview)?
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning endpoints (preview) to simplify machine learning deployments.
+description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -14,12 +14,11 @@ ms.date: 03/31/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints (preview)? 
+# What are Azure Machine Learning endpoints? 
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
-Use Azure Machine Learning endpoints (preview) to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
+Use Azure Machine Learning endpoints to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 
 In this article, you learn about:
 > [!div class="checklist"]
@@ -29,9 +28,9 @@ In this article, you learn about:
 > * Kubernetes online endpoints
 > * Batch inference endpoints
 
-## What are endpoints and deployments (preview)?
+## What are endpoints and deployments?
 
-After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
+After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** and **deployments** to do so.
 
 An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
 - Authentication using "key & token" based auth 
@@ -43,7 +42,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints-preview) and [batch endpoints](#what-are-batch-endpoints-preview).
+Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
 
 ### Multiple developer interfaces
 
@@ -54,9 +53,9 @@ Create and manage batch and online endpoints with multiple developer tools:
 - Azure portal (IT/Admin)
 - Support for CI/CD MLOps pipelines using the Azure CLI interface & REST/ARM interfaces
 
-## What are online endpoints (preview)?
+## What are online endpoints?
 
-**Online endpoints** (preview) are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
+**Online endpoints** are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
 
 The following diagram shows an online endpoint that has two deployments, 'blue' and 'green'. The blue deployment uses VMs with a CPU SKU, and runs v1 of a model. The green deployment uses VMs with a GPU SKU, and uses v2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while green receives the remaining 10%.
 
@@ -87,13 +86,15 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
 
+Traffic to one deployment can also be copied ('mirrored') to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 5% is mirrored to green. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected.
+
 Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
 
 ### Application Insights integration
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
@@ -113,9 +114,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-## Managed online endpoints vs Kubernetes online endpoints (preview)
+## Managed online endpoints vs Kubernetes online endpoints
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
@@ -130,6 +131,7 @@ The following table highlights the key differences between managed online endpoi
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | Not supported yet (we're working on it) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
+| **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic) | Unsupported
 
 ### Managed online endpoints
 
@@ -153,9 +155,9 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
 For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
-## What are batch endpoints (preview)?
+## What are batch endpoints?
 
-**Batch endpoints** (preview) are endpoints that are used to do batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
+**Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
 :::image type="content" source="media/concept-endpoints/batch-endpoint.png" alt-text="Diagram showing that a single batch endpoint may route requests to multiple deployments, one of which is the default.":::
 
@@ -168,7 +170,7 @@ To create a batch deployment, you need to specify the following elements:
 - Scoring script - code needed to do the scoring/inferencing
 - Environment - a Docker image with Conda dependencies
 
-If you are deploying [MLFlow models](how-to-train-cli.md#model-tracking-with-mlflow), there's no need to provide a scoring script and execution environment, as both are autogenerated.
+If you're deploying [MLFlow models](how-to-train-cli.md#model-tracking-with-mlflow), there's no need to provide a scoring script and execution environment, as both are autogenerated.
 
 Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md) and the [studio web portal](how-to-use-batch-endpoints-studio.md)
 
@@ -198,7 +200,7 @@ Specify the storage output location to any datastore and path. By default, batch
 - [How to deploy online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view managed online endpoint costs](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: larryfr
 author: rsethur
-ms.date: 03/31/2022
+ms.date: 04/06/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2
 ---
@@ -105,6 +105,29 @@ If you want to use a REST client to invoke the deployment directly without going
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
 
+## Test the deployment with mirrored traffic
+
+Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
+
+> [!WARNING]
+> Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#bandwidth-throttling).
+
+The following command mirrors 10% of the traffic to the `green` deployment:
+
+TBD - what is the branch on azureml-examples that contains this?
+
+> [!IMPORTANT]
+> Mirroring has the following limitations:
+> * You can only mirror traffic to one deployment.
+> * A deployment can only be set to live or mirror traffic, not both.
+> * Mirrored traffic is not currently supported with K8s.
+>
+> We also recommend limiting the maximum mirrored traffic to 50% to reduce the impact on your endpoint bandwidth quota.
+
+After testing, you can set the mirror traffic to zero to disable mirroring:
+
+TBD - what is the branch on azureml-examples that contains this?
+
 ## Test the new deployment with a small percentage of live traffic
 
 Once you've tested your `green` deployment, allocate a small percentage of traffic to it:
@@ -131,12 +154,12 @@ If you aren't going use the deployment, you should delete it with:
 
 
 ## Next steps
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
-- [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
-- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
-- [Troubleshooting  online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Create and use online endpoints  in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md)
+- [Troubleshooting  online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
+- [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
