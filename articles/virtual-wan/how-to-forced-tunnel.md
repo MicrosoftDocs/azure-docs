@@ -95,7 +95,7 @@ $vpnConnectionName = "SampleConnectionName"
 
 # get the VPN Server FQDN from the profile downloaded from Azure Portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
-$vpnserverFQDN.VpnProfile.VpnServer
+$vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 
 # use the appropriate EAP XML file based on the authentication method specified on the Point-to-site VPN gateway
 $EAPXML = [xml] (Get-Content EapXML.xml)
@@ -156,6 +156,7 @@ $vpnConnectionName = "UserCertVPNConnection"
 
 # get the VPN Server FQDN from the profile downloaded from Azure portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
+$vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 
 # create the VPN Connection
 Add-VpnConnection -Name $vpnConnectionName -ServerAddress $vpnserverFQDN -TunnelType Ikev2 -AuthenticationMethod MachineCertificate 
@@ -174,7 +175,7 @@ $vpnConnectionName = "SampleConnectionName"
 
 # get the VPN Server FQDN from the profile downloaded from Azure portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
-$vpnserverFQDN.VpnProfile.VpnServer
+$vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 
 # use the appropriate EAP XML file based on the authentication method specified on the Point-to-site VPN gateway
 $EAPXML = [xml] (Get-Content EapXML.xml)
@@ -217,7 +218,7 @@ $vpnConnectionName = "SampleConnectionName"
 
 # get the VPN Server FQDN from the profile downloaded from Azure portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
-$vpnserverFQDN.VpnProfile.VpnServer
+$vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 
 # use the appropriate EAP XML file based on the authentication method specified on the Point-to-site VPN gateway
 $EAPXML = [xml] (Get-Content EapXML.xml)
