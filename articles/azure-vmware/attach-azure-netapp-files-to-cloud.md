@@ -1,6 +1,6 @@
 ---
 title: Attach Azure NetApp Files datastores to a private cloud (Preview)
-description: Learn how to create Azure NetApp Files based NSF datastores for Azure VMware Solution private cloud.
+description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.date: 03/24/2022
 ---
@@ -69,6 +69,35 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 ### [Azure CLI](#tab/azure-cli)
 
 To attach an Azure NetApp Files volume to your private cloud using Azure CLI, follow these steps:
+
+1. Verify the subscription is registered to `CloudSanExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
+    1. `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"`
+    1. `az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"`
+1. The registration should take approximately 15 minutes to complete. You can also check the status.
+    1. `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state`
+1. If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister, then re-register the flag.
+    1. `az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"`
+    1. `az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"`
+1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
+    1. `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
+    1. `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
+1. Verify the VMware extension is installed. If the extension is already installed, check that the version is **3.0.0**. If an older version is installed, update the extension.
+    1. `az extension show --name vmware`
+    1. `az extension update --name vmware`
+1. If it's not already installed, install it.
+    1. `az extension add --name vmware`
+1. Create a datastore using an existing ANF volume in Azure VMware Solution private cloud cluster.
+    1. `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
+1. If needed, you can display the help on the datastores
+    1. `az vmware datastore -h`
+1. Show the details of an ANF-based datastore in a private cloud cluster.
+    1. `az vmware datastore show --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+1. List all of the datastores in a private cloud cluster.
+    1. `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+
+## Delete an Azure NetApp Files-based datastore form your private cloud
+
+
 
 ## Next steps
 
