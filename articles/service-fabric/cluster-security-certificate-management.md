@@ -30,7 +30,7 @@ Specifically, the topics in scope are:
   - certificate rotation - why, how and when
   - what could possibly go wrong?
 
-Aspect such as securing/managing domain names, enrolling into certificates, or setting up authorization controls to enforce certificate issuance are out of the scope of this article. Refer to the Registration Authority (RA) of your favorite Public Key Infrastructure (PKI) service. Microsoft-internal consumers: please reach out to Azure Security.
+Aspects such as securing/managing domain names, enrolling into certificates, or setting up authorization controls to enforce certificate issuance are beyond the scope of this article. Refer to the Registration Authority (RA) of your favorite Public Key Infrastructure (PKI) service. Microsoft-internal consumers: please reach out to Azure Security.
 
 ## Roles and entities involved in certificate management
 The security approach in a Service Fabric cluster is a case of "cluster owner declares it, Service Fabric runtime enforces it". By that we mean that almost none of the certificates, keys, or other credentials of identities participating in a cluster's functioning come from the service itself; they are all declared by the cluster owner. Furthermore, the cluster owner is also responsible for provisioning the certificates into the cluster, renewing them as needed, and ensuring the security of the certificates at all times. More specifically, the cluster owner must ensure that:
