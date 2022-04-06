@@ -87,9 +87,9 @@ After deploying your model, you [call the prediction API](how-to/call-api.md), u
 
 ## Data privacy and security
 
-Custom text classification is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom classification users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).
+Custom text classification is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, custom text classification users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).
 
-Your data is only stored in your Azure Storage account. Custom classification only has access to read from it during training.
+Your data is only stored in your Azure Storage account. Custom text classification only has access to read from it during training.
 
 ## How to clone my project?
 

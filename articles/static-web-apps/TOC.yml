@@ -88,6 +88,7 @@
           href: password-protection.md
     - name: Set up local development
       href: local-development.md
+      displayName: swa cli
     - name: Configure app settings
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
@@ -132,6 +133,10 @@
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+    - name: Use an external code host
+      items:
+        - name: GitLab
+          href: gitlab.md
 - name: Samples
   items:
     - name: Serverless app with Azure SQL
