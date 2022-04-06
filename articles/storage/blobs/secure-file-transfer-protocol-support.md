@@ -118,7 +118,28 @@ You can use many different SFTP clients to securely connect and then transfer fi
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations).
 
-SFTP clients commonly found to not support algorithms listed above include Apache SFTP server, Axway, Moveit, Five9, Workday, Mule, Kemp, Salesforce, XFB. 
+### Known supported clients
+
+The following clients have compatible algorithm support with SFTP for Azure Blob Storage (preview). See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you are having trouble connecting.
+
+- AsyncSSH 2.1.0+
+- Cyberduck 7.8.2+
+- edtFTPjPRO 7.0.0+
+- FileZilla 3.53.0+
+- libssh 0.9.5+
+- Maverick Legacy 1.7.15+
+- OpenSSH 7.4+
+- paramiko 2.8.1+
+- PuTTY 0.74+
+- QualysML 12.3.41.1+
+- RebexSSH 5.0.7119.0+
+- ssh2js 0.1.20+
+- sshj 0.27.0+
+- SSH.NET 2020.0.0+
+- WinSCP 5.10+
+
+> [!NOTE]
+> The supported client list above is not exhaustive and may change over time.
 
 ## Connecting with SFTP
 
