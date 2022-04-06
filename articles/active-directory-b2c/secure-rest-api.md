@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 04/05/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -395,6 +395,35 @@ After you add the above snippets, your technical profile should look like the fo
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+```
+
+### Call the REST technical profile 
+
+To call the `REST-GetProfile` technical profile, you first need to acquire an Azure AD access token using the `REST-AcquireAccessToken` technical profile. The following example shows how to call the `REST-GetProfile` technical profile from a [validation technical profile](validation-technical-profile.md):
+
+```xml
+<ValidationTechnicalProfiles>
+  <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+  <ValidationTechnicalProfile ReferenceId="REST-GetProfile" />
+</ValidationTechnicalProfiles>
+```
+
+The following example shows how to call the `REST-GetProfile` technical profile from a [user journey](userjourneys.md), or a [sub journey](subjourneys.md):
+
+```xml
+<OrchestrationSteps>
+  <OrchestrationStep Order="2" Type="ClaimsExchange">
+    <ClaimsExchanges>
+      <ClaimsExchange Id="REST-AcquireAccessTokens" TechnicalProfileReferenceId="REST-AcquireAccessToken" />
+    </ClaimsExchanges>
+  </OrchestrationStep>
+
+  <OrchestrationStep Order="3" Type="ClaimsExchange">
+    <ClaimsExchanges>
+      <ClaimsExchange Id="REST-GetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+    </ClaimsExchanges>
+  </OrchestrationStep>
+</OrchestrationSteps>
 ```
 
 ## Using a static OAuth2 bearer 

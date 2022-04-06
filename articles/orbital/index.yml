@@ -55,6 +55,14 @@ landingContent:
             url: delete-contact.md
 
   # Card
+  - title: Azure Space Partner Program
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Space Partner Program?
+            url: space-partner-program-overview.md
+
+  # Card
   - title: Concepts
     linkLists:
       - linkListType: concept

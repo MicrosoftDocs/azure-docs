@@ -215,7 +215,7 @@ Transit traffic via Azure VPN gateway is possible using the classic deployment m
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be printable ASCII characters.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST only contain printable ASCII characters except space, hyphen (-) or tilde (~).
 
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
@@ -228,6 +228,10 @@ Yes, but you must configure BGP on both tunnels to the same location.
 ### Does Azure VPN Gateway honor AS Path prepending to influence routing decisions between multiple connections to my on-premises sites?
 
 Yes, Azure VPN gateway will honor AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path will be preferred in BGP path selection.
+
+### Can I use the RoutingWeight property when creating a new VPN VirtualNetworkGateway connection?
+
+No, such setting is reserved for ExpressRoute gateway connections. If you want to influence routing decisions between multiple connections you need to use AS Path prepending.
 
 ### Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 
