@@ -75,11 +75,12 @@ This topic is covered in detail in the [Key Vault documentation](../key-vault/ce
 
  - By creating a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) for details. 
  - Creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
- - Once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
- - Under `{vaultUri}/certificates/{name}`: the certificate including the public key and metadata
- - Under `{vaultUri}/keys/{name}`: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
- - Under `{vaultUri}/secrets/{name}`: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
-	Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
+ - Once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate data is available:
+   - Under `{vaultUri}/certificates/{name}`: The certificate including the public key and metadata.
+   - Under `{vaultUri}/keys/{name}`: The certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify).
+   - Under `{vaultUri}/secrets/{name}`: The certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file.
+	
+Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
 
 At this point, a certificate exists in the vault, ready for consumption. Onward to:
 
