@@ -94,9 +94,9 @@ You'll need to enter the following identity parameters when deploying session ho
 
 You have a choice of operating systems that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. Supported dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/). We support the following 64-bit versions of these operating systems: 
 
-|Operating system |Applicable license|
+|Operating system |User access rights|
 |---|---|
-|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>|
+|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
 |<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses</li></ul>|
 
 > [!NOTE]
