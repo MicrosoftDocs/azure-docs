@@ -26,15 +26,16 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-enterprise-tier"
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
-- [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
-- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
 
 - An already provisioned Azure Spring Cloud instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](./quickstart.md).
-- [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
 
