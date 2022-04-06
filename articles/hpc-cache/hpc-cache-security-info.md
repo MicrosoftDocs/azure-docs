@@ -48,4 +48,4 @@ You can also optionally configure network security groups (NSGs) to control inbo
 
 ## Next steps
 
-* Review [Azure HPC Cache security baseline](../security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json).
+* Review [Azure HPC Cache security baseline](https://docs.microsoft.com/security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json).
