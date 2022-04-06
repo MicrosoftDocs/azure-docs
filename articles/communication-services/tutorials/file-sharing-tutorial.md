@@ -50,7 +50,7 @@ The diagram below shows a typical flow of a file sharing scenario for both uploa
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](https://docs.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
-Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage.
+Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we will assume you have generated the function using the tutorial for Azure Blob Storage linked above.
 
 ## Configuring Chat Composite to Enable File Sharing
 
