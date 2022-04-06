@@ -43,7 +43,7 @@ For a user to manually trigger a profiler session, they require at minimum "writ
 
 Clicking the Triggers button on the menu bar opens the CPU, Memory, and Sampling trigger settings box. You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
-:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.md" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers":::
+:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers":::
 
 | Setting | Description |
 |-|-|
@@ -54,7 +54,7 @@ Cooldown | Sets the length of time the profiler will wait before checking for th
 
 For Sampling trigger, you can set up how often profiling can occur and the duration of a profiling session.
 
-:::image type="content" source="./media/profiler-settings/sampling-trigger-settings.md" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
+:::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
 
 | Setting | Description |
 |-|-|
