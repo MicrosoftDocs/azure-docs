@@ -24,7 +24,7 @@ For best performance, create multiple datastores. Create your VMs with VMDKs fro
 
 The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
-:::image type="content" source="media/attach-azure-netapp-files/architecture-netapp-files-nfs-datastores-attached-via-expressroute.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud using ExpressRoute."lightbox="media/attach-azure-netapp-files/architecture-netapp-files-nfs-datastores-attached-via-expressroute.png":::
+:::image type="content" source="media/attach-azure-netapp-files/architecture-netapp-files-nfs-datastores-attached-via-expressroute.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud using ExpressRoute.":::
 
 ## Supported Regions
 
