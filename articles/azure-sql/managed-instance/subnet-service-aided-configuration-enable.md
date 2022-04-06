@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.date: 03/12/2020
+ms.date: 03/25/2022
 ---
 # Enabling service-aided subnet configuration for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -21,7 +21,7 @@ Automatically configured network security groups and route table rules are visib
 Service-aided configuration is enabled automatically once you turn on [subnet-delegation](../../virtual-network/subnet-delegation-overview.md) for `Microsoft.Sql/managedInstances` resource provider.
 
 > [!IMPORTANT] 
-> Once subnet-delegation is turned on you could not turn it off until you remove last virtual cluster from the subnet. For more details on how to delete virtual cluster see the following [article](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal).
+> Once subnet-delegation is turned on you could not turn it off until the very last virtual cluster is removed from the subnet. For more details on virtual cluster lifetime see the following [article](virtual-cluster-delete.md).
 
 > [!NOTE] 
 > As service-aided subnet configuration is essential feature for maintaining SLA, starting May 1st 2020, it won't be possible to deploy managed instances in subnets that are not delegated to managed instance resource provider. On July 1st 2020 all subnets containing managed instances will be automatically delegated to managed instance resource provider. 

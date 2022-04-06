@@ -11,7 +11,7 @@ f1_keywords:
   - "mi.azure.sqlaudit.general.f1"
 author: sravanisaluru
 ms.author: srsaluru
-ms.date: "03/23/2022"
+ms.date: "03/25/2022"
 ms.reviewer: vanto
 ---
 # Get started with Azure SQL Managed Instance auditing
@@ -169,7 +169,7 @@ For additional information:
 
 Auditing of Microsoft Support operations for SQL Managed Instance allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
 
-To enable auditing of Microsoft Support operations navigate to create audit under audit in your SQL MI Instance, and switch Enable Auditing of Microsoft support operations to ON
+To enable auditing of Microsoft Support operations, navigate to **Create Audit** under **Security** > **Audit** in your SQL Manage Instance, and select **Microsoft support operations**.
 
 ![create audit icon](./media/auditing-configure/support-operations.png)
 
