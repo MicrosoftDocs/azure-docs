@@ -78,7 +78,7 @@ The following table describes the scenarios and users for ARM template and Bicep
  
 ### [Azure Automation](/azure/automation/overview)
 
-Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environments. It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
+Azure Automation orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environments. It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
 
 There are more than 3,000 modules in the PowerShell Gallery, and the PowerShell community continues to grow. Azure Automation based on PowerShell modules can work with multiple applications and vendors, both 1st party and 3rd party. As more application vendors release PowerShell modules for integration, extensibility and automation tasks, you could use an existing PowerShell script as-is to execute it as a PowerShell runbook in an automation account without making any changes.
 
@@ -197,7 +197,8 @@ Provides a serverless event-driven compute platform for automation that allows y
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> 
+  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications where a single or mutiple Azure Functions could be part of larger application workflow.
+ 
 
 ## Next steps
 - To learn on how to securely execute the automation jobs, see [best practices for security in Azure Automation](/azure/automation/automation-security-guidelines).
