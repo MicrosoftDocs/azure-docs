@@ -51,6 +51,8 @@ For each data flow policy rule, take the following steps:
 - Collect the values in [Collect data flow policy rule values](#collect-data-flow-policy-rule-values) to determine whether SDFs matching this data flow policy rule will be allowed or blocked, and how this data flow policy rule should be prioritized against other data flow policy rules.
 - Collect the values in [Collect data flow template values](#collect-data-flow-template-values) for one or more data flow templates to use for this data flow policy rule. Data flow templates provide the packet filters the packet core instance will use to match on SDFs.
 
+Note that the ARM template in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md) only configures a single data flow policy rule and data flow template.
+
 ### Collect data flow policy rule values
 
 Collect the values in the table below for each data flow policy rule you want to use on this service.

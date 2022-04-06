@@ -51,28 +51,30 @@ Four Azure resources are defined in the template.
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
 1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
-
-    - **Subscription:** select the Azure subscription you used to create your private mobile network.
-    - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
-    - **Region:** select **East US**.
-    - **Location:** leave this field unchanged.
-    - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **Existing Data Network Name:** enter the name of the data network to which your private mobile network connects. 
-    - **Site Name:** enter a name for your site. 
-    - **Control Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
-    - **Control Plane Access Ip Address:** enter the IP address for the packet core instance's N2 signaling interface.
-    - **Data Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
-    - **Data Plane Access Interface Ip Address:** enter the IP address for the packet core instance's N3 interface.
-    - **Access Subnet:** enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.
-    - **Access Gateway:** enter the access subnet default gateway.
-    - **User Plane Data Interface Name:** enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. 
-    - **User Plane Data Interface Ip Address:** enter the IP address for the packet core instance's N6 interface.
-    - **User Plane Data Interface Subnet:** enter the network address of the data subnet in CIDR notation. 
-    - **User Plane Data Interface Gateway:** enter the data subnet default gateway.
-    - **Ue Ip Pool Prefix:** enter the network address of the subnet from which IP addresses must be allocated to User Equipment (UEs) in CIDR notation.
-    - **Core Network Technology:** leave this field unchanged.
-    - **Napt Enabled:** set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.
-    - **Custom Location:** enter the name of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.
+    
+    | Field | Value |
+    |--|--|
+    | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
+    | **Resource group** | Select the resource group containing the Mobile Network resource representing your private mobile network. |
+    | **Region** | Select **East US**. |
+    | **Location** | Leave this field unchanged. |
+    | **Existing Mobile Network Name** | Enter the name of the Mobile Network resource representing your private mobile network. |
+    | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
+    | **Site Name** | Enter a name for your site. |
+    | **Control Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |
+    | **Control Plane Access Ip Address** | Enter the IP address for the packet core instance's N2 signaling interface. |
+    | **Data Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |
+    | **Data Plane Access Interface Ip Address** | Enter the IP address for the packet core instance's N3 interface. |
+    | **Access Subnet** | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. |
+    | **Access Gateway** | Enter the access subnet default gateway. |
+    | **User Plane Data Interface Name** | Enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. |
+    | **User Plane Data Interface Ip Address** | Enter the IP address for the packet core instance's N6 interface. |
+    | **User Plane Data Interface Subnet** | Enter the network address of the data subnet in CIDR notation. |
+    | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
+    | **Ue Ip Pool Prefix** | Enter the network address of the subnet from which IP addresses must be allocated to User Equipment (UEs) in CIDR notation. |
+    | **Core Network Technology** | Leave this field unchanged. |
+    | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
+    | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. <!-- This step and the following step need checking to confirm that the screenshots and navigation are accurate. -->
