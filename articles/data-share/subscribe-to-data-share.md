@@ -102,7 +102,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation?view=azure-cli-latest#az-datashare-invitation-list) command to see your current invitations:
+Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation#az-datashare-invitation-list) command to see your current invitations:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
