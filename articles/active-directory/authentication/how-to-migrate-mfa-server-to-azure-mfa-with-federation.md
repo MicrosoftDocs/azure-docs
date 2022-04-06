@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from Azure MFA Server on-premises to 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 04/06/2022
 ms.author: BaSelden
 author: BarbaraSelden
 manager: martinco
@@ -168,37 +168,35 @@ Once you've configured the servers, you can add Azure AD MFA as an additional au
 
 ![Screen shot showing the Edit authentication methods screen with Azure MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
 
-## Prepare Azure AD and implement
+## Prepare Azure AD and implement migration
 
-### Ensure SupportsMfa is set to $true
+This section covers final steps before migrating user phone numbers. 
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a SupportsMfa flag. When the SupportsMfa flag is set to $true, Azure AD redirects users to MFA on AD FS or another federation provider. For example, if a user is accessing an application for which a Conditional Access policy that requires MFA has been configured, the user will be redirected to AD FS. Adding Azure AD MFA as an authentication method in AD FS enables Azure AD MFA to be invoked once your configurations are complete.
+### Set federatedIdpMfaBehavior
 
-If the SupportsMfa flag is set to $false, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a **federatedIdpMfaBehavior** enum that determines whether Azure AD accepts, enforces, or rejects MFA performed by the on-premises federation provider. Rejecting claims provides extra security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta).
+
+| Value | Description |
+| :--- | :--- |
+| acceptIfMfaDoneByFederatedIdp | Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD performs the MFA. |
+| enforceMfaByFederatedIdp | Azure AD accepts MFA that's performed by federated identity provider. If the federated identity provider didn't perform MFA, it redirects the request to federated identity provider to perform MFA. |
+| rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that's performed by the federated identity provider. |
+
+>[!NOTE]
+> The **federatedIdpMfaBehavior** enum is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+
+For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** enum and **SupportsMfa** property work together:
+
+- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
+- Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
+- If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
+- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
 
 You can check the status of your SupportsMfa flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
 ```
-
-If the SupportsMfa flag is set to $false or is blank for your federated domain, set it to $true using the following Windows PowerShell cmdlet:
-
-```powershell
-Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMfa $true
-```
-
-This configuration allows the decision to use MFA Server or Azure MFA to be made on AD FS.
-
-### Configure federatedIdpMfaBehavior
-
-Starting in March 2022, a Microsoft Graph federatedIdpMfaBehavior API allows another option to ignore claims from an on-premises Identity provider (IdP). Ignoring claims provides additional security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The federatedIdpMfaBehavior API is an enum that also includes the same options as SupportsMfa to accept MFA claims if sent by the federated IdP in the issued token.
-
-Customers who have set the SupportsMfa flag do not need to make any changes unless they want to ignore claims from an on-premises Identity provider by using the federatedIdpMfaBehavior API. 
-
-After configuring the federatedIdpMfaBehavior API, any subsequent changes to the SupportsMfa flag are ignored. From that point, only the federatedIdpMfaBehavior API can be used to configure whether to accept or ignore claims sent by the federated IdP in the issued token.  
-
-For more information about how to configure whether to accept or ignore claims, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta).
 
 ### Configure Conditional Access policies if needed
 
