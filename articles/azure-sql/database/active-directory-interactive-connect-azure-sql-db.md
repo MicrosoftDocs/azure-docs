@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 04/05/2022
+ms.date: 04/06/2022
 ---
 # Connect to Azure SQL Database with Azure AD Multi-Factor Authentication
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
