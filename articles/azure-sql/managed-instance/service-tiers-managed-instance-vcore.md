@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ms.custom: ignite-fall-2021
 ---
 # vCore purchasing model - Azure SQL Managed Instance
@@ -26,11 +26,10 @@ This article reviews the [vCore purchasing model](../database/service-tiers-vcor
 
 The virtual core (vCore) purchasing model used by Azure SQL Managed Instance provides the following benefits: 
 
-- Control over the hardware generation to better match the compute and memory requirements of the workload.
+- Control over hardware configuration to better match the compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power compute, helping facilitate planning for migrations from on-premises deployments.
 - Higher scaling granularity with multiple compute sizes available.
-
 
 ## <a id="compute-tiers"></a>Service tiers
 
@@ -61,11 +60,11 @@ For information on selecting a service tier for your particular workload, see th
 
 SQL Managed Instance compute provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
 
-## Hardware generations
+## Hardware configurations
 
-Hardware generation options in the vCore model include standard-series (Gen5), premium-series, and memory optimized premium-series hardware generations. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Hardware configuration options in the vCore model include standard-series (Gen5), premium-series, and memory optimized premium-series. Hardware configuration generally defines the compute and memory limits and other characteristics that impact workload performance.
 
-For more information on the hardware generation specifics and limitations, see [Hardware generation characteristics](resource-limits.md#hardware-generation-characteristics).
+For more information on the hardware configuration specifics and limitations, see [Hardware configuration characteristics](resource-limits.md#hardware-generation-characteristics).
 
 In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for instances using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for instances using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. The Intel&reg; 8370C (Ice Lake) CPUs used by premium-series and memory optimized premium-series hardware generations appear as Gen8. Resource limits for all standard-series (Gen5) instances are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
