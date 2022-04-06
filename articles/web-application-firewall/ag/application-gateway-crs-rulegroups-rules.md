@@ -16,11 +16,9 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.2 by default. But you can choose to use CRS 3.1, 3.0, or 2.2.9 instead.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default.
  
-CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
-
-CRS 3.1 offers reduced false positives compared with earlier versions such as CRS 3.0 and 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](azure-waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
@@ -40,9 +38,7 @@ The WAF protects against the following web vulnerabilities:
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU.
-
-When you use CRS 3.2, you can't downgrade to CRS 3.1 or lower. If you need to downgrade, contact Azure Support.
+> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
 |Rule group|Description|
 |---|---|
