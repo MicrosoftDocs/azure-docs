@@ -17,6 +17,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+* [Heads up](#heads-up) on what is about to change
 
 ## March 2022
 
@@ -552,6 +553,21 @@ When calling the [Update Video transcript API](https://api-portal.videoindexer.a
 ### New download transcript formats – TXT and CSV
 
 In addition to the closed captioning format already supported (SRT, VTT, and TTML), Video Analyzer for Media now supports downloading the transcript in TXT and CSV formats.
+
+## Heads up
+
+### Upload-Video API
+
+In the past, the `Upload-Video` API was tolerant to calls to upload a video from a url where an empty multipart form body was also provided.
+This can happen if you has c# code that does:
+
+`var content = new MultipartFormDataContent();var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);`
+
+In a couple of weeks, our service will fail these requests.
+
+In order to upload a video from a url, change your code to send null in the request body:
+
+`var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);`
 
 ## Next steps
 
