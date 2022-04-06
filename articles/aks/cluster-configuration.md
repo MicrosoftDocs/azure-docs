@@ -181,6 +181,12 @@ To update a cluster to use OIDC Issuer.
 az aks update -n aks -g myResourceGroup --enable-oidc-issuer
 ```
 
+### Show the OIDC Issuer URL
+
+```azurecli-interactive
+az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+```
+
 ## Next steps
 
 - Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.

@@ -803,7 +803,7 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://, s3://. |
+| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://. |
 | `--bucket-name` | String | Name of the `bucket` to sync. |
 | `--bucket-access-key` | String | Access Key ID used to authenticate with the `bucket`. |
 | `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |

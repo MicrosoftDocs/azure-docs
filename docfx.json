@@ -806,6 +806,7 @@
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
+        "articles/azure-functions/durable/**/*.md": "durable",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/agents/**/*.md": "agents",
         "articles/azure-monitor/alerts/**/*.md": "alerts",

@@ -14,7 +14,7 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# B2B direct connect overview
+# B2B direct connect overview (Preview)
 
 Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. With B2B direct connect, users from both organizations can work together using their home credentials and B2B direct connect-enabled apps, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations. Or use it to share resources across multiple Azure AD tenants within your own organization.
 

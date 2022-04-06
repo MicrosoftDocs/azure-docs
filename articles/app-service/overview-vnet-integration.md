@@ -87,7 +87,7 @@ By default, only private traffic (also known as [RFC1918](https://datatracker.ie
 Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
 > [!NOTE]
-> * Only traffic configured in applicaiton or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
+> * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 > * When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Regional virtual network integration can't use port 25.
 

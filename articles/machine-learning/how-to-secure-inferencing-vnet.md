@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/07/2022
+ms.date: 04/04/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -56,7 +56,9 @@ In this article you learn how to secure the following inferencing resources in a
 
 * When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace. Otherwise, the virtual network can be in a different resource group.
 * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
-* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
+
+> [!WARNING]
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network. Because of this limitation, we do not recommend Azure Container instances for secure deployments with Azure Machine Learning.
 
 ### Azure Kubernetes Service
 
@@ -241,7 +243,7 @@ az ml computetarget update aks \
 ```
 
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az-ml-computetarget-update-aks) reference.
 
 ---
 

@@ -343,13 +343,13 @@ items:
         - name: Performance tuning guidance 
           href: ./sql-data-warehouse/performance-tuning-result-set-caching.md
         - name: Set for a database
-          href: /sql/t-sql/statements/alter-database-transact-sql-set-options?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
+          href: /sql/t-sql/statements/alter-database-transact-sql-set-options?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest&preserve-view=true
         - name: Set for a session 
-          href: /sql/t-sql/statements/set-result-set-caching-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest  
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest&preserve-view=true  
         - name: Check cache size 
-          href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
+          href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest&preserve-view=true
         - name: Clean up cache
-          href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
+          href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest&preserve-view=true
       - name: Machine learning predictions
         href: ./sql-data-warehouse/sql-data-warehouse-predict.md?context=/azure/synapse-analytics/context/context
       - name: Tables
@@ -471,6 +471,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Restore a SQL pool from a deleted workspace
+        href: ./backuprestore/restore-sql-pool-from-deleted-workspace.md
       - name: Pause and resume using Synapse Pipelines
         href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
@@ -696,6 +698,8 @@ items:
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
+    - name: Intelligent Cache
+      href: ./spark/apache-spark-intelligent-cache-concept.md
     - name: Azure Synapse runtimes
       items:
         - name: Runtime overview
@@ -830,6 +834,8 @@ items:
         href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
       - name: Connect to Azure Synapse Link for Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Synapse Link and integrated Power BI
+        href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
       - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
         href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
       - name: Query Azure Cosmos DB analytical store with Apache Spark 3
