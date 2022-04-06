@@ -20,7 +20,7 @@ The following table describes the options that Azure Storage offers for authoriz
 
 | Azure artifact | Shared Key (storage account key) | Shared access signature (SAS) | Azure Active Directory (Azure AD) | On-premises Active Directory Domain Services | Anonymous public read access | Storage Local Users |
 |--|--|--|--|--|--|--|
-| Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../blobs/authorize-access-azure-active-directory.md) | Not supported | [Supported](../blobs/anonymous-read-access-configure.md) | [Supported, only for SFTP](../blobs/secure-file-transfer-protocol-support-how-to) |
+| Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../blobs/authorize-access-azure-active-directory.md) | Not supported | [Supported](../blobs/anonymous-read-access-configure.md) | [Supported, only for SFTP](../blobs/secure-file-transfer-protocol-support-how-to.md) |
 | Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | [Supported, only with AAD Domain Services](../files/storage-files-active-directory-overview.md) | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported | Supported |
 | Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | Not supported | Not supported | Not supported | Not supported |
 | Azure Queues | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../queues/authorize-access-azure-active-directory.md) | Not Supported | Not supported | Not supported |
@@ -46,7 +46,7 @@ Each authorization option is briefly described below:
 
     You can disallow anonymous public read access for a storage account. When anonymous public read access is disallowed, then users cannot configure containers to enable anonymous access, and all requests must be authorized. For more information, see [Prevent anonymous public read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).
     
-- **Storage Local Users** can be used to access blobs with SFTP or files with SMB. Storage Local Users support container level permissions for authorization. See [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to) for more information on how Storage Local Users can be used with SFTP.
+- **Storage Local Users** can be used to access blobs with SFTP or files with SMB. Storage Local Users support container level permissions for authorization. See [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md) for more information on how Storage Local Users can be used with SFTP.
 
 ## Next steps
 
