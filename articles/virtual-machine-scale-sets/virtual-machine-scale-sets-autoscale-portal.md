@@ -101,9 +101,7 @@ To see the number and status of VM instances, select **Instances** from the menu
 ## Autoscale based on a schedule
 The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU usage. You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
-1. Choose **Scaling** from the menu on the left-hand side of the scale set window. To delete the existing autoscale rules created in the previous examples, choose the trash can icon.
-
-    ![Delete the existing autoscale rules](media/virtual-machine-scale-sets-autoscale-portal/delete-rules.png)
+1. Choose **Scaling** from the menu on the left-hand side of the scale set window.
 
 2. Choose to **Add a scale condition**. Select the pencil icon next to rule name, and provide a name such as *Scale out during each work day*.
 
