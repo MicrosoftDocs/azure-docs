@@ -70,8 +70,13 @@ The table below contains the networking parameters.
 > | `management_subnet_nsg_name`                | The name of the Network Security Group name                      | Optional   | |
 > | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the Network Security Group     | Mandatory  | Mandatory for existing environment deployments |
 > | `management_subnet_nsg_allowed_ips`	        | Range of allowed IP addresses to add to Azure Firewall           | Optional   | |  
-> | `management_firewall_subnet_arm_id`		    | The Azure resource identifier for the Network Security Group     | Mandatory  | For existing environment deployments |
-> | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For new environment deployments | 
+> | `management_firewall_subnet_arm_id`		    | The Azure resource identifier for the firewall subnet     | Mandatory  | For existing environment deployments |
+> | `management_firewall_subnet_address_prefix` | The address range for the subnet                        | Mandatory  | For new environment deployments | 
+> | `cmdb_subnet_arm_id`		         | The Azure resource identifier for the cmdb subnet       | Mandatory  | For existing environment deployments using the web app |
+> | `cmdb_subnet_address_prefix`             | The address range for the cmdb subnet            | Mandatory  | For new environment deployments using the web app | 
+
+> [!NOTE]
+> When using an existing subnet for the cosmos db and web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms
 
 ### Deployer Virtual Machine Parameters
 
