@@ -48,6 +48,22 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 - Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
+### How to use send shortened URLs in messages?
+Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
+
+Below is a list with examples of common URL shorteners you should avoid to maximize deliverability:
+- bit.ly
+- goo.gl
+- tinyurl.com
+- Tiny.cc
+- lc.chat
+- is.gd
+- soo.gd
+- s2r.co
+- Clicky.me
+- budurl.com
+- bc.vc
+
 ## Short codes
 ### What is the eligibility to apply for a short code?
 Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md).
