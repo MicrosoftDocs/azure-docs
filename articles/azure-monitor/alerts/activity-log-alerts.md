@@ -17,7 +17,7 @@ Activity log alerts allow you to be notified on events and operations that are l
 You can create activity log alert rules to receive notifications on one of the following activity log event categories  :
 
 * **Administrative events** - get notified when a create, update, delete, or action operation occur on resources in your Azure subscription, resource group, or on a specific resource. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
-* **Service Health events** - get notified on Azure incidents, such as an outage or a maintenance event,  occured in a specific Azure region and may impact services in your subscription.
+* **Service Health events** - get notified on Azure incidents, such as an outage or a maintenance event,  occurred in a specific Azure region and may impact services in your subscription.
 * **Resource health events** - get notified when the health of a specific Azure resource you are using is degraded, or if the resource becomes unavailable.  
 * **Autoscale events** - get notified when events related to the operation of the configured [autoscale operations](../autoscale/autoscale-overview.md) in your subscription. An example of an Autoscale event is Autoscale scale up action failed.
 * **Recommendation** - get notified when a new [Azure Advisor recommendation](../../advisor/advisor-overview.md) is available for your subscription.
