@@ -75,7 +75,7 @@ sections:
       - question: |
           Can I protect my PaaS resources using DDoS Protection?
         answer: |
-          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hub VIPs and App/Cloud Services applications. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
           
       - question: |
           Can I protect my on-premise resources using DDoS Protection?
