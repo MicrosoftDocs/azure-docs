@@ -107,9 +107,9 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-   ![Screenshot that shows Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+   ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 >[!NOTE]
 >If a user or a security group needs to submit jobs, they also need permission on the store account. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
