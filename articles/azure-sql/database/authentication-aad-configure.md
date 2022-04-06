@@ -344,7 +344,7 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 > [!NOTE]
 > [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) uses the Azure Active Directory Authentication Library (ADAL), which will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, migrate applications to [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) and the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). For more information about using Azure AD authentication with SqlClient, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
 >
-> SSMS and SSDT still uses the Azure Active Directory Authentication Library (ADAL).
+> SSMS and SSDT still uses the Azure Active Directory Authentication Library (ADAL). If you want to continue using *ADAL.DLL* in your applications, you can use the links in this section to install the latest SSMS, ODBC, and OLE DB driver that contains the latest *ADAL.DLL* library.
 
 On all client machines, from which your applications or users connect to SQL Database or Azure Synapse using Azure AD identities, you must install the following software:
 
