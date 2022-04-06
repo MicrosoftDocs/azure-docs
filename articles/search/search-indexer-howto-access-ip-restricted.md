@@ -43,7 +43,7 @@ This article explains how to find the IP address of your search service and conf
 
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
-If your search service workloads include skillset execution, create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This step explains how to get the range of IP addresses needed for this inbound rule.
+We also require customers to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment) to ensure we optimize the resource availability for search services. This step explains how to get the range of IP addresses needed for this inbound rule.
 
 An IP address range is defined for each region that supports Azure Cognitive Search. You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
