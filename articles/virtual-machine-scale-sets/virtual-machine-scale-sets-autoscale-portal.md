@@ -34,7 +34,7 @@ If your application demand increases, the load on the VM instances in your scale
     ![Enable autoscale in the Azure portal](media/virtual-machine-scale-sets-autoscale-portal/enable-autoscale.png)
 
 4. Select the option to **Add a rule**.
-   ![Enable autoscale in the Azure portal](media/virtual-machine-scale-sets-autoscale-portal/add-autoscale-rule.png)
+   ![Add autoscale rule in the Azure portal](media/virtual-machine-scale-sets-autoscale-portal/add-autoscale-rule.png)
 
 5. Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the **Operation** to *Increase count by* and then specify *1* or *2* for the *Instance count*. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
 
