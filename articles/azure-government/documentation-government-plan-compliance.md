@@ -4,7 +4,6 @@ description: Provides an overview of the available compliance assurances for Azu
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
 ms.custom: references_regions
