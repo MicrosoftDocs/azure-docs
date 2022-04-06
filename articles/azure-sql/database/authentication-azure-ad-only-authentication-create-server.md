@@ -8,7 +8,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 12/16/2021
+ms.date: 04/06/2022
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL
@@ -154,7 +154,7 @@ Replace the following values in the example:
 - `<ResourceGroupName>`: Name of the resource group for your logical server
 - `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
 - `<Location>`: Location of the server, such as `westus2`, or `centralus`
-- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**
+- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**. If you're using an application (service principal) as the Azure AD admin, replace this value with the **Application ID**
 
 ```rest
 Import-Module Azure
@@ -248,7 +248,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
         "aad_admin_objectid": {
             "type": "String",
             "metadata": {
-                "description": "The Object ID of the Azure AD admin."
+                "description": "The Object ID of the Azure AD admin if the admin is a user or group. For Applications, use the Application ID."
             }
         },
         "aad_admin_tenantid": {
@@ -390,7 +390,7 @@ Replace the following values in the example:
 - `<ResourceGroupName>`: Name of the resource group for your logical server
 - `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
 - `<Location>`: Location of the server, such as `westus2`, or `centralus`
-- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**
+- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**. If you're using an application (service principal) as the Azure AD admin, replace this value with the **Application ID**
 - The `subnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`
 
 
@@ -463,7 +463,7 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
         "aad_admin_objectid": {
             "type": "String",
             "metadata": {
-                "description": "The Object ID of the Azure AD admin."
+                "description": "The Object ID of the Azure AD admin. The Object ID of the Azure AD admin if the admin is a user or group. For Applications, use the Application ID."
             }
         },
         "aad_admin_tenantid": {
