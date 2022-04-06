@@ -50,15 +50,41 @@ Replace the `index.html` in the URL with `api/anchors`. It should look like this
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## [Unity](#tab/Unity)
+## [Unity - Android](#tab/UnityAndroid)
+
+## Open Project
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
-### Set up an Android device
-
+## Setup Build Settings
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
 
-### Set up an iOS Device
+[!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
+
+On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
+
+Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Replace `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+Save the scene by selecting **File** > **Save**.
+
+## Deploy 
+
+Sign in to your Android device and connect it to your computer by using a USB cable.
+
+Open **Build Settings** by selecting **File** > **Build Settings**.
+
+Under **Scenes In Build**, ensure that each scene has a check mark next to it.
+
+Ensure that **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your *.apk* file. You can pick any name for it.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## [Unity - iOS](#tab/UnityIOS)
+
+## Open Project
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
+
+## Setup Build Settings
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
@@ -70,19 +96,7 @@ Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter th
 
 Save the scene by selecting **File** > **Save**.
 
-## Deploy to your device
 
-### Deploy to an Android device
-
-Sign in to your Android device and connect it to your computer by using a USB cable.
-
-Open **Build Settings** by selecting **File** > **Build Settings**.
-
-Under **Scenes In Build**, ensure that each scene has a check mark next to it.
-
-Ensure that **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your *.apk* file. You can pick any name for it.
-
-[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### Deploy to an iOS device
 
