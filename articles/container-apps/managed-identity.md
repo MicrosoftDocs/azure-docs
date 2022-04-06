@@ -39,7 +39,7 @@ User-assigned identities are ideal for workloads that:
 - run on multiple resources and can share a single identity
 - need pre-authorization to a secure resource
 
-## Current limitations
+## Limitations
 
 There are a few limitations that will be addressed in future releases of Container Apps. Currently, the identity is only available within a running container.
 
