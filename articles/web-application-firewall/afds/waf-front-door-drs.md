@@ -55,7 +55,7 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Warning      |3|
 |Notice       |2|
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service](waf-faq.yml#what-content-types-does-waf-support-) to learn what content types are supported for body inspection with different DRS versions.
+There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
 
 
 ### DRS 2.0
