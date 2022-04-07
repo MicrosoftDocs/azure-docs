@@ -229,20 +229,20 @@ The following steps outline how to set up identity-based data access for trainin
 > [!NOTE] 
 > If the **identity** property is left unspecified and datastore does not have cached credentials, then compute managed identity becomes the fallback option. 
 
-    ```yaml
-    command: |
-      echo "--census-csv: ${{inputs.census_csv}}"
-      python hello-census.py --iris-csv ${{inputs.census_csv}}
-    code: src
-    inputs:
-      census_csv:
-        type: uri_file 
-        path: azureml://datastores/mydata/paths/census.csv
-    environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-    compute: azureml:cpu-cluster
-    identity:
-      type: user_identity
-    ```
+```yaml
+command: |
+  echo "--census-csv: ${{inputs.census_csv}}"
+  python hello-census.py --iris-csv ${{inputs.census_csv}}
+code: src
+inputs:
+  census_csv:
+    type: uri_file 
+    path: azureml://datastores/mydata/paths/census.csv
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+compute: azureml:cpu-cluster
+identity:
+  type: user_identity
+```
 
 ## Next steps
 
