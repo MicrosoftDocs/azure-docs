@@ -106,4 +106,4 @@ Added support for [Gen2 images.](virtual-machines/image-builder-overview.md#hype
 
 
 ## Next steps
-Learn more about [Image Builder](virtualmachines/image-builder-overview.md).
+Learn more about [Image Builder](virtual-machines/image-builder-overview.md).
