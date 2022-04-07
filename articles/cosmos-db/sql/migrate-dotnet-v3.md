@@ -230,7 +230,7 @@ For more information, see [how to migrate from the change feed processor library
 
 ### Change feed queries
 
-Executing a change feed query is possible on the v3 SDK:
+Executing change feed queries on the v3 SDK is considered to be using the [change feed pull model](change-feed-pull-model.md). Follow this table to migrate configuration:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
@@ -241,8 +241,6 @@ Executing a change feed query is possible on the v3 SDK:
 |`ChangeFeedOptions.StartFromBeginning` |`ChangeFeedStartFrom.Beginning` |
 |`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
 |Split handling|It is no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
-
-For more information, see [how to use the change feed pull model](change-feed-pull-model.md).
 
 ### Using the bulk executor library directly from the V3 SDK
 
