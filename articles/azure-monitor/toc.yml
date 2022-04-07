@@ -221,12 +221,14 @@ items:
       href: best-practices-plan.md
     - name: Configure data collection
       href: best-practices-data-collection.md
-    - name: Optimize costs
-      href: best-practices-cost.md
     - name: Analysis and visualizations
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
+    - name: Optimize costs
+      href: best-practices-cost.md
+  - name: Scenarios
+    items:
     - name: Monitor virtual machines
       items:
       - name: Overview
