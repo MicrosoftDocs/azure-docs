@@ -204,7 +204,6 @@ The following example shows how to set **federatedIdpMfaBehavior** to `enforceMf
 PATCH https://graph.microsoft.com/beta/domains/contoso.com/federationConfiguration/6601d14b-d113-8f64-fda2-9b5ddda18ecc
 Content-Type: application/json
 {
-  "displayName": "Contoso name change",  
   "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
 }
 ```
@@ -224,7 +223,6 @@ Content-Type: application/json
 {
   "@odata.type": "#microsoft.graph.internalDomainFederation",
   "id": "6601d14b-d113-8f64-fda2-9b5ddda18ecc",
-   "displayName": "Contoso name change",
    "issuerUri": "http://contoso.com/adfs/services/trust",
    "metadataExchangeUri": "https://sts.contoso.com/adfs/services/trust/mex",
    "signingCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
