@@ -26,8 +26,8 @@ With managed identities:
 
 - Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
 - You can use role-based access control to grant specific permissions to a managed identity.
-- System-assigned identities are automatically created and managed. They are deleted when your container app is deleted.
-- You can add and delete user-assigned identities and assign them to multiple resources. They are independent your container app's life cycle.
+- System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
+- You can add and delete user-assigned identities and assign them to multiple resources. They're independent your container app's life cycle.
 
 ### Common use cases
 
@@ -93,7 +93,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 
 ### Add a user-assigned identity
 
-Creating an app with a user-assigned identity requires that you first create the identity and then add its resource identifier to your container app's configuration.
+Configuring a container app with a user-assigned identity requires that you create the identity then add its resource identifier to your container app's configuration.
 
 # [Azure portal](#tab/portal)
 
@@ -223,7 +223,7 @@ $accessToken = $tokenResponse.access_token
 
 A raw HTTP GET request looks like the following example.
 
-Note that the X-IDENTITY-HEADER contains the GUID which is normally stored in the IDENTITY_HEADER environment variable.
+X-IDENTITY-HEADER contains the GUID that is stored in the IDENTITY_HEADER environment variable.
 
 ```http
 GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
@@ -263,8 +263,8 @@ To get a token for a resource, make an HTTP GET request to this endpoint, includ
 | Parameter name    | In     | Description|
 |-------------------|--------|--------|
 | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-| api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later. | X-IDENTITY-HEADER | Header | The value of the `IDENTITY_HEADER` environment variable. This header is mitigates server-side request forgery (SSRF) attacks.                                  | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.| principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
-| mi_res_id| Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
+| api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later. | X-IDENTITY-HEADER | Header | The value of the `IDENTITY_HEADER` environment variable. This header mitigates server-side request forgery (SSRF) attacks.                                  | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.| principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Can't be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
+| mi_res_id| Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
 
 > [!IMPORTANT]
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
