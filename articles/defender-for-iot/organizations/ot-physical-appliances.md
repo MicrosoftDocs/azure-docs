@@ -1,11 +1,11 @@
 ---
-title: Build your own appliance for OT monitoring - Microsoft Defender for IoT
+title: Build your own physical appliance for OT monitoring - Microsoft Defender for IoT
 description: Learn about hardware compatibility for physical appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT monitoring - build your own appliance
+# OT monitoring - build your own physical appliance
 
 This article lists the hardware specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own physical appliances.
 
