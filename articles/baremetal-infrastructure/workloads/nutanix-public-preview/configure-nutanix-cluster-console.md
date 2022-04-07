@@ -1,6 +1,6 @@
 ---
 title: Configure Nutanix Cluster Console
-description:  
+description: Procedure to configure Nutanix Cluster Console
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021
@@ -8,10 +8,9 @@ ms.date: 03/31/2021
 
 # Configure Nutanix Cluster Console
 
-1. Work with Nutanix to enable the Azure option in the Nutanix Clusters console. See Enabling Azure in Nutanix Clusters Console. 
-2. Create an Organization in the Nutanix Clusters console. See Creating an Organization in the Nutanix Clusters Console. 
+1. Work with Nutanix to enable the Azure option in the Nutanix Clusters console. See Enabling Azure in Nutanix Clusters Console.
+2. Create an Organization in the Nutanix Clusters console. See Creating an Organization in the Nutanix Clusters Console.
 
- 
 ## Next steps
 
 Learn more about Nutanix:

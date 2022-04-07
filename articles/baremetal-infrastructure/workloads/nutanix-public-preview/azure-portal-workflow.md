@@ -1,6 +1,6 @@
 ---
 title: Azure Portal Workflow
-description: Public Preview
+description: Subordinating topic for workflow topics
 ms.topic: how-to
 ms.subservice: 
 ms.date: 03/31/2021
@@ -9,8 +9,8 @@ ms.date: 03/31/2021
 # Azure Portal Workflow
 
 Following is the summary of tasks you must perform in the Azure portal.
-This guide assumes prior knowledge of the Azure subscriptions, resource groups, and Azure 
-Virtual Network (VNet). Familiarity with the Azure framework is highly recommended to operate 
+This guide assumes prior knowledge of the Azure subscriptions, resource groups, and Azure
+Virtual Network (VNet). Familiarity with the Azure framework is highly recommended to operate
 significant deployments on Azure.
 
 ## Next steps

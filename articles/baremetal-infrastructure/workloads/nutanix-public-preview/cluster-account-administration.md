@@ -1,6 +1,6 @@
 ---
 title: Cluster Account Administration 
-description: 
+description: Subordinating topic for cluster account administration topics
 ms.topic: how-to
 ms.subservice:
 ms.date: 03/31/2021
@@ -8,8 +8,8 @@ ms.date: 03/31/2021
 
 # Cluster Account Administration
 
-Articles in this section explains how to add or remove users with various roles. 
- 
+Articles in this section explains how to add or remove users with various roles.
+
 ## Next steps
 
 Learn more about Nutanix:

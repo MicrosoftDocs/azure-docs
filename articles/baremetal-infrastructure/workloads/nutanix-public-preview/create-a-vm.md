@@ -2,7 +2,7 @@
 title: Create a Virtual Machine
 description: 
 ms.topic: how-to
-ms.subservice:  
+ms.subservice: Reference to Prism Central Guide
 ms.date: 03/31/2021
 ---
 
