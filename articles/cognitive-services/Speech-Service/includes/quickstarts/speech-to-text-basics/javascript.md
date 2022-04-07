@@ -41,15 +41,15 @@ Follow these steps to create a new console application for speech recognition.
 1. Copy the following code into `SpeechRecognition.js`:
 
     ```javascript
-    const fs = require('fs');
+    const fs = require("fs");
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     speechConfig.speechRecognitionLanguage = "en-US";
-    
+
     function fromFile() {
         let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
         let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
+
         speechRecognizer.recognizeOnceAsync(result => {
             switch (result.reason) {
                 case sdk.ResultReason.RecognizedSpeech:
@@ -59,16 +59,16 @@ Follow these steps to create a new console application for speech recognition.
                     console.log("NOMATCH: Speech could not be recognized.");
                     break;
                 case sdk.ResultReason.Canceled:
-                    const cancellation = CancellationDetails.fromResult(result);
-                    console.log(`CANCELED: Reason=${cancellation.reason}`);
-            
+                    const cancellation = sdk.CancellationDetails.fromResult(result);
+                    console.log("CANCELED: Reason=${cancellation.reason}");
+
                     if (cancellation.reason == sdk.CancellationReason.Error) {
                         console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
                         console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-                        console.log("CANCELED: Did you update the key and location/region info?");
+                        console.log("CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;
-            }    
+            }
             speechRecognizer.close();
         });
     }
@@ -76,6 +76,7 @@ Follow these steps to create a new console application for speech recognition.
     ```
 
 1. In `SpeechRecognition.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `SpeechRecognition.js`, replace `YourAudioFile.wav` with your own WAV file. This example only recognizes speech from a WAV file. For For information about other audio formats, see [How to use compressed audio files](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md). This example supports up to 30 seconds audio.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Run your new console application to start speech recognition from a file:
