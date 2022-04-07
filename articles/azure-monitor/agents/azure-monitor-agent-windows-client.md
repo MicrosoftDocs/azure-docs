@@ -78,6 +78,7 @@ This grants the ability to create and link a monitored object to a user.
 PUT https://management.azure.com/providers/microsoft.insights/providers/microsoft.authorization/roleassignments/{roleAssignmentGUID}?api-version=2021-04-01-preview
 ```
 **URI Parameters**
+
 | Name | In | Required | Type | Description |
 |:---|:---|:---|:---|:---|
 | `roleAssignmentGUID` | path | string | Provide any valid guid (you can generate one using https://guidgenerator.com/) |  
@@ -97,7 +98,8 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 }
 ```
 
-**Body parameters**
+**Body parameters** 
+
 | Name | Description |
 |:---|:---|
 | roleDefinitionId | Fixed value: Role definition Id of the 'Monitored Objects Contributor' role: `/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b` |
@@ -115,6 +117,7 @@ This creates the Monitored Object for the AAD Tenant scope, which will be used t
 PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}?api-version=2021-09-01-preview
 ```
 **URI Parameters**
+
 | Name | In | Required | Type | Description |
 |:---|:---|:---|:---|:---|
 | `AADTenantId` | path | string | Id of the AAD tenant that the device(s) belong to. The MO will be created with the same Id |  
@@ -133,6 +136,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 }
 ```
 **Body parameters**
+
 | Name | Description |
 |:---|:---|
 | `location` | This is also the location where the MO object would be stored, and should be the **same region** where you created the Data Collection Rule. This is the location of the region from where agent communications would happen to. |
@@ -152,6 +156,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 ```
 
 **URI Parameters**
+
 | Name | In | Required | Type | Description |
 |:---|:---|:---|:---|:---|
 | ``MOResourceId` | path | string | Full resource Id of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
@@ -170,6 +175,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 }
 ```
 **Body parameters**
+
 | Name | Description |
 |:---|:---|
 | `dataCollectionRuleID` | This is the resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
@@ -293,7 +299,7 @@ In order to update the version, simply install the new version you wish to updat
 
 #### Missing DLL
 - Error message: "There is a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …" 
-- Ensure you have installed C++ redistributable (>2015) before installing AMA: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170 
+- Ensure you have installed [C++ redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:  
 
 #### Silent install from command prompt fails 
 Make sure to start the installer on administrator command prompt. Silent install can only be initiated from the administrator command prompt.  
