@@ -10,10 +10,20 @@ ms.custom: references_region
 ---
 
 # Azure Monitor agent on Windows client devices (Preview)
-This article provides all the required information for using the new Azure Monitor Agent and Data Collection Rules on Windows clients, in preview, devices listed below.  
+This article provides all the required information for using the new Azure Monitor Agent and Data Collection Rules on Windows client device types listed below.  
 
 Using the new client installer available in this preview, you can now collect telemetry data from your Windows client devices as well using the same agent currently used for servers, virtual machines.
 Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure data collection for the **same underlying agent**.
+
+## Supported device types
+
+| Device type | Installation method | Additional information |
+|:---|:---|:---|
+| Windows 10, 11 desktops, workstations | Client installer (preview) | Installs the agent using a Windows MSI installer |
+| Windows 10, 11 laptops | Client installer (preview) | Installs the agent using a Windows MSI installer. This is supported for laptops but **not optimized yet** for battery, network consumption |
+| Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
+| On-premise servers | ]Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premise by installing Arc agent |
+
 
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
@@ -64,7 +74,7 @@ You need to a 'Monitored Object' (MO) that creates a representation for the AAD 
 Currently this association is only **limited** to the AAD tenant, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
 The image below demonstrates the how this works:
 
-INSERT IMAGE
+![Diagram shows monitored object purpose and association.](media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png)
 
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
