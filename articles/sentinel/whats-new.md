@@ -622,7 +622,7 @@ By default, incident searches run across the **Incident ID**, **Title**, **Tags*
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
+:::image type="content" source="media/investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
 
 For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
 

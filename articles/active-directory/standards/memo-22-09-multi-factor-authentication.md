@@ -15,13 +15,13 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Multifactor authentication
+# Meet multifactor authentication requirements of Memorandum 22-09
 
-This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described by the US Federal Government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
+This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described by the US Federal Government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
 
-The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. *Phishing* is the attempt to obtain and compromise credentials by, for example, sending a spoofed email that leads to an inauthentic site.
+The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. Phishing is the attempt to obtain and compromise credentials, such as by sending a spoofed email that leads to an inauthentic site.
 
-Adoption of MFA is critical to preventing unauthorized access to accounts and data. The memo requires MFA usage with phishing-resistant methods, defined as "authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system." The first step is to establish what MFA methods qualify as phishing resistant.
+Adoption of MFA is critical for preventing unauthorized access to accounts and data. The memo requires MFA usage with phishing-resistant methods, defined as "authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system." The first step is to establish what MFA methods qualify as phishing resistant.
 
 ## Phishing-resistant methods
 
@@ -55,52 +55,54 @@ The following sections describe support for implementing phishing-resistant meth
 
 The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications.
 
-
-| Devices | AD FS as a federated IDP configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows hello for Business| Microsoft authenticator + CA for managed devices |
+| Devices | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows Hello for Business| Microsoft authenticator + certificate authority for managed devices |
 | - | - | - | - | - | - |
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
-| iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
-| Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
-| MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome (Safari coming later)| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 
 To learn more, see [Browser support for Fido 2.0 passwordless authentication](../authentication/fido2-compatibility.md).
 
-### Virtual device sign-in scenarios requiring integration
+### Virtual device sign-in scenarios that require integration
 
-To enforce the use of phishing resistant MFA methods, integration may be necessary based on your requirements. MFA should be enforced both when users access applications and devices.
+To enforce the use of phishing-resistant MFA methods, integration might be necessary based on your requirements. MFA should be enforced when users access applications and devices.
 
 For each of the five phishing-resistant MFA types previously mentioned, you use the same capabilities to access the following device types:
 
-| Target System| Integration actions |
+| Target system| Integration actions |
 | - | - |
-| Azure Linux VM| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
-| Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
-| Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) |
-| VMs hosted on-prem or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
-| Non-Microsoft virtual desktop solutions| Integrate 3rd party virtual desktop solution as an app in Azure AD |
+| Azure Linux virtual machine (VM)| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md). |
+| Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md). |
+| Azure Virtual Desktop| Enable [Azure Virtual Desktop for Azure AD sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join). |
+| VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
+| Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Azure AD. |
 
 
 ### Enforcing phishing-resistant MFA
 
-Conditional Access enables you to enforce MFA for users in your tenant. With the addition of Cross Tenant Access Policies, you can enforce it on external users. 
+Conditional access enables you to enforce MFA for users in your tenant. With the addition of [cross-tenant access policies](../external-identities/cross-tenant-access-overview.md), you can enforce it on external users. 
 
-[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) helps you to meet the requirement to facilitate integration among agencies. It does this by both limiting what other Microsoft tenants your users can access, and by enabling you to allow access to users that you do not have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
+[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
 
-You must enforce MFA for partners and external users who access your organization's resources. This is common in many inter-agency collaboration scenarios. Azure AD provides [Cross Tenant Access Policies (XTAP)](../external-identities/cross-tenant-access-overview.md) to help you configure MFA for external users accessing your applications and resources. 
+- Limiting what other Microsoft tenants your users can access.
+- Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
 
-XTAP uses trust settings that allow you to trust the MFA method used by the guest user's tenant instead of having them register an MFA method directly with your tenant. These policies can be configured on a per organization basis. This requires you to understand the available MFA methods in the user's home tenant and determine if they meet the requirement for phishing resistance. 
+You must enforce MFA for partners and external users who access your organization's resources. This is common in many inter-agency collaboration scenarios. Azure AD provides cross-tenant access policies to help you configure MFA for external users who access your applications and resources. 
+
+By using trust settings in cross-tenant access policies, you can trust the MFA method that the guest user's tenant is using instead of having them register an MFA method directly with your tenant. These policies can be configured on a per-organization basis. This ability requires you to understand the available MFA methods in the user's home tenant and determine if they meet the requirement for phishing resistance. 
 
 ## Password policies
 
-The memo requires organizations to change password policies that have proven to be ineffective, such as complex passwords that are rotated often. This includes the removal of the requirement for special characters and numbers as well as time-based password rotation policies. Instead, consider doing the following:
+The memo requires organizations to change password policies that are proven ineffective, such as complex passwords that are rotated often. This includes the removal of the requirement for special characters and numbers, along with time-based password rotation policies. Instead, consider doing the following:
 
-* Use [password protection](..//authentication/concept-password-ban-bad.md) to enforce a common list Microsoft maintains of weak passwords. You can also add custom banned passwords.
+* Use [password protection](..//authentication/concept-password-ban-bad.md) to enforce a common list of weak passwords that Microsoft maintains. You can also add custom banned passwords.
 
-* Use [self-service password protection](..//authentication/tutorial-enable-sspr.md) (SSPR) to enable users to reset passwords as needed, for example after an account recovery.
+* Use [self-service password protection](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
 
 * Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
 
-While the memo isn't specific on which policies to use with passwords consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html). 
+While the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html). 
 
 ## Next steps
 

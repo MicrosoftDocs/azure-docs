@@ -44,7 +44,7 @@ The memo requires that users sign in once and then directly access applications.
 [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
 
 - Limiting what other Microsoft tenants your users can access.
-- Enabling you to allow access to users that you do not have to manage in your own tenant, but whom you can subject to your multifactor authentication (MFA) and other access requirements.
+- Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your multifactor authentication (MFA) and other access requirements.
 
 ## Connecting applications
 
