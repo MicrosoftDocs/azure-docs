@@ -105,7 +105,7 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
 
-- [OT system deployment options](ot-appliance-sizing.md)
+- [Which appliances do I need?](ot-appliance-sizing.md)
 - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
 - [OT system physical appliance requirements](ot-physical-appliances.md)
 

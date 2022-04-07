@@ -89,9 +89,9 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
 
-## YAML: model training pipeline
+<!-- ## YAML: model training pipeline
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml"::: -->
 
 ## Next steps
 

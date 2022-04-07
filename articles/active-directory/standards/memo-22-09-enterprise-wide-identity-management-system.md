@@ -91,7 +91,7 @@ For apps using [legacy authentication protocols](../fundamentals/auth-sync-overv
 
    *  [Use Azure AD Application Proxy or Secure hybrid partner access](../manage-apps/secure-hybrid-access.md) to provide secure access.
 
-*  Decommission access to apps that are no longer needed, or are not supported (for example, apps added by shadow IT processes). Also have an alarm for 
+*  Decommission access to apps that are no longer needed, or are not supported (for example, apps added by shadow IT processes).
 
 ## Connect devices
 

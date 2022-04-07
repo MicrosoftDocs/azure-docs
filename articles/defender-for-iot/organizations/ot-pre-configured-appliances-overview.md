@@ -1,27 +1,29 @@
 ---
-title: Pre-configured appliances for OT systems (Overview) - Microsoft Defender for IoT
-description: Learn about the supported, pre-configured appliances for Microsoft Defender for IoT OT sensors and on-premises management consoles.
-ms.date: 04/04/2022
+title: Which appliances do I need for OT network monitoring?-  Microsoft Defender for IoT
+description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
+ms.date: 04/07/2022
 ms.topic: conceptual
 ---
 
 # Pre-configured physical appliances for OT monitoring
 
-This article provides a catalog of the pre-configured appliances available for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+This article provides a catalog of the pre-configured appliances available for Microsoft Defender for IoT OT sensors and on-premises management consoles. 
+
+Use the links in the tables below to jump to articles with more details about each appliance.
 
 Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
 For more information, see [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
 
-## Advantages of pre-configured appliances
-
-Pre-configured physical appliances have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:
-
-- **Performance** over the total assets monitored
-- **Compatibility** with new Defender for IoT releases, with validations for upgrades and driver support
-- **Stability**, validated physical appliances undergo traffic monitoring and packet loss tests
-- **In-lab experience**, Microsoft support teams train using validated physical appliances and have a working knowledge of the hardware
-- **Availability**, components are selected to offer long-term worldwide availability
+> [!TIP]
+> Pre-configured physical appliances have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:
+>
+>- **Performance** over the total assets monitored
+>- **Compatibility** with new Defender for IoT releases, with validations for upgrades and driver support
+>- **Stability**, validated physical appliances undergo traffic monitoring and packet loss tests
+>- **In-lab experience**, Microsoft support teams train using validated physical appliances and have a working knowledge of the hardware
+>- **Availability**, components are selected to offer long-term worldwide availability
+>
 
 ## Appliances for OT network sensors
 
@@ -48,5 +50,12 @@ You can purchase any of the following appliances for your OT on-premises managem
 |E1800     | [HPE ProLiant DL20 Plus](#hpe-proliant-dl20-plus-enterprise)        | 300     |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
 |E1800     |   [Dell PowerEdge R340](#dell-poweredge-r340-xl)      |  300     |  **Mounting**: 1U<br>**Ports**: Eight RJ45 or six SFP (OPT)      |
 
+## Next steps
 
-The following tabs describe supported bills of material, depending on your monitoring needs.
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+Then, use any of the following procedures to continue:
+
+- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](how-to-install-software.md)

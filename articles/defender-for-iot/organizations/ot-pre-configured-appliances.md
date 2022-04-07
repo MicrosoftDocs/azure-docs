@@ -508,7 +508,7 @@ Legacy options for SMB rugged deployments include:
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [OT system deployment options](ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
 Then, use any of the following procedures to continue:
 
