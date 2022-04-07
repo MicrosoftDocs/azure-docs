@@ -61,7 +61,7 @@ Use the following steps to create a linked service to an OData store in the Azur
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-odata/configure-odata-linked-service.png" alt-text="Screenshot of linked service configuration for an OData store.":::
+    ![odata-linked-service](https://user-images.githubusercontent.com/25298347/162140241-22c2a4f1-315b-4a29-9c0f-9cc9302c8205.png)
 
 ## Connector configuration details
 
