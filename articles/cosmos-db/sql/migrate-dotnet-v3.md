@@ -230,7 +230,7 @@ For more information, see [how to migrate from the change feed processor library
 
 ### Change feed queries
 
-Executing a Change Feed query is possible on the v3 SDK:
+Executing a change feed query is possible on the v3 SDK:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
@@ -239,7 +239,7 @@ Executing a Change Feed query is possible on the v3 SDK:
 |`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
 |`ChangeFeedOptions.StartFromBeginning`/`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Beginning` / `ChangeFeedStartFrom.Time` - `ChangeFeedStartFrom` defines the different options when starting to read the Change Feed, including the beginning, a specific time, a continuation, or now.|
 |`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
-|Split handling|It is no longer required for users to handle split exceptions when reading the Change Feed, splits will be handled transparently without the need of user interaction.|
+|Split handling|It is no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
 
 For more information, see [how to use the change feed pull model](change-feed-pull-model.md).
 
@@ -736,7 +736,7 @@ private static async Task DeleteItemAsync(DocumentClient client)
 ```
 ---
 
-### Change Feed query
+### Change feed query
 
 # [.NET SDK v3](#tab/dotnet-v3)
 
