@@ -44,15 +44,16 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. **Submit** the pipeline.
 
-    ![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+Go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
 
-Now that the training pipeline has been run, you can create a batch inference pipeline.
+![TODO: Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-1. Next to **Submit**, select the new dropdown **Create inference pipeline**.
+
+1. In job detail page, above the canvas, select the new dropdown **Create inference pipeline**.
 
 1. Select **Batch inference pipeline**.
 
-    ![Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    ![TODO: Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
     
 The result is a default batch inference pipeline. 
 
@@ -69,7 +70,11 @@ In this section, you create a dataset parameter to specify a different dataset t
     Enter a name for the parameter, or accept the default value.
 
     > [!div class="mx-imgBorder"]
-    > ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+    > ![TODO: Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png
+
+1. Submit the batch inference pipeline and go to job detail page by clicking the job link in the left pane.
+
+    ![TODO: Go to batch inference pipeline job detail page](./media/how-to-run-batch-predictions-designer/batch-inference-job-link.png)
 
 ## Publish your batch inference pipeline
 
@@ -85,7 +90,7 @@ Now you're ready to deploy the inference pipeline. This will deploy the pipeline
 
 1. Select **Publish**.
 
-![Publish a pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
+![TODO Publish a pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
 
 ## Consume an endpoint

@@ -78,9 +78,6 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
     If you already have an available compute target, you can select it to run this pipeline.
 
-    > [!NOTE]
-    > The designer can only run training experiments on Azure Machine Learning Compute but other compute targets won't be shown.
-
 1. Enter a name for the compute resource.
 
 1. Select **Save**.
@@ -277,7 +274,9 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
     1. Select **Submit**.
     
-    You can view run status and details at the top right of the canvas.
+    1. You will see a submission list in the left pane to the canvas, and a notification will pop up at the top right corner of the page. You can click the job detail link to go to job detail page for debugging.
+        
+        ![TODO: screenshot of submission list and notification](./media/new-pipeline-ui/.png)
     
     If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
