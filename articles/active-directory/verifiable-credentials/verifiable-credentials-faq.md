@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 04/07/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -68,7 +68,7 @@ Yes! The following repositories are the open-sourced components of our services.
 
 ### What are the licensing requirements?
 
-An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
+There are no special licensing requirements to issue Verifiable credentials. All you need is An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ### How do I reconfigure the Azure AD Verifiable credentials service?
 

@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 02/22/2022
+ms.date: 04/07/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -17,6 +17,10 @@ ms.author: barclayn
 # What's new in Azure Active Directory Verifiable Credentials (preview)
 
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
+
+## April
+
+Azure AD Verifiable Credentials no longer requires Azure AD P2 licenses. All you need is An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## March 2022
 - Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure Portal.
