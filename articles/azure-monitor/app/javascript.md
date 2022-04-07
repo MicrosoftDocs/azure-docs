@@ -17,11 +17,8 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ## Adding the JavaScript SDK
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=js) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
-1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
-2. Copy the _instrumentation key_ (also known as "iKey") or [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1.) You'll add it to the `instrumentationKey` or `connectionString` setting of the Application Insights JavaScript SDK.
+1. First you need an Application Insights resource. If you don't already have a resource and connection string, follow the [create a new resource instructions](create-new-resource.md).
+2. Copy the [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1.) You'll add it to the `connectionString` setting of the Application Insights JavaScript SDK.
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
     * [npm Setup](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
@@ -47,7 +44,7 @@ npm i --save @microsoft/applicationinsights-web
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
 const appInsights = new ApplicationInsights({ config: {
-  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  connectionString: 'Copy connection string from Application Insights Resource Overview'
   /* ...Other Configuration Options... */
 } });
 appInsights.loadAppInsights();
@@ -64,7 +61,7 @@ The current Snippet (listed below) is version "5", the version is encoded in the
 
 ```html
 <script type="text/javascript">
-!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+!function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
 // name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
 // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
@@ -72,7 +69,7 @@ src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
 crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
 // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
 cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    connectionString: "Copy connection string from Application Insights Resource Overview"
     /* ...Other Configuration Options... */
 }});
 </script>
@@ -84,7 +81,7 @@ cfg: { // Application Insights Configuration
 
 #### Reporting Script load failures
 
-This version of the snippet detects and reports failures when loading the SDK from the CDN as an exception to the Azure Monitor portal (under the failures &gt; exceptions &gt; browser), this exception provides visibility into failures of this type so that you're aware that your application isn't reporting telemetry (or other exceptions) as expected. This signal is an important measurement in understanding that you have lost telemetry because the SDK didn't load or initialize which can lead to:
+This version of the snippet detects and reports failures when loading the SDK from the CDN as an exception to the Azure Monitor portal (under the failures &gt; exceptions &gt; browser), this exception provides visibility into failures of this type so that you're aware your application isn't reporting telemetry (or other exceptions) as expected. This signal is an important measurement in understanding that you have lost telemetry because the SDK didn't load or initialize which can lead to:
 - Under-reporting of how users are using (or trying to use) your site;
 - Missing telemetry on how your end users are using your site;
 - Missing JavaScript errors that could potentially be blocking your end users from successfully using your site.
@@ -93,7 +90,7 @@ For details on this exception see the [SDK load failure](javascript-sdk-load-fai
 
 Reporting of this failure as an exception to the portal doesn't use the configuration option ```disableExceptionTracking``` from the application insights configuration and therefore if this failure occurs it will always be reported by the snippet, even when the window.onerror support is disabled.
 
-Reporting of SDK load failures is not supported on Internet Explorer 8 or earlier. This reduces the minified size of the snippet by assuming that most environments aren't exclusively IE 8 or less. If you have this requirement and you wish to receive these exceptions, you'll need to either include a fetch poly fill or create your own snippet version that uses ```XDomainRequest``` instead of ```XMLHttpRequest```, it's recommended that you use the [provided snippet source code](https://github.com/microsoft/ApplicationInsights-JS/blob/master/AISKU/snippet/snippet.js) as a starting point.
+Reporting of SDK load failures isn't supported on Internet Explorer 8 or earlier. This reduces the minified size of the snippet by assuming that most environments aren't exclusively IE 8 or less. If you have this requirement and you wish to receive these exceptions, you'll need to either include a fetch poly fill or create your own snippet version that uses ```XDomainRequest``` instead of ```XMLHttpRequest```, it's recommended that you use the [provided snippet source code](https://github.com/microsoft/ApplicationInsights-JS/blob/master/AISKU/snippet/snippet.js) as a starting point.
 
 > [!NOTE]
 > If you are using a previous version of the snippet, it is highly recommended that you update to the latest version so that you will receive these previously unreported issues.
@@ -117,7 +114,6 @@ The available configuration options are
 
 ### Connection String Setup
 
-For either the NPM or Snippet setup, you can also configure your instance of Application Insights using a Connection String. Replace the `instrumentationKey` field with the `connectionString` field.
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -167,11 +163,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
 ## Configuration
-Most configuration fields are named such that they can be defaulted to false. All fields are optional except for `instrumentationKey`.
+Most configuration fields are named such that they can be defaulted to false. All fields are optional except for `connectionString`.
 
 | Name | Description | Default |
 |------|-------------|---------|
-| instrumentationKey | **Required**<br>Instrumentation key that you obtained from the Azure portal. | string<br/>null |
+| connectionString | **Required**<br>Connection string that you obtained from the Azure portal. | string<br/>null |
 | accountId | An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars | string<br/>null |
 | sessionRenewalMs | A session is logged if the user is inactive for this amount of time in milliseconds. | numeric<br/>1800000<br/>(30 mins) |
 | sessionExpirationMs | A session is logged if it has continued for this amount of time in milliseconds. | numeric<br/>86400000<br/>(24 hours) |
@@ -214,14 +210,13 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | enableResponse&#8203;HeaderTracking | If true, AJAX & Fetch request's response headers is tracked. | boolean<br/> false |
 | distributedTracingMode | Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) will be generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services. See example [here](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).| `DistributedTracingModes`or<br/>numeric<br/>(Since v2.6.0) `DistributedTracingModes.AI_AND_W3C`<br />(v2.5.11 or earlier) `DistributedTracingModes.AI` |
 | enable&#8203;AjaxErrorStatusText | If true, include response error data text in dependency event on failed AJAX requests. | boolean<br/> false |
-| enable&#8203;AjaxPerfTracking |Flag to enable looking up and including additional browser window.performance timings in the reported `ajax` (XHR and fetch) reported metrics. | boolean<br/> false |
+| enable&#8203;AjaxPerfTracking |Flag to enable looking up and including more browser window.performance timings in the reported `ajax` (XHR and fetch) reported metrics. | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | The maximum number of times to look for the window.performance timings (if available), this is required as not all browsers populate the window.performance before reporting the end of the XHR request and for fetch requests this is added after its complete.| numeric<br/> 3 |
-| ajaxPerfLookupDelay | The amount of time to wait before re-attempting to find the window.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout(). | numeric<br/> 25 ms |
+| ajaxPerfLookupDelay | The amount of time to wait before reattempting to find the window.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout(). | numeric<br/> 25 ms |
 | enableUnhandled&#8203;PromiseRejection&#8203;Tracking | If true, unhandled promise rejections will be autocollected and reported as a JavaScript error. When disableExceptionTracking is true (don't track exceptions), the config value will be ignored and unhandled promise rejections won't be reported. | boolean<br/> false |
-| disable&#8203;InstrumentationKey&#8203;Validation | If true, instrumentation key validation check is bypassed. | boolean<br/>false |
 | enablePerfMgr | When enabled (true) this will create local perfEvents for code that has been instrumented to emit perfEvents (via the doPerf() helper). This can be used to identify performance issues within the SDK based on your usage or optionally within your own instrumented code. [More details are available by the basic documentation](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md). Since v2.5.7 | boolean<br/>false |
 | perfEvtsSendAll | When _enablePerfMgr_ is enabled and the [IPerfManager](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IPerfManager.ts) fires a [INotificationManager](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/INotificationManager.ts).perfEvent() this flag determines whether an event is fired (and sent to all listeners) for all events (true) or only for 'parent' events (false &lt;default&gt;).<br />A parent [IPerfEvent](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IPerfEvent.ts) is an event where no other IPerfEvent is still running at the point of this event being created and its _parent_ property isn't null or undefined. Since v2.5.7 |  boolean<br />false |
-| idLength | The default length used to generate new random session and user id values. Defaults to 22, previous default value was 5 (v2.5.8 or less), if you need to keep the previous maximum length you should set this value to 5. |  numeric<br />22 |
+| idLength | The default length used to generate new random session and user ID values. Defaults to 22, previous default value was 5 (v2.5.8 or less), if you need to keep the previous maximum length you should set this value to 5. |  numeric<br />22 |
 
 ## Cookie Handling
 
@@ -265,7 +260,7 @@ The following example shows all possible configurations required to enable corre
 // excerpt of the config section of the JavaScript SDK snippet with correlation
 // between client-side AJAX and server requests enabled.
 cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    connectionString: "Copy connection string from Application Insights Resource Overview"
     disableFetchTracking: false,
     enableCorsCorrelation: true,
     enableRequestHeaderTracking: true,
@@ -386,11 +381,11 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
    "https://js.monitor.azure.com/scripts/b/ai.2.min.js"
    ```
 
-- npm scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with instrumentation key:
+- npm scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with a connection string:
 
    ```ts
    appInsights.downloadAndSetup({
-     instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
+     connectionString: "Copy connection string from Application Insights Resource Overview",
      url: "https://js.monitor.azure.com/scripts/b/ai.2.min.jss"
      });
    ```
@@ -427,7 +422,7 @@ This does NOT mean that we'll only support the lowest common set of features, ju
 
 The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS). 
 
-For the latest updates and bug fixes [consult the release notes](./release-notes.md).
+For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)
