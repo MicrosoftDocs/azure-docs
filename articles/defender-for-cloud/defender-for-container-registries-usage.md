@@ -149,7 +149,7 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 Yes. The results are under [Sub-Assessments REST API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
-For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](#availability).
+For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](defender-for-container-registries-introduction.md#availability).
 
 If you connect unsupported registries to your Azure subscription, Defender for Cloud won't scan them and won't bill you for them.
 
