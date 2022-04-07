@@ -80,7 +80,7 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
 
-### Throttle Limits
+### Operation Limits
 
 | **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
 |--|--|--|--|
