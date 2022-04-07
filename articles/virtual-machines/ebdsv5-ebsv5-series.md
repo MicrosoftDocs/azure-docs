@@ -39,7 +39,7 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 - Nested virtualization: Supported
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 2 | 10000 |
 | Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 2 | 10000 |
@@ -71,7 +71,7 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
 - Nested virtualization: Supported
 
-| Size | vCPU | Memory: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
+| Size | vCPU | Memory: GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2bs_v5 | 2 | 16 | 4 | 9000/125 | 5500/156 | 10000/1200 | 2 | 10000 |
 | Standard_E4bs_v5 | 4 | 32 | 8 | 19000/250 | 11000/350 | 20000/1200 | 2 | 10000 |
