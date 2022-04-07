@@ -40,7 +40,7 @@ This document contains all major API changes and feature updates for the Azure I
 
 **Breaking Change**:
  
-Our October 2021 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to October 2021 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+Our October 2021 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to October 2021 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (October 2021 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
 
 For API versions February 2020 and older, the error output will look like the following messages:
 
