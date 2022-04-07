@@ -100,7 +100,7 @@ You can set up your Azure environment to support continuous export using either:
         2. Save Tenant, App ID, App password.
         3. Give permissions to the Azure AD Application to read from the event hub you created before.
 
-    For more detailed instructions, see [Stream alerts to QRadar and Splunk](export-to-splunk-or-qradar.md).
+    For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
 ### Step 2. Connect the event hub to your preferred solution using the built-in connectors
 
