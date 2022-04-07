@@ -51,7 +51,7 @@ You can interact with your workspace in the following ways:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
 + In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
++ On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -87,7 +87,7 @@ There are multiple ways to create a workspace:
 
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]

@@ -97,7 +97,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > In this example, a JSON document is used to pass the model information from the registration command into the update command.
 >
-> To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
+> To update the service to use a new entry script or environment, create an [inference configuration file](./v1/reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
 For more information, see the [az ml service update](/cli/azure/ml(v1)/service#az-ml-v1--service-update) documentation.
 
