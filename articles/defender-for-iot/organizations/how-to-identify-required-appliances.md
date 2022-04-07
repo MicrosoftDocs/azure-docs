@@ -35,12 +35,12 @@ This section provides an overview of physical sensor models that are available. 
 
 - **About bringing your own appliance**: Review the supported models described below. After you've acquired your appliance, go to **Defender for IoT** > **Getting started** > **Sensor**. Under **Purchase an appliance and install software**, select **Download**.
 
-    :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Screenshot for sensor software download.":::
+    :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
     > [!NOTE]
     > <a name="anchortext"></a>For each model, bandwidth capacity can vary, depending on the distribution of protocols.
 
-:::image type="content" source="media/how-to-prepare-your-network/defender-for-iot-sensor-download-software-screen.png" alt-text="Screenshot of ISO installation download.":::
+For more information about each model, see [Appliance specifications](#appliance-specifications).
 
 #### Corporate sensors
 
@@ -99,7 +99,7 @@ This section provides an overview of physical sensor models that are available. 
 
 ### Virtual sensors
 
-This section provides describes virtual sensors that are available.
+This section describes virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
@@ -325,7 +325,7 @@ This section details additional appliances that were certified by Microsoft but 
 
 After you purchase the appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
-:::image type="content" source="media/how-to-prepare-your-network/defender-for-iot-sensor-download-software-screen.png" alt-text="Screenshot of ISO installation.":::
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
 ## Next steps
 

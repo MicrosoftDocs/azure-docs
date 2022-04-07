@@ -1,6 +1,6 @@
 ---
-title: Get started with Enterprise IoT
-description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
+title: Get started with enterprise IoT - Microsoft Defender for IoT
+description: In this tutorial, you'll learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 ms.topic: tutorial
 ms.date: 12/12/2021
 ms.custom: template-tutorial
@@ -24,13 +24,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription is required for this tutorial.
+Before you start, make sure that you have the following:
 
-If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT. If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you'll need to perform the same procedure again to add a new subscription.
 
-If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+- The following Azure permissions:
 
-There is a minimum security level needed to access different parts of Microsoft Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
+
+
+There's a minimum security level needed to access different parts of Microsoft Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing plan. Security Reader level permissions to access the Defender for IoT user interface.
 
 The following table describes user access permissions to Microsoft Defender for IoT portal tools:
 
@@ -42,7 +44,7 @@ The following table describes user access permissions to Microsoft Defender for 
 
 ## Set up a server or Virtual Machine (VM)
 
-Before you deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
+Before you deploy your Enterprise IoT sensor, you'll need to configure your server, or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
 
 **To set up a server, or VM**:
 
@@ -159,7 +161,7 @@ Run the command that you received, and saved when you registered the Enterprise 
 
     * If yes, select **Yes**.
 
-1. (Optional) If you are setting up a proxy server.
+1. (Optional) If you're setting up a proxy server.
 
     1. Enter the proxy server host, and select **Ok**.
 
@@ -207,11 +209,11 @@ The installation will now finish.
     sudo docker logs -f compose_attributes-collector_1
     ```
 
-    Ensure that packets are being sent to the Event Hub.
+    Ensure that packets are being sent to the Event Hubs.
 
 ## View your enterprise IoT devices in the Enterprise IoT device inventory
 
-Once you have validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
+Once you've validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
 
 **To view your populated device inventory**:
 
@@ -221,7 +223,7 @@ Once you have validated your setup, the device inventory will start to populate 
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you will be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
+The device inventory is where you'll be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
 
 ## Remove the sensor (optional)
 
@@ -233,4 +235,11 @@ sudo apt purge -y microsoft-eiot-sensor
 
 ## Next steps
 
-[Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations)
+For more information, see:
+
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [View and manage alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)](workbooks.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)

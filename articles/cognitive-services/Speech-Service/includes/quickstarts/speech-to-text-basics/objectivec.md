@@ -57,7 +57,7 @@ Follow these steps to recognize speech in a macOS application.
         // Checks result.
         if (SPXResultReason_Canceled == speechResult.reason) {
             SPXCancellationDetails *details = [[SPXCancellationDetails alloc] initFromCanceledRecognitionResult:speechResult];
-            NSLog(@"Speech recognition was canceled: %@. Did you pass the correct key/region combination?", details.errorDetails);
+            NSLog(@"Speech recognition was canceled: %@. Did you set the speech resource key and region values?", details.errorDetails);
             [self.label setStringValue:([NSString stringWithFormat:@"Canceled: %@", details.errorDetails])];
         } else if (SPXResultReason_RecognizedSpeech == speechResult.reason) {
             NSLog(@"Speech recognition result received: %@", speechResult.text);
