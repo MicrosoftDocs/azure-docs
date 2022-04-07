@@ -79,7 +79,9 @@ The image below demonstrates the how this works:
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
 ### Using REST APIs
-#### 1. Assign ‘Monitored Object Contributor’ Role to the operator
+
+#### 1. Assign ‘Monitored Object Contributor’ role to the operator
+
 This grants the ability to create and link a monitored object to a user.  
 **Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate AAD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). This will give the AAD admin 'owner' permissions at the root scope.
 
@@ -89,7 +91,7 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 ```
 **URI Parameters**
 
-| Name | In | Required | Type | Description |
+| Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
 | `roleAssignmentGUID` | path | string | Provide any valid guid (you can generate one using https://guidgenerator.com/) |  
 
@@ -128,7 +130,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 ```
 **URI Parameters**
 
-| Name | In | Required | Type | Description |
+| Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
 | `AADTenantId` | path | string | Id of the AAD tenant that the device(s) belong to. The MO will be created with the same Id |  
 
@@ -167,7 +169,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 **URI Parameters**
 
-| Name | In | Required | Type | Description |
+| Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
 | ``MOResourceId` | path | string | Full resource Id of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
 
