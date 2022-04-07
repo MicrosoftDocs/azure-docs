@@ -226,6 +226,8 @@ For use cases where `OpenAsync()` was being used to warm up the v2 SDK client, `
 
 The v3 SDK has built-in support for the Change Feed Processor APIs, allowing you use the same SDK for building your application and change feed processor implementation. Previously, you had to use a separate change feed processor library.
 
+For more information, see [how to migrate from the change feed processor library to the Azure Cosmos DB .NET v3 SDK](how-to-migrate-from-change-feed-library.md)
+
 ### Change feed queries
 
 Executing a Change Feed query is possible on the v3 SDK:
