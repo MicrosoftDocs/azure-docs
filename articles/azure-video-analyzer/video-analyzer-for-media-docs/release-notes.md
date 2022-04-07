@@ -29,7 +29,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 
 In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
 
-```
+```csharp
 var content = new MultipartFormDataContent();
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
 ```
@@ -38,7 +38,8 @@ In the coming weeks, our service will fail requests of this type.
 
 In order to upload a video from a URL, change your code to send null in the request body:
 
-`var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);`
+```csharp
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 
 
 ## March 2022 release updates
