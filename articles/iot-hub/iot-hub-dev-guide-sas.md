@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 04/07/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
@@ -78,7 +78,7 @@ Here are the expected values:
 | Value | Description |
 | --- | --- |
 | {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). For example, `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). For security tokens granted to backend services, this should be the host name of the IoT hub; for example, `myHub.azure-devices.net/devices/device1`. For security tokens granted to devices, this should be a URI that identifies the device; for example, `myHub.azure-devices.net/devices/device1` |
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. Absent if the token refers to device-registry credentials. |
@@ -237,26 +237,17 @@ When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a sin
 
 ## Use security tokens from service components
 
-Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously.
-
-Here are the service functions exposed on the endpoints:
-
-| Endpoint | Functionality |
-| --- | --- |
-| `{iot hub host name}/devices` |Create, update, retrieve, and delete device identities. |
-| `{iot hub host name}/messages/events` |Receive device-to-cloud messages. |
-| `{iot hub host name}/servicebound/feedback` |Receive feedback for cloud-to-device messages. |
-| `{iot hub host name}/devicebound` |Send cloud-to-device messages. |
+Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously in [Access control and permissions](#access-control-and-permissions).
 
 As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
-* resource URI: `{IoT hub name}.azure-devices.net/devices`,
+* resource URI: `{IoT hub name}.azure-devices.net`,
 * signing key: one of the keys of the `registryRead` policy,
 * policy name: `registryRead`,
 * any expiration time.
 
 ```javascript
-var endpoint ="myhub.azure-devices.net/devices";
+var endpoint ="myhub.azure-devices.net";
 var policyName = 'registryRead';
 var policyKey = '...';
 
@@ -265,7 +256,9 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 The result, which would grant access to read all device identities, would be:
 
-`SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead`
+`SharedAccessSignature sr=myhub.azure-devices.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead`
+
+ For service components, SAS security tokens only grant permissions at the IoT Hub-level. That is, a service authenticating with a token based on the **service** policy, will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Azure Active Directory. To learn more, see [Control access to IoT Hub with Azure AD](ot-hub-dev-guide-azure-ad-rbac).
 
 ## Authenticating a device to IoT Hub
 
