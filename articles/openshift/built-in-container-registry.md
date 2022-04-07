@@ -7,7 +7,7 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---
-# Configure built-in container registry for Azure Red Hat OpenShift 4
+# Configure the built-in container registry for Azure Red Hat OpenShift 4
 
 Azure Red Hat OpenShift provides an [integrated container image registry](https://docs.openshift.com/container-platform/4.9/registry/index.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
 
@@ -23,7 +23,7 @@ In this article, you'll configure the built-in container image registry for an A
 This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Azure AD integeration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
 
 > [!NOTE]
-> [Configuring Azure AD Authentication](/azure/openshift/configure-azure-ad-ui#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
+> [Configuring Azure AD Authentication](./configure-azure-ad-ui#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
 
 Once you have your cluster, [connect to the cluster](./tutorial-connect-cluster.md) by authenticating as the `kubeadmin` user.
 
@@ -43,11 +43,11 @@ As `kubeadmin`, execute the following commands:
 
 ## Access the registry
 
-Now that you've configured authentication for the registry, you can reach the registry:
+Now that you've configured authentication for the registry, you can interact with it:
 
 ### From inside the cluster
 
-If you need to access the registry from inside the cluster (e.g. you are running a CI/CD platform as Pods that will push/pull images to the registry), you can access the registry via its [ClusterIP Service](https://docs.openshift.com/container-platform/4.9/rest_api/network_apis/service-core-v1.html) at the fully qualified domain name `image-registry.openshift-image-registry.svc.cluster.local:5000`
+If you need to access the registry from inside the cluster (e.g. you are running a CI/CD platform as Pods that will push/pull images to the registry), you can access the registry via its [ClusterIP Service](https://docs.openshift.com/container-platform/4.9/rest_api/network_apis/service-core-v1.html) at the fully qualified domain name `image-registry.openshift-image-registry.svc.cluster.local:5000`, which is accessible to all Pods within the cluster.
 
 ### From outside the cluster
 
