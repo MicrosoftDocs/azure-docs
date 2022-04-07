@@ -17,7 +17,7 @@ Defender for IoT supports the following hypervisor software:
 - VMware ESXi (version 5.0 and later)
 - Microsoft Hyper-V (VM configuration version 8.0 and later)
 
-In addition, other types of hypervisors (such as hosted hypervisors) may run Defender for IoT but, due to their lack of exclusive hardware control and resource reservation, are not supported for production environments (e.g. Parallels, Oracle VirtualBox, and VMware Workstation or Fusion).
+Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
 
 ## Virtual appliance design considerations
 
