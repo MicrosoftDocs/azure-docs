@@ -2,9 +2,10 @@
 title: Configure App Service Environment v3 network settings
 description: Configure network settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
 author: madsd
+keywords: ASE, ASEv3, ftp, remote debug
 
 ms.topic: tutorial
-ms.date: 03/20/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ---
 
@@ -80,7 +81,7 @@ az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --q
 
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
 
-:::image type="content" source="./media/configure-network-settings/configure-allow-private-endpoint.png" alt-text="Configure allow private endpoint access through Azure portal.":::
+:::image type="content" source="./media/configure-network-settings/configure-allow-private-endpoint.png" alt-text="Screenshot from Azure portal of how to configure your App Service Environment to allow creating new private endpoints for apps.":::
 
 ## FTP access
 
@@ -112,6 +113,10 @@ az resource update --name $ASE_NAME/configurations/networking --set properties.R
 az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.remoteDebugEnabled
 ```
 
-## Get started
+## Next steps
 
-The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/).
+> [!div class="nextstepaction"]
+> [Create an App Service Environment from a template](create-from-template.md)
+
+> [!div class="nextstepaction"]
+> [Deploy your app to Azure App Service using FTP](../deploy-ftp.md)
