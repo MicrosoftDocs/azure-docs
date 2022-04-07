@@ -1,5 +1,5 @@
 ---
-title: Index data using Power Query connectors (preview)
+title: Power Query connectors (preview - retired)
 titleSuffix: Azure Cognitive Search
 description: Import data from different data sources using the Power Query connectors.
 
@@ -9,18 +9,24 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 04/07/2022
 ms.custom: references_regions
 ---
 
-# Index data using Power Query connectors (preview)
+# Power Query connectors (preview - retired)
 
 > [!IMPORTANT] 
-> Power Query connector support is currently in a **gated public preview**. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to request access.
+> Power Query connector support was introduced as a **gated public preview** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), but is now discontinued. If you have a search solution that uses a Power Query connector, we recommend migration to an alternative solution.
 
-If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
+## Migrate by April 2023
 
-Power Query connectors can reach a broader range of data sources, including those on other cloud providers. New data sources supported in this preview include:
+CONTENT TBD
+
+## What is a Power Query connector?
+
+A Power Query connector is used with a search indexer to automate data ingestion from a variety of data sources, including those on other cloud providers. It uses [Power Query](/power-query/power-query-what-is-power-query) to retrieve the data. 
+
+Data sources supported in the preview include:
 
 + Amazon Redshift
 + Elasticsearch
@@ -29,11 +35,6 @@ Power Query connectors can reach a broader range of data sources, including thos
 + Salesforce Reports
 + Smartsheet
 + Snowflake
-
-This article shows you an Azure portal-based approach for setting up an indexer using Power Query connectors. Currently, there is no SDK support.
-
-> [!NOTE]
-> Preview functionality is provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is not recommended for production workloads.
 
 ## Supported functionality
 
@@ -68,7 +69,7 @@ The preview is only available on search services in the following regions:
 
 ## Preview limitations
 
-There is a lot to be excited about with this preview, but there are a few limitations. This section describes the limitations that are specific to the current version of the preview.
+This section describes the limitations that are specific to the current version of the preview.
 
 + Pulling binary data from your data source is not supported in this version of the preview. 
 
