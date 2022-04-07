@@ -39,7 +39,11 @@ To view an individual device:
 
 ## Monitor your devices
 
-USe the **Devices** page to monitor and manage your devices
+Use the **Devices** page to monitor and manage your devices.
+
+The following video walks you through monitoring device connectivity status:
+
+> [!VIDEO https://aka.ms/docs/player?id=75d0de58-9cc0-4505-9fa1-a0a7da8bb466]
 
 ### Device status values
 
