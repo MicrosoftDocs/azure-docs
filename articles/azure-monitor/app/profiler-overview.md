@@ -2,7 +2,7 @@
 title: Profile production apps in Azure with Application Insights Profiler
 description: Identify the hot path in your web server code with a low-footprint profiler.
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/07/2022
 ms.reviewer: mbullwin
 ---
 
@@ -59,6 +59,20 @@ The trace explorer displays the following information:
 | **Label** | The name of the function or event. The tree displays a mix of code and events that occurred, such as SQL and HTTP events. The top event represents the overall request duration. |
 | **Elapsed** | The time interval between the start of the operation and the end of the operation. |
 | **When** | The time when the function or event was running in relation to other functions. |
+
+
+### Other options for viewing profiler data
+
+Besides viewing the profiles in the Azure portal, you can download the profiles and open them in other tools. There are 3 options for viewing the contents' profiles. The downloaded file is a .diagsession file and can be opened natively by Visual Studio. Use the profiling tools in Visual Studio to examine the details of the file. 
+
+If you rename the file by adding `.zip` to the end of the file name, you can also open it in:
+
+- Windows Performance analyzer
+    - [Download](https://www.microsoft.com/p/windows-performance-analyzer/9n0w1b2bxgnz)
+    - [Documentation](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer)
+- Perfview
+    - [Download](https://github.com/microsoft/perfview/blob/main/documentation/Downloading.md)
+    - [How-to videos](https://docs.microsoft.com/shows/PerfView-Tutorial/)
 
 ## How to read performance data
 
