@@ -174,7 +174,9 @@ This section covers final steps before migrating user phone numbers.
 
 ### Set federatedIdpMfaBehavior
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a **federatedIdpMfaBehavior** enum that determines whether Azure AD accepts, enforces, or rejects MFA performed by the on-premises federation provider. Rejecting claims provides extra security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true).
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure MFA by configuring the security setting **federatedIdpMfaBehavior**. Enabling the protection for a federated domain in your Azure AD tenant makes sure that Azure MFA is always performed when a federated user accesses an application that is governed by a Conditional Access policy requiring MFA. This includes performing Azure MFA even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure MFA every time assures that a bad actor cannot bypass Azure MFA by imitating that MFA has already been performed by the identity provider, and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
+
+The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true).
 
 | Value | Description |
 | :--- | :--- |
@@ -183,9 +185,9 @@ For federated domains, MFA may be enforced by Azure AD Conditional Access or by 
 | rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that's performed by the federated identity provider. |
 
 >[!NOTE]
-> The **federatedIdpMfaBehavior** enum is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
 
-For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** enum and **SupportsMfa** property work together:
+For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
 - Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
