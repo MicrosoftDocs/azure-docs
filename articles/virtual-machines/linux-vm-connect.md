@@ -115,7 +115,7 @@ Open your SSH client of choice.
     ```
 
 3.	Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
----
+
 
 ## [Windows 10 PowerShell or cmd.exe](#tab/Windows)
 
