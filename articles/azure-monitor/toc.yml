@@ -655,6 +655,8 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
+      - name: Log analytics alerts legacy API
+        href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -698,8 +700,6 @@ items:
       items:
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
-    - name: Alert API
-      href: alerts/api-alerts.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
