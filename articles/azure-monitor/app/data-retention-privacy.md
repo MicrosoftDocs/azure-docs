@@ -71,7 +71,7 @@ For web pages, open your browser's debugging window.
 This would be possible by writing a [telemetry processor plugin](./api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](./pricing.md#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion. 
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion. 
 
 Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 

@@ -1,4 +1,4 @@
-he Speech service phone set for `zh-HK` is based on the native phone <a href="https://en.wikipedia.org/wiki/Jyutping" target="_blank">Jyutping </a> set.
+The Speech service phone set for `zh-HK` is based on the native phone <a href="https://en.wikipedia.org/wiki/Jyutping" target="_blank">Jyutping </a> set.
 
 ### Jyutping Initials
 
