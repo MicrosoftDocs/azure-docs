@@ -5,6 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
+ms.custom: references_regions
 recommendations: false
 ms.date: 04/06/2022
 ---
