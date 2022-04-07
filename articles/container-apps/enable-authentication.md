@@ -434,3 +434,8 @@ Code that is written in any language or framework can get the information that i
 
 > [!NOTE]
 > Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Azure Container Apps authentication and authorization](monitor.md)
