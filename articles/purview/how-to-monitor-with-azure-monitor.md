@@ -6,6 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.topic: how-to
 ms.date: 12/03/2020
+ms.custom: subject-rbac-steps
 ---
 # Azure Purview metrics in Azure Monitor
 
@@ -27,17 +28,19 @@ To add a user to the **Monitoring Reader** role, the owner of Azure Purview acco
 
 1. Go to the [Azure portal](https://portal.azure.com) and search for the Azure Purview account name.
 
-2. Select **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/access-iam.png" alt-text="Screenshot showing how to access IAM.":::
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-3. Select **Add a role assignment**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/add-role-assignment.png" alt-text="Screenshot showing how to add role assignment.":::
+    | Setting | Value |
+    | --- | --- |
+    | Role | Monitoring Reader |
+    | Assign access to | User, group, or service principal |
+    | Members | &lt;An Azure AD account user&gt; |
 
-4. Select the Role **Monitoring Reader** and set assign access to **Azure AD user, group, or service principal**. And assign the AAD account to access the metrics.  
-
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/add-monitoring-reader.png" alt-text="Screenshot showing how to add monitoring reader role.":::
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Metrics visualization
 
