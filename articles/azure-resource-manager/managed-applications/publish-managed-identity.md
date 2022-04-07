@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
+ms.custom: subject-rbac-steps
 ---
 # Azure Managed Application with Managed Identity
 
@@ -191,9 +192,7 @@ A basic Azure Resource Manager template that deploys a Managed Application with 
 
 ## Granting access to Azure resources
 
-Once a Managed Application is granted an identity, it can be granted access to existing Azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment.
-
-![Add role assignment for Managed Application](./media/publish-managed-identity/identity-role-assignment.png)
+Once a Managed Application is granted an identity, it can be granted access to existing Azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Linking existing Azure resources
 
