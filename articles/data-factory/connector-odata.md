@@ -17,7 +17,7 @@ ms.author: jianleishen
 > * [Version 1](v1/data-factory-odata-connector.md)
 > * [Current version](connector-odata.md)
 
-This article outlines how to use Copy Activity in a Azure Data Factory or Synapse Analytics pipeline to copy data from an OData source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from an OData source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -85,7 +85,7 @@ The following properties are supported for an OData linked service:
 | servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
-| aadResourceId | Specify the AAD resource you are requesting for authorization.| No |
+| aadResourceId | Specify the Azure AD resource you are requesting for authorization.| No |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
