@@ -128,9 +128,6 @@ When a guest signs in to a resource in a partner organization for the first time
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
 
-> [!NOTE]
-> The consent experience appears only after the user signs in, and not before. If the user has already accepted the consent experience, it won't be displayed to the user.
-
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
