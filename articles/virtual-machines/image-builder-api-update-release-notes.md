@@ -102,7 +102,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 ### November 2021
 
-Added support for [Gen2 images.](https://docs.microsoft.com/azure/virtual-machines/image-builder-overview#hyper-v-generation)
+Added support for [Gen2 images.](virtual-machines/image-builder-overview.md#hyper-v-generation).
 
 
 ## Next steps
