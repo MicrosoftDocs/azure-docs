@@ -45,7 +45,7 @@ A virtual core (vCore) represents a logical CPU and offers you the option to cho
 
 In the vCore-based purchasing model for SQL Database, you can choose between the General Purpose and Business Critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
-In the vCore-based purchasing model, you pay for:
+In the vCore-based purchasing model, your costs depend on the choice and usage of:
 
 - Service tier
 - Hardware configuration

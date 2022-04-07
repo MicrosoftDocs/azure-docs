@@ -206,7 +206,7 @@ If you need DC-series in a currently unsupported region, [submit a support ticke
 
 :::image type="content" source="./media/service-tiers-vcore/request-dc-series.png" alt-text="Request DC-series in a new region" loc-scope="azure-portal":::
 
-## Compute resources
+## Compute resources (CPU and memory)
 
 The following table compares compute resources in different hardware configurations and compute tiers: 
 
