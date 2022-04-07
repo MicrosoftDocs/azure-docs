@@ -31,7 +31,7 @@ You can copy data from an OData source to any supported sink data store. For a l
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **AAD service principal**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **Azure Active Directory service principal**.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Specifically, this OData connector supports:
 
 Use the following steps to create a linked service to an OData store in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -86,7 +86,7 @@ The following properties are supported for an OData linked service:
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
 | aadResourceId | Specify the AAD resource you are requesting for authorization.| No |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 **Example 1: Using Anonymous authentication**
@@ -364,11 +364,11 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
       - **Callback URL**: Enter `https://www.localhost.com/`. 
       - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
       - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
-      - **Client ID**: Enter your AAD service principal ID.
+      - **Client ID**: Enter your Azure Active Directory service principal ID.
       - **Client Secret**: Enter your service principal secret.
       - **Client Authentication**: Select **Send as Basic Auth header**.
      
-   1. You will be asked to login with your username and password.
+   1. You will be asked to sign in with your username and password.
    1. Once you get your access token, please copy and save it for the next step.
    
     :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
