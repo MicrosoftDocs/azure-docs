@@ -4,8 +4,7 @@ description: Reference of all services and other resources monitored by Azure Mo
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 03/17/2022
-
+ms.date: 04/05/2022
 ---
 
 # What is monitored by Azure Monitor?
