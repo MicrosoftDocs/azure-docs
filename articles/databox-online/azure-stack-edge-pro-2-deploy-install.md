@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 03/22/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -226,7 +226,7 @@ Before you start cabling your device, you need the following things:
 - Your two Azure Stack Edge Pro 2 physical devices, unpacked, and rack mounted.
 - One power cable for each device node (included in the device package).
 - Access to one power distribution unit for each device node.
-- At least two 1-GbE RJ-45 network cable per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
+- At least two 1-GbE RJ-45 network cables per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
 - A 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured on each device. The total number needed would depend on the network topology you will deploy. Here is an example QSFP28 DAC connector: 
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
@@ -353,7 +353,7 @@ Cable your device as shown in the following diagram:
 
 ![Diagram showing cabling scheme for Switchless network topology.](./media/azure-stack-edge-pro-2-deploy-install/switchless-initial-1.png)
 
-1. Connect Port 1 on each node to a computer using a crossover cable or a USB Ethernet adapter for the initial configuration of the device.
+1. Connect Port 1 on each node to a computer using an Ethernet crossover cable or a USB Ethernet adapter for the initial configuration of the device.
 1. Connect Port 2 on each node to a 1-GbE switch via a 1-GbE RJ-45 network cable. If available, a 10-GbE switch can also be used. 
 1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
 1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection. 

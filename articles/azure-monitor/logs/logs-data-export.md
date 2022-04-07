@@ -10,12 +10,12 @@ ms.date: 02/09/2022
 ---
 
 # Log Analytics workspace data export in Azure Monitor
-Data export in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it's collected. This article provides details on this feature and steps to configure data export in your workspaces.
+Data export in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it arrives to Azure Monitor pipeline. This article provides details on this feature and steps to configure data export in your workspaces.
 
 ## Overview
 Data in Log Analytics is available for the retention period defined in your workspace, and used in various experiences provided in Azure Monitor and Azure services. There are cases where you need to use other tools:
 * Tamper protected store compliance – data can't be altered in Log Analytics once ingested, but can be purged. Export to Storage Account set with [immutability policies](../../storage/blobs/immutable-policy-configure-version-scope.md) to keep data tamper protected.
-*  Integration with Azure services and other tools – export to Event Hubs in near-real-time to send data to your services and tools at it arrives to Azure Monitor.
+*  Integration with Azure services and other tools – export to Event Hubs as it arrives and processed in Azure Monitor.
 *  Keep audit and security data for very long time – export to Storage Account in the workspace's region, or replicate data to other regions using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including "GRS" and "GZRS".
 
 After configuring data export rules in Log Analytics workspace, new data for tables in rules is exported from Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
@@ -28,6 +28,7 @@ Data is exported without a filter. For example, when you configure a data export
 ## Other export options
 Log Analytics workspace data export continuously exports data that is sent to your Log Analytics workspace. There are other options to export data for particular scenarios:
 
+- Configure Diagnostic Settings in Azure resources. Logs is sent to destination directly and has lower latency compared to data export in Log Analytics.
 - Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure Storage Account. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces), see [Archive data from Log Analytics workspace to Azure Storage Account using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 

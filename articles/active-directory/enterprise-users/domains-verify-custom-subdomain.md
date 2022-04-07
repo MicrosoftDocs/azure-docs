@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 04/05/2022
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -40,7 +40,7 @@ Because subdomains inherit the authentication type of the root domain by default
 1. Use the following example to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
 
    ```http
-   GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
+   GET https://graph.microsoft.com/v1.0/domains/foo.contoso.com/
    
    Return:
      {
@@ -66,8 +66,16 @@ Because subdomains inherit the authentication type of the root domain by default
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?api-version=1.6
+POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
 ```
+
+#### Promote command error conditions
+
+Scenario | Method | Code | Message
+-------- | ------ | ---- | -------
+Invoking API with a subdomain whose parent domain is unverified | POST | 400 | Unverified domains cannot be promoted. Please verify the domain before promotion.
+Invoking API with a federated verified subdomain with user references | POST | 400 | Promoting a subdomain with user references is not allowed. Please migrate the users to the current root domain before promotion of the subdomain.
+
 
 ### Change the subdomain authentication type
 
@@ -80,7 +88,7 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
 1. Verify via GET in Microsoft Graph API that subdomain authentication type is now managed:
 
    ```http
-   GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
+   GET https://graph.microsoft.com/v1.0/domains/foo.contoso.com/
    
    Return:
      {

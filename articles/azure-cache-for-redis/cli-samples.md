@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/14/2017 
+ms.date: 03/11/2022 
 ms.custom: devx-track-azurecli
 ---
 # Manage Azure Cache for Redis with Azure CLI
@@ -15,13 +15,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 
 | Create cache | Description |
 | ------------ | ----------- |
-| [Create a cache](./scripts/create-cache.md) | Creates a resource group and a basic tier Azure Cache for Redis. |
-| [Create a premium cache with clustering](./scripts/create-premium-cache-cluster.md) | Creates a resource group and a premium tier cache with clustering enabled.|
-| [Get cache details](./scripts/show-cache.md) | Gets details of an Azure Cache for Redis instance, including provisioning status. |
-| [Get the hostname, ports, and keys](./scripts/cache-keys-ports.md) | Gets the hostname, ports, and keys for an Azure Cache for Redis instance. |
-|**Web app plus cache**| **Description**|
-| [Connect a web app to an Azure Cache for Redis](./../app-service/scripts/cli-connect-to-redis.md) | Creates an Azure web app and an Azure Cache for Redis, then adds the redis connection details to the app settings. |
-|**Delete cache**| **Description** |
-| [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Cache for Redis instance  |
+| [Create and manage a cache](./scripts/create-manage-cache.md) | Creates a resource group and a basic tier Azure Cache for Redis. It then gets details of an Azure Cache for Redis instance, including provisioning status, the hostname, ports, and keys for an Azure Cache for Redis instance. Finally, it deletes the cache.|
+| [Create and manage a premium cache with clustering](./scripts/create-manage-premium-cache-cluster.md) | Creates a resource group and a premium tier cache with clustering enabled. It then gets details of an Azure Cache for Redis instance, including provisioning status, the hostname, ports, and keys for an Azure Cache for Redis instance. Finally, it deletes the cache.|
 
 For more information about the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).

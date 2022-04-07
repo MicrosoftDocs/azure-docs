@@ -83,7 +83,7 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | [**Read-only replicas**](read-scale-out.md) |1 built-in high availability replica is readable <br> 0 - 4 [geo-replicas](active-geo-replication-overview.md) |1 built-in high availability replica is readable <br> 0 - 1 geo-replicas using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance)  | 
 | **Pricing/Billing** |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/> High availability replicas aren't charged. <br/>IOPS isn't charged. |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/managed/) are charged. <br/> High availability replicas aren't charged. <br/>IOPS isn't charged.  | 
 | **Discount models** |[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions | 
-| | |
+
 
 
 ## Next steps

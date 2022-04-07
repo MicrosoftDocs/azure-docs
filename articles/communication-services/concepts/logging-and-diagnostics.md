@@ -25,18 +25,19 @@ Next, select the archive target you want. Currently, we support storage accounts
  
 New settings take effect in about ten minutes. Logs will begin appearing in the configured archival target within the Logs pane of your Communication Services resource.
 
-:::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
+:::image type="content" source="./media/diagnostic-settings.png" alt-text="Azure Communication Services Diagnostic Settings Options.":::
 
 For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Resource log categories
 
-Communication Services offers three types of logs that you can enable:
+Communication Services offers the following types of logs that you can enable:
 
 * **Usage logs** - provides usage data associated with each billed service offering
 * **Chat operational logs** - provides basic information related to the chat service
 * **SMS operational logs** - provides basic information related to the SMS service
 * **Authentication operational logs** - provides basic information related to the Authentication service
+* **Network Traversal operational logs** - provides basic information related to the Network Traversal service
 
 ### Usage logs schema
 
@@ -118,3 +119,22 @@ Communication Services offers three types of logs that you can enable:
 | PlatformType | The platform type used in the request. |
 | Identity | The Communication Services identity related to the operation. |
 | Scopes | The Communication Services scopes present in the access token. |
+
+### Network Traversal operational logs
+
+| Dimension        | Description                                                                                                                                           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TimeGenerated    | The timestamp (UTC) of when the log was generated.                                                                                                    |
+| OperationName    | The operation associated with log record.                                                                                                             |
+| CorrelationId    | The ID for correlated events. Can be used to identify correlated events between multiple tables.                                                      |
+| OperationVersion | The API-version associated with the operation or version of the operation (if there is no API version).                                               |
+| Category         | The log category of the event. Logs with the same log category and resource type will have the same properties fields.                                |
+| ResultType       | The status of the operation (e.g. Succeeded or Failed).                                                                                               |
+| ResultSignature  | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+| DurationMs       | The duration of the operation in milliseconds.                                                                                                        |
+| Level            | The severity level of the operation.                                                                                                                  |
+| URI              | The URI of the request.                                                                                                                               |
+| Identity         | The request sender's identity, if provided.                                                                                                           |
+| SdkType          | The SDK type being used in the request.                                                                                                               |
+| PlatformType     | The platform type being used in the request.                                                                                                          |
+| RouteType        | The routing methodology to where the ICE server will be located from the client (e.g. Any or Nearest).                                                |

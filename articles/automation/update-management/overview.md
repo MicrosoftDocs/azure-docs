@@ -15,7 +15,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 
 Microsoft offers other capabilities to help you manage updates for your Azure VMs or Azure virtual machine scale sets that you should consider as part of your overall update management strategy. 
 
-- If you are interested in automatically assessing and updating your Azure virtual machines to maintain security compliance with *Critical* and *Security* updates released each month, review [Automatic VM guest patching](../../virtual-machines/automatic-vm-guest-patching.md) (preview). This is an alternative update management solution for your Azure VMs to auto-update them during off-peak hours, including VMs within an availability set, compared to managing update deployments to those VMs from Update Management in Azure Automation. 
+- If you are interested in automatically assessing and updating your Azure virtual machines to maintain security compliance with *Critical* and *Security* updates released each month, review [Automatic VM guest patching](../../virtual-machines/automatic-vm-guest-patching.md). This is an alternative update management solution for your Azure VMs to auto-update them during off-peak hours, including VMs within an availability set, compared to managing update deployments to those VMs from Update Management in Azure Automation. 
 
 - If you manage Azure virtual machine scale sets, review how to perform [automatic OS image upgrades](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to safely and automatically upgrade the OS disk for all instances in the scale set. 
 
@@ -107,7 +107,7 @@ Update Management scans managed machines for data using the following rules. It 
 
 * Each Linux machine - Update Management does a scan every hour.
 
-The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/logs/manage-cost-storage.md).
+The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
 
 ## Update classifications
 

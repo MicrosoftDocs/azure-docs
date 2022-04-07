@@ -165,7 +165,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
-|||
+
 
 <sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
@@ -192,7 +192,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
-|||
+
 
 <sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
@@ -221,7 +221,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Multi-AZ|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
-|||
+
 
 <sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
@@ -248,7 +248,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Multi-AZ|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
-|||
+
 
 <sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
@@ -281,7 +281,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Multi-AZ|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|
-|||
+
 
 <sup>1</sup> Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 

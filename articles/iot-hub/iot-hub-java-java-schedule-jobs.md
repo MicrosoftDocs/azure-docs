@@ -38,7 +38,7 @@ This tutorial shows you how to:
 
 * Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have a java console device app and a java console back-end app:
+At the end of this tutorial, you have a Java console device app and a Java console back-end app:
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 

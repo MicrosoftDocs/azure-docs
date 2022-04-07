@@ -164,15 +164,17 @@ The following required roles for your resources.
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use the [Connection steps](#steps) in the section below to easily connect to your VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus). You can also use any of the [VM connection articles](#articles) to connect to a VM.
+You can use the [Connection steps](#steps) in the section below to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+
+[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
 ### <a name="steps"></a>Connection steps
 
 [!INCLUDE [Connection steps](../../includes/bastion-vm-connect.md)]
 
-#### <a name="articles"></a>Connect to VM articles
+### <a name="audio"></a>To enable audio output
 
-[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-table.md)]
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
 
 ## <a name="ip"></a>Remove VM public IP address
 

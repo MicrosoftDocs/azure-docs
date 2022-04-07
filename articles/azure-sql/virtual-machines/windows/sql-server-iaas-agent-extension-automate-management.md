@@ -33,6 +33,10 @@ This article provides an overview of the extension. To install the SQL Server Ia
 > [!NOTE]
 > Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
+To learn more about the Azure VM deployment and management experience, including recent improvements, see:
+- [Azure SQL VM: Automate Management with the SQL Server IaaS Agent extension (Ep. 2)](/shows/data-exposed/azure-sql-vm-automate-management-with-the-sql-server-iaas-agent-extension-ep-2?WT.mc_id=dataexposed-c9-niner-mighub)
+- [Azure SQL VM: New and Improved SQL on Azure VM deployment and management experience (Ep.8) | Data Exposed](/shows/data-exposed/new-and-improved-sql-on-azure-vm-deployment-and-management-experience?WT.mc_id=dataexposed-c9-niner-mighub).
+
 ## Overview
 
 The SQL Server IaaS Agent extension allows for integration with the Azure portal, and depending on the management mode, unlocks a number of feature benefits for SQL Server on Azure VMs: 

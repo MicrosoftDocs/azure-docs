@@ -38,7 +38,7 @@ The following table lists the steps that must be performed for this configuratio
 Azure Monitor provides a basic level of monitoring for Azure virtual machines at no cost and with no configuration. Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization. They can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience) for the machine in the Azure portal. The Activity log is also collected automatically and includes the recent activity of the machine, such as any configuration changes and when it was stopped and started.
 
 ## Create and prepare a Log Analytics workspace
-You require at least one Log Analytics workspace to support VM insights and to collect telemetry from the Log Analytics agent. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. For more information, see [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md).
+You require at least one Log Analytics workspace to support VM insights and to collect telemetry from the Log Analytics agent. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. For more information, see [Azure Monitor Logs pricing details](../logs/cost-logs.md).
 
 Many environments use a single workspace for all their virtual machines and other Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. If you're getting started with Azure Monitor, start with a single workspace and consider creating more workspaces as your requirements evolve.
 
@@ -81,7 +81,7 @@ There's no more cost for Azure Arc-enabled servers, but there might be some cost
 ### Machines that can't use Azure Arc-enabled servers
 If you have any hybrid machines that match the following criteria, they won't be able to use Azure Arc-enabled servers:
 
-- The operating system of the machine isn't supported by the server agents enabled by Azure Arc. For more information, see [Supported operating systems](../../azure-arc/servers/agent-overview.md#prerequisites).
+- The operating system of the machine isn't supported by the server agents enabled by Azure Arc. For more information, see [Supported operating systems](../../azure-arc/servers/prerequisites.md#supported-operating-systems).
 - Your security policy doesn't allow machines to connect directly to Azure. The Log Analytics agent can use the [Log Analytics gateway](../agents/gateway.md) whether or not Azure Arc-enabled servers are installed. The server agents enabled by Azure Arc must connect directly to Azure.
 
 You still can monitor these machines with Azure Monitor, but you need to manually install their agents. To manually install the Log Analytics agent and Dependency agent on those hybrid machines, see [Enable VM insights for a hybrid virtual machine](vminsights-enable-hybrid.md).
