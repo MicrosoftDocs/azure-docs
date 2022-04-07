@@ -11,24 +11,30 @@ ms.author: cshoe
 
 # Networking architecture in Azure Container Apps
 
-As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
-
-- You control the subnet range used by the Container Apps environment.
-- Once the environment is created, the subnet range is immutable.
-- A single load balancer and single Kubernetes service are associated with each container apps environment.
-- Each [revision](revisions.md) is assigned an IP address in the subnet.
-- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
-
-When you create an environment, a VNET is required. You have the option to provide your own VNET, or a VNET is generated for you in the background.
-
-Automatically generated VNETs are inaccessible to you as they are registered to Microsoft's tenant, therefore provide your own if you want full control over your VNET.
-
-If provide a custom VNET, the network needs a [control plane subnet and an app subnet](#subnet-types). The control plane subnet provides IP addresses from your internal network to the Azure Container Apps control plane infrastructure components as well as your application containers.
+Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you have the option to provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they are created in Microsoft's tenent. To take full control over your VNET provide an existing VNET to Container Apps as you create your environment.
 
 The following articles feature step-by-step instructions for creating Container Apps environments with different accessibility levels.
 
-- [Deploy with an external environment](vnet-custom.md)
-- [Deploy with an internal environment](vnet-custom-internal.md)
+| Accessibility level | Description |
+|--|--|
+| [External](vnet-custom.md) | Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address. |
+| [Internal](vnet-custom-internal.md) | When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses. |
+
+## Custom VNET configuration
+
+As you create a custom VNET keep in mind the following:
+
+- If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
+
+- When you provide your own VNET, the network needs a [control plane subnet and an app subnet](#subnet-types). The control plane subnet provides IP addresses from your internal network to the Azure Container Apps control plane infrastructure components as well as your application containers.
+
+- Network addresses are assigned from a subnet range you define as the environment is created.
+
+  - You can define the subnet range used by the Container Apps environment.
+  - Once the environment is created, the subnet range is immutable.
+  - A single load balancer and single Kubernetes service are associated with each container apps environment.
+  - Each [revision](revisions.md) is assigned an IP address in the subnet.
+  - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
 
 Refer to the virtual network support section in [Introduction to App Service Environment v2](/azure/app-service/environment/intro) for details on what's supported in a Container Apps VNET.
 
@@ -42,32 +48,17 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-opti
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
 
-## Use cases
-
-What do you want to achieve?
-
-ensure you have private connections to databases and all Azure resources
-
-Lock down application
-
-API management or App Gateway which talks to a BYO VNET configured as internal only
-
-<!-- 👆🏼 tomer to provide samples  -->
-
-## Access restrictions
-
-if you want to lock down your environment to your vent and restrict outside access, then to byo vnet configured as internal only. Then its not reachable from the outside
-
-<!-- Verify with Ahmed -->
 ### Envoy behavior
 
-### ingress configuration
+TODO: AAhmed ElSayed to provide details
+
+### Ingress configuration
 
 ## Scenarios
 
-different for internal vs external configuration
+TODO: Tomer Rosenthal to provide details
 
-## Ports
+## Ports and IP addresses
 
 The VNET associated with a Container Apps environment uses a single subnet with 255 addresses.
 
@@ -76,7 +67,9 @@ The following ports are exposed for inbound connections.
 | Use | Port(s) |
 |--|--|
 | HTTP/HTTPS | 80, 443 |
-| Log streaming | **TODO: @torosent** |
+| Log streaming | TODO: Tomer to verify |
+
+Container Apps reserves 60 IPs in your VNET, and the amount may grow as your container environment scales.
 
 ## Restrictions
 
@@ -95,15 +88,6 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
 
 If you are using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
-
-## Accessibility levels
-
-You can deploy your Container Apps environment with an internet-accessible endpoint or with an IP address in your VNET. The accessibility level determines the type of load balancer used with your Container Apps instance.
-
-| Type | Description |
-|--|--|
-| [External](vnet-custom.md) | Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address. |
-| [Internal](vnet-custom-internal.md) | When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses. |
 
 ## Managed resources
 
