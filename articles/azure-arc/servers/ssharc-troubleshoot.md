@@ -55,6 +55,7 @@ Possible errors:
  - "Unable to determine that the target machine is an Arc Server"
  - "Unable to determine that the target machine is an Azure VM"
  - "Permission denied (publickey)." 
+ - "Request for Azure Relay Information Failed: (AuthorizationFailed) The client '\<user name\>' with object id '\<ID\>' does not have authorization to perform action 'Microsoft.HybridConnectivity/endpoints/listCredentials/action' over scope '/subscriptions/\<Subscription ID\>/resourceGroups/\<Resource Group\>/providers/Microsoft.HybridCompute/machines/\<Machine Name\>/providers/Microsoft.HybridConnectivity/endpoints/default' or the scope is invalid. If access was recently granted, please refresh your credentials."
 
 Resolution:
  - Ensure that you have Contributor or Owner permissions on the resource you are connecting to.
