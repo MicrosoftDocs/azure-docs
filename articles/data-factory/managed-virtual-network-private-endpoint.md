@@ -160,7 +160,7 @@ The following data sources have native Private Endpoint support and can be conne
 ### On-premises data sources
 To access on-premises data sources from managed Virtual Network using Private Endpoint, please see this tutorial [How to access on-premises SQL Server from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
-### Azure Data Factory managed Virtual Network is available in the following Azure regions
+### Azure Data Factory managed Virtual Network region availability
 Generally, managed Virtual network is available to all Azure Data Factory regions, except:
 - South India
 
