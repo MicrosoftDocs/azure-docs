@@ -106,6 +106,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
+> | Virtual Visits Administrator | Can view and share virtual visits information and metrics from admin centers or the Virtual visits app. Can also discover and try Virtual Visits features owned by the organization. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
 > | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 
@@ -2147,6 +2148,12 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Virtual Visits Administrator
+  
+Users with this role can read usage reporting data for Virtual visits in the Teams admin center and the Microsoft 365 admin center. For example, usage reporting can show how sending SMS text messages before appointments can reduce the number of people who don’t show for appointments. 
+Users with this role can discover and try new virtual visit features available to their organization. 
+Additionally, this role grants access virtual visits Power BI reports.
+  
 ## Windows 365 Administrator
 
 Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
