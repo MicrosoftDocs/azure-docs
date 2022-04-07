@@ -43,6 +43,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## April 2022
 
+**Sensor software version**: 22.1.4
 
 ### Extended device property data in the Device inventory
 
@@ -58,6 +59,8 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 
 ## March 2022
+
+**Sensor software version**: 22.1.3
 
 - [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
@@ -109,6 +112,8 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 
 ## February 2022
+
+**Sensor software version**: 22.1.1
 
 - [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
