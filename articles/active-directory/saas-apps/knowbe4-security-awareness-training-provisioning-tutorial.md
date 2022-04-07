@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure KnowBe4 Security Awareness Training to support provisioning with Azure AD
 Follow the steps below to configure your SCIM settings in the console.
->![NOTE]
+>[!NOTE]
 >If you are switching from ADI to SCIM, please note that if you are using alias email addresses, our integration with SCIM does not support that connection, so this information will be removed once you disable **Test Mode** and a sync runs.
 
 1. From your KnowBe4 console, click your email address in the top right corner and select **Account Settings**.
@@ -61,10 +61,10 @@ Follow the steps below to configure your SCIM settings in the console.
 
 1. Click **Generate SCIM Token**. This will open a new window with your token ID. Copy this ID and save it to a place that you can easily access later. It is important that you save this token because once you close this window, you cannot view the token again. Once you’ve saved the information, click **OK** to close the window.
 
-   >![NOTE]
+   >[!NOTE]
    >Once your SCIM token is generated, this button will change to the **Regenerate SCIM Token** button. See the **Troubleshooting Tips** section of this article for more information.
 
-   >![NOTE]
+   >[!NOTE]
    >Your identity provider will need the token (step 5) and the tenant ID (step 6) in order to establish a connection with KnowBe4. Make sure that you save this information so it is readily available when you are ready to set up the connection with your identity provider.
 
 1. Copy the Tenant URL and save it to a place that you can easily access later.
@@ -72,7 +72,7 @@ Follow the steps below to configure your SCIM settings in the console.
 
 	![Tenant Mode](media/knowbe4-security-awareness-training-provisioning-tutorial\test-mode.png)
 
-   >![NOTE]
+   >[!NOTE]
    >We recommend keeping **Test Mode** enabled until you’ve configured the connection between KnowBe4 and your identity provider and have run a successful sync. Test Mode is used to generate a report of what will happen when SCIM is enabled. This means no changes are made to your console so you can configure your setup without worrying about changes to your console. When you are ready, you can disable **Test Mode** from your **Account Settings** to enable syncing.If you are switching from ADI to SCIM, **Test Mode** will be enabled automatically after you save your **Account Settings**.
 
 1. Scroll down to the bottom of the **Account Settings** page and click **Save Changes**.
