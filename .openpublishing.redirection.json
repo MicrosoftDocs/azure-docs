@@ -619,6 +619,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-iot-edge-workloads.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
