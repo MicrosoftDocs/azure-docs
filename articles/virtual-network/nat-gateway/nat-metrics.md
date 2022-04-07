@@ -37,8 +37,8 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of SNAT connections / State transitions per interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
-| Total SNAT connection count | Current active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
+| Total SNAT connection count | Total number of active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
 | Datapath availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
@@ -90,7 +90,7 @@ Reasons for why you may see dropped packets:
 
 ### SNAT Connection Count
 
-The SNAT connection count metric shows you the transition state for the number of newly used SNAT ports within a specified timeframe. Use this metric to: 
+The SNAT connection count metric shows you the number of newly used SNAT ports within a specified timeframe. Use this metric to: 
 - Evaluate the number of successful and failed attempts to make outbound connections.
 - Help assess if you are experiencing a pattern of failed outbound connections. 
 
