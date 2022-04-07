@@ -147,7 +147,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | AkamaiSIEMEvent |
-| **Kusto function URL:** | https://aka.ms/Sentinel-akamaisecurityevents-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Akamai%20Security%20Events/Parsers/AkamaiSIEMEvent.txt |
 | **Vendor documentation/<br>installation instructions** | [Configure Security Information and Event Management (SIEM) integration](https://developer.akamai.com/tools/integrations/siem)<br>[Set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). |
 | **Supported by** | [Akamai](https://www.akamai.com/us/en/support/) |
 
