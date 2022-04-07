@@ -38685,7 +38685,7 @@
     },
     {
       "source_path": "articles/aks/security-hardened-vm-host-image.md",
-      "redirect_url": "/azure/aks/cis-benchmark",
+      "redirect_url": "/azure/aks/cis-ubuntu",
       "redirect_document_id": false
     },    
     {
