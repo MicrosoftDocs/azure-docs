@@ -168,19 +168,19 @@ The following code is an example of an archive log JSON string:
 
 Once you check `Send to Log Analytics`, and select target Azure Log Analytics, the logs will be stored in the target. To view resource logs, follow these steps:
 
-1. Click `Logs` in your target Log Analytics.
+1. Select `Logs` in your target Log Analytics.
 
     ![Log Analytics menu item](./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+2. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest` and select time range to query [connectivity log](#connectivity-logs), [messaging log](#messaging-logs) or [http request logs](#http-request-logs) correspondingly. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
     ![Query log in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png)
 
 To use sample query for SignalR service, please follow the steps below:
-1. Click `Logs` in your target Log Analytics.
-2. Click `Queries` to open query explorer.
+1. Select `Logs` in your target Log Analytics.
+2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
-4. Click `Run` to run the script.
+4. Select `Run` to run the script.
     ![Sample query in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png)
 
 

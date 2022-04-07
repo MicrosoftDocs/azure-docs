@@ -122,10 +122,10 @@ To view resource logs, follow these steps:
     ![Query log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
 To use sample query for SignalR service, please follow the steps below:
-1. Click `Logs` in your target Log Analytics.
-2. Click `Queries` to open query explorer.
+1. Select `Logs` in your target Log Analytics.
+2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
-4. Click `Run` to run the script.
+4. Select `Run` to run the script.
     ![Sample query in Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png)
 
 
@@ -190,7 +190,7 @@ If you find that you cannot establish SignalR client connections to Azure Signal
 ### Get help
 
 We recommend you troubleshoot by yourself first. Most issues are caused by app server or network issues. Follow [troubleshooting guide with resource log](#troubleshooting-with-resource-logs) and [basic trouble shooting guide](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) to find the root cause.
-If the issue still can't be resolved, then consider open an issue in GitHub or create ticket in Azure Portal.
+If the issue still can't be resolved, then consider open an issue in GitHub or create ticket in Azure portal.
 Provide:
 1. Time range about 30 minutes when the issue occurs
 2. Azure SignalR Service's resource ID
