@@ -1,5 +1,5 @@
 ---
-title: OT threat monitoring in enterprise security operation center (SOC) teams
+title: OT threat monitoring in enterprise security operation center (SOC) teams - Microsoft Defender for IoT
 description: Learn about how integration with Microsoft Sentinel can help security operation center teams bridge the gap between IT and OT security.
 ms.date: 03/24/2022
 ms.topic: conceptual

@@ -1,11 +1,11 @@
 ---
-title: Microsoft Defender for IoT system architecture
+title: System architecture for OT monitoring - Microsoft Defender for IoT
 description: Learn about the Microsoft Defender for IoT system architecture and data flow.
 ms.topic: overview
 ms.date: 03/24/2022
 ---
 
-# Microsoft Defender for IoT system architecture
+# System architecture for OT system monitoring
 
 The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
