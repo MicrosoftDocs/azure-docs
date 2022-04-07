@@ -35,10 +35,48 @@ Whilst on Linux systems it is possible to use a priviledged DaemonSet to carry o
 * Both Named pipe mounts and Unix domain sockets are not supported and should instead be accessed via their path on the host (e.g. \\.\pipe\*)
 
 
-## Run a Host Process Pod
+## Run a Host Process workload
 
+To use Host Process features you will need to specify the securityContext spec to enable privileged, hostProcess and hostNetwork.  The following workload runs a Powershell script to check the access the Pod has to the host.
 
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: privileged-daemonset
+  namespace: kube-system
+  labels:
+    app: privileged-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: privileged-daemonset
+  template:
+    metadata:
+      labels:
+        app: privileged-daemonset
+    spec:
+      nodeSelector:
+        kubernetes.io/os: windows
+      containers:
+        - name: powershell
+          image: mcr.microsoft.com/powershell:lts-nanoserver-1809
+          securityContext:
+            privileged: true
+            windowsOptions:
+              hostProcess: true
+              runAsUserName: "NT AUTHORITY\\SYSTEM"
+          command:
+            - pwsh.exe
+            - -command
+            - |
+              $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
+              Write-Host "Process has admin rights: $AdminRights"
+              while ($true) { Start-Sleep -Seconds 2147483 }
+      hostNetwork: true
+      terminationGracePeriodSeconds: 0
 
+```
 
 ## Next steps
 
