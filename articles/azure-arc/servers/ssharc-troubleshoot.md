@@ -31,7 +31,7 @@ Resolution:
 ### Unable to locate client binaries
 This issue occurs when the client side SSH binaries required to connect cannot be found.
 Error:
- - "Could not find \<command\>.exe on path \<path_to_executable\>. Make sure OpenSSH is installed correctly: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse . Or use --ssh-client-folder to provide folder path with ssh executables."
+ - "Could not find \<command\>.exe on path \<path_to_executable\>. Make sure OpenSSH is installed correctly: https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse . Or use --ssh-client-folder to provide folder path with ssh executables."
 
 Resolution:
  - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
