@@ -136,9 +136,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
 ### [PowerShell](#tab/powershell)
 
-1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
+1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
   
-   The following example sets creates a permission scope object that gives read and write permission to the `mycontainer` container.  
+   The following example set creates a permission scope object that gives read and write permission to the `mycontainer` container.  
 
    ```powershell
    $permissionScope = New-AzStorageLocalUserPermissionScope -Permission rw -Service blob -ResourceName mycontainer 
