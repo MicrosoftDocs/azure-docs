@@ -9,17 +9,26 @@ ms.author: guywi-ms
 ms.reviewer: osalzberg
 # Customer intent: As a DevOps specialist, I want to ingest external data from a file into a workspace.  
 ---
-# Ingest data from a file using Data Collection Rules (DCR) (Preview)
+# Collect and ingest data from a file using Data Collection Rules (DCR) (Preview)
+
+If you want to collect log files from your systems using agents, you can use a Data Collection Rules.
 
 You can define how Azure Monitor transforms and stores data ingested into your workspace by setting [Data Collection Rules (DCR)](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview). Using DCR lets you ingest data quickly from different log formats.
 
 This tutorial explains how to ingest data from a file into a Log Analytics workspace using DCR.
+
+>[!NOTE]
+> * To use this method, you need to make use of MMA agent. We recommend using AMA that has more native integration with Custom Logs v2 (currently in preview)
+> * Use [Custom Logs v2](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) that allows transformations and exports
 
 ## Prerequisites
 
 To complete this tutorial, you need a [Log Analytics workspace](quick-create-workspace.md).
 
 ## Create a custom log table
+
+>[!TIP]
+> * If you already have a custom log table, you can skip this step and go and set a DCR.
 
 Before you can send data to the workspace, you need to create the custom table that the data will be sent to:
 
@@ -130,6 +139,8 @@ Before you can send data to the workspace, you need to create the custom table t
 
         >[!Note]
         > * The `SetDataCollectionRuleBased` flag, from the last API command, enables the table as data puller.
+        > * Once you switch to DCREnabled mode, data will stop flowing unless you have DCR configured.
+
          * To validate that the value is updated, run:
         ```json
         GET https://management.azure.com/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/MyLogFolder/datasources?api-version=2020-08-01&$filter=(kind%20eq%20'CustomLog')
