@@ -129,6 +129,15 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+## Scenario: Use managed online endpoints
+
+Inbound communications with managed online endpoints are secured through the private endpoint for your Azure Machine Learning workspace. That is, if your workspace has a private endpoint then inbound communications to the managed online endpoint is private and restricted to the virtual network. If the workspace does not have a private endpoint, then the managed online endpoint is public.
+
+Outbound communication from the managed online endpoint can be secured to the virtual network by setting the `private_network_connection` flag to `true` for your deployments. 
+
+> [!IMPORTANT]
+> When securing outbound communication, a private endpoint resource is created _per deployment_.
+
 ## Scenario: Use Azure Kubernetes Service
 
 For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).

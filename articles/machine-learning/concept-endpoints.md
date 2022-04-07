@@ -86,7 +86,9 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
 
-Traffic to one deployment can also be copied ('mirrored') to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 5% is mirrored to green. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected.
+Traffic to one deployment can also be copied ('mirrored') to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 5% is mirrored to green. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Mirror traffic functionality is a __preview__ feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
 
