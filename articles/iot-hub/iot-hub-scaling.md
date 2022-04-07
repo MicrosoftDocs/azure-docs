@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub scaling | Microsoft Docs
 description: How to scale your IoT hub to support your anticipated message throughput and desired features. Includes a summary of the supported throughput for each tier and options for sharding.
-author: wesmc7777
+author: kgremban
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 # Choose the right IoT Hub tier for your solution
