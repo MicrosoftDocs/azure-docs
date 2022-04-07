@@ -438,7 +438,7 @@ For more information, see:
 
 ### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
 
-Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Actions workflows.
 
 The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
 

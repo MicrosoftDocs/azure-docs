@@ -233,7 +233,7 @@
       displayName: Username, Email, Phone authorization, Phone sign-in
     - name: Add an identity provider
       href: add-identity-provider.md
-    - name: AD FS
+    - name: AD FS (OpenID Connect)
       href: identity-provider-adfs.md
       displayName: AD-FS, ADFS
     - name: AD FS (SAML)

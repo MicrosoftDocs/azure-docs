@@ -75,7 +75,7 @@ Follow these steps to create a new console application for speech synthesis.
               console.log("synthesis finished.");
             } else {
               console.error("Speech synthesis canceled, " + result.errorDetails +
-                  "\nDid you update the subscription info?");
+                  "\nDid you set the speech resource key and region values?");
             }
             synthesizer.close();
             synthesizer = null;

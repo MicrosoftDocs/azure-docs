@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 3/29/2022
+ms.date: 4/5/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---

@@ -38,7 +38,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 ## Deploy locally
 
-Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
+Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before deployment to the cloud.
 
 > [!TIP]
 > Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
@@ -55,6 +55,22 @@ As a part of local deployment the following steps take place:
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
 For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+
+## Conda installation
+ 
+Generally, issues with mlflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
+
+To debug conda installation problems, try the following:
+
+1. Check the logs for conda installation. If the container crashed or taking too long to start up, it is likely that conda environment update has failed to resolve correctly.
+
+1. Install the mlflow conda file locally with the command `conda env create -n userenv -f <CONDA_ENV_FILENAME>`. 
+
+1. If there are errors locally, try resolving the conda environment and creating a functional one before redeploying. 
+
+1. If the container crashes even if it resolves locally, the SKU size used for deployment may be too small. 
+    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container may crash. 
+    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones may be needed depending on which dependencies are specified in the conda file.
 
 ## Get container logs
 

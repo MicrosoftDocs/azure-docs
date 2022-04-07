@@ -367,6 +367,8 @@ items:
       href: sql-data-warehouse-restore-active-paused-dw.md
     - name: Restore a deleted data warehouse 
       href: sql-data-warehouse-restore-deleted-dw.md
+    - name: Restore a data warehouse from a deleted Server
+      href: sql-data-warehouse-restore-from-deleted-server.md
     - name: Restore from a geo-backup 
       href: sql-data-warehouse-restore-from-geo-backup.md 
     - name: Disable geo-backups
