@@ -9,9 +9,9 @@ ms.date: 03/22/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last 6 months. 
+This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than 6 months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -33,12 +33,29 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## April 2022
+
+**Sensor software version**: 22.1.4
+
+### Extended device property data in the Device inventory
+
+Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 
 ## March 2022
