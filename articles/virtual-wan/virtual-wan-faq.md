@@ -355,6 +355,10 @@ The Virtual WAN team has been working on upgrading virtual routers from their cu
 
 Note that you’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNET connections) in your hub are in a succeeded state. Additionally, as this operation requires deployment of new VMSS based virtual hub routers, you’ll face an expected downtime of 30 minutes per hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup. 
 
+### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
+
+The route limit for OpenVPN clients is 1000. 
+
 ## Next steps
 
 * For more information about Virtual WAN, see [About Virtual WAN](virtual-wan-about.md).

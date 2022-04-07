@@ -103,7 +103,9 @@ Connection strings provide a single configuration setting and eliminate the need
 - NodeJS v1.5.0+
 - Python v1.0.0+
 ## Troubleshooting
+### Alert: "Transition to using connection strings for data ingestion"
 
+Follow the [migration steps](#migration) in this article to resolve this alert.
 ### Missing data
 
 - Confirm you're using a [supported SDK version](#supported-sdk-versions). If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.

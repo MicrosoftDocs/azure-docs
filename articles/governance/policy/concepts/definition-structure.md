@@ -951,13 +951,24 @@ functions](../../../azure-resource-manager/templates/template-functions.md) are 
 within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
+- dateTimeAdd()
 - deployment()
+- environment()
+- extensionResourceId()
+- listAccountSas()
+- listKeys()
+- listSecrets()
 - list*
+- managementGroup()
 - newGuid()
 - pickZones()
 - providers()
 - reference()
 - resourceId()
+- subscriptionResourceId()
+- tenantResourceId()
+- tenant()
+- utcNow(format)
 - variables()
 
 > [!NOTE]

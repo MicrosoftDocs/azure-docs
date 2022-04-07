@@ -222,6 +222,7 @@ Some key differences:
 - SQL Managed Instance supports [Azure AD authentication](../database/authentication-aad-overview.md) and [Windows Authentication for Azure Active Directory principals (Preview)](winauth-azuread-overview.md).
 - SQL Managed Instance automatically manages XTP filegroups and files for databases containing In-Memory OLTP objects.
 - SQL Managed Instance supports SQL Server Integration Services (SSIS) and can host an SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory. See [Create Azure-SSIS IR in Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md). To compare the SSIS features, see [Compare SQL Database to SQL Managed Instance](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
+- SQL Managed Instance supports connectivity only through the TCP protocol. It does not support connectivity through named pipes.
 
 ### Administration features
 

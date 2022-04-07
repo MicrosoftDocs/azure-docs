@@ -191,6 +191,16 @@
             "redirect_document_id": true
         },   
         {
+            "source_path_from_root": "/articles/azure-sql/managed-instance/link-feature.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/managed-instance-link-feature-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-sql/managed-instance/link-feature-best-practices.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/managed-instance-link-best-practices",
+            "redirect_document_id": true
+        }, 
+        {
             "source_path_from_root": "/articles/azure-sql/database/service-tiers-general-purpose-business-critical.md",
             "redirect_url": "/azure/azure-sql/database/service-tiers-vcore",
             "redirect_document_id": false

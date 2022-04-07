@@ -168,6 +168,8 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
+- [BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
+
 ## Azure AD B2B guest access
 Azure AD B2B guest access to SHA protected applications is also possible, but some scenarios may require some additional steps not covered in the tutorials. One example is Kerberos SSO, where a BIG-IP will perform kerberos constrained delegation (KCD) to obtain a service ticket from domain contollers. Without a local representation of a guest user exisiting locally, a domain controller will fail to honour the request on the basis that the user does not exist. To support this scenario, you would need to ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. See [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md) for guidance.
 

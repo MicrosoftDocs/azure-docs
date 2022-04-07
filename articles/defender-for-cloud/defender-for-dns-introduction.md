@@ -22,7 +22,7 @@ From within Azure DNS, Defender for DNS monitors the queries from these resource
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for DNS** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government|
-|||
+
 
 ## What are the benefits of Microsoft Defender for DNS?
 

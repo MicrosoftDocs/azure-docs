@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 03/07/2022
 ms.author: victorh
 ---
 
@@ -33,7 +33,7 @@ There are three types of certificates used in a typical deployment:
 
    A certificate authority can issue multiple certificates in the form of a tree structure. A root certificate is the top-most certificate of the tree.
 
-Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
+Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications (IaaS, PaaS and other workloads) must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Certificate process":::
 

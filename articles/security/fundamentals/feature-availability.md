@@ -264,8 +264,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
 | - [Azure Purview](../../sentinel/data-connectors-reference.md#azure-purview) | Public Preview | Not Available |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
-| - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | GA | GA |
+| - [Microsoft Insider Risk Management](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
@@ -273,7 +273,6 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
@@ -481,7 +480,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
+| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | GA | GA |
 | [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
 | [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
 | [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
@@ -499,7 +498,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
+| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | GA |
 | **Standalone micro agent for Linux** |  |  |
 | [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 

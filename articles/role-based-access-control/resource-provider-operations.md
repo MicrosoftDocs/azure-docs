@@ -13,7 +13,7 @@ ms.custom: generated
 
 # Azure resource provider operations
 
-This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az_provider_operation_list).
+This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Click the resource provider name in the following table to see the list of operations.
 
@@ -2636,7 +2636,7 @@ Azure service: [Azure Maps](../azure-maps/index.yml)
 
 ### Microsoft.Media
 
-Azure service: [Media Services](../media-services/index.yml)
+Azure service: [Media Services](/media-services/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -12349,7 +12349,7 @@ Azure service: Microsoft Monitoring Insights
 
 ### Microsoft.DesktopVirtualization
 
-Azure service: [Windows Virtual Desktop](../virtual-desktop/index.yml)
+Azure service: [Azure Virtual Desktop](../virtual-desktop/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -12424,11 +12424,6 @@ Azure service: [Azure Chaos Studio](../chaos-studio/index.yml)
 > | --- | --- |
 > | Microsoft.Chaos/register/action | Registers the subscription for the Chaos Resource Provider and enables the creation of Chaos resources. |
 > | Microsoft.Chaos/unregister/action | Unregisters the subscription for the Chaos Resource Provider and enables the creation of Chaos resources. |
-> | Microsoft.Chaos/artifactSetDefinitions/write | Creates an Artifact Set Definition which describes the set of artifact to capture for a given Chaos Experiment. |
-> | Microsoft.Chaos/artifactSetDefinitions/read | Gets all Artifact Set Definitions that extend a Chaos Experiment resource. |
-> | Microsoft.Chaos/artifactSetDefinitions/delete | Deletes all Artifact Set Definitions that extend a Chaos Experiment resource. |
-> | Microsoft.Chaos/artifactSetSnapshots/read | Gets all Artifact Set Snapshots that extend a Chaos Experiment resource. |
-> | Microsoft.Chaos/artifactSetSnapshots/artifactSnapshots/read | Gets all Artifact Snapshots that extend a Artifact Set Snapshot. |
 > | Microsoft.Chaos/experiments/write | Creates or updates a Chaos Experiment resource in a resource group. |
 > | Microsoft.Chaos/experiments/delete | Deletes a Chaos Experiment resource in a resource group. |
 > | Microsoft.Chaos/experiments/read | Gets all Chaos Experiments in a resource group. |

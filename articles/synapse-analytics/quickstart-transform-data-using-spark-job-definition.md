@@ -97,6 +97,6 @@ You can add properties for Apache Spark job definition activity in this panel.
 Advance to the following articles to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Data flow expression language](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Data flow expression language](../data-factory/data-flow-expression-functions.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)

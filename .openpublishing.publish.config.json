@@ -442,6 +442,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-march-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "march-cli-preview",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
@@ -840,6 +846,18 @@
     {
       "path_to_root": "msdocs-flask-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azuresignalr-samples",
+      "url": "https://github.com/aspnet/AzureSignalR-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-webpubsub",
+      "url": "https://github.com/Azure/azure-webpubsub",
       "branch": "main",
       "branch_mapping": {}
     }

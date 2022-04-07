@@ -54,7 +54,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure a time-based retention policy on a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) command, providing the retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
+To configure a time-based retention policy on a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-create) command, providing the retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage container immutability-policy create \
@@ -115,7 +115,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 
 ### [Azure CLI](#tab/azure-cli)
 
-To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
+To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 $etag=$(az storage container immutability-policy show \
@@ -133,7 +133,7 @@ az storage container immutability-policy extend \
     --allow-protected-append-writes true
 ```
 
-To delete an unlocked policy, call the [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete) command.
+To delete an unlocked policy, call the [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-delete) command.
 
 ---
 
@@ -170,7 +170,7 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To lock a policy with Azure CLI, first call the [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_show) command to retrieve the policy's ETag. Next, call the [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_lock) command and pass in the ETag value to lock the policy. Remember to replace placeholder values in angle brackets with your own values:
+To lock a policy with Azure CLI, first call the [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-show) command to retrieve the policy's ETag. Next, call the [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-lock) command and pass in the ETag value to lock the policy. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 $etag=$(az storage container immutability-policy show \
@@ -229,7 +229,7 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure a legal hold on a container with PowerShell, call the [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_set) command. Remember to replace placeholder values in angle brackets with your own values:
+To configure a legal hold on a container with PowerShell, call the [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az-storage-container-legal-hold-set) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage container legal-hold set \
@@ -239,7 +239,7 @@ az storage container legal-hold set \
     --resource-group <resource-group>
 ```
 
-To clear a legal hold, call the [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_clear) command:
+To clear a legal hold, call the [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az-storage-container-legal-hold-clear) command:
 
 ```azurecli
 az storage container legal-hold clear \

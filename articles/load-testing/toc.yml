@@ -23,6 +23,11 @@
         href: tutorial-cicd-github-actions.md
       - name: Automate with Azure Pipelines
         href: tutorial-cicd-azure-pipelines.md
+- name: Concepts
+  expanded: true
+  items: 
+    - name: Key concepts
+      href: concept-load-testing-concepts.md
 - name: How-tos
   expanded: true
   items: 

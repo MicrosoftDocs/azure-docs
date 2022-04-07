@@ -130,7 +130,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 To host your application in Azure, you need to create Azure App Service web app.
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -176,7 +176,7 @@ You can create a PostgreSQL database in Azure using the [Azure portal](https://p
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -253,7 +253,7 @@ To configure environment variables for the web app from VS Code, you must have t
 |:----------------|-----------:|
 | [!INCLUDE [VS Code connect app to postgres step 1](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-azure-extension.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
 | [!INCLUDE [VS Code connect app to postgres step 2](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-create-setting-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-create-setting.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a.png" alt-text="A screenshot showing adding setting name for app service to connect to Postgresql database in VS Code." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b.png" alt-text="A screenshot showing adding setting value for app service to connect to Postgresql database in VS Code." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/tutorial-python-postgresql-app/connect-postgres-to-app-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-a.png" alt-text="A screenshot showing adding setting name for app service to connect to PostgreSQL database in VS Code." :::  :::image type="content" source="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b-240px.png" lightbox="./media/tutorial-python-postgresql-app/connect-app-to-database-settings-example-b.png" alt-text="A screenshot showing adding setting value for app service to connect to PostgreSQL database in VS Code." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 

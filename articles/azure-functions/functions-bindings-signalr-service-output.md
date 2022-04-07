@@ -258,7 +258,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.bindings.outMessages = [{
+    context.bindings.signalRMessages  = [{
         // message will only be sent to this user ID
         "userId": "userId1",
         "target": "newMessage",

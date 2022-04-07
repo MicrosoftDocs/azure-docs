@@ -21,7 +21,7 @@ The following options are available for database recovery by using [automated da
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription restore for SQL Managed Instance isn't currently supported
+- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription point-in-time restore for SQL Managed Instance isn't currently supported. 
 
 If you configured [backup long-term retention](long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
