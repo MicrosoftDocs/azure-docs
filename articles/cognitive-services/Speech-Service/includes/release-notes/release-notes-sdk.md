@@ -22,12 +22,13 @@ ms.author: eur
 - **Java Script**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
 - **Java Script**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
 - **Java Script**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
+- **C++** Fix C++ headers to remove a warning when compiling using C++17 or newer
 
 #### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - New **Java** samples for Speech Recognition with Language Identification
 - New **Python** and **Java** samples for Conversation Transcription
 - New **Go** sample for Speaker Recognition
-- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to capture audio from, or render audio to, a non-default device.
+- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to [capture audio from, or render audio to, a non-default device](./how-to-select-audio-input-devices.md).
 
 
 
