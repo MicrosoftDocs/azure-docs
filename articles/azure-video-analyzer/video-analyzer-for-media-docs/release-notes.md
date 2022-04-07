@@ -13,7 +13,7 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Analyzer for Media (former Video Indexer) developments, this article provides you with information about:
 
-* [Important notice](#upcoming-critical-changes) about planned changes:
+* [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
