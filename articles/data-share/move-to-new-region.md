@@ -37,15 +37,15 @@ The following steps show how to deploy a new Data Share account using a Resource
 1. To edit the parameter of the Data Share account name, change the property under **parameters** > **value** from the source Data Share Account's name to the name of the Data Share Account you want to create in a new region, ensure the name is in quotes:
 
     ```json
-            {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-            "accounts_my_datashare_account_name": {
-               "value": "<target-datashare-account-name>"
-                }
-               }
-            }
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    "accounts_my_datashare_account_name": {
+       "value": "<target-datashare-account-name>"
+        }
+       }
+    }
     ```
 
 1.  Select **Save** in the editor.
@@ -55,18 +55,18 @@ The following steps show how to deploy a new Data Share account using a Resource
 1. To edit the target region where the Data Share account will be moved, change the **location** property under **resources** in the online editor:
 
     ```json
-            "resources": [
-            {
-            "type": "Microsoft.DataShare/accounts",
-            "apiVersion": "2021-08-01",
-            "name": "[parameters('accounts_my_datashare_account_name')]",
-            "location": "<target-region>",
-            "identity": {
-                "type": "SystemAssigned"
-            }
-            "properties": {}
-            }
-           ]
+    "resources": [
+        {
+        "type": "Microsoft.DataShare/accounts",
+        "apiVersion": "2021-08-01",
+        "name": "[parameters('accounts_my_datashare_account_name')]",
+        "location": "<target-region>",
+        "identity": {
+            "type": "SystemAssigned"
+        }
+        "properties": {}
+        }
+    ]
     ```
 
 1. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
@@ -75,37 +75,37 @@ The following steps show how to deploy a new Data Share account using a Resource
 
     * **Sent Shares** - You can edit which Sent Shares are deployed into the target Data Share Account by adding or removing Shares from the **resources** section in the **template.json** file.:
     ```json
-       "resources": [
-            {
-                "type": "Microsoft.DataShare/accounts/shares",
-                "apiVersion": "2021-08-01",
-                "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share')]",
-                "dependsOn": [
-                    "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                ],
-                "properties": {
-                    "shareKind": "CopyBased"
-                }
-            },
-       ]
+    "resources": [
+        {
+        "type": "Microsoft.DataShare/accounts/shares",
+        "apiVersion": "2021-08-01",
+        "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+        ],
+        "properties": {
+            "shareKind": "CopyBased"
+        }
+        },
+    ]
     ```
 
     * **Sent Share Invitations** - You can edit which Invitations are deployed into the target Data Share account by adding or removing Invitations from the resources section in the **template.json** file.
     ```json
-        "resources": [
-            {
-                 "type": "Microsoft.DataShare/accounts/shares/invitations",
-                 "apiVersion": "2021-08-01",
-                 "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share/blob_snapshot_jsmith_microsoft_com')]",
-                 "dependsOn": [
-                     "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'test_sent_share')]",
-                     "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                 ],
-                "properties": {
-                    "targetEmail": "jsmith@microsoft.com"
-                }
-            }
-        ]
+    "resources": [
+        {
+         "type": "Microsoft.DataShare/accounts/shares/invitations",
+         "apiVersion": "2021-08-01",
+         "name": "[concat(parameters('accounts_my_datashare_account_name'), '/test_sent_share/blob_snapshot_jsmith_microsoft_com')]",
+         "dependsOn": [
+             "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'test_sent_share')]",
+             "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+         ],
+        "properties": {
+            "targetEmail": "jsmith@microsoft.com"
+        }
+        }
+    ]
     ```
     
     * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources section in the **template.json** file. Below is an example of a BlobFolder dataset. 
@@ -116,25 +116,25 @@ The following steps show how to deploy a new Data Share account using a Resource
     >* Datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
   
     ```json
-          "resources": [
-              {
-                  "type": "Microsoft.DataShare/accounts/shares/dataSets",
-                  "apiVersion": "2021-08-01",
-                  "name": "[concat(parameters('accounts_my_datashare_account_name'), '/blobpath/directory')]",
-                  "dependsOn": [
-                      "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'blobpath')]",
-                      "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
-                  ],
-                  "kind": "BlobFolder",
-                  "properties": {
-                      "containerName": "<container-name>",
-                      "prefix": "<prefix>"
-                      "subscriptionId": "<subscription-id>",
-                      "resourceGroup": "<resource-group-name>",
-                      "storageAccountName": "<storage-account-name>"
-                  }
-              }
-          ]
+    "resources": [
+        {
+        "type": "Microsoft.DataShare/accounts/shares/dataSets",
+        "apiVersion": "2021-08-01",
+        "name": "[concat(parameters('accounts_my_datashare_account_name'), '/blobpath/directory')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.DataShare/accounts/shares', parameters('accounts_my_datashare_account_name'), 'blobpath')]",
+            "[resourceId('Microsoft.DataShare/accounts', parameters('accounts_my_datashare_account_name'))]"
+             ],
+            "kind": "BlobFolder",
+            "properties": {
+                "containerName": "<container-name>",
+                "prefix": "<prefix>"
+                "subscriptionId": "<subscription-id>",
+                "resourceGroup": "<resource-group-name>",
+                "storageAccountName": "<storage-account-name>"
+            }
+        }
+    ]
     ```
             
 
@@ -142,15 +142,15 @@ The following steps show how to deploy a new Data Share account using a Resource
 
 1. Under the **Project details** section, select the **Subscription** dropdown to choose the subscription where the target Data Share account will be deployed.
 
-1. Select the **Resource group** dropdown to choose the resource group where the target Data Share account will be deployed.  You can click **Create new** to create a new resource group for the target Data Share account.
+1. Select the **Resource group** dropdown to choose the resource group where the target Data Share account will be deployed.  You can select **Create new** to create a new resource group for the target Data Share account.
 
 1. Verify that the **Location** field is set to the target location you want the Data Share account to be deployed to.
 
 1. Verify under **Instance details** that the name matches the name that you entered in the parameters editor above.
 
-1. Click **Review + Create** to advance to the next page.
+1. Select **Review + Create** to advance to the next page.
 
-1. Review the terms and click **Create** to begin the deployment.
+1. Review the terms and select **Create** to begin the deployment.
 
 1. Once the deployment finishes, go to the newly created Data Share account. 
 
