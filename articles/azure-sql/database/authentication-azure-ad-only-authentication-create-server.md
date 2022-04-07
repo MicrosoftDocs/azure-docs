@@ -26,7 +26,7 @@ This how-to guide outlines the steps to create a [logical server](logical-server
 
 ## Permissions
 
-To provision a logical server or managed instance, you'll need to have the appropriate permissions to create these resources. Azure users with higher permissions, such as subscription [Owners](../../role-based-access-control/built-in-roles.md#owner), [Contributors](../../role-based-access-control/built-in-roles.md#contributor), [Service Administrators](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles), and [Co-Administrators](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) have the privilege to create a SQL server or managed instance. To create these resources with the least privileged Azure RBAC role, use the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for Managed Instance.
+To provision a logical server or managed instance, you'll need to have the appropriate permissions to create these resources. Azure users with higher permissions, such as subscription [Owners](../../role-based-access-control/built-in-roles.md#owner), [Contributors](../../role-based-access-control/built-in-roles.md#contributor), [Service Administrators](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles), and [Co-Administrators](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) have the privilege to create a SQL server or managed instance. To create these resources with the least privileged Azure RBAC role, use the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
 
 The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) Azure RBAC role doesn't have enough permissions to create a server or instance with Azure AD-only authentication enabled. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role will be required to manage the Azure AD-only authentication feature after server or instance creation.
 
@@ -306,7 +306,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
 1. Fill out the mandatory information required on the **Basics** tab for **Project details** and **Managed Instance details**. This is a minimum set of information required to provision a SQL Managed Instance.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab ":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Azure portal screenshot of the create SQL Managed Instance basic tab ":::
 
    For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
@@ -314,7 +314,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
 1. Select **Set admin**, which brings up a menu to select an Azure AD principal as your managed instance Azure AD administrator. When you're finished, use the **Select** button to set your admin.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab and choosing Azure AD only authentication":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure portal screenshot of the create SQL Managed Instance basic tab and choosing Azure AD only authentication":::
 
 1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
@@ -598,7 +598,7 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
                     {
                         "name": "allow_redirect_inbound",
                         "properties": {
-                            "description": "Allow inbound redirect traffic to Managed Instance inside the virtual network",
+                            "description": "Allow inbound redirect traffic to SQL Managed Instance inside the virtual network",
                             "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "11000-11999",
@@ -724,7 +724,7 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 
 ### Grant Directory Readers permissions
 
-Once the deployment is complete for your managed instance, you may notice that the Managed Instance needs **Read** permissions to access Azure Active Directory. Read permissions can be granted by clicking on the displayed message in the Azure portal by a person with enough privileges. For more information, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+Once the deployment is complete for your managed instance, you may notice that the SQL Managed Instance needs **Read** permissions to access Azure Active Directory. Read permissions can be granted by clicking on the displayed message in the Azure portal by a person with enough privileges. For more information, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-read-permissions.png" alt-text="screenshot of the Active Directory admin menu in Azure portal showing Read permissions needed":::
 
