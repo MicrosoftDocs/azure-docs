@@ -118,8 +118,10 @@ Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 
 Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
 
-SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
+```
+SPN: "cifs/<your-storage-account-name-here>.file.core.windows.net"
 Password: Kerberos key for your storage account.
+```
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
 
@@ -199,6 +201,8 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 If successful, the output should look like this:
 
 ```PowerShell
+AD
+
 DomainName:<yourDomainHere>
 NetBiosDomainName:<yourNetBiosDomainNameHere>
 ForestName:<yourForestNameHere>
