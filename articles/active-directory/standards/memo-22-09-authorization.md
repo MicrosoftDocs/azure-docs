@@ -78,7 +78,7 @@ The following articles are part of this documentation set:
 
 [Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
 
-[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
+[Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 

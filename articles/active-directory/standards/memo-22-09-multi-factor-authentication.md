@@ -110,7 +110,7 @@ The following articles are a part of this documentation set:
 
 [Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
 
-[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
+[Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 
 [Authorization](memo-22-09-authorization.md)
 

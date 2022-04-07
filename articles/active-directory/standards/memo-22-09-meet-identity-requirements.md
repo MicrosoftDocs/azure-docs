@@ -50,7 +50,7 @@ The article series features guidance that encompasses existing agency investment
 
 The following articles are a part of this documentation set:
 
-[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
+[Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 
