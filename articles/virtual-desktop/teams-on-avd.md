@@ -15,7 +15,7 @@ manager: femila
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
->- Windows Desktop and client on Windows 10 machines. Windows Desktop client version 1.2.1026.0 or later.
+>- Windows Desktop and client on Windows 10/11 machines. Windows Desktop client version 1.2.1026.0 or later.
 >- macOS Remote Desktop client, version 10.7.7 or later (preview)
 
 > [!IMPORTANT]
@@ -32,11 +32,11 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
+- Connect to a Windows 10/11 Multi-session or Windows 10/11 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
+This section will show you how to install the Teams desktop app on your Windows 10/11 Multi-session or Windows 10/11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
