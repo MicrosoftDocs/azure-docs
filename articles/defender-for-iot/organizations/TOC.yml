@@ -188,7 +188,7 @@
     - name: Enterprise appliances
       items:
       - name: HPE ProLiant DL20 Plus
-        href: proliant-dl20-plus-enterprise.md
+        href: hpe-proliant-dl20-plus-enterprise.md
       - name: HPE ProLiant DL20
         href: hpe-proliant-dl20.md
       - name: Dell PowerEdge R340 X
