@@ -13,27 +13,30 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Analyzer for Media (former Video Indexer) developments, this article provides you with information about:
 
-* [Heads up](#heads-up) on what is about to change
+* [Important notice](#heads-up) about planned changes:
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Heads up
+## Upcoming critical changes
+
+> [!Important]
+> This section describes a critical upcoming change for the `Upload-Video` API.
+
 
 ### Upload-Video API
 
-In the past, the `Upload-Video` API was tolerant to calls to upload a video from a url where an empty multipart form body was also provided.
-This can happen if you has c# code that does:
+In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
 
 ```
 var content = new MultipartFormDataContent();
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
 ```
 
-In a couple of weeks, our service will fail these requests.
+In the coming weeks, our service will fail requests of this type.
 
-In order to upload a video from a url, change your code to send null in the request body:
+In order to upload a video from a URL, change your code to send null in the request body:
 
 `var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);`
 
