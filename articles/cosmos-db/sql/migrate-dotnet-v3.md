@@ -240,6 +240,7 @@ Executing change feed queries on the v3 SDK is considered to be using the [chang
 |`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Time` |
 |`ChangeFeedOptions.StartFromBeginning` |`ChangeFeedStartFrom.Beginning` |
 |`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#saving-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
 |Split handling|It's no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
 
 ### Using the bulk executor library directly from the V3 SDK
