@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ---
 # Compare vCore and DTU-based purchasing models of Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,10 +47,11 @@ In the vCore-based purchasing model for SQL Database, you can choose between the
 
 In the vCore-based purchasing model, you pay for:
 
-- Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
-- The type and amount of data and log storage.
-- Backup storage.
-
+- Service tier
+- Hardware configuration
+- Compute resources (the number of vCores and the amount of memory)
+- Reserved database storage
+- Actual backup storage
 
 ## DTU purchasing model
 

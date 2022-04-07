@@ -30,7 +30,7 @@ This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [A
 The vCore purchasing model used by Azure SQL Database provides several benefits over the DTU purchasing model:
 
 - Higher compute, memory, I/O, and storage limits.
-- Control over the hardware generation to better match compute and memory requirements of the workload.
+- A degree of control over hardware to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
 - [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchasing model. 
@@ -125,7 +125,7 @@ To create databases or elastic pools on DC-series hardware, the subscription mus
 
 You can select hardware configuration for a database or elastic pool in SQL Database at the time of creation. You can also change hardware configuration of an existing database or elastic pool.
 
-**To select a hardware generation when creating a SQL Database or pool**
+**To select a hardware configuration when creating a SQL Database or pool**
 
 For detailed information, see [Create a SQL Database](single-database-create-quickstart.md).
 
