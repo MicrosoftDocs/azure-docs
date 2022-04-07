@@ -59,9 +59,9 @@ The two rules must match the prefix lengths of the corresponding address prefixe
 > [!IMPORTANT]
 > If you link only one rule to the connection above, the other address space will **NOT** be translated.
 
-### What IP ranges can I use for external mapping?
+### What IP ranges can I use for External Mapping?
 
-You can use any suitable IP range that you want for External mapping, including public and private IPs.
+You can use any suitable IP range that you want for External Mapping, including public and private IPs.
 
 ### Can I use different EgressSNAT rules to translate my VNet address space to different prefixes to different on-premises networks?
 
