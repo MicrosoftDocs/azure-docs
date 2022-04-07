@@ -215,6 +215,8 @@
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults
       href: concept-fundamentals-security-defaults.md
+    - name: Enable security defaults
+      href: howto-fundamentals-security-defaults.md
     - name: Block legacy authentication
       href: concept-fundamentals-block-legacy-authentication.md
     - name: Identity secure score

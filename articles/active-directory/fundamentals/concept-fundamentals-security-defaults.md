@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 04/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,13 +19,7 @@ ms.custom: contperf-fy20q4
 ---
 # Security defaults in Azure AD
 
-Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
-
-- Requiring all users to register for Azure AD Multi-Factor Authentication.
-- Requiring administrators to do multi-factor authentication.
-- Blocking legacy authentication protocols.
-- Requiring users to do multi-factor authentication when necessary.
-- Protecting privileged activities like access to the Azure portal.
+Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings.
 
 ## Why security defaults?
 
@@ -34,8 +28,6 @@ Quoting Alex Weinert, Director of Identity Security at Microsoft:
 > ...our telemetry tells us that more than 99.9% of organization account compromise could be stopped by simply using MFA, and that disabling legacy authentication correlates to a 67% reduction in compromise risk (and completely stops password spray attacks, 100% of which come in via legacy authentication)...
 
 More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
-
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to new tenants at creation.
 
 ### Who's it for?
 
@@ -124,44 +116,9 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 > [!NOTE]
 > The Azure AD Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multi-factor authentication. Organizations should not be using this account for other purposes.
 
-## Deployment considerations
+## Authentication methods
 
-The following extra considerations are related to deployment of security defaults.
-
-### Emergency access accounts
-
-Every organization should have at least two emergency access account configured. 
-
-These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
-
-Emergency access accounts are:
-
-- Assigned Global Administrator rights in Azure AD
-- Aren't used on a daily basis
-- Are protected with a long complex password
- 
-The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials. 
-
-To create an emergency access account: 
-
-1. Sign in to the **Azure portal** as an existing Global Administrator.
-1. Browse to **Azure Active Directory** > **Users**.
-1. Select **New user**.
-1. Select **Create user**.
-1. Give the account a **User name**.
-1. Give the account a **Name**.
-1. Create a long and complex password for the account.
-1. Under **Roles**, assign the **Global Administrator** role.
-1. Under **Usage location**, select the appropriate location.
-1. Select **Create**.
-
-You may choose [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) to for these accounts using Azure AD PowerShell.
-
-For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
-
-### Authentication methods
-
-These free security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
+Security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
 | Method | Security defaults | Conditional Access |
 | --- | --- | --- |
@@ -177,7 +134,7 @@ These free security defaults allow registration and use of Azure AD Multi-Factor
 > [!WARNING]
 > Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
-### Disabled MFA status
+## Disabled MFA status
 
 If your organization is a previous user of per-user based Azure AD Multi-Factor Authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure AD Multi-Factor Authentication.
 
@@ -194,32 +151,6 @@ Here are step-by-step guides for Conditional Access to configure a set of polici
 - [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
-## Enabling security defaults
-
-To enable security defaults in your directory:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **Yes**.
-1. Select **Save**.
-
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
-
-## Disabling security defaults
-
-Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
-
-![Warning message disable security defaults to enable Conditional Access](./media/concept-fundamentals-security-defaults/security-defaults-disable-before-conditional-access.png)
-
-To disable security defaults in your directory:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **No**.
-1. Select **Save**.
-
 ## Next steps
 
-[Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
+- [How to: Enable security defaults in Azure AD](howto-fundamentals-security-defaults.md)
