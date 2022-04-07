@@ -133,7 +133,7 @@ The following table highlights the key differences between managed online endpoi
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | Not supported yet (we're working on it) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
-| **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic) | Unsupported
+| **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported
 
 ### Managed online endpoints
 
