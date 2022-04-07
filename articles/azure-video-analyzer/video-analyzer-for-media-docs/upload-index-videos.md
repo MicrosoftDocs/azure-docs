@@ -7,26 +7,26 @@ ms.date: 11/15/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Upload and index your videos  
+# Upload and index your videos
 
-This article shows how to upload and index videos by using the Azure Video Analyzer for Media (formerly Video Indexer) website and the Upload Video API. 
+This article shows how to upload and index videos by using the Azure Video Analyzer for Media (formerly Video Indexer) website and the Upload Video API.
 
 When you're creating a Video Analyzer for Media account, you choose between:
 
-- A free trial account. Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users. 
-- A paid option where you're not limited by a quota. You create a Video Analyzer for Media account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes. 
+- A free trial account. Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users.
+- A paid option where you're not limited by a quota. You create a Video Analyzer for Media account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes.
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
-When you're uploading videos by using the API, you have the following options: 
+When you're uploading videos by using the API, you have the following options:
 
 * Upload your video from a URL (preferred).
 * Send the video file as a byte array in the request body.
-* Use existing an Azure Media Services asset by providing the [asset ID](../../media-services/latest/assets-concept.md). This option is supported in paid accounts only.
+* Use existing an Azure Media Services asset by providing the [asset ID](/media-services/latest/assets-concept). This option is supported in paid accounts only.
 
 ## Supported file formats
 
-For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](../../media-services/latest/encode-media-encoder-standard-formats-reference.md).
+For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 
@@ -35,7 +35,7 @@ When you use Video Analyzer for Media, video files are stored in Azure Storage t
 You can always delete your video and audio files, along with any metadata and insights that Video Analyzer for Media has extracted from them. After you delete a file from Video Analyzer for Media, the file and its metadata and insights are permanently removed from Video Analyzer for Media. However, if you've implemented your own backup solution in Azure Storage, the file remains in Azure Storage.
 
 The persistence of a video is identical whether you upload by using the Video Analyzer for Media website or by using the Upload Video API.
-   
+
 ## Upload and index a video by using the website
 
 Sign in on the [Video Analyzer for Media](https://www.videoindexer.ai/) website, and then select **Upload**.
@@ -52,19 +52,19 @@ After Video Analyzer for Media is done analyzing, you get an email with a link t
 
 ## Upload and index a video by using the API
 
-You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array. 
+You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array.
 
 ### Configurations and parameters
 
 This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Video Analyzer for Media portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
-#### externalID 
+#### externalID
 
 Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Video Analyzer for Media portal can be searched via the specified external ID.
 
 #### callbackUrl
 
-Use this parameter to specify a callback URL. 
+Use this parameter to specify a callback URL.
 
 [!INCLUDE [callback url](./includes/callback-url.md)]
 
@@ -83,10 +83,10 @@ Use this parameter to define an AI bundle that you want to apply on your audio o
 - `BasicAudio`: Index and extract insights by using audio only (ignoring video). Include only basic audio features (transcription, translation, formatting of output captions and subtitles).
 - `AdvancedAudio`: Index and extract insights by using audio only (ignoring video). Include advanced audio features (such as audio event detection) in addition to the standard audio analysis.
 - `AdvancedVideo`: Index and extract insights by using video only (ignoring audio). Include advanced video features (such as observed people tracing) in addition to the standard video analysis.
-- `AdvancedVideoAndAudio`: Index and extract insights by using both advanced audio and advanced video analysis. 
+- `AdvancedVideoAndAudio`: Index and extract insights by using both advanced audio and advanced video analysis.
 
 > [!NOTE]
-> The preceding advanced presets include models that are in public preview. When these models reach general availability, there might be implications for the price. 
+> The preceding advanced presets include models that are in public preview. When these models reach general availability, there might be implications for the price.
 
 Video Analyzer for Media covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
 
@@ -100,14 +100,14 @@ This parameter is supported only for paid accounts.
 
 #### streamingPreset
 
-After your video is uploaded, Video Analyzer for Media optionally encodes the video. It then proceeds to indexing and analyzing the video. When Video Analyzer for Media is done analyzing, you get a notification with the video ID.  
+After your video is uploaded, Video Analyzer for Media optionally encodes the video. It then proceeds to indexing and analyzing the video. When Video Analyzer for Media is done analyzing, you get a notification with the video ID.
 
-When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. 
+When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered.
 
 After the indexing and encoding jobs are done, the video is published so you can also stream your video. The streaming endpoint from which you want to stream the video must be in the **Running** state.
 
 For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Video Analyzer for Media encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
-The default setting is [content-aware encoding](../../media-services/latest/encode-content-aware-concept.md).
+The default setting is [content-aware encoding](/media-services/latest/encode-content-aware-concept).
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 
@@ -123,7 +123,7 @@ The following C# code snippets demonstrate the usage of all the Video Analyzer f
 
 After you copy the following code into your development platform, you'll need to provide two parameters:
 
-* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Video Analyzer for Media account. 
+* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Video Analyzer for Media account.
 
   To get your API key:
 
@@ -134,11 +134,11 @@ After you copy the following code into your development platform, you'll need to
 
 * Video URL (`videoUrl`): A URL of the video or audio file to be indexed. Here are the requirements:
 
-  - The URL must point at a media file. (HTML pages are not supported.) 
+  - The URL must point at a media file. (HTML pages are not supported.)
   - The file can be protected by an access token that's provided as part of the URI. The endpoint that serves the file must be secured with TLS 1.2 or later.
-  - The URL must be encoded.  
+  - The URL must be encoded.
 
-The result of successfully running the code sample includes an insight widget URL and a player widget URL. They allow you to examine the insights and the uploaded video, respectively. 
+The result of successfully running the code sample includes an insight widget URL and a player widget URL. They allow you to examine the insights and the uploaded video, respectively.
 
 
 ```csharp
@@ -166,8 +166,8 @@ public async Task Sample()
     HttpResponseMessage result = await client.GetAsync($"{apiUrl}/auth/trial/Accounts?{queryParams}");
     var json = await result.Content.ReadAsStringAsync();
     var accounts = JsonConvert.DeserializeObject<AccountContractSlim[]>(json);
-    
-    // Take the relevant account. Here we simply take the first. 
+
+    // Take the relevant account. Here we simply take the first.
     // You can also get the account via accounts.First(account => account.Id == <GUID>);
     var accountInfo = accounts.First();
 
@@ -175,17 +175,19 @@ public async Task Sample()
     client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
     // Upload a video
-    var content = new MultipartFormDataContent();
+    MultipartFormDataContent content = null;
     Console.WriteLine("Uploading...");
+    
     // Get the video from URL
     var videoUrl = "VIDEO_URL"; // Replace with the video URL
 
     // As an alternative to specifying video URL, you can upload a file.
     // Remove the videoUrl parameter from the query parameters below and add the following lines:
-    //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =new byte[video.Length];
+    //content = new MultipartFormDataContent();
+    //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+    //byte[] buffer = new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(new ByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()
@@ -314,7 +316,7 @@ public class AccountContractSlim
 
 ### [Azure Resource Manager account](#tab/with-arm-account-account/)
 
-After you copy this C# project into your development platform, you need to take the following steps: 
+After you copy this C# project into your development platform, you need to take the following steps:
 
 1. Go to Program.cs and populate:
 
@@ -380,7 +382,7 @@ namespace VideoIndexerArm
             Console.WriteLine($"account id: {accountId}");
             Console.WriteLine($"account location: {accountLocation}");
 
-            // Get account-level access token for Azure Video Analyzer for Media 
+            // Get account-level access token for Azure Video Analyzer for Media
             var accessTokenRequest = new AccessTokenRequest
             {
                 PermissionType = AccessTokenPermission.Contributor,
@@ -398,16 +400,16 @@ namespace VideoIndexerArm
             var client = new HttpClient(handler);
 
             // Upload a video
-            var content = new MultipartFormDataContent();
+            MultipartFormDataContent content = null;
             Console.WriteLine("Uploading...");
-            // Get the video from URL
 
             // As an alternative to specifying video URL, you can upload a file.
             // Remove the videoUrl parameter from the query parameters below and add the following lines:
-            // FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-            // byte[] buffer =new byte[video.Length];
-            // video.Read(buffer, 0, buffer.Length);
-            // content.Add(new ByteArrayContent(buffer));
+            //content = new MultipartFormDataContent();
+            //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+            //byte[] buffer = new byte[video.Length];
+            //video.Read(buffer, 0, buffer.Length);
+            //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
             var queryParams = CreateQueryString(
                 new Dictionary<string, string>()
@@ -576,7 +578,7 @@ namespace VideoIndexerArm
 
             [JsonPropertyName("projectId")]
             public string ProjectId { get; set; }
-            
+
             [JsonPropertyName("videoId")]
             public string VideoId { get; set; }
         }
@@ -644,7 +646,7 @@ The upload operation might return the following status codes:
 |429||Trial accounts are allowed 5 uploads per minute. Paid accounts are allowed 50 uploads per minute.|
 
 ## Uploading considerations and limitations
- 
+
 - The name of a video must be no more than 80 characters.
 - When you're uploading a video based on the URL (preferred), the endpoint must be secured with TLS 1.2 or later.
 - The upload size with the URL option is limited to 30 GB.
@@ -654,7 +656,7 @@ The upload operation might return the following status codes:
 - The URL provided in the `videoURL` parameter must be encoded.
 - Indexing Media Services assets has the same limitation as indexing from a URL.
 - Video Analyzer for Media has a duration limit of 4 hours for a single file.
-- The URL must be accessible (for example, a public URL). 
+- The URL must be accessible (for example, a public URL).
 
   If it's a private URL, the access token must be provided in the request.
 - The URL must point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
@@ -663,7 +665,7 @@ The upload operation might return the following status codes:
 > [!Tip]
 > We recommend that you use .NET Framework version 4.6.2. or later, because older .NET Framework versions don't default to TLS 1.2.
 >
-> If you must use an older .NET Framework version, add one line to your code before making the REST API call:  
+> If you must use an older .NET Framework version, add one line to your code before making the REST API call:
 >
 > `System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;`
 

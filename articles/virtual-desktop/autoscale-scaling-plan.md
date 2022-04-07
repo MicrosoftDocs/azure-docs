@@ -34,7 +34,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >
 > - You can only use autoscale in the Azure public cloud.
 > - You can only configure autoscale with the Azure portal.
-> - You can only deploy the scaling plan to US and European regions.
+> - You can only deploy the scaling plan to US, Canadian, and European regions.
 
 ## Requirements
 
@@ -191,7 +191,7 @@ To create a scaling plan:
 
 ## Configure a schedule
 
-Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when a session host has no sessions active. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
+Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
 
 To create or change a schedule:
 

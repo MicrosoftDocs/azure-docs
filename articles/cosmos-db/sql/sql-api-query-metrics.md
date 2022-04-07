@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 04/04/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 
@@ -162,48 +162,7 @@ Queries that need to consult all partitions need higher latency, and can consume
 To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](../partitioning-overview.md).
 
 ### SDK and query options
-See [Performance Tips](performance-tips.md) and [Performance testing](performance-testing.md) for how to get the best client-side performance from Azure Cosmos DB. This includes using the latest SDKs, configuring platform-specific configurations like default number of connections, frequency of garbage collection, and using lightweight connectivity options like Direct/TCP. 
-
-
-#### Max Item Count
-For queries, the value of `MaxItemCount` can have a significant impact on end-to-end query time. Each round trip to the server will return no more than the number of items in `MaxItemCount` (Default of 100 items). Setting this to a higher value (-1 is maximum, and recommended) will improve your query duration overall by limiting the number of round trips between server and client, especially for queries with large result sets.
-
-```cs
-IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
-    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
-    "SELECT * FROM c WHERE c.city = 'Seattle'", 
-    new FeedOptions 
-    { 
-        MaxItemCount = -1, 
-    }).AsDocumentQuery();
-```
-
-#### Max Degree of Parallelism
-For queries, tune the `MaxDegreeOfParallelism` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism`  controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel. 
-
-```cs
-IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
-    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
-    "SELECT * FROM c WHERE c.city = 'Seattle'", 
-    new FeedOptions 
-    { 
-        MaxDegreeOfParallelism = -1, 
-        EnableCrossPartitionQuery = true 
-    }).AsDocumentQuery();
-```
-
-Let’s assume that
-* D = Default Maximum number of parallel tasks (= total number of processor in the client machine)
-* P = User-specified maximum number of parallel tasks
-* N = Number of partitions that needs  to be visited for answering a query
-
-Following are implications of how the parallel queries would behave for different values of P.
-* (P == 0) => Serial Mode
-* (P == 1) => Maximum of one task
-* (P > 1) => Min (P, N) parallel tasks 
-* (P < 1) => Min (N, D) parallel tasks
-
-For SDK release notes, and details on implemented classes and methods see [SQL SDKs](sql-api-sdk-dotnet.md)
+See [Query performance tips](performance-tips-query-sdk.md) and [Performance testing](performance-testing.md) for how to get the best client-side performance from Azure Cosmos DB using our SDKs.
 
 ### Network latency
 See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.md) for how to set up global distribution, and connect to the closest region. Network latency has a significant impact on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 

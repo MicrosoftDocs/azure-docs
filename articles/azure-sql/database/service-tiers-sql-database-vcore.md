@@ -24,6 +24,9 @@ This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [A
 
 [!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
 
+> [!IMPORTANT]
+> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
+
 The vCore purchasing model used by Azure SQL Database provides several benefits over the DTU purchasing model:
 
 - Higher compute, memory, I/O, and storage limits.
