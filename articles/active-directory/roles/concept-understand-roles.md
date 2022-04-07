@@ -27,10 +27,12 @@ This article explains what Azure AD roles are and how they can be used.
 There are many different services in Microsoft 365, such as Azure AD and Intune. Some of these services have their own role-based access control systems, specifically:
 
 - Azure Active Directory (Azure AD)
-- Microsoft 365 Defender portal
-- Microsoft Defender for Cloud Apps
 - Microsoft Exchange
 - Microsoft Intune
+- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud Apps
+- Microsoft 365 compliance center
+- Commerce
 
 Other services such as Teams, SharePoint, and Managed Desktop don’t have separate role-based access control systems. They use Azure AD roles for their administrative access. Azure has its own role-based access control system for Azure resources such as virtual machines, and this system is not the same as Azure AD roles.
 
