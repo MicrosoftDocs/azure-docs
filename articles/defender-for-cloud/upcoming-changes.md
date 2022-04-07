@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 04/06/2022
+ms.date: 04/07/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -23,6 +23,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |--|--|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
+| [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -89,6 +90,15 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
 
+### Changes to vulnerability assessment
+
+**Estimated date for change:** May 2022
+
+Currently Vulnerability Assessment (VA) for containers shows both medium and low level vulnerabilities if customers have a patch. Customers are unable to hide these vulnerabilities.
+
+This update will make it so that any findings with a CVE associated with it, will under the VA findings by default, regardless of the severity. This allows for maximum visibility while still allowing you to filter undesired vulnerabilities by using the disable rule that is available on recommendations.
+
+:::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
 ## Next steps
 
