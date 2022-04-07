@@ -11,7 +11,7 @@ ms.reviewer: osalzberg
 ---
 # Collect and ingest data from a file using Data Collection Rules (DCR) (Preview)
 
-If you want to collect log files from your systems using agents, you can use a Data Collection Rules.
+If you want to collect,  log files from your systems using agents, you can use a Data Collection Rules.
 
 You can define how Azure Monitor transforms and stores data ingested into your workspace by setting [Data Collection Rules (DCR)](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview). Using DCR lets you ingest data quickly from different log formats.
 
@@ -37,7 +37,7 @@ Before you can send data to the workspace, you need to create the custom table t
 1. Upload a sample log file.
 1. Select a record delimiter.
 1. Set a collection path:
-    1. Select Windows or Linux to specify which path format you are adding.
+    1. Select Windows or Linux to specify which path format you're adding.
     1. Set the path on to the custom log file on your machine.  
 1. Specify a name for the table. Azure Monitor automatically adds the *_CL* (custom log) suffix to the table name. 
 1. Select **Create**.
