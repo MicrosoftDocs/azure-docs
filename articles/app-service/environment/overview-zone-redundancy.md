@@ -20,9 +20,9 @@ When a zone goes down, the App Service platform detects lost instances and autom
 
 There's no guarantee that requests for instances in a zone-down scenario will succeed, because back-filling lost instances occurs on a best effort basis. It's a good idea to scale your App Service plans to account for losing a zone.
 
-Applications deployed in a zone redundant App Service Environment continue to run and serve traffic, even if other zones in the same region suffer an outage. It's possible, however, that non-runtime behaviors might still be affected by an outage in other availability zones. These behaviors might include the following: App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service Environment only ensures continued uptime for deployed applications.
+Applications deployed in a zone redundant App Service Environment continue to run and serve traffic, even if other zones in the same region suffer an outage. It's possible, however, that non-runtime behaviors might still be affected by an outage in other availability zones. These behaviors might include App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service Environment only ensures continued uptime for deployed applications.
 
-When the App Service platform allocates instances to a zone redundant App Service plan, it uses [best effort zone balancing offered by the underlying Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). An App Service plan is considered balanced if each zone has either the same number of instances, or +/- 1 instance in all of the other zones used by the App Service plan.
+When the App Service platform allocates instances to a zone redundant App Service plan, it uses [best effort zone balancing offered by the underlying Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). An App Service plan is considered balanced if each zone has either the same number of instances, or +/- one instance in all of the other zones used by the App Service plan.
 
 ## In-region data residency
 
@@ -30,7 +30,7 @@ A zone redundant App Service Environment will only store customer data within th
 
 ## Pricing
 
- There is a minimum charge of nine App Service plan instances in a zone redundant App Service Environment. There is no added charge for availability zone support if you have nine or more instances. If you have fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, you're charged for the difference between nine and the running instance count. This charge is for additional Windows I1v2 instances.
+ There's a minimum charge of nine App Service plan instances in a zone redundant App Service Environment. There's no added charge for availability zone support if you've nine or more instances. If you've fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, you're charged for the difference between nine and the running instance count. This difference is billed as Windows I1v2 instances.
 
 ## Next steps
 
