@@ -113,10 +113,10 @@ The sample scripts we provided on [GitHub](https://github.com/Azure-Samples/Cogn
 
 | Category |Script for voice talent<br> (non-normalized) | Script for training <br> (normalized) |
 | --------- | --------- | --------------------------- |
-| Digits, for example, '123'. |'123'| Normalize '123' according to the recordings, such as 'one hundred and twenty-three' . |
-| Symbols, for example, '50%'. | '50%' | Normalize '50%' according to the recordings,  such as 'fifty percent'. |
-| Abbreviation, for example, 'ASAP'. | 'ASAP' | Normalize 'ASAP' according to the recordings, such as 'as soon as possible'. |
-| Date or time, for example, '2:30 PM'. | '2:30 PM' | Normalize '2:30 PM' according to the recordings, such as 'two thirty PM'. |
+| Digits |For example, '123'.| Normalize '123' according to the recordings, such as 'one hundred and twenty-three' . |
+| Symbols | For example, '50%'.| Normalize '50%' according to the recordings, such as 'fifty percent'. |
+| Abbreviation | For example, 'ASAP'.| Normalize 'ASAP' according to the recordings, such as 'as soon as possible'. |
+| Date and time | For example, 'in 2008'. | Normalize '2008' according to the recordings, such as 'two thousand and eight'. |
 
 ### Typical defects of a script
 
