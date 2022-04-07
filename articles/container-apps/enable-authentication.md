@@ -91,7 +91,7 @@ To register the app, perform the following steps:
     |Issuer Url| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
     |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If this is a cloud or server app and you want to accept authentication tokens from a client container app (the authentication token can be retrieved in the X-MS-TOKEN-AAD-ID-TOKEN header), add the **Application (client) ID** of the client app here. |
 
-    The client secret will be stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+    The client secret will be stored as [secrets](manage-secrets.md) in your container app.
 
 1. If this is the first identity provider configured for the application, you will also be prompted with an **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
     
@@ -118,7 +118,7 @@ You can register native clients to request access your container app's APIs on b
 1. Select **Create**.
 1. After the app registration is created, copy the value of **Application (client) ID**.
 1. Select **API permissions** > **Add a permission** > **My APIs**.
-1. Select the app registration you created earlier for your container app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Azure AD for your container app](#register).
+1. Select the app registration you created earlier for your container app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Azure AD for your container app](#aad-register).
 1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
 You have now configured a native client application that can request access your container app on behalf of a user.
@@ -144,7 +144,7 @@ At present, this allows _any_ client application in your Azure AD tenant to requ
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to click **Grant admin consent** to authorize the client application to request the permission.
 1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target Container Apps or Function app code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](configure-authentication-user-identities.md#access-user-claims-in-app-code).
+1. Within the target Container Apps or Function app code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](enable-authentication.md).
 
 You have now configured a daemon client application that can access your container app using its own identity.
 

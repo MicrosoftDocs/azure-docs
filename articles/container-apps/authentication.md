@@ -1,5 +1,6 @@
 ---
-description: Learn to use the built-in authentication in Azure Container Apps.
+title: Authentication and authorization in Azure Container Apps Preview
+description: Use built-in authentication in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -28,11 +29,11 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Container Apps Microsoft Identity Platform login](configure-authentication-provider-aad.md) |
-| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Container Apps Facebook login](configure-authentication-provider-facebook.md) |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Container Apps Google login](configure-authentication-provider-google.md) |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Container Apps Twitter login](configure-authentication-provider-twitter.md) |
-| Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [Container Apps OpenID Connect login](configure-authentication-provider-openid-connect.md) |
+| [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Container Apps Microsoft Identity Platform login](enable-authentication.md?pivots=aad) |
+| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Container Apps Facebook login](enable-authentication.md?pivots=facebook) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Container Apps Google login](enable-authentication.md?pivots=google) |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Container Apps Twitter login](enable-authentication.md?pivots=twitter) |
+| Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [Container Apps OpenID Connect login](enable-authentication.md?pivots=openid) |
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
 
@@ -51,7 +52,7 @@ Container Apps can be used for authentication with or without restricting access
 
 The authentication and authorization middleware component is a feature of the platform that runs on the same VM as your application. When it's enabled, every incoming HTTP request passes through it before being handled by your application.
 
-:::image type="content" source="../app-service/media/app-service-authentication-overview/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a process in the site sandbox which interacts with identity providers before allowing traffic to the deployed site" lightbox="media/app-service-authentication-overview/architecture.png":::
+:::image type="content" source="../app-service/media/app-service-authentication-overview/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a process in the site sandbox which interacts with identity providers before allowing traffic to the deployed site" lightbox="../app-service/media/app-service-authentication-overview/architecture.png":::
 
 The platform middleware handles several things for your app:
 
@@ -71,14 +72,14 @@ The authentication flow is the same for all providers, but differs depending on 
 
 - With provider SDK (_client-directed flow_ or _client flow_): The application signs users in to the provider manually and then submits the authentication token to Container Apps for validation. This is typically the case with browser-less apps, which can't present the provider's sign-in page to the user. An example is a native mobile app that signs users in using the provider's SDK.
 
-Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md).
+Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](enable-authentication.md).
 
 The table below shows the steps of the authentication flow.
 
 | Step | Without provider SDK | With provider SDK |
 | - | - | - |
 | 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK and receives an authentication token. For information, see the provider's documentation. |
-| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code [posts token from provider](configure-authentication-customize-sign-in-out.md#client-directed-sign-in) to `/.auth/login/<provider>` for validation. |
+| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code [posts token from provider](enable-authentication.md) to `/.auth/login/<provider>` for validation. |
 | 3. Establish authenticated session | Container Apps adds authenticated cookie to response. | Container Apps returns its own authentication token to client code. |
 | 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header. |
 
@@ -94,13 +95,13 @@ In the [Azure portal](https://portal.azure.com), you can configure your containe
 
 This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, Container Apps also passes along authentication information in the HTTP headers.
 
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](configure-authentication-customize-sign-in-out.md#use-multiple-sign-in-providers) to your users. However, you must write code.
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](enable-authentication.md) to your users. However, you must write code.
 
 **Require authentication**
 
 This option will reject any unauthenticated traffic to your application. This rejection can be a redirect action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`. You can also configure the rejection to be an `HTTP 401 Unauthorized` or `HTTP 403 Forbidden` for all requests.
 
-With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](configure-authentication-user-identities.md)).
+With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](enable-authentication.md)).
 
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
@@ -110,5 +111,5 @@ With this option, you don't need to write any authentication code in your app. F
 
 ### Logging and tracing
 
-If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
+If you [enable application logging](monitor.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](monitor.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
