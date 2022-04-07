@@ -132,7 +132,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
        // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments("prebuilt-document", formUrl);
+      const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
 
       const {
           keyValuePairs,
@@ -241,7 +241,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   async function main() {
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments("prebuilt-layout", formUrl);
+      const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
       const {
           pages,
@@ -335,7 +335,7 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments(PrebuiltModels.Invoice, invoiceUrl);
+      const poller = await client.beginAnalyzeDocument(PrebuiltModels.Invoice, invoiceUrl);
 
       const {
           documents: [result]

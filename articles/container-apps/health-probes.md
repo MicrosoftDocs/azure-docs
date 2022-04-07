@@ -57,6 +57,7 @@ TCP probes wait for a connection to be established with the server to indicate s
 - You can only add one of each probe type per container.
 - `exec` probes aren't supported.
 - Port values must be integers; named ports aren't supported.
+- gRPC is not supported.
 
 ## Examples
 
