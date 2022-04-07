@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/23/2021
+ms.date: 04/06/2022
 ms.author: alkohli
 ---
 
@@ -59,6 +59,10 @@ The failed connection attempts may include background processes, such as retries
 - If you're using the data copy service, you'll get the following notification in the local web UI of your device:
 
   ![Screenshot of the Notifications pane in the local Web UI for a Data Box. A notification for a locked share account is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
+
+- If you have locked your device, you will see the following dashboard status:
+
+    :::image type="content" source="media/data-box-troubleshoot-share-access/device-locked.png" alt-text="Screenshot of dashboard status showing device locked.":::
 
 
 **Suggested resolution.** To connect to an SMB share after a share account lockout, do these steps:
