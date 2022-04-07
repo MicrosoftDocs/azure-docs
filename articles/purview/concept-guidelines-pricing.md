@@ -67,7 +67,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 #### Automated scanning, classification and ingestion
 
 There are two major automated processes that can trigger ingestion of metadata into Azure Purview:
-1. Automatic scans using native [connectors](/azure-purview-connector-overview.md). This process includes three main steps:
+1. Automatic scans using native [connectors](azure-purview-connector-overview.md). This process includes three main steps:
    - Metadata scan
    - Automatic classification
    - Ingestion of metadata into Azure Purview
