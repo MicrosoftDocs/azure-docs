@@ -90,7 +90,7 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 ## Enable CLI extensions
 
 >[!NOTE]
->The `k8s-configuration` CLI extension has been upgraded to manage either Flux v2 or Flux v1 configurations. Flux v2 is an important upgrade to Flux v1, and eventually Azure GitOps support for Flux v1 will cease. Begin using Flux v2 as soon as possible.
+>The `k8s-configuration` CLI extension has been upgraded to manage either Flux v2 or Flux v1 configurations. Flux v2 is an important upgrade to Flux v1, and eventually Azure will stop supporting GitOps with Flux v1. Begin using Flux v2 as soon as possible.
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
