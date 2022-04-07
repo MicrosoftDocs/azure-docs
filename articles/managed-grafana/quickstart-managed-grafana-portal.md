@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and Marketplace** box, enter *Grafana* and select **Enter**.
 
-1. Select **Azure Managed Grafana** from the search results, and then Create.
+1. Select **Grafana Workspaces** from the search results, and then Create.
 
     :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-create.png" alt-text="Screenshot of the Azure portal. Create Grafana workspace.":::
 
@@ -38,10 +38,11 @@ An Azure account with an active subscription. [Create an account for free](https
     | Name                | GrafanaWorkspace | Enter a unique resource name. It will be used as the domain name in your workspace URL.                             |
 
 1. Select **Next : Permission >** to access rights for your Grafana dashboard and data sources:
-   1. Make sure **System assigned identity** is set on to **On** so that Log Analytics reader can access your subscription.
+   1. Make sure the **System assigned identity** is set to **On**. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** should also be checked for this Managed Identity to get access to your current subscription.
+
    1. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at this point or later.
 
-   For advanced scenarios, you can uncheck these options and configure data permissions later. The user who created the workspace is automatically assigned Admin permission to the workspace.
+    If you uncheck this option (or if the option greys out for you), someone with the Owner role on the subscription can do the role assignment to give you the Grafana Admin permission.
 
     > [!NOTE]
     > If creating a Grafana workspace fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.

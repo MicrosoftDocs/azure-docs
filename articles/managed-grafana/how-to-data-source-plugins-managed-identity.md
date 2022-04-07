@@ -53,7 +53,7 @@ You can find all available Grafana data sources by going to your workspace and s
 
 ## Default data sources in an Azure Managed Grafana workspace
 
-The Azure Monitor data source is automatically added to all new Managed Grafana resources. To finalize its configuration, follow these steps in your workspace endpoint:
+The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your workspace endpoint:
 
 1. From the left menu, select **Configuration** > **Data sources**.
 
@@ -68,7 +68,7 @@ Authentication and authorization are subsequently made through the provided mana
 
 ## Manually assign permissions for Managed Grafana to access data in Azure
 
-Azure Managed Grafana automatically configures the **Log Analytics Reader** role for accessing all the Log Analytics resources in your subscription. To change this:
+Azure Managed Grafana automatically configures the **Monitoring Reader** role for accessing all the Azure Monitor data and Log Analytics resources in your subscription. To change this:
 
 1. Go to the Log Analytics resource that contains the monitoring data you want to visualize.
 1. Select **Access Control (IAM)**.

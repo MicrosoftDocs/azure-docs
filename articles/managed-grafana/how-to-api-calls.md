@@ -15,7 +15,7 @@ In this article, you'll learn how to call Grafana APIs within Azure Managed Graf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/quickstart-managed-grafana-workspace.md).
 
 ## Sign in to Azure
 
@@ -62,7 +62,7 @@ curl -X GET \
 https://<grafana-url>/api/user
 ```
 
-Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance (for example *test.scus.azgrafana.io*).
+Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance (for example *test.scus.grafana.azure.com*).
 
 ## Next steps
 
