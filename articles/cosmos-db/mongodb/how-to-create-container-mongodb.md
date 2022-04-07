@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. It shows how to create a collection using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a collection, specify the partition key, and provision throughput.
 
 >[!NOTE]
-> **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Cosmos DB SQL API, while we use **collections** in the context of the Cosmos DB MongoDB API to match the terminology used in Mongo DB.
+> **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Cosmos DB SQL API and throughout the Azure portal, while we use **collections** in the context of the Cosmos DB MongoDB API to match the terminology used in Mongo DB.
 
 This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../how-to-create-container.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the collection.
 
