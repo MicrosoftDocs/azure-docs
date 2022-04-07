@@ -72,14 +72,14 @@ The authentication flow is the same for all providers, but differs depending on 
 
 - With provider SDK (_client-directed flow_ or _client flow_): The application signs users in to the provider manually and then submits the authentication token to Container Apps for validation. This is typically the case with browser-less apps, which can't present the provider's sign-in page to the user. An example is a native mobile app that signs users in using the provider's SDK.
 
-Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](enable-authentication.md).
+Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](enable-authentication.md#customize-sign-in-and-sign-out).
 
 The table below shows the steps of the authentication flow.
 
 | Step | Without provider SDK | With provider SDK |
 | - | - | - |
 | 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK and receives an authentication token. For information, see the provider's documentation. |
-| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code [posts token from provider](enable-authentication.md) to `/.auth/login/<provider>` for validation. |
+| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code [posts token from provider](enable-authentication.md#client-directed-sign-in) to `/.auth/login/<provider>` for validation. |
 | 3. Establish authenticated session | Container Apps adds authenticated cookie to response. | Container Apps returns its own authentication token to client code. |
 | 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header. |
 
@@ -95,13 +95,13 @@ In the [Azure portal](https://portal.azure.com), you can configure your containe
 
 This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, Container Apps also passes along authentication information in the HTTP headers.
 
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](enable-authentication.md) to your users. However, you must write code.
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](enable-authentication.md#use-multiple-sign-in-providers) to your users. However, you must write code.
 
 **Require authentication**
 
 This option will reject any unauthenticated traffic to your application. This rejection can be a redirect action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`. You can also configure the rejection to be an `HTTP 401 Unauthorized` or `HTTP 403 Forbidden` for all requests.
 
-With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](enable-authentication.md)).
+With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](enable-authentication.md#access-user-claims-in-app-code)).
 
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.

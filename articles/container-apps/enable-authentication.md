@@ -144,7 +144,7 @@ At present, this allows _any_ client application in your Azure AD tenant to requ
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to click **Grant admin consent** to authorize the client application to request the permission.
 1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target Container Apps or Function app code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](enable-authentication.md).
+1. Within the target Container Apps or Function app code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](#access-user-claims-in-app-code).
 
 You have now configured a daemon client application that can access your container app using its own identity.
 
@@ -327,3 +327,110 @@ If you are unable to use a configuration metadata document, you will need to gat
 1. Press the **Add** button to finish setting up the identity provider. 
 
 ::: zone-end
+
+## Customize sign-in and sign-out
+
+Container Apps Authentication provides built-in endpoints for sign-in and sign-out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
+
+### Use multiple sign-in providers
+
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
+
+First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
+
+In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
+
+In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
+
+```html
+<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
+<a href="/.auth/login/facebook">Log in with Facebook</a>
+<a href="/.auth/login/google">Log in with Google</a>
+<a href="/.auth/login/twitter">Log in with Twitter</a>
+```
+
+When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
+
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+
+```html
+<a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
+```
+
+### Client-directed sign-in
+
+In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to Container Apps for validation (see [Authentication flow](authentication.md#authentication-flow)) using an HTTP POST request.
+
+To validate the provider token, container app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+The token format varies slightly according to the provider. See the following table for details:
+
+| Provider value | Required in request body | Comments |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
+| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Once you have this session token, you can access protected app resources by adding the `X-ZUMO-AUTH` header to your HTTP requests. For example: 
+
+```
+GET https://<hostname>.azurecontainerapps.io/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
+```
+
+### Sign out of a session
+
+Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request does the following:
+
+- Clears authentication cookies from the current session.
+- Deletes the current user's tokens from the token store.
+- For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+
+Here's a simple sign-out link in a webpage:
+
+```html
+<a href="/.auth/logout">Sign out</a>
+```
+
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+It's recommended that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+
+When using fully qualified URLs, the URL must be hosted in the same domain.
+
+## Access user claims in app code
+
+For all language frameworks, Container Apps makes the claims in the incoming token (whether from an authenticated end user or a client application) available to your code by injecting them into the request headers. External requests aren't allowed to set these headers, so they are present only if set by App Service. Some example headers include:
+
+* X-MS-CLIENT-PRINCIPAL-NAME
+* X-MS-CLIENT-PRINCIPAL-ID
+
+Code that is written in any language or framework can get the information that it needs from these headers. 
+
+> [!NOTE]
+> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
