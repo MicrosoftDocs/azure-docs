@@ -291,6 +291,5 @@ The route tables to which your custom vnet is associated must meet the following
 
 ## Next steps
 
-* [Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 * [Troubleshooting Azure Spring Cloud in VNET](https://docs.microsoft.com/en-us/azure/spring-cloud/troubleshooting-vnet)
 * [Customer Responsibilities for Running Azure Spring Cloud in VNET](https://docs.microsoft.com/en-us/azure/spring-cloud/vnet-customer-responsibilities)
