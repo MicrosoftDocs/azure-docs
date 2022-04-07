@@ -20,9 +20,12 @@
   - name: Run a Batch job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  - name: Create a Batch account - Bicep
+    href: quick-create-bicep.md
+    displayName: Resource Manager, ARM, Template
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
-    displayName: Resource Manager, quickstart, first, create
+    displayName: Resource Manager
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET

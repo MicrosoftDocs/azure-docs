@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/11/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -18,9 +18,9 @@ ms.custom: ignite-fall-2021
 
 The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extracts key information from US Drivers Licenses (all 50 states and District of Columbia) and international passport biographical pages (excludes visa and other travel documents). The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
-***Sample U.S. Driver's License processed with Form Recognizer Studio***
+***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
-:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license." lightbox="media/overview-id.jpg":::
+:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
 
 ## Development options
 
@@ -62,7 +62,7 @@ See how to extract data, including name, birth date, machine-readable zone, and 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
 You'll need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 

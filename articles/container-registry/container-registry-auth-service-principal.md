@@ -52,7 +52,7 @@ Once you have a service principal that you've granted access to your container r
 Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password (client secret) of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
+> You can regenerate the password (client secret) of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
 >
 
 ### Use credentials with Azure services
@@ -104,6 +104,10 @@ To create a service principal that can authenticate with a container registry in
 * Update the service or app in Tenant A to authenticate using the new service principal
 
 For example steps, see [Pull images from a container registry to an AKS cluster in a different AD tenant](authenticate-aks-cross-tenant.md).
+
+## Service principal renewal
+
+The service principal is created with one-year validity. You have options to extend the validity further than one year, or can provide expiry date of your choice using the [`az ad sp credential reset`](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. 
 
 ## Next steps
 

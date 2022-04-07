@@ -149,7 +149,7 @@ for (word, count) in sortedCollection:
 
      ![select interpreter to start jupyter server](./media/vscode-tool-synapse/select-interpreter-to-start-jupyter-server.png)
 
-8. Select the python option below.
+8. Select the Python option below.
 
      ![choose the below option](./media/vscode-tool-synapse/choose-the-below-option.png)
     

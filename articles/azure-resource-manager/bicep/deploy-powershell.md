@@ -83,7 +83,7 @@ The deployment can take several minutes to complete.
 
 ## Deploy remote Bicep file
 
-Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az_bicep_build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az-bicep-build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 

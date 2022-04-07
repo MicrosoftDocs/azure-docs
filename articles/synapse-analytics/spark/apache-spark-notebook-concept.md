@@ -34,7 +34,7 @@ To learn more on how you can create and manage notebooks, see the following arti
     - [Use multiple languages using magic commands and temporary tables](./spark/../apache-spark-development-using-notebooks.md#integrate-a-notebook)
     - [Use cell magic commands](./spark/../apache-spark-development-using-notebooks.md#magic-commands)
   - Development
-    - [Configure Spark session settings](./spark/../apache-spark-development-using-notebooks.md#spark-session-config)
+    - [Configure Spark session settings](./spark/../apache-spark-development-using-notebooks.md#spark-session-configuration)
     - [Use Microsoft Spark utilities](./spark/../microsoft-spark-utilities.md)
     - [Visualize data using notebooks and libraries](./spark/../apache-spark-data-visualization.md)
     - [Integrate a notebook into pipelines](./spark/../apache-spark-development-using-notebooks.md#integrate-a-notebook)

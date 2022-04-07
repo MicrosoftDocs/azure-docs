@@ -35,7 +35,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
     # [Azure CLI](#tab/azure-cli)
 
-    To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
+    To get the login server name, use [az acr show](/cli/azure/acr#az-acr-show).
 
     ```azurecli
     az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer

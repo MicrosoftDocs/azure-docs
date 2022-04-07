@@ -107,7 +107,7 @@ Use the following cmdlets for Azure SQL Database and Azure Synapse:
 | [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Sets the transparent data encryption protector for a server. |
 | [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Gets the transparent data encryption protector |
 | [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Removes a Key Vault key from a server. |
-|  | |
+
 
 > [!IMPORTANT]
 > For Azure SQL Managed Instance, use the T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command to turn TDE on and off on a database level, and check [sample PowerShell script](transparent-data-encryption-byok-configure.md) to manage TDE on an instance level.
@@ -123,7 +123,7 @@ Connect to the database by using a login that is an administrator or member of t
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF encrypts or decrypts a database |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returns information about the encryption state of a database and its associated database encryption keys |
 | [sys.dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returns information about the encryption state of each Azure Synapse node and its associated database encryption keys |
-|  | |
+
 
 You can't switch the TDE protector to a key from Key Vault by using Transact-SQL. Use PowerShell or the Azure portal.
 

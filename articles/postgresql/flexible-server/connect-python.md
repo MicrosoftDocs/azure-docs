@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Connect using Python - Azure Database for PostgreSQL - Flexible Server'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc, mode-api
-ms.devlang: python
+ms.subservice: flexible-server
 ms.topic: quickstart
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: python
+ms.custom: mvc, mode-api
 ms.date: 11/30/2021
 ---
 

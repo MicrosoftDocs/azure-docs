@@ -2,7 +2,7 @@
 title: Restrict egress traffic in an Azure Red Hat OpenShift (ARO) cluster
 description: Learn what ports and addresses are required to control egress traffic in Azure Red Hat OpenShift (ARO)
 author: sakthi-vetrivel
-ms.author: jzim
+ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021

@@ -1,7 +1,7 @@
 ---
 title: "CI/CD Workflow using GitOps (Flux v2) - Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps"
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Helm, Arc, CI/CD, Azure DevOps"
+keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Helm, Arc, AKS, CI/CD, Azure DevOps"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 11/29/2021
@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: eedorenko
 ms.author: iefedore
 ---
-# CI/CD workflow using GitOps (Flux v2) - Azure Arc enabled Kubernetes
+# CI/CD workflow using GitOps (Flux v2)
 
 Modern Kubernetes deployments contain multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to declare cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
@@ -65,7 +65,7 @@ The GitOps repository represents the current desired state of all environments a
 
 ### Kubernetes clusters
 
-At least one Azure Arc-enabled Kubernetes cluster serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
+At least one Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) cluster serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
 
 ## Example workflow
 

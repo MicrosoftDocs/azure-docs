@@ -4,8 +4,8 @@ description: Learn how to create an Azure Service Fabric cluster across Availabi
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 05/24/2021
-ms.author: pepogors
+ms.date: 03/16/2022
+ms.author: ashank
 ---
 
 # Deploy an Azure Service Fabric cluster across Availability Zones
@@ -222,9 +222,10 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
   * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
 
   This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying virtual machine scale set upgrades are still parallel in all Availability Zones. This property doesn't affect the UD distribution for node types that don't have multiple zones enabled.
-* The third value is `vmssZonalUpgradeMode = Parallel`. This property is mandatory if a node type with multiple Availability Zones is added. This property defines the upgrade mode for the virtual machine scale set updates that happen in all Availability Zones at once.
+* The third value is `vmssZonalUpgradeMode`, is optional and can be updated at anytime. This property defines the upgrade scheme for the virtual machine scale set to happen in parallel or sequentially across Availability Zones.
 
-  Currently, this property can only be set to parallel.
+  * If this value is set to `Parallel`: All scale set updates happen in parallel in all zones. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
+  * If this value is omitted or set to `Hierarchical`: This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
 
 >[!IMPORTANT]
 >The Service Fabric cluster resource API version should be 2020-12-01-preview or later.

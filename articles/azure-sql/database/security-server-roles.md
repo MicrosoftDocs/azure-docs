@@ -7,7 +7,7 @@ ms.subservice: security
 author: AndreasWolter
 ms.author: anwolter
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 03/14/2022
 ms.reviewer: kendralittle, vanto, mathoma
 ---
 
@@ -29,7 +29,7 @@ For example, the server-level role **##MS_ServerStateReader##** holds the permis
 > [!NOTE]
 > Any permission can be denied within user databases, in effect, overriding the server-wide grant via role membership. However, in the system database *master*, permissions cannot be granted or denied.
 
-Azure SQL Database currently provides three fixed server roles. The permissions that are granted to the fixed server roles cannot be changed and these roles can't have other fixed roles as members. You can add server-level SQL logins as members to server-level roles.
+Azure SQL Database currently provides three fixed server roles. The permissions that are granted to the fixed server roles cannot be changed and these roles can't have other fixed roles as members. You can add server-level logins as members to server-level roles.
 
 > [!IMPORTANT]
 > Each member of a fixed server role can add other logins to that same role.
@@ -100,7 +100,8 @@ INNER JOIN sys.sql_logins AS sql_logins
     ON server_role_members.member_principal_id = sql_logins.principal_id
 ;  
 GO  
-```  
+```
+
 ### C. Complete example: Adding a login to a server-level role, retrieving metadata for role membership and permissions, and running a test query
 
 #### Part 1: Preparing role membership and user account
@@ -173,6 +174,32 @@ SELECT * FROM sys.dm_exec_query_stats
 --> will return data since this user has the necessary permission
 
 ``` 
+
+### D. Check server-level roles for Azure AD logins
+
+Run this command in the virtual master database to see all Azure AD logins that are part of server-level roles in SQL Database. For more information on Azure AD server logins, see [Azure Active Directory server principals](authentication-azure-ad-logins.md).
+
+```sql
+SELECT roles.principal_id AS RolePID,roles.name AS RolePName,
+       server_role_members.member_principal_id AS MemberPID, members.name AS MemberPName
+       FROM sys.server_role_members AS server_role_members
+       INNER JOIN sys.server_principals AS roles
+       ON server_role_members.role_principal_id = roles.principal_id
+       INNER JOIN sys.server_principals AS members 
+       ON server_role_members.member_principal_id = members.principal_id;
+```
+
+### E. Check the virtual master database roles for specific logins
+
+Run this command in the virtual master database to check with roles `bob` has, or change the value to match your principal.
+
+```sql
+SELECT DR1.name AS DbRoleName, isnull (DR2.name, 'No members')  AS DbUserName
+   FROM sys.database_role_members AS DbRMem RIGHT OUTER JOIN sys.database_principals AS DR1
+    ON DbRMem.role_principal_id = DR1.principal_id LEFT OUTER JOIN sys.database_principals AS DR2
+     ON DbRMem.member_principal_id = DR2.principal_id
+      WHERE DR1.type = 'R' and DR2.name like 'bob%'
+```
 
 ## Limitations of server-level roles
 

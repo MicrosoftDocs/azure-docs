@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Policy exception for Azure Purview
-description: This article describes how to create an Azure Policy exception for Azure Purview while leaving existing Policies in place to maintain security.
+title: Create an exception to deploy Azure Purview
+description: This article describes how to create an exception to deploy Azure Purview while leaving existing Azure policies in place to maintain security.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ---
 
-# Create an Azure Policy exception for Azure Purview
+# Create an exception to deploy Azure Purview
 
-Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Azure Purview accounts deploy two other Azure resources when they are created: an Azure Storage account, and an Event Hubs namespace. When you [create Azure Purview Account](create-catalog-portal.md), these resources will be deployed. They will be managed by Azure, so you don't need to maintain them, but you will need to deploy them.
+Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Azure Purview accounts deploy two other Azure resources when they're created: an Azure Storage account, and an Event Hubs namespace. When you [create Azure Purview Account](create-catalog-portal.md), these resources will be deployed. They'll be managed by Azure, so you don't need to maintain them, but you'll need to deploy them. Existing policies may block this deployment, and you may receive an error when attempting to create an Azure Purview account.
 
-To maintain your policies in your subscription, but still allow the creation of these managed resources, you can create a policy exception.
+To maintain your policies in your subscription, but still allow the creation of these managed resources, you can create an exception.
 
-## Create a policy exception for Azure Purview
+## Create an Azure policy exception for Azure Purview
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and search for **Policy**
 

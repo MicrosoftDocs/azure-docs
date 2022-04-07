@@ -1,12 +1,11 @@
 ---
 title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
-author: craigshoemaker
 ms.topic: reference
-ms.date: 09/01/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x and higher
@@ -15,9 +14,13 @@ The Azure Cosmos DB output binding lets you write a new document to an Azure Cos
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
-<a id="example" name="example"></a>
+## Example
 
-# [C#](#tab/csharp)
+Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container`.
+
+::: zone pivot="programming-language-csharp"
+
+# [In-process](#tab/in-process)
 
 This section contains the following examples:
 
@@ -32,7 +35,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -76,7 +79,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, write one doc (v4 extension)
 
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+Apps using Cosmos DB [extension version 4.x] or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -143,6 +146,18 @@ namespace CosmosDBSamplesV2
     }
 }
 ```
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [Isolated process](#tab/isolated-process)
+
+The following code defines a `MyDocument` type:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+
+In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -230,7 +245,7 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -279,7 +294,10 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# [Java](#tab/java)
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
 
 * [Queue trigger, save message to database via return value](#queue-trigger-save-message-to-database-via-return-value-java)
 * [HTTP trigger, save one document to database via return value](#http-trigger-save-one-document-to-database-via-return-value-java)
@@ -446,7 +464,8 @@ The following example shows a Java function that writes multiple documents to Co
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
 
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -520,7 +539,8 @@ For bulk insert form the objects first and then run the stringify function. Here
     };
 ```
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following example show how to write data to Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to a Cosmos DB document.
 
@@ -549,7 +569,8 @@ Push-OutputBinding -Name EmployeeDocument -Value @{
 } 
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 The following example demonstrates how to write a document to an Azure Cosmos DB database as the output of a function.
 
@@ -601,88 +622,79 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
----
+::: zone-end 
+::: zone pivot="programming-language-csharp" 
+## Attributes
 
-## Attributes and annotations
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-# [C#](#tab/csharp)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests) attribute.
+[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
-The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#configuration). Here's a `CosmosDB` attribute example in a method signature:
+# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
-```csharp
-    [FunctionName("QueueToDocDB")]
-    public static void Run(
-        [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-    {
-        ...
-    }
-```
+[!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
-In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. For detailed information about the changes, see [Output - configuration](#configuration). Here's a `CosmosDB` attribute example in a method signature:
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-```csharp
-    [FunctionName("QueueToCosmosDB")]
-    public static void Run(
-      [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-      [CosmosDB("database", "container", Connection = "CosmosDBConnectionSetting")] out dynamic document)
-    {
-        ...
-    }
-```
+[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
-# [C# Script](#tab/csharp-script)
+# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
 
-Attributes are not supported by C# Script.
+[!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
-# [Java](#tab/java)
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
 
-The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
+[!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
-# [JavaScript](#tab/javascript)
+# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
 
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
+[!INCLUDE [functions-cosmosdb-output-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
 
 ---
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
 
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that write to Azure Cosmos DB. The annotation supports the following properties:
+
++ [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.name)
++ [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.connectionstringsetting)
++ [databaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.databasename)
++ [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.collectionname)
++ [createIfNotExists](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.createifnotexists)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.datatype)
++ [partitionKey](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.partitionkey)
++ [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.preferredlocations)
++ [useMultipleWriteLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.usemultiplewritelocations)
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type**     | n/a | Must be set to `cosmosDB`.        |
-|**direction**     | n/a | Must be set to `out`.         |
-|**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
-|**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
-|**collectionName** <br> or <br> **containerName** |**CollectionName** <br> or <br> **ContainerName** | The name of the collection where the document is created. <br><br> In [version 4.x of the extension] this property is called `ContainerName`. |
-|**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, it defines the partition key path for the created collection.|
-|**collectionThroughput** <br> or <br> **containerThroughput**|**CollectionThroughput** <br> or <br> **ContainerThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection. <br><br> In [version 4.x of the extension] this property is called `ContainerThroughput`. |
-|**connectionStringSetting** <br> or <br> **connection**   |**ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. See [Connections](#connections) <br><br> In [version 4.x of the extension] this property is called `connection`. |
-|**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is not available in [version 4.x of the extension]. |
+# [Functions 2.x+](#tab/functionsv2)
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
-[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
+# [Extension 4.x+ (preview)](#tab/extensionv4)
+
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
+
+---
+::: zone-end  
+See the [Example section](#example) for complete examples.
 
 ## Usage
 
-By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
+By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the id property in the JSON object passed to the output parameter.
 
-> [!Note]
+> [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]    
 
 ## Exceptions and return codes
 
@@ -690,36 +702,9 @@ By default, when you write to the output parameter in your function, a document 
 |---|---|
 | CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-<a name="host-json"></a>
-
-## host.json settings
-
-[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "cosmosDB": {
-            "connectionMode": "Gateway",
-            "protocol": "Https",
-            "leaseOptions": {
-                "leasePrefix": "prefix1"
-            }
-        }
-    }
-}
-```
-
-|Property  |Default |Description |
-|----------|--------|------------|
-|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). <br><br> This setting is not available in [version 4.x of the extension]. |
-|leasePrefix|n/a|Lease prefix to use across all functions in an app. <br><br> This setting is not available in [version 4.x of the extension].|
-
 ## Next steps
 
 - [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
 
-[version 4.x of the extension]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher
+[extension version 4.x]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4

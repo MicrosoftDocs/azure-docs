@@ -1131,4 +1131,4 @@ If you enable the **Queue if offline** option in the device template UI for the 
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device templates, a suggested next steps is to read [IoT Central device connectivity guide](overview-iot-central-developer.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
