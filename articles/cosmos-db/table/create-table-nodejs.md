@@ -46,7 +46,7 @@ You first need to create a Cosmos DB Tables API account that will contain the ta
 
 ### [Azure portal](#tab/azure-portal)
 
-Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Cosmos DB account.
+Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create a Cosmos DB account.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
