@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/04/2022
+ms.date: 04/07/2022
 ms.author: juliako
 ---
 
@@ -13,13 +13,32 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Analyzer for Media (former Video Indexer) developments, this article provides you with information about:
 
+* [Heads up](#heads-up) on what is about to change
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
-* [Heads up](#heads-up) on what is about to change
 
-## March 2022
+## Heads up
+
+### Upload-Video API
+
+In the past, the `Upload-Video` API was tolerant to calls to upload a video from a url where an empty multipart form body was also provided.
+This can happen if you has c# code that does:
+
+```
+var content = new MultipartFormDataContent();
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
+```
+
+In a couple of weeks, our service will fail these requests.
+
+In order to upload a video from a url, change your code to send null in the request body:
+
+`var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);`
+
+
+## March 2022 updates
 
 ### Closed Captioning files now support including speakers’ attributes
 
@@ -34,7 +53,7 @@ The following improvements were made:
 * The Insights widgets also include a confirmation step before deleting a face to avoid mistakes.
 * The widget customization now supports width as strings (for example 100%, 100vw).
 
-## February 2022
+## February 2022 updates
 
 ### Public preview of Video Analyzer for Media account management based on ARM in Government cloud
 
@@ -45,7 +64,7 @@ Video Analyzer for Media website is now supporting account management based on A
 Added new code samples including HTTP calls to use Video Analyzer for Media create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account
 ).
 
-## January 2022
+## January 2022 updates
 
 ### Improved audio effects detection
 
@@ -62,7 +81,7 @@ For more information, see [Audio effects detection](audio-effects-detection.md).
 Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.
 It means transcription, translation, and search features are also supported for these languages in Video Analyzer for Media web applications and widgets.
 
-## December 2021
+## December 2021 updates
 
 ### The projects feature is now GA
 
@@ -76,7 +95,7 @@ Video Analyzer for Media introduces source languages support for STT (speech-to-
 
 When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player.
 
-## November 2021
+## November 2021 updates
 
 ### Public preview of Video Analyzer for Media account management based on ARM
 
@@ -99,7 +118,7 @@ You can now turn on a bounding box for detected faces during indexing of the med
 
 You can enable the bounding boxes through the player.
 
-## October 2021
+## October 2021 updates
 
 ### Embed widgets in your app using Azure Video Analyzer for Media package
 
@@ -120,19 +139,19 @@ Fixed bugs related to CSS, theming and accessibility:
 * high contrast
 * account settings and insights views in the [portal](https://www.videoindexer.ai).
 
-## July 2021
+## July 2021 updates
 
 ### Automatic Scaling of Media Reserved Units
 
 Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
-## June 2021
+## June 2021 updates
 
 ### Video Analyzer for Media deployed in six new regions
 
 You can now create a Video Analyzer for Media paid account in France Central, Central US, Brazil South, West Central US, Korea Central, and Japan West regions.
 
-## May 2021
+## May 2021 updates
 
 ### New source languages support for speech-to-text (STT), translation, and search
 
@@ -157,7 +176,7 @@ Three new Git-Hub projects are available at our [GitHub repository](https://gith
 
 When indexing a video through our advanced video settings, you can view our new observed people capabilities. If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
-## April 2021
+## April 2021 updates
 
 The Video Indexer service was renamed to Azure Video Analyzer for Media.
 
@@ -187,7 +206,7 @@ You can now see the detected acoustic events in the closed captions file. The fi
 
 **Audio Effects Detection** (preview) component detects various acoustics events and classifies them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more). For more information, see [Audio effects detection](audio-effects-detection.md).
 
-## March 2021
+## March 2021 updates
 
 ### Audio analysis
 
@@ -215,7 +234,7 @@ Video Analyzer for Media now support STT, translation and search in Danish ('da-
 
 You can now use the search feature, at the top of  the [Video Analyzer for Media website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics.
 
-## February 2021
+## February 2021 updates
 
 ### Multiple account owners
 
@@ -242,7 +261,7 @@ The extracted list of people and location was extended and updated in general.
 
 In addition, the model now includes people and locations in-context which are not famous, like a ‘Sam’ or ‘Home’ in the video.
 
-## January 2021
+## January 2021 updates
 
 ### Video Analyzer for Media is deployed on US Government cloud
 
@@ -260,13 +279,13 @@ To enable the dark mode open the settings panel and toggle on the **Dark Mode** 
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
 
-## December 2020
+## December 2020 updates 
 
 ### Video Analyzer for Media deployed in the Switzerland West and Switzerland North
 
 You can now create a Video Analyzer for Media paid account in the Switzerland West and Switzerland North regions.
 
-## October 2020
+## October 2020 updates
 
 ### Animated character identification improvements
 
@@ -284,7 +303,7 @@ You will be able to sign up and sign in using one of these providers: Azure AD, 
 > You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Analyzer for Media account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
 > Alternatively, you can create a paid account and migrate the data.
 
-## August 2020
+## August 2020 updates
 
 ### Mobile design for the Video Analyzer for Media website
 
@@ -294,7 +313,7 @@ The Video Analyzer for Media website experience is now supporting mobile devices
 
 As part of WCAG (Web Content Accessibility guidelines), the Video Analyzer for Media website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
 
-## July 2020
+## July 2020 updates
 
 ### GA for multi-language identification
 
@@ -316,7 +335,7 @@ Side panel for easy selection and user configuration was added, allowing simple 
 
 Side panel is also used for user preferences and help.
 
-## June 2020
+## June 2020 updates
 
 ### Search by topics
 
@@ -328,7 +347,7 @@ Topics is added as part of the `textScope` (optional parameter). See [API](https
 
 The label tagger was upgraded and now includes more visual labels that can be identified.
 
-## May 2020
+## May 2020 updates
 
 ### Video Analyzer for Media deployed in the East US
 
@@ -342,7 +361,7 @@ From now on, you reach www.videoindexer.ai whether it is for embedding widgets o
 
 Also wus.videoindexer.ai would be redirected to www. More information is available in [Embed Video Analyzer for Media widgets in your apps](video-indexer-embed-widgets.md).
 
-## April 2020
+## April 2020 updates
 
 ### New widget parameters capabilities
 
@@ -381,7 +400,7 @@ In the coming weeks we will change it and return the [Video Analyzer for Media w
 
     The regional URLs are not supported and will be blocked in the coming weeks.
 
-## January 2020
+## January 2020 updates
 
 ### Custom language support for additional languages
 
@@ -400,7 +419,7 @@ https://github.com/Azure-Samples/media-services-video-indexer
 
 Video Analyzer for Media unified **authentications** and **operations** into a single [Video Analyzer for Media OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai/).
 
-## December 2019
+## December 2019 updates
 
 ### Update transcript with the new API
 
@@ -436,7 +455,7 @@ When streaming endpoint is disabled, Video Analyzer for Media will show a descri
 
 Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) and [Update Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
 
-## November 2019
+## November 2019 updates
 
 * Korean custom language models support
 
@@ -447,13 +466,13 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
 
     For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 
-## October 2019
+## October 2019 updates
 
 * Search for animated characters in the gallery
 
     When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
 
-## September 2019
+## September 2019 updates
 
 Multiple advancements announced at IBC 2019:
 
@@ -473,7 +492,7 @@ Multiple advancements announced at IBC 2019:
 
     The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## August 2019
+## August 2019 updates
 
 ### Video Analyzer for Media deployed in UK South
 
@@ -510,7 +529,7 @@ Support for URL query string of 4096 (instead of 2048) on indexing a video.
 
 Projects can now be created based on videos indexed in different languages (API only).
 
-## July 2019
+## July 2019 updates
 
 ### Editor as a widget
 
@@ -520,7 +539,7 @@ The Video Analyzer for Media AI-editor is now available as a widget to be embedd
 
 Customers can provide VTT, SRT, and TTML file formats as input for language models in the customization page of the portal.
 
-## June 2019
+## June 2019 updates
 
 ### Video Analyzer for Media deployed to Japan East
 
@@ -542,7 +561,7 @@ You can now see an image preview for each time on the player's timeline.
 
 You can now see a preview of all the insights that are selected as a result of choosing a specific insight timeframe in the editor.
 
-## May 2019
+## May 2019 updates
 
 ### Update custom language model from closed caption file
 
@@ -553,24 +572,6 @@ When calling the [Update Video transcript API](https://api-portal.videoindexer.a
 ### New download transcript formats – TXT and CSV
 
 In addition to the closed captioning format already supported (SRT, VTT, and TTML), Video Analyzer for Media now supports downloading the transcript in TXT and CSV formats.
-
-## Heads up
-
-### Upload-Video API
-
-In the past, the `Upload-Video` API was tolerant to calls to upload a video from a url where an empty multipart form body was also provided.
-This can happen if you has c# code that does:
-
-```
-var content = new MultipartFormDataContent();
-var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
-```
-
-In a couple of weeks, our service will fail these requests.
-
-In order to upload a video from a url, change your code to send null in the request body:
-
-`var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);`
 
 ## Next steps
 
