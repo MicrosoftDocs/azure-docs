@@ -78,7 +78,7 @@ Here are the expected values:
 | Value | Description |
 | --- | --- |
 | {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). For security tokens granted to backend services, this should be the host name of the IoT hub; for example, `myHub.azure-devices.net/devices/device1`. For security tokens granted to devices, this should be a URI that identifies the device; for example, `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). Security tokens granted to backend services should be scoped to the IoT hub-level; for example, `myHub.azure-devices.net`. Security tokens granted to devices should be scoped to the device; for example, `myHub.azure-devices.net/devices/device1`. |
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. Absent if the token refers to device-registry credentials. |
