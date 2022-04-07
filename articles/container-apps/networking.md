@@ -56,7 +56,15 @@ TODO: AAhmed ElSayed to provide details
 
 ## Scenarios
 
-TODO: Tomer Rosenthal to provide details
+**TODO: Tomer Rosenthal to provide details**
+
+## Portal dependencies
+
+For every app in Azure Container Apps, there are two URLs. The first URL is used to access your app. The second URL grants access to the log streaming service and the console.
+
+The domain suffix for these URLs is `azurecontainerapps.dev`.
+
+**TODO: Need input from Tomer**
 
 ## Ports and IP addresses
 
@@ -70,6 +78,15 @@ The following ports are exposed for inbound connections.
 | Log streaming | TODO: Tomer to verify |
 
 Container Apps reserves 60 IPs in your VNET, and the amount may grow as your container environment scales.
+
+IP addresses are broken down into the following types:
+
+| Type | Description |
+|--|--|
+| Public inbound IP address | Used for app traffic in an external deployment, and management traffic in both internal and external deployments. |
+| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. |
+| Internal load balancer IP address | This address only exists in an internal deployment. |
+| App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 
 ## Restrictions
 
@@ -88,6 +105,10 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
 
 If you are using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
+## Routes
+
+There is no forced tunneling in Container Apps routes.
 
 ## Managed resources
 
