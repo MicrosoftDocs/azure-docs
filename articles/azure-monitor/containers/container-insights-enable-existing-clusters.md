@@ -91,7 +91,9 @@ If you would rather integrate with an existing workspace, perform the following 
 
 ## Enable using Terraform
 
-1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+If you are using Terraform to enable monitoring for your AKS cluster, there is an additional step required to [enable metrics](./container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli).
+
+1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster)
 
    ```
    addon_profile {
@@ -102,7 +104,7 @@ If you would rather integrate with an existing workspace, perform the following 
    }
    ```
 
-2. Add the [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) following the steps in the Terraform documentation.
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) following the steps in the Terraform documentation.
 
 ## Enable from Azure Monitor in the portal
 
