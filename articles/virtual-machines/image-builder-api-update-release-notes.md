@@ -1,7 +1,7 @@
 ---
 title: What's new? Release notes - Azure Image Builder | Microsoft Docs 
 description: Learn what is new with Azure Image Builder; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-author: kofiforson
+author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
