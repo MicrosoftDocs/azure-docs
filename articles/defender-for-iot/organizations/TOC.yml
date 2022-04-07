@@ -58,7 +58,7 @@
         href: architecture-connections.md
       - name: OT monitoring appliance catalog
         items:
-        - name: Appliance sizing
+        - name: Which appliances do I need?
           href: ot-appliance-sizing.md
         - name: Pre-configured appliances - tabs, all in 1 page
           href: ot-pre-configured-appliances.md
