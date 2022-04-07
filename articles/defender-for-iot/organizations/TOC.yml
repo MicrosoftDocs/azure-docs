@@ -56,12 +56,50 @@
         href: architecture.md
       - name: Sensor connection methods
         href: architecture-connections.md
-      - name: OT system requirements
+      - name: OT monitoring appliance catalog
         items:
-        - name: Deployment options
-          href: ot-deployment-options.md
-        - name: Pre-configured appliances
-          href: ot-preconfigured-appliances.md
+        - name: Appliance sizing
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances - tabs, all in 1 page
+          href: ot-pre-configured-appliances.md
+        - name: Pre-configured appliances - in pages per types
+          items:
+          - name: Overview
+            href: TBD.md
+          - name: Corporate appliances
+            href: TBD.md
+          - name: Enterprise appliances
+            href: TBD.md
+          - name: SMB appliances
+            href: TBD.md
+          - name: Rugged appliances
+            href: TBD.md
+          - name: Legacy appliances
+            href: TBD.md
+        - name: Pre-configured appliances - in pages per appliance
+          items:
+          - name: Overview
+            href: TBD.md
+          - name: Corporate appliances
+            items:
+            - name: HPE ProLiant DL360
+              href: TBD.md
+          - name: Enterprise appliances
+            items:
+            - name: HPE ProLiant DL20 Plus
+              href: TBD.md
+            - name: HPE ProLiant DL20
+              href: TBD.md
+            - name: Dell PowerEdge R340 XL
+              href: TBD.md
+          - name: SMB appliances
+            items:
+            - name: HPE ProLiant DL20 Plus
+              href: TBD.md
+          - name: Rugged appliances
+            items:
+            - name: YS-techsystems YS-FIT2
+              href: TBD.md
         - name: Physical appliance requirements
           href: ot-physical-appliances.md
         - name: Virtual appliance requirements

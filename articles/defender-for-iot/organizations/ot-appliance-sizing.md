@@ -1,21 +1,13 @@
 ---
-title: OT system deployment options - Microsoft Defender for IoT 
+title: OT appliance sizing - Microsoft Defender for IoT
 description: Learn about the deployment options for Microsoft Defender for IoT sensors and on-premises management consoles.
 ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT monitoring deployment options
+# OT appliance sizing for sensors and on-premises management consoles
 
-This article introduces the deployment options for Microsoft Defender for IoT OT sensors and on-premises management console.
-
-When setting up your system, choose the deployment option that meets your needs best. You can use both physical or virtual appliances as needed for your organization.
-
-For more information, see:
-
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
+This article is designed to help you choose the right appliances for sensors and on-premises management consoles to fit your organization's network monitoring needs. You can use both physical or virtual appliances.
 
 ## Corporate IT/OT mixed environments
 
@@ -56,7 +48,7 @@ On-premises management consoles are supported for enterprise deployment systems.
 
 Continue understanding system requirements, including options for ordering pre-configured appliances, or required specifications to install software on your own appliances:
 
-- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
+- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
 - [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md)
 - [Resource requirements for virtual appliances](ot-virtual-appliances.md)
 

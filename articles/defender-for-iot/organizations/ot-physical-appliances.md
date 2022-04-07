@@ -17,7 +17,7 @@ For more information, see:
 Alternately, you can install Defender for IoT software on [virtual appliances](ot-virtual-appliances.md).
 
 > [!TIP]
-> We recommend purchasing [pre-configured appliances](ot-preconfigured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
+> We recommend purchasing [pre-configured appliances](ot-pre-configured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
 >
 
 ## OS compatibility
@@ -55,8 +55,8 @@ All hardware components must be compatible with Ubuntu version 18.04.
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
 
-- [OT system deployment options](ot-deployment-options.md)
-- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
+- [OT system deployment options](ot-appliance-sizing.md)
+- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
 - [OT system virtual appliance requirements](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to continue:

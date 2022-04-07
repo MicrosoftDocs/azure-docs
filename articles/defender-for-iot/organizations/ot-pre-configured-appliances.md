@@ -7,7 +7,13 @@ ms.topic: conceptual
 
 # Pre-configured physical appliances for OT monitoring
 
-This article describes the pre-configured appliances available for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+This article provides a catalog of the pre-configured appliances available for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+
+Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
+
+For more information, see [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+
+## Advantages of pre-configured appliances
 
 Pre-configured physical appliances have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:
 
@@ -17,75 +23,33 @@ Pre-configured physical appliances have been validated for Defender for IoT OT s
 - **In-lab experience**, Microsoft support teams train using validated physical appliances and have a working knowledge of the hardware
 - **Availability**, components are selected to offer long-term worldwide availability
 
-Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
-
-For more information, see [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-
-To install Defender for IoT software on your own appliances, see [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md) or [OT system virtual appliance requirements](ot-virtual-appliances.md).
-
-## Supported appliances for OT network sensors
+## Appliances for OT network sensors
 
 You can purchase any of the following appliances for your OT network sensors:
 
-- **HPE ProLiant DL360**, for [corporate deployments](#hpe-proliant-dl360):
+|Capacity  |Appliance  |Performance / Monitoring  |Physical specifications  |
+|---------|---------|---------|---------|
+|C5600     | [HPE ProLiant Dl360](#hpe-proliant-dl360)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**:1U <br>**Ports**: Fifteen RJ45 or 8 SFP (OPT)     |
+|E1800     | [HPE ProLiant DL20 Plus](#hpe-proliant-dl20-plus-enterprise)        |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
+|E1800     |   [Dell PowerEdge R340](#dell-poweredge-r340-xl)      |    **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U<br>**Ports**: Eight RJ45 or six SFP (OPT)      |
+|L500     |  [HPE ProLiant DL20 Plus](#hpe-proliant-dl20-plus-smb)       |      **Max bandwidth**: 200Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: 1U<br>**Ports**: Four RJ45         |
+|L100     |  [YS-Techsystems YS-FIT2](#ys-techsystems-ys-fit2-office)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: One RJ45          |
 
-    |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|:----|
-    |[Corporate] |15 RJ45 or eight SFP (OPT)|3Gbp/s|12,000|1U|
-
-- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#hpe-proliant-dl20-plus-enterprise):
-
-    |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|:----|
-    | [Enterprise] |Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
-
-- **Dell PowerEdge R340**, for [enterprise deployments](#dell-poweredge-r340-xl):
-
-    |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|:----|
-    | [Enterprise] | Eight RJ45 or six SFP (OPT)|1 Gbp/s|10,000|1U|
-
-- **HPE ProLiant DL20 Plus**, for [SMB deployments](#hpe-proliant-dl20-plus-smb):
-
-    |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|:----|
-    | [SMB] |Four RJ45|200Mbp/s|1,000|1U|
-
-<!--
-- **Dell Edge Gateway 5200**:
-
-    |Bandwidth capacity|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|
-    |L500|60 Mbp/s|1000|Wall mount|
--->
-
-- **YS-Techsystems YS-FIT2**, for [rugged deployments](#ys-techsystems-ys-fit2-office):
-
-    |Bandwidth capacity|Monitoring ports|Max bandwidth|Max protected devices|Mounting|
-    |:----|:----|:----|:----|:----|
-    | [Office] |One RJ45|10Mbp/s|100|DIN/VESA|
 
 > [!NOTE]
 > Bandwidth capacity may vary depending on protocol distribution.
 
+## Appliances for on-premises management consoles
 
-## Supported appliances for on-premises management consoles
+You can purchase any of the following appliances for your OT on-premises management consoles:
 
-You can purchase any of the following appliances for your OT network sensors.
+|Capacity  |Appliance  |Max sensors  |Physical specifications  |
+|---------|---------|---------|---------|
+|E1800     | [HPE ProLiant DL20 Plus](#hpe-proliant-dl20-plus-enterprise)        | 300     |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
+|E1800     |   [Dell PowerEdge R340](#dell-poweredge-r340-xl)      |  300     |  **Mounting**: 1U<br>**Ports**: Eight RJ45 or six SFP (OPT)      |
 
-- **HPE ProLiant DL20 Plus**, for [enterprise deployments](#hpe-proliant-dl20-plus-enterprise):
 
-    |Bandwidth capacity| Monitoring ports|Monitored sensors|Mounting|
-    |:----|:----|:----|:----|
-    | [Enterprise] |Eight RJ45 or Six SFP (OPT)|Up to 300|1U|
-
-- **Dell PowerEdge R340**, for [enterprise deployments](#dell-poweredge-r340-xl):
-
-    |Bandwidth capacity| Monitoring ports|Monitored sensors|Mounting|
-    |:----|:----|:----|:----|
-    | [Enterprise] |Eight RJ45 or six SFP (OPT)|Up to 300|1U|
-
-The following tabs describe supported bill of materials, depending on your monitoring needs.
+The following tabs describe supported bills of material, depending on your monitoring needs.
 
 # [Corporate](#tab/corporate)
 
@@ -544,7 +508,7 @@ Legacy options for SMB rugged deployments include:
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [OT system deployment options](ot-deployment-options.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [OT system deployment options](ot-appliance-sizing.md).
 
 Then, use any of the following procedures to continue:
 
