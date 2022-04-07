@@ -46,7 +46,7 @@ Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity d
 Azure-SSIS | SSIS package execution | SSIS package execution | 
 
 > [!NOTE]
-> Outbound controls vary by service for Azure IR. In Synapse, workspaces have options to limit outbound traffic from the [managed virtual network](./synapse-analytics/security/synapse-workspace-managed-vnet.md) when utilizing Azure IR. In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network) when utilizing Azure IR. Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
+> Outbound controls vary by service for Azure IR. In Synapse, workspaces have options to limit outbound traffic from the [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md) when utilizing Azure IR. In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network) when utilizing Azure IR. Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
 
 
 ## Azure integration runtime
