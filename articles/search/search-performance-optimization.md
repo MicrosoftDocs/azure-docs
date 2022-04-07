@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 02/15/2022
 ms.custom: references_regions
 ---
 
@@ -29,6 +29,10 @@ For each individual search service, Microsoft guarantees at least 99.9% availabi
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
+## Data Residency
+
+Azure Cognitive Search will not store customer data outside the customer-specified region without your authorization.
+
 <a name="availability-zones"></a>
 
 ## Availability Zones
@@ -39,22 +43,30 @@ You can utilize Availability Zones with Azure Cognitive Search by adding two or 
 
 Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
 
-+ Australia East (created January 30, 2021 or later)
-+ Brazil South (created May 2, 2021 or later)
-+ Canada Central (created January 30, 2021 or later)
-+ Central US (created December 4, 2020 or later)
-+ East US (created January 27, 2021 or later)
-+ East US 2 (created January 30, 2021 or later)
-+ France Central (created October 23, 2020 or later)
-+ Germany West Central (created May 3, 2021, or later)
-+ Japan East (created January 30, 2021 or later)
-+ North Europe (created January 28, 2021 or later)
-+ South Central US (created April 30, 2021 or later)
-+ South East Asia (created January 31, 2021 or later)
-+ UK South (created January 30, 2021 or later)
-+ US Gov Virginia (created April 30, 2021 or later)
-+ West Europe (created January 29, 2021 or later)
-+ West US 2 (created January 30, 2021 or later)
+| Region | Roll out |
+|--------|-----------|
+| Australia East | January 30, 2021 or later |
+| Brazil South |  May 2, 2021 or later |
+| Canada Central | January 30, 2021 or later |
+| Central India | January 20, 2022 or later |
+| Central US | December 4, 2020 or later |
+| East Asia | January 13, 2022 or later |
+| East US | January 27, 2021 or later |
+| East US 2 | January 30, 2021 or later |
+| France Central| October 23, 2020 or later |
+| Germany West Central |  May 3, 2021, or later |
+| Japan East | January 30, 2021 or later |
+| Korea Central | January 20, 2022 or later |
+| North Europe | January 28, 2021 or later |
+| Norway East | January 20, 2022 or later |
+| South Central US | April 30, 2021 or later |
+| South East Asia | January 31, 2021 or later |
+| Sweden Central | January 21, 2022 or later |
+| UK South | January 30, 2021 or later |
+| US Gov Virginia | April 30, 2021 or later |
+| West Europe | January 29, 2021 or later |
+| West US 2 | January 30, 2021 or later |
+| West US 3 | June 02, 2021 or later |
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
@@ -62,7 +74,7 @@ Availability Zones do not impact the [Azure Cognitive Search Service Level Agree
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md) (Cognitive Search does not provide instant failover in the event of an outage).
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search does not provide instant failover in the event of an outage).
 + Globally deployed applications. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -102,9 +114,7 @@ If you are using the Azure Cognitive Search REST API to [push content to your se
 
 ## Disaster recovery and service outages
 
-Although we can salvage your data, Azure Cognitive Search does not provide instant failover of the service if there is an outage at the cluster or data center level. If a cluster fails in the data center, the operations team will detect and work to restore service. You will experience downtime during service restoration, but you can request service credits to compensate for service unavailability per the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
-
-If continuous service is required in the event of catastrophic failures outside of Microsoft’s control, you could [provision an additional service](search-create-service-portal.md) in a different region and implement a geo-replication strategy to ensure indexes are fully redundant across all services.
+As stated in the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/) we guarantee a high level of availability for index query requests when an Azure Cognitive Search service instance is configured with two or more replicas, and index update requests when an Azure Cognitive Search service instance is configured with three or more replicas. However, there is no built-in mechanism for disaster recovery. If continuous service is required in the event of a catastrophic failure outside of Microsoft’s control, we recommend provisioning a second service in a different region and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
 
 Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Cognitive Search indexers can only perform incremental indexing (merging updates from new, modified, or deleted documents) from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
 
@@ -118,12 +128,7 @@ Otherwise, your application code used for creating and populating an index is th
 
 ## Next steps
 
-To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). See [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations.
-
-For a discussion about performance and demonstrations of the techniques discussed in this article, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
+To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). Review [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations, or checkout [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) for real-world tips.
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

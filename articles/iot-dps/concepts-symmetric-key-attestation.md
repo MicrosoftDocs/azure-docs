@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - Symmetric key attestation
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service (DPS).
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
@@ -54,14 +54,14 @@ When a device is attesting with an individual enrollment, the device uses the sy
 
 For code examples that create a SAS token, see [Security Tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
-Creating security tokens for symmetric key attestation is supported by the Azure IoT C SDK. For an example using the Azure IoT C SDK to attest with an individual enrollment, see [Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md).
+Creating security tokens for symmetric key attestation is supported by the Azure IoT C SDK. For an example using the Azure IoT C SDK to attest with an individual enrollment, see [Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md).
 
 
 ## Group Enrollments
 
 The symmetric keys for group enrollments are not used directly by devices when provisioning. Instead devices that belong to an enrollment group provision using a derived device key. 
 
-First, a unique registration ID is defined for each device attesting with an enrollment group. Valid characters for the registration ID are lowercase alphanumeric and dash ('-'). This registration ID should be something unique that identifies the device. For example, a legacy device may not support many security features. The legacy device may only have a MAC address or serial number available to uniquely identify that device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following:
+First, a unique registration ID is defined for each device authenticating through an enrollment group. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The registration ID should be something unique that identifies the device. For example, a legacy device may not support many security features. The legacy device may only have a MAC address or serial number available to uniquely identify that device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following:
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
@@ -74,7 +74,7 @@ Once a registration ID has been defined for the device, the symmetric key for th
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from Windows-based or Linux systems, in PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used from Windows-based or Linux systems, in PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
@@ -163,7 +163,7 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 
 The resulting device key is then used to generate a SAS token to be used for attestation. Each device in an enrollment group is required to attest using a security token generated from a unique derived key. The enrollment group symmetric key cannot be used directly for attestation.
 
-#### Installation of the derived device key
+### Installation of the derived device key
 
 Ideally the device keys are derived and installed in the factory. This method guarantees the group key is never included in any software deployed to the device. When the device is assigned a MAC address or serial number, the key can be derived and injected into the device however the manufacturer chooses to store it.
 
@@ -179,6 +179,6 @@ If the device keys are not installed in the factory, a [hardware security module
 
 Now that you have an understanding of Symmetric Key attestation, check out the following articles to learn more:
 
-* [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
+* [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md)
 * [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
 * [Get started using auto-provisioning](./quick-setup-auto-provision.md) 

@@ -2,10 +2,11 @@
 title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
-
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
+ms.devlang: python
+ms.custom: mode-api
 ---
 
 # Create your first durable function in Python
@@ -28,7 +29,7 @@ To complete this tutorial:
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Make sure that you have version 3.6, 3.7, or 3.8 of [Python](https://www.python.org/) installed.
+* Make sure that you have version 3.7, 3.8, or 3.9 of [Python](https://www.python.org/) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -140,7 +141,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
-    | Provide a function name | DurableFunctionsHttpStart | Name of your activity function |
+    | Provide a function name | DurableFunctionsHttpStart | Name of your client function |
     | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
 
 You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.

@@ -1,10 +1,10 @@
 ---
 title: Connect downstream IoT Edge devices - Azure IoT Edge | Microsoft Docs
 description: How to configure an IoT Edge device to connect to Azure IoT Edge gateway devices. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 03/01/2021
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -47,6 +47,8 @@ The step of setting up parent/child relationships authorizes child devices to co
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
+By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
 <!-- TODO: graphic of gateway hierarchy -->
 
 # [Portal](#tab/azure-portal)
@@ -84,7 +86,7 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 >[!NOTE]
 >If you wish to establish parent-child relationships programmatically, you can use the C#, Java, or Node.js [IoT Hub Service SDK](../iot-hub/iot-hub-devguide-sdks.md).
 >
->Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
+>Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
 ## Prepare certificates
 
@@ -112,7 +114,7 @@ To enable gateway discovery, every IoT Edge gateway device needs to be configure
 
 To enable secure connections, every IoT Edge device in a gateway scenario needs to be configured with an unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy.
 
-You should already have IoT Edge installed on your device. If not, follow the steps to [Register an IoT Edge device in IoT Hub](how-to-register-device.md) and then [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
+You should already have IoT Edge installed on your device. If not, follow the steps to [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
@@ -122,18 +124,32 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Install the **root CA certificate** on this IoT Edge device.
 
-   ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
+      ```
+
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+      ```
 
 1. Update the certificate store.
 
-   ```bash
-   sudo update-ca-certificates
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo update-ca-certificates
+      ```
+      This command should output that one certificate was added to /etc/ssl/certs.
 
-   This command should output that one certificate was added to /etc/ssl/certs.
 
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo update-ca-trust
+      ```
+      For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+  
+  
 1. Open the IoT Edge configuration file.
 
    ```bash
@@ -156,6 +172,10 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP addresses, but not both.
 
 1. *If this device is a child device*, find the **Parent hostname** section. Uncomment and update the `parent_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file.
+
+   ```toml
+   parent_hostname = "my-parent-device"
+   ```
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
 
@@ -354,7 +374,7 @@ The API proxy module was designed to be customized to handle most common gateway
                        },
                        "IoTEdgeAPIProxy": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.1",
                                "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
                            },
                            "type": "docker",
@@ -434,7 +454,7 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.0`.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.1`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.1`.
 
 The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
@@ -529,6 +549,58 @@ The API proxy module was designed to be customized to handle most common gateway
     1. **Value**: `FROM /messages/* INTO $upstream`
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
+
+## Integrate Microsoft Defender for IoT with IoT Edge gateway
+
+Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
+
+Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
+
+**To integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
+
+1. Sign in to the Azure portal.
+
+1. Navigate to **IoT Hub** > **`Your Hub`** > **Device management** > **Devices**
+
+1. Select your device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshot showing where your device is located for selection.":::
+
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-a-defenderiotmicroagent-module-twin).  
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
+
+1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
+
+1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+
+1. Open a terminal on the leaf device.
+
+1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/etc/defender_iot_micro_agent/connection_string.txt`:
+
+    ```bash
+    sudo bash -c 'echo "<connection string>" > /etc/defender_iot_micro_agent/connection_string.txt'
+    ```
+
+    The `connection_string.txt` should now be located in the following path location `/etc/defender_iot_micro_agent/connection_string.txt`.
+
+1. Restart the service using this command:  
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service 
+    ```
+
+1. Navigate back to the device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/device.png" alt-text="Screenshot showing how to navigate back to your device.":::
+
+1. Enable the connection to the IoT Hub, and select the gear icon.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/gear-icon.png" alt-text="Screenshot showing what to select to set a parent device.":::
+
+1. Select the parent device from the displayed list.
+
+1. Ensure that port 8883 (MQTT) between the leaf device and the IoT Edge device is open.
 
 ## Next steps
 

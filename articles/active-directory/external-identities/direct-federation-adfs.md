@@ -57,39 +57,42 @@ An AD FS server must already be set up and functioning before you begin this pro
 ### Add the claim description
 
 1. On your AD FS server, select **Tools** > **AD FS management**.
-2. In the navigation pane, select **Service** > **Claim Descriptions**.
-3. Under **Actions**, select **Add Claim Description**.
-4. In the **Add a Claim Description** window, specify the following values:
+1. In the navigation pane, select **Service** > **Claim Descriptions**.
+1. Under **Actions**, select **Add Claim Description**.
+1. In the **Add a Claim Description** window, specify the following values:
 
    - **Display Name**: Persistent Identifier
    - **Claim identifier**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` 
    - Select the check box for **Publish this claim description in federation metadata as a claim type that this federation service can accept**.
    - Select the check box for **Publish this claim description in federation metadata as a claim type that this federation service can send**.
 
-5. Click **Ok**.
+1. Click **Ok**.
 
-### Add the relying party trust and claim rules
+### Add the relying party trust
 
 1. On the AD FS server, go to **Tools** > **AD FS management**.
-2. In the navigation pane, select **Trust Relationships** > **Relying Party Trusts**.
-3. Under **Actions**, select **Add Relying Party Trust**. 
-4. In the add relying party trust wizard for **Select Data Source**, use the option **Import data about the relying party published online or on a local network**. Specify this federation metadata URL- https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Leave other default selections. Select **Close**.
-5. The **Edit Claim Rules** wizard opens.
-6. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send LDAP Attributes as Claims**. Select **Next**.
-7. In **Configure Claim Rule**, specify the following values: 
+1. In the navigation pane, select **Relying Party Trusts**.
+1. Under **Actions**, select **Add Relying Party Trust**. 
+1. In the **Add Relying Party Trust** wizard, select **Claims aware**, and then select **Start**.
+1. In the **Select Data Source** section, select the check box for **Import data about the relying party published online or on a local network**. Enter this federation metadata URL: `https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml`. Select **Next**.
+1. Leave the other settings in their default options. Continue to select **Next**, and finally select **Close** to close the wizard.
+
+### Create claims rules
+
+1. Right-click the relying party trust you created, and then select **Edit Claim Issuance Policy**.
+1. In the **Edit Claim Rules** wizard, select **Add Rule**. 
+1. In **Claim rule template**, select **Send LDAP Attributes as Claims**. 
+1. In **Configure Claim Rule**, specify the following values: 
 
    - **Claim rule name**: Email claim rule 
    - **Attribute store**: Active Directory 
    - **LDAP Attribute**: E-Mail-Addresses 
    - **Outgoing Claim Type**: E-Mail Address
 
-8. Select **Finish**.
-9. The **Edit Claim Rules** window will show the new rule. Click **Apply**. 
-10. Click **Ok**.  
-
-### Create an email transform rule
-1. Go to **Edit Claim Rules** and click **Add Rule**. In **Choose Rule Type**, select **Transform an Incoming Claim** and click **Next**. 
-2. In **Configure Claim Rule**, specify the following values: 
+1. Select **Finish**.
+1. Select **Add Rule**.
+1. In **Claim rule template**, select **Transform an Incoming Claim**, and then select **Next**. 
+1. In **Configure Claim Rule**, specify the following values: 
 
    - **Claim rule name**: Email transform rule 
    - **Incoming claim type**: E-mail Address 
@@ -97,11 +100,12 @@ An AD FS server must already be set up and functioning before you begin this pro
    - **Outgoing name ID format**: Persistent Identifier 
    - Select **Pass through all claim values**.
 
-3. Click **Finish**. 
-4. The **Edit Claim Rules** window will show the new rules. Click **Apply**. 
-5. Click **OK**. The AD FS server is now configured for federation using the SAML 2.0 protocol.
+1. Select **Finish**. 
+1. The **Edit Claim Rules** pane shows the new rules. Select **Apply**. 
+1. Select **OK**. The AD FS server is now configured for federation using the SAML 2.0 protocol.
 
-## Configure AD FS for WS-Fed federation 
+## Configure AD FS for WS-Fed federation
+
 Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol with the specific requirements listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. Here, we’ll use Active Directory Federation Services (AD FS) as an example of the WS-Fed IdP. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, download the Azure AD Identity Provider Compatibility Docs.
 
 To set up federation, the following attributes must be received in the WS-Fed message from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.

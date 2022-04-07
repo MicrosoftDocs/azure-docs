@@ -5,7 +5,7 @@ ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 01/03/2022
 ---
 # Azure Data Share Concepts 
 
@@ -21,7 +21,7 @@ A Data consumer is the organization that is receiving data from a data provider.
 
 ## Data Share
 
-A data share is a group of datasets that are shared as a single entity. Datasets can be from a number of Azure data sources that are supported by Azure Data Share. Currently, Azure Data Share supports Azure Blob Storage and Azure Data Lake Store. 
+A data share is a group of datasets that are shared as a single entity. Datasets can be from a number of Azure data sources that are supported by Azure Data Share. Currently, Azure Data Share [supported data stores](supported-data-stores.md#supported-data-stores). 
 
 ## Share Subscription 
 

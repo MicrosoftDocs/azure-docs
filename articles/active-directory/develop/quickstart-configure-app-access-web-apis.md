@@ -5,16 +5,15 @@ description: In this quickstart, you configure an app registration representing 
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
-# Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
+#Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---
 
 # Quickstart: Configure a client application to access a web API

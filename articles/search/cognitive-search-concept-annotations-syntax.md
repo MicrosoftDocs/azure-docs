@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/24/2021
 ---
 # Reference annotations in an Azure Cognitive Search skillset
 
@@ -115,6 +115,7 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
 
 
 ## See also
++ [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](/rest/api/searchservice/create-skillset)

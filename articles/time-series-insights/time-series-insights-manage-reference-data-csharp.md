@@ -16,6 +16,8 @@ ms.custom: "seodec18, devx-track-csharp"
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 
@@ -76,7 +78,7 @@ Or:
 
 1. Declare a `csharp-tsi-msal-ga-sample.csproj` file:
 
-    ```XML
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk">
       <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -224,7 +226,6 @@ namespace CsharpTsiMsalGaSample
                             }
                         ]
                     }";
-
 
                 var createResponse = await AsyncHttpPostRequestHelper(httpClient, createInput);
 

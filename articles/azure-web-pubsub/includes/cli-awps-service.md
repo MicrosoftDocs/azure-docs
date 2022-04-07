@@ -16,7 +16,7 @@ Open **another** CLI command, and you can broadcast messages to the clients:
 - Resource group name: **myResourceGroup**.
 
 ```azurecli-interactive
-az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name myHub1 --payload "Hello World"
+az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name "myHub1" --payload "Hello World"
 ```
 
 Switch back to the previous CLI command and you can see that the client received message:

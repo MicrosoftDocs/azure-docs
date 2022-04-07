@@ -1,10 +1,10 @@
 ---
 title: Call custom web APIs & REST APIs
-description: Call your own web APIs & REST APIs from Azure Logic Apps
+description: Call your own web APIs & REST APIs from Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/13/2020
 ---
 

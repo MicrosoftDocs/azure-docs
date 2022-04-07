@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment runs with the Azure Machine Learning Python SDK. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/19/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, cliv1
 ---
 
 # Start, monitor, and track run history
@@ -20,6 +20,7 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 This article shows how to do the following tasks:
 
 * Monitor run performance.
+* Add run display name. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -49,7 +50,7 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 
 ## Monitor run performance
@@ -78,6 +79,8 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]   
+    
     To start a run of your experiment, use the following steps:
     
     1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
@@ -85,18 +88,19 @@ You'll need the following items:
         ```azurecli-interactive
         az login
         ```
-        
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]     
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
-    
+        
+
+
         ```azurecli-interactive
         az ml folder attach -w myworkspace -g myresourcegroup
         ```
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach).
+        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml-folder-attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
     
@@ -111,7 +115,7 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit-script).
+        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az-ml-run-submit-script).
 
     # [Studio](#tab/azure-studio)
 
@@ -154,6 +158,8 @@ You'll need the following items:
     
     # [Azure CLI](#tab/azure-cli)
     
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    
     * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
         ```azurecli-interactive
@@ -162,7 +168,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list).
+        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az-ml-experiment-list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -172,13 +178,24 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az_ml_run_show).
+        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az-ml-run-show).
     
     
     # [Studio](#tab/azure-studio)
     
     ---    
    
+## Run Display Name 
+The run display name is an optional and customizable name that you can provide for your run. To edit the run display name:
+
+1. Navigate to the runs list. 
+
+2. Select the run to edit the display name in the run details page.
+
+3. Select the **Edit** button to edit the run display name. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+
 ## Custom View 
     
 To view your runs in the studio: 
@@ -246,6 +263,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     ```
     
     # [Azure CLI](#tab/azure-cli)
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     > [!NOTE]
     > Using the CLI, you can only add or update tags.
@@ -256,7 +275,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ml(v1)/run#az_ml_run_update).
+    For more information, see [az ml run update](/cli/azure/ml(v1)/run#az-ml-run-update).
     
     # [Studio](#tab/azure-studio)
     
@@ -278,6 +297,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     ```
     
     # [Azure CLI](#tab/azure-cli)
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
     
@@ -290,7 +311,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
+    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
     
     # [Studio](#tab/azure-studio)
     
@@ -328,13 +349,15 @@ print(local_run.get_status())
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
 ```azurecli-interactive
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az_ml_run_cancel).
+For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az-ml-run-cancel).
 
 # [Studio](#tab/azure-studio)
 
@@ -454,7 +477,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 ## Monitor the run status by email notification
 
-1. In the [Azure portal](https://ms.portal.azure.com/), in the left navigation bar, select the **Monitor** tab. 
+1. In the [Azure portal](https://portal.azure.com/), in the left navigation bar, select the **Monitor** tab. 
 
 1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 

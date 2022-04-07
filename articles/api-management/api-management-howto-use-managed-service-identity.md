@@ -3,7 +3,7 @@ title: Use managed identities in Azure API Management | Microsoft Docs
 description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
 

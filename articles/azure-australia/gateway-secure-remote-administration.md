@@ -162,7 +162,7 @@ The Jump Server / Bastion Host is a centralised point for administration. It has
 
 ### Just in Time (JIT) access
 
-JIT is an Azure Security Center capability that utilises Network Security Groups (NSGs) to block access to administrative protocols such as RDP and SSH on Virtual Machines. Applications hosted on Virtual Machines continue to function as normal, but for administrative access to be obtained it must be requested can only be granted for a set period of time. All requests are logged for auditing purposes.
+JIT is a Microsoft Defender for Cloud capability that utilises Network Security Groups (NSGs) to block access to administrative protocols such as RDP and SSH on Virtual Machines. Applications hosted on Virtual Machines continue to function as normal, but for administrative access to be obtained it must be requested can only be granted for a set period of time. All requests are logged for auditing purposes.
 
 |Resources |Link |
 |---|---|

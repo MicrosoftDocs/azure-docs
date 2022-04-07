@@ -284,7 +284,7 @@ In this view you can extend existing Azure resources based on the `targetResourc
 
 ## Looking for help
 
-If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managed-app` to get a fast response!
 
 ## Next steps
 

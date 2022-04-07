@@ -3,7 +3,7 @@ title: Create a security plan for external access to Azure Active Directory
 description: Plan the security for external access to your organization's resources..
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

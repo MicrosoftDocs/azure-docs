@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 01/25/2019
 ---
 # Load data from CSV into Azure SQL Database or SQL Managed Instance (flat files)

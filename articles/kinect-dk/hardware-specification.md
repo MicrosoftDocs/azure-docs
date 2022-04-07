@@ -7,12 +7,9 @@ ms.prod: kinect-dk
 ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
-ms.custom: 
-- CI 114092
-- CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 ---
 
 # Azure Kinect DK hardware specifications
@@ -150,7 +147,7 @@ Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
-|    USB3.1 Gen1 Hub    |    0x097A    |    The   main hub    |
+|    USB3.1 Gen2 Hub    |    0x097A    |    The   main hub    |
 |    USB2.0 Hub         |    0x097B    |    HS   USB          |
 |    Depth camera       |    0x097C    |    USB3.0            |
 |    Color camera       |    0x097D    |    USB3.0            |

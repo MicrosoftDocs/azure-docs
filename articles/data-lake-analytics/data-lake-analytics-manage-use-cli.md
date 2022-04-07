@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
 ---
-# Manage Azure Data Lake Analytics using the Azure Command-line Interface (CLI)
+# Manage Azure Data Lake Analytics using the Azure CLI
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 

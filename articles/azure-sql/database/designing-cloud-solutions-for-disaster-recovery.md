@@ -8,9 +8,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/28/2020
 ---
 # Designing globally available services using Azure SQL Database
@@ -159,7 +159,7 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 | Active-active deployment for application load balancing |Read-write access < 5 sec |Failure detection time + DNS TTL |
 | Active-passive deployment for data preservation |Read-only access < 5 sec | Read-only access = 0 |
 ||Read-write access = zero | Read-write access = Failure detection time + grace period with data loss |
-|||
+
 
 ## Next steps
 

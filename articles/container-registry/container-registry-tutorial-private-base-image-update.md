@@ -179,9 +179,11 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 If you completed the previous tutorial (and didn't delete the registry), you should see output similar to the following. Take note of the number of task runs, and the latest RUN ID, so you can compare the output after you update the base image in the next section.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
+```azurecli
+az acr task list-runs --registry $ACR_NAME --output table
+```
 
+```output
 UN ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 ca12      baseexample2    linux       Succeeded  Manual        2020-11-21T00:00:56Z  00:00:36
@@ -218,9 +220,11 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the task was kicked off by your quick task of the base image.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
+```azurecli
+az acr task list-runs --registry $ACR_NAME --output table
+```
 
+```output
          PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 ca13      baseexample2    linux       Succeeded  Image Update  2020-11-21T00:06:00Z  00:00:43

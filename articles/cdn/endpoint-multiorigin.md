@@ -1,13 +1,13 @@
 ---
-title: 'Azure CDN endpoint multi-origin (Preview)' 
+title: 'Azure CDN endpoint multi-origin' 
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 9/06/2020
-ms.author: allensu
+ms.date: 08/18/2021
+ms.author: duau
 ---
 
 # Azure CDN endpoint multi-origin
@@ -17,6 +17,8 @@ Multi-origin support eliminates downtime and establishes global redundancy.
 By choosing multiple origins within an Azure CDN endpoint, the redundancy provided spreads the risk by probing the health of each origin and failing over if necessary.
 
 Setup one or more origin groups and choose a default origin group. Each origin group is a collection of one or more origins that can take similar workloads.
+
+The first origin group is set as the default origin group. Multi-origin feature is enabled when a default origin group for the CDN endpoint is selected. Once the multi-origin feature is enabled, it can't be disabled, and the default origin group can't be deleted. The default origin group is used for routing requests to the origin. You're allowed to update the origin group configuration and switch to a single origin configuration. You're also allowed to change the default origin group designation to another origin group.
 
 > [!NOTE]
 > Currently this feature is only available from Azure CDN from Microsoft. 
@@ -78,6 +80,12 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 3. Select **Add**.
 
 4. Select **Configure origin** to set the origin path for all origins:
+
+    The Origin path is used to rewrite the URL that Microsoft CDN uses when constructing the request forwarded to the origin. It will also carry all the remaining parts of the incoming request. By default, this path isn't provided. As such, Microsoft CDN will use the incoming URL path in the request to the origin.
+
+    Origin path: `/fwd/`
+
+    Incoming URL path: `/foo/a/b/image1.jpg` </br> URL from Microsoft CDN to origin: `fwd/foo/a/b/image1.jpg.`
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configure origin path" border="true":::
 

@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 12/18/2020
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 
@@ -27,13 +27,13 @@ Many security features are only available for pools configured using [Virtual Ma
 
 Batch account access supports two methods of authentication: Shared Key and [Azure Active Directory (Azure AD)](batch-aad-auth.md).
 
-We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here.
+We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Azure AD using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
 
 ### Batch account pool allocation mode
 
 When creating a Batch account, you can choose between two [pool allocation modes](accounts.md#batch-accounts):
 
-- **Batch service**: The default option, where the underlying Cloud Service or virtual machine scale set resources used to allocate and manage pool nodes are created in internal subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible. 
+- **Batch service**: The default option, where the underlying Cloud Service or virtual machine scale set resources used to allocate and manage pool nodes are created in internal subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
 - **User subscription**: The underlying Cloud Service or virtual machine scale set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
 
 With user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription mode is required if you want to create Batch pools using Azure Reserved VM Instances, use Azure Policy on virtual machine scale set resources, and/or  manage the core quota on the subscription (shared across all Batch accounts in the subscription). To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
@@ -138,13 +138,13 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 ## Securely access services from compute nodes
 
-Batch nodes can [securely access credentials and secrets](credential-access-key-vault.md) stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault.
+Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault. By [enabling automatic certificate rotation in your Batch pool](automatic-certificate-rotation.md), the credentials will be automatically renewed. This is the recommended option for Batch nodes to access credentials stored in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation.
 
 ## Governance and compliance
 
 ### Compliance
 
-To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
+To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 These  offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. Review the [comprehensive overview of compliance offerings](https://aka.ms/AzureCompliance) to determine which ones may be relevant to your Batch solutions.
 

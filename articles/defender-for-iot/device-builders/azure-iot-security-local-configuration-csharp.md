@@ -3,10 +3,14 @@ title: Defender for IoT security agent local configuration (C#)
 description: Learn more about the Defender for IoT security service, security agent local configuration file for C#.
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 03/28/2022
 ---
 
 # Understanding the local configuration file (C# agent)
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
 
 The Defender for IoT security agent uses configurations from a local configuration file.
 
@@ -72,7 +76,7 @@ For Windows:
 | moduleName | string | Name of the Defender-IoT-micro-agent identity. This name must correspond to the module identity name in the device. |
 | deviceId | string | ID of the device (as registered in Azure IoT Hub). |
 | schedulerInterval | TimeSpan string | Internal scheduler interval. |
-| gatewayHostname | string | Host name of the Azure Iot Hub. Usually <my-hub>.azure-devices.net |
+| gatewayHostname | string | Host name of the Azure Iot Hub. Usually \<my-hub\>.azure-devices.net |
 | filePath | string - path to file | Path to the file that contains the authentication secret.|
 | type | "SymmetricKey", "SelfSignedCertificate" | The user secret for authentication. Choose *SymmetricKey* if the user secret is a Symmetric key, choose *self-signed certificate* if the secret is a self-signed certificate. |
 | identity | "DPS", "Module", "Device" | Authentication identity - DPS if authentication is made through DPS, Module if authentication is made using module credentials, or device if authentication is made using device credentials.

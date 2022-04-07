@@ -2,12 +2,12 @@
 title: Deploy Azure API Management services to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
@@ -50,7 +50,7 @@ A new Azure API Management service initially contains only one [unit][unit] in a
 
 ## <a name="route-backend"> </a>Route API calls to regional backend services
 
-Azure API Management features only one backend service URL. Even though there are Azure API Management instances in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request, but contacting the backend across the globe may still cause high latency.
+By default, each API routes requests to a single backend service URL. Even though there are Azure API Management instances in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request, but contacting the backend across the globe may still cause high latency.
 
 To fully leverage geographical distribution of your system, you should have backend services deployed in the same regions as Azure API Management instances. Then, using policies and `@(context.Deployment.Region)` property, you can route the traffic to local instances of your backend.
 

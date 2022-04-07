@@ -17,8 +17,6 @@ This script retrieves resources from a managed resource group, and resizes the V
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-
 [!code-powershell[main](../../../../powershell_scripts/managed-applications/get-application/get-application.ps1 "Get application")]
 
 

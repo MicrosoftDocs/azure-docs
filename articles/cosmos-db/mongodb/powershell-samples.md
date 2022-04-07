@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 01/20/2021
+ms.date: 08/26/2021
 ms.author: mjbrown
 ---
 
@@ -32,6 +32,12 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account, database and collection](../scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and collection. |
 |[Create an account, database and collection with autoscale](../scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and collection with autoscale. |
 |[List or get databases or collections](../scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or collection. |
-|[Throughput operations](../scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a database or collection including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a database or collection including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||
+
+## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

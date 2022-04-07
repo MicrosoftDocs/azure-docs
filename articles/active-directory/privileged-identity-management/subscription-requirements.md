@@ -4,17 +4,17 @@ description: Describes the licensing requirements to use Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: markwahl-msft
+manager: karenhoran
+editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 04/05/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a
 
 ## Valid licenses
 
-You will need [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+You will need an Azure AD license to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## Licenses you must have
 
@@ -69,5 +69,5 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Start using Privileged Identity Management](pim-getting-started.md)
 - [Roles you can't manage in Privileged Identity Management](pim-roles.md)
-- [Create an access review of Azure resource roles in PIM](pim-resource-roles-start-access-review.md)
-- [Create an access review of Azure AD roles in PIM](pim-how-to-start-security-review.md)
+- [Create an access review of Azure resource roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of Azure AD roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)

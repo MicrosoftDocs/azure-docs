@@ -9,10 +9,10 @@ ms.devlang:
 ms.topic: how-to
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: DavidTrigano
-ms.author: datrigan
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/25/2022"
 ms.reviewer: vanto
-ms.date: 06/21/2021
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -163,6 +163,17 @@ For additional information:
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
+
+
+## Auditing of Microsoft Support operations
+
+Auditing of Microsoft Support operations for SQL Managed Instance allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
+
+To enable auditing of Microsoft Support operations, navigate to **Create Audit** under **Security** > **Audit** in your SQL Manage Instance, and select **Microsoft support operations**.
+
+![create audit icon](./media/auditing-configure/support-operations.png)
+
+
 ## Set up auditing for your server to Event Hubs or Azure Monitor logs
 
 Audit logs from a managed instance can be  sent to Azure Event Hubs or Azure Monitor logs. This section describes how to configure this:
@@ -232,9 +243,9 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Managed Instance and databases in SQL Server are:
 
 - With Azure SQL Managed Instance, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- In SQL Server, audit works at the server level, but stores events on files system/windows event logs.
+- In SQL Server, audit works at the server level, but stores events in the file system and Windows event logs.
 
-XEvent auditing in managed instances supports Azure Blob storage targets. File and windows logs are **not supported**.
+XEvent auditing in managed instances supports Azure Blob storage targets. File and Windows logs are **not supported**.
 
 The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob storage are:
 

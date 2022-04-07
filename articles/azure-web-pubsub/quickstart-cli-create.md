@@ -4,13 +4,15 @@ description: Quickstart showing how to create a Web PubSub instance with the Azu
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: quickstart 
-ms.date: 08/06/2021
+ms.topic: quickstart
+ms.date: 11/08/2021
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create a Web PubSub instance with the Azure CLI
 
-The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
+The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,5 +41,7 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 [!INCLUDE [Clean up resource](includes/cli-delete-resources.md)]
 
 ## Next steps
+
+In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

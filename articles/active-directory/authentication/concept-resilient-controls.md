@@ -3,7 +3,7 @@ title: Create a resilient access control management strategy - Azure AD
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.subservice: authentication
@@ -116,7 +116,7 @@ A contingency Conditional Access policy is a **backup policy** that omits Azure 
 * Deploy [Azure AD Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) and [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) to make sure users don’t use common password and terms you choose to ban.
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
-  * If your organization uses Microsoft Cloud App Security, consider falling back to a policy that engages MCAS and then MCAS Allows read-only access but not uploads.
+  * If your organization uses Microsoft Defender for Cloud Apps, consider falling back to a policy that engages Defender for Cloud Apps and then allow read-only access but not uploads.
 * Name your policies to make sure it is easy to find them during a disruption. Include the following elements in the policy name:
   * A *label number* for the policy.
   * Text to show, this policy is for emergencies only. For example: **ENABLE IN EMERGENCY**
@@ -267,8 +267,8 @@ Undo the changes you made as part of the activated contingency plan once the ser
  In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
-1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
-   1. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
+- If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
+- If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
 
 >[!IMPORTANT]
  > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.

@@ -15,7 +15,7 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 
 :::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram showing the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
-In this how-to, you'll':
+In this how-to, you'll:
 
 > [!div class="checklist"]
 > * Register the resource provider and create a private cloud
@@ -24,7 +24,7 @@ In this how-to, you'll':
 
 After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 
-## Register the **Microsoft.AVS** resource provider
+## Register the Microsoft.AVS resource provider
 
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 

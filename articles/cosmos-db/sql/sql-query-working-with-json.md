@@ -113,13 +113,13 @@ For example, here's a document that shows the daily balance of a customer's bank
       },
       {
         "checkingAccount": -10,
-        "savingsAccount": 5000,
+        "savingsAccount": 5000
       },
       {
         "checkingAccount": 5000,
-        "savingsAccount": 5000,
+        "savingsAccount": 5000
       }
-         ...
+        
   ]
 }
 ```
@@ -162,7 +162,7 @@ Azure Cosmos DB supports two helpful type checking system functions for `null` a
 * [IS_NULL](sql-query-is-null.md) - checks if a property value is `null`
 * [IS_DEFINED](sql-query-is-defined.md) - checks if a property value is defined
 
-You can learn about [supported operators](sql-query-operators.md) and their behavior for `null` and `undefined` values.
+You can learn about [supported operators](sql-query-equality-comparison-operators.md) and their behavior for `null` and `undefined` values.
 
 ## Reserved keywords and special characters in JSON
 

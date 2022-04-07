@@ -1,19 +1,21 @@
 ---
 title: Specify Marketplace purchase plan information using Azure PowerShell 
-description: Learn how to specify Azure Marketplace purchase plan details when creating images in a Shared Image Gallery.
-author: cynthn
+description: Learn how to specify Azure Marketplace purchase plan details when creating images in an Azure Compute Gallery (formerly known as Shared Image Gallery).
+author: sandeepraichura
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
-ms.author: cynthn
-ms.reviewer: akjosh 
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
  
 ---
 
 # Supply Azure Marketplace purchase plan information when creating images
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 If you are creating an image in a shared gallery, using a source that was originally created from an Azure Marketplace image, you may need to keep track of purchase plan information. This article shows how to find purchase plan information for a VM, then use that information when creating an image definition. We also cover using the information from the image definition to simplify supplying the purchase plan information when creating a VM for an image.
 
@@ -32,7 +34,7 @@ $vm.Plan
 
 ## Create the image definition
 
-Get the image gallery that you want to use to store the image. You can list all of the galleries first.
+Get the gallery you want to use to store the image. You can list all of the galleries first.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -65,7 +67,7 @@ Create the image definition, using the  `-PurchasePlanPublisher`, `-PurchasePlan
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Then create your image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You can create an image version from a [VM](image-version-vm-powershell.md#create-an-image-version), [managed image](image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version), or [another image version](image-version-another-gallery-powershell.md#create-the-image-version). 
+Then create your [image version](image-version.md) using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion).  
 
 
 ## Create the VM
@@ -106,7 +108,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourceAddressPrefix * `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
-   -DestinationPortRange 3389 -Access Allow
+   -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `

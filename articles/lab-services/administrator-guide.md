@@ -1,7 +1,7 @@
 ---
-title: Azure Lab Services - Administrator guide | Microsoft Docs
+title: Administrator guide | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts by using Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/20/2020
 ---
 

@@ -4,12 +4,14 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 01/13/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Share an Azure managed disk
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
 
@@ -43,17 +45,18 @@ Some popular applications running on WSFC include:
 
 - [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- Scale-out File Server (SoFS) [template] (https://aka.ms/azure-shared-disk-sofs-template)
-- SAP ASCS/SCS [template] (https://aka.ms/azure-shared-disk-sapacs-template)
+- Scale-out File Server (SoFS) [template](https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [template](https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
 
 ### Linux
 
 Azure shared disks are supported on:
-- [SUSE SLE for SAP and SUSE SLE HA 15 SP1 and above](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
+- [SUSE SLE HA 15 SP1 and above](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL developer preview on any RHEL 8 version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
+- [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage-configuring-rhel-high-availability-on-azure)
+    - It may be possible to use RHEL 7 or an older version of RHEL 8 with shared disks, contact SharedDiskFeedback @microsoft.com
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).

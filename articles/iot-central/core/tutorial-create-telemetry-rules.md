@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in your Azure IoT Central application
 description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/08/2021
+ms.date: 12/21/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -84,7 +84,7 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices associated with the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
+1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition":::
 

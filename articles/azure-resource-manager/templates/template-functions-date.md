@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 03/10/2022
 ---
 
 # Date functions for ARM templates
@@ -12,11 +12,16 @@ Resource Manager provides the following functions for working with dates in your
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
+
 ## dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) function.
 
 ### Parameters
 
@@ -34,38 +39,7 @@ The datetime value that results from adding the duration value to the base value
 
 The following example template shows different ways of adding time values.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]"
-    }
-  },
-  "variables": {
-    "add3Years": "[dateTimeAdd(parameters('baseTime'), 'P3Y')]",
-    "subtract9Days": "[dateTimeAdd(parameters('baseTime'), '-P9D')]",
-    "add1Hour": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [],
-  "outputs": {
-    "add3YearsOutput": {
-      "value": "[variables('add3Years')]",
-      "type": "string"
-    },
-    "subtract9DaysOutput": {
-      "value": "[variables('subtract9Days')]",
-      "type": "string"
-    },
-    "add1HourOutput": {
-      "value": "[variables('add1Hour')]",
-      "type": "string"
-    },
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd.json":::
 
 When the preceding template is deployed with a base time of `2020-04-07 14:53:14Z`, the output is:
 
@@ -77,61 +51,15 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 
 The next example template shows how to set the start time for an Automation schedule.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "omsAutomationAccountName": {
-      "type": "string",
-      "defaultValue": "demoAutomation",
-      "metadata": {
-        "description": "Use an existing Automation account."
-      }
-    },
-    "scheduleName": {
-      "type": "string",
-      "defaultValue": "demoSchedule1",
-      "metadata": {
-        "description": "Name of the new schedule."
-      }
-    },
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]",
-      "metadata": {
-        "description": "Schedule will start one hour from this time."
-      }
-    }
-  },
-  "variables": {
-    "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [
-    ...
-    {
-      "type": "Microsoft.Automation/automationAccounts/schedules",
-      "apiVersion": "2015-10-31",
-      "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
-
-      "properties": {
-        "description": "Demo Scheduler",
-        "startTime": "[variables('startTime')]",
-        "interval": 1,
-        "frequency": "Hour"
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
 ## utcNow
 
 `utcNow(format)`
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
+
+In Bicep, use the [utcNow](../bicep/bicep-functions-date.md#utcnow) function.
 
 ### Parameters
 
@@ -143,9 +71,9 @@ Returns the current (UTC) datetime value in the specified format. If no format i
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a template returns an error. The function isn't allowed in other parts of the template because it returns a different value each time it's called. Deploying the same template with the same parameters wouldn't reliably produce the same results.
 
-If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
+If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses `utcNow`, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
-Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
+Be careful redeploying a template that relies on the `utcNow` function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
 
@@ -155,42 +83,7 @@ The current UTC datetime value.
 
 The following example template shows different formats for the datetime value.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcValue": {
-      "type": "string",
-      "defaultValue": "[utcNow()]"
-    },
-    "utcShortValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "utcCustomValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('M d')]"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "utcOutput": {
-      "type": "string",
-      "value": "[parameters('utcValue')]"
-    },
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShortValue')]"
-    },
-    "utcCustomOutput": {
-      "type": "string",
-      "value": "[parameters('utcCustomValue')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow.json":::
 
 The output from the preceding example varies for each deployment but will be similar to:
 
@@ -202,39 +95,7 @@ The output from the preceding example varies for each deployment but will be sim
 
 The next example shows how to use a value from the function when setting a tag value.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcShort": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "rgName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "name": "[parameters('rgName')]",
-      "location": "westeurope",
-      "tags": {
-        "createdDate": "[parameters('utcShort')]"
-      },
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShort')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow-tag.json":::
 
 ## Next steps
 

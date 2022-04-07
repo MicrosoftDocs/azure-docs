@@ -21,7 +21,7 @@ As you plan your migration of VMware servers to Azure, review the [migration sup
 Requirement | Details
 --- | ---
 **Project limits** | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers on a server running vCenter Server.
+**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. 
 **Assessment** | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](concepts-assessment-calculation.md).
@@ -59,17 +59,17 @@ Device | Connection
 
 ## Software inventory requirements
 
-In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory allows you to identify and plan a migration path tailored for your on-premises workloads.
+In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles and features running on Windows and Linux servers, discovered using Azure Migrate. It allows you to identify and plan a migration path tailored for your on-premises workloads.
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers in your VMware environment. You can perform software inventory on up to 10,000 servers from each Azure Migrate appliance.
+**Supported servers** | You can perform software inventory on up to 10,000 servers running across vCenter Server(s) added to each Azure Migrate appliance.
 **Operating systems** | Servers running all Windows and Linux versions are supported.
-**VM requirements** | For software inventory, VMware Tools must be installed and running on your servers. <br /><br /> The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.
-**Discovery** | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers. The appliance gathers the information about the software inventory from the server running  vCenter Server through vSphere APIs. Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers. WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
-**vCenter Server user account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
+**Server requirements** | For software inventory, VMware Tools must be installed and running on your servers.The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
+**vCenter Server account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
+**Discovery** | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running  vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
 
 ## SQL Server instance and database discovery requirements
 
@@ -113,19 +113,19 @@ Support | Details
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers in your VMware environment.
+**Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple vCenter Servers), discovered per appliance.
 **Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later
-**Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.
-**Discovery method** |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server. The appliance gathers the information from the server by using vSphere APIs. No agent is installed on the server, and the appliance doesn’t connect directly to servers. WMI should be enabled and available on Windows servers.
-**vCenter account** | The read-only account used by Azure Migrate for assessment must have privileges for guest operations on VMware VMs.
-**Windows server permissions** |  A user account (local or domain) with administrator permissions on servers.
-**Linux account** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+**Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.<br /><br /> WMI should be enabled and available on Windows servers.
+**vCenter Server account** | The read-only account used by Azure Migrate for assessment must have privileges for guest operations on VMware VMs.
+**Windows server acesss** |  A user account (local or domain) with administrator permissions on servers.
+**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
+**Discovery method** |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server.<br /><br /> The appliance gathers the information from the server by using vSphere APIs.<br /><br /> No agent is installed on the server, and the appliance doesn’t connect directly to servers.
 
 ## Dependency analysis requirements (agent-based)
 

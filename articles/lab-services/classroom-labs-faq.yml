@@ -2,13 +2,11 @@
 metadata:
   title: Labs in Azure Lab Services — FAQ | Microsoft Docs
   description: This article provides answers to frequently asked questions (FAQ) about labs in Azure Lab Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: lab-services
   ms.date: 06/26/2020
-    
 title: Labs in Azure Lab Services — Frequently asked questions (FAQ)
 summary: Get answers to some of the most common questions about labs in Azure Lab Services. 
-
 
 sections:
   - name: Quotas
@@ -21,7 +19,7 @@ sections:
       - question: |
           If educator turns on a student VM, does that affect the student quota? 
         answer: |
-          No. It doesn't. When educator turns on the student VM, it doesn't affect the quota allotted to the student. 
+          No. It doesn't. When educator turns on the student VM, it doesn't affect the quota allotted to the student.
 
   - name: Schedules
     questions:
@@ -77,9 +75,34 @@ sections:
           ## Update notifications
           
           Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product=lab-services) to stay informed about new features in Lab Services.          
-
+  
+  - name: Linux
+    questions:
+      - question: |
+          When I select my lab's automatic shutdown Settings, why is this page blank or why don't I see the setting to automatically disconnect users when VMs are idle?
+        answer: |
+          In general, Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.  However, support for these settings also varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
+          For more information on the shutdown settings, see the following articles:
+            - [How to enable shutdown settings](./how-to-enable-shutdown-disconnect.md)
+            - [Automatic shutdown settings for cost control](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control)
+      - question: |
+          How can I use Ubuntu 18.04 Server LTS and install either the GNOME or MATE graphical desktops?
+        answer: |
+          There is a [known networking conflict between GNOME\MATE](./how-to-enable-remote-desktop-linux.md) graphical desktops) and the Azure Linux VM Agent when using Ubuntu 18.04 LTS.  As a result, we suggest the following:
+            - Instead of GNOME\MATE, consider using the XFCE graphical desktop which doesn't have this issue.  For example, the [Data Science VM image is configured by default to use XFCE](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
+            - Instead of Ubuntu 18.04 LTS, consider using Ubuntu 20.04 or 21.04 LTS which don't have this networking conflict with the agent when GNOME\MATE is installed.
+            - Otherwise, to use 18.04 LTS and GNOME\MATE, you will need to apply a workaround to fix the networking conflict with the agent.
+          See our [ReadMe and scripts](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md) that set up Ubuntu Server 18.04\20.04\21.04 with GNOME\MATE.  When you use these scripts to set up 18.04 with GNOME\MATE, they will apply the workaround for the networking conflict.
+  
   - name: General
     questions:
+      - question: |
+          How do I prevent capacity constraints and Azure compute capacity limitations on my subscription?
+        answer: |
+          When you start to use Azure Lab Services for the first time, you will need to submit a request to increase the Azure compute capacity limit that exists on your subscription.  As your lab usage grows and increases in the number of VM cores you need, you may need to repeat this process to increase your quota limit further.
+          As part of your up front planning each time that you deploy new labs, you also need to ensure that there is adequate VM core capacity in the region that you plan to deploy in.  This is especially important for GPUs.
+          For more information on how to plan for both capacity and Azure compute capacity limitations, read the following article:
+            - [Capacity limits in Azure Lab Services](./capacity-limits.md)
       - question: |
           What if my question isn't answered here?
         answer: |
@@ -87,5 +110,3 @@ sections:
           
           - Post a question at the end of this FAQ. 
           - To reach a wider audience, post a question on the [Azure Lab Services — Tech community forum](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
-          - For feature requests, submit your requests and ideas to [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
-          

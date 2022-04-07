@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Format guidelines for imported documents and URLs
@@ -64,7 +65,7 @@ Below is an example of an unstructured PDF document:
  Currently this functionality is available only via document upload and only for PDF and DOC file formats.
 
 > [!IMPORTANT]
-> Support for unstructured file/content is available only in Custom question answering (preview)
+> Support for unstructured file/content is available only in question answering.
 
 ### Structured QnA Document
 

@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -30,7 +30,7 @@ Your Azure bill aggregates charges for the month on a per-_meter_ basis. Meters 
 
 Filter the usage CSV file based on the _MeterName_ as shown on the bill that you want to analyze to see all line items that apply to the meter. The _InstanceID_ for the line item corresponds to the actual Azure resource that generated the charge.
 
-When you've identified the resource in question, you can use Cost analysis in Azure Cost Management to further analyze the costs related to the resource. To learn more about using cost analysis, see [Start analyzing costs](../costs/quick-acm-cost-analysis.md).
+When you've identified the resource in question, you can use Cost analysis in Cost Management to further analyze the costs related to the resource. To learn more about using cost analysis, see [Start analyzing costs](../costs/quick-acm-cost-analysis.md).
 
 ## Review invoiced charges in Cost analysis
 
@@ -83,4 +83,4 @@ If you've used the preceding strategies and you still don't understand why you r
 
 ## Next steps
 
-- Learn about how to [Optimize your cloud investment with Azure Cost Management](../costs/cost-mgt-best-practices.md).
+- Learn about how to [Optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).

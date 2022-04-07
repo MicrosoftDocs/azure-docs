@@ -6,7 +6,7 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/31/2021
+ms.date: 01/25/2022
 ---
 
 # Azure Key Vault soft-delete overview
@@ -15,7 +15,7 @@ ms.date: 03/31/2021
 > You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
 
 > [!IMPORTANT]
-> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
+> When a Key Vault is soft-deleted, services that are integrated with the Key Vault will be deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault will not restore these services. They will need to be recreated.
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -39,7 +39,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion.
 
-When creating a new key vault, soft-delete is on by default. You can create a key vault without soft-delete through the [Azure CLI](./key-vault-recovery.md) or [Azure PowerShell](./key-vault-recovery.md). Once soft-delete is enabled on a key vault it cannot be disabled
+When creating a new key vault, soft-delete is on by default. Once soft-delete is enabled on a key vault it cannot be disabled.
 
 The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
@@ -47,7 +47,7 @@ You cannot reuse the name of a key vault that has been soft-deleted until the re
 
 ### Purge protection
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell). Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
 
 When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 

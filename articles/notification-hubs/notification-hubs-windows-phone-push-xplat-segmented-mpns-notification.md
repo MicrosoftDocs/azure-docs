@@ -11,7 +11,7 @@ ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019

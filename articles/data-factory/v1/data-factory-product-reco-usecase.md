@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Use Case - Product Recommendations
@@ -35,7 +36,7 @@ The online retailer uses an Azure Blob store, an on-premises SQL Server, Azure S
 
 All the data is combined and fed into a product recommendation system to deliver personalized recommendations based on customer interests and actions, while the user browses products in the catalog on the website. The customers also see products that are related to the product they are looking at based on overall website usage patterns that are not related to any one user.
 
-![use case diagram](./media/data-factory-product-reco-usecase/diagram-1.png)
+:::image type="content" source="./media/data-factory-product-reco-usecase/diagram-1.png" alt-text="use case diagram":::
 
 Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested regularly into an Azure Blob storage using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long-term storage.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) is used to partition the raw log files in the blob store and process the ingested logs at scale using both Hive and Pig scripts. The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
 

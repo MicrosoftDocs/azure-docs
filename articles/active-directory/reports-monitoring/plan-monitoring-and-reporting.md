@@ -4,7 +4,7 @@ title: Plan reports & monitoring deployment - Azure AD
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity

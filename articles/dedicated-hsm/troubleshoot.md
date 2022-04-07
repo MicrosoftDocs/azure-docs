@@ -9,7 +9,6 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 03/25/2021
@@ -27,7 +26,7 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
-Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisiting process via email using HSMrequest@microsoft.com. 
+Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisting process via email using `HSMrequest@microsoft.com`.
 
 ### Getting access to Dedicated HSM
 

@@ -2,7 +2,7 @@
 title: Configured replication tasks - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of replicating event between Event Hubs 
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ---
 
 # Configured replication tasks - Azure Event Hubs

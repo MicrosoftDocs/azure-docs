@@ -6,7 +6,6 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-
 ---
 
 # Replicate data over ExpressRoute with Azure Migrate: Server Migration
@@ -152,7 +151,7 @@ To validate the private link connection, perform a DNS resolution of the cache s
 
 An illustrative example for DNS resolution of the cache storage account. 
 
-- Enter nslookup _storageaccountname_.blob.core.windows.net. Replace <storage-account-name> with the name of the cache storage account created by Azure Migrate.  
+- Enter nslookup _storageaccountname_.blob.core.windows.net. Replace \<storage-account-name\> with the name of the cache storage account created by Azure Migrate.  
 
     You'll receive a message like this:  
 

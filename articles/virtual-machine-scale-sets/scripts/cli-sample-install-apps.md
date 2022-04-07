@@ -5,31 +5,38 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.date: 03/27/2018
+ms.date: 01/27/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-
 ---
 
 # Install applications into a virtual machine scale set with the Azure CLI
-This script creates a virtual machine scale set running Ubuntu and uses the Custom Script Extension to install a basic web application. After running the script, you can access the web app through a web browser.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+This script creates a virtual machine scale set running Ubuntu and uses the Custom Script Extension to install a basic web application. After running the script, you can access the web app through a web browser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
 ## Sample script
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh "Install apps into a scale set")]
 
-## Clean up deployment
-Run the following command to remove the resource group, scale set, and all related resources.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-```azurecli-interactive
-az group delete --name myResourceGroup
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh" id="FullScript":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
-This script uses the following commands to create a resource group, virtual machine scale set, and all related resources. Each command in the table links to command specific documentation.
+## Sample reference
+
+This script uses the commands outlined in the following table:
 
 | Command | Notes |
 |---|---|
@@ -41,4 +48,5 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
+
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).

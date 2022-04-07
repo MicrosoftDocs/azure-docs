@@ -6,8 +6,9 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: scala
 ---
 
 # Quick Examples
@@ -16,7 +17,7 @@ The following snippets are ready to run and will help get you started with using
 
 The samples use these Cognitive Services:
 
-- Text Analytics - get the sentiment (or mood) of a set of sentences.
+- Language service - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
 - Bing Image Search - search the web for images related to a natural language query.
 - Speech-to-text - transcribe audio files to extract text-based transcripts.
@@ -42,9 +43,9 @@ val serviceKey = "ADD-YOUR-SUBSCRIPTION-KEY"
 val location = "eastus"
 ```
 
-## Text Analytics
+## Language service
 
-The [Text Analytics](../text-analytics/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between `0.0` and `1.0` where low scores indicate negative sentiment and high score indicates positive sentiment.  The sample below uses three simple sentences and returns the sentiment score for each.
+The [Language service](../language-service/index.yml) provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between `0.0` and `1.0` where low scores indicate negative sentiment and high score indicates positive sentiment.  The sample below uses three simple sentences and returns the sentiment score for each.
 
 ```scala
 import org.apache.spark.sql.functions.col

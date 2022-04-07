@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Enable Azure Storage blob inventory reports
 
-The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
+The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements.
 
 To learn more about blob inventory reports, see [Azure Storage blob inventory](blob-inventory.md).
 
@@ -40,7 +40,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 7. Under **Object type to inventory**, choose whether to create a report for blobs or containers.
 
-   If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report. 
+   If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report.
 
    > [!NOTE]
    > Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
@@ -59,7 +59,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 <a id="powershell"></a>
 
-You can enable static website hosting by using the Azure PowerShell module.
+You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 1. Open a Windows PowerShell command window.
 
@@ -71,7 +71,7 @@ You can enable static website hosting by using the Azure PowerShell module.
    Connect-AzAccount
    ```
 
-4. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+4. If your identity is associated with more than one subscription, then set your active subscription.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -87,30 +87,30 @@ You can enable static website hosting by using the Azure PowerShell module.
    $ctx = $storageAccount.Context
    ```
 
-   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 6. Create inventory rules by using the [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) command. Each rule lists report fields. For a complete list of report fields, see [Azure Storage blob inventory](blob-inventory.md).
 
-   ```Powershell
+   ```powershell
     $containerName = "my-container"
 
     $rule1 = New-AzStorageBlobInventoryPolicyRule -Name Test1 -Destination $containerName -Disabled -Format Csv -Schedule Daily -PrefixMatch con1,con2 `
-                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold 
+                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold
 
     $rule2 = New-AzStorageBlobInventoryPolicyRule -Name test2 -Destination $containerName -Format Parquet -Schedule Weekly  -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
                 -BlobSchemaField name,Last-Modified,Metadata,LastAccessTime
 
     $rule3 = New-AzStorageBlobInventoryPolicyRule -Name Test3 -Destination $containerName -Format Parquet -Schedule Weekly -IncludeBlobVersion -IncludeSnapshot -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
-                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime 
+                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime
 
     $rule4 = New-AzStorageBlobInventoryPolicyRule -Name test4 -Destination $containerName -Format Csv -Schedule Weekly -BlobType blockBlob -BlobSchemaField Name,BlobType,Content-Length,Creation-Time
 
    ```
 
-7. Use the [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) to create a blob inventory policy. Pass rules into this command by using the `-Rule` parameter. 
-  
+7. Use the [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) to create a blob inventory policy. Pass rules into this command by using the `-Rule` parameter.
+
    ```powershell
    $policy = Set-AzStorageBlobInventoryPolicy -StorageAccount $storageAccount -Rule $rule1,$rule2,$rule3,$rule4  
    ```
@@ -119,18 +119,19 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
+You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, then set your active subscription.
 
    ```azurecli
       az account set --subscription <subscription-id>
    ```
+
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Define the rules of your policy in a JSON document. The following shows the contents of an example JSON file named `policy.json`. 
+3. Define the rules of your policy in a JSON document. The following shows the contents of an example JSON file named `policy.json`.
 
     ```json
     {
@@ -174,9 +175,10 @@ You can enable static website hosting by using the [Azure Command-Line Interface
       }
      ]
    }
-   ``` 
 
-4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create) create command. Provide the name of your JSON document by using the `--policy` parameter.
+   ```
+
+4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az-storage-account-blob-inventory-policy-create) create command. Provide the name of your JSON document by using the `--policy` parameter.
 
    ```azurecli
    az storage account blob-inventory-policy create -g myresourcegroup --account-name mystorageaccount --policy @policy.json
@@ -187,4 +189,4 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 ## Next steps
 
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

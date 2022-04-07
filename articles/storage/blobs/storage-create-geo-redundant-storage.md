@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
+ms.devlang: csharp, javascript, python
 ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
 ms.subservice: blobs
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
@@ -28,9 +29,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a storage account
-> * Set the connection string
-> * Run the console application
+> - Create a storage account
+> - Set the connection string
+> - Run the console application
 
 ## Prerequisites
 
@@ -42,7 +43,7 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 # [.NET v11 SDK](#tab/dotnet11)
 
-* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
+- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -52,8 +53,8 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 # [Python v2.1](#tab/python2)
 
-* Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
+- Install [Python](https://www.python.org/downloads/)
+- Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
 # [Node.js v12 SDK](#tab/nodejs)
 
@@ -61,7 +62,7 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
-* Install [Node.js](https://nodejs.org).
+- Install [Node.js](https://nodejs.org).
 
 ---
 
@@ -79,7 +80,7 @@ Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage 
 2. Select **Storage account - blob, file, table, queue** from the **New** page.
 4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
-   | Setting       | Sample value | Description |
+   | Setting       | Sample value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
    | **ResourceGroup** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |

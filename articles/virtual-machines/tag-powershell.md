@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to tag a virtual machine in Azure using PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article describes how to tag a VM in Azure using PowerShell. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. If you want to tag a virtual machine using the Azure CLI, see [How to tag a virtual machine in Azure using the Azure CLI](tag-cli.md).
 
 Use the `Get-AzVM` cmdlet to view the current list of tags for your VM.

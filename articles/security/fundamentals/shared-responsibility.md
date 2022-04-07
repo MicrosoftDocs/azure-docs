@@ -10,11 +10,10 @@ editor: na
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 08/31/2021
 ms.author: terrylan
 
 ---
@@ -25,7 +24,7 @@ As you consider and evaluate public cloud services, it’s critical to understan
 ## Division of responsibility
 In an on-premises datacenter, you own the whole stack. As you move to the cloud some responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft, according to the type of deployment of your stack.
 
-![Responsibility zones](./media/shared-responsibility/shared-responsibility.png)
+:::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
 
 For all cloud deployment types, you own your data and identities. You are responsible for protecting the security of your data and identities, on-premises resources, and the cloud components you control (which varies by service type).
 
@@ -41,7 +40,7 @@ The cloud offers significant advantages for solving long standing information se
 
 The following diagram shows a traditional approach where many security responsibilities are unmet due to limited resources. In the cloud-enabled approach, you are able to shift day to day security responsibilities to your cloud provider and reallocate your resources.
 
-![Security advantages of cloud era](./media/shared-responsibility/cloud-enabled-security.png)
+:::image type="content" source="media/shared-responsibility/cloud-enabled-security.svg" alt-text="Diagram showing security advantages of cloud era." border="false":::
 
 In the cloud-enabled approach, you are also able to leverage cloud-based security capabilities for more effectiveness and use cloud intelligence to improve your threat detection and response time. By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
 

@@ -3,16 +3,16 @@ title: Real User Measurements with Visual Studio Mobile Center - Azure Traffic M
 description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: duongau
+author: asudbring
 
 ms.service: traffic-manager
-ms.devlang: na
+ms.devlang: java
 ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: duau
-ms.custom: devx-track-js
+ms.author: allensu
+ms.custom: devx-track-java
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center
@@ -40,7 +40,7 @@ To obtain the RUM Key using Azure portal using the following procedure:
 
 5. The page displays the RUM Key that is generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
-   ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
+   ![JavaScript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Figure 2: Real User Measurements Key and Measurement JavaScript**
  

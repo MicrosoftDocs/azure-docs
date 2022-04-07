@@ -1,19 +1,21 @@
---- 
+---
 title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
 description: Learn about the HBv3-series VM size in Azure.  
 services: virtual-machines 
-author: vermagit 
 tags: azure-resource-manager 
 ms.service: virtual-machines 
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 03/25/2021 
-ms.author: amverma 
 ms.reviewer: cynthn
---- 
+ms.author: mamccrea
+author: mamccrea
+---
 
 # HBv3-series virtual machine overview 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 An [HBv3-series](../../hbv3-series.md) server features 2 * 64-core EPYC 7V13 CPUs for a total of 128 physical "Zen3" cores. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 32 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 

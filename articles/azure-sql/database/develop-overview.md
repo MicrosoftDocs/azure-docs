@@ -7,7 +7,7 @@ ms.subservice: development
 ms.topic: conceptual
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ---

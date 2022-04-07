@@ -1,15 +1,15 @@
 ---
-title: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource (Azure Marketplace)
-description: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource (Azure Marketplace).
+title: Set up Dynamics 365 Operations Apps offer technical configuration on Microsoft AppSource (Azure Marketplace)
+description: Set up Dynamics 365 Operations Apps offer technical configuration on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
+ms.date: 12/03/2021
 ---
 
-# Set up Dynamics 365 for Operations offer technical configuration
+# Set up Dynamics 365 Operations Apps technical configuration
 
 This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the end customer if they choose to acquire it.
 
@@ -22,9 +22,9 @@ Provide the solution identifier (GUID) for your solution. To find your solution 
 
 ## Release version
 
-Select the version of Dynamics 365 for Operations this solution works with.
+Select the version of Dynamics 365 Operations Apps this solution works with.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Test drive technical configuration
 

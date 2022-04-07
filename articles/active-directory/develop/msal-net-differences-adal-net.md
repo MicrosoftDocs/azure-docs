@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/09/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.NET and MSAL.NET libraries so I can migrate my applications to MSAL.NET.
 ---
 
@@ -47,10 +47,10 @@ Here are the grants supported in ADAL.NET and MSAL.NET for Desktop and Mobile ap
 
 Grant                             | MSAL.NET                                                                                                                     | ADAL.NET                                                                                                                                                                                                   |
 --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-Interactive                       | [Acquiring tokens interactively in MSAL.NET](scenario-desktop-acquire-token.md#acquire-a-token-interactively)    | [Interactive Auth](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
-Integrated Windows Authentication | [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication)         | [Integrated authentication on Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
-Username / Password               | [Username Password Authentication](scenario-desktop-acquire-token.md#username-and-password)                      | [Acquiring tokens with username and password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
-Device code flow                  | [Device Code flow](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser)                    | [Device profile for devices without web browsers](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
+Interactive                       | [Acquiring tokens interactively in MSAL.NET](scenario-desktop-acquire-token-interactive.md)    | [Interactive Auth](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
+Integrated Windows authentication | [Integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)         | [Integrated authentication on Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
+Username / Password               | [Username-password authentication](scenario-desktop-acquire-token-username-password.md)                      | [Acquiring tokens with username and password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
+Device code flow                  | [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)                    | [Device profile for devices without web browsers](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
 
 ### Confidential client applications
 
@@ -136,7 +136,7 @@ Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireToke
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- try {“try to authenticate interactively”}
+ try {"try to authenticate interactively"}
 }
 ```
 
@@ -156,6 +156,18 @@ catch(AdalException exception)
 ```
 
 For details, see [the recommended pattern to acquire a token in public client applications](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET.
+
+### Prompt behavior
+
+Prompt behavior in MSAL.NET is equivalent to prompt behavior in ADAL.NET:
+
+|  ADAL.NET | MSAL.NET | Description |
+| ----------- | ----------- | -------------|
+| `PromptBehavior.Auto`| `NoPrompt`| Azure AD chooses the best behavior (signing in users silently if they are signed in with only one account, or displaying the account selector if they are signed in with several accounts). |
+| `PromptBehavior.Always`| `ForceLogin` | Resets the sign-in box and forces the user to reenter their credentials. |
+| `PromptBehavior.RefreshSession`| `Consent`| Forces the user to consent again to all permissions. |
+| `PromptBehavior.Never`| `Never`| Don't use; instead, use the [recommended pattern for public client apps](scenario-desktop-acquire-token.md?tabs=dotnet). |
+| `PromptBehavior.SelectAccount`| `SelectAccount`| Displays the account selector and forces the user to select an account. |
 
 ### Handling claim challenge exceptions
 

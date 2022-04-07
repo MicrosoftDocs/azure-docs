@@ -12,7 +12,7 @@ ms.date: 3/22/2021
 
 OPC Publisher is a fully supported Microsoft product, developed in the open, that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting to OPC UA-enabled assets or industrial connectivity software and publishes telemetry data to [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards).
 
-It runs on [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) as a Module or on plain Docker as a container. Since it leverages the [.NET cross-platform runtime](/dotnet/core/introduction), it also runs natively on Linux and Windows 10.
+It runs on [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) as a Module.
 
 In this tutorial, you learn how to:
 
@@ -21,10 +21,9 @@ In this tutorial, you learn how to:
 > * Run the latest released version of OPC Publisher as a container
 > * Specify Container Create Options in the Azure portal
 
-If you don’t have an Azure subscription, create a free trial account
-
 ## Prerequisites
 
+- An Azure subscription must be created. If you don’t have an Azure subscription, create a [free trial account](https://azure.microsoft.com/free/search/).
 - An IoT Hub must be created
 - An IoT Edge device must be created
 - An IoT Edge device must be registered
@@ -34,14 +33,14 @@ If you don’t have an Azure subscription, create a free trial account
 1. Pick the Azure subscription to use. If no Azure subscription is available, one must be created.
 2. Pick the IoT Hub the OPC Publisher is supposed to send data to. If no IoT Hub is available, one must be created.
 3. Pick the IoT Edge device the OPC Publisher is supposed to run on (or enter a name for a new IoT Edge device to be created).
-4. Click Create. The "Set modules on Device" page for the selected IoT Edge device opens.
-5. Click on "OPCPublisher" to open the OPC Publisher's "Update IoT Edge Module" page and then select "Container Create Options".
-6. Specify additional container create options based on your usage of OPC Publisher, see next section below.
+4. Select **Create**. The **Set modules on Device** page for the selected IoT Edge device opens.
+5. Select **OPCPublisher** to open the OPC Publisher's **Update IoT Edge Module** page and then select **Container Create Options**.
+6. Specify other container create options based on your usage of OPC Publisher, see next section below.
 
-All supported docker images for the docker OPC Publisher are listed [here](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list). For non-OPC UA-enabled assets, we have partnered with the leading industrial connectivity providers and helped them port their OPC UA adapter software to Azure IoT Edge. These adapters are available in the Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1).
+All supported docker images for the docker OPC Publisher are listed [here](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list). For non-OPC UA-enabled assets, leading industrial connectivity providers offer OPC UA adapter software.  These adapters are available in the Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1).
 
 ## Specifying Container Create Options in the Azure portal
-When deploying OPC Publisher through the Azure portal, container create options can be specified in the Update IoT Edge Module page of OPC Publisher. These create options must be in JSON format. The OPC Publisher command line arguments can be specified via the Cmd key, e.g.:
+When deploying OPC Publisher through the Azure portal, container create options can be specified in the Update IoT Edge Module page of OPC Publisher. These create options must be in JSON format. The OPC Publisher command-line arguments can be specified via the Cmd key, for example:
 ```
 "Cmd": [
     "--pf=./pn.json",
@@ -81,7 +80,7 @@ A connection to an OPC UA server using its hostname without a DNS server configu
 ```
 
 ## Next steps 
-Now that you have deployed the OPC Publisher Edge module, the next step is to configure it:
+Now that you have deployed the OPC Publisher IoT Edge module, the next step is to configure it:
 
 > [!div class="nextstepaction"]
 > [Configure the OPC Publisher](tutorial-publisher-configure-opc-publisher.md)

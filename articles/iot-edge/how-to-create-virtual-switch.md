@@ -1,98 +1,149 @@
 ---
 title: Create virtual switch for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Installations for creating a virtual switch for Azure IoT Edge for Linux on Windows
-author: kgremban
-
+author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/12/2021
-ms.author: kgremban
-monikerRange: "=iotedge-2018-06"
+ms.date: 11/30/2021
+ms.author: patricka
 ---
 
 # Azure IoT Edge for Linux on Windows virtual switch creation
-Azure IoT Edge for Linux on Windows uses a virtual switch on the host machine to communicate with the virtual machine. Windows desktop versions come with a default switch that can be used, but Windows Server does not. Before you can deploy IoT Edge for Linux on Windows to a Windows Server device, you need to create a virtual switch. Furthermore, you can use this guide to create your custom virtual switch, if needed. 
 
-This article shows you how to create a virtual switch on a Windows device to install IoT Edge for Linux on Windows with the following steps:
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Azure IoT Edge for Linux on Windows uses a virtual switch on the host machine to communicate with the virtual machine. Windows desktop versions come with a default switch that can be used, but Windows Server *doesn't*. Before you can deploy IoT Edge for Linux on Windows to a Windows Server device, you need to create a virtual switch. Furthermore, you can use this guide to create your custom virtual switch, if needed. 
+
+This article shows you how to create a virtual switch on a Windows device to install IoT Edge for Linux on Windows. This process is divided into the following steps:
 - Create a virtual switch
 - Create a NAT table
 - Install and set up a DHCP server
 
 ## Prerequisites
-- A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems).
-- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](./how-to-install-iot-edge-on-windows.md?tabs=powershell#prerequisites).
+- A Windows device. For more information on supported Windows versions, see [Operating Systems](support.md#operating-systems).
+- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](./how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=powershell#prerequisites).
 
 ## Create virtual switch 
 The following steps in this section are a generic guide for a virtual switch creation. Ensure that the virtual switch configuration aligns with your networking environment.
 
-1. Open PowerShell in an elevated session.
+> [!NOTE]
+> The following steps describe how to create an **Internal** or **Private** virtual switch. For more information on creating an **External** switch instead, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
+Note that if you're using an Azure VM, the virtual switch can't be **External**.
 
-2. Check the virtual switches on the Windows host, and make sure you don't have a virtual switch that can be used. Check [Get-VMSwitch (Hyper-V)](/powershell/module/hyper-v/get-vmswitch) for full details. 
+1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
 
-   ```powershell
-   Get-VMSwitch
-   ```
+2. Check the virtual switches on the Windows host and make sure you don't already have a virtual switch that can be used. You can do so by running the following [Get-VMSwitch](/powershell/module/hyper-v/get-vmswitch) command in PowerShell:
 
-   If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
+    ```powershell
+    Get-VMSwitch
+    ```
 
-3. Create a new VM switch with a name and type **Internal** or **Private**. To create an **External** virtual switch, specify either the **NetAdapterInterfaceDescription** or the **NetAdapterName** parameter, which implicitly set the type of the virtual switch to **External**. Check [New-VMSwitch (Hyper-V)](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) for full details and further instructions.
-   ```powershell
-   New-VMSwitch -Name "{switchName}" -SwitchType {switchType}
-   ```
+    If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
 
-4. Get the interface index of the created switch. Check [Get-NetAdapter (NetAdapter)](/powershell/module/netadapter/get-netadapter) for full details. 
-   ```powershell
-   (Get-NetAdapter -Name '*{switchName}*').ifIndex
-   ```
+3. Create a new VM switch with a name of your choice and an **Internal** or **Private** switch type by running the following [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) command, replacing the placeholder values:
 
-5. Using the interface index from previous step, get the IP address octet of the created switch network adapter. Check [Get-NetIPAddress (NetTCPIP)](/powershell/module/nettcpip/get-netipaddress) for full details. 
-   ```powershell
-   Get-NetIPAddress -AddressFamily IPv4  -InterfaceIndex {ifIndex}
-   ```
+    ```powershell
+    New-VMSwitch -Name "{switchName}" -SwitchType {switchType}
+    ```
 
-6. Using the IP address family and interface index from previous steps, create and set the new gateway IP address.  For example, If the IPv4 address of the virtual network switch adapter is xxx.xxx.xxx.yyy, you can set the gatewayIp as following xxx.xxx.xxx.1. Check [New-NetIPAddress (NetTCPIP)](/powershell/module/nettcpip/new-netipaddress) for full details.
-   ```powershell
-   New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {ifIndex}
-   ```
+4. To get the IP address for the switch you created, you must first get its interface index. You can get this value by running the following [Get-NetAdapter](/powershell/module/netadapter/get-netadapter) command, replacing the placeholder value:
 
-7. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Use the same IPv4 family address from previous steps. For example, if the IPv4 address of the virtual network switch adapter is xxx.xxx.xxx.yyy, you can set the natIp as following xxx.xxx.xxx.0. Check [New-NetNat (NetNat)](/powershell/module/netnat/new-netnat) for full details. 
-   ```powershell
-   New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
-   ```
+    ```powershell
+    (Get-NetAdapter -Name "{switchName}").ifIndex
+    ```
+
+    You may need to change the value for the `Name` parameter to follow the `vEthernet ({switchName})` template if you receive an error when you try to run this command. You should receive similar output to the following example:
+
+    :::image type="content" source="media/how-to-create-virtual-switch/get-netadapter-output.png" alt-text="Screenshot of the output from running the Get-NetAdapter command, highlighting the interface index value." lightbox="media/how-to-create-virtual-switch/get-netadapter-output.png":::
+
+    Take note of the interface index value, as you'll need to use it in future steps.
+
+5. Using the interface index from the previous step, get the IP address of the created switch network adapter by running the following [Get-NetIPAddress](/powershell/module/nettcpip/get-netipaddress) command, replacing the placeholder value:
+
+    ```powershell
+    Get-NetIPAddress -AddressFamily IPv4  -InterfaceIndex {interfaceIndex}
+    ```
+
+    Running this command should output information similar to the following example:
+
+    :::image type="content" source="media/how-to-create-virtual-switch/get-netipaddress-output.png" alt-text="Screenshot of the output from running the Get-NetIPAddress command, highlighting the IP address." lightbox="media/how-to-create-virtual-switch/get-netipaddress-output.png":::
+
+    The resulting virtual switch IP address will be different for each environment. Take note of the IP address, as the rest of the commands in this guide will make use of more IP addresses that are derived from this outputted address.
+
+6. For the other IP addresses, you'll need to create variations where the last octet (the number separated by each dot in an IP address) is replaced by a different value. You'll create and use the following IP addresses:
+    
+   | IP address        | Template        | Example         |
+   |-------------------|-----------------|-----------------|
+   | Virtual switch IP | xxx.xxx.xxx.yyy | 169.254.229.39  |
+   | Gateway IP        | xxx.xxx.xxx.1   | 169.254.229.1   |
+   | NAT IP            | xxx.xxx.xxx.0   | 169.254.229.0   |
+   | Start IP          | xxx.xxx.xxx.100 | 169.254.229.100 |
+   | End IP            | xxx.xxx.xxx.200 | 169.254.229.200 |
+
+7. Set the **gateway IP address** by replacing the last octet of your virtual switch IP with a new numerical value, for example 1. Run the following [New-NetIPAddress](/powershell/module/nettcpip/new-netipaddress) command to set the new gateway IP address, replacing the placeholder values:
+
+    ```powershell
+    New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {interfaceIndex}
+    ```
+
+    Running this command should output information similar to the following example:
+
+    :::image type="content" source="media/how-to-create-virtual-switch/new-netipaddress-output.png" alt-text="Screenshot of the output from running the New-NetIPAddress command." lightbox="media/how-to-create-virtual-switch/new-netipaddress-output.png":::
+
+8. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Use the same IPv4 family address from previous steps. Based on the table from step six, the **NAT IP address** corresponds to the original virtual switch IP address, except that the last octet is replaced with a new numerical value, for example 0. Run the following [New-NetNat](/powershell/module/netnat/new-netnat) command to set the NAT IP address, replacing the placeholder values:
+
+    ```powershell
+    New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
+    ```
+
+    Running this command should output information similar to the following example:
+
+    :::image type="content" source="media/how-to-create-virtual-switch/new-netnat-output.png" alt-text="Screenshot of the output from running the New-NetNat command." lightbox="media/how-to-create-virtual-switch/new-netnat-output.png":::
+
+The switch is now created. Next, you'll set up the DNS.
 
 ## Create DHCP Server 
 
 >[!WARNING]
->Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For further information, check the  [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps) guide. 
+>Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For more information, see [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps). 
 
-1. Check if the DHCP Server feature is installed in the device. Look for the **Install State** column.
-   ```powershell
-   Get-WindowsFeature -Name 'DHCP'
-   ```
+1. Check if the DHCP Server feature is installed on the host machine. Look for the **Install State** column. If the value is "Installed", you can skip the following step.
 
-2. If not installed, install it by using the following command.
-   ```powershell
-   Install-WindowsFeature -Name 'DHCP' -IncludeManagementTools
-   ```
+    ```powershell
+    Get-WindowsFeature -Name 'DHCP'
+    ```
+
+2. If the DHCP server isn't already installed, do so by running the following command:
+
+    ```powershell
+    Install-WindowsFeature -Name 'DHCP' -IncludeManagementTools
+    ```
 
 3. Add the DHCP Server to the default local security groups and restart the server.
-   ```powershell
-   netsh dhcp add securitygroups
-   Restart-Service dhcpserver
-   ```
 
-4. Configure the DHCP Server scope. Check [Add-DhcpServerv4Scope (DhcpServer)](/powershell/module/dhcpserver/add-dhcpserverv4scope) for full details.  The DHCP server range of IPs is determined by the **startIp** and the **endIp**. For example,  if 100 addresses want to be available, following the xxx.xxx.xxx.yyy IPv4 address of the virtual network switch adapter from Step 5, startIp = xxx.xxx.xxx.100, endIp = xxx.xxx.xxx.200 and subnetMask = 255.255.255.0.
-   ```powershell
-   Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask {subnetMask} -State Active
-   ```
+    ```powershell
+    netsh dhcp add securitygroups
+    Restart-Service dhcpserver
+    ```
 
-5. Finally, assign the NAT object and gatewayIp to the DHCP server, and restart the server to load the configuration.
-   ```powershell
-   Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
-   Restart-service dhcpserver
-   ```
+    You'll receive the following warning messages while the DHCP server is starting up: `WARNING: Waiting for service 'DHCP Server (dhcpserver)' to start...`
+
+4. To configure the DHCP server range of IPs to be made available, you'll need to set an IP address as the **start IP** and an IP address as the **end IP**. This range is defined by the **StartRange** and the **EndRange** parameters in the [Add-DhcpServerv4Scope](/powershell/module/dhcpserver/add-dhcpserverv4scope) command. You'll also need to set the subnet mask when running this command, which will be 255.255.255.0. Based on the IP address templates and examples in the table from the previous section, setting the **StartRange** as 169.254.229.100 and the **EndRange** as 169.254.229.200 will make 100 IP addresses available. Run the following command, replacing the placeholders with your own values:
+
+    ```powershell
+    Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask 255.255.255.0 -State Active
+    ```
+
+    This command should produce no output.
+
+5. Assign the **NAT** and **gateway IP** addresses you created in the earlier section to the DHCP server, and restart the server to load the configuration. The first command should produce no output, but restarting the DHCP server should output the same warning messages that you received when you did so in the third step of this section.
+
+    ```powershell
+    Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
+    Restart-service dhcpserver
+    ```
 
 ## Next steps
-Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
+Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md) to set up a device with IoT Edge for Linux on Windows.

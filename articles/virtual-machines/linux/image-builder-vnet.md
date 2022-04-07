@@ -13,6 +13,8 @@ ms.subservice: image-builder
 
 # Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how you can use the Azure Image Builder to create a basic customized Linux image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
@@ -32,7 +34,7 @@ location=WestUS2
 
 # your subscription
 # get the current subID : 'az account show | grep id'
-subscriptionID=$(az account show | grep id | tr -d '",' | cut -c7-)
+subscriptionID=$(az account show --query id --output tsv)
 
 # name of the image to be created
 imageName=aibCustomLinuxImg01
@@ -147,7 +149,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## Set permissions on the resource group
 
-Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery (formerly known as Shared Image Gallery). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
 ```bash
 # create user assigned identity for image builder
@@ -155,7 +157,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
@@ -260,7 +262,7 @@ If you want to now try recustomizing the image version to create a new version o
 
 The following deletes the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 
@@ -300,4 +302,4 @@ If you created a VNET for this quickstart, you can delete the VNET if it's no lo
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](../shared-image-galleries.md).

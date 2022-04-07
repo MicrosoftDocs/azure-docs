@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, daviburg, logicappspm
-ms.topic: article
+ms.reviewer: estfan, daviburg, azla
+ms.topic: how-to
 ms.date: 07/25/2021
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
@@ -33,7 +33,7 @@ This article shows you how to complete these tasks:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
-* Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/)
+* Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
   > [!NOTE]
   > The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid), 

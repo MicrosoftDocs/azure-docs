@@ -2,10 +2,10 @@
 title: Resource model for the Azure Cosmos DB point-in-time restore feature.
 description: This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.author: govindk
 ms.reviewer: sngun
 
 ---

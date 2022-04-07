@@ -68,6 +68,8 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
+**Step 1**
+
 * Unmount the devices for which the file system state wasn't cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
@@ -80,6 +82,23 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
+
+**Step 2**
+
+* Check if there are duplicate mount points present.
+
+Identify the failed to freeze mount points from the extension log file. <br>
+For example: /boot, /usr/sap in the below sample output. 
+```
+    2017-11-02 11:22:56 Thawing: /boot
+    2017-11-02 11:22:56 Failed to FITHAW: /boot
+    2017-11-02 11:22:56 Thawing: /sapshare
+    2017-11-02 11:22:56 Thawing: /usr/sap
+    2017-11-02 11:22:56 Failed to FITHAW: /usr/sap
+```
+
+On the Linux VM execute 'mount' command and check if the failed mount points have multiple entries. If yes, remove the old entries or rename the mount path and retry the backup operation.
+
 
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
@@ -256,7 +275,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3**: Try [increasing the size of the VM](../virtual-machines/windows/resize-vm.md) and retry the operation
+**Step 3**: Try [increasing the size of the VM](../virtual-machines/resize-vm.md) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 
@@ -423,4 +442,4 @@ DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a 
 Get more information on how to set up a static IP through PowerShell:
 
 * [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
-* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)

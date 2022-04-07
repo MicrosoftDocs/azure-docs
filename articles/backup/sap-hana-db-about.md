@@ -2,7 +2,7 @@
 title: About SAP HANA database backup in Azure VMs
 description: In this article, learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 09/27/2021
 ---
 
 # About SAP HANA database backup in Azure VMs
@@ -24,13 +24,15 @@ To view the backup and restore scenarios that we support today, refer to the [SA
 
 ## Backup architecture
 
+You can back up SAP HANA databases running inside an Azure VM and stream backup data directly to the Azure Recovery Services vault.
+
 ![Backup architecture diagram](./media/sap-hana-db-about/backup-architecture.png)
 
 * The backup process begins by [creating a Recovery Services vault](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) in Azure. This vault will be used to store the backups and recovery points created over time.
-* The Azure VM running SAP HANA server is registered with the vault, and the databases to be backed-up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-databases). To enable the Azure Backup service to discover databases, a [preregistration script](https://aka.ms/scriptforpermsonhana) must be run on the HANA server as a root user.
-* This script creates **AZUREWLBACKUPHANAUSER** DB user and a corresponding key with the same name in **hdbuserstore**. Refer to the  [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section to understand more about what the script does.
+* The Azure VM running SAP HANA server is registered with the vault, and the databases to be backed-up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-databases). To enable the Azure Backup service to discover databases, a [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) must be run on the HANA server as a root user.
+* This script creates the **AZUREWLBACKUPHANAUSER** database user/uses the custom Backup user you have already created, and then creates a corresponding key with the same name in **hdbuserstore**. [Learn more](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) about the functionality of the script.
 * Azure Backup Service now installs the **Azure Backup Plugin for HANA** on the registered SAP HANA server.
-* The **AZUREWLBACKUPHANAUSER** DB user created by the preregistration script is used by the **Azure Backup Plugin for HANA** to perform all backup and restore operations. If you attempt to configure backup for SAP HANA DBs without running this script, you might receive the following error: **UserErrorHanaScriptNotRun**.
+* The **AZUREWLBACKUPHANAUSER** database user created by the pre-registration script/custom Backup user that you’ve created (and added as input to the pre-registration script) is used by the **Azure Backup Plugin for HANA** to perform all backup and restore operations. If you attempt to configure backup for SAP HANA databases without running this script, you might receive the **UserErrorHanaScriptNotRun** error.
 * To [configure backup](./tutorial-backup-sap-hana-db.md#configure-backup) on the databases that are discovered, choose the required backup policy and enable backups.
 
 * Once the backup is configured, Azure Backup service sets up the following Backint parameters at the DATABASE level on the protected SAP HANA server:

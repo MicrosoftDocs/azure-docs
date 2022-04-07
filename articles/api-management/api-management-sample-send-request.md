@@ -3,19 +3,17 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Using external services from the Azure API Management service
@@ -65,7 +63,7 @@ There are certain tradeoffs when using a fire-and-forget style of request. If fo
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](https://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.
@@ -101,7 +99,10 @@ From the response object, you can retrieve the body and RFC 7622 tells API Manag
 
 Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
+```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+```
+
 
 ### Reporting failure
 You can use a `<choose>` policy to detect if the token is invalid and if so, return a 401 response.
@@ -187,22 +188,22 @@ Once you have this information, you can make requests to all the backend systems
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
-  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
-  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 ```

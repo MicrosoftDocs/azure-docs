@@ -82,10 +82,6 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 Watch a quick example video showing an on-click failover for a recovery plan for a two-tier WordPress app.
     
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
-
-
-
 ## Next steps
 
 - [Create](site-recovery-create-recovery-plans.md) a recovery plan.

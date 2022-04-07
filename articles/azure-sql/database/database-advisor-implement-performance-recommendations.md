@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 03/10/2020
 ---
 # Database Advisor performance recommendations for Azure SQL Database

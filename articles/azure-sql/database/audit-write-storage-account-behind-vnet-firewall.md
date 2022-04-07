@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: how-to
-author: DavidTrigano
-ms.author: datrigan
-ms.reviewer: vanto
-ms.date: 06/17/2020
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall

@@ -1,11 +1,12 @@
 ---
 title: Copy data to/from Azure Blob Storage
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/05/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Copy data to or from Azure Blob Storage using Azure Data Factory
@@ -166,7 +167,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
 2. Create a blob container named **adfblobconnector** in the storage account.
 4. Create a folder named **input** in the **adfblobconnector** container.
-5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
     ```json
     John, Doe
     Jane, Doe
@@ -183,7 +184,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     5. Select **Pin to dashboard** check box at the bottom of the blade.
     6. Click **Create**.
 3. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
-    ![Data factory home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/data-factory-home-page.png" alt-text="Data factory home page":::
 
 ### Copy Wizard
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Data Wizard** in a separate tab.  
@@ -198,27 +199,27 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     5. Change the **Start date time** to **04/21/2017**.
     6. Change the **End date time** to **04/25/2017**. You may want to type the date instead of browsing through the calendar.
     8. Click **Next**.
-        ![Copy Tool - Properties page](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="Copy Tool - Properties page":::
 3. On the **Source data store** page, click **Azure Blob Storage** tile. You use this page to specify the source data store for the copy task. You can use an existing data store linked service (or) specify a new data store. To use an existing linked service, you would select **FROM EXISTING LINKED SERVICES** and select the right linked service.
-    ![Copy Tool - Source data store page](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Copy Tool - Source data store page":::
 4. On the **Specify the Azure Blob storage account** page:
     1. Keep the auto-generated name for **Connection name**. The connection name is the name of the linked service of type: Azure Storage.
     2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
     3. Select your Azure subscription or keep **Select all** for **Azure subscription**.
     4. Select an **Azure storage account** from the list of Azure storage accounts available in the selected subscription. You can also choose to enter storage account settings manually by selecting **Enter manually** option for the **Account selection method**.
     5. Click **Next**.  
-        ![Copy Tool - Specify the Azure Blob storage account](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Copy Tool - Specify the Azure Blob storage account":::
 5. On **Choose the input file or folder** page:
     1. Double-click **adfblobcontainer**.
     2. Select **input**, and click **Choose**. In this walkthrough, you select the input folder. You could also select the emp.txt file in the folder instead.
-        ![Copy Tool - Choose the input file or folder 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png" alt-text="Copy Tool - Choose the input file or folder 1":::
 6. On the **Choose the input file or folder** page:
     1. Confirm that the **file or folder** is set to **adfblobconnector/input**. If the files are in sub folders, for example, 2017/04/01, 2017/04/02, and so on, enter adfblobconnector/input/{year}/{month}/{day} for file or folder. When you press TAB out of the text box, you see three drop-down lists to select formats for year (yyyy), month (MM), and day (dd).
     2. Do not set **Copy file recursively**. Select this option to recursively traverse through folders for files to be copied to the destination.
     3. Do not the **binary copy** option. Select this option to perform a binary copy of source file to the destination. Do not select for this walkthrough so that you can see more options in the next pages.
     4. Confirm that the **Compression type** is set to **None**. Select a value for this option if your source files are compressed in one of the supported formats.
     5. Click **Next**.
-    ![Copy Tool - Choose the input file or folder 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/chose-input-file-folder.png" alt-text="Copy Tool - Choose the input file or folder 2":::
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file.
     1. Confirm the following options:  
         a. The **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet.
@@ -231,9 +232,9 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     3. At the bottom of the page, see the **preview** of data from the emp.txt file.
     4. Click **SCHEMA** tab at the bottom to see the schema that the copy wizard inferred by looking at the data in the source file.
     5. Click **Next** after you review the delimiters and preview data.
-    ![Copy Tool - File format settings](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png" alt-text="Copy Tool - File format settings":::
 8. On the **Destination data store page**, select **Azure Blob Storage**, and click **Next**. You are using the Azure Blob Storage as both the source and destination data stores in this walkthrough.  
-    ![Copy Tool - select destination data store](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/select-destination-data-store.png" alt-text="Copy Tool - select destination data store":::
 9. On **Specify the Azure Blob storage account** page:  
     1. Enter **AzureStorageLinkedService** for the **Connection name** field.
     2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
@@ -248,42 +249,44 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     1. Confirm that the **compression type** is set to **None**.
     1. Confirm that the **copy behavior** is set to **Merge files**. If the output file with the same name already exists, the new content is added to the same file at the end.
     1. Click **Next**.
-       ![Copy Tool - Choose output file or folder](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+       :::image type="content" source="media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png" alt-text="Copy Tool - Choose output file or folder":::
 11. On the **File format settings** page, review the settings, and click **Next**. One of the additional options here is to add a header to the output file. If you select that option, a header row is added with names of the columns from the schema of the source. You can rename the default column names when viewing the schema for the source. For example, you could change the first column to First Name and second column to Last Name. Then, the output file is generated with a header with these names as column names.
-    ![Copy Tool - File format settings for destination](media/data-factory-azure-blob-connector/file-format-destination.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/file-format-destination.png" alt-text="Copy Tool - File format settings for destination":::
 12. On the **Performance settings** page, confirm that **cloud units** and **parallel copies** are set to **Auto**, and click Next. For details about these settings, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md#parallel-copy).
-    ![Copy Tool - Performance settings](media/data-factory-azure-blob-connector/copy-performance-settings.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-performance-settings.png" alt-text="Copy Tool - Performance settings":::
 14. On the **Summary** page, review all settings (task properties, settings for source and destination, and copy settings), and click **Next**.
-    ![Copy Tool - Summary page](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-summary-page.png" alt-text="Copy Tool - Summary page":::
 15. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard).
-    ![Copy Tool - Deployment page](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-deployment-page.png" alt-text="Copy Tool - Deployment page":::
 
 ### Monitor the pipeline (copy task)
 
 1. Click the link `Click here to monitor copy pipeline` on the **Deployment** page.
 2. You should see the **Monitor and Manage application** in a separate tab.
-    ![Monitor and Manage App](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/monitor-manage-app.png" alt-text="Monitor and Manage App":::
 3. Change the **start** time at the top to `04/19/2017` and **end** time to `04/27/2017`, and then click **Apply**.
 4. You should see five activity windows in the **ACTIVITY WINDOWS** list. The **WindowStart** times should cover all days from pipeline start to pipeline end times.
 5. Click **Refresh** button for the **ACTIVITY WINDOWS** list a few times until you see the status of all the activity windows is set to Ready.
 6. Now, verify that the output files are generated in the output folder of adfblobconnector container. You should see the following folder structure in the output folder:
-    ```
+
+    ```output
     2017/04/21
     2017/04/22
     2017/04/23
     2017/04/24
     2017/04/25
     ```
-   For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article.
+
+    For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article.
 
 ### Data Factory entities
 Now, switch back to the tab with the Data Factory home page. Notice that there are two linked services, two datasets, and one pipeline in your data factory now.
 
-![Data Factory home page with entities](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png" alt-text="Data Factory home page with entities":::
 
 Click **Author and deploy** to launch Data Factory Editor.
 
-![Data Factory Editor](media/data-factory-azure-blob-connector/data-factory-editor.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-editor.png" alt-text="Data Factory Editor":::
 
 You should see the following Data Factory entities in your data factory:
 

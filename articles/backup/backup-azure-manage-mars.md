@@ -3,7 +3,7 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/05/2021
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -88,7 +88,7 @@ There are two ways to stop protecting Files and Folders backup:
   - You'll be able to restore the backed-up data for unexpired recovery points.
   - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data will be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
-  - This option will stop all future backup jobs from protecting your data. If the vault security features are not enabled, all recovery points are immediately deleted.<br>If the security features are enabled, the deletion is delayed by 14 days, and you'll receive an alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and a recommended action *Reprotect the Backup item within 14 days to recover your data.*<br>In this state, the retention policy continues to apply, and the backup data remains billable. [Learn more](backup-azure-security-feature.md#enable-security-features) on how to enable vault security features.
+  - This option will stop all future backup jobs from protecting your data. If the vault security features are not enabled, all recovery points are immediately deleted.<br>If the security features are enabled, the deletion is delayed by 14 days, and you'll receive an alert email with a message: *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and a recommended action *Reprotect the Backup item within 14 days to recover your data.*<br>In this state, the retention policy continues to apply, and the backup data remains billable. [Learn more](backup-azure-security-feature.md#enable-security-features) on how to enable vault security features.
   - To resume protection, reprotect the server within 14 days from the delete operation. In this duration, you can also restore the data to an alternate server.
 
 ### Stop protection and retain backup data
@@ -162,11 +162,67 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
     ![Paste the security PIN](./media/backup-azure-manage-mars/passphrase2.png)
 1. Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
+## Validate passphrase
+
+From MARS agent version 2.0.9190.0 and later, you must validate your passphrase to ensure it meets the [updated requirements](./backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-).
+
+To validate your passphrase, follow these steps:
+
+1. Open the MARS console.
+
+   A message displays at the top asking  you to validate the passphrase. 
+
+1. Click **Validate**.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/validate-passphrase-prompt-inline.png" alt-text="Screenshot showing the prompt for passphrase validation." lightbox="./media/backup-azure-manage-mars/validate-passphrase-prompt-expanded.png":::
+
+   The passphrase validator opens and prompts for the current passphrase. If the passphrase doesn’t meet the updated requirements, an option to regenerate the passphrase appears.
+
+1. Generate the passphrase with the following details:
+
+   - A new passphrase that meets the requirements.
+   - A Security PIN (see [the steps to generate the Security PIN](#generate-security-pin)).
+   - A secure location on the server to save the newly generated passphrase.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase.png" alt-text="Screenshot showing the process to generate passphrase with the required details.":::
+
+### Validate passphrase for DPM/MABS agent
+
+For DPM/MABS, execute the passphrase validation tool from an elevated command prompt.
+   
+You can find the tool in one of the following locations:
+
+- **System Center Data Protection Manager**
+     
+  %ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+- **Microsoft Azure Backup Server**
+      
+  %ProgramFiles%\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+The passphrase validator opens and prompts for the current passphrase. If the passphrase doesn’t meet the updated requirements, regenerate the passphrase.
+   
+:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase.png" alt-text="Screenshot showing passphrase validator prompts for the current passphrase.":::
+
+Use the following steps:
+
+1. From the management console, navigate to the **Management** tab, and select **Online** -> **Configure**.
+1. Follow the **Configure Subscription Settings Wizard**, and at the **Encryption Setting** step, provide the updated passphrase.
+
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="Screenshot showing the process to provide passphrase following the Configure Subscription Settings Wizard.":::
+
+## Generate Security PIN
+
+1. Go to **Recovery Services vault** -> **Settings** -> **Properties**.
+1. Under **Security PIN**, select **Generate**.
+ 
+Copy the PIN. The PIN is valid for only five minutes.
+
 ## Managing backup data for unavailable machines
 
 This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
 
-For these machines, the Azure Backup service ensures that the most recent recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+For these machines, the Azure Backup service ensures that the latest recovery point with the longest retention doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine using this RP.  Consider the following scenarios you can perform on the backed-up data:
 
 ### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
 

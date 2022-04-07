@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 12/27/2021
 ms.author: jeedes
 ---
 
@@ -126,8 +126,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Reply URL** |
     |-----|
-    | `https://www.google.com/acs` |
-    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
     
     c. In the **Sign on URL** textbox, type a URL using the following pattern: 
     `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
@@ -158,10 +158,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Your Google Cloud (G Suite) Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Google Cloud (G Suite) Connector expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-	![image](common/default-attributes.png)
-
-    > [!NOTE]
-    > Ensure that the the SAML Response doesn't include any non-standard ASCII characters in the DisplayName and Surname attributes.    
+	![image](common/default-attributes.png) 
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -203,19 +200,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign into the [Google Cloud (G Suite) Connector Admin Console](https://admin.google.com/) using your administrator account.
 
-2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
+1. Go to the **Menu -> Security -> Authentication -> SSO with third party IDP**.
 
-    ![Click Security.](./media/google-apps-tutorial/gapps-security.png)
+    ![G suite security page.](./media/google-apps-tutorial/security.png)
 
-3. On the **Security** page, click **Set up single sign-on (SSO).**
+4. Perform the following configuration changes in the **Third-party SSO profile for your organization** tab:
 
-    ![Click SSO.](./media/google-apps-tutorial/security-gapps.png)
+    ![Configure SSO.](./media/google-apps-tutorial/sso-configuration.png)
 
-4. Perform the following configuration changes:
-
-    ![Configure SSO.](./media/google-apps-tutorial/configuration.png)
-
-    a. Select **Setup SSO with third-party identity provider**.
+    a. Turn ON the **SSO profile for your organization**.
 
     b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
@@ -249,8 +242,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Google Cloud (G Suite) Connector Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

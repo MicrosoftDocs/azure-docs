@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
+ms.date: 01/20/2022
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -66,11 +66,43 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a linked service to Azure Databricks Delta Lake using UI
+
+Use the following steps to create a linked service to Azure Databricks Delta Lake in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for delta and select the Azure Databricks Delta Lake connector.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/azure-databricks-delta-lake-connector.png" alt-text="Screenshot of the Azure Databricks Delta Lake connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/configure-azure-databricks-delta-lake-linked-service.png" alt-text="Screenshot of configuration for an Azure Databricks Delta Lake linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that define entities specific to an Azure Databricks Delta Lake connector.
 
 ## Linked service properties
 
-The following properties are supported for an Azure Databricks Delta Lake linked service.
+This Azure Databricks Delta Lake connector supports the following authentication types. See the corresponding sections for details.
+
+- [Access token](#access-token)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
+
+### Access token
+
+The following properties are supported for the Azure Databricks Delta Lake linked service:
 
 | Property    | Description                                                  | Required |
 | :---------- | :----------------------------------------------------------- | :------- |
@@ -94,6 +126,90 @@ The following properties are supported for an Azure Databricks Delta Lake linked
                 "type": "SecureString", 
                 "value": "<access token>"
           	}
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> System-assigned managed identity authentication
+
+To learn more about system-assigned managed identities for Azure resources, see [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity).
+
+To use system-assigned managed identity authentication, follow these steps to grant permissions:
+
+1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your data factory or Synapse workspace.
+
+2. Grant the managed identity the correct permissions in Azure Databricks. In general, you must grant at least the **Contributor** role to your system-assigned managed identity in **Access control (IAM)** of Azure Databricks.
+
+The following properties are supported for the Azure Databricks Delta Lake linked service:
+
+| Property    | Description                                                  | Required |
+| :---------- | :----------------------------------------------------------- | :------- |
+| type        | The type property must be set to **AzureDatabricksDeltaLake**. | Yes      |
+| domain      | Specify the Azure Databricks workspace URL, e.g. `https://adb-xxxxxxxxx.xx.azuredatabricks.net`. | Yes       |
+| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](/azure/databricks/clusters/configure#cluster-tags). | Yes         |
+| workspaceResourceId | Specify the workspace resource ID of your Azure Databricks.| Yes     |
+| connectVia  | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
+
+**Example:**
+```json
+{
+    "name": "AzureDatabricksDeltaLakeLinkedService",
+    "properties": {
+        "type": "AzureDatabricksDeltaLake",
+        "typeProperties": {
+            "domain": "https://adb-xxxxxxxxx.xx.azuredatabricks.net",
+            "clusterId": "<cluster id>",
+            "workspaceResourceId": "<workspace resource id>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+
+To learn more about user-assigned managed identities for Azure resources, see [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity)
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in your Azure Databricks. In general, you must grant at least the **Contributor** role to your user-assigned managed identity in **Access control (IAM)** of Azure Databricks.
+     
+2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](credentials.md) for each user-assigned managed identity.
+
+The following properties are supported for the Azure Databricks Delta Lake linked service:
+
+| Property    | Description                                                  | Required |
+| :---------- | :----------------------------------------------------------- | :------- |
+| type        | The type property must be set to **AzureDatabricksDeltaLake**. | Yes      |
+| domain      | Specify the Azure Databricks workspace URL, e.g. `https://adb-xxxxxxxxx.xx.azuredatabricks.net`. | Yes       |
+| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](/azure/databricks/clusters/configure#cluster-tags). | Yes         |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| workspaceResourceId | Specify the workspace resource ID of your Azure Databricks. | Yes     |
+| connectVia  | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
+
+**Example:**
+
+```json
+{
+    "name": "AzureDatabricksDeltaLakeLinkedService",
+    "properties": {
+        "type": "AzureDatabricksDeltaLake",
+        "typeProperties": {
+            "domain": "https://adb-xxxxxxxxx.xx.azuredatabricks.net",
+            "clusterId": "<cluster id>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            },
+            "workspaceResourceId": "<workspace resource id>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

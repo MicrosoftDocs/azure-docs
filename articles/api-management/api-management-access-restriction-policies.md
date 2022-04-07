@@ -1,23 +1,25 @@
 ---
 title: Azure API Management access restriction policies | Microsoft Docs
-description: Learn about the access restriction policies available for use in Azure API Management.
+description: Reference for the access restriction policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 06/22/2021
-ms.author: apimpm
+ms.topic: reference
+ms.date: 03/04/2022
+ms.author: danlep
 ---
 
 # API Management access restriction policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management access restriction policies. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
--   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of a HTTP header.
+-   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of an HTTP header.
 -   [Limit call rate by subscription](#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
@@ -32,6 +34,8 @@ This topic provides a reference for the following API Management policies. For i
 ## <a name="CheckHTTPHeader"></a> Check HTTP header
 
 Use the `check-header` policy to enforce that a request has a specified HTTP header. You can optionally check to see if the header has a specific value or check for a range of allowed values. If the check fails, the policy terminates request processing and returns the HTTP status code and error message specified by the policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -78,22 +82,22 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
 > [!IMPORTANT]
-> This policy can be used only once per policy document.
->
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+> * This policy can be used only once per policy document.
+> * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
 > [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests varyies based on request volume and rate, backend latency, and other factors.
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
         retry-after-header-name="header name" 
         retry-after-variable-name="policy expression variable name"
@@ -134,7 +138,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
-| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                              | Yes      | N/A     |
+| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -156,13 +160,14 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -207,10 +212,10 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 
 | Name                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
+| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
-| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                           | Yes      | N/A     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -228,6 +233,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -275,20 +282,20 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 
-> [!IMPORTANT]
-> This policy can be used only once per policy document.
->
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> [!IMPORTANT]
+> * This policy can be used only once per policy document.
+> * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number">
+        <operation name="operation name" id="operation id" calls="number" />
     </api>
 </quota>
 ```
@@ -322,7 +329,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite. | Yes                                                              | N/A     |
+| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.| Yes                                                              | N/A     |
 
 ### Usage
 
@@ -340,8 +347,10 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 
 ### Policy statement
 
@@ -350,8 +359,8 @@ For more information and examples of this policy, see [Advanced request throttli
               bandwidth="kilobytes"
               renewal-period="seconds"
               increment-condition="condition"
-              counter-key="key value" />
-
+              counter-key="key value"
+              first-period-start="date-time" />
 ```
 
 ### Example
@@ -387,6 +396,10 @@ In the following example, the quota is keyed by the caller IP address.
 | counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+| first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
+
+> [!NOTE]
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
 
 ### Usage
 
@@ -403,6 +416,9 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
 > The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing the ID of an uploaded certificate that contains the public key or modulus-exponent pair of the public key.
 > The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 
 ### Policy statement
 
@@ -592,7 +608,9 @@ Use this policy to check incoming certificate properties against desired propert
 * If you have uploaded custom CA certificates to validate client requests to the managed gateway
 * If you configured custom certificate authorities to validate client requests to a self-managed gateway
 
-For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
+For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md).
+ 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -646,21 +664,21 @@ The following example validates a client certificate to match the policy's defau
 ### Attributes
 
 | Name                            | Description      | Required |  Default    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
 | validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
-| validate-not-before | Boolean. Validates value against current time. | no | True | 
-| validate-not-after  | Boolean. Validates value against current time. | no | True| 
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no. | False |  
-| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A | 
+| validate-not-before | Boolean. Validates value against current time. | no | True |
+| validate-not-after  | Boolean. Validates value against current time. | no | True|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |
+| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A |
 | thumbprint | Certificate thumbprint. | no | N/A |
 | serial-number | Certificate serial number. | no | N/A |
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
-| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
-| issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
+| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A |
+| issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | no | N/A |
+| issuer-thumbprint | Issuer thumbprint. | no | N/A |
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | no | N/A |
 
 ### Usage
 
@@ -669,11 +687,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Scenario: Single-page application
 
-Learn all you need to build a single-page application (SPA).
+Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](../../static-web-apps/authentication-authorization.md) instead.
 
 ## Getting started
 
@@ -32,7 +32,11 @@ Many modern web applications are built as client-side single-page applications. 
 
 The Microsoft identity platform provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
-- [OAuth 2.0 Authorization code flow (with PKCE)](./v2-oauth2-auth-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. This is the **recommended** approach.
+- [OAuth 2.0 Authorization code flow (with PKCE)](./v2-oauth2-auth-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. 
+
+    Proof Key for Code Exchange, or _PKCE_, is an extension to the authorization code flow to prevent authorization code injection attacks. This IETF standard mitigates the threat of having an authorization code intercepted and enables secure OAuth exchange from public clients as documented in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). In addition, it returns **refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction from those users. 
+
+    Using the authorization code flow with PKCE is the more secure and **recommended** authorization approach, not only in native and browser-based JavaScript apps, but for every other type of OAuth client.
 
 ![Single-page applications-auth](./media/scenarios/spa-app-auth.svg)
 

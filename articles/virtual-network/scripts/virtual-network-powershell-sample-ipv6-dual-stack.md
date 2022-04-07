@@ -7,7 +7,6 @@ documentationcenter: na
 author: KumudD
 manager: twooley
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019

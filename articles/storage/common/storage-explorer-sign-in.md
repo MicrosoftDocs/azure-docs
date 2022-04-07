@@ -6,12 +6,12 @@ author: MRayermannMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
-ms.author: chuye
+ms.author: marayerm
 ---
 
 # Sign in to Storage Explorer
 
-Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Azure AD backed permissions, such as RBAC and Gen2 POSIX ACLs. 
+Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Azure AD backed permissions, such as RBAC and Gen2 POSIX ACLs.
 
 ## How to sign in
 
@@ -45,7 +45,7 @@ By default sign-in will happen in your OS' **default web browser**. Signing-in w
 
 Under **Settings (gear icon on the left)** > **Application** > **Sign-in**, look for the **Sign in with** setting. There are three options:
 - **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended.
-- **Integrated Sign-In**: sign-in will happen in a Storage Explorer window. This option may be useful if you're trying to log in with multiple Microsoft accounts (MSAs) at once. You may have issues with some CA policies if you choose this option.
+- **Integrated Sign-In**: sign-in will happen in a Storage Explorer window. This option may be useful if you're having issues using your **default web browser** to sign in.
 - **Device Code Flow**: Storage Explorer will give you a code to enter into a browser window. This option isn't recommended. Device code flow isn't compatible with many CA policies.
 
 ## Troubleshooting sign-in issues
@@ -54,5 +54,5 @@ If you're having trouble signing in, or are having issues with an Azure account 
 
 ## Next steps
 
-* [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md)
-* [Troubleshoot sign in issues](./storage-explorer-troubleshooting.md#sign-in-issues)
+- [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md)
+- [Troubleshoot sign in issues](./storage-explorer-troubleshooting.md#sign-in-issues)

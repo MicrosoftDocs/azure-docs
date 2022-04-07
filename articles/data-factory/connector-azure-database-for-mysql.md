@@ -1,21 +1,21 @@
 ---
 title: Copy and transform data in Azure Database for MySQL
+description: Learn how to copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: earn how to copy and transform data in Azure Database for MySQL by using Azure Data Factory.
-ms.author: susabat
-author: ssabat
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/10/2021
+ms.date: 12/20/2021
 ---
 
-# Copy and transform data in Azure Database for MySQL by using Azure Data Factory
+# Copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Database for MySQL, and use Data Flow to transform data in Azure Database for MySQL. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure Database for MySQL, and use Data Flow to transform data in Azure Database for MySQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 This connector is specialized for [Azure Database for MySQL service](../mysql/overview.md). To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
 
@@ -30,6 +30,31 @@ This Azure Database for MySQL connector is supported for the following activitie
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure Database for MySQL using UI
+
+Use the following steps to create a linked service to Azure Database for MySQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for MySQL and select the Azure Database for MySQL connector.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/azure-database-for-mysql-connector.png" alt-text="Select the Azure Database for MySQL connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/configure-azure-database-for-mysql-linked-service.png" alt-text="Configure a linked service to Azure Database for MySQL.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Database for MySQL connector.
 
@@ -253,6 +278,10 @@ The below table lists the properties supported by Azure Database for MySQL sink.
 | Batch size | Specify how many rows are being written in each batch. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
 | Pre and Post SQL scripts | Specify multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
 
+> [!TIP]
+> 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
+
 #### Azure Database for MySQL sink script example
 
 When you use Azure Database for MySQL as sink type, the associated data flow script is:
@@ -276,9 +305,9 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Data type mapping for Azure Database for MySQL
 
-When copying data from Azure Database for MySQL, the following mappings are used from MySQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Azure Database for MySQL, the following mappings are used from MySQL data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| Azure Database for MySQL data type | Data factory interim data type |
+| Azure Database for MySQL data type | Interim service data type |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -322,4 +351,4 @@ When copying data from Azure Database for MySQL, the following mappings are used
 | `year` |`Int32` |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

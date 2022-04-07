@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants using the  application per tenant SaaS pattern

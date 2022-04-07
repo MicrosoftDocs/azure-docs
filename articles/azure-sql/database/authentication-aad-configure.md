@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 08/11/2021
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 12/15/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -82,7 +82,9 @@ Your SQL Managed Instance needs permissions to read Azure AD to successfully acc
 
 To grant your SQL Managed Instance Azure AD read permission using the Azure portal, log in as Global Administrator in Azure AD and follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), in the upper-right corner, select your connection from a drop-down list of possible Active Directories.
+1. In the [Azure portal](https://portal.azure.com), in the upper-right corner select your account, and then choose **Switch directories** to confirm which Active Directory is currently your active directory. Switch directories, if necessary. 
+
+   :::image type="content" source="media/authentication-aad-configure/switch-directory.png" alt-text="Screenshot of the Azure portal showing where to switch your directory":::
 
 2. Choose the correct Active Directory as the default Azure AD.
 
@@ -90,29 +92,29 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/aad.png)
+   :::image type="content" source="./media/authentication-aad-configure/aad.png" alt-text="Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.":::
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
-    ![Screenshot of the dialog for granting permissions to a SQL managed instance for accessing Active Directory. The Grant permissions button is selected.](./media/authentication-aad-configure/grant-permissions.png)
+    :::image type="content" source="./media/authentication-aad-configure/grant-permissions.png" alt-text="Screenshot of the dialog for granting permissions to a SQL managed instance for accessing Active Directory. The Grant permissions button is selected.":::
 
 5. After the operation succeeds, the following notification will show up in the top-right corner:
 
-    ![Screenshot of a notification confirming that active directory read permissions have been successfully updated for the managed instance.](./media/authentication-aad-configure/success.png)
+    :::image type="content" source="./media/authentication-aad-configure/success.png" alt-text="Screenshot of a notification confirming that active directory read permissions have been successfully updated for the managed instance.":::
 
 6. Now you can choose your Azure AD admin for your SQL Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
-    ![Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.](./media/authentication-aad-configure/set-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/set-admin.png" alt-text="Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.":::
 
 7. On the Azure AD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
    The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the Azure portal and isn't propagated to SQL Database, SQL Managed Instance, or Azure Synapse.
 
-    ![Add Azure Active Directory admin](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/add-azure-active-directory-admin.png" alt-text="Add Azure Active Directory admin":::
 
 8. At the top of the Active Directory admin page, select **Save**.
 
-    ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
+    :::image type="content" source="./media/authentication-aad-configure/save.png" alt-text="Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.":::
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
@@ -221,10 +223,10 @@ You can also provision an Azure AD admin for the SQL Managed Instance by calling
 
 | Command | Description |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | Updates the Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Updates the Active Directory administrator for the SQL Managed Instance. |
 
 For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 
@@ -243,7 +245,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
 2. Search for and select **SQL server**.
 
-    ![Search for and select SQL servers](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
+    :::image type="content" source="./media/authentication-aad-configure/search-for-and-select-sql-servers.png" alt-text="Search for and select SQL servers":::
 
     >[!NOTE]
     > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar.
@@ -252,15 +254,15 @@ The following two procedures show you how to provision an Azure Active Directory
 
 4. In the **Active Directory admin** page, select **Set admin**.
 
-    ![SQL servers set Active Directory admin](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
+    :::image type="content" source="./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png" alt-text="SQL servers set Active Directory admin":::  
 
 5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](authentication-aad-overview.md).) Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server.
 
-    ![Select Azure Active Directory admin](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
+    :::image type="content" source="./media/authentication-aad-configure/select-azure-active-directory-admin.png" alt-text="Select Azure Active Directory admin":::  
 
 6. At the top of the **Active Directory admin** page, select **Save**.
 
-    ![save admin](./media/authentication-aad-configure/save-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/save-admin.png" alt-text="save admin":::
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
@@ -327,10 +329,10 @@ You can provision an Azure AD admin by calling the following CLI commands:
 
 | Command | Description |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
 
 For more information about CLI commands, see [az sql server](/cli/azure/sql/server).
 
@@ -338,19 +340,6 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](/rest/api/sql/)
-
-## Set or unset the Azure AD admin using service principals
-
-If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
-
-> [!NOTE]
-> This section on setting the Azure AD admin only applies to using PowerShell or CLI commands, as you cannot use the Azure portal as an Azure AD service principal.
-
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
-
-The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
-
-For more information, see [service principals (Azure AD applications)](authentication-aad-service-principal.md).
 
 ## Configure your client computers
 
@@ -414,7 +403,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 > [!NOTE]
-> This command requires that SQL access Azure AD (the "external provider") on behalf of the logged-in user. Sometimes, circumstances will arise that cause Azure AD to return an exception back to SQL. In these cases, the user will see SQL error 33134, which should contain the Azure AD-specific error message. Most of the time, the error will say that access is denied, or that the user must enroll in MFA to access the resource, or that access between first-party applications must be handled via preauthorization. In the first two cases, the issue is usually caused by Conditional Access policies that are set in the user's Azure AD tenant: they prevent the user from accessing the external provider. Updating the Conditional Access policies to allow access to the application '00000002-0000-0000-c000-000000000000' (the application ID of the Azure AD Graph API) should resolve the issue. In the case that the error says access between first-party applications must be handled via preauthorization, the issue is because the user is signed in as a service principal. The command should succeed if it is executed by a user instead.
+> This command requires that SQL access Azure AD (the "external provider") on behalf of the logged-in user. Sometimes, circumstances will arise that cause Azure AD to return an exception back to SQL. In these cases, the user will see SQL error 33134, which should contain the Azure AD-specific error message. Most of the time, the error will say that access is denied, or that the user must enroll in MFA to access the resource, or that access between first-party applications must be handled via preauthorization. In the first two cases, the issue is usually caused by Conditional Access policies that are set in the user's Azure AD tenant: they prevent the user from accessing the external provider. Updating the Conditional Access policies to allow access to the application '00000003-0000-0000-c000-000000000000' (the application ID of the Microsoft Graph API) should resolve the issue. In the case that the error says access between first-party applications must be handled via preauthorization, the issue is because the user is signed in as a service principal. The command should succeed if it is executed by a user instead.
 
 > [!TIP]
 > You cannot directly create a user from an Azure Active Directory other than the Azure Active Directory that is associated with your Azure subscription. However, members of other Active Directories that are imported users in the associated Active Directory (known as external users) can be added to an Active Directory group in the tenant Active Directory. By creating a contained database user for that AD group, the users from the external Active Directory can gain access to SQL Database.
@@ -528,9 +517,9 @@ This authentication method allows middle-tier services to obtain [JSON Web Token
 Sample connection string:
 
 ```csharp
-string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
+string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
-conn.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token";
 conn.Open();
 ```
 

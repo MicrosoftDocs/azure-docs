@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 02/20/2019
+ ms.date: 10/08/2021
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -16,5 +16,5 @@
 1. Enter a **name** for the queue, and leave the other values with their defaults.
 1. Now, select **Create**.
  
-    ![Queues -> + Queue -> Enter name -> Create](./media/service-bus-create-queue-portal/create-queue3.png)
+    :::image type="content" source="./media/service-bus-create-queue-portal/create-queue3.png" alt-text="Image showing creation of a queue in the portal":::
 

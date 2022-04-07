@@ -19,19 +19,12 @@ To configure this setting, you'll need the following things:
    - Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your virtual machines.
    - Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1906. For best results, use branch level 1910 or higher.
 
-## Configure the software update point
+## Receiving updates for Windows 10 and 11 Enterprise multi-session
 
-To receive updates for Windows 10 Enterprise multi-session, you need to enable Windows Server, version 1903 and later as a product within Microsoft Endpoint Configuration Manager. This product setting also applies if you use the Windows Server Update Service to deploy updates to your systems.
+You can update Windows 10 Enterprise multi-session with the corresponding Windows 10 client updates. For example, you can update Windows 10 Enterprise multi-session, version 21H2 by installing the Windows 10, version 21H2 client updates.
 
-To receive updates:
-
-1. Open Microsoft Endpoint Configuration Manager and select **Sites**.
-2. Select **Configure Site Components**.
-3. Select **Software Update Point** in the drop-down menu.
-4. Select the **Products** tab.
-5. Select the check box that says **Windows Server, version 1903 and later**.
-6. Go to **Software Library** > **Overview** > **Software Updates** > **All Software Updates** and select **Synchronize Software Updates**.
-7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved. It may take a few minutes to synchronize the updates.
+> [!NOTE]
+> Currently, you can't update Windows 10 Enterprise multi-session version 21H2 and Windows 11 Enterprise multi-session with their corresponding Windows client updates.
 
 ## Create a query-based collection
 

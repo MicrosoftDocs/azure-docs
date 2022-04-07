@@ -8,9 +8,9 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.devlang: PowerShell
 ms.topic: how-to
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma, amagarwa, maboja, jrasnick, vanto
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma, amagarwa, maboja, vanto
 ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database

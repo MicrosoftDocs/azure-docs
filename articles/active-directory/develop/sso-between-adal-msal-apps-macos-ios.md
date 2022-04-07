@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: 
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # How to: SSO between ADAL and MSAL apps on macOS and iOS

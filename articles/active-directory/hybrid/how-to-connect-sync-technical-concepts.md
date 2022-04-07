@@ -4,14 +4,13 @@ description: Explains the technical concepts of Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid

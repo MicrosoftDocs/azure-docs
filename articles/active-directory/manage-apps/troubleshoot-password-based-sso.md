@@ -1,6 +1,7 @@
 ---
-title: Troubleshoot password-based single sign-on in Azure Active Directory
+title: Troubleshoot password-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -12,9 +13,9 @@ ms.author: davidmu
 ms.reviewer: ergreenl
 ---
 
-# Troubleshoot password-based single sign-on in Azure AD
+# Troubleshoot password-based single sign-on
 
-To use password-based single sign-on (SSO) in My Apps, the browser extension must be installed. The extension downloads automatically when you select an app that's configured for password-based SSO. To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
+To use password-based single sign-on (SSO) in My Apps, the browser extension must be installed. The extension downloads automatically when you select an app that's configured for password-based SSO. To learn about using My Apps from an end-user perspective, see [My Apps portal help](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## My Apps browser extension not installed
 
@@ -34,7 +35,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -60,7 +61,7 @@ In case the previous suggestions do not work, it could be the case that a change
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -68,7 +69,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Capture sign-in fields for an app
 
@@ -152,13 +153,18 @@ If you experience any of these problems, do the following things:
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 - If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
-### I can't add another user to my Password-based SSO app
+### I can't add another user to my password-based SSO app
 
-Password-based SSO app has a limit of 48 users. Thus, it has a limit of 48 keys for username/password pairs per app.
-If you want to add additional users you can either:
+A user cannot have more than 48 credentials configured across all password SSO apps where the user is directly assigned.
+
+If you want to add more apps with password-based SSO to a user, consider assigning the app to a group the user is a direct member of, and configuring the credential for the group. Note that the credentials configured for the group will be available for all members of the group.
+
+### I can't add another group to my password-based SSO app
+
+Each password-based SSO app has a limit of 48 groups which are assigned and have had credentials configured for them. If you want to add additional groups, you can either:
 
 - Add additional instance of the app
-- Remove users who are no longer using the app first
+- Remove groups who are no longer using the app
 
 ## Request support
 
@@ -247,7 +253,8 @@ The following information explains what each notification item means and provide
 - **Copy error**: Enables you to select the **copy icon** to the right of the **Copy error** textbox to copy the notification details to help with support.
 
     Example:
-    ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    
+    `{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}`
 
 ## Next steps
 

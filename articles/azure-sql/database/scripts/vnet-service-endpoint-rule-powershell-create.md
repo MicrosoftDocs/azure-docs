@@ -8,7 +8,7 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto, mathoma
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 tags: azure-synapse

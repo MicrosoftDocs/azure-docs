@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Python and AI over Azure blobs'
+title: 'Python tutorial: AI on Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
 
@@ -9,39 +9,51 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 12/01/2021
 ms.custom: devx-track-python
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this Python tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-This tutorial uses Python and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
+In this Python tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage.
-> * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
-> * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
-> * Execute the pipeline to start transformations and analysis, and to create and load the index.
+> * Set up a development environment
+> * Define a pipeline that uses OCR, language detection, and entity and key phrase recognition.
+> * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Overview
+
+This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme) to create a data source, index, indexer, and skillset.
+
+The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
+
+The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
+
 ## Prerequisites
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+<!-- * [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) -->
+* [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
+* [Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 
-1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
+The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
+
+1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer.
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
+
+Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 ## 1 - Create services
 
@@ -95,17 +107,19 @@ If possible, create both in the same region and resource group for proximity and
 
 ### Cognitive Services
 
-AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
 Since this tutorial only uses 7 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services for 20 free transactions per indexer run. The free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walk through. 
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
-As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+You can use the Free tier to complete this walkthrough.
 
-### Get an admin api-key and URL for Azure Cognitive Search
+### Copy an admin api-key and URL for Azure Cognitive Search
+
+To interact with your Azure Cognitive Search service you will need the service URL and an access key.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -113,7 +127,7 @@ As with Azure Blob Storage, take a moment to collect the access key. Further on,
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
+   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -159,7 +173,7 @@ In Azure Cognitive Search, AI processing occurs during indexing (or data ingesti
 
 ### Step 1: Create a data source
 
-A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
+A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the sample data files.
 
 In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Replace the placeholder text for the container. Then, run the script to create a data source named `cogsrch-py-datasource`.
 
@@ -297,7 +311,7 @@ The key phrase extraction skill is applied for each page. By setting the context
 
 Each skill executes on the content of the document. During processing, Azure Cognitive Search cracks each document to read content from different file formats. Text found in the source file is placed into a `content` field, one for each document. Therefore, set the input as `"/document/content"`.
 
-A graphical representation of the skillset is shown below.
+A graphical representation of a portion of the skillset is shown below.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Understand a skillset" border="false":::
 

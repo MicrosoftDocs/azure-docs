@@ -7,12 +7,12 @@ author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
+ms.date: 02/17/2022
 ---
 
 # Install paid or licensed custom components for the Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime.
 
@@ -30,7 +30,7 @@ As a result of the limitations of traditional licensing methods described in the
 
 The following diagram shows the typical installation, activation and license binding, and validation flows for third-party components that use these new variables:
 
-![Installation of licensed components](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
+:::image type="content" source="media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png" alt-text="Installation of licensed components":::
 
 ## Instructions
 1. ISVs can offer their licensed components in various SKUs or tiers (for example, single node, up to 5 nodes, up to 10 nodes, and so forth). The ISV provides the corresponding Product Key when customers purchase a product. The ISV can also provide an Azure Storage blob container that contains an ISV Setup script and associated files. Customers can copy these files into their own storage container and modify them with their own Product Key (for example, by running `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Customers can then provision or reconfigure the Azure-SSIS IR with the SAS URI of their container as parameter. For more info, see [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).

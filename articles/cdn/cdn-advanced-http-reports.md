@@ -11,7 +11,6 @@ ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha

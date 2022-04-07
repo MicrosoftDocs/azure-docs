@@ -1,13 +1,12 @@
 ---
 title: Create custom Conda channel for package management
 description: Learn how to create a custom Conda channel for package management
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: midesa
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.subservice: spark
 ---
 
@@ -82,7 +81,7 @@ mkdir -P channel/linux64
 <Add all .tar.bz2 from https://repo.anaconda.com/pkgs/main/linux-64/> 
 // Note: Add all dependent .tar.bz2 as well 
 
-cd channel1 
+cd channel 
 mkdir noarch 
 echo '{}' > noarch/repodata.json 
 bzip2 -k noarch/repodata.json 
@@ -122,7 +121,7 @@ dependencies:
 Once you've created the sample Conda file, you can create a virtual Conda environment. You can verify this locally by running the following commands:
 
 ```
-conda env create –file sample.yml  
+conda env create --file sample.yml  
 source activate env 
 conda list 
 ```

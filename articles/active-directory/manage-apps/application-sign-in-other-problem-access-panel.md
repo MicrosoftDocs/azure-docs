@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot problems signing in to an application from Azure AD My Apps
+title: Troubleshoot problems signing in to an application from My Apps portal
+titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: davidmu1
@@ -8,13 +9,13 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
+ms.date: 02/01/2022
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
 
-# Troubleshoot problems signing in to an application from Azure AD My Apps
+# Troubleshoot application sign-in
 
 My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -38,7 +39,7 @@ Here are some things to check if an app is appearing or not appearing:
 
 ## General issues to check first
 
-- Make sure the web browser meets the requirements, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
+- Make sure the web browser meets the requirements, see [My Apps supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 - Make sure the user’s browser has added the URL of the application to its **trusted sites**.
 - Make sure to check the application is **configured** correctly.
 - Make sure the user’s account is **enabled** for sign-ins.
@@ -208,14 +209,8 @@ To check if you have the correct deep link, follow these steps:
 4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 5. Select **All Applications** to view a list of all your applications.
    - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-6. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-7. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
-8. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-9. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-10. Select **All Applications** to view a list of all your applications.
-    - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-11. Select the application you want the check the deep link for.
-12. Find the label **User Access URL**. Your deep link should match this URL.
+6. Select the application you want the check the deep link for.
+7. Find the label **User Access URL**. Your deep link should match this URL.
 
 ## Contact support
 

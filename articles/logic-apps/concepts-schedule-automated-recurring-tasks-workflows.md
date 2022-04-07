@@ -1,21 +1,21 @@
 ---
-title: Scheduling recurring tasks and workflows in Azure Logic Apps
-description: An overview about scheduling recurring automated tasks, processes, and workflows with Azure Logic Apps
+title: Schedules for recurring triggers in workflows
+description: An overview about scheduling recurring automated workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/17/2022
 ---
 
-# Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps
+# Schedules for recurring triggers in Azure Logic Apps workflows
 
-Logic Apps helps you create and run automated recurring tasks and processes on a schedule. By creating a logic app workflow that starts with a built-in Recurrence trigger or Sliding Window trigger, which are Schedule-type triggers, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. With the Recurrence trigger, you can also set up complex schedules and advanced recurrences for running tasks. To learn more about the built-in Schedule triggers and actions, see [Schedule triggers](#schedule-triggers) and [Schedule actions](#schedule-actions). 
+Azure Logic Apps helps you create and run automated recurring workflows on a schedule. By creating a logic app workflow that starts with a built-in Recurrence trigger or Sliding Window trigger, which are Schedule-type triggers, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. With the Recurrence trigger, you can also set up complex schedules and advanced recurrences for running tasks. To learn more about the built-in Schedule triggers and actions, see [Schedule triggers](#schedule-triggers) and [Schedule actions](#schedule-actions). 
 
-> [!TIP]
+> [!NOTE]
 > You can schedule and run recurring workloads without creating a separate logic app for each scheduled job and running into the [limit on workflows per region and subscription](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Instead, you can use the logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
 >
-> The Logic Apps job scheduler template creates a CreateTimerJob logic app that calls a TimerJob logic app. You can then call the CreateTimerJob logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the CreateTimerJob logic app also calls the TimerJob logic app, which creates a new TimerJob instance that continuously runs based on the specified schedule or until meeting a specified limit. That way, you can run as many TimerJob instances as you want without worrying about workflow limits because instances aren't individual logic app workflow definitions or resources.
+> The Azure Logic Apps job scheduler template creates a CreateTimerJob logic app that calls a TimerJob logic app. You can then call the CreateTimerJob logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the CreateTimerJob logic app also calls the TimerJob logic app, which creates a new TimerJob instance that continuously runs based on the specified schedule or until meeting a specified limit. That way, you can run as many TimerJob instances as you want without worrying about workflow limits because instances aren't individual logic app workflow definitions or resources.
 
 This list shows some example tasks that you can run with the Schedule built-in triggers:
 
@@ -43,15 +43,23 @@ This article describes the capabilities for the Schedule built-in triggers and a
 
 ## Schedule triggers
 
-You can start your logic app workflow by using the Recurrence trigger or Sliding Window trigger, which isn't associated with any specific service or system. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, hours, days, weeks, or months. You can also set the start date and time along with the time zone. Each time that a trigger fires, Logic Apps creates and runs a new workflow instance for your logic app.
+You can start your logic app workflow by using the [Recurrence trigger](../connectors/connectors-native-recurrence.md) or [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), which isn't associated with any specific service or system. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, hours, days, weeks, or months. You can also set the start date and time along with the time zone. Each time that a trigger fires, Azure Logic Apps creates and runs a new workflow instance for your logic app.
 
 Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval.
 
-  If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule.
+  If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule. For more information about time zone formatting, see [Add a Recurrence trigger](../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
-  > [!TIP]
+  > [!IMPORTANT]
+  > If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
+  >
+  > * **Day**: Set up the daily recurrence at least 24 hours in advance.
+  >
+  > * **Week**: Set up the weekly recurrence at least 7 days in advance.
+  >
+  > Otherwise, the workflow might skip the first recurrence.
+  >
   > If a recurrence doesn't specify a specific [start date and time](#start-time), the first recurrence runs immediately 
   > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
   > date and time for when you want the first recurrence to run.
@@ -86,13 +94,13 @@ After any action in your logic app workflow, you can use the Delay and Delay Unt
 
 ## Patterns for start date and time
 
-Here are some patterns that show how you can control recurrence with the start date and time, and how the Logic Apps service runs these recurrences:
+Here are some patterns that show how you can control recurrence with the start date and time, and how Azure Logic Apps runs these recurrences:
 
 | Start time | Recurrence without schedule | Recurrence with schedule (Recurrence trigger only) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Runs the first workload instantly. <p>Runs future workloads based on the last run time. | Runs the first workload instantly. <p>Runs future workloads based on the specified schedule. |
-| Start time in the past | **Recurrence** trigger: Calculates run times based on the specified start time and discards past run times. <p><p>Runs the first workload at the next future run time. <p><p>Runs future workloads based on the last run time. <p><p>**Sliding Window** trigger: Calculates run times based on the specified start time and honors past run times. <p><p>Runs future workloads based on the specified start time. <p><p>For more explanation, see the example following this table. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p><p>Runs future workloads based on the specified schedule. <p><p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
-| Start time now or in the future | Runs the first workload at the specified start time. <p><p>**Recurrence** trigger: Runs future workloads based on the last run time. <p><p>**Sliding Window** trigger: Runs future workloads based on the specified start time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p><p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
+| Start time in the past | **Recurrence** trigger: Calculates run times based on the specified start time and discards past run times. <p><p>Runs the first workload at the next future run time. <p><p>Runs future workloads based on the last run time. <p><p>**Sliding Window** trigger: Calculates run times based on the specified start time and honors past run times. <p><p>Runs future workloads based on the specified start time. <p><p>For more explanation, see the example following this table. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p><p>Runs future workloads based on the specified schedule. <p><p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Azure Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
+| Start time now or in the future | Runs the first workload at the specified start time. <p><p>**Recurrence** trigger: Runs future workloads based on the last run time. <p><p>**Sliding Window** trigger: Runs future workloads based on the specified start time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p><p>Runs future workloads based on the specified schedule. If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance: <p>- **Day**: Set up the daily recurrence at least 24 hours in advance. <p>- **Week**: Set up the weekly recurrence at least 7 days in advance. <p>Otherwise, the workflow might skip the first recurrence. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Azure Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
 ||||
 
 *Example for past start time and recurrence but no schedule*
@@ -104,7 +112,7 @@ Suppose the current date and time is September 8, 2017 at 1:00 PM. You specify t
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** at 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** at 1:00 PM) | Every two days | {none} |
 |||||
 
-For the Recurrence trigger, the Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the last run time.
+For the Recurrence trigger, the Azure Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the last run time.
 
 Here's how this recurrence looks:
 
@@ -130,9 +138,9 @@ So, no matter how far in the past you specify the start time, for example, 2017-
 
 ## Recurrence for daylight saving time and standard time
 
-Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends. When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run.
+To schedule jobs, Azure Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. If you specify a start time with your recurrence, *make sure that you select a time zone* so that your logic app workflow runs at the specified start time. That way, the UTC time for your logic app also shifts to counter the seasonal time change. Recurring triggers honor the schedule that you set, including any time zone that you specify.
 
-To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change.
+Otherwise, if you don't select a time zone, daylight saving time (DST) events might affect when triggers run. For example, the start time shifts one hour forward when DST starts and one hour backward when DST ends.
 
 <a name="dst-window"></a>
 
@@ -197,7 +205,7 @@ If these logic apps use the UTC-6:00 Central Time (US & Canada) zone, this simul
 
 ## Run one time only
 
-If you want to run your logic app only at one time in the future, you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the Logic Apps Designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
+If you want to run your logic app only at one time in the future, you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the workflow designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
 
 ![Select "Scheduler: Run once jobs" template](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
@@ -234,7 +242,7 @@ Here are various example recurrences that you can set up for the triggers that s
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Recurrence, <br>Sliding Window | Run every 15 minutes (no start date and time) | 15 | Minute | {none} | {unavailable} | {none} | {none} | This schedule starts immediately, then calculates future recurrences based on the last run time. |
 | Recurrence, <br>Sliding Window | Run every 15 minutes (with start date and time) | 15 | Minute | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, then calculates future recurrences based on the last run time. |
-| Recurrence, <br>Sliding Window | Run every hour, on the hour (with start date and time) | 1 | Hour | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run every hour at the "00" minute mark, which Logic Apps calculates from the start time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
+| Recurrence, <br>Sliding Window | Run every hour, on the hour (with start date and time) | 1 | Hour | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run every hour at the "00" minute mark, which Azure Logic Apps calculates from the start time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
 | Recurrence, <br>Sliding Window | Run every hour, every day (no start date and time) | 1 | Hour | {none} | {unavailable} | {none} | {none} | This schedule starts immediately and calculates future recurrences based on the last run time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
 | Recurrence, <br>Sliding Window | Run every hour, every day (with start date and time) | 1 | Hour | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, then calculates future recurrences based on the last run time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
 | Recurrence, <br>Sliding Window | Run every 15 minutes past the hour, every hour (with start date and time) | 1 | Hour | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run at the "15" minute mark, which Logic Apps calculates from the start time, so at 00:15 AM, 1:15 AM, 2:15 AM, and so on. |

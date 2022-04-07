@@ -3,7 +3,7 @@ title: Feature interoperability with SQL Server FCI & DNN
 description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) resource with a failover cluster instance on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,13 +11,16 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "06/02/2020"
-ms.author: mathoma
-
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # Feature interoperability with SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Eliminate the need for a distributed network name (DNN) for failover cluster instance by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) resource with your failover cluster instance and SQL Server on Azure VMs, there are some additional considerations. 
 
@@ -104,7 +107,10 @@ For client access, the **Failover Partner** property can handle database mirrori
 
 ## MSDTC
 
-The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Though both clustered MSDTC and local MSDTC are supported with FCI DNN, in Azure, a load balancer is still necessary for clustered MSDTC. The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC in Azure. 
+The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Clustered MSDTC and local MSDTC are supported with FCI DNN. In Azure, an Azure Load Balancer is necessary for a clustered MSDTC deployment. 
+
+> [!TIP]
+>The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC.
 
 ## FileStream
 

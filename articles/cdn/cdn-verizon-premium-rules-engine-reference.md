@@ -2,12 +2,12 @@
 title: Azure CDN rules engine reference | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine match conditions and features.
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 # Azure CDN from Verizon Premium rules engine reference

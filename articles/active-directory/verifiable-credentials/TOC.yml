@@ -5,17 +5,17 @@
   items:
   - name: Introduction to Azure Active Directory Verifiable Credentials
     href: decentralized-identifier-overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   expanded: true
   items:
-  - name: Get started with verifiable credentials
-    href: get-started-verifiable-credentials.md
-  - name: Configure verifiable credentials in your tenant
-    items:
-    - name: 1 - Set up Verifiable Credentials issuer in your own Azure AD
-      href: enable-your-tenant-verifiable-credentials.md
-    - name: 2- Connect your verifiable credentials issuer to your own Azure AD
-      href: issue-verify-verifiable-credentials-your-tenant.md
+  - name: Set up the Verifiable Credentials service
+    href: verifiable-credentials-configure-tenant.md
+  - name: Issue a verifiable credential
+    href: verifiable-credentials-configure-issuer.md
+  - name: Verify a Verifiable Credential
+    href: verifiable-credentials-configure-verifier.md
 - name: Concepts
   expanded: true
   items:
@@ -32,6 +32,8 @@
       href: plan-issuance-solution.md
     - name: Plan your verification solution
       href: plan-verification-solution.md
+  - name: Using the Request Service REST API
+    href: get-started-request-api.md
   - name: How to customize your credentials
     href: credential-design.md
   - name: Manage credential revocation
@@ -43,12 +45,19 @@
 - name: Samples
   expanded: true
   items:
-  - name: Sample Node App
+  - name: Sample Applications
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
-  - name: Sample Issuer
-    href: https://didvc-issuer-sample.azurewebsites.net/
-  - name: Sample Verifier
-    href: https://didvc-verifier-sample.azurewebsites.net/
+#  - name: Sample Issuer
+#   href: 
+  - name: End to End Demo
+    href: https://woodgroveemployee.azurewebsites.net/
+- name: Reference
+  expanded: true
+  items:
+  - name: Issuance API specification
+    href: issuance-request-api.md
+  - name: Presentation API specification
+    href: presentation-request-api.md
 - name: Resources
   expanded: true
   items:
@@ -59,9 +68,9 @@
   - name: Industry working group for all things Decentralized ID (DID)
     href: https://identity.foundation
   - name: Microsoft DID whitepaper
-    href: http://aka.ms/didwhitepaper
+    href: https://aka.ms/didwhitepaper
   - name: DID marketing Overview
-    href: http://aka.ms/didexplained
+    href: https://aka.ms/didexplained
   - name: Decentralized identity blog
     href: https://techcommunity.microsoft.com/t5/tag/decentralized%20identity/tg-p
   - name: Video overview of decentralized identities

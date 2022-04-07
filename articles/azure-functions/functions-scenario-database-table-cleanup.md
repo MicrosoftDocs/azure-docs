@@ -4,8 +4,8 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/02/2019
-
+ms.date: 10/04/2021
+ms.devlang: csharp
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database
@@ -40,9 +40,15 @@ A function app hosts the execution of your functions in Azure. As a best securit
 
 You must have previously published your app to Azure. If you haven't already done so, [Publish your function app to Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Solution Explorer, right-click the function app project and choose **Publish** > **Edit Azure App Service settings**. Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
+1. In Solution Explorer, right-click the function app project and choose **Publish**.
 
-    ![Application settings for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+1. On the **Publish** page, select the ellipses (`...`) in the **Hosting** area, and choose **Manage Azure App Service settings**. 
+
+    ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+
+1. In **Application Settings** select **Add setting**, in **New app setting name** type `sqldb_connection`, and select **OK**.
+
+    ![Add an app setting for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. In the new **sqldb_connection** setting, paste the connection string you copied in the previous section into the **Local** field and replace `{your_username}` and `{your_password}` placeholders with real values. Select **Insert value from local** to copy the updated value into the **Remote** field, and then select **OK**.
 

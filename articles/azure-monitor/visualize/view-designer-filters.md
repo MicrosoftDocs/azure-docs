@@ -2,13 +2,15 @@
 title: Filters in Azure Monitor views | Microsoft Docs
 description: A filter in an Azure Monitor view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
 ms.date: 06/22/2018
 
 ---
 
 # Filters in Azure Monitor views
+
+> [!IMPORTANT]
+> Views in Azure Monitor [are being retired](https://azure.microsoft.com/updates/view-designer-in-azure-monitor-is-retiring-on-31-august-2023/) and transitioned to [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks.
+
 A **filter** in an [Azure Monitor view](view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
 
 ## Using a filter

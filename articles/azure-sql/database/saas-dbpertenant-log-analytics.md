@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Set up and use Azure Monitor logs with a multitenant Azure SQL Database SaaS app

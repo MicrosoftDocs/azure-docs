@@ -12,8 +12,7 @@ ms.custom:
 
 # Build and deploy a Node.js application to an Azure Cloud Service (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 

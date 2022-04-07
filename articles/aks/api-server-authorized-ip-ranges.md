@@ -25,7 +25,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 The API server Authorized IP ranges feature has the following limitations:
 - On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
-- This feature is not compatible with clusters that use [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
+- When using this feature with clusters that use [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools), those node pools with public IP per node enabled must use public IP prefixes and those prefixes must be added as authorized ranges.
 
 ## Overview of API server authorized IP ranges
 
@@ -103,7 +103,7 @@ az aks create \
 
 ## Update a cluster's API server authorized IP ranges
 
-To update the API server authorized IP ranges on an existing cluster, use [az aks update][az-aks-update] command and use the *`--api-server-authorized-ip-ranges`*,--load-balancer-outbound-ip-prefixes*, *`--load-balancer-outbound-ips`*, or--load-balancer-outbound-ip-prefixes* parameters.
+To update the API server authorized IP ranges on an existing cluster, use [az aks update][az-aks-update] command and use the *`--api-server-authorized-ip-ranges`*, *`--load-balancer-outbound-ip-prefixes`*, *`--load-balancer-outbound-ips`*, or *`--load-balancer-outbound-ip-prefixes`* parameters.
 
 The following example updates API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address range to authorize is *73.140.245.0/24*:
 
@@ -154,7 +154,10 @@ Add another IP address to the approved ranges with the following command.
 
 ```bash
 # Retrieve your IP address
-CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+CURRENT_IP=$(dig +short "myip.opendns.com" "@resolver1.opendns.com")
+````
+
+```azurelci
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```

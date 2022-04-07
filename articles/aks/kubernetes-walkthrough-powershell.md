@@ -1,13 +1,11 @@
 ---
 title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
-description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
+description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
-ms.custom: devx-track-azurepowershell
-
-
-#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
+ms.date: 01/13/2022
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service cluster using PowerShell
@@ -15,7 +13,6 @@ ms.custom: devx-track-azurepowershell
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
 * Deploy an AKS cluster using PowerShell.
 * Run a multi-container application with a web front-end and a Redis instance in the cluster.
-* Monitor the health of the cluster and pods that run your application.
 
 To learn more about creating a Windows Server node pool, see
 [Create an AKS cluster that supports Windows Server containers][windows-container-powershell].
@@ -67,10 +64,11 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create AKS cluster
 
-1. Generate an SSH key pair using the `ssh-keygen` command-line utility.
-    * For more details, see [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Generate an SSH key pair using the `ssh-keygen` command-line utility. For more details, see:
+    * [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
+    * [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md)
 
-1. Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet. Azure Monitor for containers is enabled by default.
+1. Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet.
 
     The following example creates a cluster named **myAKSCluster** with one node.
 
@@ -102,7 +100,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurepowershell-interactive
-    .\kubectl get nodes
+    kubectl get nodes
     ```
 
     Output shows the single node created in the previous steps. Make sure the node status is *Ready*:
@@ -219,7 +217,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```azurepowershell-interactive
-    .\kubectl apply -f azure-vote.yaml
+    kubectl apply -f azure-vote.yaml
     ```
 
     Output shows the successfully created deployments and services:
@@ -238,7 +236,7 @@ When the application runs, a Kubernetes service exposes the application front en
 Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
 ```azurepowershell-interactive
-.\kubectl get service azure-vote-front --watch
+kubectl get service azure-vote-front --watch
 ```
 
 The **EXTERNAL-IP** output for the `azure-vote-front` service will initially show as *pending*.
@@ -257,8 +255,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
 ![Voting app deployed in Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
-
-View the cluster nodes' and pods' health metrics captured by Azure Monitor for containers in the Azure portal.
 
 ## Delete the cluster
 
@@ -279,7 +275,7 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -304,5 +300,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

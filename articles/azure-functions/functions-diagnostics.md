@@ -47,7 +47,7 @@ For script-based functions, you can use **Function Execution and Errors** under 
 
 ## Next steps
 
-You can ask questions or provide feedback on Azure Functions diagnostics at [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Include `[Diag]` in the title of your feedback.
+You can ask questions or provide feedback on Azure Functions diagnostics at [UserVoice](https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0). Include `[Diag]` in the title of your feedback.
 
 > [!div class="nextstepaction"]
 > [Monitor your function apps](functions-monitoring.md)

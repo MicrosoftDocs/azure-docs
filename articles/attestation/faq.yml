@@ -5,11 +5,9 @@ metadata:
   services: attestation
   author: msmbaldwin
   ms.service: attestation
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 07/20/2020
   ms.author: mbaldwin
-  
-    
 title: Frequently asked questions for Microsoft Azure Attestation
 summary: |
   This article provides answers to some of the most common questions about [Azure Attestation](overview.md).
@@ -79,3 +77,8 @@ sections:
           Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
         answer: |
           Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. See [Azure Attestation basic concepts](basic-concepts.md) for more information.
+
+      - question: |
+          Where does Azure Attestation store customer data?
+        answer: |
+          Azure Attestation stores customer data at rest, during processing and replication for BCDR purposes within the geography the customer deploys the service instance in.

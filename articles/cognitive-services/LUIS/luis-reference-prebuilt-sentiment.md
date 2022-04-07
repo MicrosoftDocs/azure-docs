@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 10/28/2021
 
 ---
 # Sentiment analysis
-If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](../text-analytics/index.yml) documentation.
+If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Language service](../language-service/index.yml) documentation.
 
-LUIS uses Text Analytics V2. 
+LUIS uses V2 of the API. 
 
 Sentiment Analysis is configured when publishing your application. See [how to publish an app](./luis-how-to-publish-app.md) for more information.
 

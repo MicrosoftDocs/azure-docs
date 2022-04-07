@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 08/26/2021
 ms.author: tisande
 
 ---
@@ -19,9 +19,9 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 Here are some examples of how to do **Point reads** with each SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
-- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
-- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com-azure-cosmos-cosmoscontainer-(t)readitem(java-lang-string-com-azure-cosmos-models-partitionkey-com-azure-cosmos-models-cosmositemrequestoptions-java-lang-class(t)))
+- [Node.js SDK](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read)
+- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item)
 
 **SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
 
@@ -189,3 +189,6 @@ The preceding examples show several aspects of the Cosmos DB query language:
 - [Introduction to Azure Cosmos DB](../introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT clause](sql-query-select.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)

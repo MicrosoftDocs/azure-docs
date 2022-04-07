@@ -78,9 +78,9 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 ## More resources
 
-[Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)  
-[Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
-
+* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930

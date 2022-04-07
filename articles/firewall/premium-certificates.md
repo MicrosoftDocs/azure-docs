@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 03/07/2022
 ms.author: victorh
 ---
 
@@ -33,7 +33,7 @@ There are three types of certificates used in a typical deployment:
 
    A certificate authority can issue multiple certificates in the form of a tree structure. A root certificate is the top-most certificate of the tree.
 
-Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
+Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications (IaaS, PaaS and other workloads) must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Certificate process":::
 
@@ -68,6 +68,8 @@ To configure your key vault:
 - It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
 - After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
+- The Key Vault Networking must be set to allow access from **All networks**.
+   :::image type="content" source="media/premium-certificates/keyvault-networking.png" alt-text="Screenshot showing Key Vault networking" lightbox="media/premium-certificates/keyvault-networking.png":::
 
 You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
 
 # Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app
@@ -68,7 +68,7 @@ If you'd like to download a completed version of the app you build in this tutor
 ## Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.

@@ -3,7 +3,7 @@ title: Self-host the developer portal
 titleSuffix: Azure API Management
 description: Learn how to self-host the API Management developer portal.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to
@@ -63,7 +63,7 @@ To set up your local environment, you'll have to clone the repository, switch to
 
 ## Step 2: Configure JSON files, static website, and CORS settings
 
-The developer portal requires API Management's REST API to manage the content.
+The developer portal requires the API Management REST API to manage the content.
 
 ### config.design.json file
 

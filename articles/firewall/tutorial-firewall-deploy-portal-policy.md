@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 05/03/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -66,7 +66,7 @@ The resource group contains all the resources for the tutorial.
 
 ### Create a VNet
 
-This VNet will have three subnets.
+This VNet will have two subnets.
 
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
@@ -277,4 +277,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Deploy and configure Azure Firewall Premium](premium-deploy.md)

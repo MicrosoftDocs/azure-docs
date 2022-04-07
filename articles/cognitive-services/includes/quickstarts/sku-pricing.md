@@ -5,7 +5,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 10/28/2021
 ms.author: pafarley
 ---
 
@@ -33,7 +33,6 @@ See the list of SKUs and pricing information below.
 | Service            | Kind                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
-| Speech Recognition | `SpeakerRecognition` |
 
 #### Language
 
@@ -41,7 +40,7 @@ See the list of SKUs and pricing information below.
 |--------------------|---------------------|
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
+| Language service   | `TextAnalytics`     |
 | Text Translation   | `TextTranslation`   |
 
 #### Decision

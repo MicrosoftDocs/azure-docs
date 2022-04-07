@@ -8,10 +8,7 @@ ms.author: victorh
 ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template

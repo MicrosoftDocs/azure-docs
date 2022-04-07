@@ -1,10 +1,10 @@
 ---
 title: Access data sources on premises
-description: Connect to on-premises data sources from Azure Logic Apps by creating a data gateway resource in Azure
+description: Connect to on-premises data sources from Azure Logic Apps by creating a data gateway resource in Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2021
 ---
 
@@ -60,7 +60,7 @@ You can also create [custom connectors](../logic-apps/custom-connector-overview.
 
     > [!NOTE]
     > Currently, you can't share a gateway resource or installation across multiple subscriptions. 
-    > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/forums/34192--general-feedback).
+    > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 <a name="create-gateway-resource"></a>
 
@@ -101,7 +101,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
 1. In the Azure portal, create or open your logic app in the Logic App Designer.
 
-1. Add a connector that supports on-premises connections, for example, **SQL Server**.
+1. Add a connector that supports on-premises connections. If this connector has both a [managed version](../connectors/managed.md#on-premises-connectors) and a [built-in version](../connectors/built-in.md), make sure that you use the managed version.
 
 1. Select **Connect via on-premises data gateway**.
 

@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -58,12 +57,12 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [Flowmon](https://www.flowmon.com/en/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
 - [Noname Security](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
+- [RSA NetWitness® Platform](https://www.netwitness.com)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
 

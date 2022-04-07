@@ -29,7 +29,7 @@ Your organization may have implemented Azure Policy with enforcement or exclusio
 
 ### Example
 
-You have an application connected to key vault that creates certificates that are valid for two years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than one year. After moving your key vault to the new resource group the operation to create a certificate that is valid for two years will be blocked by an Azure policy assignment.
+You have an application connected to key vault that creates certificates that are valid for two years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than one year. After moving your key vault to the new resource group the operation to create a certificate that is valid for two years will be blocked by an Azure Policy assignment.
 
 ### Solution
 

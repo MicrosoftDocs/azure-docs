@@ -1,15 +1,13 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using JavaScript.
-author: sffamily
-ms.author: zhshang
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.custom: devx-track-js, mode-api
 ---
 # Quickstart: Use JavaScript to create an App showing GitHub star count with Azure Functions and SignalR Service
 
@@ -60,7 +58,30 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Open `index/function.json` and copy the following json codes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Open `index/index.js` and copy the following codes.
 
         ```javascript
@@ -155,21 +176,32 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```javascript
         var https = require('https');
         
+        var etag = '';
+        var star = 0;
+        
         module.exports = function (context) {
             var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
                 method: 'GET',
-                headers: {'User-Agent': 'serverless'}
+                headers: {'User-Agent': 'serverless', 'If-None-Match': etag}
             }, res => {
+                if (res.headers['etag']) {
+                    etag = res.headers['etag']
+                }
+        
                 var body = "";
         
                 res.on('data', data => {
                     body += data;
                 });
                 res.on("end", () => {
-                    var jbody = JSON.parse(body);
+                    if (res.statusCode === 200) {
+                        var jbody = JSON.parse(body);
+                        star = jbody['stargazers_count'];
+                    }
+                    
                     context.bindings.signalRMessages = [{
                         "target": "newMessage",
-                        "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${jbody['stargazers_count']}` ]
+                        "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${star}` ]
                     }]
                     context.done();
                 });
@@ -182,10 +214,10 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                 context.done();
             });
             req.end();
-        }    
+        }
         ```
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory. And copy the following content.
+3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.
 
     ```html
     <html>
@@ -226,7 +258,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     1. Copy the primary connection string. And execute the command below.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Run the Azure Function in local:
@@ -235,7 +267,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.

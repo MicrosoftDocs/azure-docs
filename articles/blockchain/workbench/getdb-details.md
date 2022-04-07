@@ -1,7 +1,7 @@
 ---
 title: Get Azure Blockchain Workbench database details
 description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
-ms.date: 09/05/2019
+ms.date: 02/18/2022
 ms.topic: how-to
 ms.reviewer: mmercuri
 #Customer intent: As a developer, I want to get Azure Blockchain database details to connect and view off-chain blockchain data.
@@ -9,6 +9,7 @@ ms.reviewer: mmercuri
 
 # Get information about your Azure Blockchain Workbench database
 
+[!INCLUDE [Retirement note](./includes/retire.md)]
 This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
 
 ## Overview

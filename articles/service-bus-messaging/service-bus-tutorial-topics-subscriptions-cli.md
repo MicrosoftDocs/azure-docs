@@ -1,10 +1,12 @@
 ---
 title: Use the Azure CLI to create Service Bus topics and subscriptions
 description: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure CLI
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
-ms.author: spelluru 
+ms.author: spelluru
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Use Azure CLI to create a Service Bus topic and subscriptions to the topic

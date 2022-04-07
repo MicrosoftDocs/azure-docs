@@ -1,9 +1,9 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
+ms.author: rifox
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
@@ -155,10 +155,7 @@ call_ = await call_agent_.StartCallAsync(callees, startCallOptions);
 End the current call when the `Hang Up` button is clicked. 
 
 ```C#
-private async void HangupButton_Click(object sender, RoutedEventArgs e)
-{
-    await call_.HangUpAsync(new HangUpOptions());
-}
+await call_.HangUpAsync(new HangUpOptions());
 ```
 
 ## Run the code

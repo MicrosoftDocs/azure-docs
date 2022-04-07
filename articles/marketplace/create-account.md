@@ -80,7 +80,7 @@ You can then assign the appropriate user roles and permissions to your users, so
     >[!NOTE]
     > You must have an **account admin** or a **global admin** role to sign in to Microsoft Partner Network.
 
-1. In the top-right, select **Settings** > **Account settings** > **Programs**.
+1. In the top-right, select **Settings** > **Account settings**. Then in the left menu, select **Programs**.
 
 1. Under **Commercial Marketplace**, select **Get Started**.
 
@@ -111,7 +111,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 When you register for the commercial marketplace program with the same account as your developer program, you can see all of your existing program enrollments in the left pane of Partner Center.
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507) with your existing account.
-1. In the top-right, select **Settings** > **Account settings** > **Programs**.
+1. In the top-right, select **Settings** > **Account settings**. Then in the left menu, select **Programs**.
 1. Under **Commercial Marketplace**, select **Get Started**, and enter your work email address.
 1. Complete the details on the **Publisher profile** page.
 1. Read the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement), and then select **Accept and continue** to complete your enrollment.

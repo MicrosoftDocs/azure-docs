@@ -15,6 +15,10 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > [!NOTE]
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
+> [!NOTE]
+> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+
+
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
@@ -22,6 +26,22 @@ Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It
 The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+
+## Best Practices for individual keys, secrets, and certificates role assignments
+
+Our recommendation is to use a vault per application per environment
+(Development, Pre-Production, and Production).
+
+Individual keys, secrets, and certificates permissions should be used
+only for specific scenarios:
+
+-   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
+-   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
+
+More about Azure Key Vault management guidelines, see:
+
+- [Azure Key Vault best practices](best-practices.md)
+- [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations
 
@@ -259,7 +279,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 ### Creating custom roles 
 
-[az role definition create command](/cli/azure/role/definition#az_role_definition_create)
+[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -315,8 +335,6 @@ For more Information about how to create custom roles, see:
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Learn more
-1. Assign the [ROLENAME] role to the [USER | GROUP | SERVICEPRINCIPAL | MANAGEDIDENTITY] at [MANAGEMENTGROUP | SUBSCRIPTION | RESOURCEGROUP | RESOURCE] scope.
-
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
 - [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)

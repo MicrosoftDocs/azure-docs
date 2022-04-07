@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 02/10/2022
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 To simplify and secure sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt. They receive an authentication code via text message that they can provide to complete the sign in. This authentication method simplifies access to applications and services, especially for Frontline workers.
 
-This article shows you how to enable SMS-based authentication for select users or groups in Azure AD. For a list apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
+This article shows you how to enable SMS-based authentication for select users or groups in Azure AD. For a list of apps that support using SMS-based sign-in, see [App support for SMS-based authentication](how-to-authentication-sms-supported-apps.md).
 
 ## Before you begin
 
@@ -32,6 +32,7 @@ To complete this article, you need the following resources and privileges:
 * You need *global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
 * Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD, EMS, Microsoft 365 licenses:
     * [Microsoft 365 F1 or F3][m365-firstline-workers-licensing]
+    * [Azure Active Directory Premium P1 or P2][azure-ad-pricing]
     * [Enterprise Mobility + Security (EMS) E3 or E5][ems-licensing] or [Microsoft 365 E3 or E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
@@ -44,6 +45,8 @@ Here are some known issues:
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
+* SMS-based authentication has reached general availability, and we are working to remove the **(Preview)** label in the Azure portal.
+
 
 ## Enable the SMS-based authentication method
 
@@ -84,7 +87,7 @@ Each user that's enabled in the text message authentication method policy must b
 
 ## Set a phone number for user accounts
 
-Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign in. The user can [set this phone number themselves](../user-help/sms-sign-in-explainer.md) in *My Account*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
+Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign in. The user can [set this phone number themselves](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) in *My Account*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
 
 When a phone number is set for SMS-sign, it's also then available for use with [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] and [self-service password reset][tutorial-sspr].
 
@@ -134,7 +137,7 @@ If a user has already registered for Azure AD Multi-Factor Authentication and / 
 
 A user that has a phone number already set for their account is displayed a button to *Enable for SMS sign-in* in their **My Profile** page. Select this button, and the account is enabled for use with SMS-based sign-in and the previous Azure AD Multi-Factor Authentication or SSPR registration.
 
-For more information on the end-user experience, see [SMS sign-in user experience for phone number](../user-help/sms-sign-in-explainer.md).
+For more information on the end-user experience, see [SMS sign-in user experience for phone number](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42).
 
 ### Error when trying to set a phone number on a user's account
 
@@ -159,8 +162,8 @@ If you receive an error when you try to set a phone number for a user account in
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
@@ -171,3 +174,4 @@ If you receive an error when you try to set a phone number for a user account in
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
 [o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
 [o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab
+[azure-ad-pricing]: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing

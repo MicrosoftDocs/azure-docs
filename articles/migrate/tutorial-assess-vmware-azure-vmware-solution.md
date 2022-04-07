@@ -53,12 +53,9 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1.  On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+1.  On the **Overview** page > **Servers, databases and web apps**, click **Assess and migrate servers**.
 
 1. In **Azure Migrate: Discovery and assessment**, click **Assess**.
-
-   ![Location of Assess button](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
 1. In **Assess servers** > **Assessment type**, select **Azure VMware Solution (AVS)**.
 
@@ -77,7 +74,9 @@ Run an assessment as follows:
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
    - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
-   - **Reserved Instances** aren't currently supported for AVS nodes.
+   - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
+    - If you select to use a reserved instance, you can't specify '**Discount (%)**
+    - [Learn more](../azure-vmware/reserved-instance.md)
 1. In **VM Size**:
     - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the servers to AVS.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
@@ -123,25 +122,28 @@ Run an assessment as follows:
 
 An AVS assessment describes:
 
-- AVS readiness: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
-- Number of AVS nodes: Estimated number of AVS nodes required to run the servers.
-- Utilization across AVS nodes: Projected CPU, memory, and storage utilization across all nodes.
-    - Utilization includes upfront factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
+- **Azure VMware Solution (AVS) readiness**: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
+- **Number of Azure VMware Solution nodes**: Estimated number of Azure VMware Solution nodes required to run the servers.
+- **Utilization across AVS nodes**: Projected CPU, memory, and storage utilization across all nodes.
+    - Utilization includes up front factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
 NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75GB of RAM and 722GB of storage before 
-compression and deduplication. 
-- Monthly cost estimation: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises servers.
+compression and deduplication.
+    - Limiting factor determines the number of hosts/nodes required to accommodate the resources.
+- **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
+
+You can click on  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties, or recalculate the assessment.
 
 ## View an assessment
 
 To view an assessment:
 
-1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to ** Azure VMware Solution**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click the number next to ** Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
-1. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+1. Review the assessment summary.
  
 
 ### Review readiness
@@ -149,11 +151,10 @@ To view an assessment:
 1. Click **Azure readiness**.
 2. In **Azure readiness**, review the readiness status.
 
-    - **Ready for AVS**: The server can be migrated as-is to Azure AVS, without any changes. The server will start in AVS, with full AVS support.
-    - **Ready with conditions**: The server might have compatibility issues with the current vSphere version. It might need VMware tools installed, or other settings, before it has full functionality in AVS.
-    - **Not ready for AVS**: The VM won't start in AVS. For example, if an on-premises VMware server has an external device (like a CD-ROM) attached to it and you're using VMware VMotion, the VMotion operation fails.
- - **Readiness unknown**: Azure Migrate couldn't determine server readiness, due to insufficient metadata collected from the on-premises environment.
-
+    - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
+    - **Ready with conditions**: There might be some compatibility issues example internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance the assessment suggests.
+    - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware VMotion operation will fail (if using VMware VMotion).
+    - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 3. Review the suggested tool.
 
     - VMware HCX or Enterprise: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. Learn More.
@@ -167,7 +168,7 @@ The assessment summary shows the estimated compute and storage cost of running s
 1. Review the monthly total costs. Costs are aggregated for all servers in the assessed group.
 
     - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the servers in total.
-    - As the pricing for AVS is per node, the total cost does not have compute cost and storage cost distribution.
+    - As the pricing is per node, the total cost does not have compute cost and storage cost distribution.
     - The cost estimation is for running the on-premises servers in AVS. AVS assessment doesn't consider PaaS or SaaS costs.
 
 2. Review monthly storage estimates. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
@@ -176,8 +177,6 @@ The assessment summary shows the estimated compute and storage cost of running s
 ### Review confidence rating
 
 Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
-
-![Confidence rating](./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png)
 
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 

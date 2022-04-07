@@ -1,33 +1,24 @@
 ---
-title: Manage access to Azure Sentinel data by resource | Microsoft Docs
-description: This article explains you can manage access to Azure Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Azure Sentinel experience. This method is also known as resource-context RBAC.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Manage access to Microsoft Sentinel data by resource | Microsoft Docs
+description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Manage access to Azure Sentinel data by resource
+# Manage access to Microsoft Sentinel data by resource
 
-Typically, users who have access to an Azure Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Azure Sentinel, depending on the access requirements in their team.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-However, you may have some users who need to access only specific data in your Azure Sentinel workspace, but shouldn't have access to the entire Azure Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
+Typically, users who have access to a Microsoft Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
 
-In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Azure Sentinel workspace or specific Azure Sentinel features. This method is also known as setting up **resource-context RBAC**.
+However, you may have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
 
-When users have access to Azure Sentinel data via the resources they can access instead of the Azure Sentinel workspace, they can view logs and workbooks using the following methods:
+In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Microsoft Sentinel workspace or specific Microsoft Sentinel features. This method is also known as setting up **resource-context RBAC**.
+
+When users have access to Microsoft Sentinel data via the resources they can access instead of the Microsoft Sentinel workspace, they can view logs and workbooks using the following methods:
 
 - **Via the resource itself**, such as an Azure Virtual Machine. Use this method to view logs and workbooks for a specific resource only.
 
@@ -38,7 +29,7 @@ Enable resource-context RBAC in Azure Monitor. For more information, see [Manage
 > [!NOTE]
 > If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access. For more information, see [Explicitly configure resource-context RBAC](#explicitly-configure-resource-context-rbac).
 >
-> Additionally, [functions](../azure-monitor/logs/functions.md) and saved searches are not supported in resource-centric contexts. Therefore, Azure Sentinel features such as parsing and [normalization](normalization.md) are not supported for resource-context RBAC in Azure Sentinel.
+> Additionally, [functions](../azure-monitor/logs/functions.md) and saved searches are not supported in resource-centric contexts. Therefore, Microsoft Sentinel features such as parsing and [normalization](normalization.md) are not supported for resource-context RBAC in Microsoft Sentinel.
 > 
 
 ## Scenarios for resource-context RBAC
@@ -49,8 +40,8 @@ The following table highlights the scenarios where resource-context RBAC is most
 |---------|---------|---------|
 |**Permissions**     | The entire workspace        |   Specific resources only      |
 |**Data access**     |  All data in the workspace       | Only data for resources that the team is authorized to access        |
-|**Experience**     |  The full Azure Sentinel experience, possibly limited by the [functional permissions](roles.md) assigned to the user       |  Log queries and Workbooks only       |
-|     |         |         |
+|**Experience**     |  The full Microsoft Sentinel experience, possibly limited by the [functional permissions](roles.md) assigned to the user       |  Log queries and Workbooks only       |
+
 
 If your team has similar access requirements to the non-SOC team described in the table above, resource-context RBAC may be a good solution for your organization.
 
@@ -62,28 +53,28 @@ The following list describes scenarios where other solutions for data access may
 
 |Scenario  |Solution  |
 |---------|---------|
-|**A subsidiary has a SOC team that requires a full Azure Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>- [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)<br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)          |
+|**A subsidiary has a SOC team that requires a full Microsoft Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>- [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)<br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)          |
 |**You want to provide access to a specific type of event**.     |  For example, provide a Windows administrator with access to Windows Security events in all systems. <br><br>In such cases, use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.       |
-| **Limit access to a more granular level, either not based on the resource, or to only a subset of the fields in an event**   |   For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, provide access to data using built-in integration with [Power BI dashboards and reports](../azure-monitor/visualize/powerbi.md).      |
-| | |
+| **Limit access to a more granular level, either not based on the resource, or to only a subset of the fields in an event**   |   For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, provide access to data using built-in integration with [Power BI dashboards and reports](../azure-monitor/logs/log-powerbi.md).      |
+
 
 ## Explicitly configure resource-context RBAC
 
 Use the following steps if you want to configure resource-context RBAC, but your data is not an Azure resource.
 
-For example, data in your Azure Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector.
+For example, data in your Microsoft Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector.
 
 **To explicitly configure resource-context RBAC**:
 
 1. Make sure that you've [enabled resource-context RBAC](../azure-monitor/logs/manage-access.md) in Azure Monitor. 
 
-1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) for each team of users who needs to access your resources without the entire Azure Sentinel environment.
+1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) for each team of users who needs to access your resources without the entire Microsoft Sentinel environment.
 
     Assign [log reader permissions](../azure-monitor/logs/manage-access.md#resource-permissions) for each of the team members.
 
 1. Assign resources to the resource team groups you created, and tag events with the relevant resource IDs.
 
-    When Azure resources send data to Azure Sentinel, the log records are automatically tagged with the resource ID of the data source.
+    When Azure resources send data to Microsoft Sentinel, the log records are automatically tagged with the resource ID of the data source.
 
     > [!TIP]
     > We recommend that you group the resources you are granting access for under a specific resource group created for the purpose.
@@ -101,7 +92,7 @@ For example, data in your Azure Sentinel workspace that are not Azure resources 
 
 When events are collected using [Common Event Format (CEF)](connect-common-event-format.md) or [Syslog](connect-syslog.md), log forwarding is used to collect events from multiple source systems.
 
-For example, when a CEF or Syslog forwarding VM listens for the sources sending Syslog events, and forwards them to Azure Sentinel, the log forwarding VM resource ID is assigned to all the events they forward.
+For example, when a CEF or Syslog forwarding VM listens for the sources sending Syslog events, and forwards them to Microsoft Sentinel, the log forwarding VM resource ID is assigned to all the events they forward.
 
 If you have multiple teams, make sure that you have separate log forwarding VMs processing the events for each separate team.
 
@@ -114,7 +105,7 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 
 ### Resource IDs with Logstash collection
 
-If you are collecting your data using the Azure Sentinel [Logstash output plugin](connect-logstash.md), use the **azure_resource_id** field to configure your custom collector to include the resource ID in your output.
+If you are collecting your data using the Microsoft Sentinel [Logstash output plugin](connect-logstash.md), use the **azure_resource_id** field to configure your custom collector to include the resource ID in your output.
 
 If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
 
@@ -151,4 +142,4 @@ If you are using resource-context RBAC and want the events collected by API to b
 
 ## Next steps
 
-For more information, see [Permissions in Azure Sentinel](roles.md).
+For more information, see [Permissions in Microsoft Sentinel](roles.md).

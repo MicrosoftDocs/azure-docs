@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: rohinkoul
 ms.service: dns
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell

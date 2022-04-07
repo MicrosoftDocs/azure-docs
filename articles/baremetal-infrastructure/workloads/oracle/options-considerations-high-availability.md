@@ -3,7 +3,7 @@ title: Options or Oracle BareMetal Infrastructure servers
 description: Learn about the options and considerations for Oracle BareMetal Infrastructure servers.
 ms.topic: reference
 ms.subservice: baremetal-oracle
-ms.date: 04/15/2021
+ms.date: 10/12/2021
 ---
 
 # Options for Oracle BareMetal Infrastructure servers
@@ -16,8 +16,8 @@ Data Guard offers protection unavailable solely through Oracle Real Applications
 
 | Protection mode | Description |
 | --- | --- |
-| **Maximum Performance** | The default protection mode. It provides the highest level of protection without impacting the performance of the primary database. Data is considered committed as soon as it has been written to the primary database redo stream. It's then replicated to the standby database asynchronously. Generally, the standby database receives it within seconds, but no guarantee is given to that effect. This mode typically meets business requirements (alongside lag monitoring) without needing low latency network connectivity between the primary and standby sites.<br /><br />It provides the best operational persistence; however, it doesn't guarantee zero data loss.   |
-| **Maximum Availability** | Provides the highest level of protection without impacting the primary database's availability. Data is never considered committed to the primary database until it has also been committed to at least one standby database. If the primary database can't write the redo changes to at least one standby database, it falls back to Maximum Performance mode rather than become unavailable. <br /><br />It allows the service to continue if the standby site is unavailable. If only one site is working, then only one copy of the data will be maintained until the second site is online and sync is re-established. |
+| **Maximum Performance** | The default protection mode. It provides the highest level of protection without impacting the performance of the primary database. Data is considered committed as soon as written to the primary database redo stream. It's then replicated to the standby database asynchronously. Generally, the standby database receives it within seconds, but no guarantee is given to that effect. This mode typically meets business requirements (alongside lag monitoring) without needing low latency network connectivity between the primary and standby sites.<br /><br />It provides the best operational persistence; however, it doesn't guarantee zero data loss.   |
+| **Maximum Availability** | Provides the highest level of protection without impacting the primary database's availability. Data is never considered committed to the primary database until it's also been committed to at least one standby database. If the primary database can't write the redo changes to at least one standby database, it falls back to Maximum Performance mode rather than become unavailable. <br /><br />It allows the service to continue if the standby site is unavailable. If only one site is working, then only one copy of the data will be maintained until the second site is online and sync is re-established. |
 | **Maximum Protection** | Provides a similar protection level to maximum availability. The primary database shuts down with the added feature if it can't write the redo changes to at least one standby database. This ensures that data loss can't occur, but at the expense of more fragile availability. |
 
 >[!IMPORTANT]
@@ -29,13 +29,15 @@ Oracle lets you configure multiple destinations for redo generation, allowing fo
 
 :::image type="content" source="media/oracle-high-availability/default-data-guard-deployment.png" alt-text="Diagram showing Oracle's default Data Guard deployment.":::
 
-Data Guard is configured in Maximum Performance mode for a default deployment. This configuration  provides near real-time data replication via asynchronous redo transport. The standby database doesn't need to run inside of a RAC deployment, but we recommend it meets the performance demands of the primary site.
+Data Guard is configured in Maximum Performance mode for a default deployment. This configuration  provides near real-time data replication via asynchronous redo transport. The standby database doesn't need to run inside of a RAC deployment. However, we recommend the standby database meets the performance demands of the primary site.
 
-We recommend a deployment like that shown in the following figure for environments that require strict uptime or an RPO of zero. The Maximum Availability configuration consists of a local standby database applying redo in synchronous mode and a second standby database running in a remote region.
+We recommend a deployment like that shown in the following figure for environments requiring strict uptime or an RPO of zero. The Maximum Availability configuration consists of:
+- A local standby database applying redo in synchronous mode.
+- A second standby database running in a remote region.
 
 :::image type="content" source="media/oracle-high-availability/max-availability-data-guard-deployment.png" alt-text="Diagram showing maximum availability Data Guard deployment.":::
 
-You can create a local standby database when application performance will suffer by running the database and application servers in separate regions. In this configuration, a local standby database is used when planned or unplanned maintenance is needed on the primary cluster. You can run these databases with synchronous replication because they're in the same region, ensuring no data lost between them.
+When application performance will suffer by running the database and application servers in separate regions, you can create a local standby database. A local standby database is used when planned or unplanned maintenance is needed on the primary cluster. You can run these databases with synchronous replication because they're in the same region, ensuring no data is lost between them.
 
 ### Data Guard configuration considerations
 
@@ -68,7 +70,7 @@ The white paper available at [https://www.oracle.com/technetwork/database/availa
 
 Be sure to back up your databases. Use the restore and recover features to restore a database to the same or another system, or to recover database files.
 
-It is important to create a backup recovery strategy to protect Oracle Database Appliance databases from data loss. Such loss could result from a physical problem with a disk that causes a failure of a read or write to a disk file required to run the database. User error can also cause data loss. The backup feature provides the ability to **point in time restore (PITR) restore the database, System Change Number (SCN) recovery, and latest recovery**. You can create a backup policy in the Browser User Interface or from the command-line interface.
+It's important to create a backup recovery strategy to protect Oracle Database Appliance databases from data loss. Such loss could result from a physical problem with a disk that causes a failure of a read or write to a disk file required to run the database. User error can also cause data loss. The backup feature gives the ability to **point in time restore (PITR) restore the database, System Change Number (SCN) recovery, and latest recovery**. You can create a backup policy in the Browser User Interface or from the command-line interface.
 
 The following backup options are available:
 

@@ -81,7 +81,8 @@ A *sentinel key* is a special key that you update after you complete the change 
                     });
                 })
             .UseStartup<Startup>());
-    ```   
+    ```
+
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp

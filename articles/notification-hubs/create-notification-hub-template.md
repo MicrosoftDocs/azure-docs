@@ -9,9 +9,7 @@ ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
 ms.service: notification-hubs
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a notification hub using an ARM template

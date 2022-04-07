@@ -3,10 +3,10 @@
 title: Tutorial - Custom Python module tutorial using Azure IoT Edge  
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
-author: kgremban
+author: PatAltimore
 
 ms.reviewer: kgremban
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -119,7 +119,7 @@ Each template includes sample code, which takes simulated sensor data from the *
     import json
     ```
 
-3. Add the **TEMPERATURE_THRESHOLD** and **TWIN_CALLBACKS** variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
+3. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
 
     ```python
     # global counters
@@ -128,63 +128,60 @@ Each template includes sample code, which takes simulated sensor data from the *
     RECEIVED_MESSAGES = 0
     ```
 
-4. Replace the **input1_listener** function with the following code:
+4. Replace the **create_client** function with the following code:
 
     ```python
-        # Define behavior for receiving an input message on input1
-        # Because this is a filter module, we forward this message to the "output1" queue.
-        async def input1_listener(module_client):
+    def create_client():
+        client = IoTHubModuleClient.create_from_edge_environment()
+
+        # Define function for handling received messages
+        async def receive_message_handler(message):
             global RECEIVED_MESSAGES
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    input_message = await module_client.receive_message_on_input("input1")  # blocking call
-                    message = input_message.data
-                    size = len(message)
-                    message_text = message.decode('utf-8')
-                    print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
-                    custom_properties = input_message.custom_properties
-                    print ( "    Properties: %s" % custom_properties )
-                    RECEIVED_MESSAGES += 1
-                    print ( "    Total messages received: %d" % RECEIVED_MESSAGES )
-                    data = json.loads(message_text)
-                    if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
-                        custom_properties["MessageType"] = "Alert"
-                        print ( "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
-                        await module_client.send_message_to_output(input_message, "output1")
-                except Exception as ex:
-                    print ( "Unexpected error in input1_listener: %s" % ex )
+            print("Message received")
+            size = len(message.data)
+            message_text = message.data.decode('utf-8')
+            print("    Data: <<<{data}>>> & Size={size}".format(data=message.data, size=size))
+            print("    Properties: {}".format(message.custom_properties))
+            RECEIVED_MESSAGES += 1
+            print("Total messages received: {}".format(RECEIVED_MESSAGES))
 
-        # twin_patch_listener is invoked when the module twin's desired properties are updated.
-        async def twin_patch_listener(module_client):
+            if message.input_name == "input1":
+                message_json = json.loads(message_text)
+                if "machine" in message_json and "temperature" in message_json["machine"] and message_json["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+                    message.custom_properties["MessageType"] = "Alert"
+                    print("ALERT: Machine temperature {temp} exceeds threshold {threshold}".format(
+                        temp=message_json["machine"]["temperature"], threshold=TEMPERATURE_THRESHOLD
+                    ))
+                    await client.send_message_to_output(message, "output1")
+
+        # Define function for handling received twin patches
+        async def receive_twin_patch_handler(twin_patch):
+            global TEMPERATURE_THRESHOLD
             global TWIN_CALLBACKS
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    data = await module_client.receive_twin_desired_properties_patch()  # blocking call
-                    print( "The data in the desired properties patch was: %s" % data)
-                    if "TemperatureThreshold" in data:
-                        TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
-                    TWIN_CALLBACKS += 1
-                    print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
-                except Exception as ex:
-                    print ( "Unexpected error in twin_patch_listener: %s" % ex )
+            print("Twin Patch received")
+            print("     {}".format(twin_patch))
+            if "TemperatureThreshold" in twin_patch:
+                TEMPERATURE_THRESHOLD = twin_patch["TemperatureThreshold"]
+            TWIN_CALLBACKS += 1
+            print("Total calls confirmed: {}".format(TWIN_CALLBACKS))
+
+        try:
+            # Set handler on the client
+            client.on_message_received = receive_message_handler
+            client.on_twin_desired_properties_patch_received = receive_twin_patch_handler
+        except:
+            # Cleanup if failure occurs
+            client.shutdown()
+            raise
+
+        return client
     ```
 
-5. Update the **listeners** to also listen twin updates.
+7. Save the main.py file.
 
-    ```python
-        # Schedule task for C2D Listener
-        listeners = asyncio.gather(input1_listener(module_client), twin_patch_listener(module_client))
+8. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-        print ( "The sample is now waiting for messages. ")
-    ```
-
-6. Save the main.py file.
-
-7. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
-
-8. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+9. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
 
    ```json
        "PythonModule": {
@@ -196,7 +193,7 @@ Each template includes sample code, which takes simulated sensor data from the *
 
    ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
 
-9. Save the deployment.template.json file.
+10. Save the deployment.template.json file.
 
 ## Build and push your module
 

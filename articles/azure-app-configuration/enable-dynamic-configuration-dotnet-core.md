@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: GrantMeStrength
+author: maud-lv
 manager: zhenlan
 editor: ''
 
@@ -15,17 +15,13 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: jken
+ms.author: malev
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET Core app
 
-The App Configuration .NET Core client library supports updating configuration on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `TryRefreshAsync` on that instance anywhere in your code.
-
-In order to keep the settings updated and avoid too many calls to the configuration store, a cache is used for each setting. Until the cached value of a setting has expired, the refresh operation does not update the value, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds, but it can be overridden if required.
-
-This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) first.
+The App Configuration .NET provider library supports updating configuration on demand without causing an application to restart. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstart. You should finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) before continuing.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
@@ -37,62 +33,63 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Reload data from App Configuration
+Finish the quickstart [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md).
 
-Open *Program.cs* and update the file to add a reference to the `System.Threading.Tasks` namespace, to specify refresh configuration in the `AddAzureAppConfiguration` method, and to trigger manual refresh using the `TryRefreshAsync` method.
+## Activity-driven configuration refresh
+
+Open *Program.cs* and update the code as following.
 
 ```csharp
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using System;
 using System.Threading.Tasks;
 
 namespace TestConsole
 {
-class Program
-{
-    private static IConfiguration _configuration = null;
-    private static IConfigurationRefresher _refresher = null;
-
-    static void Main(string[] args)
+    class Program
     {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(options =>
+        private static IConfiguration _configuration = null;
+        private static IConfigurationRefresher _refresher = null;
+
+        static void Main(string[] args)
         {
-            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    .ConfigureRefresh(refresh =>
-                    {
-                        refresh.Register("TestApp:Settings:Message")
-                               .SetCacheExpiration(TimeSpan.FromSeconds(10));
-                    });
-                    
-                    _refresher = options.GetRefresher();
-        });
+            var builder = new ConfigurationBuilder();
+            builder.AddAzureAppConfiguration(options =>
+            {
+                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                        .ConfigureRefresh(refresh =>
+                        {
+                            refresh.Register("TestApp:Settings:Message")
+                                   .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                        });
 
-        _configuration = builder.Build();
-        PrintMessage().Wait();
+                _refresher = options.GetRefresher();
+            });
+
+            _configuration = builder.Build();
+            PrintMessage().Wait();
+        }
+
+        private static async Task PrintMessage()
+        {
+            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+
+            // Wait for the user to press Enter
+            Console.ReadLine();
+
+            await _refresher.TryRefreshAsync();
+            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+        }
     }
-
-    private static async Task PrintMessage()
-    {
-        Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
-
-        // Wait for the user to press Enter
-        Console.ReadLine();
-
-        await _refresher.TryRefreshAsync();
-        Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
-    }
-}
 }
 ```
 
-The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `TryRefreshAsync` method on this instance could be used to trigger a refresh operation anywhere in your code.
-    
-> [!NOTE]
-> The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
+In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+
+Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You will want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
 
 ## Build and run the app locally
 

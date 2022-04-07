@@ -6,7 +6,7 @@ summary: Learn basic Azure Active Directory (Azure AD) concepts and processes, i
 metadata:
   title: Azure Active Directory fundamentals documentation 
   description: "Learn basic Azure Active Directory (Azure AD) concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
-  manager: daveba
+  manager: karenhoran
   ms.author: ajburnle
   ms.collection: na
   ms.date: 08/27/2019

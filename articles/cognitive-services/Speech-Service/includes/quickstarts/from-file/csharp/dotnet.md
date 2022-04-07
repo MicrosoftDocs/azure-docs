@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -122,7 +122,7 @@ switch (result.Reason)
         {
             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
         }
         break;
 }
@@ -178,7 +178,7 @@ namespace HelloWorld
                         {
                             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         }
                         break;
                 }

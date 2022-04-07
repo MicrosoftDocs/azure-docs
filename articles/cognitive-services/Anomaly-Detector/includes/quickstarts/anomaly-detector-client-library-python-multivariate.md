@@ -25,7 +25,7 @@ Use the Anomaly Detector multivariate client library for Python to:
 * [Python 3.x](https://www.python.org/)
 * The [Pandas data analysis library](https://pandas.pydata.org/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -41,7 +41,7 @@ pip install pandas
 pip install --upgrade azure-ai-anomalydetector
 ```
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 
@@ -257,9 +257,9 @@ if __name__ == '__main__':
 
 ```
 
-Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
+Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
 
-We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
+We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
 Run the application with the `python` command and your file name.
 

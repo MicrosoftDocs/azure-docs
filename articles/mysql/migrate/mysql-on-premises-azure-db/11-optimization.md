@@ -4,8 +4,8 @@ description: "In addition to the audit and activity logs, server performance can
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags 
-ms.author: arthiaga
+author: rothja 
+ms.author: jroth
 ms.reviewer: maghan
 ms.custom:
 ms.date: 06/21/2021

@@ -2,13 +2,13 @@
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -101,12 +101,12 @@ The resources referenced by the *index.html* file are detailed in the following 
 |---|---|
 |MSAL.js library| MSAL.js authentication JavaScript library [CDN path](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).|
 |[Bootstrap stylesheet](https://getbootstrap.com/) | A free front-end framework for faster and easier web development. The framework includes HTML-based and CSS-based design templates. |
-|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
-|[authConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
-|[authRedirect.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
-|[apiConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
-|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
-|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
+|[`policies.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
+|[`authConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
+|[`authRedirect.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
+|[`apiConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
+|[`api.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
+|[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
 | | |
 
 To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet.

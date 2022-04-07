@@ -3,8 +3,8 @@ title: Azure VMware Solution customer communications
 description: Azure VMware Solution customer communications description.
 ms.topic: include
 ms.date: 03/24/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 

@@ -47,7 +47,7 @@ To access the chart options:
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given Apache Spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its minimum value, maximum value, mean value and standard deviation.
     ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
-### displayHTML(df) option
+### displayHTML() option
 Azure Synapse Analytics notebooks support HTML graphics using the ```displayHTML``` function.
 
 The following image is an example of creating visualizations using [D3.js](https://d3js.org/).
@@ -248,14 +248,30 @@ h = plotly.offline.plot(fig, output_type='div')
 # display this html
 displayHTML(h)
 ```
+### Pandas
+
+You can view html output of pandas dataframe as the default output, notebook will automatically show the styled html content. 
+
+   ![Panda graph example.](./media/apache-spark-data-viz/support-panda.png#lightbox)
+
+```python
+import pandas as pd 
+import numpy as np 
+
+df = pd.DataFrame([[38.0, 2.0, 18.0, 22.0, 21, np.nan],[19, 439, 6, 452, 226,232]], 
+
+                  index=pd.Index(['Tumour (Positive)', 'Non-Tumour (Negative)'], name='Actual Label:'), 
+
+                  columns=pd.MultiIndex.from_product([['Decision Tree', 'Regression', 'Random'],['Tumour', 'Non-Tumour']], names=['Model:', 'Predicted:'])) 
+
+df 
+```
 
 
 ### Additional libraries 
 Beyond these libraries, the Azure Synapse Analytics Runtime also includes the following set of libraries that are often used for data visualization:
-- [Matplotlib](https://matplotlib.org/)
-- [Bokeh](https://bokeh.org/)
+
 - [Seaborn](https://seaborn.pydata.org/) 
-- [Plotly](https://plotly.com/)
 
 You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apache-spark-version-support.md) for the most up to date information about the available libraries and versions.
 

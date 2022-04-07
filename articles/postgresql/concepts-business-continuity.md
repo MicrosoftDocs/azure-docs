@@ -1,10 +1,11 @@
 ---
 title: Business continuity - Azure Database for PostgreSQL - Single Server
 description: This article describes business continuity (point in time restore, data center outage, geo-restore, replicas) when using Azure Database for PostgreSQL.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 08/07/2020
 ---
 
@@ -39,8 +40,7 @@ You can use the service’s backups to recover a server from various disruptive 
 
 You can perform a **point-in-time-restore** to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 
-> [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
+We recommend that you use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server. If you accidentally deleted your server, you might be able to restore it if the deletion happened within the last 5 days. For more information, see [Restore a dropped Azure Database for PostgreSQL server](howto-restore-dropped-server.md).
 
 ## Recover from an Azure data center outage
 
@@ -50,7 +50,7 @@ One option is to wait for your server to come back online when the data center o
 
 ## Geo-restore
 
-The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../best-practices-availability-paired-regions.md). You can restore from these backups to any other region. The geo-restore creates a new server with the data from the backups. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
+The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../availability-zones/cross-region-replication-azure.md). You can restore from these backups to any other region. The geo-restore creates a new server with the data from the backups. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created server configured with geo-redundant backups.

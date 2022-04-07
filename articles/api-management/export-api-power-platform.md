@@ -2,12 +2,12 @@
 title: Export APIs from Azure API Management to Microsoft Power Platform | Microsoft Docs
 description: Learn how to export an API from API Management as a custom connector to Power Apps and Power Automate in the Microsoft Power Platform.
 services: api-management
-author: miaojiang
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/27/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Export APIs from Azure API Management to the Power Platform 
@@ -39,6 +39,9 @@ This article walks through the steps in the Azure portal to create a custom Powe
 Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://flow.microsoft.com) environment. You will see the API listed under **Data > Custom Connectors**.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
+
+> [!NOTE]
+> To call the API from the Power Apps test console, you need to add the "https://flow.microsoft.com" URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
 
 ## Next steps
 

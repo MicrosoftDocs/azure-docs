@@ -282,7 +282,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 ## Collect logs manually
 
-[Install and deploy Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+[Install and deploy Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
 ### Collect Azure Data Factory job logs or App Service logs in Datahub
 

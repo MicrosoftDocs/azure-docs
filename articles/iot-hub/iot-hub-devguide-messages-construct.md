@@ -5,7 +5,7 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 11/19/2021
 ms.author: asrastog
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -53,6 +53,8 @@ For more information about how to encode and decode messages sent using differen
 | iothub-connection-module-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **moduleId** of the device that sent the message. | No | connectionModuleId |
 | iothub-connection-auth-generation-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **connectionDeviceGenerationId** (as per [Device identity properties](iot-hub-devguide-identity-registry.md#device-identity-properties)) of the device that sent the message. | No |connectionDeviceGenerationId |
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message.| No | connectionAuthMethod |
+| iothub-app-iothub-creation-time-utc | Allows the device to send event creation time when sending data in a batch. | Yes | creation-time-utc |
+| iothub-creation-time-utc | Allows the device to send event creation time when sending one message at a time. | Yes | creation-time-utc |
 | dt-dataschema | This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. | No | $dt-dataschema |
 | dt-subject | The name of the component that is sending the device-to-cloud messages. | Yes | $dt-subject |
 

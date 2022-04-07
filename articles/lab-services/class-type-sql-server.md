@@ -2,7 +2,7 @@
 title: Set up a lab to manage and develop with Azure SQL Database | Azure Lab Services
 description: Learn how to set up a lab to manage and develop with Azure SQL Database.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---
@@ -32,7 +32,7 @@ To use a shared resource in Lab Services, you first need to create the virtual n
 >[!WARNING]
 >Shared resources for a lab should be setup before the lab is created.  If the vnet is not [peered to the lab account](how-to-connect-peer-virtual-network.md) *before* the lab is created, the lab will not have access to the shared resource.
 
-Now that the networking side of things is handled, lets create a SQL Server Database.  We are going to create a [single database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) as it is the quickest deployment option for Azure SQL Database.  For other deployment options, create an [elastic pool](../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal), [managed instance](../azure-sql/managed-instance/instance-create-quickstart.md), or [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md).
+Now that the networking side of things is handled, lets create a SQL Server Database.  We are going to create a [single database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) as it is the quickest deployment option for Azure SQL Database.  For other deployment options, create an [elastic pool](../azure-sql/database/elastic-pool-overview.md#create-a-new-sql-database-elastic-pool-by-using-the-azure-portal), [managed instance](../azure-sql/managed-instance/instance-create-quickstart.md), or [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
 1. From the Azure portal menu, choose **Create new resource**.
 2. Choose **SQL Database** and click the **Create** button.

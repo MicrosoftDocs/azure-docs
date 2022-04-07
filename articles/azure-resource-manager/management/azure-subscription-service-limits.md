@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 03/17/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -75,13 +75,9 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
-## Azure API for FHIR service limits
-
-[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
-
 ## Azure Cache for Redis limits
 
-[!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## Azure Cloud Services limits
 
@@ -131,6 +127,16 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
+## Azure Health Data Services
+
+### Azure Health Data Services limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
+
+### Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
+
 ## Azure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -169,6 +175,11 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+
+## Azure Data Factory limits
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
+
 ## Azure NetApp Files
 
 [!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
@@ -190,6 +201,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure Virtual Desktop Service limits
+
+[!INCLUDE [azure-virtual-desktop-service-limits](../../../includes/azure-virtual-desktop-limits.md)]
 
 ## Azure VMware Solution limits
 
@@ -223,13 +238,14 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [cdn-limits](../../../includes/cdn-limits.md)]
 
-## Data Factory limits
-
-[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## Data Lake Analytics limits
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
+
+## Data Factory limits
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## Data Lake Storage limits
 
@@ -287,7 +303,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](../../media-services/previous/media-services-quotas-and-limitations.md)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -330,10 +346,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
-## Purview limits
-
-The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md)
-
 ### Traffic Manager limits
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -350,13 +362,17 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 [!INCLUDE [azure-firewall-limits](../../../includes/firewall-limits.md)]
 
-### Azure Front Door Service limits
+### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
 ## Notification Hubs limits
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
+
+## Azure Purview limits
+
+The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
 
 ## Service Bus limits
 

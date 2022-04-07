@@ -4,13 +4,13 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 2/23/2022
 ---
 # Create a log alert with a Resource Manager template
 
-Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules).
 
 The basic steps are as follows:
 
@@ -24,179 +24,9 @@ The basic steps are as follows:
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](./api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
+## Template for all resource types (from API version 2021-08-01)
 
-## Simple template (up to API version 2018-04-16)
-
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [number of results log alert](./alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-        "alertLocation": "southcentralus",
-        "alertName": "samplelogalert",
-        "alertDescription": "Sample log search alert",
-        "alertStatus": "true",
-        "alertSource":{
-            "Query":"requests",
-            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-            "Type":"ResultCount"
-        },
-        "alertSchedule":{
-            "Frequency": 15,
-            "Time": 60
-        },
-        "alertActions":{
-            "SeverityLevel": "4"
-        },
-        "alertTrigger":{
-            "Operator":"GreaterThan",
-            "Threshold":"1"
-        },
-        "actionGrp":{
-            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
-            "Subject": "Customized Email Header",
-            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-        }
-    },
-    "resources":[ {
-        "name":"[variables('alertName')]",
-        "type":"Microsoft.Insights/scheduledQueryRules",
-        "apiVersion": "2018-04-16",
-        "location": "[variables('alertLocation')]",
-        "properties":{
-            "description": "[variables('alertDescription')]",
-            "enabled": "[variables('alertStatus')]",
-            "source": {
-                "query": "[variables('alertSource').Query]",
-                "dataSourceId": "[variables('alertSource').SourceId]",
-                "queryType":"[variables('alertSource').Type]"
-            },
-            "schedule":{
-                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-            },
-            "action":{
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity":"[variables('alertActions').SeverityLevel]",
-                "aznsAction":{
-                    "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
-                    "emailSubject":"[variables('actionGrp').Subject]",
-                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
-                },
-                "trigger":{
-                    "thresholdOperator":"[variables('alertTrigger').Operator]",
-                    "threshold":"[variables('alertTrigger').Threshold]"
-                }
-            }
-        }
-    } ]
-}
-
-```
-
-This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-## Template with cross-resource query (up to API version 2018-04-16)
-
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-        "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
-        "alertName": "sample log alert",
-        "alertDescr": "Sample log search alert",
-        "alertStatus": "true",
-        "alertSource":{
-            "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
-            "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-            "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
-            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-            "Type":"ResultCount"
-        },
-        "alertSchedule":{
-            "Frequency": 15,
-            "Time": 60
-        },
-        "alertActions":{
-            "SeverityLevel": "4",
-            "SuppressTimeinMin": 20
-        },
-        "alertTrigger":{
-            "Operator":"GreaterThan",
-            "Threshold":"1"
-        },
-        "metricMeasurement": {
-            "thresholdOperator": "Equal",
-            "threshold": "1",
-            "metricTriggerType": "Consecutive",
-            "metricColumn": "Classification"
-        },
-        "actionGrp":{
-            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
-            "Subject": "Customized Email Header",
-            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-        }
-    },
-    "resources":[ {
-        "name":"[variables('alertName')]",
-        "type":"Microsoft.Insights/scheduledQueryRules",
-        "apiVersion": "2018-04-16",
-        "location": "[variables('alertLocation')]",
-        "properties":{
-            "description": "[variables('alertDescr')]",
-            "enabled": "[variables('alertStatus')]",
-            "source": {
-                "query": "[variables('alertSource').Query]",
-                "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
-                "dataSourceId": "[variables('alertSource').SourceId]",
-                "queryType":"[variables('alertSource').Type]"
-            },
-            "schedule":{
-                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-            },
-            "action":{
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity":"[variables('alertActions').SeverityLevel]",
-                "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
-                "aznsAction":{
-                    "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
-                    "emailSubject":"[variables('actionGrp').Subject]",
-                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
-                },
-                "trigger":{
-                    "thresholdOperator":"[variables('alertTrigger').Operator]",
-                    "threshold":"[variables('alertTrigger').Threshold]",
-                    "metricTrigger":{
-                        "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
-                        "threshold": "[variables('metricMeasurement').threshold]",
-                        "metricColumn": "[variables('metricMeasurement').metricColumn]",
-                        "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
-                    }
-                }
-            }
-        }
-    } ]
-}
-```
-
-> [!IMPORTANT]
-> When using cross-resource query in log alert, the usage of [authorizedResources](/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
-
-This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-## Template for all resource types (from API version 2021-02-01-preview)
-
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update) template for all resource types (sample data set as variables):
 
 ```json
 {
@@ -397,7 +227,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2021-02-01-preview",
+            "apiVersion": "2021-08-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -438,6 +268,175 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
     ]
 }
 ```
+
+This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+
+## Simple template (up to API version 2018-04-16)
+
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [number of results log alert](./alerts-unified-log.md#result-count) (sample data set as variables):
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+        "alertLocation": "southcentralus",
+        "alertName": "samplelogalert",
+        "alertDescription": "Sample log search alert",
+        "alertStatus": "true",
+        "alertSource":{
+            "Query":"requests",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4"
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "properties":{
+            "description": "[variables('alertDescription')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "aznsAction":{
+                    "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]"
+                }
+            }
+        }
+    } ]
+}
+
+```
+
+This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+
+## Template with cross-resource query (up to API version 2018-04-16)
+
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [metric measurement](./alerts-unified-log.md#calculation-of-a-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+        "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+        "alertName": "sample log alert",
+        "alertDescr": "Sample log search alert",
+        "alertStatus": "true",
+        "alertSource":{
+            "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+            "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4",
+            "SuppressTimeinMin": 20
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "metricMeasurement": {
+            "thresholdOperator": "Equal",
+            "threshold": "1",
+            "metricTriggerType": "Consecutive",
+            "metricColumn": "Classification"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "properties":{
+            "description": "[variables('alertDescr')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
+                "aznsAction":{
+                    "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]",
+                    "metricTrigger":{
+                        "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                        "threshold": "[variables('metricMeasurement').threshold]",
+                        "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                        "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+                    }
+                }
+            }
+        }
+    } ]
+}
+```
+
+> [!IMPORTANT]
+> When using cross-resource query in log alert, the usage of [authorizedResources](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update#source) is mandatory and user must have access to the list of resources stated
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

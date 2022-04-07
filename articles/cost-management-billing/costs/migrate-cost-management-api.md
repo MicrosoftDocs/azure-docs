@@ -3,7 +3,7 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 03/22/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.reviewer: micflan
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
 
-This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../manage/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
+This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Cost Management supports APIs for both account types. Review the [Setup billing account for](../manage/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
 
 Organizations with an existing EA account should review this article in conjunction with setting up an MCA account. Previously, renewing an EA account required some minimal work to move from an old enrollment to a new one. However, migrating to an MCA account requires additional effort. Additional effort is because of changes in the underlying billing subsystem, which affect all cost-related APIs and service offerings.
 
@@ -23,7 +23,7 @@ MCA APIs and new integration allow you to:
 - Have complete API availability through native Azure APIs.
 - Configure multiple invoices in a single billing account.
 - Access a combined API with Azure service usage, third-party Marketplace usage, and Marketplace purchases.
-- View costs across billing profiles (the same as enrollments) using Azure Cost Management.
+- View costs across billing profiles (the same as enrollments) using Cost Management.
 - Access new APIs to show costs, get notified when costs exceed predefined thresholds, and export raw data automatically.
 
 ## Migration checklist
@@ -34,6 +34,7 @@ The following items help you transition to MCA APIs.
 - Determine which APIs you use and see which ones are replaced in the following section.
 - Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- Grant the application that was created during Azure AD app registration read access to the billing account using Access control (IAM).
 - Update any programming code to [use Azure AD authentication](/rest/api/azure/#create-the-request).
 - Update any programming code to replace EA API calls with MCA API calls.
 - Update error handling to use new error codes.
@@ -512,7 +513,7 @@ To get reservation summaries with the Reservation Summaries API:
 
 ## Power BI integration
 
-You can also use Power BI for cost reporting. The [Azure Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Azure Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
+You can also use Power BI for cost reporting. The [Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
 
 ## Next steps
 

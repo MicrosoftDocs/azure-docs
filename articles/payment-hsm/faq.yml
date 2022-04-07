@@ -1,0 +1,42 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Payment HSM
+  description: Find answers to common questions about Azure Payment Hardware Security Module, such as basic information, getting started, and support.
+  services: payment-hsm
+  author: msmbaldwin
+  tags: azure-resource-manager
+  ms.service: payment-hsm
+  ms.workload: security
+  ms.topic: faq
+  ms.date: 01/25/2022
+  ms.author: mbaldwin
+title: Frequently asked questions (FAQ)
+summary: Find answers to common questions about Microsoft Azure Payment HSM.
+
+sections:
+  - name: The Basics
+    questions:
+      - question: |
+          Where is Azure Payment HSM preview available? 
+        answer: |
+          Azure Payment HSM is available for preview in East US and North Europe regions. 
+
+      - question: |
+          How does Azure Payment HSM work? 
+        answer: |
+          After HSMs are provisioned, they’re connected directly to a user’s virtual network, and HSMs are under users’ sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
+          
+      - question: |
+          Which industries might use Azure Payment HSM? 
+        answer: |
+          Financial institutions and service providers in the payment ecosystem including issuers, service providers, acquirers, processors, and payment networks would benefit from Azure Payment HSM. 
+
+      - question: |
+          What are some common use cases for Azure Payment HSM? 
+        answer: |
+          With benefits including low latency and the ability to quickly add more HSM capacity as required, Azure Payment HSM is a perfect fit for a broad range of use cases, including payment processing, payment credential issuing, securing keys and authentication data, and sensitive data protection. For more, see [Azure Payment HSM: typical use cases](overview.md#typical-use-cases)
+
+      - question: |
+          How do I get started with the service? 
+        answer: |
+          As Azure Payment HSM is a specialized service, you can request access [via email](mailto:paymentHSMRequest@microsoft.com).

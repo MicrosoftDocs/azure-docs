@@ -10,7 +10,7 @@ ms.date: 10/23/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jlu, calebb
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,11 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 
 ### Policy 1: Sign-in frequency control
 
-1. Create new policy
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. Select **Create new policy**.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
    > [!NOTE]
@@ -108,7 +112,11 @@ On Azure AD registered Windows devices sign in to the device is considered a pro
 
 ### Policy 2: Persistent browser session
 
-1. Create new policy
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. Select **Create new policy**.
 1. Choose all required conditions.
 
    > [!NOTE]

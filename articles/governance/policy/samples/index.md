@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 08/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Azure Policy Samples
@@ -33,8 +33,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 Azure:
 
 - [Australian Government ISM PROTECTED](./australia-ism.md)
-- [Azure Security Benchmark v2](./azure-security-benchmark.md)
-- [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [Azure Security Benchmark](./azure-security-benchmark.md)
 - [Canada Federal PBMM](./canada-federal-pbmm.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
@@ -53,7 +52,7 @@ Azure:
 The following are the [Regulatory Compliance](../concepts/regulatory-compliance.md) built-ins in
 Azure Government:
 
-- [Azure Security Benchmark v2](./gov-azure-security-benchmark.md)
+- [Azure Security Benchmark](./gov-azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./gov-cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./gov-cis-azure-1-1-0.md)
 - [CMMC Level 3](./gov-cmmc-l3.md)

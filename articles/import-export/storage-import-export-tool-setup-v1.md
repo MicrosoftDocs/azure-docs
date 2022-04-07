@@ -3,11 +3,11 @@ title: Setting Up the Azure Import/Export Tool v1 | Microsoft Docs
 description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service. This article refers to version 1 of the Import/Export Tool.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
+
 ---
 
 # Setting up the Azure Import/Export Tool v1
@@ -77,8 +77,7 @@ WAImportExport, a client tool for Microsoft Azure Import/Export service. Microso
 Copy a Directory:  
     WAImportExport.exe PrepImport  
         /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
-        [/abortsession] [/sk:<StorageAccountKey>] [/csas:<ContainerSas>]  
-        [/t:<TargetDriveLetter>] [/format] [/silentmode] [/encrypt]  
+        [/abortsession] [/t:<TargetDriveLetter>] [/format] [/silentmode] [/encrypt]  
         [/bk:<BitLockerKey>] [/Disposition:<Disposition>] [/BlobType:<BlobType>]  
         [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
         /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory>  
@@ -86,8 +85,7 @@ Copy a Directory:
 Copy a File:  
     WAImportExport.exe PrepImport  
         /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
-        [/abortsession] [/sk:<StorageAccountKey>] [/csas:<ContainerSas>]  
-        [/t:<TargetDriveLetter>] [/format] [/silentmode] [/encrypt]  
+        [/abortsession] [/t:<TargetDriveLetter>] [/format] [/silentmode] [/encrypt]  
         [/bk:<BitLockerKey>] [/Disposition:<Disposition>] [/BlobType:<BlobType>]  
         [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
         /srcfile:<SourceFilePath> /dstblob:<DestinationBlobPath>  
@@ -95,16 +93,13 @@ Copy a File:
 Repair a Drive:  
     WAImportExport.exe RepairImport | RepairExport  
         /r:<RepairFile> [/logdir:<LogDirectory>]  
-        [/d:<TargetDirectories>] [/bk:<BitLockerKey>]  
-        /sn:<StorageAccountName> [/sk:<StorageAccountKey> | /csas:<ContainerSas>]  
+        [/d:<TargetDirectories>] [/bk:<BitLockerKey>]   
         [/CopyLogFile:<DriveCopyLogFile>] [/ManifestFile:<DriveManifestFile>]  
         [/PathMapFile:<DrivePathMapFile>]  
 
 Preview an Export Job:  
     WAImportExport.exe PreviewExport  
-        [/logdir:<LogDirectory>]  
-        /sn:<StorageAccountName> [/sk:<StorageAccountKey> | /csas:<ContainerSas>]  
-        /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
+        [/logdir:<LogDirectory>] /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
 
 Parameters:  
 
@@ -127,15 +122,6 @@ Parameters:
     /abortsession  
         - Optional. If the last copy session was terminated abnormally, this parameter  
           can be specified to abort the session.  
-    /sn:<StorageAccountName>  
-        - Required. Only applicable for RepairImport and RepairExport. The name of  
-          the storage account.  
-    /sk:<StorageAccountKey>  
-        - Optional. The key of the storage account. One of /sk: and /csas: must be  
-          specified.  
-    /csas:<ContainerSas>  
-        - Optional. A container SAS, in format of <ContainerName>?<SasString>, to be  
-          used for import the data. One of /sk: and /csas: must be specified.  
     /t:<TargetDriveLetter>  
         - Required. Drive letter of the target drive.  
     /r:<RepairFile>  
@@ -211,9 +197,8 @@ Examples:
 
     Copy a source directory to a drive:  
     WAImportExport.exe PrepImport  
-        /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL  
-        xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:x /format /encrypt /srcdir:d:\movi  
-        es\drama /dstdir:movies/drama/  
+        /j:9WM35C2V.jrn /id:session#1 /t:x /format /encrypt 
+        /srcdir:d:\movies\drama /dstdir:movies/drama/  
 
     Copy another directory to the same drive following the above command:  
     WAImportExport.exe PrepImport  
@@ -225,20 +210,17 @@ Examples:
 
     Preview how many 1.5 TB drives are needed for an export job:  
     WAImportExport.exe PreviewExport  
-        /sn:mytestaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7K  
-        ysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\temp\myexportbloblist.xml  
+        /ExportBlobListFile:C:\temp\myexportbloblist.xml  
         /DriveSize:1.5TB  
 
-    Repair an finished import job:  
+    Repair a finished import job:  
     WAImportExport.exe RepairImport  
         /r:9WM35C2V.rep /d:X:\ /bk:442926-020713-108086-436744-137335-435358-242242-2795  
-        98 /sn:mytestaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94  
-        f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log
+        98 /CopyLogFile:C:\temp\9WM35C2V_error.log
 
     Skip write process, inplace data drive preparation:
     WAImportExport.exe PrepImport
-        /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL
-        xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movi
+        /j:9WM35C2V.jrn /id:session#1 /t:d /encrypt /srcdir:d:\movi
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
 

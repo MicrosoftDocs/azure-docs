@@ -2,20 +2,25 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/25/2022
+ms.devlang: csharp
 ---
 
 # Set subscription filters (Azure Service Bus)
-This article provides a few examples on setting filters on Service Bus topic subscriptions. For conceptual information about filters, see [Filters](topic-filters.md).
+This article provides a few examples on setting filters on subscriptions for Service Bus topics. For conceptual information about filters, see [Filters](topic-filters.md).
 
 ## Filter on system properties
 To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
 
 ```csharp
-sys.label LIKE '%bus%'`
+sys.label LIKE '%bus%'
 sys.messageid = 'xxxx'
 sys.correlationid like 'abc-%'
 ```
+
+> [!NOTE]
+> - For a list of system properties, see [Messages, payloads, and serialization](service-bus-messages-payloads.md). 
+> - Use system property names from [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties) in your filters even when you use [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) from the new [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) namespace to send and receive messages. The `Subject` from [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
 
 ## Filter on message properties
 Here are the examples of using message properties in a filter. You can access message properties using `user.property-name` or just `property-name`.
@@ -67,7 +72,9 @@ sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','S
 For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
 
 
-## Correlation filter using CorrelationID
+## Correlation filters
+
+### Correlation filter using CorrelationID
 
 ```csharp
 new CorrelationFilter("Contoso");
@@ -75,16 +82,24 @@ new CorrelationFilter("Contoso");
 
 It filters messages with `CorrelationID` set to `Contoso`. 
 
-## Correlation filter using system and user properties
+> [!NOTE]
+> The [CorrelationRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter) class in .NET is in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace. For sample code that shows how to create filters in general using .NET, see [this code on GitHub](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters/Program.cs#L179).
+
+
+### Correlation filter using system and user properties
 
 ```csharp
-var filter = new CorrelationFilter();
+var filter = new CorrelationRuleFilter();
 filter.Label = "Important";
 filter.ReplyTo = "johndoe@contoso.com";
 filter.Properties["color"] = "Red";
 ```
 
 It's equivalent to: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
+
+
+
+
 
 ## Next steps
 See the following samples: 

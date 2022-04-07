@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BenQ IAM | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with BenQ IAM'
 description: Learn how to configure single sign-on between Azure Active Directory and BenQ IAM.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 11/18/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with BenQ IAM
+# Tutorial: Azure AD SSO integration with BenQ IAM
 
 In this tutorial, you'll learn how to integrate BenQ IAM with Azure Active Directory (Azure AD). When you integrate BenQ IAM with Azure AD, you can:
 
@@ -72,15 +72,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://service-portaltest.benq.com/saml/init/<ID>`
+    `https://service-portal.benq.com/saml/init/<ID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://service-portaltest.benq.com/saml/consume/<ID>`
+    `https://service-portal.benq.com/saml/consume/<ID>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
-    `https://service-portal.benq.com/login`
+    In the **Logout URL** text box, type the URL:
+    `https://service-portal.benq.com/logout`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BenQ IAM Client support team](mailto:benqcare.us@benq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -130,7 +130,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure BenQ IAM SSO
 
-To configure single sign-on on **BenQ IAM** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [BenQ IAM support team](mailto:benqcare.us@benq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login BenQ IAM with BenQ Admin Account, click **SSO Setting** in the Account Management section.
+
+    ![Screenshot for SSO Setting](./media/benq-iam-tutorial/sso-setting.png)
+
+1. Select **SSO by SAML** as SSO Setting in the pop up and click **Next**.
+
+    ![Screenshot for SSO by saml](./media/benq-iam-tutorial/sso-by-saml.png)
+
+1. Perform the following steps in the **SSO Setting** page.
+
+    ![Screenshot for SSO configuration](./media/benq-iam-tutorial/saml-configuration.png)
+
+    a. In the **Login/SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    b. In the **Identifier/Entity ID** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+
+    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate(Base64)** textbox.
+
+    d. Copy **Identifier** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    e. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    f. Click **Next**.
+
 
 ### Create BenQ IAM test user
 
@@ -150,8 +173,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the BenQ IAM for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the BenQ IAM tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the BenQ IAM for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the BenQ IAM tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the BenQ IAM for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure BenQ IAM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure BenQ IAM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

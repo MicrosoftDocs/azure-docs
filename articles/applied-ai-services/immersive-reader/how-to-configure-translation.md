@@ -2,23 +2,23 @@
 title: "Configure translation"
 titleSuffix: Azure Applied AI Services
 description: This article will show you how to configure the various options for translation.
-author: metanMSFT
-manager: guillasi
+author: rwallerms
+manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
-ms.date: 06/29/2020
-ms.author: metang
+ms.date: 01/06/2022
+ms.author: rwaller
 ---
 
-# How to configure translation
+# How to configure Translation
 
-This article demonstrates how to configure the various options for translation in the Immersive Reader.
+This article demonstrates how to configure the various options for Translation in the Immersive Reader.
 
-## Configure translation language
+## Configure Translation language
 
-The `options` parameter contains all of the flags that can be used to configure translation. Set the `language` parameter to the language you wish to translate to. See the [Language Support](./language-support.md) for the full list of supported languages.
+The `options` parameter contains all of the flags that can be used to configure Translation. Set the `language` parameter to the language you wish to translate to. See the [Language Support](./language-support.md) for the full list of supported languages.
 
 ```typescript
 const options = {

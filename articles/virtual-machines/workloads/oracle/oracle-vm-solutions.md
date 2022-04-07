@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article covers information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace. If you are interested in cross-cloud application solutions with Oracle Cloud Infrastructure, see [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](oracle-oci-overview.md).
 
 To get a list of currently available images, run the following command:

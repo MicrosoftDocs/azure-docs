@@ -2,10 +2,7 @@
 title: Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
-
 ---
 
 # Application Insights cohorts

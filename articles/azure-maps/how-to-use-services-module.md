@@ -1,13 +1,12 @@
 ---
 title: Use the Azure Maps Services module | Microsoft Azure Maps
 description: Learn about the Azure Maps services module. See how to load and use this helper library to access Azure Maps REST services in web or Node.js applications.
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 03/25/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
 ms.custom: devx-track-js
 ---
 
@@ -21,19 +20,19 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 1. Load the Azure Maps services module. You can load it in one of two ways:
     - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add a script reference to the `<head>` element of the file:
 
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-        ```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+    ```
 
     - Alternatively, load the services module for the Azure Maps Web SDK source code locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
-    
-        > **npm install azure-maps-rest**
-    
-        Then, add a script reference to the `<head>` element of the file:
 
-         ```html
-        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
-         ```
+      `npm install azure-maps-rest`
+
+      Then, add a script reference to the `<head>` element of the file:
+
+      ```html
+      <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
+      ```
 
 1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created. 
 
@@ -155,7 +154,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

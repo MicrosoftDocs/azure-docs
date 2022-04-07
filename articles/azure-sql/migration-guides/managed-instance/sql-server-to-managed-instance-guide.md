@@ -8,8 +8,8 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: cawrites
-ms.date: 06/25/2021
+ms.reviewer: mathoma, danil
+ms.date: 03/22/2022
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -47,7 +47,7 @@ After you've verified that your source environment is supported, start with the 
 
 In the Discover phase, scan the network to identify all SQL Server instances and features used by your organization. 
 
-Use [Azure Migrate](../../../migrate/migrate-services-overview.md) to assesses migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
+Use [Azure Migrate](../../../migrate/migrate-services-overview.md) to assess migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
 
 Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. The toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
 
@@ -152,20 +152,21 @@ activities to the platform as they are built in. Therefore, some instance-level 
 need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as 
 [high availability](../../database/high-availability-sla.md) is built in.
 
-SQL Managed Instance supports the following database migration options (currently these are the 
-only supported migration methods):
+This article covers two of the recommended migration options: 
 
 - Azure Database Migration Service - migration with near-zero downtime.
 - Native `RESTORE DATABASE FROM URL` - uses native backups from SQL Server and requires some 
 downtime.
 
-This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+This guide describes the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+
+For other migration tools, see [Compare migration options](sql-server-to-managed-instance-overview.md#compare-migration-options). 
 
 ### Database Migration Service
 
 To perform migrations using DMS, follow the steps below:
 
-1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
+1. [Register the **Microsoft.DataMigration** resource provider](../../../dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider) in your subscription if you are performing this for the first time.
 1. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
 1. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database Managed Instance**. Choose the type of activity in the project creation blade - online or offline data migration. 
 1.  Specify the source SQL Server details on the **Migration source** details page and the target Azure SQL Managed Instance details on the **Migration target** details page. Select **Next**.
@@ -221,7 +222,7 @@ To migrate using backup and restore, follow these steps:
    ```
 1. Restore the backup from the Azure storage blob container. For example: 
 
-	```sql
+   ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```

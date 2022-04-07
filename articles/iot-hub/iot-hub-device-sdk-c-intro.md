@@ -1,13 +1,13 @@
 ---
 title: The Azure IoT device SDK for C | Microsoft Docs
 description: Get started with the Azure IoT device SDK for C and learn how to create device apps that communicate with an IoT hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -26,7 +26,7 @@ There are a broad range of platforms on which the SDK has been tested (see the [
 
 The following video presents an overview of the Azure IoT SDK for C:
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
+>[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 This article introduces you to the architecture of the Azure IoT device SDK for C. It demonstrates how to initialize the device library, send data to IoT Hub, and receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
 
@@ -39,8 +39,6 @@ The latest version of the libraries can be found in the **main** branch of the r
   ![Screenshot of the main branch of the repository](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
 * The core implementation of the SDK is in the **iothub\_client** folder that contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub and receiving messages from IoT Hub. When using this library, you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
-
-* The **serializer** folder contains helper functions and samples that show you how to serialize data before sending to Azure IoT Hub using the client library. The use of the serializer is not mandatory and is provided as a convenience. To use the **serializer** library, you define a model that specifies the data to send to IoT Hub and the messages you expect to receive from it. Once the model is defined, the SDK provides you with an API surface that enables you to easily work with device-to-cloud and cloud-to-device messages without worrying about the serialization details. The library depends on other open-source libraries that implement transport using protocols such as MQTT and AMQP.
 
 * The **IoTHubClient** library depends on other open-source libraries:
 
@@ -84,7 +82,7 @@ The device explorer tool uses the Azure IoT service libraries to perform various
 
 If you're not familiar with the device explorer tool, the following procedure describes how to use it to add a device and obtain a device connection string.
 
-1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
+1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/).
 
 1. When you run the program, you see this interface:
 
@@ -326,252 +324,6 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 This call frees up the resources previously allocated by the **IoTHubClient\_CreateFromConnectionString** function.
 
 As you can see, it's easy to send and receive messages with the **IoTHubClient** library. The library handles the details of communicating with IoT Hub, including which protocol to use (from the perspective of the developer, this is a simple configuration option).
-
-The **IoTHubClient** library also provides precise control over how to serialize the data your device sends to IoT Hub. In some cases this level of control is an advantage, but in others it is an implementation detail that you don't want to be concerned with. If that's the case, you might consider using the **serializer** library, which is described in the next section.
-
-## Use the serializer library
-
-Conceptually the **serializer** library sits on top of the **IoTHubClient** library in the SDK. It uses the **IoTHubClient** library for the underlying communication with IoT Hub, but it adds modeling capabilities that remove the burden of dealing with message serialization from the developer. How this library works is best demonstrated by an example.
-
-Inside the **serializer** folder in the [azure-iot-sdk-c repository](https://github.com/Azure/azure-iot-sdk-c), is a **samples** folder that contains an application called **simplesample\_mqtt**. The Windows version of this sample includes the following Visual Studio solution:
-
-  ![Visual Studio Solution for mqtt sample](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
-
-> [!NOTE]
-> If Visual Studio asks you to retarget the project to the latest version, accept the prompt.
-
-As with the previous sample, this one includes several NuGet packages:
-
-* Microsoft.Azure.C.SharedUtility
-* Microsoft.Azure.IoTHub.MqttTransport
-* Microsoft.Azure.IoTHub.IoTHubClient
-* Microsoft.Azure.IoTHub.Serializer
-* Microsoft.Azure.umqtt
-
-You've seen most of these packages in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This package is required when you use the **serializer** library.
-
-You can find the implementation of the sample application in the **iothub_client\_samples\_iothub_convenience_sample** file.
-
-The following sections walk you through the key parts of this sample.
-
-### Initialize the library
-
-To start working with the **serializer** library, call the initialization APIs:
-
-```c
-if (serializer_init(NULL) != SERIALIZER_OK)
-{
-    (void)printf("Failed on serializer_init\r\n");
-}
-else
-{
-    IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol);
-    srand((unsigned int)time(NULL));
-    int avgWindSpeed = 10;
-
-    if (iotHubClientHandle == NULL)
-    {
-        (void)printf("Failed on IoTHubClient_LL_Create\r\n");
-    }
-    else
-    {
-        ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
-        if (myWeather == NULL)
-        {
-            (void)printf("Failed on CREATE_MODEL_INSTANCE\r\n");
-        }
-        else
-        {
-...
-```
-
-The call to the **serializer\_init** function is a one-time call and initializes the underlying library. Then, you call the **IoTHubClient\_LL\_CreateFromConnectionString** function, which is the same API as in the **IoTHubClient** sample. This call sets your device connection string (this call is also where you choose the protocol you want to use). This sample uses MQTT as the transport, but could use AMQP or HTTPS.
-
-Finally, call the **CREATE\_MODEL\_INSTANCE** function. **WeatherStation** is the namespace of the model and **ContosoAnemometer** is the name of the model. Once the model instance is created, you can use it to start sending and receiving messages. However, it's important to understand what a model is.
-
-### Define the model
-
-A model in the **serializer** library defines the messages that your device can send to IoT Hub and the messages, called *actions* in the modeling language, which it can receive. You define a model using a set of C macros as in the **iothub_client\_samples\_iothub_convenience_sample** sample application:
-
-```c
-BEGIN_NAMESPACE(WeatherStation);
-
-DECLARE_MODEL(ContosoAnemometer,
-WITH_DATA(ascii_char_ptr, DeviceId),
-WITH_DATA(int, WindSpeed),
-WITH_ACTION(TurnFanOn),
-WITH_ACTION(TurnFanOff),
-WITH_ACTION(SetAirResistance, int, Position)
-);
-
-END_NAMESPACE(WeatherStation);
-```
-
-The **BEGIN\_NAMESPACE** and **END\_NAMESPACE** macros both take the namespace of the model as an argument. It's expected that anything between these macros is the definition of your model or models, and the data structures that the models use.
-
-In this example, there is a single model called **ContosoAnemometer**. This model defines two pieces of data that your device can send to IoT Hub: **DeviceId** and **WindSpeed**. It also defines three actions (messages) that your device can receive: **TurnFanOn**, **TurnFanOff**, and **SetAirResistance**. Each data element has a type, and each action has a name (and optionally a set of parameters).
-
-The data and actions defined in the model define an API surface that you can use to send messages to IoT Hub, and respond to messages sent to the device. Use of this model is best understood through an example.
-
-### Send messages
-
-The model defines the data you can send to IoT Hub. In this example, that means one of the two data items defined using the **WITH_DATA** macro. There are several steps required to send **DeviceId** and **WindSpeed** values to an IoT hub. The first is to set the data you want to send:
-
-```c
-myWeather->DeviceId = "myFirstDevice";
-myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
-```
-
-The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send:
-
-```c
-unsigned char* destination;
-size_t destinationSize;
-if (SERIALIZE(&destination, &destinationSize, myWeather->DeviceId, myWeather->WindSpeed) != CODEFIRST_OK)
-{
-    (void)printf("Failed to serialize\r\n");
-}
-else
-{
-    sendMessage(iotHubClientHandle, destination, destinationSize);
-    free(destination);
-}
-```
-
-This code serializes the device-to-cloud to a buffer (referenced by **destination**). The code then invokes the **sendMessage** function to send the message to IoT Hub:
-
-```c
-static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
-{
-    static unsigned int messageTrackingId;
-    IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
-    if (messageHandle == NULL)
-    {
-        printf("unable to create a new IoTHubMessage\r\n");
-    }
-    else
-    {
-        if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)(uintptr_t)messageTrackingId) != IOTHUB_CLIENT_OK)
-        {
-            printf("failed to hand over the message to IoTHubClient");
-        }
-        else
-        {
-            printf("IoTHubClient accepted the message for delivery\r\n");
-        }
-        IoTHubMessage_Destroy(messageHandle);
-    }
-    messageTrackingId++;
-}
-```
-
-The second to last parameter of **IoTHubClient\_LL\_SendEventAsync** is a reference to a callback function that's called when the data is successfully sent. Here's the callback function in the sample:
-
-```c
-void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
-{
-    unsigned int messageTrackingId = (unsigned int)(uintptr_t)userContextCallback;
-
-    (void)printf("Message Id: %u Received.\r\n", messageTrackingId);
-
-    (void)printf("Result Call Back Called! Result is: %s \r\n", MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
-}
-```
-
-The second parameter is a pointer to user context; the same pointer passed to **IoTHubClient\_LL\_SendEventAsync**. In this case, the context is a simple counter, but it can be anything you want.
-
-That's all there is to sending device-to-cloud messages. The only thing left to cover is how to receive messages.
-
-### Receive messages
-
-Receiving a message works similarly to the way messages work in the **IoTHubClient** library. First, you register a message callback function:
-
-```c
-if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, 
-  IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
-{
-    printf("unable to IoTHubClient_SetMessageCallback\r\n");
-}
-else
-{
-...
-```
-
-Then, you write the callback function that's invoked when a message is received:
-
-```c
-static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
-{
-    IOTHUBMESSAGE_DISPOSITION_RESULT result;
-    const unsigned char* buffer;
-    size_t size;
-    if (IoTHubMessage_GetByteArray(message, &buffer, &size) != IOTHUB_MESSAGE_OK)
-    {
-        printf("unable to IoTHubMessage_GetByteArray\r\n");
-        result = IOTHUBMESSAGE_ABANDONED;
-    }
-    else
-    {
-        /*buffer is not zero terminated*/
-        char* temp = malloc(size + 1);
-        if (temp == NULL)
-        {
-            printf("failed to malloc\r\n");
-            result = IOTHUBMESSAGE_ABANDONED;
-        }
-        else
-        {
-            (void)memcpy(temp, buffer, size);
-            temp[size] = '\0';
-            EXECUTE_COMMAND_RESULT executeCommandResult = EXECUTE_COMMAND(userContextCallback, temp);
-            result =
-                (executeCommandResult == EXECUTE_COMMAND_ERROR) ? IOTHUBMESSAGE_ABANDONED :
-                (executeCommandResult == EXECUTE_COMMAND_SUCCESS) ? IOTHUBMESSAGE_ACCEPTED :
-                IOTHUBMESSAGE_REJECTED;
-            free(temp);
-        }
-    }
-    return result;
-}
-```
-
-This code is boilerplate -- it's the same for any solution. This function receives the message and takes care of routing it to the appropriate function through the call to **EXECUTE\_COMMAND**. The function called at this point depends on the definition of the actions in your model.
-
-When you define an action in your model, you're required to implement a function that's called when your device receives the corresponding message. For example, if your model defines this action:
-
-```c
-WITH_ACTION(SetAirResistance, int, Position)
-```
-
-Define a function with this signature:
-
-```c
-EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
-{
-    (void)device;
-    (void)printf("Setting Air Resistance Position to %d.\r\n", Position);
-    return EXECUTE_COMMAND_SUCCESS;
-}
-```
-
-Note how the name of the function matches the name of the action in the model and that the parameters of the function match the parameters specified for the action. The first parameter is always required and contains a pointer to the instance of your model.
-
-When the device receives a message that matches this signature, the corresponding function is called. Therefore, aside from having to include the boilerplate code from **IoTHubMessage**, receiving messages is just a matter of defining a simple function for each action defined in your model.
-
-### Uninitialize the library
-
-When you're done sending data and receiving messages, you can uninitialize the IoT library:
-
-```c
-...
-        DESTROY_MODEL_INSTANCE(myWeather);
-    }
-    IoTHubClient_LL_Destroy(iotHubClientHandle);
-}
-serializer_deinit();
-```
-
-Each of these three functions aligns with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
 
 ## Next Steps
 

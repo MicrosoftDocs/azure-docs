@@ -18,7 +18,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## When to use a read replica
 
@@ -46,7 +46,7 @@ Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, 
 
 ### Paired regions
 
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../availability-zones/cross-region-replication-azure.md).
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 

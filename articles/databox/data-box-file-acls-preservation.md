@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 01/21/2022
 ms.author: alkohli
 ---
 
@@ -53,31 +53,65 @@ Read-only attributes on directories aren't transferred.
 
 #### ACLs
 
-All the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). For Linux, only Windows NT ACLs are transferred.
+<!--ACLs DEFINITION
 
-ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
+**Transfer methods.** Support for ACLs transfer during a data copy varies with the file transfer protocol or service that you use. There are also some differences when you use a Windows client vs. a Linux client for the data copy.
 
-Even if your data copy tool does not copy ACLs, the default ACLs on directories and files are transferred to Azure Files. The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
+- SMB transfers. When you [copy data over SMB](databox/data-box-deploy-copy-data.md), all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you're using a Linux client for an SMB transfer, only Windows NT ACLs are transferred.
+
+- NFS transfers. ACLs aren't transferred when you [copy data over Network File System (NFS)](databox/data-box-deploy-copy-data-via-nfs.md).
+
+- Data copy service - ACLs aren't transferred when you [copy data via the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+ 
+**Default ACLs.** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
+
+The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
 
 The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
 
-Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
+**Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box.-->
 
+Depending on the transfer method used and whether you're using a Windows or Linux client, some or all discretionary and default access control lists (ACLs) on files and folders may be transferred during the data copy to Azure Files.
+
+Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
+ 
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
 
+**ACLs transfer over SMB** 
+
+During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
+
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
+- If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
+
+ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+
+**Default ACLs transfer**  
+
+Even if your data copy tool doesn't copy ACLs, the default ACLs on directories and files are transferred to Azure Files when you use a Windows client. The default ACLs aren't transferred when you use a Linux client.
+
+The following default ACLs are transferred:
+
+- Account permissions:
+  - Built-in Administrator account
+  - SYSTEM account
+  - SMB share user account used to mount and copy data in the Data Box
+
+- Security descriptors with these properties: DACL, Owner, Group, SACL
+
 ## Copying data and metadata
 
-To transfer the ACLs, timestamps, and attributes for your data, use the following procedures to copy data into the Data Box. 
+To transfer the ACLs, timestamps, and attributes for your data, use the following procedures to copy data into the Data Box.
 
 ### Windows data copy tool
 
 To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as `robocopy`. The following sample command copies all files and directories, transferring metadata along with the data.
 
-When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
+When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
 ```console
-robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
+robocopy <Source> <Target> * /copyall /e /dcopy:DAT /B /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
 
 where
@@ -87,6 +121,7 @@ where
 |`/copyall` |Copies all attributes.|
 |`/e`      |Copies subdirectories, including empty directories.         |
 |`/dcopy:DAT`  |Copies data, attributes, and timestamps. Note: The /dcopy:DAT option must be used to transfer `CreationTime` on directories. |
+|`/B`      |Copies files in Backup mode. |
 |`/r:3`    |Specifies 3 retries on failed copies.         |
 |`/w:60`   |Specifies a wait time of 60 seconds between retries.         |
 |`/is`     |Includes the same files.         |
@@ -138,9 +173,9 @@ Here are some of the common scenarios you'll use when copying data using `roboco
 
 For more information, see [Using robocopy commands](/windows-server/administration/windows-commands/robocopy).
 
-### Linux data copy tool
+### Linux data copy tools
 
-Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`. 
+Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`.
 
 The following sample commands do the first step, copying the data using `rsync`. 
 

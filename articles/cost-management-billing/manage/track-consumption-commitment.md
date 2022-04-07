@@ -7,13 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 03/02/2022
 ms.author: banders
 ---
 
 # Track your Microsoft Azure Consumption Commitment (MACC)
 
-The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment that your organization may have made to Microsoft Azure spend over time. If your organization has a MACC for a Microsoft Customer Agreement (MCA) billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal or through REST APIs. MACC or CTC for Enterprise Agreement (EA) billing accounts aren't yet available in the Azure portal or through REST APIs.
+The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment that your organization may have made to Microsoft Azure spend over time. If your organization has a MACC for a Microsoft Customer Agreement (MCA) billing account or an Enterprise Agreement (EA) billing account you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal or through REST APIs.
+
+In the scenario that a MACC commitment has been transacted prior to the expiration or completion of a prior MACC (on the same enrollment/billing account), actual decrement of a commitment will begin upon completion or expiration of the prior commitment. In other words, if you have a new MACC following the expiration or completion of an older MACC on the same enrollment or billing account, use of the new commitment starts when the old commitment expires or is completed.
 
 ## Track your MACC Commitment
 
@@ -22,13 +24,16 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
     :::image type="content" source="./media/track-consumption-commitment/billing-search-cost-management-billing.png" alt-text="Screenshot showing search in portal for Cost Management + Billing." lightbox="./media/track-consumption-commitment/billing-search-cost-management-billing.png" :::
-3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account should be of type **Microsoft Customer Agreement**.  
+3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account type must be **Microsoft Customer Agreement** for Microsoft Customer Agreement (MCA) customers or **Enterprise Agreement** for EA customers.   
     :::image type="content" source="./media/track-consumption-commitment/list-of-scopes.png" alt-text="Screenshot that shows Billing Scopes." lightbox="./media/track-consumption-commitment/list-of-scopes.png" :::
     > [!NOTE]
      > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
-4. Select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.  
-    :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Screenshot that shows selecting the MACC tab." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
-5. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections.
+4. Depending on your agreement type, do one of the following:
+    - For MCA customers, select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Screenshot that shows selecting the MACC tab for MCA." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
+    - For EA customers, select **Credits + Commitments** in the left navigation menu, then select **Microsoft Azure Consumption Commitment (MACC)**.  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab-ea.png" alt-text="Screenshot that shows selecting the MACC tab for EA." lightbox="./media/track-consumption-commitment/select-macc-tab-ea.png" :::
+1. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections.
 
 #### Remaining commitment 
 
@@ -68,7 +73,7 @@ The Events section displays events (invoiced spend) that decremented your MACC c
 |---|---|
 | Date | The date when the event happened |
 | Description | A description of the event |
-| Billing profile | The billing profile for which the event happened |
+| Billing profile | The billing profile for which the event happened. The billing profile only applies to Microsoft Customer Agreements. If you have an EA enrollment, the Billing Profile isn't shown. |
 | MACC decrement | The amount of MACC decrement from the event |
 | Remaining commitment | The remaining MACC commitment after the event |
 
@@ -76,7 +81,7 @@ The Events section displays events (invoiced spend) that decremented your MACC c
 
 You can use the [Azure Billing](/rest/api/billing/) and the [Consumption](/rest/api/consumption/) APIs to programmatically get Microsoft Azure Consumption Commitment (MACC) for your billing account.
 
-The examples shown below use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
+The examples shown below use REST APIs. Currently, PowerShell and Azure CLI aren't supported. Example output is for Microsoft Customer Agreements, so output for Enterprise Agreements will differ.
 
 ### Find billing accounts you have access to
 

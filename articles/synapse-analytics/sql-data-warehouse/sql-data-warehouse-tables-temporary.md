@@ -1,18 +1,17 @@
 ---
 title: Temporary tables
 description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables. 
-services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/01/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ---
 
-# Temporary tables in dedicated SQL pool
+# Temporary tables in dedicated SQL pool in Azure Synapse Analytics
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 
@@ -22,7 +21,7 @@ Using the information in this article can help you modularize your code, improvi
 
 Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In dedicated SQL pool, temporary tables exist at the session level.  
 
-Temporary tables are only visible to the session in which they were created and are automatically dropped when that session logs off.  
+Temporary tables are only visible to the session in which they were created and are automatically dropped when that session closes.  
 
 Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
@@ -94,10 +93,8 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS` is a powerful command and has the added advantage of being efficient in its use of transaction log space. 
-> 
-> 
 
-## Dropping temporary tables
+## Drop temporary tables
 When a new session is created, no temporary tables should exist.  
 
 If you're calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, a simple pre-existence check with a `DROP` can be used as in the following example:
@@ -117,7 +114,7 @@ In stored procedure development, it's common to see the drop commands bundled to
 DROP TABLE #stats_ddl
 ```
 
-## Modularizing code
+## Modularize code
 Since temporary tables can be seen anywhere in a user session, this capability can be leveraged to help you modularize your application code.  
 
 For example, the following stored procedure generates DDL to update all statistics in the database by statistic name:
@@ -194,9 +191,9 @@ FROM    #stats_ddl
 GO
 ```
 
-At this stage, the only action that has occurred is the creation of a stored procedure that generates a temporary table, #stats_ddl, with DDL statements.  
+At this stage, the only action that has occurred is the creation of a stored procedure that generates a temporary table, `#stats_ddl`, with DDL statements.  
 
-This stored procedure drops an existing #stats_ddl to ensure it doesn't fail if run more than once within a session.  
+This stored procedure drops an existing `#stats_ddl` to ensure it doesn't fail if run more than once within a session.  
 
 However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
 

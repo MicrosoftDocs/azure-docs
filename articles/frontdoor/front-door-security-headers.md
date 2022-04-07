@@ -6,7 +6,6 @@ documentationcenter: ''
 author: duongau
 editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -39,7 +38,7 @@ In this tutorial, you learn how to:
 1. Add the header name: **Content-Security-Policy** and define the values this header should accept. In this scenario, we choose *"script-src 'self' https://apiphany.portal.azure-api.net."*
 
    > [!NOTE]
-   > Header values are limited to 128 characters.
+   > Header values are limited to 640 characters.
 
 1. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules Engine configuration to your Route Rule. This step is required to enable the rule to work. 
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 06/18/2021
+ms.date: 03/03/2022
 ms.author: abnarain
 ---
 
@@ -137,6 +137,20 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: If you're using a self-hosted integration runtime, make sure that the network connection is reliable from the integration runtime nodes. If you're using Azure integration runtime, retry usually works.
  
+### The Boolean run output starts coming as string instead of expected int
+
+- **Symptoms**: Your Boolean run output starts coming as string (for example, `"0"` or `"1"`) instead of expected int (for example, `0` or `1`).
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Screenshot of the Databricks pipeline.":::
+
+    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output had been coming as expected before the failure. 
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Screenshot of the difference in the output.":::
+
+- **Cause**: This issue is caused by a recent change, which is by design. After the change, if the result is a number that starts with zero, Azure Data Factory will convert the number to the octal value, which is a bug. This number is always 0 or 1, which never caused issues before the change. So to fix the octal conversion, the string output is passed from the Notebook run as is. 
+
+- **Recommendation**: Change the **if** condition to something like `if(value=="0")`.
+
 ## Azure Data Lake Analytics
 
 The following table applies to U-SQL.
@@ -561,7 +575,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Correct the credentials and redeploy the linked service. First verify that the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
 
-   For ESP cluster, reset the password through [self service password reset](../active-directory/user-help/active-directory-passwords-update-your-own-password.md).
+   For ESP cluster, reset the password through [self service password reset](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
  </br>
 
@@ -950,9 +964,21 @@ The following table applies to Azure Batch.
 
 - **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
 
-    ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
 
-## Web Activity
+### HDI activity stuck in preparing for cluster  
+
+If the HDI activity is stuck in preparing for cluster, follow the guidelines below:  
+
+1. Make sure the timeout is greater than what is described below and wait for the execution to complete or until it is timed out, and wait for Time To Live (TTL) time before submitting new jobs.  
+
+    *The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will add up, up to another 2 hours.*
+
+2. Make sure the storage and HDI are provisioned in the same region.
+3. Make sure that the service principal used for accessing the HDI cluster is valid.
+4. If the issue still persists, as a workaround, delete the HDI linked service and re-create it with a new name.
+
+## Web Activity  
 
 ### Error code: 2128
 
@@ -979,7 +1005,7 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 
    1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
 
-      ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
 
 1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
 
@@ -1007,6 +1033,15 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 
 ## General
 
+### REST continuation token NULL error 
+
+**Error message:** {\"token\":null,\"range\":{\"min\":\..}
+
+**Cause:** When querying across multiple partitions/pages, backend service  returns continuation token in JObject format with 3 properties: **token, min and max key ranges**,  for instance, {\"token\":null,\"range\":{\"min\":\"05C1E9AB0DAD76\",\"max":\"05C1E9CD673398"}}). Depending on source data, querying can result 0 indicating missing token though there is more data to fetch.
+
+**Recommendation:** When the continuationToken is non-null, as the string {\"token\":null,\"range\":{\"min\":\"05C1E9AB0DAD76\",\"max":\"05C1E9CD673398"}}, it is required  to call queryActivityRuns API again with the continuation token from the previous response. You need to pass the full string for the query API again. The activities will be returned in the subsequent pages for the query result. You should ignore that there is empty array in this page, as long as the full continuationToken value != null, you need continue querying. For more details, please refer to [REST api for pipeline run query.](/rest/api/datafactory/activity-runs/query-by-pipeline-run) 
+
+
 ### Activity stuck issue
 
 When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it's a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it's a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
@@ -1019,12 +1054,21 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
+### Unsupported compression causes files to be corrupted
+
+**Symptoms**: You try to unzip a file that is stored in a blob container. A single copy activity in a pipeline has a source with the compression type set to "deflate64" (or any unsupported type). This activity runs successfully and produces the text file contained in the zip file. However, there is a problem with the text in the file, and this file appears corrupted. When this file is unzipped locally, it is fine.
+
+**Cause**: Your zip file is compressed by the algorithm of "deflate64", while the internal zip library of Azure Data Factory only supports "deflate". If the zip file is compressed by the Windows system and the overall file size exceeds a certain number, Windows will use "deflate64" by default, which is not supported in Azure Data Factory. On the other hand, if the file size is smaller or you use some third party zip tools that support specifying the compress algorithm, Windows will use "deflate" by default.
+
+> [!TIP]
+> Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)

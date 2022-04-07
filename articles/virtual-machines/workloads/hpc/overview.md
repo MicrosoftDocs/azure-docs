@@ -1,17 +1,18 @@
 ---
 title: High-performance computing on InfiniBand enabled H-series and N-series VMs - Azure Virtual Machines
 description: Learn about the features and capabilities of InfiniBand enabled H-series and N-series VMs optimized for HPC.
-author: vermagit
-ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
 ms.date: 04/09/2021
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # High-performance computing on InfiniBand enabled H-series and N-series VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure's InfiniBand enabled H-series and N-series VMs are designed to deliver leadership-class performance, Message Passing Interface (MPI) scalability, and cost efficiency for a variety of real-world HPC and AI workloads. These high-performance computing (HPC) optimized VMs are used to solve some of the most computationally intensive problems in science and engineering such as: fluid dynamics, earth modeling, weather simulations, etc.
 

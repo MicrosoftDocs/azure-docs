@@ -3,22 +3,19 @@ title: Upgrade from API v5 to v7 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Determine which parts of your application require updates to use the Bing Web Search v7 APIs.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: scottwhi
+
 ---
 
 # Upgrade from Bing Web Search API v5 to v7
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Web Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 

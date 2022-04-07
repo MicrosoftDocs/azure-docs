@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/22/2021
 ---
 
 # Management group deployments with Bicep files
@@ -10,6 +10,10 @@ ms.date: 07/19/2021
 This article describes how to set scope with Bicep when deploying to a management group.
 
 As your organization matures, you can deploy a Bicep file to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+
+### Microsoft Learn
+
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -29,10 +33,14 @@ For Azure Policy, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For Azure role-based access control (Azure RBAC), use:
+For access control, use:
 
+* [privateLinkAssociations](/azure/templates/microsoft.authorization/privatelinkassociations)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 For nested templates that deploy to subscriptions or resource groups, use:
 
@@ -40,6 +48,7 @@ For nested templates that deploy to subscriptions or resource groups, use:
 
 For managing your resources, use:
 
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [tags](/azure/templates/microsoft.resources/tags)
 
 Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
@@ -58,7 +67,7 @@ To deploy to a management group, use the management group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \
@@ -192,7 +201,7 @@ Or, you can set the scope to `/` for some resource types, like management groups
 
 ## Management group
 
-To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+To create a management group in a management group deployment, you must set the scope to the tenant.
 
 The following example creates a new management group in the root management group.
 
@@ -210,13 +219,12 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-The next example creates a new management group in the management group specified as the parent.
+The next example creates a new management group in the management group targeted for the deployment. It uses the [management group function](bicep-functions-scope.md#managementgroup).
 
 ```bicep
 targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
-param parentMGName string
 
 resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
@@ -224,15 +232,10 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   properties: {
     details: {
       parent: {
-        id: parentMG.id
+        id: managementGroup().id
       }
     }
   }
-}
-
-resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
-  name: parentMGName
-  scope: tenant()
 }
 
 output newManagementGroup string = mgName
@@ -264,7 +267,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -284,7 +287,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

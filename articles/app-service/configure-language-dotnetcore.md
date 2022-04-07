@@ -2,7 +2,7 @@
 title: Configure ASP.NET Core apps
 description: Learn how to configure a ASP.NET Core app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
@@ -44,7 +44,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported .NET Core versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep DOTNETCORE
+az webapp list-runtimes --os linux | grep DOTNET
 ```
 
 ::: zone-end
@@ -71,7 +71,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Customize build automation
 
-If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `dotnet restore` to restore NuGet dependencies.
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"

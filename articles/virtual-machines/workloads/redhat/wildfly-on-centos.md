@@ -8,12 +8,13 @@ ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom:
-  - mode-api
+ms.custom: mode-other
 ms.collection: linux
 ---
 
 # Quickstart: WildFly on CentOS 8
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This Quickstart shows you how to deploy the standalone node of WildFly of CentOS 8 VM. It is ideal for development and testing of enterprise Java applications on Azure. Application server subscription isn't required to deploy this quickstart.
 

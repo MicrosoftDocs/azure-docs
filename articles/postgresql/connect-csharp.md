@@ -1,10 +1,11 @@
 ---
 title: 'Quickstart: Connect with C# - Azure Database for PostgreSQL - Single Server'
-description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: mksuni
-ms.author: sumuth
+description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server."
 ms.service: postgresql
-ms.custom: "mvc, devcenter, devx-track-csharp"
+ms.subservice: single-server
+ms.author: sumuth
+author: mksuni
+ms.custom: mvc, devcenter, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
@@ -27,7 +28,7 @@ For this quickstart you need:
   | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- Install the [.NET Framework](https://www.microsoft.com/net/download) for your platform (Windows, Ubuntu Linux, or macOS).
+- Install the [.NET SDK for your platform](https://dotnet.microsoft.com/download) (Windows, Ubuntu Linux, or macOS) for your platform.
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) to build your project.
 - Install [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.
 

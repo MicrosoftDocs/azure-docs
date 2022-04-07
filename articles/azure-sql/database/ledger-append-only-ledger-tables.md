@@ -1,14 +1,13 @@
 ---
 title: "Azure SQL Database append-only ledger tables"
 description: This article provides information on append-only ledger table schema and views in Azure SQL Database.
-ms.custom: references_regions
-ms.date: "07/23/2021"
+ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Azure SQL Database append-only ledger tables
@@ -16,7 +15,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
+> Azure SQL Database ledger is currently in public preview.
 
 Append-only ledger tables allow only `INSERT` operations on your tables, which ensures that privileged users such as database administrators can't alter data through traditional [Data Manipulation Language](/sql/t-sql/queries/queries) operations. Append-only ledger tables are ideal for systems that don't update or delete records, such as security information event and management systems or blockchain systems where data needs to be replicated from the blockchain to a database. Because there are no `UPDATE` or `DELETE` operations on an append-only table, there's no need for a corresponding history table as there is with [updatable ledger tables](ledger-updatable-ledger-tables.md).
 
@@ -51,7 +50,7 @@ For every append-only ledger table, the system automatically generates a view, c
 | --- | --- | --- |
 | ledger_transaction_id | bigint | The ID of the transaction that created or deleted a row version. |
 | ledger_sequence_number | bigint | The sequence number of a row-level operation within the transaction on the table. |
-| ledger_operation_type_id | tinyint | Contains `0` (**INSERT**) or `1` (**DELETE**). Inserting a row into the ledger table produces a new row in the ledger view that contains `0` in this column. Deleting a row from the ledger table produces a new row in the ledger view that contains `1` in this column. Updating a row in the ledger table produces two new rows in the ledger view. One row contains `1` (**DELETE**), and the other row contains `1` (**INSERT**) in this column. A DELETE shouldn't occur on an append-only ledger table. |
+| ledger_operation_type | tinyint | Contains `1` (**INSERT**) or `2` (**DELETE**). Inserting a row into the ledger table produces a new row in the ledger view that contains `1` in this column. Deleting a row from the ledger table produces a new row in the ledger view that contains `2` in this column. Updating a row in the ledger table produces two new rows in the ledger view. One row contains `2` (**DELETE**), and the other row contains `1` (**INSERT**) in this column. A DELETE shouldn't occur on an append-only ledger table. |
 | ledger_operation_type_desc | nvarchar(128) | Contains `INSERT` or `DELETE`. For more information, see the preceding row. |
 
 ## Next steps

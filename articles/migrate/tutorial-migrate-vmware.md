@@ -1,9 +1,9 @@
 ---
 title: Migrate VMware VMs agentless Azure Migrate Server Migration
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
@@ -158,10 +158,14 @@ Do a test migration as follows:
 
     ![Test migration](./media/tutorial-migrate-vmware/test-migrate.png)
 
-3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
-4. The **Test migration** job starts. Monitor the job in the portal notifications.
-5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
-6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
+3. In **Test migration**, select the Azure VNet in which the Azure VM will be located during testing. We recommend you use a non-production VNet. 
+4. Choose the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/test-migration-subnet-selection.png" alt-text="Screenshot shows subnet selection during test migration.":::
+
+5. The **Test migration** job starts. Monitor the job in the portal notifications.
+6. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
+7. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
     ![Clean up migration](./media/tutorial-migrate-vmware/clean-up.png)
 
@@ -188,13 +192,14 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. We automatically install the VM agent for Windows VMs and Linux during migration. Review the Azure VM Linux agent [requirements](../virtual-machines/extensions/agent-linux.md#requirements) on the migrated machines if the machine has Linux OS to ensure Linux VM agent installation is done properly.
-3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
-4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-5. Cut over traffic to the migrated Azure VM instance.
-6. Remove the on-premises VMs from your local VM inventory.
-7. Remove the on-premises VMs from local backups.
-8. Update any internal documentation to show the new location and IP address of the Azure VMs.
+1. We automatically install the VM agent for Windows VMs and Linux during migration.
+1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
+1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
+1. Cut over traffic to the migrated Azure VM instance.
+1. Remove the on-premises VMs from your local VM inventory.
+1. Remove the on-premises VMs from local backups.
+1. Update any internal documentation to show the new location and IP address of the Azure VMs.
 
 ## Post-migration best practices
 
@@ -204,10 +209,10 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased performance:
     - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
 -  Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 

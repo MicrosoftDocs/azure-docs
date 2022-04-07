@@ -4,18 +4,18 @@ description: A tutorial that walks you through the process of using a system-ass
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB
@@ -90,7 +90,7 @@ You need to install the latest version of [Azure CLI](/cli/azure/install-azure-c
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
+4. Using PowerShell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

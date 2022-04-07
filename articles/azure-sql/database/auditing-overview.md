@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
-ms.reviewer: vanto
-ms.date: 08/01/2021
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -42,6 +42,7 @@ You can use SQL Database auditing to:
 - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 - Enabling auditing on a paused **Azure Synapse** is not supported. To enable auditing, resume Azure Synapse.
 - Auditing for **Azure Synapse SQL pools** supports default audit action groups **only**.
+- When you configure the auditing in Azure SQL Server or Azure SQL Database with log destination as the storage account, the target storage account must be enabled with access to storage account keys. If the storage account is configured to use Azure AD authentication only and not configured for access key usage, the auditing cannot be configured. <!-- REST API reference: - https://docs.microsoft.com/rest/api/sql/2021-08-01-preview/server-blob-auditing-policies/create-or-update -->
 
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
@@ -153,7 +154,7 @@ To configure writing audit logs to an event hub, select **Event Hub**. Select th
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
-If you chose to write audit logs to Azure Monitor logs:
+If you chose to write audit logs to Log Analytics:
 
 - Use the [Azure portal](https://portal.azure.com). Open the relevant database. At the top of the database's **Auditing** page, select **View audit logs**.
 
@@ -266,9 +267,9 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 **REST API**:
 
 - [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Create or Update Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [Get Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/get)
-- [Get Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+- [Get Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get)
 
 Extended policy with WHERE clause support for additional filtering:
 
@@ -295,6 +296,6 @@ You can manage Azure SQL Database auditing using [Azure Resource Manager](../../
 
 ## See also
 
-- Data Exposed episode [What's New in Azure SQL Auditing](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
+- Data Exposed episode [What's New in Azure SQL Auditing](/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
 - [Auditing for SQL Managed Instance](../managed-instance/auditing-configure.md)
 - [Auditing for SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

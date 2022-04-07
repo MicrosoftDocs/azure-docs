@@ -3,15 +3,14 @@ title: 'Azure AD Connect: Getting Started using express settings | Microsoft Doc
 description: Learn how to download, install and run the setup wizard for Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -25,7 +24,6 @@ Before you start installing Azure AD Connect, make sure to [download Azure AD Co
 If express settings does not match your topology, see [related documentation](#related-documentation) for other scenarios.
 
 ## Express installation of Azure AD Connect
-You can see these steps in action in the [videos](#videos) section.
 
 1. Sign in as a local administrator to the server you wish to install Azure AD Connect on. You should do this on the server you wish to be the sync server.
 2. Navigate to and double-click **AzureADConnect.msi**.
@@ -48,12 +46,6 @@ You can see these steps in action in the [videos](#videos) section.
 9. When the installation completes, click **Exit**.
 10. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
-## Videos
-For a video on using the express installation, see:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
->
->
 
 ## Next steps
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](how-to-connect-post-installation.md).

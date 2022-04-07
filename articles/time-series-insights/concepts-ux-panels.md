@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
+ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-api
 ms.date: 05/25/2021
 ---
 
@@ -60,7 +60,7 @@ When you run the commands to create or update your logic app, your workflow defi
 
 ## Create logic apps from CLI
 
-You can create a logic app workflow from the Azure CLI using the command [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) with a JSON file for the definition.
+You can create a logic app workflow from the Azure CLI using the command [`az logic workflow create`](/cli/azure/logic/workflow#az-logic-workflow-create) with a JSON file for the definition.
 
 ```azurecli
 az logic workflow create --definition
@@ -75,7 +75,7 @@ az logic workflow create --definition
                          [--tags]
 ```
 
-Your command must include the following [required parameters](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters):
+Your command must include the following [required parameters](/cli/azure/logic/workflow#az-logic-workflow-create-required-parameters):
 
 | Parameter | Value | Description |
 | --------- | ----- | ----------- |
@@ -85,7 +85,7 @@ Your command must include the following [required parameters](/cli/azure/logic/w
 | Resource group name | `--resource-group -g` | The [Azure resource group](../azure-resource-manager/management/overview.md) in which you want to create your logic app. [Create a resource group](#example---create-resource-group) before you begin if you don't already have one for your logic app. |
 ||||
 
-You can also include additional [optional parameters](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, integration service environment, state, and resource tags.
+You can also include additional [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, integration service environment, state, and resource tags.
 
 ### Example - create logic app
 
@@ -99,9 +99,9 @@ When your workflow is successfully created, the CLI shows your new workflow defi
 
 ## Update logic apps from CLI
 
-You can also update a logic app's workflow from the Azure CLI using the command [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create).
+You can also update a logic app's workflow from the Azure CLI using the command [`az logic workflow create`](/cli/azure/logic/workflow#az-logic-workflow-create).
 
-Your command must include the same [required parameters](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters) as when you [create a logic app](#create-logic-apps-from-cli). You can also add the same [optional parameters](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) as when creating a logic app.
+Your command must include the same [required parameters](/cli/azure/logic/workflow#az-logic-workflow-create-required-parameters) as when you [create a logic app](#create-logic-apps-from-cli). You can also add the same [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) as when creating a logic app.
 
 ```azurecli
 az logic workflow create --definition
@@ -128,9 +128,9 @@ When your workflow is successfully updated, the CLI shows your logic app's updat
 
 ## Delete logic apps from CLI
 
-You can delete a logic app's workflow from the Azure CLI using the command [`az logic workflow delete`](/cli/azure/logic/workflow#az_logic_workflow_delete).
+You can delete a logic app's workflow from the Azure CLI using the command [`az logic workflow delete`](/cli/azure/logic/workflow#az-logic-workflow-delete).
 
-Your command must include the following [required parameters](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters):
+Your command must include the following [required parameters](/cli/azure/logic/workflow#az-logic-workflow-delete-required-parameters):
 
 | Parameter | Value | Description |
 | --------- | ----- | ----------- |
@@ -138,7 +138,7 @@ Your command must include the following [required parameters](/cli/azure/logic/w
 | Resource group name | `-resource-group -g` | The resource group in which your logic app is located. |
 ||||
 
-You can also include an [optional parameter](/cli/azure/logic/workflow#az_logic_workflow_delete-optional-parameters) to skip confirmation prompts, `--yes -y`.
+You can also include an [optional parameter](/cli/azure/logic/workflow#az-logic-workflow-delete-optional-parameters) to skip confirmation prompts, `--yes -y`.
 
 ```azurecli
 az logic workflow delete --name
@@ -178,14 +178,14 @@ Deleting a logic app affects workflow instances in the following ways:
 
 ## Show logic apps in CLI
 
-You can get a specific logic app workflow using the command [`az logic workflow show`](/cli/azure/logic/workflow#az_logic_workflow_show).
+You can get a specific logic app workflow using the command [`az logic workflow show`](/cli/azure/logic/workflow#az-logic-workflow-show).
 
 ```azurecli
 az logic workflow show --name
                        --resource-group
 ```
 
-Your command must include the following [required parameters](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)
+Your command must include the following [required parameters](/cli/azure/logic/workflow#az-logic-workflow-show-required-parameters)
 
 | Parameter | Value | Description |
 | --------- | ----- | ----------- |
@@ -203,9 +203,9 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## List logic apps in CLI
 
-You can list your logic apps by subscription using the command [`az logic workflow list`](/cli/azure/logic/workflow#az_logic_workflow_list). This command returns the JSON code for your logic apps' workflows.
+You can list your logic apps by subscription using the command [`az logic workflow list`](/cli/azure/logic/workflow#az-logic-workflow-list). This command returns the JSON code for your logic apps' workflows.
 
-You can filter your results by the following [optional parameters](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters):
+You can filter your results by the following [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-list-optional-parameters):
 
 | Parameter | Value | Description |
 | --------- | ----- | ----------- |

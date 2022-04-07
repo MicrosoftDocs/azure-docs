@@ -2,11 +2,11 @@
 title: Disaster recovery guidance for Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Learn how to further protect your data from region-wide outages or accidental deletions beyond the locally redundant storage of Azure Data Lake Storage Gen1.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # High availability and disaster recovery guidance for Data Lake Storage Gen1

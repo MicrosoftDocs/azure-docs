@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Iris Intranet
@@ -34,6 +34,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Iris Intranet supports **SP** initiated SSO.
 
 * Iris Intranet supports **just-in-time** user provisioning.
+
+* Iris Intranet supports [Automated user provisioning](iris-intranet-provisioning-tutorial.md).
 
 ## Add Iris Intranet from the gallery
 
@@ -116,6 +118,8 @@ To configure single sign-on on **Iris Intranet** side, you need to send the **Ap
 
 In this section, a user called Britta Simon is created in Iris Intranet. Iris Intranet supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Iris Intranet, a new one is created after authentication.
 
+Iris Intranet also supports automatic user provisioning, you can find more details [here](./iris-intranet-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -124,8 +128,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Iris Intranet Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Iris Intranet tile in the My Apps, this will redirect to Iris Intranet Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Iris Intranet tile in the My Apps, this will redirect to Iris Intranet Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Iris Intranet you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Iris Intranet you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

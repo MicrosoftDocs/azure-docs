@@ -1,17 +1,17 @@
 ---
 title: Maintenance notifications 
 description: Overview of maintenance notifications for virtual machines running in Azure.
-author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
-ms.author: shants
 #pmcontact: shants
 ---
 
 # Handling planned maintenance notifications
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are completed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 

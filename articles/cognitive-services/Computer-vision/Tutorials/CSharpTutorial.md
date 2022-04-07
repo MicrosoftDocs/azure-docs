@@ -8,14 +8,15 @@ manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Sample: Explore an image processing app with C#
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, and detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of the .NET Framework.
 
 > [!div class="checklist"]
 > * Get the sample app from GitHub
@@ -44,7 +45,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Vision-Win
 ```
 
 > [!IMPORTANT]
-> Do not download this repository as a ZIP. Git doesn't include submodules when downloading a repository as a ZIP.
+> Do not download this repository as a _.zip_ file. Git doesn't include submodules when downloading a repository as a _.zip_.
 
 ### Get optional sample images
 

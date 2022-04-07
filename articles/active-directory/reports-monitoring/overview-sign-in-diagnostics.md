@@ -5,17 +5,16 @@ description: Provides a general overview of the sign-in diagnostic in Azure Acti
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/07/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -49,29 +48,40 @@ Due to the greater flexibility of the system to respond to a sign-in attempt, yo
 
 To start and complete the diagnostic process, you need to:   
 
-1. **Identify event** - Enter information about the sign-in event 
+1. **Identify event** - Start the diagnostic and review the flagged events users are asking assistance for, or enter information about the sign-in event to be investigated. 
 
-2. **Select event** - Select an event based on the information shared. 
+2. **Select event** - Select an event based on the information shared. 
 
-3. **Take action** - Review diagnostic results and perform steps.
+3. **Take action** - Review diagnostic results and perform steps. 
+
 
 
 ### Identify event 
 
-To identify the right events for you, you can filter based on the following options:
+The diagnostic allows two methods to find events to investigate:  
 
-- Name of the user
+- Sign-in failures users have [flagged for assistance](overview-flagged-sign-ins.md). 
+- Search for specific events by the user and additional criteria. 
+
+Flagged sign-ins are automatically presented in a list of up to 100. You can run a diagnostics on an event immediately by clicking it.  
+
+You can search a specific event by selecting the search tab even when flagged sign-ins are present. 
+When searching for specific events, you can filter based on the following options: 
+
+- Name of the user 
+
 - Application 
-- Correlation ID or request ID 
-- Date and time
 
-![Screenshot showing the filter.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
+- Correlation ID or request ID 
+
+- Date and time 
 
 
 
 ### Select event  
 
-Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view.  
+For flagged sign-ins, or when a search has been done, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view. 
+
 
 ![Screenshot showing the authentication summary list.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 

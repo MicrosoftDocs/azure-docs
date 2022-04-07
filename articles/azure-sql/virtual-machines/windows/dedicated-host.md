@@ -3,17 +3,16 @@ title: Run SQL Server VM on an Azure Dedicated Host
 description: Learn how to run a SQL Server VM on an Azure Dedicated Host. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/12/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 
 ---
 # Run SQL Server VM on an Azure Dedicated Host 
@@ -73,4 +72,4 @@ For more information, see the following articles:
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)

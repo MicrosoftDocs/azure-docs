@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 # Check text against a custom term list in C#
 
-The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
+The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization.
 
 You can use the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to create custom lists of terms to use with the Text Moderation API.
 
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services through the REST API or the SDK, you'll need a subscription key. Subscribe to Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need a subscription key. Subscribe to Content Moderator service in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
 
 ## Create your Visual Studio project
 

@@ -2,12 +2,12 @@
 title: Azure CDN from Verizon Premium rules engine match conditions
 description: Reference documentation for Azure Content Delivery Network from Verizon Premium rules engine match conditions.
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 
@@ -57,7 +57,7 @@ These match conditions are designed to identify requests based on the client's u
 | [Is Smartphone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Smartphone.htm) | Identifies requests by whether the device is a smartphone.
 | [Is Tablet?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Tablet.htm) | Identifies requests by whether the device is a tablet. |
 | [Is Touchscreen?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Touchscreen.htm) | Identifies requests by whether the device's primary pointing device is a touchscreen. |
-| [Is Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifies requests by whether the device is a a Windows Mobile 6.5/Windows Phone 7 or higher. |
+| [Is Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifies requests by whether the device is a Windows Mobile 6.5/Windows Phone 7 or higher. |
 | [Is Wireless Device?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | Identifies requests by whether the device is wireless. 
 | Marketing Name | Identifies requests by whether the device's marketing name matches a: <br> **-** Specific value ([Marketing Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Literal.htm)) <br> **-** Regular expression ([Marketing Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Regex.htm)) <br> **-** Specific pattern ([Marketing Name Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Wildcard.htm)) |
 | Mobile Browser | Identifies requests by whether the device's browser matches a: <br> **-** Specific value ([Mobile Browser Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Literal.htm)) <br> **-** Regular expression ([Mobile Browser Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Regex.htm)) <br> **-** Specific pattern ([Mobile Browser Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Wildcard.htm)) |

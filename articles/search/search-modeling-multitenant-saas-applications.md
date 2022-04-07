@@ -100,7 +100,7 @@ Azure Cognitive Search allows for the scale of both the individual indexes and t
 
 If the total number of indexes grows too large for a single service, another service has to be provisioned to accommodate the new tenants. If indexes have to be moved between search services as new services are added, the data from the index has to be manually copied from one index to the other as Azure Cognitive Search does not allow for an index to be moved.
 
-## Model 2: Once service per tenant
+## Model 2: One service per tenant
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="A portrayal of the service-per-tenant model" border="false":::
 

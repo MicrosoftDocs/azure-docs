@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ To complete the steps in this article, you need the following resources:
 
 - [Apache Maven 3](https://maven.apache.org/download.cgi).
 
-- A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+- A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/main.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
@@ -28,7 +28,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` method:
 
-* Calls `initializeAndProvisionDevice` to set the `dtmi:com:example:TemperatureController;2` model ID, use DPS to provision and register the device, create a **DeviceClient** instance, and connect to your IoT Central application. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Calls `initializeAndProvisionDevice` to set the `dtmi:com:example:TemperatureController;2` model ID, use DPS to provision and register the device, create a **DeviceClient** instance, and connect to your IoT Central application. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates command handlers for the `getMaxMinReport` and `reboot` commands.
 * Creates property update handlers for the writable `targetTemperature` properties.
 * Sends initial values for the properties in the **Device Information** interface and the **Device Memory** and **Serial Number** properties.
@@ -104,7 +104,7 @@ public static void main(String[] args) throws IOException, URISyntaxException, P
 }
 ```
 
-The `initializeAndProvisionDevice` method shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
+The `initializeAndProvisionDevice` method shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template):
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

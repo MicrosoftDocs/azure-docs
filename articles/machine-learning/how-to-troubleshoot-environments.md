@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot issues with environment image builds and package installations.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: saachigopal
 ms.author:  sagopal
-ms.date: 07/27/2021
+ms.date: 03/01/2022
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
@@ -160,6 +160,14 @@ RUN apt-get update && \
 
 Running this command installs the correct module dependencies to configure your environment. 
 
+### Build failure when using Spark packages
+
+Configure the environment to not precache the packages. 
+
+```python
+env.spark.precache_packages = False
+```
+
 ## Service-side failures
 
 See the following scenarios to troubleshoot possible service-side failures.
@@ -203,9 +211,15 @@ If you're using default Docker images and enabling user-managed dependencies, us
 
  For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
 
-### You need to create an ICM
+### Error response from daemon: get "https://viennaglobal.azurecr.io": context deadline exceeded
 
-When you're creating/assigning an ICM to Metastore, include the CSS support ticket so that we can better understand the issue.
+This error happens when you have configured the workspace to build images using a compute cluster, and the compute cluster is configured for no public IP address. Using a compute cluster to build images is required if your Azure Container Registry is behind a virtual network. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
+To resolve this error, use the following steps:
+
+1. [Create a new compute cluster that has a public IP address](how-to-create-attach-compute-cluster.md).
+1. [Configure the workspace to build images using the compute cluster created in step 1](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
 
 ## Next steps
 

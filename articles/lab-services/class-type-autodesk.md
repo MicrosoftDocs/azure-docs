@@ -2,7 +2,7 @@
 title: Set up a lab with Autodesk using Azure Lab Services
 description: Learn how to set up labs to teach engineering classes with Autodesk. 
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: nicolela
 ---

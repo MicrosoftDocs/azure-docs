@@ -13,6 +13,10 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use Azure Spring Cloud diagnostics.
+
 Azure Spring Cloud diagnostics is an interactive experience to troubleshoot your app without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
 
 ## Prerequisites
@@ -38,6 +42,9 @@ To find an issue, you can either search by typing a keyword or select the soluti
 ![Search issues](media/spring-cloud-diagnose/search-detectors.png)
 
 Selection of **Config Server Health Check**, **Config Server Health Status**, or **Config Server Update History** will display various results.
+
+> [!NOTE]
+> Spring Cloud Config Server is not applicable to enterprise tier.
 
 ![Issues options](media/spring-cloud-diagnose/detectors-options.png)
 

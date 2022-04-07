@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter Server, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
@@ -23,8 +23,9 @@ In this tutorial, you learn how to:
 
 >[!NOTE]
 >Before you create a new vNet, evaluate if you already have an existing vNet in Azure and plan to use it to connect to Azure VMware Solution; or whether to create a new vNet entirely.  
->* To use an existing vNet, use the **[Azure vNet connect](#select-an-existing-vnet)** tab under **Connectivity**. 
->* To create a new vNet, use the **[Azure vNet connect](#create-a-new-vnet)** tab or create one [manually](#create-a-vnet-manually).
+>* To use an existing vNet in same Azure subscription as Azure VMware Solution, use the **[Azure vNet connect](#select-an-existing-vnet)** tab under **Connectivity**. 
+>* To use an existing vNet in a different Azure subscription than Azure VMware Solution, use the guidance on **[Connect to the private cloud manually](#connect-to-the-private-cloud-manually)**. 
+>* To create a new vNet in same Azure subscription as Azure VMware Solution, use the **[Azure vNet connect](#create-a-new-vnet)** tab or create one [manually](#create-a-vnet-manually).
 
 ## Connect with the Azure vNet connect feature
 
@@ -147,7 +148,7 @@ In this tutorial, you learned how to:
 > * Connect your ExpressRoute circuit to the gateway
 
 
-Continue to the next tutorial to learn how to create the NSX-T network segments used for VMs in vCenter.
+Continue to the next tutorial to learn how to create the NSX-T network segments used for VMs in vCenter Server.
 
 > [!div class="nextstepaction"]
 > [Create an NSX-T network segment](./tutorial-nsx-t-network-segment.md)

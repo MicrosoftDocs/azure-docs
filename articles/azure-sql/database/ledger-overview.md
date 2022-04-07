@@ -1,14 +1,13 @@
 ---
 title: "Azure SQL Database ledger overview"
 description: Learn the basics of the Azure SQL Database ledger feature.
-ms.custom: references_regions
-ms.date: "07/23/2021"
+ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Azure SQL Database ledger
@@ -16,7 +15,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
+> Azure SQL Database ledger is currently in public preview.
 
 Establishing trust around the integrity of data stored in database systems has been a longstanding problem for all organizations that manage financial, medical, or other sensitive data. The ledger feature of [Azure SQL Database](sql-database-paas-overview.md) provides tamper-evidence capabilities in your database. You can cryptographically attest to other parties, such as auditors or other business parties, that your data hasn't been tampered with.
 
@@ -48,7 +47,7 @@ Ledger provides a solution for these networks. Participants can verify the integ
 
 ### Trusted off-chain storage for blockchain
 
-When a blockchain network is necessary for a multiple-party business process, the ability query the data on the blockchain without sacrificing performance is a challenge. 
+When a blockchain network is necessary for a multiple-party business process, the ability to query the data on the blockchain without sacrificing performance is a challenge. 
 
 Typical patterns for solving this problem involve replicating data from the blockchain to an off-chain store, such as a database. But after the data is replicated to the database from the blockchain, the data integrity guarantees that a blockchain offer is lost. Ledger provides data integrity for off-chain storage of blockchain networks, which helps ensure complete data trust through the entire system.
 
@@ -56,7 +55,7 @@ Typical patterns for solving this problem involve replicating data from the bloc
 
 Each transaction that the database receives is cryptographically hashed (SHA-256). The hash function uses the value of the transaction, along with the hash of the previous transaction, as input to the hash function. (The value includes hashes of the rows contained in the transaction.) The function cryptographically links all transactions together, like a blockchain. 
 
-Cryptographically hashed ([database digests](#database-digests)) represent the state of the database. They're periodically generated and stored outside Azure SQL Database in a tamper-proof storage location. An example of a storage location is the [immutable storage feature of Azure Blob Storage](../../storage/blobs/immutable-storage-overview.md) or [Azure Confidential Ledger](../../confidential-ledger/index.yml). Database digests are later used to verify the integrity of the database by comparing the value of the hash in the digest against the calculated hashes in database. 
+Cryptographically hashed [database digests](#database-digests) represent the state of the database. They're periodically generated and stored outside Azure SQL Database in a tamper-proof storage location. An example of a storage location is the [immutable storage feature of Azure Blob Storage](../../storage/blobs/immutable-storage-overview.md) or [Azure Confidential Ledger](../../confidential-ledger/index.yml). Database digests are later used to verify the integrity of the database by comparing the value of the hash in the digest against the calculated hashes in database. 
 
 Ledger functionality is introduced to tables in Azure SQL Database in two forms:
 

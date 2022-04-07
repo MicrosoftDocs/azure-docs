@@ -64,8 +64,6 @@ This will result in the routing configuration changes as shown in **Figure 1**.
 
 :::image type="content" source="./media/routing-scenarios/between-vnets-firewall/routing.png" alt-text="Figure 1":::
 
-> [!NOTE]
-> The Virtual WAN hubs and the connected virtual networks should be in the same Azure region.
 
 ## Next steps
 

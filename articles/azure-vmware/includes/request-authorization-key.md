@@ -3,8 +3,8 @@ title: Request authorization key for ExpressRoute
 description: Steps to request an authorization key for ExpressRoute.
 ms.topic: include
 ms.date: 03/15/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 

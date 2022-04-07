@@ -3,13 +3,13 @@ title: 'How to fix modified default rules - Azure AD Connect | Microsoft Docs'
 description: Learn how to fix modified default rules that come with Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

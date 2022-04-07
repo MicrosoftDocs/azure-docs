@@ -4,7 +4,7 @@ description: Describes how to use the Azure Analysis Services REST API to code a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 

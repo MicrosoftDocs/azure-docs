@@ -8,9 +8,7 @@ manager: kumud
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using an ARM template

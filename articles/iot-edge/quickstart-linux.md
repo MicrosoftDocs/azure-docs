@@ -1,14 +1,13 @@
 ---
-title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs 
-description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal. 
-author: kgremban
-
-ms.author: kgremban
-ms.date: 04/07/2021
+title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs
+description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
+author: PatAltimore
+ms.author: patricka
+ms.date: 01/21/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
@@ -98,7 +97,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 ### Deploy the IoT Edge device
 
-This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this quickstart.
+This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -137,14 +136,14 @@ Use the following CLI command to create your IoT Edge device based on the prebui
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0) template.
+Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2) template.
 
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -157,7 +156,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -273,6 +272,8 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
+
+   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 1. On the upper bar, select **Set Modules**.
 

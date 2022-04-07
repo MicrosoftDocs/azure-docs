@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: guide
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/17/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance connect and query articles
@@ -34,7 +34,6 @@ The following document includes links to Azure examples showing how to connect a
 |[PHP](connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use Transact-SQL statements to query data.|
 |[Python](connect-query-python.md)|This quickstart demonstrates how to use Python to connect to a database and use Transact-SQL statements to query data. |
 |[Ruby](connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use Transact-SQL statements to query data.|
-|||
 
 ## Get server connection information
 
@@ -117,7 +116,6 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](https://sequelize.org/) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |
-||||
 
 ## Next steps
 

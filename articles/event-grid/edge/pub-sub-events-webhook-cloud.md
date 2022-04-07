@@ -6,8 +6,9 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -16,6 +17,11 @@ ms.custom: devx-track-csharp
 This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge. This tutorial uses and Azure Function as the Event Handler. For additional destination types, see [event handlers](event-handlers.md).
 
 See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## Prerequisites 
 In order to complete this tutorial, you will need:
@@ -56,7 +62,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 In your new function, select **Get function URL** at the top right, select default (**Function key**), and then select **Copy**. You will use the function URL value later in the tutorial.
 
 > [!NOTE]
-> Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events an using EventGrid event triggers.
+> Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events and using EventGrid event triggers.
 
 ## Create a topic
 

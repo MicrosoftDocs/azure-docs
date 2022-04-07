@@ -48,7 +48,7 @@ For more information, see [proxy considerations](how-to-collect-and-transport-me
 
 ### Update Moby-engine
 
-On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-install-iot-edge.md#install-a-container-engine).
+On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 ## How do I collect logs along with metrics?
 
@@ -115,6 +115,6 @@ The template for the workbooks is [publicly available on GitHub](https://github.
 
 Ensure that you're looking at the **Workbooks** page in your IoT hub or IoT Central application page in the portal, not in your Log Analytics workspace.
 
-If you still can't see the workbooks, try using the pre-production Azure portal environment: [`https://ms.portal.azure.com`](https://ms.portal.azure.com). Sometimes workbook updates take additional time to show up in the production environment, but will be available in pre-production.
+If you still can't see the workbooks, try using the pre-production Azure portal environment: [`https://portal.azure.com`](https://portal.azure.com). Sometimes workbook updates take additional time to show up in the production environment, but will be available in pre-production.
 
 :::zone-end

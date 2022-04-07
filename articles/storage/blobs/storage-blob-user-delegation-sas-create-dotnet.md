@@ -11,6 +11,7 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
+ms.devlang: csharp
 ---
 
 # Create a user delegation SAS for a container, directory, or blob with .NET
@@ -25,13 +26,11 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data in Azure Storage. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
-
-To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+To learn more about how to get a token with the Azure Identity client library from Azure Storage, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
 
 ## Get an authenticated token credential
 
-To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 

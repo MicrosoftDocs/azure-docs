@@ -2,14 +2,10 @@
 title: Azure Monitor Workbooks Groups
 description: How to use groups in Azure Monitor Workbooks.
 services: azure-monitor
-author: lgayhardt
-manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.author: lagayhar
 ---
 
 # How to use groups in workbooks

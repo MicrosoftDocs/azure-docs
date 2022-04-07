@@ -13,6 +13,8 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 
 ## Sample templates
 
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
+
 | Template | Description |
 |-|-|
 | **Applications** ||
@@ -42,7 +44,7 @@ You have several options for deploying resources with Resource Manager templates
 [REST API][deploy-rest]
 
 <!-- LINKS - External -->
-[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/aci-dynamicsnav
+[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/
 [app-wp]: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip

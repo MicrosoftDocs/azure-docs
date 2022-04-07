@@ -451,11 +451,11 @@ function App() {
 
 ---
 
-## Sign-out with a popup window
+## Sign-out with a pop-up window
 
-MSAL.js v2 provides a `logoutPopup` method that clears the cache in browser storage and opens a popup window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects the popup back to your application and MSAL.js will close the popup.
+MSAL.js v2 provides a `logoutPopup` method that clears the cache in browser storage and opens a pop-up window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects the pop-up back to your application and MSAL.js will close the pop-up.
 
-You can configure the URI to which Azure AD should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
+You can configure the URI to which Azure AD should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
 
 You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after logout is complete by passing `mainWindowRedirectUri` as part of the request.
 
@@ -482,7 +482,7 @@ await myMsal.logoutPopup(logoutRequest);
 ```
 # [JavaScript (MSAL.js v1)](#tab/javascript1)
 
-Signing out with a popup window is not supported in MSAL.js v1
+Signing out with a pop-up window is not supported in MSAL.js v1
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
@@ -509,7 +509,7 @@ logout() {
 
 # [Angular (MSAL.js v1)](#tab/angular1)
 
-Signing out with a popup window is not supported in MSAL Angular v1
+Signing out with a pop-up window is not supported in MSAL Angular v1
 
 # [React](#tab/react)
 
@@ -555,7 +555,7 @@ function App() {
 
 MSAL.js provides a `logout` method in v1, and `logoutRedirect` method in v2, that clears the cache in browser storage and redirects the window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects back to the page that invoked logout by default.
 
-You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
+You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
 
 # [JavaScript (MSAL.js v2)](#tab/javascript2)
 

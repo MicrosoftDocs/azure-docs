@@ -3,6 +3,7 @@ title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
+ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -12,9 +13,9 @@ This guide contains detailed information to help you succeed developing Azure Fu
 
 As a Java developer, if you're new to Azure Functions, please consider first reading one of the following articles:
 
-| Getting started | Concepts| 
-| -- | -- |  
-| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> |
+| Getting started | Concepts| Scenarios/samples |
+| -- | -- | -- |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
 
 ## Java function basics
 
@@ -149,6 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
+| 4.x | 11 <br/>8 | 11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -182,7 +184,7 @@ Maven also lets you specify the operating system on which your function app runs
 
 | Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | windows | linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 The following example shows the operating system setting in the `runtime` section of the pom.xml file:
 
@@ -190,9 +192,16 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-For local development of Java function apps, download and use the appropriate Azul Zulu Enterprise for Azure Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. The table below describes the new Java versions that Function apps will begin using with the January 2022 Functions platform release:
 
-[Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+| Java Version | Linux            | Windows              |
+|--------------|------------------|----------------------|
+| Java 8       | 1.8.0_302 (Adoptium) | 1.8.0_302 (Adoptium) |
+| Java 11      | 11.0.12 (MSFT)   | 11.0.12 (MSFT)       |
+
+For local development or testing, you can download the [Microsoft build of OpenJDK](/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+If you would like to continue using the Zulu for Azure binaries on your Function app, please [configure your app accordingly](https://github.com/Azure/azure-functions-java-worker/wiki/Customize-JVM-to-use-Zulu). You can continue to use the Azul binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you eventually remove this configuration so that your Function apps use the latest available version of Java.
 
 ## Customize JVM
 

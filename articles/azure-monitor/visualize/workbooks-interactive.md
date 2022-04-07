@@ -169,7 +169,7 @@ Query and metrics steps can also export one or more parameters when a row (or mu
 3. Check the `allow selection of multiple values` checkbox.
     1. The displayed visualization will allow multi-select and exported parameter's values will be arrays of values, like when using multi-select dropdown parameters.
     2. If unchecked the display visualization will only respect the last selected item. Only exporting a single value at a time.
-4. For each parameter you wish to export, use the *Add Parameter* button. A popup window will appear, containing the settings for the parameter to be exported.
+4. For each parameter you wish to export, use the *Add Parameter* button. A pop-up window will appear, containing the settings for the parameter to be exported.
 
 When single selection is enabled, the author can specify which field of the original data to export. Fields include parameter name, parameter type, and default value to use if nothing is selected (optional).
 

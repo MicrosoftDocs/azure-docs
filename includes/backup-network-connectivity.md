@@ -11,35 +11,33 @@ ms.author: v-amallick
 ms.custom: include file
 ---
 
+The MARS agent requires access to Azure Active Directory, Azure Storage, and Azure Backup service endpoints. To obtain the public IP ranges, see the [JSON file](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Allow access to the IPs corresponding to Azure Backup (`AzureBackup`), Azure Storage (`Storage`), and Azure Active Directory (`AzureActiveDirectory`). Also, depending on your Windows version, network connectivity checks of the operating system will need access to `www.msftconnecttest.com`, or `www.msftncsi.com`.
 
-The MARS agent requires access to Azure Active Directory, Azure Storage, and Azure Backup service endpoints. To obtain the public IP ranges, see the [JSON file](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Allow access to the IPs corresponding to Azure Backup (AzureBackup), Azure Storage(Storage), and Azure Active Directory(AzureActiveDirectory). Also, depending on your Windows version, network connectivity checks of the operating system will need access to `www.msftconnecttest.com`, or `www.msftncsi.com`.
-
-If your machine has limited internet access, ensure that firewall, proxy, and network settings allow access to the following FQDNS and public IP addresses.
+If your machine has limited internet access, ensure that firewall, proxy, and network settings allow access to the following FQDNs and public IP addresses.
 
 ### URL and IP access
 
 **FQDNs**
 
-- `www.msftncsi.com`
-- `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- *.windows.net
-
-**IP addresses**
-
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 If you are a US Government customer, ensure that you have access to the following URLs:
 
 - `www.msftncsi.com`
-- *.microsoft.com
-- *.windowsazure.us
-- *.microsoftonline.us
-- *.windows.net
-- *.usgovcloudapi.net
+- `*.microsoft.com`
+- `*.windowsazure.us`
+- `*.microsoftonline.us`
+- `*.windows.net`
+- `*.usgovcloudapi.net`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
@@ -63,16 +61,13 @@ You can back up your data through Azure ExpressRoute by using public peering (av
 
 To use public peering, ensure that the following domains and addresses have HTTPS access on port 443 to:
 
-- `www.msftncsi.com`
-- `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- *.windows.net
-
-**IP addresses**
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 To use Microsoft peering, select the following services, regions, and relevant community values:
 - Azure Active Directory (12076:5060)
@@ -91,12 +86,11 @@ You can now use Private Endpoints to back up your data securely from servers to 
 
 When you use the MARS agent to back up your on-premises resources, ensure that your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault. You can then continue to install the MARS agent and configure backup. However, you must ensure all communication for backup happens through the peered network only.
 
-If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
-Read more about [private endpoints for Azure Backup](../articles/backup/private-endpoints.md).
+If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them. For more information, see [Private endpoints for Azure Backup](../articles/backup/private-endpoints.md).
 
 ### Throttling support
 
-**Feature** | **Details**
---- | ---
-Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
-Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
+| Feature | Details |
+|---|---|
+| Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth. |
+| Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7. |

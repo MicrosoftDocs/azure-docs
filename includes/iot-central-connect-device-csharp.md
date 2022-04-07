@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
 
 ## Prerequisites
 
@@ -16,17 +16,17 @@ To complete the steps in this article, you need the following resources:
 
 - A development machine with [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
 
-- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT Samples for C# repository you downloaded previously, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
+In the copy of the Microsoft Azure IoT Samples for C# repository you downloaded previously, open the *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the environment.
 
 In *Program.cs*, the `Main` method calls `SetupDeviceClientAsync` to:
 
-* Use the model ID `dtmi:com:example:TemperatureController;2` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Use the model ID `dtmi:com:example:TemperatureController;2` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Create a **DeviceClient** instance to connect to IoT Central.
 
 ```csharp
@@ -252,6 +252,9 @@ private Task<MethodResponse> HandleMaxMinReportCommand(MethodRequest request, ob
 [!INCLUDE [iot-central-connection-configuration](iot-central-connection-configuration.md)]
 
 ## Run the code
+
+> [!NOTE]
+> Set up **TemperatureController** as startup project before you run the code.
 
 To run the sample application in Visual Studio:
 

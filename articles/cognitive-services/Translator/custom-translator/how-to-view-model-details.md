@@ -6,15 +6,15 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to view model details, so that I can review details of each translation model.
 ---
 
 # View model details
 
-The Models tab under project shows all models in that project. All models trained for that project is listed in this tab.
+The Models tab under project shows all models in that project. All models trained for that project are listed in this tab.
 
 For each model in the project, these details are displayed.
 
@@ -65,9 +65,8 @@ For each model in the project, these details are displayed.
 
 7.  Mono Sentence count: Shows total number of sentences used as mono set.
 
-8.  Deploy action button: For a successfully trained model, it shows “Deploy”
-    button if not deployed. If a model is deployed, a “Undeploy”
-    button is shown.
+8.  Deploy action button: For a successfully trained model, it shows "Deploy"
+    button if not deployed. If a model is deployed, the **Undeploy** button is shown.
 
 9. Delete: You can use this button if you want to delete the model. Deleting a
     model won't delete any of the documents used to create that model.

@@ -2,7 +2,7 @@
 title: Set up a lab to teach MATLAB with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach MATLAB with Azure Lab Services.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---

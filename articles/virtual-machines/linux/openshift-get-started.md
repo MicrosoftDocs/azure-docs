@@ -14,6 +14,8 @@ ms.author: haroldw
 
 # OpenShift in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 OpenShift is an open and extensible container application platform that brings Docker and Kubernetes to the enterprise.  
 
 OpenShift includes Kubernetes for container orchestration and management. It adds developer-centric and operations-centric tools that enable:

@@ -10,7 +10,7 @@ ms.date: 07/22/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
@@ -53,9 +53,9 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 
 To view and manage user states, complete the following steps to access the Azure portal page:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
 1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
-1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
+1. Select **Per-user MFA**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
     [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. A new page opens that displays the user state, as shown in the following example.
    ![Screenshot that shows example user state information for Azure AD Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
@@ -76,13 +76,13 @@ To change the per-user Azure AD Multi-Factor Authentication state for a user, co
 
 1. Confirm your selection in the pop-up window that opens.
 
-After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure AD Multi-Factor Authentication end-user guide](../user-help/multi-factor-authentication-end-user-first-time.md) to help them get started.
+After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure AD Multi-Factor Authentication end-user guide](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to help them get started.
 
 ### Convert users from per-user MFA to Conditional Access based MFA
 
 If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
 
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state

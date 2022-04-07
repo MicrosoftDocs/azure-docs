@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ To complete the steps in this article, you need the following resources:
 
 - A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python** command at the Windows command prompt.
 
-- A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+- A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/main.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
@@ -26,7 +26,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` function:
 
-* Uses DPS to provision the device. The provisioning information includes the model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Uses DPS to provision the device. The provisioning information includes the model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates a `Device_client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection.
 * Sends initial property values to IoT Central. It uses the `pnp_helper` to create the patches.
 * Creates listeners for the `getMaxMinReport` and `reboot` commands. Each thermostat component has its own `getMaxMinReport` command.
@@ -162,7 +162,7 @@ async def main():
     # ...
 ```
 
-The `provision_device` function uses DPS to provision the device and register it with IoT Central. The function includes the device model ID, which IoT Central uses to [associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template), in the provisioning payload:
+The `provision_device` function uses DPS to provision the device and register it with IoT Central. The function includes the device model ID, which IoT Central uses to [assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template), in the provisioning payload:
 
 ```python
 async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):

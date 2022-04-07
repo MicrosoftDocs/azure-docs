@@ -18,7 +18,7 @@ In this article, you'll learn how to  import and export a DNS zone file in Azure
 
 A DNS zone file is a text file containing information about every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a fast and convenient way to import DNS zones into Azure DNS. You can also export a zone file from Azure DNS to use with other DNS systems.
 
-Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is currently **not** supported with Azure PowerShell or the Azure portal.
+Azure DNS supports importing and exporting zone files via the Azure CLI. Importing zone files via Azure PowerShell or the Azure portal is **not** supported currently.
 
 Azure CLI is a cross-platform command-line tool used for managing Azure services. It's available for Windows, Mac, and Linux from the [Azure downloads page](https://azure.microsoft.com/downloads/).
 

@@ -3,14 +3,11 @@ title: Convert configurations to composite resources for Azure Automation State 
 description: This article tells how to convert configurations to composite resources for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Convert configurations to composite resources
 
 > Applies To: Windows PowerShell 5.1
@@ -29,7 +26,7 @@ Examples would be:
 
 If you are interested in sharing this work with others,
 the best option is to package the configuration as a
-[Composite Resource](/powershell/scripting/dsc/resources/authoringresourcecomposite).
+[Composite Resource](/powershell/dsc/resources/authoringresourcecomposite).
 Creating composite resources for the first time can be overwhelming.
 
 > [!NOTE]
@@ -63,8 +60,8 @@ Once you have created a composite resource module containing your configuration
 you can use them in the
 [Composable Authoring Experience](./compose-configurationwithcompositeresources.md)
 in Azure,
-or add them to 
-[DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations)
+or add them to
+[DSC Configuration scripts](/powershell/dsc/configurations/configurations)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
@@ -85,6 +82,6 @@ to view the
 
 ## Next steps
 
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
-- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
-- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig).

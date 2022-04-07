@@ -1,9 +1,9 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: service-overview  
+ms.subservice: service-overview
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 01/26/2022 
 ms.author: mathoma
 ms.reviewer: vanto
 ---
@@ -20,25 +20,25 @@ To create a resource group, server, and single database in the Azure portal:
 1. From the Search bar, search for and select **Azure SQL**.
 1. On the **Azure SQL** page, select **Add**.
 
-   ![Add to Azure SQL](./media/sql-database-create-single-database/sqldbportal.png)
+   :::image type="content" source="./media/sql-database-create-single-database/sqldbportal.png" alt-text="Add to Azure SQL":::
 
 1. On the **Select SQL deployment option** page, select the **SQL databases** tile, with **Single database** under **Resource type**. You can view more information about the different databases by selecting **Show details**.
 1. Select **Create**.
 
-   ![Create single database](./media/sql-database-create-single-database/create-single-database.png)
+   :::image type="content" source="./media/sql-database-create-single-database/create-single-database.png" alt-text="Create single database":::
 
 1. On the **Basics** tab of the **Create SQL database** form, under **Project details**, select the correct Azure **Subscription** if it isn't already selected.
 1. Under **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 1. Under **Database details**, for **Database name** enter *mySampleDatabase*.
 1. For **Server**, select **Create new**, and fill out the **New server** form as follows:
    - **Server name**: Enter *mysqlserver*, and some characters for uniqueness.
-   - **Server admin login**: Enter *azureuser*.
+   - **Server admin login**: Enter *AzureAdmin*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
-   - **Location**: Drop down and choose a location, such as **(US) East US**.
+   - **Location**: Drop down and choose a location, such as **(US) West US**.
 
    Select **OK**.
 
-   ![New server](./media/sql-database-create-single-database/new-server.png)
+   :::image type="content" source="./media/sql-database-create-single-database/new-server.png" alt-text="New server":::
 
    Record the server admin login and password so you can log in to the server and its databases. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page after database creation. To open the **SQL server** page, select the server name on the database **Overview** page.
 
@@ -53,106 +53,24 @@ To create a resource group, server, and single database in the Azure portal:
 
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![New SQL database - Basic tab](./media/sql-database-create-single-database/new-sql-database-basics.png)
+   :::image type="content" source="./media/sql-database-create-single-database/new-sql-database-basics.png" alt-text="New SQL database - Basic tab":::
 
 1. On the **Networking** tab, under **Connectivity method**, select **Public endpoint**.
 1. Under **Firewall rules**, set **Add current client IP address** to **Yes**.
 1. Select **Next: Additional settings** at the bottom of the page.
 
-   ![Networking tab](./media/sql-database-create-single-database/networking.png)
+   :::image type="content" source="./media/sql-database-create-single-database/networking.png" alt-text="Networking tab":::
   
    For more information about firewall settings, see [Allow Azure services and resources to access this server](../database/network-access-controls-overview.md) and [Add a private endpoint](../database/private-endpoint-overview.md).
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
-1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page.
 
-   ![Additional settings tab](./media/sql-database-create-single-database/additional-settings.png)
+   :::image type="content" source="./media/sql-database-create-single-database/additional-settings.png" alt-text="Additional settings tab":::
 
 1. After reviewing settings, select **Create**.
-
-# [Azure CLI](#tab/azure-cli)
-
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
-
-To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
-
-Follow the onscreen prompts to sign in to Azure and run the code.
-
-You can also use the Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar.
-
-   ![Azure Cloud Shell](./media/sql-database-create-single-database/cloudshell.png)
-
-The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar.
-
-The following Azure CLI code creates a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
-
-```azurecli-interactive
-#!/bin/bash
-
-# Sign in to Azure and set execution context (if necessary)
-az login
-az account set --subscription <Subscription ID>
-
-# Set the resource group name and location for your server
-resourceGroupName=myResourceGroup-$RANDOM
-location=westus2
-
-# Set an admin login and password for your database
-adminlogin=azureuser
-password=Azure1234567
-
-# Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
-servername=server-$RANDOM
-
-# Set the ip address range that can access your database
-startip=0.0.0.0
-endip=0.0.0.0
-
-# Create a resource group
-az group create \
-    --name $resourceGroupName \
-    --location $location
-
-# Create a server in the resource group
-az sql server create \
-    --name $servername \
-    --resource-group $resourceGroupName \
-    --location $location  \
-    --admin-user $adminlogin \
-    --admin-password $password
-
-# Configure a server-level firewall rule for the server
-az sql server firewall-rule create \
-    --resource-group $resourceGroupName \
-    --server $servername \
-    -n AllowYourIp \
-    --start-ip-address $startip \
-    --end-ip-address $endip
-
-# Create a gen5 2 vCore database in the server
-az sql db create \
-    --resource-group $resourceGroupName \
-    --server $servername \
-    --name mySampleDatabase \
-    --sample-name AdventureWorksLT \
-    --edition GeneralPurpose \
-    --family Gen5 \
-    --capacity 2 \
-```
-
-The preceding code uses these Azure CLI commands:
-
-| Command | Description |
-|---|---|
-| [az account set](/cli/azure/account#az_account_set) | Sets a subscription to be the current active subscription. |
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_create) | Creates a server-level firewall rule. |
-| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Creates a database. |
-
-For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../database/az-cli-script-samples-content-guide.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -166,7 +84,7 @@ Follow the onscreen prompts to sign in to Azure and run the code.
 
 You can also use Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar.
 
-   ![Azure Cloud Shell](./media/sql-database-create-single-database/cloudshell.png)
+   :::image type="content" source="./media/sql-database-create-single-database/cloudshell.png" alt-text="Azure Cloud Shell":::
 
 The first time you use Cloud Shell from the portal, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar.
 
@@ -240,5 +158,61 @@ The preceding code uses these PowerShell cmdlets:
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database. |
 
 For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../database/powershell-script-content-guide.md).
+
+# [Azure CLI](#tab/azure-cli)
+
+The following Azure CLI code blocks create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+### Set parameter values to create resources
+
+Set the parameter values for use in creating the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
+
+Change the location as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="SetParameterValues":::
+
+### Create a resource group
+
+Use this script to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="CreateResourceGroup":::
+
+### Create a server
+
+Use this script to create a server with the [az sql server create](/cli/azure/sql/server) command.
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="CreateServer":::
+
+### Configure a server-based firewall rule
+
+Use this script to create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="CreateFirewallRule":::
+
+### Create a single database using Azure CLI
+
+Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command.
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="CreateDatabase":::
+
+### Azure CLI command reference
+
+The preceding code uses these Azure CLI commands:
+
+| Command | Description |
+|---|---|
+| [az account set](/cli/azure/account#az-account-set) | Sets a subscription to be the current active subscription. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts databases and elastic pools. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Creates a database. |
+
+For additional Azure SQL Database Azure CLI scripts, see [Azure CLI samples](../database/az-cli-script-samples-content-guide.md).
 
 ---

@@ -1,14 +1,15 @@
 ---
 title: Azure Monitor Logs data security | Microsoft Docs
-description: Learn about how [Azure Monitor Logs protects your privacy and secures your data.
+description: Learn about how Azure Monitor Logs protects your privacy and secures your data.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
+ms.reviewer: MeirMen
+ms.date: 03/21/2022
 
 ---
 
-# [Azure Monitor Logs data security
+# Azure Monitor Logs data security
 This document is intended to provide information specific to [Azure Monitor Logs](../logs/data-platform-logs.md) to supplement the information on [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 This article explains how log data is collected, processed, and secured by Azure Monitor. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Azure Monitor. 

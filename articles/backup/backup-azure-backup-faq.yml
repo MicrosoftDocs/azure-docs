@@ -2,10 +2,12 @@
 metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-  ms.date: 06/10/2021
-    
+  ms.date: 11/02/2021
+  author: v-amallick
+  ms.author: v-amallick
+
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
 
@@ -32,7 +34,7 @@ sections:
       - question: |
           How many policies can I create per vault?
         answer: |
-          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as Powershell, CLI is limited to 50 over a span of 24 hours.
+          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as PowerShell, CLI is limited to 50 over a span of 24 hours.
 
       - question: |
           If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -56,7 +58,7 @@ sections:
           
           ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
           
-          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
+          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#modify-default-settings).
           
       - question: |
           Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
@@ -173,6 +175,11 @@ sections:
           Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
 
       - question: |
+          Can I view the expiration time for the recovery points?
+        answer: |
+          No, you can't view the expiration time for the scheduled backups. However, you can view the expiration time for the on-demand backups through backup jobs.
+
+      - question: |
           Can I delete individual files from a recovery point in the vault?
         answer: |
           No, Azure Backup doesn't support deleting or purging individual items from stored backups.
@@ -187,6 +194,11 @@ sections:
           - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
           
           If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
+          
+      - question: |
+          Can backup items in a vault be deleted if its Resource Group has a delete lock?
+        answer: |
+          No, backup items in a vault cannot be deleted if the corresponding Resource Group has a delete lock.     
           
   - name: Retention and recovery
     questions:

@@ -1,21 +1,18 @@
 ---
 title: Filter your Azure AD audit log
 description: In this quickstart, you learn how you can filter entries in your Azure AD audit log.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 06/11/2021
-
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
-
-# Customer intent: As an IT admin, you need to know how to filter your audit log so that you can analyze management activities.
-
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
+#Customer intent: As an IT admin, you need to know how to filter your audit log so that you can analyze management activities.
 ---
 # Quickstart: Filter your Azure AD audit log 
 

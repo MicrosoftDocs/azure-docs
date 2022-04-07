@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/03/2020
 ms.author: marsma
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
 ---
 
@@ -204,122 +204,122 @@ ___
         >[!Video https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank">Microsoft Graph and the Microsoft Authentication Library (MSAL) </a>
-    :::column-end:::
-    :::column:::
-        >[!Video https://www.youtube.com/embed/apbbx2n4tnU]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
         <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">What is the MSAL family of libraries?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank">Scopes explained </a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank">What are brokers </a>
     :::column-end:::
     :::column:::
-        >[!Video https://www.youtube.com/embed/Zd_Uubnu0U0]
+       >[!Video https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank">What redirect URIs do</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank">Tenants explained </a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Role of Azure AD </a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Role of Azure AD app objects</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Organizational and personal Microsoft account differences</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank">SPA and web app differences</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/ZJirt7eTVw8]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">What are Application Permissions vs Delegated Permissions?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/6R3W9T01gdE]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">What is Microsoft identity platform OpenID Connect certified?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/Gm6sALdXtpg]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Azure Active Directory app types and how do they compare?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/NrydwrckYaw]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">If you use MSAL, what essential protocol concepts should you know?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/cZKgTqF4o88]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID tokens, access tokens, refresh tokens, and session tokens?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/41vmzPdbfXM]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/jEEwN7XAtUo]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">What aspects of using protocols does the MSAL libraries make easier?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/4pwuRYcZbz4]
+    :::column-end:::
+    :::column:::
+
+    :::column-end:::
+    :::column:::
+
     :::column-end:::
 :::row-end:::
 

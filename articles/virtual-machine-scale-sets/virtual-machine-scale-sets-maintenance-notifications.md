@@ -14,6 +14,7 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Planned maintenance notifications for virtual machine scale sets
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
@@ -139,7 +140,7 @@ Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -
 
 ## Check maintenance status by using the CLI
 
-You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
+You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 

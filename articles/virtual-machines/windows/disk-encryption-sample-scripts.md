@@ -15,6 +15,8 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 # Azure Disk Encryption sample scripts
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
 > [!NOTE]
@@ -115,7 +117,7 @@ reboot
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 ## Upload encrypted VHD to an Azure storage account
-After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
@@ -160,7 +162,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/wrapkey) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/keys/wrap-key) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

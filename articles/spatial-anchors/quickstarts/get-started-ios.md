@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Create an iOS app'
 description: Learn to create an iOS app using Azure Spatial Anchors programmatically in either Swift or Objective-C.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref, devx-track-azurecli
+ms.custom: has-adal-ref, devx-track-azurecli, mode-other
 ---
-# Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 
-This quickstart covers how to create an iOS app using [Azure Spatial Anchors](../overview.md) in either Swift or Objective-C. Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app that can save and recall a spatial anchor.
+# Run the sample app: iOS - Xcode (Swift or Objective-C)
+
+This quickstart covers how to run the [Azure Spatial Anchors](../overview.md) sample app for iOS devices using Xcode (Swift or Objective-C). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app that can save and recall a spatial anchor.
 
 You'll learn how to:
 

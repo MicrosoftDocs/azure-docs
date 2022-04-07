@@ -6,11 +6,9 @@ metadata:
   ms.service: virtual-machines
   ms.collection: linux
   ms.workload: infrastructure-services
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 05/08/2019
   ms.author: cynthn
-  
-    
 title: Frequently asked question about Linux Virtual Machines
 summary: |
   This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](../windows/faq.yml)
@@ -132,19 +130,13 @@ sections:
           
           The following passwords are not allowed:
           
-          <table>
-              <tr>
-                  <td style="text-align:center">abc@123</td>
-                  <td style="text-align:center">P@$$w0rd</td>
-                  <td style="text-align:center">P@ssw0rd</td>
-                  <td style="text-align:center">P@ssword123</td>
-                  <td style="text-align:center">Pa$$word</td>
-              </tr>
-              <tr>
-                  <td style="text-align:center">pass@word1</td>
-                  <td style="text-align:center">Password!</td>
-                  <td style="text-align:center">Password1</td>
-                  <td style="text-align:center">Password22</td>
-                  <td style="text-align:center">iloveyou!</td>
-              </tr>
-          </table>
+          * abc@123
+          * P@$$w0rd
+          * P@ssw0rd
+          * P@ssword123
+          * Pa$$word
+          * pass@word1
+          * Password!
+          * Password1
+          * Password22
+          * iloveyou!

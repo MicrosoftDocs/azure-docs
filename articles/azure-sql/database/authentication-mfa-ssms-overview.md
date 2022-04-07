@@ -1,17 +1,16 @@
 ---
 title: Using multi-factor Azure Active Directory authentication
 description: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
-services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
-ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
+ms.custom: seoapril2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 09/28/2020
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 12/15/2021
 tags: azure-synapse
 ---
 
@@ -36,13 +35,13 @@ There are two non-interactive authentication models for Azure AD, which can be u
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-The interactive method that also supports Azure AD Multi-Factor Authentication (MFA) is: 
+The interactive method that also supports Azure AD multi-factor authentication (MFA) is: 
 
 - `Azure Active Directory - Universal with MFA`
 
 Azure AD MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
-For a description of Azure AD Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+For a description of Azure AD multi-factor authentication, see [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### Azure AD domain name or tenant ID parameter
@@ -63,12 +62,11 @@ If you are running SSMS 18.x or later, the AD domain name or tenant ID is no lon
 
 ### Azure AD business to business support
 
-> [!IMPORTANT]
-> Support for guest users to connect to Azure SQL Database, SQL Managed Instance, and Azure Synapse without the need to be part of a group is currently in **public preview**. For more information, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
+Azure AD users that are supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md)) can connect to SQL Database and Azure Synapse as individual users or members of an Azure AD group created in the associated Azure AD, and mapped manually using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement in a given database. 
 
-Azure AD users that are supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md)) can connect to SQL Database and Azure Synapse only as part of members of a group created in the associated Azure AD, and mapped manually using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement in a given database. For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific database (for example, `MyDatabase`) by an Azure AD SQL admin or Azure AD DBO,  by executing the Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
+For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), a user `steve@gmail.com` must be created for a specific database (such as **MyDatabase**) by an Azure AD SQL administrator or Azure AD DBO by executing the Transact-SQL `create user [steve@gmail.com] FROM EXTERNAL PROVIDER` statement. If `steve@gmail.com` is part of an Azure AD group, such as `usergroup` then this group must be created for a specific database (such as **MyDatabase**) by an Azure AD SQL administrator, or Azure AD DBO by executing the Transact-SQL statement `create user [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
-After the database user is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the `usergroup` has only the connect permission. Any further data access will need to be [granted](/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
+After the database user or group is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the user or group only has connect permission. Any further data access will need to be [granted](/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
 
 > [!NOTE]
 > For SSMS 17.x, using `steve@gmail.com` as a guest user, you must check the **AD domain name or tenant ID** box and add the AD domain name `contosotest.onmicrosoft.com` in the **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the **Azure Active Directory - Universal with MFA** authentication. Otherwise, the check box it is greyed out.
@@ -81,7 +79,7 @@ After the database user is created, then the user `steve@gmail.com` can sign int
 - SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
 - The SSMS Table Designer does not support Universal Authentication.
 - There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
-- See the following link for the latest Active Directory Authentication Library (ADAL) version for Universal authentication: [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- See the following link for the latest Microsoft Authentication Library (MSAL) version for Universal authentication: [Overview of the Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md#languages-and-frameworks).  
 
 ## Next steps
 
@@ -94,5 +92,4 @@ After the database user is created, then the user `steve@gmail.com` can sign int
 - [SQLPackage.exe](/sql/tools/sqlpackage)  
 - [Import a BACPAC file to a new database](database-import.md)  
 - [Export a database to a BACPAC file](database-export.md)  
-- C# interface [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- When using **Azure Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.
+- C# interface [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)

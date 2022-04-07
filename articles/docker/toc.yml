@@ -24,6 +24,6 @@
   - name: Docker Azure driver
     href: https://docs.docker.com/machine/drivers/azure/
   - name: Docker Azure Site
-    href: https://www.docker.com/docker-azure
+    href: https://docs.docker.com/cloud/aci-integration/
   - name: Docker Site
     href: https://docker.com

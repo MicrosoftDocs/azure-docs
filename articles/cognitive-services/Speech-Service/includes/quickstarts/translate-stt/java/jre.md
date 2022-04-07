@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
-ms.author: lajanuar
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -94,7 +94,7 @@ Before you get started, make sure to:
                if (cancellation.getReason() == CancellationReason.Error) {
                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                   System.out.println("CANCELED: Did you update the subscription info?");
+                   System.out.println("CANCELED: Did you set the speech resource key and region values?");
                }
            }
 

@@ -3,13 +3,13 @@ title: Immersive Reader Node.js client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
@@ -141,7 +141,7 @@ html
       // A polyfill for Promise is needed for IE11 support.
       script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
 
-      script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.1.0.js')
+      script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
       script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
       style(type="text/css").

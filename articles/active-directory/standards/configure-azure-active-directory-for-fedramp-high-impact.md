@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: barbaraselden
 ms.author: baselden
-manager: mtillman
+manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
@@ -34,7 +34,7 @@ There are multiple paths towards FedRAMP authorization. You can reuse the existi
 
 The FedRAMP high baseline is made up of 421 controls and control enhancements from [NIST 800-53 Security Controls Catalog Revision 4](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final). Where applicable, we included clarifying information from the [800-53 Revision 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). This article set covers a subset of these controls that are related to identity, and which you must configure. 
 
-We provide prescriptive guidance to help you achieve compliance with controls you're responsible for configuring in Azure Active Directory (Azure AD). To fully address some identity control requirements, you might need to use other systems. Other systems might include a security information and event management tool, such as Azure Sentinel. If you're using Azure services outside of Azure Active Directory, there will be other controls you need to consider, and you can use the capabilities Azure already has in place to meet the controls.
+We provide prescriptive guidance to help you achieve compliance with controls you're responsible for configuring in Azure Active Directory (Azure AD). To fully address some identity control requirements, you might need to use other systems. Other systems might include a security information and event management tool, such as Microsoft Sentinel. If you're using Azure services outside of Azure Active Directory, there will be other controls you need to consider, and you can use the capabilities Azure already has in place to meet the controls.
 
 The following is a list of FedRAMP resources:
 
@@ -42,7 +42,7 @@ The following is a list of FedRAMP resources:
 
 * [FedRAMP Security Assessment Framework](https://www.fedramp.gov/assets/resources/documents/FedRAMP_Security_Assessment_Framework.pdf)
 
-* [Agency Guide for FedRAMP Authorizations](https://www.fedramp.gov/assets/resources/documents/Agency_Guide_for_Reuse_of_FedRAMP_Authorizations.pdf)
+* [Agency Guide for FedRAMP Authorizations](https://www.fedramp.gov/assets/resources/documents/Agency_Authorization_Playbook.pdf)
 
 * [Managing compliance in the cloud at Microsoft](https://www.microsoft.com/trustcenter/common-controls-hub)
 
@@ -50,7 +50,7 @@ The following is a list of FedRAMP resources:
 
 * [Azure Compliance Offerings](https://aka.ms/azurecompliance)
 
-* [FedRAMP High blueprint sample overview](../../governance/blueprints/samples/fedramp-h/index.md)
+* [FedRAMP High Azure Policy built-in initiative definition](../../governance/policy/samples/fedramp-high.md)
 
 * [Microsoft 365 compliance center](/microsoft-365/compliance/microsoft-365-compliance-center)
 
@@ -63,4 +63,3 @@ The following is a list of FedRAMP resources:
 [Configure identification and authentication controls](fedramp-identification-and-authentication-controls.md)
 
 [Configure other controls](fedramp-other-controls.md)
-

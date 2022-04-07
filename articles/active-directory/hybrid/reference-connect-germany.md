@@ -5,14 +5,13 @@ keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/12/2017
 ms.subservice: hybrid

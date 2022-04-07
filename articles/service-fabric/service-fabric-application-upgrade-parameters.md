@@ -101,7 +101,7 @@ warning-as-error | Allowed values are **True** and **False**. Default value is *
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 [Upgrading your Application using Service Fabric CLI on Linux](service-fabric-application-lifecycle-sfctl.md#upgrade-application) walks you through an application upgrade using Service Fabric CLI.
 

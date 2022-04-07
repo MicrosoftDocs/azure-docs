@@ -57,14 +57,17 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 day
+**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | 0 hours (Disabled)
 
 ### Managing replication policies
 
 You can manage and modify the default replication policies settings as follows:
 - You can modify the settings as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
+
+>[!NOTE]
+>High recovery point retention period may have an implication on the storage cost since more recovery points may need to be saved. 
 
 ### Multi-VM consistency
 
@@ -141,7 +144,7 @@ Please note that details of network connectivity requirements can be found in [n
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
@@ -152,7 +155,7 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement

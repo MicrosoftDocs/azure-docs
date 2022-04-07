@@ -1,7 +1,6 @@
 ---
 title: Azure Arc-enabled Open Service Mesh (Preview)
-description: Open Service Mesh (OSM) extension on Arc enabled Kubernetes cluster
-services: azure-arc
+description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
 ms.service: azure-arc
 ms.date: 07/23/2021
 ms.topic: article
@@ -15,20 +14,21 @@ ms.author: mayg
 
 OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. [Read more](https://docs.openservicemesh.io/#features) on the service mesh scenarios enabled by Open Service Mesh.
 
-### Support limitations for Arc enabled Open Service Mesh
+### Support limitations for Azure Arc-enabled Open Service Mesh
 
-- Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
-- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
-- Following Kubernetes distributions are currently supported
+- Only one instance of Open Service Mesh can be deployed on an Azure Arc-connected Kubernetes cluster.
+- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases). The supported release versions are appended with notes. Ignore the tags associated with intermediate releases. 
+- The following Kubernetes distributions are currently supported:
     - AKS Engine
+    - AKS on HCI
     - Cluster API Azure
     - Google Kubernetes Engine
     - Canonical Kubernetes Distribution
     - Rancher Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Amazon Elastic Kubernetes Service
-- Azure Monitor integration with Azure Arc enabled Open Service Mesh is available with [limited support](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
-
+    - VMware Tanzu Kubernetes Grid
+- Azure Monitor integration with Azure Arc-enabled Open Service Mesh is available with [limited support](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -37,23 +37,20 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 - Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
 - Use az k8s-extension CLI version >= v0.4.0
 
-## Install Arc enabled Open Service Mesh (OSM) on an Arc enabled Kubernetes cluster
+## Basic installation of Azure Arc-enabled OSM
 
-The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
-
-### Install a specific version of OSM
-
-Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Kubernetes cluster where you want the OSM extension installed.
+The following steps assume that you already have a cluster with a supported Kubernetes distribution connected to Azure Arc.
+Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
 
 Set the environment variables:
 
 ```azurecli-interactive
-export VERSION=0.8.4
+export VERSION=<osm-arc-version>
 export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
 
-While Arc enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
+While Azure Arc-enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you are using an OpenShift cluster, use the steps in the [section](#install-osm-on-an-openshift-cluster).
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION
@@ -88,28 +85,24 @@ You should see output similar to the output shown below. It may take 3-5 minutes
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 
-### Install a specific version of OSM on OpenShift cluster
+## Custom installations of Azure Arc-enabled OSM
+The following sections describe certain custom installations of Azure Arc-enabled OSM. Custom installations require setting 
+values of OSM by in a JSON file and passing them into `k8s-extension create` CLI command as described below.
+
+### Install OSM on an OpenShift cluster
 
 1. Copy and save the following contents into a JSON file. If you have already created a configuration settings file, please add the following line to the existing file to preserve your previous changes.
    ```json
    {
-       "osm.OpenServiceMesh.enablePrivilegedInitContainer": "true"
+       "osm.osm.enablePrivilegedInitContainer": "true"
    }
    ```
-
-   Set the file path as an environment variable:
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
    
-2. Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
-   ```
+2. [Install OSM with custom values](#setting-values-during-osm-installation).
    
 3. Add the privileged [security context constraint](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html) to each service account for the applications in the mesh.
    ```azurecli-interactive
@@ -118,11 +111,107 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 
 It may take 3-5 minutes for the actual OSM helm chart to get deployed to the cluster. Until this deployment happens, you will continue to see installState as Pending.
 
-To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
+To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.osm.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
 
-### Install Arc enabled OSM using ARM template
+### Enable High Availability features on installation
+OSM's control plane components are built with High Availability and Fault Tolerance in mind. This section describes how to
+enable Horizontal Pod Autoscaling (HPA) and Pod Disruption Budget (PDB) during installation. Read more on the design
+considerations of High Availability on OSM [here](https://docs.openservicemesh.io/docs/guides/ha_scale/high_availability/).
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+#### Horizontal Pod Autoscaling (HPA)
+HPA automatically scales up or down control plane pods based on the average target CPU utilization (%) and average target 
+memory utilization (%) defined by the user. To enable HPA and set applicable values on OSM control plane pods during installation, create or
+append to your existing JSON settings file as below, repeating the key/value pairs for each control plane pod 
+(`osmController`, `injector`) that you want to enable HPA on. 
+
+```json
+{
+  "osm.osm.<control_plane_pod>.autoScale.enable" : "true",
+  "osm.osm.<control_plane_pod>.autoScale.minReplicas" : "<allowed values: 1-10>",
+  "osm.osm.<control_plane_pod>.autoScale.maxReplicas" : "<allowed values: 1-10>",
+  "osm.osm.<control_plane_pod>.autoScale.cpu.targetAverageUtilization" : "<allowed values 0-100>",
+  "osm.osm.<control_plane_pod>.autoScale.memory.targetAverageUtilization" : "<allowed values 0-100>"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
+#### Pod Disruption Budget (PDB)
+In order to prevent disruptions during planned outages, control plane pods `osm-controller` and `osm-injector` have a PDB 
+that ensures there is always at least 1 pod corresponding to each control plane application.
+
+To enable PDB, create or append to your existing JSON settings file as follows for each desired control plane pod 
+(`osmController`, `injector`):
+```json
+{
+  "osm.osm.<control_plane_pod>.enablePodDisruptionBudget" : "true"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
+### Install OSM with cert-manager for Certificate Management
+[cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
+the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/)
+and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more.
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To install OSM with cert-manager as the certificate provider, create or append to your existing JSON settings file the `certificateProvider.kind` 
+value set to cert-manager as shown below. If you would like to change from default cert-manager values specified in OSM documentation,
+also include and update the subsequent `certmanager.issuer` lines.
+
+```json
+{
+  "osm.osm.certificateProvider.kind" : "cert-manager",
+  "osm.osm.certmanager.issuerName" : "<issuer name>",
+  "osm.osm.certmanager.issuerKind" : "<issuer kind>",
+  "osm.osm.certmanager.issuerGroup" : "<issuer group>"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
+### Install OSM with Contour for Ingress
+OSM provides multiple options to expose mesh services externally using ingress. OSM can use [Contour](https://projectcontour.io/), which
+works with the ingress controller installed outside the mesh and provisioned with a certificate to participate in the mesh.
+Refer to [OSM's ingress documentation](https://docs.openservicemesh.io/docs/guides/traffic_management/ingress/#1-using-contour-ingress-controller-and-gateway)
+and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more.
+
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To set required values for configuring Contour during OSM installation, append the following to your JSON settings file:
+```json
+{
+  "osm.osm.osmNamespace" : "arc-osm-system",
+  "osm.contour.enabled" : "true",
+  "osm.contour.configInline.tls.envoy-client-certificate.name" : "osm-contour-envoy-client-cert", 
+  "osm.contour.configInline.tls.envoy-client-certificate.namespace" : "arc-osm-system"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
+### Setting values during OSM installation
+Any values that need to be set during OSM installation need to be saved to a single JSON file and passed in through the Azure CLI
+install command.
+
+Once you have created a JSON file with applicable values as described in above custom installation sections, set the 
+file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
+
+Run the `az k8s-extension create` command to create the OSM extension, passing in the settings file using the 
+`--configuration-settings` flag:
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
+
+## Install Azure Arc-enabled OSM using ARM template
+
+After connecting your cluster to Azure Arc, create a JSON file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
 
 ```json
 {
@@ -144,7 +233,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "0.8.4",
+            "defaultValue": "<osm-arc-version>",
             "type": "String",
             "metadata": {
                 "description": "The extension type version."
@@ -182,22 +271,20 @@ After connecting your cluster to Azure Arc, create a json file with the followin
 }
 ```
 
-Now set the environment variables:
-
+Set the environment variables:
 ```azurecli-interactive
 export TEMPLATE_FILE_NAME=<template-file-path>
 export DEPLOYMENT_NAME=<desired-deployment-name>
 ```
 
-Finally, run this command to install the OSM extension through az CLI:
-
+Run the command below to install the OSM extension using the az CLI:
 ```azurecli-interactive
 az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_NAME
 ```
 
-Now, you should be able to view the OSM resources and use the OSM extension in your cluster.
+You should now be able to view the OSM resources and use the OSM extension in your cluster.
 
-## Validate the Arc enabled Open Service Mesh installation
+## Validate installation
 
 Run the following command.
 
@@ -234,7 +321,7 @@ You should see a JSON output similar to the output below:
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 ## OSM controller configuration
@@ -331,7 +418,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
 1. Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-config`, you will have to provide the full list of changes (compared to the default `osm-config`) in a JSON file.
     ```json
     {
-        "osm.OpenServiceMesh.enablePermissiveTrafficPolicy" : "false"
+        "osm.osm.enablePermissiveTrafficPolicy" : "false"
     }
     ```
     
@@ -349,7 +436,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
 
-## Using the Arc enabled Open Service Mesh
+## Using Azure Arc-enabled OSM
 
 To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
 
@@ -365,14 +452,14 @@ More information about onboarding services can be found [here](https://docs.open
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
-You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
+You can start with a [demo application](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
 > [!NOTE] 
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 
-The OSM extension does not install add-ons like [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
+The OSM extension does not install add-ons like [Flagger](https://docs.flagger.app/), [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name 'arc-osm-system' when making changes to `osm-mesh-config`.
@@ -380,32 +467,31 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 - [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
 - [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
 - [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
-
+- [OSM Progressive Delivery with Flagger](https://docs.flagger.app/tutorials/osm-progressive-delivery)
 
 ## Monitoring application using Azure Monitor and Applications Insights
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
+Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
-1. Ensure that prometheus_scraping is set to true in the `osm-mesh-config`.
+1. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 
-2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
-
-3. Expose the prometheus endpoints for application namespaces.
+2. Expose the prometheus endpoints for application namespaces.
     ```azurecli-interactive
     osm metrics enable --namespace <namespace1>
     osm metrics enable --namespace <namespace2>
     ```
+    For v0.8.4, ensure that `prometheus_scraping` is set to `true` in the `osm-config` ConfigMap.
 
-4. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+3. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-5. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
+4. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
     ```azurecli-interactive
     monitor_namespaces = ["namespace1", "namespace2"]
     ```
 
-6. Run the following kubectl command
+5. Run the following kubectl command
     ```azurecli-interactive
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```
@@ -422,7 +508,7 @@ Read more about integration with Azure Monitor [here](https://github.com/microso
 
 ### Navigating the OSM dashboard
 
-1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmarcux).
+1. Access your Azure Arc-connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmarcux).
 2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
 3. Select the time-range & namespace to scope your services.
 
@@ -461,7 +547,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 ### Upgrade instructions
 
-1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponds to the new version of the chart.
+1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/cmd/osm-bootstrap/crds) corresponds to the new version of the chart.
     ```azurecli-interactive
     kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 
@@ -482,7 +568,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 5. Recreate Custom Resources using new CRDs
 
-## Uninstall Arc enabled Open Service Mesh
+## Uninstall Azure Arc-enabled OSM
 
 Use the following command:
 
@@ -505,7 +591,7 @@ When you use the az k8s-extension command to delete the OSM extension, the arc-o
 
 ## Troubleshooting
 
-Refer to the troubleshooting guide [available here](troubleshooting.md#arc-enabled-open-service-mesh).
+Refer to the troubleshooting guide [available here](troubleshooting.md#azure-arc-enabled-open-service-mesh).
 
 ## Next steps
 

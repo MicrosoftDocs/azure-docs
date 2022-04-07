@@ -14,10 +14,6 @@ ms.author: raynew
 
 This article summarizes support and prerequisites when you move virtual machines and related network resources across Azure regions using Resource Mover.
 
-> [!IMPORTANT]
-> Azure Resource Mover is currently in preview.
-
-
 ## Windows VM support
 
 Resource Mover supports Azure VMs running these Windows operating systems.

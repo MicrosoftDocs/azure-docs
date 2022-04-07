@@ -1,11 +1,11 @@
 ---
 title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files | Microsoft Docs
 description: How to configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -328,6 +328,65 @@ Invoke-Command `
     }
 ```
 
+## Rotate VPN Root Certificate
+If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without the need for redeploying the virtual network gateway.  Once the root certificate is added using the following sample script, you will need to re-create [VPN client certificate](#create-client-certificate).  
+
+Replace `<resource-group-name>`, `<desired-vpn-name-here>`, and `<new-root-cert-name>` with your own values, then run the script.
+
+```PowerShell
+#Creating the new Root Certificate
+$ResourceGroupName = "<resource-group-name>"
+$vpnName = "<desired-vpn-name-here>"
+$NewRootCertName = "<new-root-cert-name>"
+
+$rootcertname = "CN=$NewRootCertName"
+$certLocation = "Cert:\CurrentUser\My"
+$date = get-date -Format "MM_yyyy"
+$vpnTemp = "C:\vpn-temp_$date\"
+$exportedencodedrootcertpath = $vpnTemp + "P2SRootCertencoded.cer"
+$exportedrootcertpath = $vpnTemp + "P2SRootCert.cer"
+
+if (-Not (Test-Path $vpnTemp)) {
+    New-Item -ItemType Directory -Force -Path $vpnTemp | Out-Null
+}
+
+$rootcert = New-SelfSignedCertificate `
+    -Type Custom `
+    -KeySpec Signature `
+    -Subject $rootcertname `
+    -KeyExportPolicy Exportable `
+    -HashAlgorithm sha256 `
+    -KeyLength 2048 `
+    -CertStoreLocation $certLocation `
+    -KeyUsageProperty Sign `
+    -KeyUsage CertSign
+
+Export-Certificate `
+    -Cert $rootcert `
+    -FilePath $exportedencodedrootcertpath `
+    -NoClobber | Out-Null
+
+certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
+
+$rawRootCertificate = Get-Content -Path $exportedrootcertpath
+
+[System.String]$rootCertificate = ""
+foreach($line in $rawRootCertificate) { 
+    if ($line -notlike "*Certificate*") { 
+        $rootCertificate += $line 
+    } 
+}
+
+#Fetching gateway details and adding the newly created Root Certificate.
+$gateway = Get-AzVirtualNetworkGateway -Name $vpnName -ResourceGroupName $ResourceGroupName
+
+Add-AzVpnClientRootCertificate `
+    -PublicCertData $rootCertificate `
+    -ResourceGroupName $ResourceGroupName `
+    -VirtualNetworkGatewayName $gateway `
+    -VpnClientRootCertificateName $NewRootCertName
+
+```
 ## See also
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)

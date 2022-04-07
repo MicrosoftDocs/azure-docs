@@ -1,13 +1,13 @@
 ---
 title: Handle errors and exceptions in workflows
-description: Learn how to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps
+description: How to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 02/18/2021
-ms.topic: article
 ---
 
 # Handle errors and exceptions in Azure Logic Apps

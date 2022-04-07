@@ -1,18 +1,18 @@
 ---
 title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
-author: mayanknayar
 ms.service: virtual-machines
-ms.subservice: automatic-extension-upgrade
+ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
 
 # Automatic Extension Upgrade for VMs and Scale Sets in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Automatic Extension Upgrade is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
@@ -70,6 +70,7 @@ Automatic Extension Upgrade supports the following extensions (and more are adde
 - [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Linux and Windows
 - [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
 - Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
+- [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
 
 
 ## Enabling Automatic Extension Upgrade
@@ -160,7 +161,7 @@ Update the scale set using [Update-AzVmss](/powershell/module/az.compute/update-
 
 
 ### Azure CLI for Virtual Machines
-Use the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) cmdlet:
+Use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) cmdlet:
 
 ```azurecli-interactive
 az vm extension set \
@@ -173,7 +174,7 @@ az vm extension set \
 ```
 
 ### Azure CLI for Virtual Machine Scale Sets
-Use the [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) cmdlet to add the extension to the scale set model:
+Use the [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) cmdlet to add the extension to the scale set model:
 
 ```azurecli-interactive
 az vmss extension set \

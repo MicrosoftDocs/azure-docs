@@ -3,15 +3,16 @@ title: Enable one-time password (OTP) verification
 titleSuffix: Azure AD B2C
 description: Learn how to set up a one-time password (OTP) scenario by using Azure AD B2C custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/19/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Define a one-time password technical profile in an Azure AD B2C custom policy
@@ -72,7 +73,7 @@ The following settings can be used to configure code generation mode:
 | CodeExpirationInSeconds | No | Time in seconds until code expiration. Minimum: `60`; Maximum: `1200`; Default: `600`. Every time a code is provided (same code using `ReuseSameCode`, or a new code), the code expiration is extended. This time is also used to set retry timeout (once max attempts are reached, user is locked out from attempting to obtain new codes until this time expires) |
 | CodeLength | No | Length of the code. The default value is `6`. |
 | CharacterSet | No | The character set for the code, formatted for use in a regular expression. For example, `a-z0-9A-Z`. The default value is `0-9`. The character set must include a minimum of 10 different characters in the set specified. |
-| NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. |
+| NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. For example, if you set NumRetryAttempts to 2 it will allow you only 2 attempts in total (first + 1 retry). For the 3rd attempt it will throw max attempts reached irrespective of whether the code is correct or not.|
 | NumCodeGenerationAttempts | No | The number of maximum code generation attempts per identifier. The default value is 10 if not specified. |
 | Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
 | ReuseSameCode | No | Whether the same code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`.  |

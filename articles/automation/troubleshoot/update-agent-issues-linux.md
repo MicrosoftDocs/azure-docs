@@ -2,7 +2,7 @@
 title: Troubleshooting Linux update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-ms.date: 01/25/2021
+ms.date: 11/01/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
 ---
@@ -44,14 +44,7 @@ When the checks are finished, the results are returned in the window. The check 
 
 ### Operating system
 
-The operating system check verifies if the Hybrid Runbook Worker is running one of the following operating systems.
-
-|Operating system  |Notes  |
-|---------|---------|
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data, which CentOS doesn't have out of the box.         |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+The operating system check verifies if the Hybrid Runbook Worker is running one of the [supported operating systems](../update-management/operating-system-requirements.md#supported-operating-systems).
 
 ## Monitoring agent service health checks
 
@@ -119,7 +112,13 @@ This check verifies that your machine has access to the endpoints needed by the 
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The Python script, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), can be found in GitHub. An example of the output of this script is shown in the following example:
+You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The Python script, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), can be found in GitHub.
+
+> [!NOTE]
+> The current version of the troubleshooter script does not support Ubuntu 20.04.
+>
+
+An example of the output of this script is shown in the following example:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

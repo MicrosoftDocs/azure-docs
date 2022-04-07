@@ -5,11 +5,16 @@ author: tfitzmac
 ms.date: 05/04/2021
 ms.topic: quickstart
 ms.author: tomfitz
+ms.custom: mode-api, devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create and deploy template spec
 
 This quickstart shows you how to package an Azure Resource Manager template (ARM template) into a [template spec](template-specs.md). Then, you deploy that template spec. Your template spec contains an ARM template that deploys a storage account.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Quickstart: Create and deploy a template spec with Bicep](../bicep/quickstart-create-template-specs.md).
 
 ## Prerequisites
 
@@ -167,7 +172,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
                   "resources": [
                     {
                       "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2019-04-01",
+                      "apiVersion": "2021-04-01",
                       "name": "[[variables('storageAccountName')]",
                       "location": "[[parameters('location')]",
                       "sku": {
@@ -330,7 +335,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-10-01",
+          "apiVersion": "2021-04-01",
           "name": "demo",
           "properties": {
             "templateLink": {
@@ -539,7 +544,7 @@ Rather than creating a new template spec for the revised template, add a new ver
                   "resources": [
                     {
                       "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2019-04-01",
+                      "apiVersion": "2021-04-01",
                       "name": "[[variables('storageAccountName')]",
                       "location": "[[parameters('location')]",
                       "sku": {
@@ -592,7 +597,7 @@ Rather than creating a new template spec for the revised template, add a new ver
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-10-01",
+          "apiVersion": "2021-04-01",
           "name": "demo",
           "properties": {
             "templateLink": {

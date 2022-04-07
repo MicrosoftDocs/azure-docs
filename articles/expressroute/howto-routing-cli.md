@@ -50,7 +50,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### To create Microsoft peering
 
-1. Install the latest version of Azure CLI. Use the latest version of the Azure Command-line Interface (CLI).
+1. Install and use the latest version of the Azure CLI.
 
    ```azurecli
    az login

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/11/2021
+ms.date: 03/25/2022
 ms.author: radeltch
 
 ---
@@ -26,7 +26,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -93,64 +92,31 @@ Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 10.1.1.20
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address 10.1.1.21
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
-
+* Frontend IP address 10.1.1.20 for ASCS
+* Frontend IP address 10.1.1.21 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up the Azure NetApp Files infrastructure 
 
 SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
 Check if your selected Azure region offers Azure NetApp Files. The following link shows the availability of Azure NetApp Files by Azure region: [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].
 
-Azure NetApp files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Before deploying Azure NetApp Files, request onboarding to Azure NetApp Files, following the [Register for Azure NetApp files instructions][anf-register]. 
+Azure NetApp files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
 
 ### Deploy Azure NetApp Files resources  
 
 The steps assume that you have already deployed [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and the VMs, where the Azure NetApp Files resources will be mounted must be deployed in the same Azure Virtual Network or in peered Azure Virtual Networks.  
 
-1. If you haven't done that already, request [onboarding to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).  
-
-2. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
-3. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
+1. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
+2. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 The SAP Netweaver architecture presented in this article uses single Azure NetApp Files capacity pool, Premium SKU. We recommend Azure NetApp Files Premium SKU for SAP Netweaver application workload on Azure.  
 
-4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
+3. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and trans. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
+4. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and trans. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
 
    1. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>)
    2. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs)
@@ -161,7 +127,7 @@ The SAP Netweaver architecture presented in this article uses single Azure NetAp
    7. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
 
    
-In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssd) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
+In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssds) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
@@ -275,7 +241,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.1.1.20 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -481,6 +447,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo vi /etc/waagent.conf
    
+   # Check if property ResourceDisk.Format is already set to y and if not, set it
+   ResourceDisk.Format=<b>y</b>
+
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
@@ -523,7 +492,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>QAS</b>_ASCS IPaddr2 \
-     params ip=<b>10.1.1.20</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.1.1.20</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
@@ -582,7 +551,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>QAS</b>_ERS IPaddr2 \
-     params ip=<b>10.1.1.21</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.1.1.21</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>

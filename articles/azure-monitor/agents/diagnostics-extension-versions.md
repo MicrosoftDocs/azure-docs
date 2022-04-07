@@ -57,7 +57,7 @@ Define Azure Monitor as a new sink in your diagnostics extension configuration
 }
 ```
 
-```XML
+```xml
 <SinksConfig>  
   <Sink name="AzureMonitorSink">
       <AzureMonitor/>
@@ -83,7 +83,7 @@ Next, you can configure your performance counters to be routed to the Azure Moni
     ]
 },
 ```
-```XML
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
   <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
 </PerformanceCounters>

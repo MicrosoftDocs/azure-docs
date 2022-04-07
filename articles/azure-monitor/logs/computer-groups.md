@@ -4,7 +4,7 @@ description: Computer groups in Azure Monitor allow you to scope log queries to 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2019
+ms.date: 10/20/2021
 
 ---
 
@@ -56,32 +56,20 @@ When you configure Azure Monitor to import Active Directory group memberships, i
 > [!NOTE]
 > Imported Active Directory groups only contain Windows machines.
 
-You configure Azure Monitor to import Active Directory security groups from **Advanced settings** in your Log Analytics workspace in the Azure portal.  Select **Computer Groups**, **Active Directory**, and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
-
-![Computer groups from Active Directory](media/computer-groups/configure-activedirectory.png)
-
-When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+You configure Azure Monitor to import Active Directory security groups from the **Computer Groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Active Directory** tab, and then **Import Active Directory group memberships from computers**.  When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Windows Server Update Service
 When you configure Azure Monitor to import WSUS group memberships, it analyzes the targeting group membership of any computers with the Log Analytics agent.  If you are using client-side targeting, any computer that is connected to Azure Monitor and is part of any WSUS targeting groups has its group membership imported to Azure Monitor. If you are using server-side targeting, the Log Analytics agent should be installed on the WSUS server in order for the group membership information to be imported to Azure Monitor.  This membership is continuously updated every 4 hours. 
 
-You configure Azure Monitor to import WSUS groups from **Advanced settings** in your Log Analytics workspace in the Azure portal.  Select **Computer Groups**, **WSUS**, and then **Import WSUS group memberships**.  There is no further configuration required.
-
-![Computer groups from WSUS](media/computer-groups/configure-wsus.png)
-
-When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+You configure Azure Monitor to import WSUS groups from the **Computer Groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Windows Server Update Service** tab, and then **Import WSUS group memberships**.  When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Configuration Manager
-When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
+When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
-
-![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
-
-When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+You configure Azure Monitor to import WSUS groups from the **Computer Groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **System Center Configuration Manager** tab, and then **Import Configuration Manager collection memberships**. When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ## Managing computer groups
-You can view computer groups that were created from a log query or the Log Search API from **Advanced settings** in your Log Analytics workspace in the Azure portal.  Select **Computer Groups** and then **Saved Groups**.  
+You can view computer groups that were created from a log query or the Log Search API from the **Computer Groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
 
 Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 

@@ -8,10 +8,9 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/05/2019
   ms.author: travisw
-    
 title: Voice assistants frequently asked questions
 summary: |
   If you can't find answers to your questions in this document, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
@@ -28,7 +27,7 @@ sections:
       - question: |
           Should I use Custom Commands or Direct Line Speech? What's the difference?
         answer: |
-          [Custom Commands](custom-commands.md) is a lower-complexity set of tools to easily create and host an assistant that's well-suited to task completion scenarios. [Direct Line Speech](direct-line-speech.md) provides richer, more sophisticated capabilities that can enable robust conversational scenarios. See the [comparison of assistant solutions](voice-assistants.md#choosing-an-assistant-solution) for more information.
+          [Custom Commands](custom-commands.md) is a lower-complexity set of tools to easily create and host an assistant that's well-suited to task completion scenarios. [Direct Line Speech](direct-line-speech.md) provides richer, more sophisticated capabilities that can enable robust conversational scenarios. See the [comparison of assistant solutions](voice-assistants.md#choose-an-assistant-solution) for more information.
           
       - question: |
           How do I get started?

@@ -3,16 +3,16 @@ title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM tem
 description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
 author: mksuni
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth
-ms.date: 2/11/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
 
@@ -34,116 +34,114 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 {
   "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "administratorLogin": {
-      "type": "String"
-    },
-    "administratorLoginPassword": {
-      "type": "SecureString"
-    },
-    "location": {
-      "type": "String"
-    },
-    "serverName": {
-      "type": "String"
-    },
-    "serverEdition": {
-      "type": "String"
-    },
-    "storageSizeMB": {
-      "type": "Int"
-    },
-    "haEnabled": {
-      "type": "string"
-    },
-    "availabilityZone": {
-      "type": "String"
-    },
-    "version": {
-      "type": "String"
-    },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "backupRetentionDays": {
-      "type": "Int"
-    }
-  },
-  "variables": {
-    "api": "2020-02-14-privatepreview",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
-  },
+	"parameters": {
+		"administratorLogin": {
+			"defaultValue": "csadmin",
+			"type": "String"
+		},
+		"administratorLoginPassword": {
+			"type": "SecureString"
+		},
+		"location": {
+			"defaultValue": "eastus",
+			"type": "String"
+		},
+		"serverName": {
+			"type": "String"
+		},
+		"serverEdition": {
+			"defaultValue": "GeneralPurpose",
+			"type": "String"
+		},
+		"skuSizeGB": {
+			"defaultValue": 128,
+			"type": "Int"
+		},
+		"dbInstanceType": {
+			"defaultValue": "Standard_D4ds_v4",
+			"type": "String"
+		},
+		"haMode": {
+            "defaultValue": "ZoneRedundant",
+            "type": "string"
+        },
+		"availabilityZone": {
+			"defaultValue": "1",
+			"type": "String"
+		},
+		"version": {
+			"defaultValue": "12",
+			"type": "String"
+		},
+		"tags": {
+			"defaultValue": {},
+			"type": "Object"
+		},
+		"firewallRules": {
+			"defaultValue": {},
+			"type": "Object"
+		},
+		"backupRetentionDays": {
+			"defaultValue": 14,
+			"type": "Int"
+		},
+		"geoRedundantBackup": {
+			"defaultValue": "Disabled",
+			"type": "String"
+		},
+		"virtualNetworkExternalId": {
+			"defaultValue": "",
+			"type": "String"
+		},
+		"subnetName": {
+			"defaultValue": "",
+			"type": "String"
+		},
+		"privateDnsZoneArmResourceId": {
+			"defaultValue": "",
+			"type": "String"
+		},
+	},
+	"variables": {
+		"api": "2021-06-01",
+		"publicNetworkAccess": "[if(empty(parameters('virtualNetworkExternalId')), 'Enabled', 'Disabled')]"
+	},
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
       "apiVersion": "[variables('api')]",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"
-      },
+		"sku": {
+			"name": "[parameters('dbInstanceType')]",
+			"tier": "[parameters('serverEdition')]"
+		},
       "tags": "[parameters('tags')]",
-      "properties": {
-        "version": "[parameters('version')]",
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
-        },
-        "availabilityZone": "[parameters('availabilityZone')]"
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
-        }
-      },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
+		"properties": {
+			"version": "[parameters('version')]",
+			"administratorLogin": "[parameters('administratorLogin')]",
+			"administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+			"network": {
+				"publicNetworkAccess": "[variables('publicNetworkAccess')]",
+				"delegatedSubnetResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), json(concat(parameters('virtualNetworkExternalId'), '/subnets/' , parameters('subnetName'))))]",
+				"privateDnsZoneArmResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), parameters('privateDnsZoneArmResourceId'))]"
+			},
+			"highAvailability": {
+                "mode": "[parameters('haMode')]"
+              },
+			"storage": {
+				"storageSizeGB": "[parameters('skuSizeGB')]"
+			},
+			"backup": {
+				"backupRetentionDays": 7,
+				"geoRedundantBackup": "Disabled"
+			},
+			"availabilityZone": "[parameters('availabilityZone')]"
+		}
     }
   ]
 }
+
 ```
 
 These resources are defined in the template:
@@ -178,7 +176,7 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers (Preview)**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers**.
 1. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)

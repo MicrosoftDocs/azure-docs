@@ -7,9 +7,9 @@ ms.author: cynthn
 ---
 
 > [!IMPORTANT]
-> Classic VMs will be retired on March 1, 2023.
+> VMs created through the classic deployment model will be retired on March 1, 2023.
 >
-> If you use IaaS resources from ASM, please complete your migration by March 1, 2023. We encourage you to make the switch sooner to take advantage of the many feature enhancements in Azure Resource Manager.
+> If you use IaaS resources from Azure Service Management, please complete your migration by March 1, 2023. We encourage you to make the switch sooner to take advantage of the many feature enhancements in Azure Resource Manager.
 >
 > For more information, see [Migrate your IaaS resources to Azure Resource Manager by March 1, 2023](../articles/virtual-machines/classic-vm-deprecation.md).
 > 

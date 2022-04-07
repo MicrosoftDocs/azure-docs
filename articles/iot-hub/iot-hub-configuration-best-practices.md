@@ -1,8 +1,8 @@
 ---
 title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for using automatic device management to minimize repetitive and complex tasks involved in managing IoT devices at scale.
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
@@ -15,7 +15,7 @@ Automatic device management in Azure IoT Hub automates many repetitive and compl
 
 * **IoT hardware manufacturer/integrator:** Manufacturers of IoT hardware, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers. Involved in development and integration of firmware, embedded operating systems, and embedded software.
 
-* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard or open-source components, or customize an [IoT solution accelerator](../iot-accelerators/index.yml).
+* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard, or open-source components.
 
 * **IoT solution operator:** After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. These tasks can be done by an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure.
 
@@ -85,4 +85,4 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 
-* Implement a firmware update pattern using device twins and automatic device configurations in [Tutorial: Implement a device firmware update process](tutorial-firmware-update.md).
+* Learn how to complete an end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

@@ -54,7 +54,7 @@ The first step is to create a project in Android Studio:
 
 ## Create a Firebase project that supports FCM
 
-1. Sign in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project if you don't already have one.
+1. Sign in to the [Firebase console](https://console.firebase.google.com/). Create a new Firebase project if you don't already have one.
 
 2. After you create your project, select **Add Firebase to your Android app**.
 

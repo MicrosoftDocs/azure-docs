@@ -5,12 +5,11 @@ services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.subservice: hybrid
@@ -23,7 +22,7 @@ ms.collection: M365-identity-device-management
 This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
 
 > [!IMPORTANT]
-> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
+> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account or a Hybrid Identity Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
 
@@ -112,7 +111,7 @@ Ensure that the server on which the Authentication Agent has been installed can 
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
-Ensure that you use a cloud-only Global Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
+Ensure that you use a cloud-only Global Administrator account or a Hybrid Identity Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
 
 ### An unexpected error occurred
 

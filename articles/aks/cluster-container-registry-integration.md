@@ -5,7 +5,8 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/10/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
@@ -23,17 +24,17 @@ These examples require:
 
 ### [Azure CLI](#tab/azure-cli)
 
-* **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role on the **Azure subscription**
+* **Owner**, **Azure account administrator**, or **Azure co-administrator** role on the **Azure subscription**
 * Azure CLI version 2.7.0 or later
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role on the **Azure subscription**
+* **Owner**, **Azure account administrator**, or **Azure co-administrator** role on the **Azure subscription**
 * Azure PowerShell version 5.9.0 or later
 
 ---
 
-To avoid needing an **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role, you can use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
+To avoid needing an **Owner**, **Azure account administrator**, or **Azure co-administrator** role, you can use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## Create a new AKS cluster with ACR integration
 
@@ -215,7 +216,7 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### Troubleshooting
-* Run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+* Run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
 * Learn more about [ACR Monitoring](../container-registry/monitor-service.md)
 * Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 

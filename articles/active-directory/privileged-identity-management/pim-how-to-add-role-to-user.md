@@ -4,14 +4,15 @@ description: Learn how to assign Azure AD roles in Azure AD Privileged Identity 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 02/02/2022
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
 ---
@@ -23,6 +24,11 @@ With Azure Active Directory (Azure AD), a Global administrator can make **perman
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be asigned for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
@@ -54,9 +60,13 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. To specify a specific assignment duration, add a start and end date and time boxes. When finished, select **Assign** to create the new role assignment.
 
+    - **Permanent** assignments have no expiration date. Use this option for permanent workers who frequently need the role permissions.
+
+    - **Time-bound** assignments will expire at the end of a specified period. Use this option with temporary or contract workers, for example, whose project end date and time are known.
+
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. After the role is assigned, a assignment status notification is displayed.
+1. After the role is assigned, an assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -84,6 +94,148 @@ For certain roles, the scope of the granted permissions can be restricted to a s
 
 For more information about creating administrative units, see [Add and remove administrative units](../roles/admin-units-manage.md).
 
+## Assign a role using Graph API
+
+For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
+
+### Eligible with no end date
+
+The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
+
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "NoExpiration"        } 
+    } 
+{ 
+} 
+````
+
+#### HTTP response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
+    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "noExpiration", 
+            "endDateTime": null, 
+            "duration": null 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+}   
+````
+
+### Active and time-bound
+
+The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+} 
+````
+
+#### HTTP response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
+    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
 ## Update or remove an existing role assignment
 
 Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
@@ -101,6 +253,59 @@ Follow these steps to update or remove an existing role assignment. **Azure AD P
     ![Update or remove role assignment](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
+
+## Remove eligible assignment via API
+
+### Request
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests 
+
+ 
+
+{ 
+    "action": "AdminRemove", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b" 
+} 
+````
+
+### Response
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
+    "status": "Revoked", 
+    "createdDateTime": "2021-07-15T20:23:23.85453Z", 
+    "completedDateTime": null, 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminRemove", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": null, 
+    "justification": "test", 
+    "scheduleInfo": null, 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## Next steps
 

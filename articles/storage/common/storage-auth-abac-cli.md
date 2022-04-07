@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/06/2021
+ms.date: 11/16/2021
 
-#Customer intent: 
+#Customer intent:
 
 ---
+
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)
 
 > [!IMPORTANT]
@@ -21,14 +22,13 @@ ms.date: 05/06/2021
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
 In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add a condition to a role assignment
-> * Restrict access to blobs based on a blob index tag
+> - Add a condition to a role assignment
+> - Restrict access to blobs based on a blob index tag
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Here is what the condition looks like in code:
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -62,13 +62,13 @@ Here is what the condition looks like in code:
 
 ## Step 1: Sign in to Azure
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command and follow the instructions that appear to sign in to your directory as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
+1. Use the [az login](/cli/azure/reference-index#az-login) command and follow the instructions that appear to sign in to your directory as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
     ```azurecli
     az login
     ```
 
-1. Use [az account show](/cli/azure/account#az_account_show) to get the ID of your subscriptions.
+1. Use [az account show](/cli/azure/account#az-account-show) to get the ID of your subscriptions.
 
     ```azurecli
     az account show
@@ -82,7 +82,7 @@ Here is what the condition looks like in code:
 
 ## Step 2: Create a user
 
-1. Use [az ad user create](/cli/azure/ad/user#az_ad_user_create) to create a user or find an existing user. This tutorial uses Chandra as the example.
+1. Use [az ad user create](/cli/azure/ad/user#az-ad-user-create) to create a user or find an existing user. This tutorial uses Chandra as the example.
 
 1. Initialize the variable for the object ID of the user.
 
@@ -98,12 +98,12 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
-1. Use [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) to upload a text file to the container.
+1. Use [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) to upload a text file to the container.
 
 1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
+    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
 
     | Key | Value |
     | --- | --- |
@@ -145,7 +145,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 1. Initialize the condition.
 
     ```azurecli
-    condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
+    condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
     ```
 
     In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!). In this case, you can disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
@@ -159,7 +159,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     description="Read access to blobs with the tag Project=Cascade"
     ```
 
-1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role with a condition to the user at a resource group scope.
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role with a condition to the user at a resource group scope.
 
     ```azurecli
     az role assignment create --assignee-object-id $userObjectId --scope $scope --role $roleDefinitionId --description "$description" --condition "$condition" --condition-version $conditionVersion
@@ -170,7 +170,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```azurecli
     {
       "canDelegate": null,
-      "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))",
+      "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))",
       "conditionVersion": "2.0",
       "description": "Read access to blobs with the tag Project=Cascade",
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
@@ -200,7 +200,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. Open a new command window.
 
-1. Use [az login](/cli/azure/reference-index#az_login) to sign in as Chandra.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign in as Chandra.
 
     ```azurecli
     az login
@@ -215,14 +215,14 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     blobNameCascade="<blobNameCascade>"
     ```
 
-1. Use [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) to try to read the properties of the file for the Baker project.
+1. Use [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) to try to read the properties of the file for the Baker project.
 
     ```azurecli
     az storage blob show --account-name $storageAccountName --container-name $containerName --name $blobNameBaker --auth-mode login
     ```
 
     Here's an example of the output. Notice that you **can't** read the file because of the condition you added.
-    
+
     ```azurecli
     You do not have the required permissions needed to perform this operation.
     Depending on your operation, you may need to be assigned one of the following roles:
@@ -230,10 +230,10 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
         "Storage Blob Data Reader"
         "Storage Queue Data Contributor"
         "Storage Queue Data Reader"
-    
+
     If you want to use the old authentication method and allow querying for the right account key, please use the "--auth-mode" parameter and "key" value.
     ```
-    
+
 1. Read the properties of the file for the Cascade project.
 
     ```azurecli
@@ -241,7 +241,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```
 
     Here's an example of the output. Notice that you can read the properties of the file because it has the tag Project=Cascade.
-    
+
     ```azurecli
     {
       "container": "<containerName>",
@@ -273,19 +273,19 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 ## Step 7: (Optional) Edit the condition
 
-1. In the other command window, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) to get the role assignment you added.
+1. In the other command window, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to get the role assignment you added.
 
     ```azurecli
     az role assignment list --assignee $userObjectId --resource-group $resourceGroup
     ```
 
     The output will be similar to the following:
-    
+
     ```azurecli
     [
       {
         "canDelegate": null,
-        "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))",
+        "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))",
         "conditionVersion": "2.0",
         "description": "Read access to blobs with the tag Project=Cascade",
         "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
@@ -307,7 +307,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```json
     {
         "canDelegate": null,
-        "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Baker'))",
+        "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Baker'))",
         "conditionVersion": "2.0",
         "description": "Read access to blobs with the tag Project=Cascade or Project=Baker",
         "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
@@ -323,15 +323,15 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     }
     ```
 
-1. Use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) to update the condition for the role assignment.
+1. Use [az role assignment update](/cli/azure/role/assignment#az-role-assignment-update) to update the condition for the role assignment.
 
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
     ```
-    
+
 ## Step 8: Clean up resources
 
-1. Use [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) to remove the role assignment and condition you added.
+1. Use [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) to remove the role assignment and condition you added.
 
     ```azurecli
     az role assignment delete --assignee $userObjectId --role "$roleDefinitionName" --resource-group $resourceGroup

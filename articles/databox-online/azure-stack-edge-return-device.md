@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 10/28/2021
 ms.author: alkohli
 ---
 
 # Return your Azure Stack Edge device
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
 This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device.
 
@@ -46,7 +46,23 @@ You can reset your device in the local web UI or in PowerShell. For PowerShell i
 
 To begin the return process, take the following steps.
 
-1. Go to your Azure Stack Edge/Data Box Gateway resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
+---
+
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center) 
+
+If you used the Azure Edge Hardware Center to order your device, follow these steps to return the device:
+
+[!INCLUDE [Initiate device return from Edge Hardware Center order resource](../../includes/azure-stack-edge-initiate-device-return.md)]
+
+
+The next step is to package the device.
+
+
+### [Portal (Classic)](#tab/azure-portal)
+
+If you used the classic portal to order your device, follow these steps to return the device:
+
+1. Go to your Azure Stack Edge resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
 
     ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -83,16 +99,36 @@ To begin the return process, take the following steps.
 
 7. Once the Azure Stack Edge operations team receives the email, they will send you a reverse shipment label. When you receive this label, you can schedule the device pickup with the carrier. 
 
+---
+
+## Pack the device
+
+To pack the device, take the following steps.
+
+1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
+2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#manage-power).
+3. Unplug the power cables and remove all the network cables from the device.
+4. Carefully prepare the shipment package as per the following instructions and as shown in the following diagram:
+
+    ![Device packaging](media/azure-stack-edge-return-device/device-packaging-1.svg) 
+
+    1. Use the shipping box you requested from Azure or the original shipping box with its foam packaging. 
+    1. Place the bottom foam piece in the box.
+    1. Lay the device on top of the foam taking care that it sits snugly in the foam.
+    1. Place the top foam piece in the package.
+    1. Place the power cords in the accessory tray and the rails on the top foam piece.
+    1. Seal the box and affix the shipping label that you received from Azure on the package.
+   
+    > [!IMPORTANT]
+    > If proper guidelines to prepare the return shipment aren't observed, the device could be damaged and damaged device fee may apply. Review the [Product Terms of service](https://www.microsoft.com/licensing/product-licensing/products) and the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/).
+ 
+
+
 ## Schedule a pickup
 
 To schedule a pickup, take the following steps.
 
-1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
-2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
-3. Unplug the power cables and remove all the network cables from the device.
-4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
-5. Affix the shipping label that you received from Azure on the package.
-6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
+1. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
     1. Call the local UPS (country/region-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
@@ -100,12 +136,25 @@ To schedule a pickup, take the following steps.
 
     Instead of scheduling the pickup, you can also drop off the Azure Stack Edge at the nearest drop-off location.
 
-## Delete the resource
+## Complete return
 
-After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
+In this section, you can verify when the return is complete and then choose to delete the order. 
 
-- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. You can then delete the resource associated with the device in the Azure portal.
-- If the device arrives significantly damaged, fines may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
+---
+
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
+
+When you initiate the return, the billing is paused. After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
+
+- If the device arrives intact and is in good shape, Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
+- If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products). 
+
+### [Portal (Classic)](#tab/azure-portal) 
+
+When you initiate the return, the billing is paused. After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
+
+- If the device arrives intact and is in good shape, Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
+- If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 You can delete the device in the Azure portal:
@@ -128,6 +177,7 @@ Take the following steps to delete the device and the resource in Azure portal.
 
 You're notified after the device and the associated resource is successfully deleted.
 
+---
 
 ## Next steps
 

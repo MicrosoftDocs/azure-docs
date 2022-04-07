@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -83,7 +83,7 @@ ms.author: lajanuar
                            if (cancellation.getReason() == CancellationReason.Error) {
                                System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                                System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                               System.out.println("CANCELED: Did you update the subscription info?");
+                               System.out.println("CANCELED: Did you set the speech resource key and region values?");
                            }
                        }
                        break;

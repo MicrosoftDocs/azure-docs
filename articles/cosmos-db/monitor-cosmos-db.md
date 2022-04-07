@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Cosmos DB | Microsoft Docs
 description: Learn how to monitor the performance and availability of Azure Cosmos DB.
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/01/2020
-ms.author: sngun
 ms.custom: subject-monitoring 
 ---
 

@@ -7,9 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 03/12/2019
 ---
 
@@ -35,9 +34,12 @@ Azure Automation also has the ability to communicate with SQL servers directly, 
 
 The runbook and module galleries for [Azure Automation](../../automation/automation-runbook-gallery.md) offer a variety of runbooks from Microsoft and the community that you can import into Azure Automation. To use one, download a runbook from the gallery, or you can directly import runbooks from the gallery, or from your Automation account in the Azure portal.
 
+>[!NOTE]
+> The Automation runbook may run from a range of IP addresses at any datacenter in an Azure region. To learn more, see [Automation region DNS records](../../automation/how-to/automation-region-dns-records.md).
+
 ## Next steps
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL Database, follow these links to learn more about Azure Automation.
 
 - [Azure Automation Overview](../../automation/automation-intro.md)
-- [My first runbook](../../automation/learn/automation-tutorial-runbook-graphical.md)
+- [My first runbook](../../automation/learn/powershell-runbook-managed-identity.md)

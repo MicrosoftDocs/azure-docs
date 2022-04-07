@@ -5,11 +5,11 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/12/2021
-ms.custom:
+ms.date: 11/2/2021
+ms.custom: ignite-fall-2021
 ---
 
-# Send events from API Management to Event Grid (Preview)
+# Send events from API Management to Event Grid
 
 API Management integrates with [Azure Event Grid](../event-grid/overview.md) so that you can send event notifications to other services and trigger downstream processes. Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks.
 
@@ -28,7 +28,7 @@ In this article, you subscribe to Event Grid events in your API Management insta
 
 In this section, you use a Resource Manager template to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your API Management instance's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command in the Azure CLI.
+To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command in the Azure CLI.
 
 * Set `RESOURCE_GROUP_NAME` to the name of an existing resource group
 * Set `SITE_NAME` to a unique name for your web app
@@ -58,7 +58,7 @@ You should see the sample app rendered with no event messages displayed.
 In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. Here, you create a subscription to events in your API Management instance.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **Events (preview) > + Event Subscription**. 
+1. Select **Events > + Event Subscription**. 
 1. On the **Basic** tab:
     * Enter a descriptive **Name** for the event subscription.
     * In **Event Types**, select one or more API Management event types to send to Event Grid. For the example in this article, select at least **Microsoft.APIManagement.ProductCreated** 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 03/11/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -49,6 +49,7 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 | Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Azure Block blobs (Archive)       |  <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_BlockBlobArchive>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
@@ -83,13 +84,16 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 * Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy VHDs to page blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
 *  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
-* We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
+* If you use both the SMB and NFS protocols for data copies, we recommend that you:
+  * Use different storage accounts for SMB and NFS.
+  * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
+  * Although copying via both SMB and NFS in parallel can work, we don't recommend doing that as it's prone to human error. Wait until your SMB data copy is complete before you start an NFS data copy.
 * **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 * If ingesting case-sensitive directory and file names from an NFS share to NFS on Data Box:
   * The case is preserved in the name.
   * The files are case-insensitive.
 
-    For example, if copying `SampleFile.txt` and `Samplefile.Txt`, the case will be preserved in the name when copied to Data Box but the second file will overwrite the first one as these are considered the same file.
+    For example, if copying `SampleFile.txt` and `Samplefile.Txt`, the case will be preserved in the name when copied to Data Box but the second file will overwrite the first one, as these are considered the same file.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.

@@ -1,7 +1,7 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
-ms.date: 01/10/2018
+ms.date: 02/15/2022
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
@@ -10,7 +10,7 @@ ms.author: sawinark
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 
 This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packages in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
@@ -97,7 +97,7 @@ This data represents a single package execution on a single worker node. The pac
 
 The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
 
-![SSIS Integration Runtime package execution speed](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png" alt-text="SSIS Integration Runtime package execution speed":::
 
 ### Configure for overall throughput
 
@@ -105,7 +105,7 @@ If you have lots of packages to run, and you care most about the overall through
 
 The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
 
-![SSIS Integration Runtime maximum overall throughput](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png" alt-text="SSIS Integration Runtime maximum overall throughput":::
 
 ## AzureSSISNodeNumber
 

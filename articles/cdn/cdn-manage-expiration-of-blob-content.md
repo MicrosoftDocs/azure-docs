@@ -12,7 +12,7 @@ ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha 
@@ -112,35 +112,28 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## Setting Cache-Control headers by using .NET
-To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol) property.
+To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet) property.
 
 For example:
 
 ```csharp
-class Program
-{
-    const string connectionString = "<storage connection string>";
-    static void Main()
+    class Program
     {
-        // Retrieve storage account information from connection string
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+        const string containerName = "<container name>";
+        const string blobName = "<blob name>";
+        const string connectionString = "<storage connection string>";
+        static void Main()
+        {
+            // Retrieve storage account information from connection string
+            BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
 
-        // Create a blob client for interacting with the blob service.
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            // Create a blob client for interacting with the blob service.
+            BlobClient blob = container.GetBlobClient(blobName);
 
-        // Create a reference to the container
-        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
-
-        // Create a reference to the blob
-        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
-
-        // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "max-age=3600";
-
-        // Update the blob's properties in the cloud
-        blob.SetProperties();
+            // Set the CacheControl property to expire in 1 hour (3600 seconds)
+            blob.SetHttpHeaders(new BlobHttpHeaders {CacheControl = "max-age=3600" });
+        }
     }
-}
 ```
 
 > [!TIP]
@@ -160,8 +153,8 @@ To update the *CacheControl* property of a blob with Azure Storage Explorer:
 
 ![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
-### Azure Command-Line Interface
-With the [Azure Command-Line Interface](/cli/azure) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
+### Azure CLI
+You can manage Azure blob resources from the command line via the [Azure CLI](/cli/azure). To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

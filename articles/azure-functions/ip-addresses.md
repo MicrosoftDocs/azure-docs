@@ -97,7 +97,7 @@ The inbound IP address **might** change when you:
 
 - Delete a function app and recreate it in a different resource group.
 - Delete the last function app in a resource group and region combination, and re-create it.
-- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-an-expiring-certificate).
 
 When your function app runs in a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
@@ -142,11 +142,11 @@ You can control the IP address of outbound traffic from your functions by using 
 
 ### App Service Environments
 
-For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
 To find out if your function app runs in an App Service Environment:
 
-# [Azure Porta](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.

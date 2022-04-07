@@ -8,13 +8,12 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: alkemper
-
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 # Quickstart: Add feature flags to a .NET Framework app
@@ -50,7 +49,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
 
     ```
     Microsoft.Extensions.DependencyInjection

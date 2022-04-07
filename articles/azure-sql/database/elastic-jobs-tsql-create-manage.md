@@ -11,7 +11,7 @@ dev_langs:
 ms.topic: how-to
 author: srinia
 ms.author: srinia
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 02/01/2021
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs (preview)

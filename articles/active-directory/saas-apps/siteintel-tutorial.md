@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SiteIntel supports SP-initiated and IdP-initiated SSO.
-* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add SiteIntel from the gallery
 
@@ -97,7 +97,7 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the **Copy** button to copy the URL in the **App Federation Metadata Url** box.
 
-	![Screenshot of the "App Federation Metadata Url" Copy button](common/copy-metadataurl.png)
+	![Screenshot of the "App Federation Metadata URL" Copy button](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -146,7 +146,7 @@ In this section, you create a user called *Britta Simon* in SiteIntel. Work with
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the **SiteIntel** tile in the Access Panel, you should be automatically signed in to the SiteIntel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the **SiteIntel** tile in the Access Panel, you should be automatically signed in to the SiteIntel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -154,5 +154,5 @@ When you select the **SiteIntel** tile in the Access Panel, you should be automa
 - [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 - [Try SiteIntel with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 - [How to protect SiteIntel with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

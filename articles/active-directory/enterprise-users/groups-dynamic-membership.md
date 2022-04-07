@@ -4,12 +4,12 @@ description: How to create membership rules to automatically populate groups, an
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -26,7 +26,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 - You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
 > [!NOTE]
-> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
+> This feature requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 > No license is required for devices that are members of a dynamic device group.
 
 ## Rule builder in the Azure portal
@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
@@ -199,7 +199,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
 
 The following are examples of properly constructed membership rules with multiple expressions:
 
@@ -264,7 +264,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom an Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -361,7 +361,7 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. 
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
 
 For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
@@ -375,7 +375,7 @@ You can also create a rule that selects device objects for membership in a group
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
 >
-> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0.17763"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -startsWith "10.0.1"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
 
 The following device attributes can be used.
 
@@ -384,14 +384,14 @@ The following device attributes can be used.
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | any string value |(device.displayName -eq "Rob iPhone")
  deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
- deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
+ deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -startsWith "10.0.1")
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
+ managementType | MDM (for mobile devices) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")

@@ -169,7 +169,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -348,4 +348,4 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 Advance to the next article to learn how to load balance VMs across availability zones:
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Load balance VMs across availability zones](./quickstart-load-balancer-standard-public-portal.md)

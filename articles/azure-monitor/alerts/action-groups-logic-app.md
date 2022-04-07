@@ -4,7 +4,7 @@ description: Learn how to create a logic app action to process Azure Monitor ale
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 2/23/2022
 ---
 # How to trigger complex actions with Azure Monitor alerts
 
@@ -83,9 +83,9 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Add an action](media/action-groups-logic-app/add-action.png "Add an action")
 
-1. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams - Post message** action.
+1. Search for and select the Microsoft Teams connector. Choose the **Post message in a chat or channel** action.
 
-    ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams actions")
+    ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions-2.png "Microsoft Teams actions")
 
 1. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your work or school account. Choose the **Team ID** and **Channel ID** to send the message to.
 
@@ -163,7 +163,7 @@ Azure Service Health entries are part of the activity log. The process for creat
     ```
 
 -  Steps 5 and 6 are the same.
--  For steps 7 through 11, use the following process:
+-  For steps 7 through 10, use the following process:
 
    1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to make sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -172,34 +172,17 @@ Azure Service Health entries are part of the activity log. The process for creat
 
       !["Service Health payload condition"](media/action-groups-logic-app/service-health-payload-condition.png "Service Health payload condition")
 
-   1. In the **If true** condition, follow the instructions in steps 11 through 13 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
+   1. In the **If true** condition, follow the instructions in steps 6 through 8 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
 
-   1. Define the message by using a combination of HTML and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name:
+   1. Define the message by using a text and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name. Use edit options available in Message to add strong/bold texts and links. The link *"For details, log in to the Azure Service Health dashboard."* in the below image has the destination set to https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues 
 
-       ```html
-       <p>
-       <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
-       <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
-       <strong>Title:</strong>&nbsp;[title]</p>
-       <p>
-       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
-       </p>
-       <p>[communication]</p>
-       ```
-
-       !["Service Health true condition post action"](media/action-groups-logic-app/service-health-true-condition-post-action.png "Service Health true condition post action")
+       !["Service Health true condition post action"](media/action-groups-logic-app/service-health-true-condition-post-action-2.png "Service Health true condition post action")
 
    1. For the **If false** condition, provide a useful message:
 
-       ```html
-       <p><strong>Service Health Alert</strong></p>
-       <p><b>Unrecognized alert schema</b></p>
-       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
-       ```
+       !["Service Health false condition post action"](media/action-groups-logic-app/service-health-false-condition-post-action-2.png "Service Health false condition post action")
 
-       !["Service Health false condition post action"](media/action-groups-logic-app/service-health-false-condition-post-action.png "Service Health false condition post action")
-
-- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
+- Step 11 is the same. Follow the instructions to save your logic app and update your action group.
 
 ## Create a metric alert
 
@@ -251,7 +234,7 @@ The process for creating a metric alert is similar to [creating an activity log 
     ```
 
 - Steps 5 and 6 are the same.
-- For steps 7 through 11, use the following process:
+- For steps 7 through 10, use the following process:
 
   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to makes sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -261,13 +244,13 @@ The process for creating a metric alert is similar to [creating an activity log 
 
   1. In the **If true** condition, add a **For each** loop and the Microsoft Teams action. Define the message by using a combination of HTML and dynamic content.
 
-      !["Metric alert true condition post action"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
+      !["Metric alert true condition post action"](media/action-groups-logic-app/metric-alert-true-condition-post-action-2.png "Metric alert true condition post action")
 
   1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn't match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
 
-      !["Metric alert false condition post action"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
+      !["Metric alert false condition post action"](media/action-groups-logic-app/metric-alert-false-condition-post-action-2.png "Metric alert false condition post action")
 
-- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
+- Step 11 is the same. Follow the instructions to save your logic app and update your action group.
 
 ## Calling other applications besides Microsoft Teams
 Logic Apps has a number of different connectors that allow you to trigger actions in a wide range of applications and databases. Slack, SQL Server, Oracle, Salesforce, are just some examples. For more information about connectors, see [Logic App connectors](../../connectors/apis-list.md).  

@@ -1,25 +1,24 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 04/28/2021
+ms.date: 08/17/2021
 ms.topic: overview
-ms.custom: contperf-fy21q1
 ---
 # What are Azure management groups?
 
-If your organization has many subscriptions, you may need a way to efficiently manage access,
-policies, and compliance for those subscriptions. Azure management groups provide a level of scope
-above subscriptions. You organize subscriptions into containers called "management groups" and apply
-your governance conditions to the management groups. All subscriptions within a management group
-automatically inherit the conditions applied to the management group. Management groups give you
-enterprise-grade management at a large scale no matter what type of subscriptions you might have.
-All subscriptions within a single management group must trust the same Azure Active Directory
+If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
+policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
+above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+cascade by inheritence to all associated subscriptions.
+
+Management groups give you
+enterprise-grade management at scale no matter what type of subscriptions you might have.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD)
 tenant.
 
 For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all management groups,
-subscriptions, and resources under that management group by only allowing VMs to be created in that
-region.
+virtual machine (VM) creation. This policy would be applied to all nested management groups,
+subscriptions, and resources, and allow VM creation only in authorized regions.
 
 ## Hierarchy of management groups and subscriptions
 
@@ -39,10 +38,10 @@ owner allowing for improved governance.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
-[Azure role assignment](../../role-based-access-control/overview.md) on the
-management group, which will inherit that access to all the subscriptions. One assignment on the
-management group can enable users to have access to everything they need instead of scripting Azure RBAC
-over different subscriptions.
+[Azure role assignment](../../role-based-access-control/overview.md) on the management group, which
+will inherit that access to all the subscriptions. One assignment on the management group can enable
+users to have access to everything they need instead of scripting Azure RBAC over different
+subscriptions.
 
 ### Important facts about management groups
 
@@ -58,8 +57,8 @@ over different subscriptions.
 
 Each directory is given a single top-level management group called the "Root" management group. This
 root management group is built into the hierarchy to have all management groups and subscriptions
-fold up to it. This root management group allows for global policies and Azure role assignments to be
-applied at the directory level. The [Azure AD Global Administrator needs to elevate
+fold up to it. This root management group allows for global policies and Azure role assignments to
+be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
 assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,

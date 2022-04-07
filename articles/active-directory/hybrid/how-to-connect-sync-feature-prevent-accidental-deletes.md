@@ -1,19 +1,18 @@
 ---
 title: 'Azure AD Connect sync: Prevent accidental deletes | Microsoft Docs'
-description: This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
+description: This topic describes how to prevent accidental deletes in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -25,7 +24,7 @@ This topic describes the prevent accidental deletes (preventing accidental delet
 When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
 
 ## What is prevent accidental deletes
-Common scenarios when you see many deletes include:
+Common scenarios involving many deletes include:
 
 * Changes to [filtering](how-to-connect-sync-configure-filtering.md) where an entire [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) or [domain](how-to-connect-sync-configure-filtering.md#domain-based-filtering) is unselected.
 * All objects in an OU are deleted.
@@ -54,16 +53,15 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 ![Search Connector Space](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] If you aren't sure all deletes are desired, and wish to go down a safer route. You can use the PowerShell cmdlet : `Enable-ADSyncExportDeletionThreshold` to set a new threshold rather than disabling the threshold which could allow undesired deletions. 
+[!NOTE] If you aren't sure all deletes are desired, and wish to go down a safer route. You can use the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold` to set a new threshold rather than disabling the threshold which could allow undesired deletions. 
 
 ## If all deletes are desired
 If all the deletes are desired, then do the following:
 
-1. To retrieve the current deletion threshold, run the PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password. The default value is 500.
-2. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
-   ![Screenshot shows a dialog box for entering the Azure AD Global Administrator user name and password.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+1. To retrieve the current deletion threshold, run the PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`. The default value is 500.
+2. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`.
 3. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
-4. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Replace 500 with the value you noticed when retrieving the current deletion threshold. Provide an Azure AD Global Administrator account and password.
+4. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Replace 500 with the value you noticed when retrieving the current deletion threshold.
 
 ## Next steps
 **Overview topics**

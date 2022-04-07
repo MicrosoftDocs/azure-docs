@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot a declined card at Azure sign-up
 description: Resolve declined credit card at Azure sign-up in the Azure portal.
-author: v-miegge
-ms.reviewer: judupont
+author: bandersmsft
+ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 05/13/2021
+ms.date: 12/01/2021
 ms.author: banders
 ---
 
@@ -25,7 +25,7 @@ When you choose a card, Azure displays the card options that are valid in the co
 
 ## You're using a virtual or prepaid card
 
-Virtual or prepaid credit or debit cards aren't accepted as payment for Azure subscriptions.
+Prepaid and virtual cards aren't accepted as payment for Azure subscriptions.
 
 ## Your credit information is inaccurate or incomplete
 
@@ -62,7 +62,7 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 

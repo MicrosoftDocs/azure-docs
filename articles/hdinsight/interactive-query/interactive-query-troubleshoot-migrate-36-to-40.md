@@ -13,9 +13,11 @@ This article provides answers to some of the most common issues that customers f
 ## Reduce latency when running `DESCRIBE TABLE_NAME`
 
 Workaround:
+
 * Increase maximum number of objects (tables/partitions) that can be retrieved from metastore in one batch. Set it to a large number (default is 300) until satisfactory latency levels are reached. The higher the number, the fewer round trips are needed to the Hive metastore server, but it may also cause higher memory requirement at the client side.
 
-    ```hive.metastore.batch.retrieve.max=2000```
+  `hive.metastore.batch.retrieve.max=2000`
+
 * Restart Hive and all stale services
 
 ## Unable to query Gzipped text file if skip.header.line.count and skip.footer.line.count are set for table
@@ -56,7 +58,7 @@ from uuid_test
 
 It's caused by the difference of WebHCat(Templeton) between HDInsight 3.6 and HDInsight 4.0.
 
-* Hive Rest API - add ```arg=--showHeader=false -d arg=--outputformat=tsv2 -d```
+* Hive REST API - add ```arg=--showHeader=false -d arg=--outputformat=tsv2 -d```
 
 * .NET SDK - initialize args of ```HiveJobSubmissionParameters```
     ```csharp
@@ -133,14 +135,16 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 ## Permission errors in Hive job after upgrading to HDInsight 4.0
 
 * In HDInsight 4.0, all cluster shapes with Hive components are configured with a new authorization provider:
-```org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider```
+
+  `org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider`
 
 * HDFS file permissions should be assigned to the hive user for the file being accessed. The error message provides the details needed to resolve the issue.
 
 * You can also switch to ```MetaStoreAuthzAPIAuthorizerEmbedOnly``` provider used in HDInsight 3.6 Hive clusters.
-```org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly```
 
-    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly" border="true":::
+  `org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly`
+
+  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly" border="true":::
 
 ## Unable to query table with OpenCSVSerde
 

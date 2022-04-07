@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template)
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with an ARM template
@@ -132,13 +132,13 @@ Sign in to your Azure account and select your subscription.
 
 ## Review deployed resources
 
-1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az_resource_list) and look for the new provisioning service and IoT hub in the output:
+1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az-resource-list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az_iot_dps_show).
+2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az-iot-dps-show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>
@@ -166,4 +166,4 @@ You can also delete resource groups and individual resources using the Azure por
 In this quickstart, you've deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
-> [Quickstart to provision a device](./quick-create-simulated-device-symm-key.md)
+> [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

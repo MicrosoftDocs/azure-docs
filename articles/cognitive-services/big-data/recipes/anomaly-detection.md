@@ -10,6 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 

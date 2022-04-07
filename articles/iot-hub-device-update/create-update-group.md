@@ -11,6 +11,10 @@ ms.service: iot-hub-device-update
 # Create device groups in Device Update for IoT Hub
 Device Update for IoT Hub allows deploying an update to a group of IoT devices.
 
+  > [!NOTE] 
+  > If you would like to deploy to a default group instead of a user-created group, you can directly move to [How to Deploy an Update](deploy-update.md)
+
+
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
@@ -32,7 +36,7 @@ You can update the Device Twin with the appropriate Tag using RegistryManager af
 
 #### Device Update Tag Format
 
-```markdown
+```json
      "tags": {
               "ADUGroup": "<CustomTagValue>"
              }
@@ -78,21 +82,21 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
 2. Select the IoT Hub you previously connected to your Device Update instance.
 
-3. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+3. Select the Updates option under Device Management from the left-hand navigation bar.
 
-4. Select the Groups tab at the top of the page. You will be able to see the number of devices connected to Device Update that are not grouped yet.
+4. Select the Groups and Deployments tab at the top of the page. 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. Select the Add button to create a new group.
+5. Select the "Add group" button to create a new group.
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
 
-6. Select an IoT Hub tag from the list and then select Create update group.
+6. Select an IoT Hub tag and Device Class from the list and then select Create group.
    :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
 
-7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, Updates in Progress and Devices not yet Grouped. [Learn  about update compliance.](device-update-compliance.md)
+7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-8. You should see your newly created group and any available updates for the devices in the new group. You can deploy the update to the new group from this view by clicking on the update name. See Next Step: Deploy Update for more details.
+8. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group. See Next Step: Deploy Update for more details.
 
 ## View Device details for the group you created
 

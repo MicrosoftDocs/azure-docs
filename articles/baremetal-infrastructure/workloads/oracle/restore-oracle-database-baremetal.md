@@ -3,7 +3,7 @@ title: Restore Oracle Database
 description: Learn how to restore your Oracle Database on BareMetal Infrastructure using SnapCenter.
 ms.topic: how-to
 ms.subservice: baremetal-oracle
-ms.date: 05/07/2021
+ms.date: 10/12/2021
 ---
 
 # Restore Oracle Database
@@ -15,7 +15,7 @@ You have several options to restore your Oracle Database on BareMetal Infrastruc
 Typically, you'll restore the most current snapshots for data and archive log volumes, as the goal is to restore the database to the last known recovery point. Restoring snapshots is a permanent process. 
 
 >[!IMPORTANT]
->Great care is required to ensure that the appropriate snapshot is restored. Restoring from a snapshot deletes all other snapshots and their associated data. This includes even more current snapshots than the one you select for restoration. So we recommend you approach the restore process conservatively. Error on the side of using a more recent snapshot first if there is any question as to which snapshot should be recovered.
+>Great care is required to ensure that the appropriate snapshot is restored. Restoring from a snapshot deletes all other snapshots and their associated data. This includes even more current snapshots than the one you select for restoration. So we recommend you approach the restore process conservatively. Error on the side of using a more recent snapshot first if there's any question as to which snapshot should be recovered.
 
 ## Restore database locally with restored archive logs
 
@@ -65,7 +65,7 @@ Before attempting recovery, the database must be taken offline if it isn't alrea
 
 12. On the **Summary** tab: Verify all details are correct. Select **Finish**.
 
-13. You can see the restore status by selecting the restore job in the **Activity** bottom screen. You can follow the progress by selecting the green arrows to open up each restore subsection and its progress.
+13. You can see the restore status by selecting the restore job in the **Activity** bottom screen. Follow the progress by selecting the green arrows to open up each restore subsection and its progress.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/restore-job-details.png" alt-text="Screenshot showing the restore job details.":::
 
@@ -81,9 +81,9 @@ Cloning the database is similar to the restore process. The clone database opera
 
 ### Create a clone
 
-Creating a clone is a feature within SnapCenter that allows you to use a snapshot as a point-in-time reference to capture a similar set of data between the parent volume and the cloned volume by using pointers. The cloned volume is then read-writable and expanded only through writes, while any reads still occur on the parent volume. This feature allows you to create a "duplicate" set of data available to a host without interfering with the data that exists on the parent volume. 
+SnapCenter allows you to create a clone, so you can use a snapshot as a point-in-time reference. You can then capture a similar set of data between the parent volume and the cloned volume by using pointers. The cloned volume is read-writable and expanded only through writes. Yet reads still occur on the parent volume. This feature allows you to create a "duplicate" set of data available to a host without interfering with the data that exists on the parent volume. 
 
-This feature is especially useful for disaster recovery testing, as a temporary file system can be stood up based on the same snapshots that will be used in an actual recovery. You can verify data and that applications work as expected, and then shut down the disaster recovery test, without impacting the disaster recovery volumes or replication.
+This feature is especially useful for disaster recovery testing. A temporary file system can be stood up based on the same snapshots that will be used in an actual recovery. You can verify data and that applications work as expected, and then shut down the disaster recovery test, without impacting the disaster recovery volumes or replication.
 
 Here are the steps to clone a database. 
 
@@ -104,7 +104,7 @@ Here are the steps to clone a database.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/clone-database-select-host.png" alt-text="Screenshot showing how to select a host to clone.":::
 
-5. On the **Credentials** tab: The Credentials and Oracle Home Settings values are pulled from the existing production location. We recommend leaving these as is unless you know the secondary location has different values than the primary location. Select **Next**.
+5. On the **Credentials** tab: The Credentials and Oracle Home Settings values are pulled from the existing production location. We recommend leaving these alone unless you know the secondary location has different values than the primary location. Select **Next**.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/clone-database-credentials.png" alt-text="Screenshot for entering the database credentials for clone.":::
 
@@ -118,7 +118,7 @@ Here are the steps to clone a database.
 
 10. The clone job will show in the active pop-up at the bottom of the screen. Select the clone activity to display the job details. Once the activity has finished, the Job Details page will show all green check marks and provide the completion time. Cloning usually takes around 7-10 minutes.
 
-11. After the job is complete, switch to the host used as the target for the clone and verify mount points using cat /etc/fstab. This verification ensures the appropriate mount points exist for the database that were listed during the clone wizard, and also highlights the database SID entered in the wizard. In the example below, the SID is dbsc4 as given by the mount points on the host.
+11. After the job is complete, switch to the host used as the target for the clone and verify mount points using cat /etc/fstab. This verification ensures the appropriate mount points exist for the database listed during the clone wizard. It also highlights the database SID entered in the wizard. In the example below, the SID is dbsc4 as given by the mount points on the host.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/clone-database-switch-to-target-host.png" alt-text="Screenshot of command to switch to target host.":::
 
@@ -128,7 +128,7 @@ Here are the steps to clone a database.
 
 13. Enter **sqlplus / as sysdba**. Since the table was created under a different user, the original, invalid username and password are automatically entered. Enter the correct username and password. The SQL> prompt will display once the sign in is successful.
 
-Enter a query of the basic database to verify the appropriate data is received. In the following example, we used the archive logs to roll forward the database. The following shows the archive logs were used appropriately, as the clonetest entry was created after the data backup was created. So if the archive logs didn't roll forward, that entry would not be listed.
+Enter a query of the basic database to verify the appropriate data is received. In the following example, we used the archive logs to roll forward the database. The following shows the archive logs were used appropriately, as the clone test entry was created after the data backup was created. So if the archive logs didn't roll forward, that entry wouldn't be listed.
 
 ```sql
 SQL> select * from acolvin.t;
@@ -172,7 +172,7 @@ BILLY
 
 ### Delete a clone
 
-It's important to delete a clone once you're finished with it. If you intend to continue to use it, you should split the clone. A snapshot that is the parent for a clone cannot be deleted and is skipped as part of the retention count. If you don't delete clones as you finish with them, the number of snapshots you're maintaining could use excessive storage. 
+It's important to delete a clone once you're finished with it. If you intend to continue to use it, you should split the clone. A snapshot that is the parent for a clone can't be deleted and is skipped as part of the retention count. If you don't delete clones as you finish with them, the number of snapshots you're maintaining could use excessive storage. 
 
 A split clone copies the data from the existing volume and snapshot into a new volume. This process severs the relationship between the clone and the parent snapshot, allowing the snapshot to be deleted when its retention number is reached. If its retention number has already been reached, the snapshot will be deleted at the next snapshot. Still, a split clone also incurs storage cost.
 
@@ -196,9 +196,9 @@ When a clone is created, the resource tab for that database will list a clone pr
 
 ### Split a Clone
 
-Splitting a clone creates a copy of the parent volume by replicating all data in the parent volume to the point where the snapshot used to create the clone was created. This process separates the parent volume from the clone volume and removes the hold on the snapshot used to create the clone volume. The snapshot can then be deleted as part of the retention policy.
+Splitting a clone creates a copy of the parent volume. It replicates all data in the parent volume to the point where the snapshot used to create the clone was created. This separates the parent volume from the clone volume and removes the hold on the snapshot used to create the clone volume. The snapshot can then be deleted as part of the retention policy.
 
-Splitting a clone is useful to populate data in either the production environment or the disaster recovery environment. Splitting allows the new volumes to function independently of the parent volume.
+Splitting a clone is useful to populate data in either the production environment or the disaster recovery environment. It allows the new volumes to function independently of the parent volume.
 
 >[!NOTE]
 >The split clone process cannot be reversed nor canceled.
@@ -214,7 +214,7 @@ To split a clone:
     >[!NOTE]
     >The split process can take a significant amount of time depending on how much data must be copied, the layout of the database on storage, and the activity level of storage.
 
-After the process is finished, the clone that was split is removed from the list of backups, and the snapshot associated with the clone is now free to be removed as part of the normal retention plan on SnapCenter.
+After the process is finished, the clone that was split is removed from the list of backups. The snapshot associated with the clone is now free to be removed as part of the normal retention plan on SnapCenter.
 
 ## Restore database remotely after disaster recovery event
 
@@ -222,7 +222,7 @@ SnapCenter isn't currently designed to automate the failover process. If a disas
 
 ## Restart all RAC nodes after restore
 
-After you've restored the database in SnapCenter, it's only active on the RAC node you selected when restoring the database, as shown below. In this example, we restored the database to bn6sc2 to demonstrate that you can select any RAC node to perform the restore.
+After you've restored the database in SnapCenter, it's only active on the RAC node you selected when restoring the database, as shown below. In this example, we restored the database to bn6sc2 to demonstrate you can select any RAC node to do the restore.
 
 :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/restore-database-example-output-rac-node.png" alt-text="Screenshot showing the database was restored to bn6sc2.":::
 
@@ -243,7 +243,7 @@ After cloning or restoring a database, the log archives volume should be unmount
 4. You can see the status of the unmount job by selecting **Monitor** on the left menu. A green check mark will show when the volume is unmounted.
 
 >[!NOTE]
->Selecting unmount removes the entry from the /etc/fstab on the host it is mounted on. Unmount also frees the backup for deletion as necessary as part of the retention policy set in the protection policy.
+>Selecting unmount removes the entry from the /etc/fstab on the host it's mounted on. Unmount also frees the backup for deletion as necessary as part of the retention policy set in the protection policy.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Kubernetes Service as Event Grid source (Preview)
 description: This article describes how to use Azure Kubernetes Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 author: zr-msft
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 10/04/2021
 ms.author: zarhoads
 ---
 
@@ -75,10 +75,7 @@ This section contains an example of what that data would look like for each even
     },
     "dataVersion": "1",
     "metadataVersion": "1",
-    "eventTime": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "eventTime": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -97,10 +94,7 @@ This section contains an example of what that data would look like for each even
       "latestPreviewKubernetesVersion": "1.21.1"
     },
     "specversion": "1.0",
-    "time": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "time": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 

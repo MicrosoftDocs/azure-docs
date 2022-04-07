@@ -14,14 +14,17 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 # Create a virtual machine scale set that uses Availability Zones
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set across Availability Zones. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
 ## Availability considerations
 
 When you deploy a regional (non-zonal) scale set into one or more zones as of API version *2017-12-01*, you have the following availability options:
+
 - Max spreading (platformFaultDomainCount = 1)
 - Static fixed spreading (platformFaultDomainCount = 5)
-- Spreading aligned with storage disk fault domains (platforFaultDomainCount = 2 or 3)
+- Spreading aligned with storage disk fault domains (platformFaultDomainCount = 2 or 3)
 
 With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
@@ -32,7 +35,7 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 
 ### Placement groups
 
-When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
+When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
 > [!NOTE]
 > If you use max spreading, you must use multiple placement groups.
@@ -41,7 +44,7 @@ When you deploy a scale set, you also have the option to deploy with a single [p
 
 Finally, for scale sets deployed across multiple zones, you also have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone the same number of VMs or +\\- 1 VM in all other zones for the scale set. For example:
 
-- A scale set with 2 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced. There is only one zone with a different VM count and it is only 1 less than the other zones. 
+- A scale set with 2 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced. There is only one zone with a different VM count and it is only 1 less than the other zones.
 - A scale set with 1 VM in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3.
 
 It's possible that VMs in the scale set are successfully created, but extensions on those VMs fail to deploy. These VMs with extension failures are still counted when determining if a scale set is balanced. For instance, a scale set with 3 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced even if all extensions failed in zone 1 and all extensions succeeded in zones 2 and 3.
@@ -49,6 +52,9 @@ It's possible that VMs in the scale set are successfully created, but extensions
 With best-effort zone balance, the scale set attempts to scale in and out while maintaining balance. However, if for some reason this is not possible (for example, if one zone goes down, the scale set cannot create a new VM in that zone), the scale set allows temporary imbalance to successfully scale in or out. On subsequent scale-out attempts, the scale set adds VMs to zones that need more VMs for the scale set to be balanced. Similarly, on subsequent scale in attempts, the scale set removes VMs from zones that need fewer VMs for the scale set to be balanced. With "strict zone balance", the scale set fails any attempts to scale in or out if doing so would cause unbalance.
 
 To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
+
+>[!NOTE]
+> The `zoneBalance` property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 
 ## Single-zone and zone-redundant scale sets
 
@@ -59,7 +65,7 @@ When you create a scale set in a single zone, you control which zone all those V
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-region.md). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
-- Azure CLI
+- [Azure CLI](#use-the-azure-cli)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
@@ -75,7 +81,11 @@ The scale set and supporting resources, such as the Azure load balancer and publ
 
 The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](quick-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region.
 
-Add the `--zones` parameter to the [az vmss create](/cli/azure/vmss) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a single-zone scale set named *myScaleSet* in zone *1*:
+Add the `--zones` parameter to the [az vmss create](/cli/azure/vmss) command and specify which zone to use (such as zone *1*, *2*, or *3*).
+
+### Single-zone scale set
+
+The following example creates a single-zone scale set named *myScaleSet* in zone *1*:
 
 ```azurecli
 az vmss create \
@@ -88,7 +98,7 @@ az vmss create \
     --zones 1
 ```
 
-For a complete example of a single-zone scale set and network resources, see [this sample CLI script](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh)
+For a complete example of a single-zone scale set and network resources, see [this sample CLI script](scripts/cli-sample-single-availability-zone-scale-set.md#sample-script)
 
 ### Zone-redundant scale set
 
@@ -107,11 +117,13 @@ az vmss create \
     --zones 1 2 3
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
 
 ## Use Azure PowerShell
 
 To use Availability Zones, you must create your scale set in a supported Azure region. Add the `-Zone` parameter to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) command and specify which zone to use (such as zone *1*, *2*, or *3*).
+
+### Single-zone scale set
 
 The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
@@ -148,6 +160,8 @@ New-AzVmss `
 ## Use Azure Resource Manager templates
 
 The process to create a scale set that uses an Availability Zone is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
+
+### Single-zone scale set
 
 The following example creates a Linux single-zone scale set named *myScaleSet* in *East US 2* zone *1*:
 

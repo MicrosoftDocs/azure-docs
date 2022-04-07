@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Metrics for Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
 In Azure Spring Cloud, there are two viewpoints for metrics.
@@ -172,6 +174,20 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Number of sessions that have expired |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
+
+### Ingress
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Display Name             | Azure Metric Name        | Unit           | Details                                                                                                                                                                          |
+>|--------------------------|--------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+>| Bytes Received           | IngressBytesReceived     | Bytes          | Count of bytes received by Azure Spring Cloud from the clients                                                                                                                   |
+>| Bytes Sent               | IngressBytesSent         | Bytes          | Count of bytes sent by Azure Spring Cloud to the clients                                                                                                                         |
+>| Requests                 | IngressRequests          | Count          | Count of requests by Azure Spring Cloud from the clients                                                                                                                         |
+>| Failed Requests          | IngressFailedRequests    | Count          | Count of failed requests by Azure Spring Cloud from the clients                                                                                                                  |
+>| Response Status          | IngressResponseStatus    | Count          | HTTP response status returned by Azure Spring Cloud. The response status   code distribution can be further categorized to show responses in 2xx, 3xx,   4xx, and 5xx categories |
+>| Response Time            | IngressResponseTime      | Seconds        | Http response time return by Azure Spring Cloud                                                                                                                                  |
+>| Throughput In (bytes/s)  | IngressBytesReceivedRate | BytesPerSecond | Bytes received per second by Azure Spring Cloud from the clients                                                                                                                 |
+>| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Cloud to the clients                                                                                                                       |
 
 ## Next steps
 

@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn about how to create a GitHub Actions workflow to train a model on Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
-ms.date: 10/19/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: github-actions-azure
 ---
@@ -50,7 +50,7 @@ Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Le
 
 ## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -78,7 +78,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 ## Connect to the workspace
 
-Use the [Azure Machine Learning Workspace action](https://github.com/marketplace/actions/azure-machine-learning-workspace) to connect to your Azure Machine Learning workspace. 
+Use the **Azure Machine Learning Workspace action** to connect to your Azure Machine Learning workspace. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace

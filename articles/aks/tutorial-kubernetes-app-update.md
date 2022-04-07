@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 services: container-service
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 12/20/2021
 
 ms.custom: mvc, devx-track-azurepowershell
 
@@ -78,7 +78,7 @@ The updated values provided in the *config_file.cfg* file are displayed in your 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr) command:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list][az-acr-list] command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -200,7 +200,8 @@ Advance to the next tutorial to learn how to upgrade an AKS cluster to a new ver
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: /cli/azure/acr
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-list]: /cli/azure/acr#az_acr_list
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry

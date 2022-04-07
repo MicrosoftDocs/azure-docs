@@ -2,7 +2,7 @@
 title: High availability and disaster recovery
 description: Learn how to design your Batch application for a regional outage.
 ms.topic: how-to
-ms.date: 12/30/2020
+ms.date: 09/08/2021
 ---
 
 # Design your Batch application for high availability
@@ -30,6 +30,7 @@ Consider the following points when designing a solution that can failover:
 - Use templates and/or scripts to automate the deployment of the application in a region.
 - Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files. For example, if a custom application to install on pool nodes is stored and referenced using Batch application packages, then when a new version of the application is produced, it should be uploaded to each Batch account and referenced by the pool configuration (or make the new version the default version).
 - In the application calling Batch, storage, and any other services, make it easy to switch over clients or the load to different regions.
+- When applicable, consider [creating pools across Availability Zones](create-pool-availability-zones.md).
 - Consider frequently switching over to an alternate region as part of normal operation. For example, with two deployments in separate regions, switch over to the alternate region every month.
 
 ## Next steps

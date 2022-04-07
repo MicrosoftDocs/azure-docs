@@ -108,11 +108,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Code42 SSO
 
-To configure single sign-on on **Code42** side, you need to send the **App Federation Metadata Url** to [Code42 support team](mailto:idpsupport@code42.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Code42** side, you need to send the **App Federation Metadata Url** to [Code42 support team](http://gethelp.code42.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Code42 test user
 
-In this section, you create a user called B.Simon in Code42. Work with [Code42 support team](mailto:idpsupport@code42.com) to add the users in the Code42 platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Code42. Work with [Code42 support team](http://gethelp.code42.com/) to add the users in the Code42 platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -122,8 +122,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Code42 Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Code42 tile in the My Apps, this will redirect to Code42 Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Code42 tile in the My Apps, this will redirect to Code42 Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Code42 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Code42 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

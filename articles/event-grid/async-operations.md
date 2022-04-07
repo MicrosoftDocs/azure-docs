@@ -3,6 +3,7 @@ title: Status of Event Grid asynchronous operations
 description: Describes how to track Event Grid asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
 ms.date: 07/2/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

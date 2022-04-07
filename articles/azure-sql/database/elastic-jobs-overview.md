@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs (preview)
@@ -66,15 +66,25 @@ Elastic Jobs use minimal compute resources while waiting for long-running jobs t
 
 Depending on the size of the target group of databases and the desired execution time for a job (number of concurrent workers), the agent requires different amounts of compute and performance of the *Job database* (the more targets and the higher number of jobs, the higher the amount of compute required).
 
-Currently, the preview is limited to 100 concurrent jobs.
-
 ### Prevent jobs from reducing target database performance
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
 Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL.
 
+
+### Known limitations
+
+These are the current limitations to the Elastic Jobs service.  We're actively working to remove as many of these limitations as possible.
+
+| Issue | Description |
+| :---- | :--------- |
+| The Elastic Job agent needs to be recreated and started in the new region after a failover/move to a new Azure region. | The Elastic Jobs service stores all its job agent and job metadata in the jobs database. Any failover or move of Azure resources to a new Azure region will also move the jobs database, job agent and jobs metadata to the new Azure region. However, the Elastic Job agent is a compute only resource and needs to be explicitly re-created and started in the new region before jobs will start executing again in the new region. Once started, the Elastic Job agent will resume executing jobs in the new region as per the previously defined job schedule. |
+| Concurrent jobs limit. | Currently, the preview is limited to 100 concurrent jobs. |
+
 ## Best practices for creating jobs
+
+Consider the following best practices when working with Elastic Database jobs:
 
 ### Idempotent scripts
 A job's T-SQL scripts must be [idempotent](https://en.wikipedia.org/wiki/Idempotence). **Idempotent** means that if the script succeeds, and it is run again, the same result occurs. A script may fail due to transient network issues. In that case, the job will automatically retry running the script a preset number of times before desisting. An idempotent script has the same result even if its been successfully run twice (or more).

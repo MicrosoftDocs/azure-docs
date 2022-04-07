@@ -14,7 +14,9 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 # Azure Disk Encryption sample scripts for Linux VMs
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.  
 
 > [!NOTE]
 > All scripts refer to the latest, non-AAD version of ADE, except where noted.
@@ -84,7 +86,7 @@ The following table shows which parameters can be used in the PowerShell script:
 * The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](disk-encryption-overview.md#supported-vms)
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
-* (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
+* (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/sect-security-enhanced_linux-working_with_selinux-changing_selinux_modes#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
 * After you disable SELinux, reboot the VM at least once.
 
 ### Steps
@@ -440,7 +442,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/wrapkey) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/keys/wrap-key) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

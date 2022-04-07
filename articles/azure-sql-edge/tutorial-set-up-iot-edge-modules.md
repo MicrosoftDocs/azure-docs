@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sourabha, sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 
@@ -46,7 +46,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 ## Build, push, and deploy the Data Generator Module
 
-1. Clone the [project files](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) to your machine.
+1. Clone the project files to your machine.
 2. Open the file **IronOre_Silica_Predict.sln** using Visual Studio 2019
 3. Update the container registry details in the **deployment.template.json**
    ```json

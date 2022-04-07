@@ -55,7 +55,7 @@ Before you can create an Azure Front Door Standard/Premium origin, you must have
     > [!IMPORTANT]
     > During configuration, APIs don't validate if the origin is inaccessible from Front Door environments. Make sure that Front Door can reach your origin.
 
-1. Select **Add** to create the new origin. The created origin should appear in the origin list with the group.
+1. Select **Add** to create the new origin. The created origin should appear in the origin list with the group. The health probe path is case sensitive.
   
     :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Screenshot of origin in list view.":::
 
@@ -68,7 +68,7 @@ To delete an Origin group when you no longer needed it, click the **...** and th
 
 To delete an origin when you no longer need it, click the **...** and then select **Delete** from the drop-down. 
 
-:::image type="content" source="../media/how-to-create-origin/delete-origin-view.png" alt-text="Screenshot of how to delete an origin.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin.png" alt-text="Screenshot of how to delete an origin.":::
 
 ## Next steps
 

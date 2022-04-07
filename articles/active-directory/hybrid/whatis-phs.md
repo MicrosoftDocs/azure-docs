@@ -1,9 +1,8 @@
 ---
 title: 'What is password hash synchronization with Azure AD? | Microsoft Docs'
 description: Describes password hash synchronization.
-services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -25,13 +24,13 @@ Password hash synchronization helps by reducing the number of passwords, your us
 * Improve the productivity of your users.
 * Reduce your helpdesk costs.  
 
-Password Hash Sync also enables [leaked credential detection](../identity-protection/concept-identity-protection-risks.md#user-risk) for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of our users, the associated account is moved to high risk. 
+Password Hash Sync also enables [leaked credential detection](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of our users, the associated account is moved to high risk. 
 
 >[!NOTE]
 > Only new leaked credentials found after you enable PHS will be processed against your tenant. Verifying against previously found credential pairs is not performed.
 
 
-Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) as your sign-in method.
+Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](./how-to-connect-fed-whatis.md) as your sign-in method.
 
 To use password hash synchronization in your environment, you need to:
 

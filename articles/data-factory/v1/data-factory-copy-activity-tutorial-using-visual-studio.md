@@ -1,12 +1,13 @@
 ---
 title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
@@ -72,11 +73,11 @@ Here are the steps you perform as part of this tutorial:
 
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.  
 
-    ![New project dialog box](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png" alt-text="New project dialog box":::
 
 3. Specify the name of the project, location for the solution, and name of the solution, and then click **OK**.
 
-    ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png" alt-text="Solution Explorer":::    
 
 ## Create linked services
 
@@ -96,11 +97,11 @@ Linked services link data stores or compute services to an Azure data factory. S
 
 2. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
 
-    ![New Linked Service](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png" alt-text="New Linked Service":::
 
 3. Replace `<accountname>` and `<accountkey>`* with the name of your Azure storage account and its key. 
 
-    ![Azure Storage Linked Service](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png" alt-text="Azure Storage Linked Service":::
 
 4. Save the **AzureStorageLinkedService1.json** file.
 
@@ -238,52 +239,53 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
    ```json
-  {
-   "name": "ADFTutorialPipeline",
-   "properties": {
-     "description": "Copy data from a blob to Azure SQL table",
-     "activities": [
-       {
-         "name": "CopyFromBlobToSQL",
-         "type": "Copy",
-         "inputs": [
-           {
-             "name": "InputDataset"
-           }
-         ],
-         "outputs": [
-           {
-             "name": "OutputDataset"
-           }
-         ],
-         "typeProperties": {
-           "source": {
-             "type": "BlobSource"
+   {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
+             {
+               "name": "InputDataset"
+             }
+           ],
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
            },
-           "sink": {
-             "type": "SqlSink",
-             "writeBatchSize": 10000,
-             "writeBatchTimeout": "60:00:00"
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
            }
-         },
-         "Policy": {
-           "concurrency": 1,
-           "executionPriorityOrder": "NewestFirst",
-           "style": "StartOfInterval",
-           "retry": 0,
-           "timeout": "01:00:00"
          }
-       }
-     ],
-     "start": "2017-05-11T00:00:00Z",
-     "end": "2017-05-12T00:00:00Z",
-     "isPaused": false
+       ],
+       "start": "2017-05-11T00:00:00Z",
+       "end": "2017-05-12T00:00:00Z",
+       "isPaused": false
+     }
    }
-  }
-    ```   
+   ```
+
    - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
-   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
-   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
+   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.
      
      Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
      
@@ -302,7 +304,7 @@ In this step, you publish Data Factory entities (linked services, datasets, and 
 2. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
 3. You should see the following dialog box:
    
-   ![Publish dialog box](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
+   :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png" alt-text="Publish dialog box":::
 4. In the Configure data factory page, do the following steps: 
    
    1. select **Create New Data Factory** option.
@@ -322,16 +324,16 @@ In this step, you publish Data Factory entities (linked services, datasets, and 
    5. Select the **region** for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
    6. Click **Next** to switch to the **Publish Items** page.
       
-       ![Configure data factory page](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
+       :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png" alt-text="Configure data factory page":::   
 5. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
    
-   ![Publish items page](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)     
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png" alt-text="Publish items page":::     
 6. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
    
-   ![Publish summary page](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png" alt-text="Publish summary page":::
 7. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done.
  
-   ![Deployment status page](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png" alt-text="Deployment status page":::
 
 Note the following points: 
 
@@ -359,13 +361,13 @@ Navigate to the home page for your data factory:
 1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **More services** on the left menu, and click **Data factories**.
 
-  ![Browse data factories](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png" alt-text="Browse data factories":::
 3. Start typing the name of your data factory.
 
-  ![Name of data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png" alt-text="Name of data factory"::: 
 4. Click your data factory in the results list to see the home page for your data factory.
 
-  ![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png" alt-text="Data factory home page":::
 5. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
@@ -388,13 +390,13 @@ This section describes how to use the Server Explorer in Visual Studio to view a
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You see the status of this operation in the **Data Factory Task List** window.
 
-    ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png" alt-text="Server Explorer":::
 
 ## Create a Visual Studio project for an existing data factory
 
 - Right-click a data factory in Server Explorer, and select **Export Data Factory to New Project** to create a Visual Studio project based on an existing data factory.
 
-  ![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+  :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png" alt-text="Export data factory to a VS project":::  
 
 ## Update Data Factory tools for Visual Studio
 To update Azure Data Factory tools for Visual Studio, do the following steps:
@@ -427,7 +429,7 @@ Add a configuration file for each environment by performing the following steps:
 1. Right-click the Data Factory project in your Visual Studio solution, point to **Add**, and click **New item**.
 2. Select **Config** from the list of installed templates on the left, select **Configuration File**, enter a **name** for the configuration file, and click **Add**.
 
-    ![Add configuration file](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="Add configuration file":::
 3. Add configuration parameters and their values in the following format:
 
   ```json
@@ -505,7 +507,7 @@ To publish entities in an Azure Data Factory project using configuration file:
 2. Select an existing data factory or specify values for creating a data factory on the **Configure data factory** page, and click **Next**.   
 3. On the **Publish Items** page: you see a drop-down list with available configurations for the **Select Deployment Config** field.
 
-    ![Select config file](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png" alt-text="Select config file":::
 4. Select the **configuration file** that you would like to use and click **Next**.
 5. Confirm that you see the name of JSON file in the **Summary** page and click **Next**.
 6. Click **Finish** after the deployment operation is finished.

@@ -17,6 +17,9 @@ To review non-retryable errors and proceed with your order, do the following:
 
    Make a note of the **COPY LOG PATH** in **DATA COPY DETAILS**. You'll review the errors in the data copy log.
 
+   > [!NOTE]
+   > [!INCLUDE [data-box-copy-logs-behind-firewall](data-box-copy-logs-behind-firewall.md)]
+
 2. Select **Confirm device erasure** to open a review panel.
 
    ![Review and proceed panel for upload errors in the Azure portal](media/data-box-review-nonretryable-errors/copy-errors-in-upload-02.png)

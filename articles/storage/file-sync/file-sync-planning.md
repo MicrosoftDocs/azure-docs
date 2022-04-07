@@ -1,11 +1,11 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 04/05/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -50,7 +50,7 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 > You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
 
 ### Consider the count of Storage Sync Services needed
-A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers that it. 
+A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers on it. 
 
 Create multiple Storage Sync Services only if you have:
 * distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
@@ -69,6 +69,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
+| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
 | Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |
@@ -176,8 +177,37 @@ The following table shows the interop state of NTFS file system features:
 | $RECYCLE.BIN| Folder |
 | \\SyncShareState | Folder for Sync |
 
+### Consider how much free space you need on your local disk
+When planning on using Azure File Sync, consider how much free space you need on the local disk you plan to have a server endpoint on.
+
+With Azure File Sync, you will need to account for the following taking up space on your local disk:
+- With cloud tiering enabled:
+    - Reparse points for tiered files
+    - Azure File Sync metadata database
+    - Azure File Sync heatstore
+    - Fully downloaded files in your hot cache (if any)
+    - Volume free space policy requirements
+
+- With cloud tiering disabled:  
+    - Fully downloaded files
+    - Azure File Sync heatstore
+    - Azure File Sync metadata database
+
+We'll use an example to illustrate how to estimate the amount of free space would need on your local disk. Let's say you installed your Azure File Sync agent on your Azure Windows VM, and plan to create a server endpoint on disk F. You have 1 million files and would like to tier all of them, 100,000 directories, and a disk cluster size of 4 KiB. The disk size is 1000 GiB. You want to enable cloud tiering and set your volume free space policy to 20%. 
+
+1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
+> [!Note]  
+> The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
+3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
+4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
+5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
+
+In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
+
 ### Failover Clustering
-Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
+1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. 
+2. The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks
+3. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs) or local disks.
 
 > [!Note]  
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
@@ -226,6 +256,7 @@ For Azure File Sync and DFS-R to work side by side:
 
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
+3. Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations may lead to conflicts.
 
 For more information, see [DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
@@ -234,6 +265,9 @@ Using sysprep on a server that has the Azure File Sync agent installed is not su
 
 ### Windows Search
 If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+
+> [!Note]  
+> Windows clients will cause recalls when searching the file share if the **Always search file names and contents** setting is enabled on the client machine. This setting is disabled by default.
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
@@ -319,7 +353,7 @@ The following regions require you to request access to Azure Storage before you 
 - South Africa West
 - UAE Central
 
-To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
+To request access for these regions, follow the process in [this document](/troubleshoot/azure/general/region-access-request-process).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

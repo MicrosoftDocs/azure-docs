@@ -1,78 +1,37 @@
 ---
-title: Configure Windows endpoint monitoring
-description: Enrich data resolved on devices by working with Windows endpoint monitoring (WMI).
-ms.date: 05/03/2021
+title: Configure Windows endpoint monitoring for Defender for IoT devices
+description: Set up Windows endpoint monitoring (WMI) for Windows information on devices.
+ms.date: 02/01/2022
 ms.topic: how-to
 ---
 
 
 # Configure Windows endpoint monitoring (WMI)
 
-With the Windows endpoint monitoring capability, you can configure Azure Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
+Use WMI to scan Windows systems for focused and accurate device information, such as service pack levels. You can scan specific IP address ranges and hosts. You can perform scheduled or manual scans. When a scan is finished, you can view the results in a CSV log file. The log contains all the IP addresses that were probed, and success and failure information for each address. There's also an error code, which is a free string derived from the exception.  Note that:
 
-You can configure probing with specific ranges and hosts, and configure it to be performed only as often as desired. You accomplish selective probing by using the Windows Management Instrumentation (WMI), which is Microsoft's standard scripting language for managing Windows systems.
+- You can run only one scan at a time.
+- You get the best results with users who have domain or local administrator privileges.
+- Only the scan of the last log is kept in the system.
 
-> [!NOTE]
-> - You can run only one scan at a time.
-> - You get the best results with users who have domain or local administrator privileges.
-> - Before you begin the WMI configuration, configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
 
-When the probe is finished, a log file with all the probing attempts is available from the option to export a log. The log contains all the IP addresses that were probed. For each IP address, the log shows success and failure information. There's also an error code, which is a free string derived from the exception. The scan of the last log only is kept in the system.
+## Set up a firewall rule
 
-You can perform scheduled scans or manual scans. When a scan is finished, you can view the results in a CSV file.
+Before you begin scanning, create a firewall rule that allows outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
 
-**Prerequisites**
 
-Configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
+## Set up scanning
 
-## Perform an automatic scan
+1. In Defender for IoT select **System Settings**.
+1. Under **Network monitoring**, select **Windows Endpoint Monitoring (WMI)**
+1. In the **Windows Endpoint Monitoring (WMI) dialog, select **Add ranges**. You can also import and export ranges.
+1. Specify the IP address range you want to scan. You can add multiple ranges.
+1. Add your user name and password, and ensure that **Enable** is toggled on.
+1. In **Scan will run**, specify when you want the automatic scan to run. You can set an hourly interval between scans, or a specific scan time.
+1. If you want to run a scan immediately with the configured settings, select **Manually scan**.
+1. Select **Save** to save the automatic scan settings.
+1. When the scan is finished, select to view/export scan results.
 
-This section describes how to perform an automatic scan
+## Next steps
 
-**To perform an automatic scan:**
-
-1. On the side menu, select **System Settings**.
-
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the selection of Windows Endpoint Monitoring.":::
-
-3. On the **Scan Schedule** pane, configure options as follows:
-
-      - **By fixed intervals (in hours)**: Set the scan schedule according to intervals in hours.
-
-      - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/schedule-a-scan-screen-v2.png" alt-text="Screenshot that shows the Save Scan button.":::
-
-4. To define the scan range, select **Set scan ranges**.
-
-5. Set the IP address range and add your user and password.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/edit-scan-range-screen.png" alt-text="Screenshot that shows adding a user and password.":::
-
-6. To exclude an IP range from a scan, select **Disable** next to the range.
-
-7. To remove a range, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: next to the range.
-
-8. Select **Save**. The **Edit Scan Ranges Configuration** dialog box closes, and the number of ranges appears in the **Scan Ranges** pane.
-
-## Perform a manual scan
-
-**To perform a manual scan:**
-
-1. On the side menu, select **System Settings**.
-
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
-
-3. In the **Actions** pane, select **Start scan**. A status bar appears on the **Actions** pane and shows the progress of the scanning process.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/started-scan-screen-v2.png" alt-text="Screenshot that shows the Start scan button.":::
-
-## View scan results
-
-**To view scan results:**
-
-1. When the scan is finished, on the **Actions** pane, select **View Scan Results**. The CSV file with the scan results is downloaded to your computer.
+For more information, see [Work with device notifications](how-to-work-with-device-notifications.md).
