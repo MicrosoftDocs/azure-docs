@@ -123,7 +123,7 @@ While the above sample is for a console app, the same code can be used in any .N
 |**Latency**|Data displayed within one second|Aggregated over minutes|
 |**No retention**|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**On demand**|Data is only streamed while the Live Metrics pane is open |Data is sent whenever the SDK is installed and enabled|
-|**Free**|There is no charge for Live Stream data|Subject to [pricing](./pricing.md)
+|**Free**|There is no charge for Live Stream data|Subject to [pricing](../logs/cost-logs.md#application-insights-billing)
 |**Sampling**|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events may be [sampled](./api-filtering-sampling.md)|
 |**Control channel**|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
