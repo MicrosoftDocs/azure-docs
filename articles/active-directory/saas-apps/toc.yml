@@ -2505,6 +2505,8 @@
       items:
       - name: Adobe Identity Management
         href: adobe-identity-management-provisioning-tutorial.md
+      - name: Adobe Identity Management (OIDC)
+        href: adobe-identity-management-provisioning-oidc-tutorial.md
       - name: Airstack
         href: airstack-provisioning-tutorial.md
       - name: AlertMedia
@@ -2717,14 +2719,16 @@
         href: joyn-fsm-provisioning-tutorial.md
       - name: Juno Journey
         href: juno-journey-provisioning-tutorial.md
-      - name: Klaxoon
-        href: klaxoon-provisioning-tutorial.md 
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: Kisi Physical Security
         href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
         href: klaxoon-saml-provisioning-tutorial.md
+      - name: Klaxoon
+        href: klaxoon-provisioning-tutorial.md 
+      - name: KnowBe4 Security Awareness Training
+        href: knowbe4-security-awareness-training-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
       - name: KPN Grip
