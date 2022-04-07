@@ -26,7 +26,7 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ## In-region data residency
 
-A zone redundant App Service Environment will only store customer data within the region where it has been deployed. Both website file content as well as customer supplied settings and secrets stored in App Service remain within the region where the zone redundant App Service Environment is deployed.
+A zone redundant App Service Environment will only store customer data within the region where it has been deployed. Both app content, settings and secrets stored in App Service remain within the region where the zone redundant App Service Environment is deployed.
 
 ## Pricing
 
