@@ -144,9 +144,46 @@ The profanity filter options are:
 
 For example, to remove profane words from the speech recognition result, set the profanity filter to `Removed` as shown here:
 
+::: zone pivot="programming-language-csharp"
 ```csharp
-speech_config.SetProfanity(ProfanityOption.Removed);
+speechConfig.SetProfanity(ProfanityOption.Removed);
 ```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
+speechConfig->SetProfanity(ProfanityOption::Removed);
+```
+::: zone-end
+::: zone pivot="programming-language-go"
+```go
+speechConfig.SetProfanity(common.Removed)
+```
+::: zone-end
+::: zone pivot="programming-language-java"
+```java
+speechConfig.setProfanity(ProfanityOption.Removed);
+```
+::: zone-end
+::: zone pivot="programming-language-javascript"
+```javascript
+speechConfig.setProfanity(sdk.ProfanityOption.Removed);
+```
+::: zone-end
+::: zone pivot="programming-language-objectivec"
+```objective-c
+[self.speechConfig setProfanityOptionTo:SPXSpeechConfigProfanityOption.SPXSpeechConfigProfanityOption_ProfanityRemoved];
+```
+::: zone-end
+::: zone pivot="programming-language-swift"
+```swift
+self.speechConfig!.setProfanityOptionTo(SPXSpeechConfigProfanityOption_ProfanityRemoved)
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
+```
+::: zone-end
 
 Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
 
@@ -156,9 +193,47 @@ You can choose to capitalize the partial intermediate results. This is useful if
 
 To request capitalization of partial intermediate results, set the `SpeechServiceResponse_PostProcessingOptions` property to `TrueText` as shown here:
 
+::: zone pivot="programming-language-csharp"
 ```csharp
-speech_config.SetProperty ("SpeechServiceResponse_PostProcessingOption", "TrueText");
+speechConfig.SetProperty(PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
 ```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
+speechConfig->SetProperty(PropertyId::SpeechServiceResponse_PostProcessingOption, "TrueText");
+```
+::: zone-end
+::: zone pivot="programming-language-go"
+```go
+speechConfig.SetProperty(common.SpeechServiceResponsePostProcessingOption, "TrueText")
+```
+::: zone-end
+::: zone pivot="programming-language-java"
+```java
+speechConfig.setProperty(PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
+```
+::: zone-end
+::: zone pivot="programming-language-javascript"
+```javascript
+speechConfig.setProperty(sdk.PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
+```
+::: zone-end
+::: zone pivot="programming-language-objectivec"
+```objective-c
+[self.speechConfig setPropertyTo:@"TrueText" byId:SPXSpeechServiceResponsePostProcessingOption];
+```
+::: zone-end
+::: zone pivot="programming-language-swift"
+```swift
+self.speechConfig!.setPropertyTo("TrueText", by: SPXPropertyId.speechServiceResponsePostProcessingOption)
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+speech_config.set_property(property_id = speechsdk.PropertyId.SpeechServiceResponse_PostProcessingOption, value = "TrueText")
+```
+::: zone-end
+
 
 ## Language identification
 

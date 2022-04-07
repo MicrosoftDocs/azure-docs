@@ -22,13 +22,13 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
-1. Replace the contents of `SpeechRecognition.java` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
+1. Open a command prompt where you want the new project, and create a new file named `Captioning.java`.
+1. Replace the contents of `Captioning.java` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
 
 Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 
 ```console
-java SpeechRecognition -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
+java Captioning -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
 ```
 
 Usage options include:

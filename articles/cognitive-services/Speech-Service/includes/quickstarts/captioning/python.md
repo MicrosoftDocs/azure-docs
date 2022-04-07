@@ -28,17 +28,17 @@ You install the Speech SDK in the next section of this article, but first check 
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Open a command prompt where you want the new project, and create a new file named `captioning.py`.
 1. Install the Speech SDK.
     ```console
     pip install azure-cognitiveservices-speech
     ```
-1. Replace the contents of `speech-recognition.py` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
+1. Replace the contents of `captioning.py` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
 
 Run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 
 ```console
-python speech_recognition.py -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
+python captioning.py -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
 ```
 
 Usage options include:

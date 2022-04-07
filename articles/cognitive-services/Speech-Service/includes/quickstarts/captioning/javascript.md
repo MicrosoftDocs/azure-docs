@@ -30,13 +30,13 @@ For more information on `require`, see the [require documentation](https://nodej
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.js`.
-1. Replace the contents of `SpeechRecognition.js` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
+1. Open a command prompt where you want the new project, and create a new file named `Captioning.js`.
+1. Replace the contents of `Captioning.js` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
 
 Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 
 ```console
-node.exe SpeechRecognition.js -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
+node.exe Captioning.js -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
 ```
 
 Usage options include:

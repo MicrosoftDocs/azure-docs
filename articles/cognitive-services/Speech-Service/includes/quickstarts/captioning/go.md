@@ -22,13 +22,13 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 
 Follow these steps to create a new GO module.
 
-1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
-1. Replace the contents of `speech-recognition.go` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
+1. Open a command prompt where you want the new module, and create a new file named `captioning.go`.
+1. Replace the contents of `captioning.go` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
 
 Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 
 ```cmd
-go mod init speech-recognition
+go mod init captioning
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
@@ -36,7 +36,7 @@ Now build and run the code:
 
 ```cmd
 go build
-go run speech-recognition  -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
+go run captioning -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
 ```
 
 Usage options include:
