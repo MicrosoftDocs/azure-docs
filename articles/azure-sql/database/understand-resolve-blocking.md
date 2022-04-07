@@ -107,7 +107,7 @@ The first is to query dynamic management objects (DMOs) and store the results fo
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
 
-Remember to run each of these scripts in the target database in Azure SQL database.
+Remember to run each of these scripts in the target database in Azure SQL Database.
 
 * The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV `sys.dm_exec_sessions` returns more data in a result set that is easier to query and filter. You will find `sys.dm_exec_sessions` at the core of other queries. 
 

@@ -13,6 +13,7 @@ ms.date: 3/18/2022
 ---
 
 # Analyze and prevent deadlocks in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article teaches you how to identify deadlocks in Azure SQL Database, use deadlock graphs and Query Store to identify the queries in the deadlock, and plan and test changes to prevent deadlocks from reoccurring.
 
@@ -28,7 +29,7 @@ Each new database in Azure SQL Database has the [read committed snapshot](/sql/t
 
 ### An example deadlock
 
-A deadlock occurs when two or more tasks permanently block one other by each task having a lock on a resource another of the tasks is trying to lock. A deadlock is also called a cyclic dependency: in the case of a two-task deadlock, transaction A has a dependency on transaction B, and transaction B closes the circle by having a dependency on transaction A.
+A deadlock occurs when two or more tasks permanently block one another because each task has a lock on a resource the other task is trying to lock. A deadlock is also called a cyclic dependency: in the case of a two-task deadlock, transaction A has a dependency on transaction B, and transaction B closes the circle by having a dependency on transaction A.
 
 For example:
 
@@ -40,7 +41,7 @@ For example:
 
 :::image type="content" source="media/analyze-prevent-deadlocks/deadlock-overview.png" alt-text="A diagram showing two sessions in a deadlock. Each session owns a resource that the other process needs in order to continue.":::
 
-All transactions in a deadlock will wait indefinitely unless one of participating transactions is rolled back, for example because its session was terminated.
+All transactions in a deadlock will wait indefinitely unless one of the participating transactions is rolled back, for example, because its session was terminated.
 
 The database engine deadlock monitor periodically checks for tasks that are in a deadlock. If the deadlock monitor detects a cyclic dependency, it chooses one of the tasks as a victim and terminates its transaction with error 1205. Breaking the deadlock in this way allows the other task or tasks in the deadlock to complete their transactions.
 
@@ -196,7 +197,7 @@ From the container page in the Azure portal:
 
 1. Under **Settings**, select **Access policy**.
 1. Under **Stored access policies** select **+ Add policy**.
-1. Specify a name under **Identifier**, such as XEvents
+1. Specify a name under **Identifier**, such as XEvents.
 1. Under the **Permissions** dropdown, select the **Read**, **Write**, and **List** permissions.
 1. Set **Start time** to the date and time you would like to be able to write trace files.
 1. Set **Expiry time** to the date and time you would like these permissions to expire. You are able to set this to a date far in the future, such as ten years, if you wish.
