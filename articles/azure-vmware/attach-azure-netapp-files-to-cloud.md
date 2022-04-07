@@ -23,9 +23,9 @@ Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in t
 For best performance, create multiple datastores. Create your VMs with VMDKs from those datastores and stripe your logical volumes across the disks.
 
 The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
-
+<!--
 :::image type="content" source="media/attach-azure-netapp-files/architecture-netapp-files-nfs-datastores-attached-via-expressroute.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud using ExpressRoute.":::
-
+-->
 ## Supported Regions
 
 East US, US South Central, North Europe, West Europe, North Central US, Australia Southeast, France Central, Australia East, Brazil South, Canada Central, Canada East, Central US, Germany West Central, Japan West, Southeast Asia, Switzerland West, UK South, UK West and West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
