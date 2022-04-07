@@ -31,7 +31,7 @@ This Bicep file creates the following Azure resource:
 
 * [**Microsoft.Logic/workflows**](/azure/templates/microsoft.logic/workflows), which creates the workflow for a logic app.
 
-:::code language="bicep" source="~quickstart-templates/quickstarts/microsoft.logic/logic-app-create/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.logic/logic-app-create/main.bicep":::
 
 ## Deploy the Bicep file
 
