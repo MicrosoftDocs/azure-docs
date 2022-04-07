@@ -11,7 +11,7 @@ ms.author: v-bcatherine
 
 # Observability in Azure Container Apps Preview
 
-Azure Container Apps provides built-in  observability features that give you a holistic view of the behavior, performance and health of your running container apps.
+Azure Container Apps provides built-in  observability features that give you a holistic view of the behavior, performance, and health of your running container apps.
 
 These features include:
 
@@ -25,7 +25,7 @@ These features include:
 
 ## Azure Monitor metrics
 
-The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the metrics explorer in the Azure portal.  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), Azure PowerShell cmdlets, and custom applications.
+The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the [metrics explorer in the Azure portal](/azure/container-apps/observability).  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric), and custom applications.
 
 ### Available metrics for Container Apps
 
@@ -39,11 +39,11 @@ Container Apps provides the following metrics for your container app.
 |Network out bytes|Network transmitted bytes|TxBytes|bytes|
 |Requests|Requests processed|Requests|n/a|
 
-The metrics namespace is microsoft.app/containerapps.
+The metrics namespace is `microsoft.app/containerapps`.
 
 ### View a snapshot of your app's metrics
 
-Using the Azure portal, navigate to your container apps **Overview** page.  The **Monitoring** section displays the current CPU, memory and network utilization for your container app.
+Using the Azure portal, navigate to your container apps **Overview** page.  The **Monitoring** section displays the current CPU, memory, and network utilization for your container app.
 
 :::image type="content" source="media/observability/metrics-in-overview-page.png" alt-text="Monitoring section in container app overview":::
 
@@ -53,7 +53,7 @@ From this view, you can pin one or more charts to your dashboard.  When you sele
 
 The Azure Monitor metrics explorer is available from the Azure portal, through the **Metrics** menu option in your container app page or the Azure **Monitor**->**Metrics** page.
 
-The metric page allows you to create and view charts to display your container apps metrics.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
+The metrics page allows you to create and view charts to display your container apps metrics.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
 When you first navigate to the metric explorer, you'll see the main page.  From here, you can select the information specific to Container Apps to display in your chart.  
 
@@ -61,10 +61,9 @@ When you first navigate to the metric explorer, you'll see the main page.  From 
 
 To filter by a replica, select a replica from the *Value* drop-down.   You can also filter by your container app's revision.
 
-``
 :::image type="content" source="media/observability/add-filter.png" alt-text="Add a filter to chart":::
 
-To split by revision, select **Applying splitting** and select *Revision* as the value. You can also split by replica.
+To split by revision, select **Applying splitting** and select **Revision** as the value. You can also split by replica.
 
 :::image type="content" source="media/observability/apply-splitting.png" alt-text="Apply spitting to chart.":::
 
@@ -90,7 +89,7 @@ For more information regarding the Log Analytics interface and log queries, see 
 
 ### Log Analytics via the Azure CLI and PowerShell
 
-You can query Application logs from the Azure CLI and PowerShell cmdlets.  For more information, see [Viewing Logs](monitor.md#viewing-logs).
+You can query Application logs from the  [Azure CLI](/cli/azure/monitor/metrics) and [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).  For more information, see [Viewing Logs](monitor.md#viewing-logs).
 
 ## Alerts
 
@@ -131,7 +130,7 @@ You can monitor performance and resource utilization and set up notifications wh
 - Log Analytics
 - Other Azure Monitor features
 
-### Updates and Revisions
+### Updates and revisions
 
 Container Apps supports the monitoring of every active revision.  You can monitor and compare the behavior and performance across revisions through:
 
