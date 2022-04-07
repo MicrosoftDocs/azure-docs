@@ -247,7 +247,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
 ## Discard or clean up
 
-After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
+After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare-to-move) and [Move](#deploy-to-move) sections of this article.
 
 To commit the changes and complete the move, you must delete the original lab.
 
