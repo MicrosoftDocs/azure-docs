@@ -18,7 +18,7 @@ Defender for Cloud prioritizes and lists the alerts, along with the information 
 Defender for Cloud also provides detailed steps to help you remediate attacks.
 Alerts data is retained for 90 days.
 
-There are Azure-native tools for ensuring you can view your alert data in all of the most popular solutions in use today, including:
+There are built-in Azure tools for ensuring you can view your alert data in all of the most popular solutions in use today, including:
 
 - **Microsoft Sentinel**
 - **Splunk Enterprise and Splunk Cloud**
