@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 04/12/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
