@@ -71,7 +71,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 **Improvements**:
 
-- Added support for [Build VM MSIs.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#user-assigned-identity-for-the-image-builder-build-vm)
+- Added support for [Build VM MSIs](linux/image-builder-json.md#user-assigned-identity-for-the-image-builder-build-vm).
 - Added support for Proxy VM size customization.
 
 ### February 2020
@@ -102,8 +102,8 @@ For API versions October 2021 and newer, the error output will look like the fol
 
 ### November 2021
 
-Added support for [Gen2 images.](virtual-machines/image-builder-overview.md#hyper-v-generation).
+Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation).
 
 
 ## Next steps
-Learn more about [Image Builder](virtual-machines/image-builder-overview.md).
+Learn more about [Image Builder](image-builder-overview.md).
