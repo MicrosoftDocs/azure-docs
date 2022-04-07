@@ -21,7 +21,7 @@ Profiler works with .NET applications deployed on the following Azure services. 
 | ---------------- | ------------- | --------- | ---- |
 | [Azure App Service](profiler.md) | Yes | Yes | No |
 | [Azure Virtual Machines and virtual machine scale sets for Windows](profiler-vm.md) | Yes | Yes | No |
-| [Azure Virtual MAchines and virtual machine scale sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No. POC completed. |
+| [Azure Virtual MAchines and virtual machine scale sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No |
 | [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes | N/A |
 | Azure Container Instances for Windows | No | No | No |
 | Azure Container Instances for Linux | No | Yes | No |
