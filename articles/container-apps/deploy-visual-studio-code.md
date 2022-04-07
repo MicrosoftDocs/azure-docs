@@ -1,0 +1,137 @@
+---
+title: 'Deploy to Azure Container Apps using Visual Studio Code'
+description: Deploy containerized .NET applications to Azure Container Apps using Visual Studio Code
+services: container-apps
+author: alexwolfmsft
+ms.author: alexwolf
+ms.service: container-apps
+ms.topic: tutorial
+ms.date: 4/05/2022
+ms.custom: mode-ui
+---
+
+# Tutorial: Deploy to Azure Container Apps using Visual Studio Code
+
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+
+In this tutorial, you'll deploy a containerized application to Azure Container Apps using Visual Studio Code.
+
+## Prerequisites
+
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Visual Studio code, available as a [free download](https://code.visualstudio.com/).
+- The following Visual Studio Code extensions installed:
+    - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+    - The [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+    - The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) 
+
+## Clone the project
+
+To follow along with this tutorial, [Download the Sample Project](https://github.com/kendallroden/codetocloud/archive/refs/heads/master.zip) from [the repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below:
+
+```terminal
+git clone https://github.com/kendallroden/codetocloud
+cd msdocs-app-service-sqldb-dotnetcore
+```
+
+The root of the cloned project contains subfolders for the sample project in various languages.  This quickstart is technology agnostic, so you can load whichever language folder you'd like to use.  For this tutorial we'll be using the aca-node folder.  You can right click on any language folder and select **Open in Code**, or open the folder through the Visual Studio code user interface.
+
+## Sign in to Azure
+
+To work with Container Apps and complete this tutorial, you'll need to be signed into Azure.  Once you have the Azure Account extension installed, you can sign in using the command palette by typing **Ctrl + shift + p** on Windows and searching for the Azure Sign In command.
+
+// Screenshot
+
+Select **Azure: Sign in**, and Visual Studio Code will launch a browser for you to sign into Azure. Login with the account you'd like to use to work with Container Apps, and then switch back to Visual Studio Code.
+
+## Create the container registry and Docker image
+
+The sample application includes a Dockerfile that is used to build a container image for the application. You can build the image for your app directly in Azure - a local Docker installation is not required. 
+
+Container images are stored inside of container registries. You can easily create a container registry and upload an image of your app to it in a single workflow using Visual Studio Code.
+
+1) First, right click on the Dockerfile in the explorer, and select **Build Image in Azure**.
+
+2) The command palette will open and prompt you to enter a tag for the container. Accept the default, which will use the project name with the **Run ID** appended afterward. Press enter to continue.
+
+3) Choose the subscription you would like to use to create your container registry and build your image, and then press enter to continue.
+
+4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to step 7.  
+
+5) Enter a name for the new registry such as *msdocscapps123* where 123 are unique numbers, and then press enter.  
+
+6) Select **Basic** as the SKU.
+
+7) Choose **+ Create new resource group**, or select an existing resource group you'd like to use. For a new resource group, enter a name such as `msdocscontainerapps`, and press enter.
+
+8) Finally, select the location that is nearest to you. Press enter to finalize the workflow, and Azure will begin creating the container registry and building the image.  This may take a few moments to complete.
+
+Once the registry is created and the image is built successfully, you are ready to create the container app to host the published image.
+
+## Create and deploy to the container app
+
+The Azure Container Apps extension for Visual Studio Code enables you to choose existing container app resources, or create new ones to deploy your applications to. In this scenario you will create a new container app environment and container app to host your application. After installing the container apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
+
+### Create the container app environment 
+
+Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other.  You will need to create a container app environment before you can create the container app itself.
+
+1) In the Container Apps extension panel, right click on the subscription you would like to use and select **Create Container App Environment**.
+
+2) Enter a name for the new container app environment, such as `msdocsappenvironment`, and press enter.
+
+3) Select the desired location for the container app from the list of options.
+
+Visual Studio Code and Azure will create the environment for you.  This process may take a few moments to complete. Creating a container app environment also creates a log analytics workspace for you in Azure.
+
+### Create the container app and deploy the Docker image
+
+Now that you have a container app environment in Azure you can create a container app inside of it. You can also publish the Docker image you created earlier as part of this workflow.
+
+1) In the Container Apps extension panel, right click on the container environment you created previously and select **Create Container App*
+
+2) Enter a name for the new container app, such as `msdocscontainerapp`, and then press enter.
+
+3) Next, you will be prompted to choose a container registry hosting solution to pull a Docker image from.  For this scenario, select **Azure Container Registries**, though Docker Hub is also supported.
+
+4) Select the container registry you created previously when publishing the Docker image.
+
+5) Select the container registry repository you published the Docker image to. Repositories allow you to store and organize your containers in logical groupings.
+
+6) Select the tag of the image you published earlier.
+
+7) When prompted for environment variables, choose **Skip for now**. Our application does not require any environment variables.
+
+8) Select **Enable** on the ingress settings prompt to enable an HTTP endpoint for your application.
+
+9) Choose **External** to configure the HTTP traffic that the endpoint will accept.
+
+10) Leave the default value of 80 for the port, and then press enter to complete the workflow.
+
+Visual Studio Code and Azure will create the container app for you.  The published Docker image you created earlier will also be deployed to the app.  Once this process finishes, Visual Studio Code will display a notification with a link to browse to the site.  Click this link, and your app will load in the browser. 
+
+// Screenshot
+
+You can also append the /albums path at the end of the app URL to view data from a sample API request.  
+
+Congratulations! You successfully created and deployed your first container app using Visual Studio code.
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services at once by removing the resource group.
+
+Follow these steps in the Azure portal to remove the resources you created:
+
+1. Select the **msdocscontainerapps** resource group from the *Overview* section.
+1. Select the **Delete resource group** button at the top of the resource group *Overview*.
+1. Enter the resource group name **msdocscontainerapps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
+1. Select **Delete**.  
+    The process to delete the resource group may take a few minutes to complete.
+
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Environments in Azure Container Apps](environment.md)
