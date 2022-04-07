@@ -49,45 +49,45 @@ The following are CIS rules implemented:
 | 1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled | Pass ||
 | 1.1.1.4 | Ensure mounting of hfs filesystems is disabled | Pass ||
 | 1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled | Pass ||
-| 1.1.1.6 | Ensure mounting of udf filesystems is disabled | Fail ||
-| 1.1.2 | Ensure /tmp is configured | Fail ||
-| 1.1.3 | Ensure nodev option set on /tmp partition | Pass ||
+| 1.1.1.6 | Ensure mounting of udf filesystems is disabled | Fail | Potential Operational Impact |
+| 1.1.2 | Ensure /tmp is configured | Fail | Investigating |
+| 1.1.3 | Ensure nodev option set on /tmp partition | Fail | Investigating |
 | 1.1.4 | Ensure nosuid option set on /tmp partition | Pass ||
 | 1.1.5 | Ensure noexec option set on /tmp partition | Pass ||
 | 1.1.6 | Ensure /dev/shm is configured | Pass ||
 | 1.1.7 | Ensure nodev option set on /dev/shm partition | Pass ||
 | 1.1.8 | Ensure nosuid option set on /dev/shm partition | Pass ||
-| 1.1.9 | Ensure noexec option set on /dev/shm partition | Fail ||
+| 1.1.9 | Ensure noexec option set on /dev/shm partition | Fail | Potential Operational Impact |
 | 1.1.12 | Ensure /var/tmp partition includes the nodev option | Pass ||
 | 1.1.13 | Ensure /var/tmp partition includes the nosuid option | Pass ||
 | 1.1.14 | Ensure /var/tmp partition includes the noexec option | Pass ||
 | 1.1.18 | Ensure /home partition includes the nodev option | Pass ||
-| 1.1.19 | Ensure nodev option set on removable media partitions | Manual ||
-| 1.1.20 | Ensure nosuid option set on removable media partitions | Manual ||
-| 1.1.21 | Ensure noexec option set on removable media partitions | Manual ||
-| 1.1.22 | Ensure sticky bit is set on all world-writable directories | Potential Operation Impact ||
+| 1.1.19 | Ensure nodev option set on removable media partitions | Not Applicable ||
+| 1.1.20 | Ensure nosuid option set on removable media partitions | Not Applicable ||
+| 1.1.21 | Ensure noexec option set on removable media partitions | Not Applicable ||
+| 1.1.22 | Ensure sticky bit is set on all world-writable directories | Fail | Potential Operation Impact |
 | 1.1.23 | Disable Automounting | Pass ||
 | 1.1.24 | Disable USB Storage | Pass ||
 | 1.2 | Configure Software Updates ||| 
-| 1.2.1 | Ensure package manager repositories are configured | Covered Elsewhere ||
+| 1.2.1 | Ensure package manager repositories are configured | Pass | Covered Elsewhere |
 | 1.2.2 | Ensure GPG keys are configured | Not Applicable ||
 | 1.3 | Filesystem Integrity Checking ||| 
-| 1.3.1 | Ensure AIDE is installed | Covered Elsewhere ||
-| 1.3.2 | Ensure filesystem integrity is regularly checked | Covered Elsewhere ||
+| 1.3.1 | Ensure AIDE is installed | Fail | Covered Elsewhere |
+| 1.3.2 | Ensure filesystem integrity is regularly checked | Fail | Covered Elsewhere |
 | 1.4 | Secure Boot Settings ||| 
-| 1.4.1 | Ensure permissions on bootloader config are not overridden | Fail ||
-| 1.4.2 | Ensure bootloader password is set | Fail ||
-| 1.4.3 | Ensure permissions on bootloader config are configured | Fail ||
-| 1.4.4 | Ensure authentication required for single user mode | Fail ||
+| 1.4.1 | Ensure permissions on bootloader config are not overridden | Fail | Investigating |
+| 1.4.2 | Ensure bootloader password is set | Fail | Not Applicable|
+| 1.4.3 | Ensure permissions on bootloader config are configured | Fail | Investigating |
+| 1.4.4 | Ensure authentication required for single user mode | Fail | Not Applicable |
 | 1.5 | Additional Process Hardening |||
-| 1.5.1 | Ensure XD/NX support is enabled | Manual ||
+| 1.5.1 | Ensure XD/NX support is enabled | Not Applicable ||
 | 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | Pass ||
 | 1.5.3 | Ensure prelink is disabled | Pass ||
 | 1.5.4 | Ensure core dumps are restricted | Pass ||
 | 1.6 | Mandatory Access Control ||| 
 | 1.6.1 | Configure AppArmor ||| 
 | 1.6.1.1 | Ensure AppArmor is installed | Pass ||
-| 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | Potential Operation Impact ||
+| 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | Fail | Potential Operation Impact |
 | 1.6.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode | Pass ||
 | 1.7 | Command Line Warning Banners |||
 | 1.7.1 | Ensure message of the day is configured properly | Pass ||
@@ -100,13 +100,13 @@ The following are CIS rules implemented:
 | 1.8.2 | Ensure GDM login banner is configured | Pass ||
 | 1.8.3 | Ensure disable-user-list is enabled | Pass ||
 | 1.8.4 | Ensure XDCMP is not enabled | Pass ||
-| 1.9 | Ensure updates, patches, and additional security software are installed | Covered Elsewhere ||
+| 1.9 | Ensure updates, patches, and additional security software are installed | Pass ||
 | 2 | Services ||| 
 | 2.1 | Special Purpose Services ||| 
 | 2.1.1 | Time Synchronization ||| 
 | 2.1.1.1 | Ensure time synchronization is in use | Pass ||
-| 2.1.1.2 | Ensure systemd-timesyncd is configured | Manual ||
-| 2.1.1.3 | Ensure chrony is configured | Covered Elsewhere ||
+| 2.1.1.2 | Ensure systemd-timesyncd is configured | Not Applicable | AKS uses ntpd for timesync |
+| 2.1.1.3 | Ensure chrony is configured | Fail | Covered Elsewhere |
 | 2.1.1.4 | Ensure ntp is configured | Pass ||
 | 2.1.2 | Ensure X Window System is not installed | Pass ||
 | 2.1.3 | Ensure Avahi Server is not installed | Pass ||
@@ -122,22 +122,22 @@ The following are CIS rules implemented:
 | 2.1.13 | Ensure HTTP Proxy Server is not installed | Pass ||
 | 2.1.14 | Ensure SNMP Server is not installed | Pass ||
 | 2.1.15 | Ensure mail transfer agent is configured for local-only mode | Pass ||
-| 2.1.16 | Ensure rsync service is not installed | Fail ||
+| 2.1.16 | Ensure rsync service is not installed | Fail | Investigating |
 | 2.1.17 | Ensure NIS Server is not installed | Pass ||
 | 2.2 | Service Clients |||
 | 2.2.1 | Ensure NIS Client is not installed | Pass ||
 | 2.2.2 | Ensure rsh client is not installed | Pass ||
 | 2.2.3 | Ensure talk client is not installed | Pass ||
-| 2.2.4 | Ensure telnet client is not installed | Fail ||
+| 2.2.4 | Ensure telnet client is not installed | Fail | Investigating |
 | 2.2.5 | Ensure LDAP client is not installed | Pass ||
-| 2.2.6 | Ensure  RPC is not installed | Fail ||
-| 2.3 | Ensure nonessential services are removed or masked | Potential Operation Impact ||
+| 2.2.6 | Ensure  RPC is not installed | Fail | Potential Operational Impact |
+| 2.3 | Ensure nonessential services are removed or masked | Pass | Investigating |
 | 3 | Network Configuration ||| 
 | 3.1 | Disable unused network protocols and devices |||
 | 3.1.2 | Ensure wireless interfaces are disabled | Pass ||
 | 3.2 | Network Parameters (Host Only) |||
 | 3.2.1 | Ensure packet redirect sending is disabled | Pass ||
-| 3.2.2 | Ensure IP forwarding is disabled | Not Applicable ||
+| 3.2.2 | Ensure IP forwarding is disabled | Fail | Not Applicable |
 | 3.3 | Network Parameters (Host and Router) |||
 | 3.3.1 | Ensure source routed packets are not accepted | Pass ||
 | 3.3.2 | Ensure ICMP redirects are not accepted | Pass ||
@@ -153,37 +153,37 @@ The following are CIS rules implemented:
 | 3.5.1 | Configure UncomplicatedFirewall |||
 | 3.5.1.1 | Ensure ufw is installed | Pass ||
 | 3.5.1.2 | Ensure iptables-persistent is not installed with ufw | Pass ||
-| 3.5.1.3 | Ensure ufw service is enabled | Fail ||
-| 3.5.1.4 | Ensure ufw loopback traffic is configured | Fail ||
-| 3.5.1.5 | Ensure ufw outbound connections are configured | Manual ||
-| 3.5.1.6 | Ensure ufw firewall rules exist for all open ports | ??? ||
-| 3.5.1.7 | Ensure ufw default deny firewall policy | Fail ||
+| 3.5.1.3 | Ensure ufw service is enabled | Fail | Covered Elsewhere |
+| 3.5.1.4 | Ensure ufw loopback traffic is configured | Fail | Covered Elsewhere |
+| 3.5.1.5 | Ensure ufw outbound connections are configured | Not Applicable | Covered Elsewhere |
+| 3.5.1.6 | Ensure ufw firewall rules exist for all open ports | Not Applicable | Covered Elsewhere |
+| 3.5.1.7 | Ensure ufw default deny firewall policy | Fail | Covered Elsewhere |
 | 3.5.2 | Configure nftables |||
-| 3.5.2.1 | Ensure nftables is installed | Fail ||
-| 3.5.2.2 | Ensure ufw is uninstalled or disabled with nftables | Fail ||
-| 3.5.2.3 | Ensure iptables are flushed with nftables | Manual ||
-| 3.5.2.4 | Ensure a nftables table exists | Fail ||
-| 3.5.2.5 | Ensure nftables base chains exist | Fail ||
-| 3.5.2.6 | Ensure nftables loopback traffic is configured | Fail ||
-| 3.5.2.7 | Ensure nftables outbound and established connections are configured | ??? ||
-| 3.5.2.8 | Ensure nftables default deny firewall policy | Fail ||
-| 3.5.2.9 | Ensure nftables service is enabled | Fail ||
-| 3.5.2.10 | Ensure nftables rules are permanent | Fail ||
+| 3.5.2.1 | Ensure nftables is installed | Fail | Covered Elsewhere |
+| 3.5.2.2 | Ensure ufw is uninstalled or disabled with nftables | Fail | Covered Elsewhere |
+| 3.5.2.3 | Ensure iptables are flushed with nftables | Not Applicable | Covered Elsewhere |
+| 3.5.2.4 | Ensure a nftables table exists | Fail | Covered Elsewhere |
+| 3.5.2.5 | Ensure nftables base chains exist | Fail | Covered Elsewhere |
+| 3.5.2.6 | Ensure nftables loopback traffic is configured | Fail | Covered Elsewhere |
+| 3.5.2.7 | Ensure nftables outbound and established connections are configured | Not Applicable | Covered Elsewhere |
+| 3.5.2.8 | Ensure nftables default deny firewall policy | Fail | Covered Elsewhere |
+| 3.5.2.9 | Ensure nftables service is enabled | Fail | Covered Elsewhere |
+| 3.5.2.10 | Ensure nftables rules are permanent | Fail | Covered Elsewhere |
 | 3.5.3| Configure iptables |||
 | 3.5.3.1 | Configure iptables software ||| 
-| 3.5.3.1.1 | Ensure iptables packages are installed | Covered Elsewhere ||
+| 3.5.3.1.1 | Ensure iptables packages are installed | Fail | Covered Elsewhere |
 | 3.5.3.1.2 | Ensure nftables is not installed with iptables | Pass ||
-| 3.5.3.1.3 | Ensure ufw is uninstalled or disabled with iptables | Fail ||
+| 3.5.3.1.3 | Ensure ufw is uninstalled or disabled with iptables | Fail | Covered Elsewhere |
 | 3.5.3.2 | Configure IPv4 iptables |||
-| 3.5.3.2.1 | Ensure iptables default deny firewall policy | Fail ||
-| 3.5.3.2.2 | Ensure iptables loopback traffic is configured | Not Applicable ||
+| 3.5.3.2.1 | Ensure iptables default deny firewall policy | Fail | Covered Elsewhere |
+| 3.5.3.2.2 | Ensure iptables loopback traffic is configured | Fail | Not Applicable |
 | 3.5.3.2.3 | Ensure iptables outbound and established connections are configured | Not Applicable ||
-| 3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports | Potential Operation Impact ||
+| 3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports | Fail | Potential Operation Impact |
 | 3.5.3.3 | Configure IPv6  ip6tables |||
-| 3.5.3.3.1 | Ensure ip6tables default deny firewall policy | Fail ||
-| 3.5.3.3.2 | Ensure ip6tables loopback traffic is configured | Fail ||
-| 3.5.3.3.3 | Ensure ip6tables outbound and established connections are configured | ??? ||
-| 3.5.3.3.4 | Ensure ip6tables firewall rules exist for all open ports | Fail ||
+| 3.5.3.3.1 | Ensure ip6tables default deny firewall policy | Fail | Covered Elsewhere |
+| 3.5.3.3.2 | Ensure ip6tables loopback traffic is configured | Fail | Covered Elsewhere |
+| 3.5.3.3.3 | Ensure ip6tables outbound and established connections are configured | Not Applicable | Covered Elsewhere |
+| 3.5.3.3.4 | Ensure ip6tables firewall rules exist for all open ports | Fail | Covered Elsewhere |
 | 4 | Logging and Auditing |||
 | 4.1 | Configure System Accounting (auditd) |||
 | 4.1.1.2 | Ensure auditing is enabled |||
@@ -192,17 +192,17 @@ The following are CIS rules implemented:
 | 4.2.1 | Configure rsyslog |||
 | 4.2.1.1 | Ensure rsyslog is installed | Pass ||
 | 4.2.1.2 | Ensure rsyslog Service is enabled | Pass ||
-| 4.2.1.3 | Ensure logging is configured | Covered Elsewhere ||
+| 4.2.1.3 | Ensure logging is configured | Pass ||
 | 4.2.1.4 | Ensure rsyslog default file permissions configured | Pass ||
-| 4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host | Covered Elsewhere ||
-| 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. | Covered Elsewhere ||
+| 4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host | Fail | Covered Elsewhere |
+| 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. | Not Applicable | Investigating |
 | 4.2.2 | Configure journald |||
 | 4.2.2.1 | Ensure journald is configured to send logs to rsyslog | Pass ||
-| 4.2.2.2 | Ensure journald is configured to compress large log files | Fail ||
-| 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk | Pass ||
-| 4.2.3 | Ensure permissions on all logfiles are configured | Fail ||
-| 4.3 | Ensure logrotate is configured | ??? ||
-| 4.4 | Ensure logrotate assigns appropriate permissions | Fail ||
+| 4.2.2.2 | Ensure journald is configured to compress large log files | Fail | Investigating |
+| 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk | Pass |  |
+| 4.2.3 | Ensure permissions on all logfiles are configured | Fail | Investigating |
+| 4.3 | Ensure logrotate is configured | Pass ||
+| 4.4 | Ensure logrotate assigns appropriate permissions | Fail | Investigating |
 | 5 | Access, Authentication, and Authorization ||| 
 | 5.1 | Configure time-based job schedulers |||
 | 5.1.1 | Ensure cron daemon is enabled and running | Pass ||
@@ -212,12 +212,12 @@ The following are CIS rules implemented:
 | 5.1.5 | Ensure permissions on /etc/cron.weekly are configured | Pass ||
 | 5.1.6 | Ensure permissions on /etc/cron.monthly are configured | Pass ||
 | 5.1.7 | Ensure permissions on /etc/cron.d are configured | Pass ||
-| 5.1.8 | Ensure cron is restricted to authorized users | Fail ||
-| 5.1.9 | Ensure at is restricted to authorized users | Fail ||
+| 5.1.8 | Ensure cron is restricted to authorized users | Fail | Investigating |
+| 5.1.9 | Ensure at is restricted to authorized users | Fail | Investigating |
 | 5.2 | Configure sudo |||
 | 5.2.1 | Ensure sudo is installed | Pass ||
-| 5.2.2 | Ensure sudo commands use pty | Fail ||
-| 5.2.3 | Ensure sudo log file exists | Fail ||
+| 5.2.2 | Ensure sudo commands use pty | Fail | Potential Operational Impact |
+| 5.2.3 | Ensure sudo log file exists | Fail | Investigating |
 | 5.3 | Configure SSH Server |||
 | 5.3.1 | Ensure permissions on /etc/ssh/sshd_config are configured | Pass ||
 | 5.3.2 | Ensure permissions on SSH private host key files are configured | Pass ||
@@ -233,16 +233,16 @@ The following are CIS rules implemented:
 | 5.3.13 | Ensure only strong Ciphers are used | Pass ||
 | 5.3.14 | Ensure only strong MAC algorithms are used | Pass ||
 | 5.3.15 | Ensure only strong Key Exchange algorithms are used | Pass ||
-| 5.3.16 | Ensure SSH Idle Timeout Interval is configured | Fail ||
+| 5.3.16 | Ensure SSH Idle Timeout Interval is configured | Fail | Investigating |
 | 5.3.17 | Ensure SSH LoginGraceTime is set to one minute or less | Pass ||
 | 5.3.18 | Ensure SSH warning banner is configured | Pass ||
 | 5.3.19 | Ensure SSH PAM is enabled | Pass ||
-| 5.3.21 | Ensure SSH MaxStartups is configured | Fail ||
+| 5.3.21 | Ensure SSH MaxStartups is configured | Fail | Investigating |
 | 5.3.22 | Ensure SSH MaxSessions is limited | Pass ||
 | 5.4 | Configure PAM |||
 | 5.4.1 | Ensure password creation requirements are configured | Pass ||
-| 5.4.2 | Ensure lockout for failed password attempts is configured | Fail ||
-| 5.4.3 | Ensure password reuse is limited | Fail ||
+| 5.4.2 | Ensure lockout for failed password attempts is configured | Fail | Investigating |
+| 5.4.3 | Ensure password reuse is limited | Fail | Investigating |
 | 5.4.4 | Ensure password hashing algorithm is SHA-512 | Pass ||
 | 5.5 | User Accounts and Environment |||
 | 5.5.1 | Set Shadow Password Suite Parameters |||
@@ -250,13 +250,13 @@ The following are CIS rules implemented:
 | 5.5.1.2 | Ensure password expiration is 365 days or less | Pass ||
 | 5.5.1.3 | Ensure password expiration warning days is 7 or more | Pass ||
 | 5.5.1.4 | Ensure inactive password lock is 30 days or less | Pass ||
-| 5.5.1.5 | Ensure all users last password change date is in the past | Fail ||
+| 5.5.1.5 | Ensure all users last password change date is in the past | Fail | Investigating |
 | 5.5.2 | Ensure system accounts are secured | Pass ||
 | 5.5.3 | Ensure default group for the root account is GID 0 | Pass ||
 | 5.5.4 | Ensure default user umask is 027 or more restrictive | Pass ||
-| 5.5.5 | Ensure default user shell timeout is 900 seconds or less | Fail ||
-| 5.6 | Ensure root login is restricted to system console | Not Applicable ||
-| 5.7 | Ensure access to the su command is restricted | Potential Operation Impact ||
+| 5.5.5 | Ensure default user shell timeout is 900 seconds or less | Fail | Investigating |
+| 5.6 | Ensure root login is restricted to system console | Not Applicable | Investigating|
+| 5.7 | Ensure access to the su command is restricted | Fail | Potential Operation Impact |
 | 6 | System Maintenance |||
 | 6.1 | System File Permissions |||
 | 6.1.2 | Ensure permissions on /etc/passwd are configured | Pass ||
@@ -267,11 +267,11 @@ The following are CIS rules implemented:
 | 6.1.7 | Ensure permissions on /etc/shadow- are configured | Pass ||
 | 6.1.8 | Ensure permissions on /etc/gshadow are configured | Pass ||
 | 6.1.9 | Ensure permissions on /etc/gshadow- are configured | Pass ||
-| 6.1.10 | Ensure no world writable files exist | Potential Operation Impact ||
-| 6.1.11 | Ensure no unowned files or directories exist | Potential Operation Impact ||
-| 6.1.12 | Ensure no ungrouped files or directories exist | Potential Operation Impact ||
-| 6.1.13 | Audit SUID executables | Potential Operation Impact ||
-| 6.1.14 | Audit SGID executables | Potential Operation Impact ||
+| 6.1.10 | Ensure no world writable files exist | Fail | Potential Operation Impact |
+| 6.1.11 | Ensure no unowned files or directories exist | Fail |  Potential Operation Impact |
+| 6.1.12 | Ensure no ungrouped files or directories exist | Fail |  Potential Operation Impact |
+| 6.1.13 | Audit SUID executables | Not Applicable | Investigating |
+| 6.1.14 | Audit SGID executables | Not Applicable | Investigating |
 | 6.2 | User and Group Settings |||
 | 6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords | Pass ||
 | 6.2.2 | Ensure password fields are not empty | Pass ||
