@@ -25,13 +25,13 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 ## Phishing-resistant methods
 
-* Active Directory Federation Services (AD FS) as a federated identity provider that's configured with certificate-based authentication
+* Active Directory Federation Services (AD FS) as a federated identity provider that's configured with certificate-based authentication.
 
-* Azure AD certificate-based authentication
+* Azure AD certificate-based authentication.
 
-* FIDO2 security keys 
+* FIDO2 security keys.
 
-* Windows Hello for Business 
+* Windows Hello for Business.
 
 * Microsoft Authenticator and conditional access policies that enforce managed or compliant devices to access the application or service. Microsoft Authenticator native phishing resistance is in development.
 
@@ -39,11 +39,11 @@ Your current device capabilities, user personas, and other requirements might di
 
 Consider the following approach to evaluating phishing-resistant MFA methods:
 
-* Device types and capabilities that you want to support. Examples: kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices.
+* Device types and capabilities that you want to support. Examples include kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices.
 
-* User personas within your organization. Examples: Front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstation, and business-to-business guest users.
+* User personas within your organization. Examples include front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstation, and business-to-business guest users.
 
-* Logistics of distributing, configuring, and registering MFA methods such as FIDO 2.0 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
+* Logistics of distributing, configuring, and registering MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
 
 * Need for FIPS 140 validation at a specific [authenticator assurance level](nist-about-authenticator-assurance-levels.md). For example, some FIDO security keys are FIPS 140 validated at levels required for [AAL3](nist-authenticator-assurance-level-3.md), as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
@@ -53,16 +53,16 @@ The following sections describe support for implementing phishing-resistant meth
 
 ### Application sign-in scenarios from different clients
 
-The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications.
+The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications:
 
-| Devices | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows Hello for Business| Microsoft authenticator + certificate authority for managed devices |
+| Device | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO2 security keys| Windows Hello for Business| Microsoft authenticator + certificate authority for managed devices |
 | - | - | - | - | - | - |
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 
-To learn more, see [Browser support for Fido 2.0 passwordless authentication](../authentication/fido2-compatibility.md).
+To learn more, see [Browser support for FIDO2 passwordless authentication](../authentication/fido2-compatibility.md).
 
 ### Virtual device sign-in scenarios that require integration
 
