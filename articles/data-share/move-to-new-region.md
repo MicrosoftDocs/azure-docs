@@ -108,7 +108,7 @@ The following steps show how to deploy a new Data Share account using a Resource
         ]
     ```
     
-    * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources secton in the **template.json** file. Below is an example of a BlobFolder dataset. 
+    * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources section in the **template.json** file. Below is an example of a BlobFolder dataset. 
     
     * If you are also moving the resources contained in the datasets to a new region, you will have to remove the datasets from the **template.json** file and manually re-add them once the Data Share account and resources referenced in the datasets are moved to the new region.
     
