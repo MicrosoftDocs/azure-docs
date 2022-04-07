@@ -8,11 +8,12 @@ ms.author: lagayhar
 
 ## How to configure emails in the studio
 
-To start receiving emails for job and endpoint related events, follow the instructions below.
+To start receiving emails when your job or endpoint is complete or if there's an issue (failed, canceled), follow the preceding instructions.
 
-1. In Azure ML Studio, go to settings by selecting the gear icon on the top right of the page.
+1. In Azure ML studio, go to settings by selecting the gear icon.
 1. Select the **Email notifications** tab.
 1. Toggle to enable or disable email notifications for a specific event.
 
 :::image type="content" source="media/machine-learning-email-notifications/machine-learning-email-notifications.png" alt-text="Screenshot of Azure ML Studio's settings on the email notifications tab.":::
+
 

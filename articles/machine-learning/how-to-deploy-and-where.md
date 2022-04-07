@@ -460,6 +460,8 @@ When you deploy remotely, you may have key authentication enabled. The example b
 
 See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
 
+  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+
 ### Understanding service state
 
 During model deployment, you may see the service state change while it fully deploys.
