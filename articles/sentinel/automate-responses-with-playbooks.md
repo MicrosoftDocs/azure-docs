@@ -78,20 +78,26 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 Microsoft Sentinel now supports two Logic Apps resource types:
 
-- **Logic App (Standard)**, based on the new Logic Apps engine, and
-- **Logic App (Consumption)**, based on the classic, original Logic Apps engine.
+- **Logic App (Consumption)**, based on the classic, original Logic Apps engine, and
+- **Logic App (Standard)**, based on the new Logic Apps engine.
 
 **Logic Apps Standard** features a single-tenant, containerized environment that provides fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
 
-You can leverage this powerful new version of Logic Apps by creating new Standard workflows in the Logic Apps environment. These workflows will then be available to you as playbooks in Microsoft Sentinel, where you can attach them to automation rules, run them on demand and manage them in the Active Playbooks tab.
+You can leverage this powerful new version of Logic Apps by creating new Standard workflows in the Logic Apps environment. These workflows will then be available to you as playbooks in Microsoft Sentinel, where you can use them the same ways you use legacy Logic App Consumption playbooks:
+- Attach them to automation rules and/or analytics rules.
+- Run them on demand, from both incidents and alerts.
+- Manage them in the Active Playbooks tab.
 
-There are many differences between these two resource types, which affect how they can be used in playbooks in Microsoft Sentinel. See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
+There are many differences between these two resource types, some of which affect some of the ways they can be used in playbooks in Microsoft Sentinel. In such cases, the documentation will point out what you need to know.
+
+See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
 
 > [!IMPORTANT]
 > - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
 
 > [!NOTE]
-> You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time.
+> - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
+> - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.
 
 ***(ANYTHING ELSE TO MENTION HERE? -YL)***
 
@@ -224,7 +230,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 #### Alert creation automated response
 
-For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When a Microsoft Sentinel Alert is triggered”), attach the playbook to an analytics rule:
+For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “Microsoft Sentinel alert"), attach the playbook to an analytics rule:
 
 1. Edit the [analytics rule](detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
@@ -232,7 +238,7 @@ For playbooks that are triggered by alert creation and receive alerts as their i
 
 #### Incident creation automated response
 
-For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “When a Microsoft Sentinel Incident is triggered”), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
+For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “Microsoft Sentinel incident"), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
 
 - Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule.
 
