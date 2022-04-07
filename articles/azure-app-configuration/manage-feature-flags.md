@@ -57,23 +57,33 @@ To update a feature flag:
 
 1. From the **Operations** menu, select **Feature Manager**.
 
-1. Move to the right end of the feature flag you want to modify, select the **More actions** ellipsis (**...**), and then select **Edit**.
+1. Move to the right end of the feature flag you want to modify, select the **More actions** ellipsis (**...**). From this menu, you can edit the flag, create a feature flag with a new label, lock or delete the feature flag.
 
     :::image type="content" source="media/azure-app-configuration-feature-flag-edit.png" alt-text="Screenshot of the Azure platform. Edit a feature flag.":::
 
-1. Update the feature flag. You can change the state of feature flag by checking or unchecking the **Enable Feature flag** checkbox. You can also edit the feature flag's description and filters.
+1. Select **Edit** and update the feature flag.
+
+In the **Feature manager**, you can also change the state of a feature flag by checking or unchecking the **Enable Feature flag** checkbox.
 
 ## Access feature flags
 
-In the **Operations** menu, select **Feature manager**. You can select **Edits Columns** to add or remove columns, and change the column order.
+In the **Operations** menu, select **Feature manager**. You can select **Edits Columns** to add or remove columns, and change the column order. .
 
 :::image type="content" source="media/azure-app-configuration-feature-flag-access.png" alt-text="Screenshot of the Azure platform. Access feature flags and edit columns.":::
 
-Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key-values, in the **Operations** menu, open the **Configuration explorer**.
+Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix .appconfig.featureflag. To view the underlying key-values, in the Operations menu, open the Configuration explorer.
 
 :::image type="content" source="media/azure-app-configuration-feature-flag-retrieve.png" alt-text="Screenshot of the Azure platform. Retrieve a feature flag.":::
 
 Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
+
+If you don't see feature flags, follow the process below:
+
+1. From the **Operation** menu, open **Configuration explorer**.
+1. Select **Manage view** > **Settings**.
+1. Select **Include feature flags in the configuration explorer** and **Apply**.
+
+:::image type="content" source="media/azure-app-configuration-feature-flag-include.png" alt-text="Screenshot of the Azure platform. Include feature flags in Configuration explorer.":::
 
 ## Next steps
 
