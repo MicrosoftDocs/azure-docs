@@ -39,6 +39,8 @@ landingContent:
             url: revisions.md
           - text: Application lifecycle management
             url: application-lifecycle-management.md
+          - text: Managed Identities
+            url: managed-identity.md
           - text: Microservices
             url: microservices.md
   - title: Common tasks
