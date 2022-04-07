@@ -213,7 +213,8 @@ This authentication mode allows you to:
 * Set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts.
 * Audit storage access because the storage logs show which identities were used to access data.
 
-> [!WARNING] This functionality has the following limitations
+> [!WARNING] 
+> This functionality has the following limitations
 > * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI v2 (preview)](how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
