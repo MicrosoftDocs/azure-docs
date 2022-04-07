@@ -95,4 +95,3 @@ For more information, see:
 - [Frequently asked questions](resources-frequently-asked-questions.md)
 - [Sensor connection methods](architecture-connections.md)
 - [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
-

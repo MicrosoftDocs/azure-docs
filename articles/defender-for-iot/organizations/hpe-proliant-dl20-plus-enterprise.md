@@ -1,12 +1,14 @@
 ---
-title:  HPE ProLiant DL20 Plus for enterprise deployments - Microsoft Defender for IoT
-description: Learn about the supported, pre-configured appliances for Microsoft Defender for IoT OT sensors and on-premises management consoles.
+title: HPE ProLiant DL20 Plus for OT monitoring in enterprise deployments- Microsoft Defender for IoT
+description: Learn about the HPE ProLiant DL20 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 04/04/2022
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 
 # HPE ProLiant DL20 Plus
+
+This article describes the **HPE ProLiant DL20 Plus** when used in enterprise deployments for OT monitoring.
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus.png" alt-text="Photo of the DL20 Plus panel." border="false":::
 

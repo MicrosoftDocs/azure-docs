@@ -38,7 +38,7 @@
         - name: Which appliances do I need?
           href: ot-appliance-sizing.md
         - name: Pre-configured appliances
-          href: ot-pre-configured-appliances-overview.md
+          href: ot-pre-configured-appliances.md
         - name: Bring your own physical appliance
           href: ot-physical-appliances.md
         - name: Bring your own virtual appliance
@@ -183,26 +183,36 @@
     items:
     - name: Corporate appliances
       items:
-      - name: HPE ProLiant DL360 (TBD)
-        href: TBD.md
-    - name: Enterprise appliances (CHECK HERE)
+      - name: HPE ProLiant DL360
+        href: hpe-proliant-dl360.md
+    - name: Enterprise appliances
       items:
-      - name: HPE ProLiant DL20 Plus (CHECK HERE)
-        href: ot-pre-configured-appliances-proliant-dl20-plus.md
-      - name: HPE ProLiant DL20 (TBD)
-        href: TBD.md
-      - name: Dell PowerEdge R340 XL (TBD)
-        href: TBD.md
-    - name: SMB appliances (TBD)
+      - name: HPE ProLiant DL20 Plus
+        href: proliant-dl20-plus-enterprise.md
+      - name: HPE ProLiant DL20
+        href: hpe-proliant-dl20.md
+      - name: Dell PowerEdge R340 X
+        href: dell-poweredge-r340-xl.md
+    - name: SMB appliances
       items:
-      - name: HPE ProLiant DL20 Plus (TBD)
-        href: TBD.md
-    - name: Rugged appliances (TBD)
+      - name: HPE ProLiant DL20 Plus
+        href: hpe-proliant-dl20-plus-smb.md
+    - name: Rugged appliances
       items:
-      - name: YS-techsystems YS-FIT2 (TBD)
-        href: TBD.md
+      - name: YS-techsystems YS-FIT2
+        href: ys-techsystems-ys-fit2.md
     - name: Legacy appliances
-      href: tbd.md
+      items:
+      - name: HPE ProLiant DL20 (enterprise)
+        href: hpe-proliant-dl20-enterprise-legacy.md
+      - name: Dell PowerEdge R340 XL (enterprise)
+        href: dell-poweredge-r340-xl-legacy.md
+      - name: HPE ProLiant Dl20 (SMB)
+        href: hpe-proliant-dl20-smb-legacy.md
+      - name: HPE Edgeline EL300 (SBM rugged)
+        href: hpe-edgeline-el300.md
+      - name: Neousys Nuvo-500LP (SMB rugged)
+        href: neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: Work with Defender for IoT APIs

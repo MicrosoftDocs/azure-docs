@@ -10,7 +10,7 @@ ms.topic: conceptual
 This article lists the hardware specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own physical appliances.
 
 > [!TIP]
-> We recommend purchasing [pre-configured appliances](ot-preconfigured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
+> We recommend purchasing [pre-configured appliances](ot-pre-configured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
 >
 
 ## OS compatibility
