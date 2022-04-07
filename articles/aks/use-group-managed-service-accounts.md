@@ -16,6 +16,7 @@ ms.date: 11/01/2021
 Enabling GMSA with Windows Server nodes on AKS requires:
 
 * Kubernetes 1.19 or greater.
+* Azure CLI version 2.35.0 or greater
 * [Managed identities][aks-managed-id] with your AKS cluster.
 * Permissions to create or update an Azure Key Vault.
 * Permissions to configure GMSA on Active Directory Domain Service or on-prem Active Directory.
