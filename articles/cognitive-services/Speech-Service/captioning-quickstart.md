@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 03/13/2022
 ms.author: eur
 ms.devlang: cpp, csharp
-zone_pivot_groups: programming-languages-set-seven
+zone_pivot_groups: programming-languages-speech-sdk
 ---
 
 # Quickstart: Create captions with speech to text
@@ -22,6 +22,30 @@ zone_pivot_groups: programming-languages-set-seven
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [C++ include](includes/quickstarts/captioning/cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/quickstarts/captioning/go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java include](includes/quickstarts/captioning/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript include](includes/quickstarts/captioning/javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+[!INCLUDE [ObjectiveC include](includes/quickstarts/captioning/objectivec.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](includes/quickstarts/captioning/swift.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python include](./includes/quickstarts/captioning/python.md)]
 ::: zone-end
 
 ## Next steps
