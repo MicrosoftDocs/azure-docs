@@ -121,7 +121,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > [!div class="mx-imgBorder"]
    > ![Container permissions tab](./media/secure-file-transfer-protocol-support-how-to/container-perm-tab.png)
 
-6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this this local user. 
+6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this local user. 
 
    To learn more about the home directory, see [Home directory](secure-file-transfer-protocol-support.md#home-directory).
 
