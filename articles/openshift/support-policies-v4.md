@@ -31,7 +31,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
-* We recommend that you don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it may cause extra resource usage and stability issues that can affect the entire cluster. For example, running openshift-logging on a control plane node should not be done, as it will cause instability in the control plane. 
+* Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
 
 ## Supported virtual machine sizes
 
