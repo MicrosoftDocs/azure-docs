@@ -27,6 +27,7 @@ ms.author: eur
 - New **Java** samples for Speech Recognition with Language Identification
 - New **Python** and **Java** samples for Conversation Transcription
 - New **Go** sample for Speaker Recognition
+- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to capture audio from, or render audio to, a non-default device.
 
 
 
