@@ -253,6 +253,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it.
 
    If you chose to generate a new key pair, then you'll be prompted to download the private key of that key pair after the local user has been added.
+   
+   > [!NOTE]
+   > Local users have a `sharedKey` property that is used for SMB authentication only.
 
 ### [PowerShell](#tab/powershell)
 
@@ -296,6 +299,8 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 	$localuser.SshAuthorizedKeys | ft
 	$localuser.PermissionScopes | ft
    ```
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
 
 5. If you want to use a password to authenticate the user, you can create a password by using the **New-AzStorageLocalUserSshPassword** command. Set the `-UserName` parameter to the user name.
 
@@ -330,6 +335,8 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    ```azurecli
    az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer --ssh-authorized-key key="ssh-rsa ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
    ```
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
 3. If you want to use a password to authenticate the user, you can create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
 
    The following example generates a password for the user.
