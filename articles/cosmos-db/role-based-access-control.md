@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 > [!NOTE]
 > This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, data is secured using primary keys, resource tokens, or the Azure Cosmos DB RBAC. 
 
-To learn more about role-based access control applied to data plane operations in the SQL API, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles. For the API for MongoDB, see [Data Plane RBAC in the API for MongoDB](mongodb/how-to-setup-rbac.md)
+To learn more about role-based access control applied to data plane operations in the SQL API, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles. For the Cosmos DB API for MongoDB, see [Data Plane RBAC in the API for MongoDB](mongodb/how-to-setup-rbac.md).
 
 Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
