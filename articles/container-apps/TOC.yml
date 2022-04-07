@@ -44,9 +44,9 @@
       items: 
       - name: Architecture overview
         href: networking.md
-      - name: Deploy with an external VNET
+      - name: Deploy with an external environment
         href: vnet-custom.md
-      - name: Deploy with an internal VNET
+      - name: Deploy with an internal environment
         href: vnet-custom-internal.md
       - name: Firewall integration
         href: firewall-integration.md

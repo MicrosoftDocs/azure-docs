@@ -11,31 +11,34 @@ ms.author: cshoe
 
 # Networking architecture in Azure Container Apps
 
+As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
+
+- You control the subnet range used by the Container Apps environment.
+- Once the environment is created, the subnet range is immutable.
+- A single load balancer and single Kubernetes service are associated with each container apps environment.
+- Each [revision](revisions.md) is assigned an IP address in the subnet.
+- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
+
+When you create an environment, a VNET is required. You have the option to provide your own VNET, or a VNET is generated for you in the background.
+
+Automatically generated VNETs are inaccessible to you as they are registered to Microsoft's tenant, therefore provide your own if you want full control over your VNET.
+
+If provide a custom VNET, the network needs a [control plane subnet and an app subnet](#subnet-types). The control plane subnet provides IP addresses from your internal network to the Azure Container Apps control plane infrastructure components as well as your application containers.
+
+The following articles feature step-by-step instructions for creating Container Apps environments with different accessibility levels.
+
+- [Deploy with an external environment](vnet-custom.md)
+- [Deploy with an internal environment](vnet-custom-internal.md)
+
+Refer to the virtual network support section in [Introduction to App Service Environment v2](/azure/app-service/environment/intro) for details on what's supported in a Container Apps VNET.
+
+As you begin to design the network around your container app, refer to [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
+
+<!--
 https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options
 
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
-
-<!-- prerequsite -->
-https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm
-
-Plan networking before you create an environment
-
-
-
-## Environments
-
-deploy to a virtual network, 
-
-by default .....
-
-we create VNET for you, but you are not able to access it
-inaccessible Azure-based VNET in the MS tenant
-
-if you bring you own, you can do whatever you want with it
-
-virtual network boundary (environment) all container apps in the network can communicate with one another
-
-https://docs.microsoft.com/en-us/azure/app-service/environment/intro#virtual-network-support
+-->
 
 ## Use cases
 
@@ -49,19 +52,9 @@ API management or App Gateway which talks to a BYO VNET configured as internal o
 
 <!-- 👆🏼 tomer to provide samples  -->
 
-## Networking behavior
-
-generated VNET - get Azure-assigned IPs, address spaces
-
-- BYO VNET
-  - you can control IPs
-  - control over network security groups
-
 ## Access restrictions
 
 if you want to lock down your environment to your vent and restrict outside access, then to byo vnet configured as internal only. Then its not reachable from the outside
-
-
 
 <!-- Verify with Ahmed -->
 ### Envoy behavior
@@ -74,18 +67,16 @@ different for internal vs external configuration
 
 ## Ports
 
+The VNET associated with a Container Apps environment uses a single subnet with 255 addresses.
+
+The following ports are exposed for inbound connections.
+
+| Use | Port(s) |
+|--|--|
+| HTTP/HTTPS | 80, 443 |
+| Log streaming | **TODO: @torosent** |
+
 ## Bring your own VNET
-
-As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
-
-- You control the subnet range used by the Container Apps environment.
-- Once the environment is created, the subnet range is immutable.
-- A single load balancer and single Kubernetes service are associated with each container apps environment.
-- Each [revision pod](revisions.md) is assigned an IP address in the subnet.
-- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
-
-> [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -97,8 +88,6 @@ Subnet address ranges can't overlap with the following reserved ranges:
 - 172.30.0.0/16
 - 172.31.0.0/16
 - 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
 
 ## Subnet types
 
