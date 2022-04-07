@@ -33,7 +33,7 @@ Additionally, you can publish your transformed data to data stores such as Azure
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
 
-:::image type="content" source="media/data-flow/overview.png" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
+:::image type="content" source="media/data-flow/overview.svg" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
 
 This visual guide provides a detailed overview of the complete Data Factory architecture:
 
