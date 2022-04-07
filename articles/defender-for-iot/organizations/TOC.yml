@@ -65,40 +65,40 @@
         - name: Pre-configured appliances - in pages per types
           items:
           - name: Overview
+            href: ot-pre-configured-appliances-overview.md
+          - name: Corporate appliances (TBD)
             href: TBD.md
-          - name: Corporate appliances
+          - name: Enterprise appliances (CHECK HERE)
+            href: ot-pre-configured-appliances-enterprise.md
+          - name: SMB appliances (TBD)
             href: TBD.md
-          - name: Enterprise appliances
+          - name: Rugged appliances (TBD)
             href: TBD.md
-          - name: SMB appliances
-            href: TBD.md
-          - name: Rugged appliances
-            href: TBD.md
-          - name: Legacy appliances
+          - name: Legacy appliances (TBD)
             href: TBD.md
         - name: Pre-configured appliances - in pages per appliance
           items:
           - name: Overview
-            href: TBD.md
-          - name: Corporate appliances
+            href: ot-pre-configured-appliances-overview.md
+          - name: Corporate appliances (TBD)
             items:
-            - name: HPE ProLiant DL360
+            - name: HPE ProLiant DL360 (TBD)
               href: TBD.md
-          - name: Enterprise appliances
+          - name: Enterprise appliances (CHECK HERE)
             items:
-            - name: HPE ProLiant DL20 Plus
+            - name: HPE ProLiant DL20 Plus (CHECK HERE)
+              href: ot-pre-configured-appliances-proliant-dl20-plus.md
+            - name: HPE ProLiant DL20 (TBD)
               href: TBD.md
-            - name: HPE ProLiant DL20
+            - name: Dell PowerEdge R340 XL (TBD)
               href: TBD.md
-            - name: Dell PowerEdge R340 XL
-              href: TBD.md
-          - name: SMB appliances
+          - name: SMB appliances (TBD)
             items:
-            - name: HPE ProLiant DL20 Plus
+            - name: HPE ProLiant DL20 Plus (TBD)
               href: TBD.md
-          - name: Rugged appliances
+          - name: Rugged appliances (TBD)
             items:
-            - name: YS-techsystems YS-FIT2
+            - name: YS-techsystems YS-FIT2 (TBD)
               href: TBD.md
         - name: Physical appliance requirements
           href: ot-physical-appliances.md
