@@ -131,6 +131,10 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-proces
 
 To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
 
+### Create a telemetry processor (Java)
+
+To learn more about telemetry processors and their implementation in Java, please reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
+
 ### Example filters
 
 #### Synthetic requests
