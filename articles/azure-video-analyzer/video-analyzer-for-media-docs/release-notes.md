@@ -40,7 +40,7 @@ In order to upload a video from a URL, change your code to send nu
 
 ```csharp
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
-
+```
 
 ## March 2022 release updates
 
