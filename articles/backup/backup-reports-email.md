@@ -94,7 +94,9 @@ If the issues persist, contact Microsoft support.
 
 If you're a user in Azure Government environment using an [Office365 GCC High account](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod), ensure that the email configuration is set correctly. This is because a different endpoint used for authorizing this connection for GCC High users that needs to be explicitly specified. Perform one of the following methods to verify the configuration and set up the logic app to work in GCC High.
 
-### Method 1: Change the authentication type using portal
+**Choose a client:**
+
+# [Azure portal](#tab/portal)
 
 To update the authentication type for the Office 365 connection via the Azure portal, follow these steps:
 
@@ -120,7 +122,7 @@ To update the authentication type for the Office 365 connection via the Azure po
 
 Once you select the correct authentication type in all the places where the Office 365 connection is used, the connection should work as expected.
 
-### Method 2: Change the authentication type specified in the ARM template
+# [Azure Resource Manager (ARM) template](#tab/arm)
 
 You can also directly update the ARM template, which is used for deploying the logic app, to ensure that the GCC High endpoint is used for authorization. Follow these steps:
 
@@ -166,6 +168,8 @@ You can also directly update the ARM template, which is used for deploying the l
 1. Once you have the edited template, [deploy this template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template). 
 
 1. Once deployed, [authorize the Azure Monitor Logs and Office 365 connections](#authorize-connections-to-azure-monitor-logs-and-office-365).
+
+---
 
 ## Next steps
 [Learn more about Backup Reports](./configure-reports.md)
