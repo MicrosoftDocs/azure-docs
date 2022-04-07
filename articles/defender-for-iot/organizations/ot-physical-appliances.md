@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for IoT OT hardware compatibility matrix for non-certified appliances
+title: OT hardware compatibility matrix for non-certified appliances - Microsoft Defender for IoT
 description: Learn about system requirements for physical appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 04/04/2022
 ms.topic: conceptual

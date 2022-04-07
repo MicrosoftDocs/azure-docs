@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for IoT supported pre-configured appliances for OT systems
+title: Supported pre-configured appliances for OT systems - Microsoft Defender for IoT
 description: Learn about the supported, pre-configured appliances for Microsoft Defender for IoT OT sensors and on-premises management consoles.
 ms.date: 04/04/2022
 ms.topic: conceptual

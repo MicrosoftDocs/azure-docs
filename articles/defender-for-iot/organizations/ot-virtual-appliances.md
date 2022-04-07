@@ -1,11 +1,11 @@
 ---
-title: Virtual OT Sensor (VM)
+title: Virtual OT sensor (VM) system requirements - Microsoft Defender for IoT
 description: Learn about system requirements for virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# Create a VM-based OT Sensor
+# VM-based OT sensor system requirements
 
 This article lists the virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles.
 
