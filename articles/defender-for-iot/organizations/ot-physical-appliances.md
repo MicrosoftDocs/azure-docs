@@ -1,11 +1,11 @@
 ---
-title: OT Monitoring - Build Your Own - Microsoft Defender for IoT
+title: Build your own appliance for OT monitoring - Microsoft Defender for IoT
 description: Learn about hardware compatibility for physical appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# OT Monitoring - Build Your Own Appliance
+# OT monitoring - build your own appliance
 
 This article lists the hardware specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own physical appliances.
 
@@ -18,7 +18,8 @@ This article lists the hardware specifications required if you want to install M
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04.
 All hardware components must be compatible with Ubuntu version 18.04.
 
-# [CPU Requirements](#tab/cpu_requirements)
+## Specifications
+# [CPU requirements](#tab/cpu_requirements)
 
 | Deployment type |Supported models and versions |
 |---------|---------|---------|
@@ -26,7 +27,7 @@ All hardware components must be compatible with Ubuntu version 18.04.
 | **Enterprise** | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br> Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br> Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
 | **Production line**| Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br> Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 
 
-# [Networking Requirements](#tab/networking_requirements)
+# [Networking requirements](#tab/networking_requirements)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
@@ -35,7 +36,7 @@ All hardware components must be compatible with Ubuntu version 18.04.
 | **Production line**          | Intel I219<br>Broadcom BCM5720 <br>  Broadcom BCM5719      |
 
 
-# [Storage Array Requirements](#tab/storage_requirements)
+# [Storage array requirements](#tab/storage_requirements)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
@@ -43,6 +44,7 @@ All hardware components must be compatible with Ubuntu version 18.04.
 | **Enterprise**      | RAID 1 with HPE Smart Array P208i-a, 2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)  <br>  RAID 5 with HPE Smart Array P208i-a, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive <br>RAID 5 with Dell PERC H330, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive<br> 300IOPS      |
 | **Production line** | 128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3-year warranty wide-temperature SSD <br>128 GB 3ME3 wide temperature mSATA SSD <br> 150 IOPS|
 
+---
 ## Next steps
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
