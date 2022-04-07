@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Adobe Identity Management.
+title: 'Tutorial: Configure Adobe Identity Management (OIDC) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Adobe Identity Management (OIDC).
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
 manager: beatrizd
 
-ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
+ms.assetid: baa54168-d23a-49d8-94d1-28476138cd90
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/30/2021
+ms.date: 04/06/2022
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure Adobe Identity Management for automatic user provisioning
+# Tutorial: Configure Adobe Identity Management (OIDC) for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Adobe Identity Management and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to Adobe Identity Management using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Adobe Identity Management (OIDC) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to Adobe Identity Management (OIDC) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
 > [!div class="checklist"]
-> * Create users in Adobe Identity Management
-> * Disable users in Adobe Identity Management when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and Adobe Identity Management
-> * Provision groups and group memberships in Adobe Identity Management
-> * [Single sign-on](adobe-identity-management-tutorial.md) to Adobe Identity Management (recommended)
+> * Create users in Adobe Identity Management (OIDC)
+> * Disable users in Adobe Identity Management (OIDC) when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and Adobe Identity Management (OIDC)
+> * Provision groups and group memberships in Adobe Identity Management (OIDC)
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Adobe Identity Management (OIDC) (recommended)
 
 ## Prerequisites
 
@@ -45,9 +45,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Adobe Identity Management](../app-provisioning/customize-application-attributes.md). 
+1. Determine what data to [map between Azure AD and Adobe Identity Management (OIDC)](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure Adobe Identity Management to support provisioning with Azure AD
+## Step 2. Configure Adobe Identity Management (OIDC) to support provisioning with Azure AD
 
 1. Login to [Adobe Admin Console](https://adminconsole.adobe.com/). Navigate to **Settings > Directory Details > Sync**. 
 
@@ -59,13 +59,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
-1. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
+1. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management (OIDC) application in the Azure portal.
 
     ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
-## Step 3. Add Adobe Identity Management from the Azure AD application gallery
+## Step 3. Add Adobe Identity Management (OIDC) from the Azure AD application gallery
 
-Add Adobe Identity Management from the Azure AD application gallery to start managing provisioning to Adobe Identity Management. If you have previously setup Adobe Identity Management for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Adobe Identity Management (OIDC) from the Azure AD application gallery to start managing provisioning to Adobe Identity Management (OIDC). If you have previously setup Adobe Identity Management (OIDC) for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -76,19 +76,19 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Adobe Identity Management 
+## Step 5. Configure automatic user provisioning to Adobe Identity Management (OIDC) 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
+### To configure automatic user provisioning for Adobe Identity Management (OIDC) in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the applications list, select **Adobe Identity Management**.
+1. In the applications list, select **Adobe Identity Management (OIDC)**.
 
-    ![The Adobe Identity Management link in the Applications list](common/all-applications.png)
+    ![The Adobe Identity Management (OIDC) link in the Applications list](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -98,7 +98,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Adobe Identity Management Tenant URL and Secret Token retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Adobe Identity Management. If the connection fails, ensure your Adobe Identity Management account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Adobe Identity Management (OIDC) Tenant URL and Secret Token retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Adobe Identity Management (OIDC). If the connection fails, ensure your Adobe Identity Management (OIDC) account has Admin permissions and try again.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -108,11 +108,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Adobe Identity Management**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Adobe Identity Management (OIDC)**.
 
-1. Review the user attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Adobe Identity Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Adobe Identity Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Adobe Identity Management (OIDC) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Adobe Identity Management (OIDC) for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Adobe Identity Management (OIDC) API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
+   |Attribute|Type|Supported for filtering|Required by Adobe Identity Management (OIDC)
    |---|---|---|---|
    |userName|String|&check;|&check;   
    |active|Boolean||
@@ -122,22 +122,22 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String||
    |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String||
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management (OIDC)**.
 
-1. Review the group attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Adobe Identity Management for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Adobe Identity Management (OIDC) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Adobe Identity Management (OIDC) for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
+      |Attribute|Type|Supported for filtering|Required by Adobe Identity Management (OIDC)
       |---|---|---|---|
       |displayName|String|&check;|&check;
       |members|Reference||
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Adobe Identity Management, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Adobe Identity Management (OIDC), change the **Provisioning Status** to **On** in the **Settings** section.
 
     ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Adobe Identity Management by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Adobe Identity Management (OIDC) by choosing the desired values in **Scope** in the **Settings** section.
 
     ![Provisioning Scope](common/provisioning-scope.png)
 
