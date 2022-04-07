@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/20/2022
+ms.date: 04/06/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -22,7 +22,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
@@ -44,16 +43,6 @@ When the recommendations are released to general availability, they will replace
 Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
-
-### Relocation of custom recommendations
-
-**Estimated date for change:** March 2022
-
-Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
-
-When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
-
-Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
 ### Multiple changes to identity recommendations
 
