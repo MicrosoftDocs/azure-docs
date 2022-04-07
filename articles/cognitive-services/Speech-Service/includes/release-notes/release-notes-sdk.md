@@ -6,6 +6,30 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.21.0: April 2022 release
+
+#### New features
+- **Java & Java Script**: Add support for Continuous Language Identification when using the SpeechRecognizer object
+- **Java Script**: Add Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
+- **Python**: Add support for Conversation Transcription
+- **Go**: Add support for Speaker Recognition
+- **All programming languages**: Speech Synthesis: Add duration property in word boundary events. Add support for punctuation boundary and sentence boundary
+- **Objective-C/Swift/Java**: Add word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
+- **iOS platform**: Add support for ARMv7 architecture
+
+#### Bug fixes
+- Fix to allow building on iOS devices when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
+- **Java Script**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
+- **Java Script**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
+- **Java Script**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
+
+#### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- New **Java** samples for Speech Recognition with Language Identification
+- New **Python** and **Java** samples for Conversation Transcription
+- New **Go** sample for Speaker Recognition
+
+
+
 ### Speech SDK 1.20.0: January 2022 release
 
 

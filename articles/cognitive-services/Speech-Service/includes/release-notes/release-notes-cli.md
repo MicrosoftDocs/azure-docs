@@ -6,6 +6,12 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.21.0: April 2022 release
+
+#### New features
+
+#### Bug fixes
+
 ### Speech CLI 1.20.0: January 2022 release
 
 #### New features
