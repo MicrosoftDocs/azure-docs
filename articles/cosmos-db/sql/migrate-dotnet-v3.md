@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 04/07/2022
 ms.devlang: csharp
 ---
 
@@ -226,7 +226,20 @@ For use cases where `OpenAsync()` was being used to warm up the v2 SDK client, `
 
 The v3 SDK has built-in support for the Change Feed Processor APIs, allowing you use the same SDK for building your application and change feed processor implementation. Previously, you had to use a separate change feed processor library.
 
-For more information, see [how to migrate from the change feed processor library to the Azure Cosmos DB .NET v3 SDK](how-to-migrate-from-change-feed-library.md)
+### Change feed queries
+
+Executing a Change Feed query is possible on the v3 SDK:
+
+| .NET v2 SDK | .NET v3 SDK |
+|-------------|-------------|
+|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#using-feedrange-for-parallelization) can be used. It is no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consuming-an-entire-containers-changes) easily now.|
+|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that particular Partition Key value](change-feed-pull-model.md#consuming-a-partition-keys-changes).|
+|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`ChangeFeedOptions.StartFromBeginning`/`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Beginning` / `ChangeFeedStartFrom.Time` - `ChangeFeedStartFrom` defines the different options when starting to read the Change Feed, including the beginning, a specific time, a continuation, or now.|
+|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|Split handling|It is no longer required for users to handle split exceptions when reading the Change Feed, splits will be handled transparently without the need of user interaction.|
+
+For more information, see [how to use the change feed pull model](change-feed-pull-model.md).
 
 ### Using the bulk executor library directly from the V3 SDK
 
@@ -717,6 +730,65 @@ private static async Task DeleteItemAsync(DocumentClient client)
     ResourceResponse<Document> response = await client.DeleteDocumentAsync(
         UriFactory.CreateDocumentUri(DatabaseName, ContainerName, "SalesOrder3"),
         new RequestOptions { PartitionKey = new PartitionKey("Account1") });
+}
+```
+---
+
+### Change Feed query
+
+# [.NET SDK v3](#tab/dotnet-v3)
+
+```csharp
+private static async Task QueryChangeFeedAsync(Container container)
+{
+    FeedIterator<SalesOrder> iterator = container.GetChangeFeedIterator<SalesOrder>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+
+    string continuation = null;
+    while (iterator.HasMoreResults)
+    {
+        FeedResponse<SalesOrder> response = await iteratorForTheEntireContainer.ReadNextAsync();
+    
+        if (response.StatusCode == HttpStatusCode.NotModified)
+        {
+            // No new changes
+            continuation = response.ContinuationToken;
+            break;
+        }
+        else 
+        {
+            // Process the documents in response
+        }
+    }
+}
+```
+
+# [.NET SDK v2](#tab/dotnet-v2)
+
+```csharp
+private static async Task QueryChangeFeedAsync(DocumentClient client, string partitionKeyRangeId)
+{
+    ChangeFeedOptions options = new ChangeFeedOptions
+    {
+        PartitionKeyRangeId = partitionKeyRangeId,
+        StartFromBeginning = true,
+    };
+
+    using(var query = client.CreateDocumentChangeFeedQuery(
+        UriFactory.CreateDocumentCollectionUri(DatabaseName, ContainerName), options))
+    {
+        do
+        {
+            var response = await query.ExecuteNextAsync<Document>();
+            if (response.Count > 0)
+            {
+                var docs = new List<Document>();
+                docs.AddRange(response);
+                // Process the documents.
+                // Save response.ResponseContinuation if needed
+            }
+        }
+        while (query.HasMoreResults);
+    }
 }
 ```
 ---
