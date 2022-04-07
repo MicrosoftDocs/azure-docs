@@ -20,7 +20,7 @@ ms.date: 04/06/2022
 
 ## Plan for Intel SGX in Azure SQL Database
 
-Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-sql-database-vcore.md) and the [DC-series](service-tiers-sql-database-vcore.md?#dc-series) hardware. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware when you create the database, or you can update your existing database to use the DC-series hardware.
+Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-sql-database-vcore.md) and [DC-series](service-tiers-sql-database-vcore.md?#dc-series) hardware. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware when you create the database, or you can update your existing database to use the DC-series hardware.
 
 > [!NOTE]
 > Intel SGX is not available in hardware other than DC-series. For example, Intel SGX is not available for Gen5 hardware, and it is not available for databases using the [DTU model](service-tiers-dtu.md).
@@ -30,7 +30,7 @@ Intel SGX is a hardware-based trusted execution environment technology. Intel SG
 
 ## Plan for attestation in Azure SQL Database
 
-[Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware.
+[Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using DC-series hardware.
 
 To use Azure Attestation for attesting Intel SGX enclaves in Azure SQL Database, you need to create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with the Microsoft-provided attestation policy. See [Configure attestation for Always Encrypted using Azure Attestation](always-encrypted-enclaves-configure-attestation.md)
 

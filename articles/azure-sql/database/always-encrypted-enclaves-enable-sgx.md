@@ -1,6 +1,6 @@
 ---
 title: "Enable Intel SGX for Always Encrypted"
-description: "Learn how to enable Intel SGX for Always Encrypted with secure enclaves in Azure SQL Database by selecting an SGX-enabled hardware."
+description: "Learn how to enable Intel SGX for Always Encrypted with secure enclaves in Azure SQL Database by selecting SGX-enabled hardware."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -16,7 +16,7 @@ ms.date: 04/06/2022
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
-[Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database uses [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves. For Intel SGX to be available, the database must use the [vCore model](service-tiers-vcore.md) and the [DC-series](service-tiers-sql-database-vcore.md#dc-series) hardware.
+[Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database uses [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves. For Intel SGX to be available, the database must use the [vCore model](service-tiers-vcore.md) and [DC-series](service-tiers-sql-database-vcore.md#dc-series) hardware.
 
 Configuring the DC-series hardware to enable Intel SGX enclaves is the responsibility of the Azure SQL Database administrator. See [Roles and responsibilities when configuring SGX enclaves and attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 

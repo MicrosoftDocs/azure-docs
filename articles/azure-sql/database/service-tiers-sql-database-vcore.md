@@ -30,7 +30,7 @@ This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [A
 The vCore purchasing model used by Azure SQL Database provides several benefits over the DTU purchasing model:
 
 - Higher compute, memory, I/O, and storage limits.
-- A degree of control over hardware to better match compute and memory requirements of the workload.
+- Choice of hardware configuration to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
 - [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchasing model. 
@@ -115,7 +115,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 - DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
 - DC-series hardware provides balanced compute and memory resources.
 
-DC-series is only supported for the Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see [DC-series availability](#dc-series-1).
+DC-series is only supported for Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see [DC-series availability](#dc-series-1).
 
 #### Azure offer types supported by DC-series
 

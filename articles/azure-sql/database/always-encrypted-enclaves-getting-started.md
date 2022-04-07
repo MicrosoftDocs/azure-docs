@@ -53,7 +53,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 ## Step 1: Create and configure a server and a DC-series database
 
-In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using DC-series hardware, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
 
 # [Portal](#tab/azure-portal)
 
