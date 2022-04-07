@@ -41,31 +41,35 @@ To add a new feature flag:
 
 1. Check the box **Enable feature flag** to make the new feature flag active as soon as the flag has been created.
 
-1. Enter a **feature flag name**. The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code.
+1. Enter a **Feature flag name**. The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code.
 
-1. You can also set a **key** name for your feature flag. The default value of this key name is the name of your feature flag. You can change the key name to a filter, which can be used to filter for specific feature flags when loading in your application. For example, adding a prefix or a namespace for grouping.
+1. You can edit the key for your feature flag. The default value for this key is the name of your feature flag. You can change the key to add a prefix, which can be used to find specific feature flags when loading the feature flags in your application. For example, using the application's name as prefix such as **appname:featureflagname**.
 
-1. Optionally select one of your existing labels from the dropdown menu and enter a description.
+1. Optionally select an existing label or create a new one, and enter a description for the new feature flag.
 
-1. Leave the **User feature filter** box unchecked and select **Apply** to validate the creation of the feature flag. To learn more about feature filters, visit [Use feature filters to enable conditional feature flags](howto-feature-filters-aspnet-core.md) and [Enable staged rollout of features for targeted audiences](howto-targetingfilter-aspnet-core.md).
+1. Leave the **Use feature filter** box unchecked and select **Apply** to create the feature flag. To learn more about feature filters, visit [Use feature filters to enable conditional feature flags](howto-feature-filters-aspnet-core.md) and [Enable staged rollout of features for targeted audiences](howto-targetingfilter-aspnet-core.md).
 
     :::image type="content" source="media/azure-app-configuration-feature-flag-create.png" alt-text="Screenshot of the Azure platform. Feature flag creation form - part 1.":::
 
-## Update feature flag states
+## Update feature flags
 
-To change a feature flag's state value:
+To update a feature flag:
 
-1. From the menu on the left, select **Feature Manager**.
+1. From the **Operations** menu, select **Feature Manager**.
 
-1. To the right of a feature flag you want to modify, select the **More actions** ellipsis (**...**), and then select **Edit**.
+1. Move to the right end of the feature flag you want to modify, select the **More actions** ellipsis (**...**), and then select **Edit**.
 
     :::image type="content" source="media/azure-app-configuration-feature-flag-edit.png" alt-text="Screenshot of the Azure platform. Edit a feature flag.":::
 
-1. Update the feature flag. You can enable or disable it, as well as edit its description and filters.
+1. Update the feature flag. You can change the state of feature flag by checking or unchecking the **Enable Feature flag** checkbox. You can also edit the feature flag's description and filters.
 
 ## Access feature flags
 
-Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key-values, in the **Operations** menu open the **Configuration explorer**.
+In the **Operations** menu, select **Feature manager**. You can select **Edits Columns** to add or remove columns, and change the column order.
+
+:::image type="content" source="media/azure-app-configuration-feature-flag-access.png" alt-text="Screenshot of the Azure platform. Access feature flags and edit columns.":::
+
+Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key-values, in the **Operations** menu, open the **Configuration explorer**.
 
 :::image type="content" source="media/azure-app-configuration-feature-flag-retrieve.png" alt-text="Screenshot of the Azure platform. Retrieve a feature flag.":::
 
@@ -74,5 +78,4 @@ Your application can retrieve these values by using the App Configuration config
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md)
 > [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
