@@ -1,6 +1,6 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Load Testing is a fully managed load-testing service that enables developers to generate high-scale loads to optimize app performance.'
+description: 'Azure Load Testing is a fully managed load-testing service for generating high-scale loads by using existing JMeter scripts to optimize app performance.'
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
@@ -8,6 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 11/30/2021
 adobe-target: true
+ms.custom: contperf-fy22q4
 ---
 
 # What is Azure Load Testing Preview?
