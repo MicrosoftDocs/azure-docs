@@ -1279,7 +1279,7 @@
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
-        - name: Create a collection - MongoDB API
+        - name: Create a container - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
