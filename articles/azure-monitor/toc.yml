@@ -92,7 +92,11 @@ items:
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
-      href: agents/resource-manager-data-collection-rules.md
+      items:
+      - name: Data collection rules
+        href: agents/resource-manager-data-collection-rules.md
+      - name: Data puller
+        href: logs/data-ingestion-from-file.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -157,12 +161,14 @@ items:
     href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
-    - name: Usage and estimated costs
+    - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Application Insights usage and costs
-      href: app/pricing.md
-    - name: Log data usage and costs
-      href: logs/manage-cost-storage.md
+    - name: Logs pricing details
+      href: logs/cost-logs.md
+    - name: Legacy Application Insights pricing
+      href: app/legacy-pricing.md
+    - name: Optimize costs
+      href: best-practices-cost.md
   - name: Data security
     items:
     - name: Roles permissions and security
@@ -213,20 +219,22 @@ items:
     href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
+  - name: Best practices
+    items:
+    - name: Overview
+      href: best-practices.md
+    - name: Planning
+      href: best-practices-plan.md
+    - name: Configure data collection
+      href: best-practices-data-collection.md
+    - name: Analysis and visualizations
+      href: best-practices-analysis.md
+    - name: Alerts and automated actions
+      href: best-practices-alerts.md
+    - name: Optimize costs
+      href: best-practices-cost.md
   - name: Scenarios
     items:
-    - name: Azure Monitor best practices
-      items:
-      - name: Overview
-        href: best-practices.md
-      - name: Planning
-        href: best-practices-plan.md
-      - name: Configure data collection
-        href: best-practices-data-collection.md
-      - name: Analysis and visualizations
-        href: best-practices-analysis.md
-      - name: Alerts and automated actions
-        href: best-practices-alerts.md
     - name: Monitor virtual machines
       items:
       - name: Overview
@@ -273,7 +281,7 @@ items:
       - name: Overview
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
-      - name: Create a workspace
+      - name: Create
         items:
         - name: Azure portal
           href: logs/quick-create-workspace.md
@@ -281,25 +289,39 @@ items:
           href: logs/powershell-workspace-configuration.md
         - name: Resource Manager template
           href: logs/resource-manager-workspace.md
-      - name: Monitor a workspace
-        href: logs/monitor-workspace.md
-      - name: Delete and recover a workspace
-        href: logs/delete-workspace.md
-      - name: Manage access
-        displayName: Log Analytics workspace
-        href: logs/manage-access.md
-      - name: Move a workspace
-        href: logs/move-workspace.md
-      - name: Move a workspace across regions 
-        href: logs/move-workspace-region.md
-      - name: Configure Basic Logs
-        href: logs/basic-logs-configure.md
-      - name: Set retention and archive policy
-        href: logs/data-retention-archive.md
-      - name: Run a search job
-        href: logs/search-jobs.md
-      - name: Restore logs
-        href: logs/restore.md
+      - name: Configure
+        items:
+        - name: Manage access
+          displayName: Log Analytics workspace
+          href: logs/manage-access.md
+        - name: Change pricing tier
+          href: logs/change-pricing-tier.md
+        - name: Set a daily cap
+          href: logs/daily-cap.md
+        - name: Configure Basic Logs
+          href: logs/basic-logs-configure.md
+      - name: Archive and restore
+        items:
+        - name: Set retention and archive policy
+          href: logs/data-retention-archive.md
+        - name: Run a search job
+          href: logs/search-jobs.md
+        - name: Restore logs
+          href: logs/restore.md
+      - name: Monitor
+        items:
+        - name: Monitor a workspace
+          href: logs/monitor-workspace.md
+        - name: Analyze usage and cost
+          href: logs/analyze-usage.md    
+      - name: Move and delete
+        items:
+        - name: Move a workspace
+          href: logs/move-workspace.md
+        - name: Move a workspace across regions 
+          href: logs/move-workspace-region.md
+        - name: Delete and recover a workspace
+          href: logs/delete-workspace.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -457,6 +479,8 @@ items:
         href: logs/tutorial-ingestion-time-transformations.md
       - name: Tutorial (API)
         href: logs/tutorial-ingestion-time-transformations-api.md
+    - name: Troubleshoot
+      href: logs/data-collection-troubleshoot.md
   - name: Agents
     items:
     - name: Overview
@@ -637,6 +661,8 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
+      - name: Log analytics alerts legacy API
+        href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -658,6 +684,12 @@ items:
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: alerts/action-groups.md
+      - name: Create action groups with Resource Manager
+        href: alerts/action-groups-create-resource-manager-template.md
+      - name: Notification rate limiting
+        href: alerts/alerts-rate-limiting.md
+      - name: SMS alert behavior
+        href: alerts/alerts-sms-behavior.md
       - name: Common alert schema
         href: alerts/alerts-common-schema.md
       - name: Common alert schema definition
@@ -668,20 +700,12 @@ items:
         href: alerts/alerts-non-common-schema-definitions.md        
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: Create action groups with Resource Manager
-        href: alerts/action-groups-create-resource-manager-template.md
       - name: Implement a Logic App action
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
-    - name: Alert API
-      href: alerts/api-alerts.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -1237,7 +1261,6 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
-
     - name: Monitor
       items:
       - name: Monitor performance

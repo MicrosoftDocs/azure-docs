@@ -132,7 +132,7 @@ In the preceding diagram:
 
 ## Implicit grant
 
-The implicit grant has been replaced by the [authorization code flow with PCKE](scenario-spa-overview.md) as the preferred and more secure token grant flow for client-side single page-applications (SPAs). If you're building a SPA, use the authorization code flow with PKCE instead.
+The implicit grant has been replaced by the [authorization code flow with PKCE](scenario-spa-overview.md) as the preferred and more secure token grant flow for client-side single page-applications (SPAs). If you're building a SPA, use the authorization code flow with PKCE instead.
 
 Single-page web apps written in JavaScript (including frameworks like Angular, Vue.js, or React.js) are downloaded from the server and their code runs directly in the browser. Because their client-side code runs in the browser and not on a web server, they have different security characteristics than traditional server-side web applications. Prior to the availability of Proof Key for Code Exchange (PKCE) for the authorization code flow, the implicit grant flow was used by SPAs for improved responsiveness and efficiency in getting access tokens.
 

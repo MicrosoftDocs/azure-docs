@@ -191,7 +191,7 @@ switch (result.Reason)
         {
             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-            Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
+            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
         }
         break;
 }
@@ -249,7 +249,7 @@ recognizer.Canceled += (s, e) =>
     {
         Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
+        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
     }
 
     stopRecognition.TrySetResult(0);
