@@ -142,7 +142,6 @@ az rest --method GET --uri $uri
 
 ### [Azure PowerShell](#tab/azurepowershell)
 
-This section shows you how to use Azure PowerShell to disable and re-enable System Assigned Managed Identity for Synapse Analytics workspace.
 
 ```azurepowershell
 $AppId="Provide App Id"
