@@ -48,6 +48,8 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
    * **Risky sign-ins**: Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
    * **Risk detections**: Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+
 Although we discourage the practice, privileged accounts can have standing administration rights. If you choose to use standing privileges, and the account is compromised, it can have a strongly negative effect. We recommend you prioritize monitoring privileged accounts and include the accounts in your Privileged Identity Management (PIM) configuration. For more information on PIM, see [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md). Also, we recommend you validate that admin accounts:
 
 * Are required.

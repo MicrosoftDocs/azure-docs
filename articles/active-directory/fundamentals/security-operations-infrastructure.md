@@ -52,7 +52,9 @@ From the Azure portal you can view the Azure AD Audit logs and download as comma
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 The remainder of this article describes what you should monitor and alert on and is organized by the type of threat. Where there are specific pre-built solutions, you will find links to them following the table. Otherwise, you can build alerts using the preceding tools.
 
@@ -258,6 +260,40 @@ The DC agent Admin log is the primary source of information for how the software
 * Azure AD Audit Log, Category Application Proxy
 
 Complete reference for Azure AD audit activities is available at [Azure Active Directory (Azure AD) audit activity reference](../reports-monitoring/reference-audit-activities.md). 
+
+## Conditional Access
+In Azure AD, you can protect access to your resources by configuring conditional access policies. As an IT administrator, you want to ensure that your conditional access policies work as expected to ensure that your resources are properly protected. Monitoring and alerting on changes to conditional access is critical to ensure that polices defined by your organization for access to data are enforced correctly. Azure AD logs when changes are made to conditional access and also provides a workbooks to ensure your policies are providing the expected coverage.
+
+Monitor changes to Conditional Access policies using the following information:
+
+| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
+| - | - | - | - | - |
+| New Conditional Access Policy created by non-approved actors|Medium | Azure AD Audit logs|Activity: Add conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name | Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
+|Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Delete conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
+|Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Update conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value|
+|Removal of a user from a group used to scope critical Conditional Access policies|Medium|Azure AD Audit logs|Activity: Remove member from group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been removed.|
+|Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.|
+
+### Applications
+There are several flows defined in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application that is being built. In some cases, there is a choice of flows available to the application, and in this case, some authentication flows are recommended over others. Specifically, resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly. The application then uses those credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), as this flow is  highly recommended. 
+
+
+The only scenario where ROPC is suggested is for automated testing of applications. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
+
+ 
+Device code flow is another OAuth 2.0 protocol flow specifically for input constrained devices and is not used in all environments. If this type of flow is seen in the environment and not being used in an input constrained device scenario further investigation is warranted. This can be a misconfigured application or potentially something malicious.
+
+Monitor application authentication using the following formation:
+
+| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
+| - | - | - | - | - |
+| Applications that are using the ROPC authentication flow|Medium | Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow.This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)|
+|Applications that are using the Device code flow |Low to medium|Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices which may not be present in all environments. If successful device code flows are seen without an environment need for them they should be further investigated for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)|
+
+### **Workbook Links**
+[Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md)
+
+[Conditional Access gap analysis workbook](../reports-monitoring/workbook-conditional-access-gap-analyzer.md) 
 
 ## Next steps
 
