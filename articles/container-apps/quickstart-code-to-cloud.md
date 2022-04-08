@@ -54,6 +54,7 @@ RESOURCE_GROUP="album-containerapps"
 LOCATION="canadacentral"
 ENVIRONMENT="env-album-containerapps"
 APP_NAME="album-api"
+API_IMAGE="latest"
 GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
@@ -73,6 +74,7 @@ $LOCATION="canadacentral"
 $ENVIRONMENT="env-album-containerapps"
 $ACR_NAME="acr-album-containerapps"
 $APP_NAME="album-api"
+$API_IMAGE="latest"
 $GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
@@ -116,13 +118,13 @@ Next, set an environment variable for the target port of your application.  If y
 # [Bash](#tab/bash)
 
 ```bash
-TARGET_PORT_ACA="<TARGET_PORT>"
+PORT_NUMBER="<TARGET_PORT>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$TARGET_PORT_ACA="<TARGET_PORT>"
+$PORT_NUMBER="<TARGET_PORT>"
 ```
 
 ---
@@ -386,7 +388,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $APP_NAME \
-  --target-port $TARGET_PORT_ACA \
+  --target-port $PORT_NUMBER \
   --ingress 'external' \
   --query configuration.ingress.fqdn
 ```
@@ -399,7 +401,7 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
   --image $APP_NAME `
-  --target-port $TARGET_PORT_ACA `
+  --target-port $PORT_NUMBER `
   --ingress 'external' `
   --query configuration.ingress.fqdn
 ```
