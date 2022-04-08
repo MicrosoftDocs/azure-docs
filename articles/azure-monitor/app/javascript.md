@@ -263,12 +263,6 @@ Correlation generates and sends data that enables distributed tracing and powers
 
 In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. The following examples show standard configuration options for enabling correlation.
 
-> [!NOTE]
-> There are two distributed tracing modes/protocols - AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt-in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
-
-> [!WARNING] 
-> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
-
 The following sample code shows the configurations required to enable correlation:
 
 # [Snippet](#tab/snippet)
@@ -303,6 +297,14 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
   /* ...Other Configuration Options... */
 } });
 ``` 
+
+---
+
+> [!NOTE]
+> There are two distributed tracing modes/protocols - AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt-in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
+> [!WARNING] 
+> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
 
 ### Correlation header excluded domains
 
