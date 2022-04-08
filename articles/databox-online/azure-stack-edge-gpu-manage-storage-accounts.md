@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/13/2021
+ms.date: 04/08/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
@@ -75,6 +75,11 @@ The list of containers is updated to reflect the newly added container.
 You can now select a container from this list and select **+ Delete container** from the top command bar. 
 
 ![Delete a container](media/azure-stack-edge-gpu-manage-storage-accounts/add-container-3.png)
+
+## Create a storage account
+
+[!INCLUDE [create-storage-account]
+(../../includes/azure-stack-edge-gpu-create-storage-account.md)]
 
 ## Sync storage keys
 
