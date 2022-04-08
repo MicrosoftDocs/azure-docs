@@ -20,7 +20,7 @@ This quickstart is the first in a series of articles takes you step-by-step in b
 
 To complete this project, you'll need the following items:
 
-::: zone pivot=""
+::: zone pivot="acr-remote"
 
 | Requirement  | Instructions |
 |--|--|
