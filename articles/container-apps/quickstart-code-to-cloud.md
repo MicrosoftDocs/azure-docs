@@ -18,16 +18,17 @@ This quickstart is the first in a series of articles takes you step-by-step in b
 
 ## Prerequisites
 
-To begin, you need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed.
-
 To complete this project, you'll need the following items:
 
-| Requirement  | Installation instructions |
+| Requirement  | Instructions |
 |--|--|
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker Engine | If you choose to build your application locally, you'll need the Docker Engine installed on local host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+::: zone pivot="docker-local"
+| Docker Engine | Install the Docker Engine on your computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+::: zone-end
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
@@ -82,7 +83,7 @@ $LANGUAGE="<LANGUAGE_VALUE>"
 
 ---
 
-Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: csharp, go, node, or python.
+Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: `csharp`, `go`, `node`, or `python`.
 
 Next, set an environment variable for the target port of your application.  If you're using the node API image, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
 
