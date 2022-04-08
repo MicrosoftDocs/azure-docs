@@ -1,11 +1,11 @@
 ---
 title: How to monitor Azure Purview
 description: Learn how to configure Azure Purview metrics, alerts, and diagnostic settings by using Azure Monitor.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 04/07/2022
 ---
 # Azure Purview metrics in Azure Monitor
 
@@ -151,4 +151,4 @@ The Sample log for an event instance is shown in the below section.
 
 ## Next steps
 
-[View Asset insights](asset-insights.md)
+[Elastic data map in Azure Purview](concept-elastic-data-map.md)
