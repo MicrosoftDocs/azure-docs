@@ -330,7 +330,7 @@ For Single Page Applications, please reference plugin documentation for plugin s
 ### Advanced Correlation
 
 During initialization of the SDK the Operation ID is populated as a random value.
-To enable end-to-end correlation the returned HTML page needs to contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the server-side Operation ID. 
+To remedy this problem, you can include dynamic JavaScript on the returned HTML page and the SDK will use a callback function during initialization to retroactively pull the Operation ID from the serverside and populate the clientside with it.
 
 Sample using Razor and a dynamic JS snippet:
 
