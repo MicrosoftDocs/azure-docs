@@ -204,7 +204,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
 
-Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
+Azure RBAC write access is necessary to create and manage failover groups. The [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) has all the necessary permissions to manage failover groups.
 
 For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Managed Instance](auto-failover-group-configure-sql-mi.md#permissions). 
 
@@ -215,7 +215,7 @@ Be aware of the following limitations:
 - Failover groups cannot be created between two instances in the same Azure region.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for databases in failover group. You will need to temporarily delete failover group to be able to rename a database, or remove the database from the failover group.
-- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
+- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases such as Server Logins and Agent jobs, require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance. To learn more, see how to [Enable scenarios dependent on objects from the system databases](#enable-scenarios-dependent-on-objects-from-the-system-databases).
 - Failover groups cannot be created between instances if any of them are in an instance pool.
 
 ## <a name="programmatically-managing-failover-groups"></a> Programmatically manage failover groups

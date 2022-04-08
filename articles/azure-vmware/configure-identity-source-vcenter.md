@@ -1,8 +1,8 @@
 ---
-title: Configure external identity source for vCenter
-description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
+title: Configure external identity source for vCenter Server
+description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 04/07/2022
 
 
 
@@ -20,7 +20,7 @@ ms.date: 08/31/2021
 In this how-to, you learn how to:
 
 > [!div class="checklist"]
-> * List all existing external identity sources integrated with vCenter SSO
+> * List all existing external identity sources integrated with vCenter Server SSO
 > * Add Active Directory over LDAP, with or without SSL 
 > * Add existing AD group to cloudadmin group
 > * Remove AD group from the cloudadmin role
@@ -42,7 +42,7 @@ In this how-to, you learn how to:
 
 
 
-You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter SSO.
+You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter Server SSO.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -66,7 +66,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 ## Add Active Directory over LDAP with SSL
 
-You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server. 
 
 1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. If multiple certificates are required, upload each certificate individually.  
 
@@ -103,7 +103,7 @@ You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL 
 >[!NOTE]
 >We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
 
-You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server. 
 
 1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
 
@@ -129,7 +129,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 
 ## Add existing AD group to cloudadmin group
 
-You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter SSO.
+You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
@@ -191,5 +191,5 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [How to configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
-- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
+- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager. 
 
