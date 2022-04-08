@@ -1,24 +1,22 @@
 ---	
 title: Azure Function Rule concepts for Azure Communication Services
-titleSuffix: An Azure Communication Services concept document	
-description: Learn about the Azure Communication Services Job Router Azure Function Rule concepts.	
+titleSuffix: An Azure Communication Services how-to guide
+description: Learn how to customize how workers are ranked for the best worker mode
 author: rsarkar
 manager: bo.gao
 services: azure-communication-services
 
 ms.author: rsarkar
 ms.date: 02/23/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ---	
 
-# Azure function rule concepts
+# How to customize how workers are ranked for the best worker distribution mode
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-As part of customer extensibility model, Azure Communication Services Job Router supports Azure Function Rule Engine. It gives you the ability to bring your own Azure function. With Azure function Rule, you can incorporate custom and complex logic into the process of routing.
-
-A couple of examples are given below to showcase the flexibility that Azure Function Rule provides.
+The `best-worker` distribution mode selects the workers that are best able to handle the job first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. The following example shows how to customize this logic with your own Azure Function.
 
 ## Scenario: Custom scoring rule in best worker distribution mode
 
@@ -84,7 +82,7 @@ The decision flow (as shown above) is as follows:
     - Does Worker specialize in console type -> Does worker have label: **["Support_<**jobLabels.ConsoleType**>"] = true**? If true, worker gets score of *200*
     - Otherwise, get a score of *100*
 
-### Creating an Azure function
+## Creating an Azure function
 
 Before moving on any further in the process, let us first define an Azure function that scores worker.
 > [!NOTE]
@@ -192,7 +190,7 @@ With the aforementioned implementation, for the given job we'll get the followin
 | Worker 2 | 200 |
 | Worker 3 | 1 |
 
-### Distribute offers based on best worker mode
+## Distribute offers based on best worker mode
 
 Now that the Azure function app is ready, let us create an instance of **BestWorkerDistribution** mode using Router SDK.
 
@@ -306,7 +304,3 @@ Worker_1 // or Worker_2
 Since both workers, Worker_1 and Worker_2, get the same score of 200,
 the worker who has been idle the longest will get the first offer.
 ```
-
-## Next steps
-
-- [Router Rule concepts](router-rule-concepts.md)
