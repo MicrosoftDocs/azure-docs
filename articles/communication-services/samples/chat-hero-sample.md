@@ -55,15 +55,6 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
-## Locally deploying the service & client app
-
-The single threaded chat sample is essentially two "applications" a client and server application.
-
-Follow the instruction from [Local run](./chat-hero-sample.md#local-run), this will start up the chat front end service. When the server app is visited
-from the browser, it will redirect traffic towards the locally deployed chat front end service.
-
-You can test the sample locally by opening multiple browser sessions with the URL of your chat to simulate a multi-user chat.
-
 ## Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
@@ -71,12 +62,17 @@ You can test the sample locally by opening multiple browser sessions with the UR
 3. Get the `Connection String` and `Endpoint URL` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
 4. Once you get the `Connection String` and `Endpoint URL`, Add both values to the **Server/appsettings.json** file found under the Chat Hero Sample folder. Input your connection string in the variable: `ResourceConnectionString` and endpoint URL in the variable: `EndpointUrl`.
 
-### Local run
+## Local run
 
 1. Set your connection string in `Server/appsettings.json`
 2. Set your endpoint URL string in `Server/appsettings.json`
 3. `npm run setup` from the root directory
 4. `npm run start` from the root directory
+
+The single threaded chat sample is essentially two "applications" a client and server application.  When the server app is visited
+from the browser, it will redirect traffic towards the locally deployed chat front end service.
+
+You can test the sample locally by opening multiple browser sessions with the URL of your chat to simulate a multi-user chat.
 
 ## Publish the sample to Azure
 
