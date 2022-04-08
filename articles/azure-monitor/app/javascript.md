@@ -54,8 +54,6 @@ appInsights.loadAppInsights();
 appInsights.trackPageView(); // Manually call trackPageView to establish the current user/session/pageview
 ```
 
----
-
 ### Snippet based setup
 
 If your app doesn't use npm, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies and optionally any JavaScript errors. If you're using Blazor Server App, add the snippet at the top of the file `_Host.cshtml` in the `<head>` section.
