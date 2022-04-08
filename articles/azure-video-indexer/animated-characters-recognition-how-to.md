@@ -1,4 +1,4 @@
----
+F---
 title: Animated character detection with Azure Video Indexer (formerly Azure Video Analyzer for Media) how to
 description: This how to demonstrates how to use animated character detection with Azure Video Indexer (formerly Azure Video Analyzer for Media).
 services: azure-video-analyzer
@@ -54,7 +54,7 @@ Follow these steps to connect you Custom Vision account to Azure Video Indexer, 
 
     For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Once the call return 200 OK response, your account is connected.
-1. To verify your connection by browse to the [Azure Video Indexer](https://vi.microsoft.com/)) portal:
+1. To verify your connection by browse to the [Azure Video Indexer](https://vi.microsoft.com/) portal:
 1. Click on the **Content model customization** button in the top-right corner.
 1. Go to the **Animated characters** tab.
 1. Once you click on Manage models in Custom Vision, you will be transferred to the Custom Vision account you just connected.
