@@ -10,12 +10,12 @@ ms.date: 3/31/2022
 
 # How to monitor your workspace with logs in Azure Managed Grafana Preview
 
-In this article, you'll learn how to monitor an Azure Managed Grafana workspace by configuring diagnostic settings and accessing event logs.
+In this article, you'll learn how to monitor an Azure Managed Grafana Preview workspace by configuring diagnostic settings and accessing event logs.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create one](/how-to-permissions.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
+- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana workspace](/how-to-permissions.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
 
 ## Sign in to Azure
 
