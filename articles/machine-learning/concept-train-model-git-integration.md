@@ -151,7 +151,7 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and Azure CLI. 
+The git information is stored in the properties for a training run. You can view this information using the Azure portal or Python SDK.
 
 ### Azure portal
 
