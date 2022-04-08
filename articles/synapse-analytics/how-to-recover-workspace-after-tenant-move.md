@@ -54,7 +54,7 @@ After transferring the subscription to another tenant, follow the below steps to
 
 ## <a id="disablereenable"></a> Disable and re-enable the system assigned managed identity for the Synapse Analytics workspace
 
-This section shows you how to use Azure CLI to disable and re-enable System Assigned Managed Identity for Synapse Analytics workspace. Consider the following steps in either Azure CLI or Azure PowerShell.
+This section shows you how to use Azure CLI or Azure PowerShell to disable and re-enable the System-assigned Managed Identity for your Azure Synapse Analytics workspace. Consider the following steps in either Azure CLI or Azure PowerShell.
 
 ### [Azure CLI](#tab/azurecli)
 
