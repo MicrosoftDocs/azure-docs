@@ -11,7 +11,7 @@ ms.reviewer: wiassaf
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
