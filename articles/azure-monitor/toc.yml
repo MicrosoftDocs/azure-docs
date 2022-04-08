@@ -493,9 +493,13 @@ items:
       - name: Install and manage
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-manage.md
-      - name: Configure data collection
-        displayName: data collection rule,Azure Monitor agent
-        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Data collection
+        items:
+        - name: Configure data collection
+          displayName: data collection rule,Azure Monitor agent
+          href: agents/data-collection-rule-azure-monitor-agent.md
+        - name: Collect text Logs
+          href: agents/data-collection-text-log.md
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
