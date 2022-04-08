@@ -332,7 +332,7 @@ For Single Page Applications, please reference plugin documentation for plugin s
 During initialization of the SDK the Operation ID is populated as a random value.
 To remedy this problem, you can include dynamic JavaScript on the returned HTML page and the SDK will use a callback function during initialization to retroactively pull the Operation ID from the serverside and populate the clientside with it.
 
-Sample using Razor and a dynamic JS snippet:
+Here's a sample of how to create a dynamic JS using Razor:
 
 ```C#
 <script>
