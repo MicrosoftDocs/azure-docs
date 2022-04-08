@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.author: jeedes
 
 ---
@@ -79,14 +79,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type the value:
     `USBank:SAML2.0:Prepaid_SP`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<Environment>.usbank.com/sp/ACS.saml2`
+    b. In the **Reply URL** text box, type the URL:
+    `https://federation.usbank.com/sp/ACS.saml2`
 
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<Environment>.usbank.com/sp/startSSO.ping?PartnerIdpId=<ID>`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [U.S. Bank Prepaid Client support team](mailto:web.access.management@usbank.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    c. In the **Sign-on URL** text box, type the URL:
+    `https://federation.usbank.com/sp/startSSO.ping?PartnerIdpId=USBank%3ASAML2.0%3APrepaid_IDP`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
