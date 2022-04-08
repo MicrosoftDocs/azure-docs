@@ -142,7 +142,7 @@ The training code is taken from this [MLfLow example](https://github.com/Azure/a
 
 Copy this code into the file:
 
-:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/hello.mlflow.yml":::
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello.mlflow.py":::
 
 Use the [Azure Machine Learning CLI (v2)](how-to-train-cli.md) to submit a remote run. When using the Azure Machine Learning CLI (v2), the MLflow tracking URI and experiment name are set automatically and directs the logging from MLflow to your workspace. Learn more about [logging Azure Machine Learning CLI (v2) experiments with MLflow](how-to-train-cli.md#model-tracking-with-mlflow) 
 
