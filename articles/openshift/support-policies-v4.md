@@ -19,7 +19,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
-* The cluster must have a minimum of three worker nodes and three manager nodes. Don't have taints that prevent OpenShift components to be scheduled. Don't scale the cluster workers to zero, or attempt a graceful cluster shutdown.
+* The cluster must have a minimum of three worker nodes and three control plane nodes. Don't have taints that prevent OpenShift components to be scheduled. Don't scale the cluster workers to zero, or attempt a graceful cluster shutdown.
 * Don't remove or modify the cluster Prometheus and Alertmanager services.
 * Don't remove Service Alertmanager rules.
 * Security groups can't be modified. Any attempt to modify security groups will be reverted.
@@ -30,11 +30,12 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
-* Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don''t require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
+* Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
+* Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
 
 ## Supported virtual machine sizes
 
-Azure Red Hat OpenShift 4 supports worker node instances on the following virtual machine sizes:
+Azure Red Hat OpenShift 4 supports node instances on the following virtual machine sizes:
 
 ### Control plane nodes
 
