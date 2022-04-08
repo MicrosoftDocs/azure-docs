@@ -9,7 +9,7 @@ ms.author: chenyl
 ---
 # Metrics in Azure Web PubSub Service
 
-Azure Web PubSub Service has some built-in metrics and you and set up [alerts](../azure-monitor/alerts/alerts-overview.md) base on metrics.
+Azure Web PubSub Service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) base on metrics.
 
 ## Understand metrics
 
@@ -26,19 +26,19 @@ Metrics provide the running info of the service. The available metrics are:
 
 ### Understand Dimensions
 
-Dimensions of a metric are name/value pairs that carry additional data to describe the metric value.
+Dimensions of a metric are name/value pairs that carry extra data to describe the metric value.
 
-There are one kind of dimension available in some metrics:
+The dimension available in some metrics:
 
 * ConnectionCloseCategory: Describe the categories of why connection getting closed. Including dimension values: 
     - Normal: Normal closure.
-    - Throttled: With (Message count/rate or connection) throttling, please check Connection Count and Message Count current usage and your resource limits.
-    - SendEventFailed: Event handler invoke failed.
+    - Throttled: With traffic or connection throttling, check Connection Count and Outbound Traffic usage and your resource limits.
+    - SendEventFailed: Event handler invokes failed.
     - EventHandlerNotFound: Event handler not found.
-    - SlowClient: Too many messages queued up at service side which needed to be sent.
+    - SlowClient: Too many messages queued up at service side, which needed to be sent.
     - ServiceTransientError: Internal server error
-    - BadRequest: This usually caused by invalid hub name, wrong payload, etc.
-    - ServiceReload: This is triggered when a connection is dropped due to an internal service component reload. This event does not indicate a malfunction and is part of normal service operation.
+    - BadRequest: This caused by invalid hub name, wrong payload, etc.
+    - ServiceReload: This is triggered when a connection is dropped due to an internal service component reload. This event doesn't indicate a malfunction and is part of normal service operation.
     - Unauthorized: The connection is unauthorized
 
 Learn more about [multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
