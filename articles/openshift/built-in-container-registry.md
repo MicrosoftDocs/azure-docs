@@ -38,7 +38,7 @@ As `kubeadmin`, execute the following commands:
    oc policy add-role-to-user -n openshift-image-registry registry-editor <user>
    ```
 
-> [Note!]
+> [!Note]
 > For cluster users and Azure AD users - this will be the same name you use to authenticate into the cluster. For OpenShift ServiceAccounts, format the name as `system:serviceaccount:<project>:<name>`
 
 ## Access the registry
