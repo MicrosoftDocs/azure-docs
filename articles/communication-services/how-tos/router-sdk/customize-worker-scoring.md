@@ -68,7 +68,7 @@ We want to distribute offers among their workers associated with a queue. The wo
 
 We would like the following behavior when scoring workers to select which worker gets the first offer.
 
-:::image type="content" source="../media/router/best-worker-distribution-mode-scoring-rule.png" alt-text="Decision flow diagram for scoring worker" lightbox="../media/router/best-worker-distribution-mode-scoring-rule.png":::
+:::image type="content" source="./media/best-worker-distribution-mode-scoring-rule.png" alt-text="Decision flow diagram for scoring worker" lightbox="./media/best-worker-distribution-mode-scoring-rule.png":::
 
 The decision flow (as shown above) is as follows:
 
