@@ -155,7 +155,7 @@ If you don't assign a Person model to the video during upload, your edit is save
 ### Edit a face
 
 > [!NOTE]
-> If a Person model has two or more different people with the same name, you won't be able to tag that name within the videos that use that Person model. You'll only be able to make changes to people that share that name in the People tab of the content model customization page in Azure Video Indexer . For this reason, it's recommended that you give unique names to each person in your Person model.
+> If a Person model has two or more different people with the same name, you won't be able to tag that name within the videos that use that Person model. You'll only be able to make changes to people that share that name in the People tab of the content model customization page in Azure Video Indexer. For this reason, it's recommended that you give unique names to each person in your Person model.
 
 1. Browse to the Azure Video Indexer website and sign in.
 1. Search for a video you want to view and edit in your account.

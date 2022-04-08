@@ -19,7 +19,7 @@ This article demonstrates to how to use the animated character detection with th
 
 ## Use the animated character detection with portal 
 
-In the trial accounts the Custom Vision integration is managed by Azure Video Indexer , you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
+In the trial accounts the Custom Vision integration is managed by Azure Video Indexer, you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
 
 ### Connect your Custom Vision account (paid accounts only)
 
@@ -30,11 +30,11 @@ If you own a Azure Video Indexer paid account, you need to connect a Custom Visi
 
 Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
-Note that the training of the model should be done only via Azure Video Indexer , and not via the Custom Vision website. 
+Note that the training of the model should be done only via Azure Video Indexer, and not via the Custom Vision website. 
 
 #### Connect a Custom Vision account with API 
 
-Follow these steps to connect you Custom Vision account to Azure Video Indexer , or to change the Custom Vision account that is currently connected to Azure Video Indexer :
+Follow these steps to connect you Custom Vision account to Azure Video Indexer, or to change the Custom Vision account that is currently connected to Azure Video Indexer:
 
 1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
 1. Copy the keys for the Training and Prediction resources:
@@ -92,16 +92,16 @@ Before tagging and training the model, all animated characters will be named “
 
 ### Customize the animated characters models
 
-1. Name the characters in Azure Video Indexer .
+1. Name the characters in Azure Video Indexer.
 
     1. After the model created character group, it is recommended to review these groups in Custom Vision. 
     1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window. 
     1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" to a temporary name (or the name that was previously assigned to the character). 
-    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Azure Video Indexer . 
+    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Azure Video Indexer. 
 1. Paid accounts only: Review the groups in Custom Vision 
 
     > [!NOTE]
-    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Azure Video Indexer (as described in this topid), and not via the Custom Vision website. 
+    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Azure Video Indexer (as described in this topic), and not via the Custom Vision website. 
 
     1. Go to the **Custom Models** page in Azure Video Indexer and choose the **Animated characters** tab. 
     1. Click on the Edit button for the model you are working on to manage it in Custom Vision. 
