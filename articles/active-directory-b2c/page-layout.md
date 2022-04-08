@@ -52,7 +52,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Self-asserted page (selfasserted)
 
-**2.1.8**
+**2.1.9**
 
 - TOTP multifactor authentication support. Adding links that allows users to download and install the Microsoft authenticator app to complete the enrollment of the TOTP on the authenticator.
 
@@ -146,7 +146,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.7**
 
-- Accessibility fix - correcting tab index
+- Accessibility fix - correcting to the tab index
 
 **2.1.6**
 
