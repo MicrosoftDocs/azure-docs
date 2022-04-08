@@ -11,7 +11,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 04/06/2022
+ms.date: 04/09/2022
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -90,7 +90,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/aad.png)
+   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/active-directory-pane.png)
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
@@ -115,6 +115,8 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
     ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
+
+    For Azure AD users and groups the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
@@ -261,6 +263,8 @@ The following two procedures show you how to provision an Azure Active Directory
 6. At the top of the **Active Directory admin** page, select **Save**.
 
     ![save admin](./media/authentication-aad-configure/save-admin.png)
+
+    For Azure AD users and groups the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
