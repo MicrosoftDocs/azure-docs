@@ -42,17 +42,17 @@ Number matching is available for the following scenarios. When enabled, all scen
 
 ### Multifactor authentication
 
-When a user responds to an MFA push notification using Microsoft Authenticator, they will be presented with a number. They need to type that number into the app to complete the approval. 
+When a user responds to a MFA push notification using Microsoft Authenticator, they will be presented with a number. They need to type that number into the app to complete the approval. 
 
 ![Screenshot of user entering a number match.](media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
 ### SSPR
 
-During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
+During [self-service password reset](howto-sspr-deployment.md), Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
 
 ### Combined registration
 
-When a user is goes through combined registration to set up Microsoft Authenticator, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+When a user completes combined registration to set up Microsoft Authenticator, the user is asked to approve a notification as part of the process. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
 
 ### AD FS adapter
 
@@ -105,7 +105,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
-#### MicrosoftAuthenticator includeTarget properties
+#### MicrosoftAuthenticator includeTargets properties
  
 **PROPERTIES**
 
@@ -128,7 +128,7 @@ Note that the value of Authentication Mode can be either **any** or **push**, de
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-You might need to patch the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState**. 
+You might need to patch the entire **includeTargets** to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState**. 
 
 ```json
 //Retrieve your existing policy via a GET. 
@@ -163,7 +163,7 @@ GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticatio
 We will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
 You will need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
+You need to PATCH the entire **includeTargets** to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
 ```json
 //Copy paste the below in the Request body section as shown below.
@@ -201,7 +201,7 @@ The PATCH request will fail with 400 Bad Request and the error will contain the 
 ### Test the end user experience
 Add the test user account to the Microsoft Authenticator app. The account does **not** need to be enabled for phone sign-in. 
 
-See the end user experience of an Authenticator MFA push notification with number matching by signing into aka.ms/MFAsetup. 
+See the end user experience of an Authenticator MFA push notification with number matching by signing into [https://aka.ms/MFAsetup](https://aka.ms/MFAsetup). 
 
 ### Turn off number matching
 
