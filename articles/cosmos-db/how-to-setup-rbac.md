@@ -400,7 +400,7 @@ const client = new CosmosClient({
 
 ### In Python
 
-The Azure Cosmos DB RBAC is currently supported in the [Python SDK V4.3.0b4](sql-api-sdk-python.md).
+The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](sql-api-sdk-python.md) and higher.
 
 ```python
 aad_credentials = ClientSecretCredential(
