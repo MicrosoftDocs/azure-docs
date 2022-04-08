@@ -182,13 +182,17 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2021-04-12` and use the SAS token associated with the module identity as your password.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
+* Use `devices/{device_id}/modules/{module_id}/messages/events/` as a topic for publishing telemetry.
 
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as WILL topic.
+
+* Use `devices/{deviceName}/modules/{moduleName}/#` as a topic for receiving messages.
 
 * The twin GET and PATCH topics are identical for modules and devices.
 
 * The twin status topic is identical for modules and devices.
+
+For more information about using MQTT with modules, see [Publish and subscribe with IoT Edge](../iot-edge/how-to-publish-subscribe.md) and learn more about the [Edge Hub MQTT endpoint](https://github.com/Azure/iotedge/blob/main/doc/edgehub-api.md#edge-hub-mqtt-endpoint).
 
 ## TLS/SSL configuration
 
