@@ -64,7 +64,7 @@ landingContent:
             url: tutorial-query-performance-insights.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
-          - text: Mover servers between regions
+          - text: Move servers between regions
             url: how-to-move-regions.md
 
 # Card

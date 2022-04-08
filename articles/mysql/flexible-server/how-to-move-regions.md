@@ -21,7 +21,7 @@ You can use Azure Database for MySQL flexible server's [geo-restore](concepts-ba
 
 ## Prerequisites
 
-- Ensure the source server has geo-redundancy enabled. You can enable geo-redundancy post server-create for locally-redundant or same-zone redundant servers. Currently, for a Zone-redundant High Availability server geo-redundancy can only be enabled/disabled at server create time.
+- Ensure the source server has geo-redundancy enabled. You can enable geo-redundancy post server-create for locally redundant or same-zone redundant servers. Currently, for a Zone-redundant High Availability server geo-redundancy can only be enabled/disabled at server create time.
 
 - Make sure that your Azure Database for MySQL source flexible server is deployed in the Azure region that you want to move from.
 
