@@ -20,9 +20,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Initial setup
 
-* First, add your test subscription to the Private Preview of Synapse Link for SQL Server 2022 by emailing us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). In the email, include the Azure region that will be hosting your Synapse Workspace. Wait for the confirmation from the product group before moving to the next step.
+* First, add your test subscription to the public preview of Synapse Link for SQL Server 2022 by emailing us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). In the email, include the Azure region that will be hosting your Synapse Workspace. Wait for the confirmation from the product group before moving to the next step.
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace for the subscription and the region you requested to enable private preview.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace for the subscription and the region you requested to enable public preview.
 
 * You need to create an Azure Data Lake Storage Gen2 account of type *block blob* used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
@@ -42,15 +42,15 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Open the **Manage** hub, and navigate to **Linked services**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-navigation.png" alt-text="Navigate to linked services from Synapse studio":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-navigation.png" alt-text="Navigate to linked services from Synapse studio.":::
 
 1. Press **+ New**, select **SQL Server** and select **Continue**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-select.png" alt-text="Create a SQL server linked service":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-select.png" alt-text="Create a SQL server linked service.":::
 
 1. Enter the **name** of linked service of SQL Server 2022.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-new.png" alt-text="Enter server and database names to connect":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-new.png" alt-text="Enter server and database names to connect.":::
 
 1. When selecting the integration runtime, choose your **self-hosted integration runtime**. If your synapse workspace doesn't have self-hosted integration runtime available, create one.
 
@@ -221,7 +221,7 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
 1. Select **Stop** to stop the Synapse link for SQL 2022.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop lin.k":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
 
 ## Rotate the SAS token for landing zone
 
@@ -233,11 +233,11 @@ SAS token is required for SQL change feed to get access on landing zone and push
 
 1. Select **Rotate token**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-locate-rotate-token.png" alt-text="Rotate SAS token":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-locate-rotate-token.png" alt-text="Rotate S A S token.":::
 
 1. Select **Generate automatically** or **Input manually** to get the new SAS token, and then select **OK**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Get the new SAS token.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Get the new S A S token.":::
 
 ## Limitations
 
@@ -245,7 +245,7 @@ There are some temporary limitations we're aware of and working on to remove the
 
 * When creating SQL Server linked service, please choose SQL Auth or Windows Auth.
 
-* VNet isn't supported when creating Synapse workspace for private preview.  
+* Currently, VNet isn't supported when creating Synapse workspace.  
 
 * Synapse Link isn't supported with SQL Server on Linux.
 
@@ -259,7 +259,7 @@ There are some temporary limitations we're aware of and working on to remove the
 
   * Time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table  
 
-  * Maximum 40,000 tables can be added to a single link connection in private preview.
+  * Currently a maximum of 40,000 tables can be added to a single link connection.
 
 * The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.  
 
@@ -304,4 +304,4 @@ There are some temporary limitations we're aware of and working on to remove the
 ## Next steps
 
 * [SQL Server Change Feed Feature](https://github.com/microsoft/SQLEAP/blob/main/docs/synapse-link/sql-server-change-feed-feature.md)
-* [SQL Server Change Feed Stored Procedures and DMVs](https://github.com/microsoft/SQLEAP/blob/main/docs/synapse-link/sql-server-change-feed-interface.md) 
+* [SQL Server Change Feed Stored Procedures and DMVs](https://github.com/microsoft/SQLEAP/blob/main/docs/synapse-link/sql-server-change-feed-interface.md)
