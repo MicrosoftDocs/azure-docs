@@ -66,7 +66,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this step you will give your Azure Cognitive Search service permission to read data from your SQL Server.
+In this section you'll give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. In the Azure portal, navigate to your Azure SQL Server page.
 
