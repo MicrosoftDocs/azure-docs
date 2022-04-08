@@ -17,7 +17,7 @@ There are various scenarios for moving an existing Azure Database for MySQL flex
 You can use Azure Database for MySQL flexible server's [geo-restore](concepts-backup-restore.md#geo-restore) feature to complete the move to another region. To do so, first ensure geo-redundancy is enabled for your flexible server. Next, trigger geo-restore for your geo-redundant server and move your server to the geo-paired region.
 
 > [!NOTE]
-> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../azure-resource-manager/management/move-resource-group-and-subscription.md) article.
+> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../../azure-resource-manager/management/move-resource-group-and-subscription.md) article.
 
 ## Prerequisites
 
