@@ -93,6 +93,7 @@ The **CryptographicKeys** element is not used.
 | ManualPhoneNumberEntryAllowed| No | Specify whether or not a user is allowed to manually enter a phone number. Possible values: `true`, or `false` (default).|
 | setting.authenticationMode | No | The method to validate the phone number. Possible values: `sms`, `phone`, or `mixed` (default).|
 | setting.autodial| No| Specify whether the technical profile should auto dial or auto send an SMS. Possible values: `true`, or `false` (default). Auto dial requires the `setting.authenticationMode` metadata be set to `sms`, or `phone`. The input claims collection must have a single phone number. |
+| language.countryList| No| A `CDATA` formatted string that defines the country display name and country code to be used when manually entering a phone number that includes a country code. A sample of the `CDATA` element would be: `<![CDATA[{"US": "United States","ES": "Spain", "IN": "India"}]]>`. The order of the `CDATA` elements reflects the order in the UI. Use this only if localization is not needed. |
 
 ### UI elements
 
