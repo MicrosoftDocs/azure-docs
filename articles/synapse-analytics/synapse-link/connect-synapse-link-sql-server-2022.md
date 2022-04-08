@@ -295,7 +295,7 @@ There are some temporary limitations we're aware of and working on to remove the
 
 * Source string value can't contain the double quote character if link table is in Synapse SQL gen2.
 
-* Tables with non-default collations: UTF8, Japanese cannot be replicated ot Synapse.
+* Tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse.
 
 * SQL Server can be part of a VNET, but the landing zone should be configured with public endpoint for this scenario.
 
