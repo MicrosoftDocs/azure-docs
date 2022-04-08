@@ -37,18 +37,18 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
    ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+   sudo apt install ./packages-microsoft-prod.deb
    ```
+
+> [!TIP]
+> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'apt' command without 'sudo'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
@@ -89,11 +89,14 @@ Install the Moby engine.
      sudo apt-get install moby-engine
    ```
 
+> [!TIP]
+> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+
 # [Raspberry Pi OS](#tab/rpios)
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
 Install the Moby engine.
 
@@ -140,11 +143,14 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
      sudo apt-get install iotedge
    ```
 
+> [!TIP]
+> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+
 # [Raspberry Pi OS](#tab/rpios)
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
    ```bash
    sudo apt-get update; \
@@ -196,6 +202,9 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge
    ```
 
+> [!TIP]
+> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+
 To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
 
    ```bash
@@ -206,7 +215,7 @@ To list other versions of IoT Edge and the IoT identity service that are availab
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
 Install the latest version of IoT Edge and the IoT identity service package:
 
