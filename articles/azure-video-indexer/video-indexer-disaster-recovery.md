@@ -1,8 +1,6 @@
 ---
 title: Azure Video Indexer (formerly Azure Video Analyzer for Media) failover and disaster recovery
 description: Learn how to failover to a secondary Azure Video Indexer (formerly Azure Video Analyzer for Media) account if a regional datacenter failure or disaster occurs.
-services: azure-video-analyzer
-documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
@@ -32,7 +30,7 @@ To implement BCDR, you need to have two Azure Video Indexer accounts to handle r
 > [!TIP]
 > You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Azure Video Indexer account per tenant](./manage-multiple-tenants.md#video-analyzer-for-media-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
+For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Azure Video Indexer account per tenant](./manage-multiple-tenants.md#video-indexer-account-per-tenant) or [Azure subscription per tenant](./manage-multiple-tenants.md#azure-subscription-per-tenant).
 
 ## Next steps
 

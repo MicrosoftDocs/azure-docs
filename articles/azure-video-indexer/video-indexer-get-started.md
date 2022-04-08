@@ -20,7 +20,7 @@ To start developing with Azure Video Indexer, browse to the [Azure Video Indexer
 Once you start using Azure Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
 
 > [!NOTE]
-> Review [planned Azure Video Indexer website authenticatication changes](./release-notes.md#planned-video-analyzer-for-media-website-authenticatication-changes).
+> Review [planned Azure Video Indexer website authenticatication changes](./release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## Upload a video using the Azure Video Indexer website
 

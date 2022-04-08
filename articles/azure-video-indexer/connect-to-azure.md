@@ -14,9 +14,9 @@ When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) a
 * You can create a Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
 * You can create a Azure Video Indexer **ARM-based** account through one of the following:
 
-  1.  [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
-  2.  [Azure portal](https://portal.azure.com/#home)
-  3.  [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
+  1. [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
+  2. [Azure portal](https://portal.azure.com/#home)
+  3. [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
 
 To read more on how to create a **new ARM-Based** Azure Video Indexer account, read this [article](create-video-analyzer-for-media-account.md)
 
@@ -25,7 +25,7 @@ This article shows how to create a Azure Video Indexer classic account. The topi
 
 If you are moving from a *trial* to *paid ARM-Based* Azure Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Azure Video Indexer account to Azure Government](#video-analyzer-for-media-in-azure-government).
+The article also covers [Linking a Azure Video Indexer account to Azure Government](#video-indexer-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 
