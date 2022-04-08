@@ -73,15 +73,14 @@ Load and modify the template so you can create a new Azure Load Testing resource
 
 1. Edit the **location** property to use your target region. This example sets the target region to `eastus`.
 
-```json
-"resources": [
-        {
-            "type": "Microsoft.LoadTestService/loadtests",
-            "apiVersion": "2021-12-01-preview",
-            "name": "[parameters('loadtest_name')]",
-            "location": "eastus",
-```
-
+    ```json
+    "resources": [
+            {
+                "type": "Microsoft.LoadTestService/loadtests",
+                "apiVersion": "2021-12-01-preview",
+                "name": "[parameters('loadtest_name')]",
+                "location": "eastus",
+    ```
     To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/data-residency/). The code for a region is the region name with no spaces. For example, East US = eastus.
 
 1. Click on **Save**.
