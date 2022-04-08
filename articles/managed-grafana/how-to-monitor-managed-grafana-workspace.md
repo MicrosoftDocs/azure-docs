@@ -60,11 +60,14 @@ Now that you've configured your diagnostic settings, Azure will stream all new e
 
 1. Select a query from the suggestions displayed under the **Queries** page, or close the page to create your own query.
    1. To use a suggested query, select a query and select **Run**, or select **Load to editor** to review the code.
-   1. To create your own query, enter your query in the code editor and select **Run**. On this page, you can also edit the time range of your query, save your query, share the query and view the queries history.
+   1. To create your own query, enter your query in the code editor and select **Run**. You can also perform some actions, such as editing the scope and the range of the query, as well as saving and sharing the query. The result of the query is displayed in the lower part of the screen.
 
    :::image type="content" source="media/managed-grafana-monitoring-logs-query.png" alt-text="Screenshot of the Azure platform. Log query editing.":::
 
-1. Select **Schema and Filter** to select a scope for your Log Analytics tab, and to access tables, queries and functions. Go to this pane to filter them, group them and quickly access your favorites.
+1. Select **Schema and Filter** on the left side of the screen to access tables, queries and functions. You can also filter and group results, as well as find your favorites.
+1. Select **Columns** on the right of **Results** to  edit the columns of the results table, and manage the table like a pivot table.
+
+   :::image type="content" source="media/managed-grafana-monitoring-logs-filters.png" alt-text="Screenshot of the Azure platform. Log filters and columns.":::
 
 ## Next steps
 

@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and Marketplace** box, enter *Grafana* and select **Enter**.
 
-1. Select **Grafana Workspaces** from the search results, and then Create.
+1. Select **Grafana Workspaces** from the search results, and then **Create**.
 
     :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-create.png" alt-text="Screenshot of the Azure portal. Create Grafana workspace.":::
 
@@ -32,10 +32,10 @@ An Azure account with an active subscription. [Create an account for free](https
 
     | Setting             | Sample value     | Description                                                                                                         |
     |---------------------|------------------|---------------------------------------------------------------------------------------------------------------------|
-    | Subscription ID     | MySubscription   | Select the Azure subscription you want to use.                                                                      |
-    | Resource group name | GrafanaResources | Select or create a resource group for your Azure Managed Grafana resources.                                         |
+    | Subscription ID     | mysubscription   | Select the Azure subscription you want to use.                                                                      |
+    | Resource group name | myresourcegroup | Select or create a resource group for your Azure Managed Grafana resources.                                         |
     | Location            | East US          | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you. |
-    | Name                | GrafanaWorkspace | Enter a unique resource name. It will be used as the domain name in your workspace URL.                             |
+    | Name                | mygrafanaworkspace | Enter a unique resource name. It will be used as the domain name in your workspace URL.                             |
 
 1. Select **Next : Permission >** to access rights for your Grafana dashboard and data sources:
    1. Make sure the **System assigned identity** is set to **On**. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** should also be checked for this Managed Identity to get access to your current subscription.

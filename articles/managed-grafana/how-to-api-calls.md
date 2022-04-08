@@ -62,7 +62,9 @@ curl -X GET \
 https://<grafana-url>/api/user
 ```
 
-Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance (for example *test.scus.grafana.azure.com*).
+Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance. For example `https://grafanaworkspace-abcd.cuse.grafana.azure.com`. This URL is displayed in the Azure platform, in the **Overview** page of your Managed Grafana workspace. 
+
+:::image type="content" source="media/managed-grafana-how-to-api-endpoint.png" alt-text="Screenshot of the Azure platform. Endpoint displayed in the Overview page.":::
 
 ## Next steps
 
