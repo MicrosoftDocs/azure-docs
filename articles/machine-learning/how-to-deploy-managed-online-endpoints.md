@@ -272,7 +272,7 @@ To see the invocation logs, run `get-logs` again.
 
 If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
-> [!Note]
+> [!NOTE]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
 
 To understand how `update` works:
