@@ -84,15 +84,15 @@ Once the registry is created and the image is built successfully, you are ready 
 
 The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario you will create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
 
-### Create the container app environment 
+### Create the Container Apps environment 
 
-Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other.  You will need to create a container app environment before you can create the container app itself.
+Every container app must be part of a Container Apps environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other.  You will need to create an environment before you can create the container app itself.
 
 1) In the Container Apps extension panel, right click on the subscription you would like to use and select **Create Container App Environment**. 
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-create-app-environment.png" alt-text="A screenshot showing how to create a Container Apps environment.":::
 
-2) A command palette workflow will open at the top of the screen. Enter a name for the new container app environment, such as `msdocsappenvironment`, and press enter.
+2) A command palette workflow will open at the top of the screen. Enter a name for the new Container Apps environment, such as `msdocsappenvironment`, and press enter.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-container-app-environment.png" alt-text="A screenshot showing the container app environment.":::
 
