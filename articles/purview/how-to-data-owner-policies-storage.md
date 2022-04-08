@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 04/08/2022
 ms.custom:
 ---
 
@@ -14,7 +14,9 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This article describes how a data owner can use Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
+[Policies](concept-data-owner-policies.md) in Azure Purview allow you to enable access to data sources that have been registered to a collection. 
+
+This article describes how a data owner can use Azure Purview to enable access to datasets in Azure Storage. Currently, these Azure Storage sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -27,20 +29,28 @@ This article describes how a data owner can use Azure Purview to enable access t
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Azure Purview for Data use governance
-Register and scan each Storage account with Azure Purview to later define access policies. You can follow these guides:
+The Azure Storage resources need to be registered with Azure Purview to later define access policies.
 
--   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
+To register your resources, follow the **Prerequisites** and **Register** sections of these guides:
 
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
+-   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md#prerequisites)
 
-Follow this link to [Enable the data source for access policies](./how-to-enable-data-use-governance.md) in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
+-   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md#prerequisites)
 
-![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png)
+After you have registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+
+To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
+
+- [How to enable data use governance](./how-to-enable-data-use-governance.md) 
+
+In the end, your resource will have the  **Data use governance** toggle to **Enabled**, as shown in the picture:
+
+:::image type="content" source="./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
 
-![Image shows a sample data owner policy giving access to an Azure Storage account.](./media/how-to-data-owner-policies-storage/data-owner-policy-example-storage.png)
+:::image type="content" source="./media/how-to-data-owner-policies-storage/data-owner-policy-example-storage.png" alt-text="Screenshot that shows a sample data owner policy giving access to an Azure Storage account.":::
 
 
 >[!Important]
