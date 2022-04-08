@@ -1,0 +1,120 @@
+---
+title: Troubleshoot Jupyter notebooks 
+description: Troubleshoot Jupyter notebooks.
+author: cwatson-cat
+ms.author: cwatson
+ms.topic: conceptual
+ms.custom: mvc, ignite-fall-2021
+ms.date: 04/04/2022
+---
+
+# Troubleshoot Jupyter notebooks
+
+Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
+
+If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](../machine-learning/how-to-run-jupyter-notebooks.md#troubleshooting).
+
+## Force caching for user accounts and credentials between notebook runs
+
+By default, user accounts and credentials are not cached between notebook runs, even for the same session.
+
+**To force caching for the duration of your session**:
+
+1. Authenticate using Azure CLI. In an empty notebook cell, enter and run the following code:
+
+    ```python
+    !az login
+    ```
+
+    The following output appears:
+
+    ```python
+    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the 9-digit device code to authenticate.
+    ```
+
+1. Select and copy the nine-character token from the output, and select the `devicelogin` URL to go to the indicated page. 
+
+1. Paste the token into the dialog and continue with signing in as prompted.
+
+    When sign-in successfully completes, you see the following output:
+
+    ```python
+    Subscription <subscription ID> 'Sample subscription' can be accessed from tenants <tenant ID>(default) and <tenant ID>. To select a specific tenant when accessing this subscription, use 'az login --tenant TENANT_ID'.
+
+> [!NOTE]
+> The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
+>
+> ```
+> <tenant ID> 'foo'
+><tenant ID> 'bar'
+>[
+> {
+>    "cloudName": "AzureApp",
+>    "homeTenantId": "<tenant ID>",
+>    "id": "<ID>",
+>    "isDefault": true,
+>    "managedByTenants": [
+>    ....
+>```
+>
+## Error: *Runtime dependency of PyGObject is missing*
+
+If the *Runtime dependency of PyGObject is missing* error appears when you load a query provider, try troubleshooting using the following steps:
+
+1. Proceed to the cell with the following code and run it:
+
+    ```python
+    qry_prov = QueryProvider("AzureSentinel")
+    ```
+
+    A warning similar to the following message is displayed, indicating a missing Python dependency (`pygobject`):
+
+    ```output
+    Runtime dependency of PyGObject is missing.
+
+    Depends on your Linux distribution, you can install it by running code similar to the following:
+    sudo apt install python3-gi python3-gi-cairo gir1.2-secret-1
+
+    If necessary, see PyGObject's documentation: https://pygobject.readthedocs.io/en/latest/getting_started.html
+
+    Traceback (most recent call last):
+      File "/anaconda/envs/azureml_py36/lib/python3.6/site-packages/msal_extensions/libsecret.py", line 21, in <module>
+    import gi  # https://github.com/AzureAD/microsoft-authentication-extensions-for-python/wiki/Encryption-on-Linux
+    ModuleNotFoundError: No module named 'gi'
+    ```
+
+1. Use the [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh) script, located in the Microsoft Sentinel Notebooks GitHub repository, to automatically install the `pygobject` in all notebooks and Anaconda environments on the Compute instance.
+
+> [!TIP]
+> You can also fix this Warning by running the following code from a notebook:
+>
+> ```python
+> !conda install --yes -c conda-forge pygobject
+> ```
+>
+
+
+## Next steps
+
+We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
+
+- **Learn more** about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [**Credential Scan on Azure Log Analytics**](https://www.youtube.com/watch?v=OWjXee8o04M) and **Guided Investigation - Process Alerts**.
+
+    Find more notebook templates in the Microsoft Sentinel > **Notebooks** > **Templates** tab.
+
+- **Find more notebooks** in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks):
+
+  - The [`Sample-Notebooks`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/Sample-Notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
+
+  - The [`HowTos`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) directory includes notebooks that describe concepts such as setting your default Python version, creating Microsoft Sentinel bookmarks from a notebook, and more.
+
+For more information, see:
+
+- [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+- [Tutorial: Microsoft Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
+- [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)
+- [Webinar: Microsoft Sentinel notebooks fundamentals](https://www.youtube.com/watch?v=rewdNeX6H94)
+- [Proactively hunt for threats](hunting.md)
+- [Use bookmarks to save interesting information while hunting](bookmarks.md)
+- [Jupyter, msticpy, and Microsoft Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)
