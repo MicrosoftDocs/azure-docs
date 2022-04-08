@@ -186,9 +186,6 @@ Enabling splitting will send individual alerts for each dimension you define.
 
 To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md).
 
-## Observability throughout the application lifecycle
-
-Container Apps provides continuous monitoring across each phase of your development-to-production life cycle. This monitoring helps to ensure the health, performance, and reliability of your application as it moves from development to production.  
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
