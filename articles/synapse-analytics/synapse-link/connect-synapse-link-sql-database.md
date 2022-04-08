@@ -62,16 +62,12 @@ If at any point you run into issues, check the [Known issues and restrictions pa
    Set-AzSqlServer -ResourceGroupName <resource group name> -ServerName <source server name> -AssignIdentity
    ```
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/powershell-enable-source-mi.png" alt-text="Enable source managed identity using Azure PowerShell.":::
-
    Then, run this to check that the system-assigned identity has been created:
 
    ```azurepowershell
    $x = Get-AzSqlServer -ResourceGroupName <resource group name> -ServerName <source server name>
    $x.Identity
    ```
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/powershell-verify-source-mi.png" alt-text="Verify source managed identity using Azure PowerShell.":::
 
 1. Make sure to update your source Azure SQL Database's firewall rules as needed, to allow access from your Synapse workspace. To do this within the Azure portal, navigate to the source Azure SQL Database, open **Firewalls and virtual networks**, then set **Allow Azure services and resources to access this server** to **Yes**.
 
@@ -167,8 +163,6 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables. Choose **New SQL script**, then **Select TOP 100 rows**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-query-target-table.png" alt-text="Query target table for top 100 rows.":::
-
 1. Run this query to check that the target database has the expected target table(s) and data.
 
 1. Try making changes to your source table(s) in your source Azure SQL Database. You may also add more tables to the source database.
@@ -194,8 +188,6 @@ You may now explore the replicated tables in your target Synapse SQL database.
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables.
 
 1. Choose **New SQL script**, then **Select TOP 100 rows**.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-query-target-table.png" alt-text="Query the target table.":::
 
 1. Run this query to view the replicated data in your target Synapse SQL database.
 
