@@ -224,7 +224,7 @@ Successfully created Resource Group:rg191113014333
 
 ## Create a storage account
 
-[!INCLUDE [azure-stack-edge-gpu-create-storage-account](/includes/azure-stack-edge-gpu-create-storage-account.md)]
+[!INCLUDE [azure-stack-edge-gpu-create-storage-account](../includes/azure-stack-edge-gpu-create-storage-account.md)]
 
 ## Add the blob URI to the host file
 

@@ -78,7 +78,7 @@ You can now select a container from this list and select **+ Delete container** 
 
 ## Create a storage account
 
-[!INCLUDE [azure-stack-edge-gpu-create-storage-account](/includes/azure-stack-edge-gpu-create-storage-account.md)]
+[!INCLUDE [azure-stack-edge-gpu-create-storage-account](../includes/azure-stack-edge-gpu-create-storage-account.md)]
 
 ## Sync storage keys
 
