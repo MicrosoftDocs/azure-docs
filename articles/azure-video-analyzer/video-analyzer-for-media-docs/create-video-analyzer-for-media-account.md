@@ -33,7 +33,7 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 
     ![Image of create account](media/create-video-analyzer-for-media-account/create-account-blade.png)
 
- 
+
 | Name | Description |
 | ---|---|
 |**Subscription**|Choose the subscription that you are using to create the Video Analyzer for Media account.|
@@ -41,7 +41,7 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 |**Video Analyzer for Media account**|Select *Create a new account* option.|
 |**Resource name**|Enter the name of the new Video Analyzer for Media account, the name can contain letters, numbers and dashes with no spaces.|
 |**Location**|Select the geographic region that will be used to deploy the Video Analyzer for Media account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Video Analyzer for Media is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
-|**Media Services account name**|Select a Media Services that the new Video Analyzer for Media account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.| 
+|**Media Services account name**|Select a Media Services that the new Video Analyzer for Media account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.|
 |**User-assigned managed identity**|Select a user-assigned managed identity that the new Video Analyzer for Media account will use to access the Media Services. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the role of Contributor role on the Media Services.|
 
 1. Click **Review + create** at the bottom of the form.
@@ -78,6 +78,6 @@ Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-se
 
 <!-- links -->
 [docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
-[docs-ms]: ../../media-services/latest/media-services-overview.md
+[docs-ms]: /media-services/latest/media-services-overview
 [docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contibutor
 [docs-contributor-on-ms]: ./add-contributor-role-on-the-media-service.md

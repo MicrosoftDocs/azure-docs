@@ -2,6 +2,8 @@
 title: Move a DevTest lab to another region
 description: Shows you how to move a lab to another region.
 ms.topic: quickstart
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ---
 

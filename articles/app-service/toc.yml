@@ -150,6 +150,8 @@
       href: deploy-best-practices.md
     - name: Azure Arc hosting (preview)
       href: overview-arc-integration.md
+    - name: Monitoring overview
+      href: overview-monitoring.md      
     - name: Security
       items:
         - name: Recommendations

@@ -114,9 +114,9 @@ You can export data to a publicly available HTTP webhook endpoint. You can creat
 1. Open [RequestBin](https://requestbin.net/).
 1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
 
-To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
+To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Webhook** as the destination type.
 
@@ -143,7 +143,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central"
+    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central" --scopes /subscriptions/<SubscriptionId>
     ```
 
     Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
@@ -180,9 +180,9 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
         .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
+To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Data Explorer** as the destination type.
 
@@ -261,9 +261,9 @@ To configure the managed identity that enables your IoT Central application to s
         .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
+To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Data Explorer** as the destination type.
 
@@ -296,9 +296,9 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string.
 
-To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+To create the Event Hubs destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Event Hubs** as the destination type.
 
@@ -337,9 +337,9 @@ To further secure your event hub and only allow access from trusted services wit
 - [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
 - [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
 
-To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+To create the Event Hubs destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Event Hubs** as the destination type.
 
@@ -371,9 +371,9 @@ If you don't have an existing Service Bus namespace to export to, follow these s
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string.
 
-To create the Service Bus destination in IoT Central on the **Create new destination** page:
+To create the Service Bus destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
 
@@ -412,9 +412,9 @@ To further secure your queue or topic and only allow access from trusted service
 - [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
 - [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
 
-To create the Service Bus destination in IoT Central on the **Create new destination** page:
+To create the Service Bus destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
 
@@ -443,9 +443,9 @@ If you don't have an existing Azure storage account to export to, follow these s
 
 1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
 
-To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+To create the Blob Storage destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Blob Storage** as the destination type.
 
@@ -491,9 +491,9 @@ To further secure your blob container and only allow access from trusted service
 - [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
 - [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
 
-To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+To create the Blob Storage destination in IoT Central on the **Data export** page:
 
-1. Enter a **Destination name**.
+1. Select **+ New destination**.
 
 1. Select **Azure Blob Storage** as the destination type.
 

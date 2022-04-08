@@ -133,11 +133,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use the **deviceId**.
 
-* For the **Username** field, use `{iothubhostname}/{device_id}/?api-version=2018-06-30`, where `{iothubhostname}` is the full CName of the IoT hub.
+* For the **Username** field, use `{iothubhostname}/{device_id}/?api-version=2021-04-12`, where `{iothubhostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
-    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2021-04-12`
 
     It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
     
@@ -180,7 +180,7 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * Set the client ID to `{device_id}/{module_id}`.
 
-* If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
+* If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2021-04-12` and use the SAS token associated with the module identity as your password.
 
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
 
@@ -243,7 +243,7 @@ client.on_disconnect = on_disconnect
 client.on_publish = on_publish
 
 client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
-                       device_id + "/?api-version=2018-06-30", password=sas_token)
+                       device_id + "/?api-version=2021-04-12", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
                cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
@@ -263,7 +263,7 @@ To authenticate using a device certificate, update the code snippet above with t
 
 # Set the username but not the password on your client
 client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
-                       device_id + "/?api-version=2018-06-30", password=None)
+                       device_id + "/?api-version=2021-04-12", password=None)
 
 # Set the certificate and key paths on your client
 cert_file = "<local path to your certificate file>"

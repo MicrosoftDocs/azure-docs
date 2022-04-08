@@ -73,13 +73,16 @@ If you choose to authenticate with private-public key pair, you can either gener
 
 In the current release, you can specify only container-level permissions. Directory-level permissions are not supported. You can choose which containers you want to grant access to and what level of access you want to provide (Read, Write, List, Delete, and Create). Those permissions apply to all directories and subdirectories in the container. You can grant each local user access to as many as 100 containers. Container permissions can also be updated after creating a local user. The following table describes each permission in more detail.
 
-| Permission | Permission code | Description |
+| Permission | Symbol | Description |
 |---|---|---|
 | Read | r | <li>Read file contents</li> |
 | Write | w | <li>Upload file</li><li>Create directory</li><li>Upload directories</li> |
 | List | l | <li>List contents within container</li><li>List contents within directories</li> |
 | Delete | d | <li>Delete files/directories</li> |
-| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li><li>Create directories</li>|
+| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li> |
+
+> [!IMPORTANT]
+> When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
 ## Home directory
 
@@ -137,3 +140,4 @@ Transaction and storage costs are based on factors such as storage account type 
 - [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
 - [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
 - [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

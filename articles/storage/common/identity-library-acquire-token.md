@@ -36,7 +36,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 
 - [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
 - [Assign an Azure role for access to queue data](../queues/assign-azure-role-data-access.md)
-- [Assign an Azure role for access to table data (preview)](../tables/assign-azure-role-data-access.md)
+- [Assign an Azure role for access to table data](../tables/assign-azure-role-data-access.md)
 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container, queue, or table.

@@ -357,7 +357,10 @@ az storage container generate-sas \
 
 ## Next steps
 
-In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
+In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, select an option below.
+
+> [!div class="nextstepaction"]
+> [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
 > [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -194,7 +194,7 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
   If the workload uses temporary tables or there are `tempdb` spills in the plans, the queries might have a problem with `tempdb` throughput. To investigate further, review [identify tempdb issues](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Memory-related problems**
 
-  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). For more information and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](database/troubleshoot-memory-errors-issues.md).
+  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). For more information and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](database/troubleshoot-memory-errors-issues.md). If you encounter out of memory errors, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ### Methods to show top wait categories
 

@@ -62,8 +62,8 @@ The focus of **Microsoft Defender for SQL on machines** is obviously security. B
 
 The service has a split architecture to balance data uploading and speed with performance: 
 
-- some of our detectors run on the machine for real-time speed advantages
-- others run in the cloud to spare the machine from heavy computational loads
+- Some of our detectors, including an [extended events trace](../azure-sql/database/xevent-db-diff-from-svr.md) named `SQLAdvancedThreatProtectionTraffic`, run on the machine for real-time speed advantages.
+- Other detectors run in the cloud to spare the machine from heavy computational loads.
 
 Lab tests of our solution, comparing it against benchmark loads, showed CPU usage averaging 3% for peak slices. An analysis of the telemetry for our current users shows a negligible impact on CPU and memory usage.
 
