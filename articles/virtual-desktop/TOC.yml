@@ -67,8 +67,10 @@
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
-      - name: RDP Shortpath
+      - name: RDP Shortpath for managed networks
         href: shortpath.md
+      - name: RDP Shortpath for public networks (preview)
+        href: shortpath-public.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
       - name: Required URL list
