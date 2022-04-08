@@ -816,7 +816,7 @@ You can parameterize the key column used here for updating your target Azure SQL
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
+:::image type="content" source="media/data-flow/prepost-1.png" alt-text="Screenshot showing Sink settings with pre and post SQL processing scripts.":::
 
 > [!TIP]
 > 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
