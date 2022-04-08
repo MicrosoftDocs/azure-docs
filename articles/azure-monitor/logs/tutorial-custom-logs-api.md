@@ -173,7 +173,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
-6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
+6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
 
     :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
 
