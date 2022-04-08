@@ -6,13 +6,13 @@ ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/06/2022
+ms.date: 04/08/2022
 ms.author: cynthn
 
 ---
 # Connect to a Linux VM
 
-In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux; on Windows you can use [Windows Sub System for Linux](/windows/wsl/about) for Linux or or any local terminal. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux; on Windows you can use [Windows Sub System for Linux](/windows/wsl/about) for Linux or any local terminal. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
 
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP see [Azure Bastion Service](../bastion/bastion-overview.md)
 
@@ -22,21 +22,25 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
 - In order to connect to a Linux Virtual Machine you need the appropriate port open: normally this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
-    1.	On the page for the VM, select **Networking** from the left menu. 
+    1.	On the page for the VM, select **Networking** from the left menu.
     1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+    :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing SSH connections.":::
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
-    1. From the service dropdown select ‘SSH’
-    1. For **Name**, type SSH.
+    1. From the **Service** dropdown select **SSH**.
+    :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
+    1. For **Name**, type *SSH*.
     1. When you are done, select **Add**.
-    1. Check that the rule has been added in the table.
+    1. You should now have an SSH rule in the table of inbound port rules.
 
 - Your VM must have a public IP address. To check if your VM has a public IP address, select **Overview** from the left menu and look at the **Networking** section. If you see an IP address next to **Public IP address**, then your VM has a public IP
  
-    If your VM does not have a public IP Address, it will look like this.
+    If your VM does not have a public IP Address, it will look like this:
+    :::image type="content" source="media/linux-vm-connect/no-pip.png" alt-text="Screenshot of how the networking section looks when you do not have a public IP.":::
  
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
 - Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
+-     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="":::
  
 
 ## Connect to the VM
@@ -162,5 +166,6 @@ Open your SSH client of choice.
 ---
 
 ## Next steps
-In this quickstart, you learned how to SSH into an existing Linux VM. To learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp).
+
+Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp).
 
