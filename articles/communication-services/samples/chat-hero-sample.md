@@ -59,7 +59,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 The single threaded chat sample is essentially two "applications" a client and server application.
 
-Follow the instruction from ./chat-hero-sample.md#local-run, this will start up the chat front end service. When the server app is visited
+Follow the instruction from [Local run](./chat-hero-sample.md#local-run), this will start up the chat front end service. When the server app is visited
 from the browser, it will redirect traffic towards the locally deployed chat front end service.
 
 You can test the sample locally by opening multiple browser sessions with the URL of your chat to simulate a multi-user chat.
