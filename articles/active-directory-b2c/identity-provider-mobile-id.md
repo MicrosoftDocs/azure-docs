@@ -1,7 +1,7 @@
 ---
-title: Set up sign-up and sign-in with a Mobile ID account
+title: Set up sign-up and sign-in with Mobile ID 
 titleSuffix: Azure AD B2C
-description: Provide sign-up and sign-in to customers with Mobile ID accounts in your applications using Azure Active Directory B2C.
+description: Provide sign-up and sign-in to customers with Mobile ID in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: celestedg
@@ -15,11 +15,11 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Set up sign-up and sign-in with a Mobile ID account using Azure Active Directory B2C
+# Set up sign-up and sign-in with Mobile ID using Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-In this article, you learn how to provide sign-up and sign-in to customers with [Mobile ID](https://www.mobileid.ch) accounts in your applications using Azure Active Directory B2C (Azure AD B2C). The Mobile ID solution protects access to your company data and applications with a comprehensive end-to- end solution for a strong multi-factor authentication (MFA). You add the Mobile ID to your user flows or custom policy using OpenID Connect protocol. 
+In this article, you learn how to provide sign-up and sign-in to customers with [Mobile ID](https://www.mobileid.ch) in your applications using Azure Active Directory B2C (Azure AD B2C). The Mobile ID solution protects access to your company data and applications with a comprehensive end-to- end solution for a strong multi-factor authentication (MFA). You add the Mobile ID to your user flows or custom policy using OpenID Connect protocol. 
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this article, you learn how to provide sign-up and sign-in to customers with 
 
 ## Create a Mobile ID application
 
-To enable sign-in for users with a Mobile ID account in Azure AD B2C, you need to create an application. To create Mobile ID application, follow these steps:
+To enable sign-in for users with Mobile ID in Azure AD B2C, you need to create an application. To create Mobile ID application, follow these steps:
 
 1. Contact [Mobile ID support](https://www.mobileid.ch/en/contact).
 1. Provide the Mobile ID the information about your Azure AD B2C tenant:
@@ -65,7 +65,7 @@ To enable sign-in for users with a Mobile ID account in Azure AD B2C, you need t
 1. For **Client secret**, enter the Mobile ID client secret.
 1. For the **Scope**, enter the `openid, profile, phone, mid_profile`.
 1. Leave the default values for **Response type** (`code`), and **Response mode** (`form_post`).
-1. (Optional) For the **Domain hint**, enter `mobileid.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. (Optional) For the **Domain hint**, enter `mobileid.ch`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
     - **User ID**: *sub*
@@ -79,13 +79,13 @@ To enable sign-in for users with a Mobile ID account in Azure AD B2C, you need t
 At this point, the Mobile ID identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Mobile ID identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to add the Mobile ID identity provider.
+1. Select the user flow that you want to add the Mobile ID identity provider.
 1. Under the **Social identity providers**, select **Mobile ID**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run user flow** button.
-1. From the sign-up or sign-in page, select **Mobile ID** to sign in with Mobile ID account.
+1. From the sign-up or sign-in page, select **Mobile ID** to sign in with Mobile ID.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
@@ -106,16 +106,16 @@ You need to store the client secret that you received from Mobile ID in your Azu
 7. Enter a **Name** for the policy key. For example, `Mobile IDSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. In **Secret**, enter your Mobile ID client secret.
 9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+10. Select **Create**.
 
 ## Configure Mobile ID as an identity provider
 
-To enable users to sign in using a Mobile ID account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using a Mobile ID, you need to define the Mobile ID as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define a Mobile ID account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
+You can define a Mobile ID as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
 1. Open the *TrustFrameworkExtensions.xml*.
-2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
+2. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element.
 3. Add a new **ClaimsProvider** as follows:
 
     ```xml
@@ -189,19 +189,12 @@ You can define a Mobile ID account as a claims provider by adding it to the **Cl
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
-1. From the sign-up or sign-in page, select **Mobile ID** to sign in with Mobile ID account.
+1. From the sign-up or sign-in page, select **Mobile ID** to sign in with Mobile ID.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 
 ::: zone-end
-
-## Move to production
-
-Mobile ID IdP provides Pre-production and Production environments. The configuration described in this article uses the pre-production environment. To use the production environment, follow these steps:
-
-1. Contact Mobile ID support for a production environment.
-1. Update your user flow or custom policy with the URI of the well-known configuration endpoint. 
 
 ## Next steps
 
