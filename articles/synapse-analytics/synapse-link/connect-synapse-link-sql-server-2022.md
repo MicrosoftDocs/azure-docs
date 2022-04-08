@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 05/24/2022
+ms.date: 04/24/2022
 ms.author: sngun
 ms.reviewer: sngun
 ---
@@ -20,11 +20,11 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Initial setup
 
-* First, add your test subscription to the Private Preview of Synapse Link for SQL Server 2022 by emailing us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). In the email, include the Azure region that will be hosting your Synapse Workspace. Wait for the confirmation from the product group on whitelisting before moving to the next step.
+* First, add your test subscription to the Private Preview of Synapse Link for SQL Server 2022 by emailing us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). In the email, include the Azure region that will be hosting your Synapse Workspace. Wait for the confirmation from the product group before moving to the next step.
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace for the subscription and the region you whitelisted.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace for the subscription and the region you requested to enable private preview.
 
-* You need to create an Azure Data Lake Storage Gen2 account of type *block blob* used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](./storage/blobs/create-data-lake-storage-account.md) article for more details.
+* You need to create an Azure Data Lake Storage Gen2 account of type *block blob* used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
 * Start SQL Server 2022 with the following trace flags `-T13800 -T12701 -T12711 -T4511 –T13803` to enable Synapse Link.
 
@@ -44,7 +44,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-linked-service-navigation.png" alt-text="Navigate to linked services from Synapse studio":::
 
-1. Press **+ New**, select **SQL Server** and click **Continue**.
+1. Press **+ New**, select **SQL Server** and select **Continue**.
 
    :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-linked-service-select.png" alt-text="Create a SQL server linked service":::
 
@@ -52,48 +52,48 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-linked-service-new.png" alt-text="Enter server and database names to connect":::
 
-1. When selecting the integration runtime, choose your **self-hosted integration runtime**. If your synapse workspace does not have self-hosted integration runtime available, create one.
+1. When selecting the integration runtime, choose your **self-hosted integration runtime**. If your synapse workspace doesn't have self-hosted integration runtime available, create one.
 
 1. Use the following steps to create a self-hosted integration runtime to connect to your source SQL Server 2022 (optional)
 
    * Select **+New**.
 
-     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-SHIR-new.png" alt-text="Creating a new self-hosted integration runtime.":::
+     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/create-new-integration-runtime.png" alt-text="Creating a new self-hosted integration runtime.":::
 
    * Select **Self-hosted** and select **continue**.
 
-   * Input the **name** of Self-hosted integration runtime and click **Create**.
+   * Input the **name** of Self-hosted integration runtime and select **Create**.
 
-     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-SHIR-new2.png" alt-text="Enter a name for the self-hosted integration runtime.":::
+     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/input-name-integration-runtime.png" alt-text="Enter a name for the self-hosted integration runtime.":::
 
-   * Now a self-hosted integration runtime is available in your Synapse workspace. Follow the prompts in the UI to **download**, **install** and use the key to **register** your integration runtime agent on your windows machine which has direct access on your SQL Server 2022. For more details, see [Create a self-hosted integration runtime - Azure Data Factory & Azure Synapse](./data-factory/create-self-hosted-integration-runtime.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#install-and-register-a-self-hosted-ir-from-microsoft-download-center)
+   * Now a self-hosted integration runtime is available in your Synapse workspace. Follow the prompts in the UI to **download**, **install** and use the key to **register** your integration runtime agent on your windows machine, which has direct access on your SQL Server 2022. For more information, see [Create a self-hosted integration runtime - Azure Data Factory & Azure Synapse](../../data-factory/create-self-hosted-integration-runtime.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#install-and-register-a-self-hosted-ir-from-microsoft-download-center)
 
-     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-SHIR-new3.png" alt-text="Download, install and register the integration runtime.":::
+     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/set-up-integration-runtime.png" alt-text="Download, install and register the integration runtime.":::
 
    * Select **Close**, and go to monitoring page to make sure your self-hosted integration runtime is running by clicking **refresh** to get the latest status of integration runtime.
 
-     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-SHIR-new4.png" alt-text="Get the status of integration runtime.":::
+     :::image type="content" source="./media/connect-synapse-link-sql-server-2022/integration-runtime-status.png" alt-text="Get the status of integration runtime.":::
 
 1. Continue to input the rest information on your linked service including **SQL Server name**, **Database name**, **Authentication type**, **User name** and **Password** to connect to your SQL Server 2022.
 
 1. Select **Test Connection** to ensure your self-hosted integration runtime can access on your SQL Server.
 
-1. Click **Create**, and you will have your new linked service connecting to SQL Server 2022 available in your workspace.
+1. Select **Create**, and you'll have your new linked service connecting to SQL Server 2022 available in your workspace.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-linked-service-new1.png" alt-text="View the linked service connection.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/view-linked-service-connection.png" alt-text="View the linked service connection.":::
 
 ### Create linked service to connect to your landing zone on Azure Data Lake Storage Gen2
 
 1. Go to your created Azure Data Lake Storage Gen2 account, navigate to **Access Control (IAM)**, select **+Add**, and select **Add role assignment**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/adlsgen2-new.png" alt-text="Navigate to Access Control (IAM) of the Data Lake Storage Gen2 account.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/adls-gen2-access-control.png" alt-text="Navigate to Access Control (IAM) of the Data Lake Storage Gen2 account.":::
 
 1. Select **Storage Blob Data Contributor** for the selected role, choose **Managed identity** in Managed identity, and select your Synapse workspace in **Members**. This may take a few minutes to take effect to add role assignment.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/adlsgen2-assignrole.png" alt-text="Add a role assignment.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/adls-gen2-assign-blob-data-contributor-role.png" alt-text="Add a role assignment.":::
 
    > [!NOTE]
-   > Make sure that you have granted your Synapse workspace managed identity permissions to ADLS Gen2 storage account used as the landing zone. For more information, see how to [Grant permissions to managed identity in Synapse workspace - Azure Synapse Analytics](./security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-adls-gen2-storage-account)
+   > Make sure that you have granted your Synapse workspace managed identity permissions to ADLS Gen2 storage account used as the landing zone. For more information, see how to [Grant permissions to managed identity in Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-adls-gen2-storage-account)
 
 1. Open the **Manage** hub in your Synapse workspace, and navigate to **Linked services**.
 
@@ -111,15 +111,15 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Test Connection** to ensure you get access on your Azure Data Lake Storage Gen2.
 
-1. Select **Create** and you will have your new linked service connecting to Azure Data Lake Storage Gen2.
+1. Select **Create** and you'll have your new linked service connecting to Azure Data Lake Storage Gen2.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-linked-service-created-storage.png" alt-text="New linked service to to Azure Data Lake Storage Gen2.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/storage-gen2-linked-service-created.png" alt-text="New linked service to Azure Data Lake Storage Gen2.":::
 
 ### Create and start your Synapse Link connection
 
 1. From the Synapse studio, open the **Integrate** hub, and select **+Link connection(Preview)**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-new-link-connection.png" alt-text="New link connection.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/new-link-connection.png" alt-text="New link connection.":::
 
 1. Input your source database:
 
@@ -129,9 +129,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
     * Select **table names** from your SQL Server to be replicated to your Synapse SQL pool.
 
-    * Click **Continue**.
+    * Select **Continue**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-new-link-connection1.png" alt-text="Input source database details.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/input-source-database-details-link-connection.png" alt-text="Input source database details.":::
 
 1. Input your destination database. Select a target database name from **Synapse SQL Dedicated Pools V2**. Make sure the target database has a master key by running the following command:
 
@@ -151,11 +151,11 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    * Input your ADLS gen2 **container name or container/folder name** as landing zone folder path for staging the data. The container is required to be created first.
 
-   * Input your ADLS gen2 SAS token. SAS token is required for SQL change feed to get access on landing zone. If your ADLS gen2 does not have SAS token, you can create one by clicking **+Generate token**.
+   * Input your ADLS gen2 SAS token. SAS token is required for SQL change feed to get access on landing zone. If your ADLS gen2 doesn't have SAS token, you can create one by clicking **+Generate token**.
 
-   * Click **OK**.
+   * Select **OK**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-new-link-connection2.png" alt-text="Input the link connection settings.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/link-connection-compute-settings.png" alt-text="Input the link connection settings.":::
 
 1. With the new Synapse Link connection open, you have chance to update the target table name, distribution type and structure type.
 
@@ -163,21 +163,17 @@ This article provides a step-by-step guide for getting started with Azure Synaps
    > * Consider heap table for structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
    > * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Synapse link will help you to create tables automatically under your schema in Synapse SQL Pool.
 
-1. Click **Publish all** to save the new link connection to the service.
+1. Select **Publish all** to save the new link connection to the service.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-new-link-connection3.png" alt-text="Studio new link connection":::
-
-1. With the new Synapse Link connection open, click **Start**.  We recommend starting from small number and increasing as needed.
-
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-new-link-connection4.png" alt-text="Start the linked connection.":::
+1. With the new Synapse Link connection open, select **Start**.  We recommend starting from small number and increasing as needed.
 
 ## Monitor Synapse Link for SQL Server 2022
 
 Wait for few more minutes, then check the target database has the expected table and data. See the data available in your Synapse SQL gen2 destination store.
 
-The SLA for starting the link connection is 5 min. If the link connection did not move to Running state within 5 min, then this is not an expected state, please file a bug by following the instructions below. Once the state of the link connection is Running, data should be replicated in target tables.
+The SLA for starting the link connection is 5 min. If the link connection didn't move to Running state within 5 min, then this isn't an expected state, please file a bug by following the instructions below. Once the state of the link connection is Running, data should be replicated in target tables.
 
-You can make changes to the source tables in your Azure SQL Database, and you may also add additional tables to the source database.
+You can make changes to the source tables in your Azure SQL Database, and you may also add extra tables to the source database.
 
 You may monitor the status of your Synapse Link connection, see which tables are being initially copied over (Snapshotting), and see which tables are in continuous replication mode (Replicating).
 
@@ -187,9 +183,9 @@ You may monitor the status of your Synapse Link connection, see which tables are
 
 1. Open the link connection you started and view the status of each table.
 
-1. Click **Refresh** on the monitoring view for your connection to observe any updates to the status.
+1. Select **Refresh** on the monitoring view for your connection to observe any updates to the status.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-link-connection-monitor.png" alt-text="Monitor the linked connection.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/monitor-link-connection.png" alt-text="Monitor the linked connection.":::
 
 ## Query replicated data
 
@@ -199,11 +195,9 @@ You may now explore the replicated tables in your target Synapse SQL database.
 
 1. Choose **New SQL script**, then **Select TOP 100 rows**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-query-target-table.png" alt-text="Query the target table.":::
-
 1. Run this query to view the replicated data in your target Synapse SQL database.
 
-1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as an additional connection string parameter when connecting via SSMS (or other tools).
+1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as an extra connection string parameter when connecting via SSMS (or other tools).
 
 ## Add/remove table in existing Synapse Link connection
 
@@ -213,9 +207,9 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Click **+New** table to add tables on Synapse Studio or remove the existing tables.
+1. Select **+New** table to add tables on Synapse Studio or remove the existing tables.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-link-connection-addtables.png" alt-text="Link connection add table.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
 
 ## Stop the Synapse Link connection
 
@@ -225,9 +219,9 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Click **Stop** to stop the Synapse link for SQL 2022.
+1. Select **Stop** to stop the Synapse link for SQL 2022.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-link-connection-stop.png" alt-text="Link connection stop lin.k":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop lin.k":::
 
 ## Rotate the SAS token for landing zone
 
@@ -239,21 +233,21 @@ SAS token is required for SQL change feed to get access on landing zone and push
 
 1. Select **Rotate token**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-link-connection-rotate-token.png" alt-text="Rotate SAS token":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/link-connection-locate-rotate-token.png" alt-text="Rotate SAS token":::
 
 1. Select **Generate automatically** or **Input manually** to get the new SAS token, and then select **OK**.
 
-   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/studio-link-connection-rotate-token1.png" alt-text="Get the new SAS token.":::
+   :::image type="content" source="./media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Get the new SAS token.":::
 
-# Synapse Link for SQL Server 2022 Limitations
+## Limitations
 
-There are some temporary limitations we are aware of and working on to remove them in further CTPs, please see the list below.
+There are some temporary limitations we're aware of and working on to remove them in further CTPs, please see the list below.
 
 * When creating SQL Server linked service, please choose SQL Auth or Windows Auth.
 
-* VNet is not supported when creating Synapse workspace for private preview.  
+* VNet isn't supported when creating Synapse workspace for private preview.  
 
-* Synapse Link is not supported with SQL Server on Linux.
+* Synapse Link isn't supported with SQL Server on Linux.
 
 * Synapse Link CANNOT be enabled for SQL Server tables in following conditions:
 
@@ -261,15 +255,15 @@ There are some temporary limitations we are aware of and working on to remove th
 
   * Tables with computed columns.
 
-  * Tables with column data types which are not supported by Azure Synapse including image, text, xml, timestamp, sql_variant, UDT, geometry, geography.
+  * Tables with column data types, which aren't supported by Azure Synapse including image, text, xml, timestamp, sql_variant, UDT, geometry, geography.
 
   * Time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table  
 
   * Maximum 40,000 tables can be added to a single link connection in private preview. 
 
-* The following DDL operations are not allowed on tables which are enabled for Azure Synapse Link.  
+* The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.  
 
-  * Add/Drop/Alter Column, Switch partition, alter PK, drop/truncate table, rename table is not allowed if the table is part of Synapse Link.  
+  * Add/Drop/Alter Column, Switch partition, alter PK, drop/truncate table, rename table isn't allowed if the table is part of Synapse Link.  
 
   * All other DDL operations are allowed, but not published to Synapse at this time.  
 
@@ -280,37 +274,34 @@ There are some temporary limitations we are aware of and working on to remove th
 
 * When source columns with type datetime2(7) and time(7) are replicated using Synapse Link,  the target columns will have last digit truncated.
 
-* Synapse Link cannot be enabled if any of the following features are in use for the source SQL Server tables:
+* Synapse Link can't be enabled if any of the following features are in use for the source SQL Server tables:
 
   * Transactional Replication
   * Change Data Capture
   * Hekaton, Column Store index, Graph table, temporal table.
   * Always encrypted.  
 
-* Internal tables will not be replicated.  
+* Internal tables won't be replicated.  
 
 * Security configuration of source will NOT be reflected to the target tables.
 
 * Change tracking can be used with Synapse Link side by side.
 
-* Sub core SLOs on the source databases are not supported.
+* Sub core SLOs on the source databases aren't supported.
 
 * In Synapse Studio, you may see error messages that mention `linkTopics` – this refers to `linkConnections`.
 
 * When publishing a new link connection, you may see an error if the link connection name is already taken.
 
-* Source string value cannot contain the double quote character if link table is in Synapse SQL gen2.
+* Source string value can't contain the double quote character if link table is in Synapse SQL gen2.
 
-* Tables with non-default collations: UTF8, Japanese can not be replicated ot Synapse.
+* Tables with non-default collations: UTF8, Japanese cannot be replicated ot Synapse.
 
 * SQL Server can be part of a VNET, but the landing zone should be configured with public endpoint for this scenario.
 
-* When you pause Synapse SQL Pool, although you will see error message on UI, the link connection keep running and retrying to write data to Synapse SQL Pool until it is resumed.
+* When you pause Synapse SQL Pool, although you'll see error message on UI, the link connection keep running and retrying to write data to Synapse SQL Pool until it's resumed.
 
 ## Next steps
- 
-* [Synapse Link for SQL Server 2022 Preview Restrictions](./synapse-link-for-sql-server-2022-limitations.md)
 
 * [SQL Server Change Feed Feature](./sql-server-change-feed-feature.md)
-
 * [SQL Server Change Feed Stored Procedures and DMVs](./sql-server-change-feed-interface.md) 
