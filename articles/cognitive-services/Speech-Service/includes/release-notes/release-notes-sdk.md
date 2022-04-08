@@ -9,13 +9,13 @@ ms.author: eur
 ### Speech SDK 1.21.0: April 2022 release
 
 #### New features
-- **Java & JavaScript**: Add support for Continuous Language Identification when using the SpeechRecognizer object
-- **JavaScript**: Add Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
-- **Python**: Add support for Conversation Transcription
-- **Go**: Add support for Speaker Recognition
-- **All programming languages**: Speech Synthesis: Add duration property in word boundary events. Add support for punctuation boundary and sentence boundary
-- **Objective-C/Swift/Java**: Add word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
-- **iOS platform**: Add support for ARMv7 architecture
+- **Java & JavaScript**: Added support for Continuous Language Identification when using the SpeechRecognizer object
+- **JavaScript**: Added Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
+- **Python**: Added support for Conversation Transcription
+- **Go**: Added support for Speaker Recognition
+- **All programming languages, Speech Synthesis**: Added duration property in word boundary events. Added support for punctuation boundary and sentence boundary
+- **Objective-C/Swift/Java**: Added word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
+- **iOS platform**: Added support for ARMv7 architecture
 
 #### Bug fixes
 - **iOS platform**: Fix to allow building for the target "Any iOS Device", when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
@@ -29,7 +29,6 @@ ms.author: eur
 - New **Python** and **Java** samples for Conversation Transcription
 - New **Go** sample for Speaker Recognition
 - New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to [capture audio from, or render audio to, a non-default device](../../how-to-select-audio-input-devices.md).
-
 
 
 ### Speech SDK 1.20.0: January 2022 release
