@@ -12,14 +12,14 @@ ms.custom: ignite-fall-2021
 This article describes how to assign contributor role on the Media Services.
 
 > [!NOTE]
-> If you are creating your Azure Video Analyzer for Media through the Azure portal UI, the selected Managed identity will be automatically assigned with a contributor permission on the selected Media Service account.
+> If you are creating your Azure Video Indexer through the Azure portal UI, the selected Managed identity will be automatically assigned with a contributor permission on the selected Media Service account.
 
 ## Prerequisites
 
 1. Azure Media Services (AMS)
 2. User-assigned managed identity
 > [!NOTE]
-> You'll need an Azure subscription where you have access to both the [Contributor][docs-role-contributor] role and the [User Access Administrator][docs-role-administrator] role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Video Analyzer for Media account.
+> You'll need an Azure subscription where you have access to both the [Contributor][docs-role-contributor] role and the [User Access Administrator][docs-role-administrator] role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Azure Video Indexer account.
 
 
 ## Add Contributor role on the Media Services

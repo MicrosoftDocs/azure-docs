@@ -1,6 +1,6 @@
 ---
-title: Language support in Azure Video Analyzer for Media
-description: This article provides a comprehensive list of language support by service features in Azure Video Analyzer for Media (formerly Video Indexer).
+title: Language support in Azure Video Indexer
+description: This article provides a comprehensive list of language support by service features in Azure Video Indexer (formerly Azure Video Analyzer for Media).
 author: Juliako
 manager: femila
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.author: juliako
 ms.date: 04/07/2022
 ---
 
-# Language support in Video Analyzer for Media
+# Language support in Azure Video Indexer
 
-This article provides a comprehensive list of language support by service features in Azure Video Analyzer for Media (formerly Video Indexer). For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
+This article provides a comprehensive list of language support by service features in Azure Video Indexer (formerly Azure Video Analyzer for Media). For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
 ## General language support
 
-This section describes language support in Video Analyzer for Media.
+This section describes language support in Azure Video Indexer.
 
 - Transcription (source language of the video/audio file)
 - Language identification (LID)
@@ -106,7 +106,7 @@ This section describes language support in Video Analyzer for Media.
 
 ## Language support in frontend experiences
 
-The following table describes language support in the Video Analyzer for Media frontend experiences.
+The following table describes language support in the Azure Video Indexer frontend experiences.
 
 * portal - the portal column lists supported languages for the [web portal](https://aka.ms/vi-portal-link)
 * widgets - the [widgets](video-indexer-embed-widgets.md) column lists supported languages for translating the index file

@@ -1,31 +1,29 @@
 ---
-title: Customize a Person model with Azure Video Analyzer for Media (formerly Video Indexer) API
-titleSuffix: Azure Video Analyzer for Media
-description: Learn how to customize a Person model with the Azure Video Analyzer for Media (formerly Video Indexer) API.
+title: Customize a Person model with Azure Video Indexer (formerly Azure Video Analyzer for Media) API
+description: Learn how to customize a Person model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) API.
 services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2020
 ms.author: kumud
 ---
 
-# Customize a Person model with the Video Analyzer for Media API
+# Customize a Person model with the Azure Video Indexer API
 
-Azure Video Analyzer for Media (formerly Video Indexer) supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Video Analyzer for Media and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Analyzer for Media will then recognize this face in your future videos and past videos.
+Azure Video Indexer (formerly Azure Video Analyzer for Media) supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Azure Video Indexer and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Azure Video Indexer will then recognize this face in your future videos and past videos.
 
-You can use the Video Analyzer for Media API to edit faces that were detected in a video, as described in this topic. You can also use the Video Analyzer for Media website, as described in [Customize Person model using the Video Analyzer for Media website](customize-person-model-with-api.md).
+You can use the Azure Video Indexer API to edit faces that were detected in a video, as described in this topic. You can also use the Azure Video Indexer website, as described in [Customize Person model using the Azure Video Indexer website](customize-person-model-with-api.md).
 
 ## Managing multiple Person models
 
-Video Analyzer for Media supports multiple Person models per account. This feature is currently available only through the Video Analyzer for Media APIs.
+Azure Video Indexer supports multiple Person models per account. This feature is currently available only through the Azure Video Indexer APIs.
 
 If your account caters to different use-case scenarios, you might want to create multiple Person models per account. For example, if your content is related to sports, you can then create a separate Person model for each sport (football, basketball, soccer, and so on).
 
 Once a model is created, you can use it by providing the model ID of a specific Person model when uploading/indexing or reindexing a video. Training a new face for a video updates the specific custom model that the video was associated with.
 
-Each account has a limit of 50 Person models. If you don't need the multiple Person model support, don't assign a Person model ID to your video when uploading/indexing or reindexing. In this case, Video Analyzer for Media uses the default custom Person model in your account.
+Each account has a limit of 50 Person models. If you don't need the multiple Person model support, don't assign a Person model ID to your video when uploading/indexing or reindexing. In this case, Azure Video Indexer uses the default custom Person model in your account.
 
 ## Create a new Person model
 
@@ -46,7 +44,7 @@ You then use the **id** value for the **personModelId** parameter when [uploadin
 
 To delete a custom Person model from the specified account, use the [delete a person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Person-Model) API.
 
-Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model won't be recognized by Video Analyzer for Media in your current videos that were indexed using that model but the faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
+Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model won't be recognized by Azure Video Indexer in your current videos that were indexed using that model but the faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
 
 There's no returned content when the Person model is deleted successfully.
 
@@ -77,12 +75,12 @@ This command allows you to update a face in your video with a name using the ID 
 
 The system then recognizes the occurrences of the same face in your other current videos that share the same Person model. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
 
-You can update a face that Video Analyzer for Media recognized as a celebrity with a new name. The new name that you give will take precedence over the built-in celebrity recognition.
+You can update a face that Azure Video Indexer recognized as a celebrity with a new name. The new name that you give will take precedence over the built-in celebrity recognition.
 
 To update the face, use the [update a video face](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Face) API.
 
-Names are unique for Person models, so if you give two different faces in the same Person model the same `name` parameter value, Video Analyzer for Media views the faces as the same person and converges them once you reindex your video.
+Names are unique for Person models, so if you give two different faces in the same Person model the same `name` parameter value, Azure Video Indexer views the faces as the same person and converges them once you reindex your video.
 
 ## Next steps
 
-[Customize Person model using the Video Analyzer for Media website](customize-person-model-with-website.md)
+[Customize Person model using the Azure Video Indexer website](customize-person-model-with-website.md)

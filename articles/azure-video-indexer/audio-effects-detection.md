@@ -1,6 +1,6 @@
 ---
 title: Audio effects detection  
-description: Audio Effects Detection is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
+description: Audio Effects Detection is one of Azure Video Indexer AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Audio effects detection (preview)
 
-**Audio effects detection** is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
+**Audio effects detection** is one of Azure Video Indexer AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 
 Some scenarios where this feature is useful:
 
@@ -107,7 +107,7 @@ Audio Effects in closed captions file will be retrieved with the following logic
 
 ## Adding audio effects in closed caption files
 
-Audio effects can be added to the closed captions files supported by Azure Video Analyzer for Media via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai portal experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
+Audio effects can be added to the closed captions files supported by Azure Video Indexer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai portal experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/close-caption.jpg" alt-text="Audio Effects in CC":::

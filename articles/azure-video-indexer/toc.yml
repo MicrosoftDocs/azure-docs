@@ -1,11 +1,9 @@
-- name: Video Analyzer for Media documentation
+- name: Azure Video Indexer documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Video Analyzer for Media?
+  - name: What is Azure Video Indexer?
     href: video-indexer-overview.md
-  - name: About Video Analyzer
-    href: video-analyzer-docs/overview.md
   - name: Language support
     href: language-support.md    
 - name: Quickstarts
@@ -21,7 +19,7 @@
     href: create-video-analyzer-for-media-account.md
   - name: Create a new account
     href: connect-to-azure.md
-  - name: Use Video Analyzer for Media API
+  - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
@@ -31,13 +29,13 @@
     href: odrv-download.md
 - name: Samples
   items:
-  - name: Video Analyzer for Media samples
+  - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Compare Video Analyzer for Media and Media Services presets
+  - name: Compare Azure Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
@@ -73,7 +71,7 @@
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
     href: upload-index-videos.md
-  - name: Examine Video Analyzer for Media output
+  - name: Examine Azure Video Indexer output
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     displayName: search
@@ -88,7 +86,7 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
-  - name: Considerations when using Video Analyzer for Media at scale
+  - name: Considerations when using Azure Video Indexer at scale
     href: considerations-when-use-at-scale.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
@@ -116,9 +114,9 @@
         href: customize-language-model-with-api.md
 - name: Reference
   items:
-  - name: Video Analyzer for Media API
+  - name: Azure Video Indexer API
     href: https://api-portal.videoindexer.ai/
-  - name: Video Analyzer for Media ARM REST API
+  - name: Azure Video Indexer ARM REST API
     href: /rest/api/videoindexer/accounts?branch=videoindex
 - name: Resources
   items:
