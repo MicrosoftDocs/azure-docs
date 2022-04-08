@@ -85,7 +85,7 @@ For the latest information about which operating systems are currently supported
 
 For Linux devices, the IoT Edge runtime is installed directly on the host device.
 
-IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for Ubuntu and Raspberry Pi OS Stretch operating systems.
+IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for Ubuntu and Debian operating systems.
 
 ### Linux containers on Windows
 
