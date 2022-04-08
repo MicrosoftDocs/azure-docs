@@ -11,7 +11,7 @@ ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 12/15/2021
+ms.date: 04/06/2022
 ---
 # Diagnose and troubleshoot high CPU on Azure SQL Database
 
@@ -374,7 +374,7 @@ Consider experimenting with small changes in the MAXDOP configuration at the dat
 
 You may find that your workload's queries and indexes are properly tuned, or that performance tuning requires changes that you cannot make in the short term due to internal processes or other reasons. Adding more CPU resources may be beneficial for these databases. You can [scale database resources with minimal downtime](scale-resources.md).
 
-You can add more CPU resources to your Azure SQL Database by configuring the vCore count or the [hardware generation](service-tiers-sql-database-vcore.md#hardware-generations) for databases using the [vCore purchasing model](service-tiers-sql-database-vcore.md).
+You can add more CPU resources to your Azure SQL Database by configuring the vCore count or the [hardware configuration](service-tiers-sql-database-vcore.md#hardware-configuration) for databases using the [vCore purchasing model](service-tiers-sql-database-vcore.md).
 
 Under the [DTU-based purchasing model](service-tiers-dtu.md), you can raise your service tier and increase the number of database transaction units (DTUs). A DTU represents a blended measure of CPU, memory, reads, and writes.  One benefit of the vCore purchasing model is that it allows more granular control over the hardware in use and the number of vCores. You can [migrate Azure SQL Database from the DTU-based model to the vCore-based model](migrate-dtu-to-vcore.md) to transition between purchasing models.
 
