@@ -18,7 +18,7 @@ This article helps you understand Azure Purview Self-service data access policy.
 
 ## Important limitations
 
-The self-service data access policy is only supported when the prerequisites mentioned in [data use governance](./how-to-enable-data-use-governance.md) are satisfied.
+The self-service data access policy is only supported when the prerequisites mentioned in [data use governance](./tutorial-data-owner-policies-storage.md) are satisfied.
 
 ## Overview
 
@@ -44,12 +44,12 @@ With self-service data access workflow, data consumers can not only find data as
 
 A default self-service data access workflow template is provided with every Azure Purview account.The default template can be amended to add more approvers and/or set the approver's email address. For more details refer [Create and enable self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md).
 
-Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Azure purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **data use governance**. The pre-requisites mentioned within the [data use governance](./how-to-enable-data-use-governance.md) have to be satisfied.  
+Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Azure purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **data use governance**. The pre-requisites mentioned within the [data use governance](./tutorial-data-owner-policies-storage.md) have to be satisfied.  
 
 ## Next steps
 
 If you would like to preview these features in your environment, follow the link below.
--  [Enable data use governance](./how-to-enable-data-use-governance.md)
+-  [Enable data use governance](./tutorial-data-owner-policies-storage.md)
 -  [create self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md)
 -  [working with policies at file level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
 -  [working with policies at folder level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)

@@ -272,13 +272,13 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ### Add a condition
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
+1. Use the [az login](/cli/azure/reference-index#az-login) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
 
     ```azurecli
     az login
     ```
 
-1. Use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) to get the role assignment you assigned to the security group.
+1. Use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to get the role assignment you assigned to the security group.
 
     ```azurecli
     az role assignment list --assignee <groupObjectId> --scope <scope>
@@ -317,7 +317,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
     "conditionVersion": "2.0",
     ```
 
-1. Use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) to add the condition to the role assignment.
+1. Use [az role assignment update](/cli/azure/role/assignment#az-role-assignment-update) to add the condition to the role assignment.
 
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
@@ -325,13 +325,13 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ### Test the condition
 
-1. In a new command window, use the [az login](/cli/azure/reference-index#az_login) command to sign in as a member of the security group.
+1. In a new command window, use the [az login](/cli/azure/reference-index#az-login) command to sign in as a member of the security group.
 
     ```azurecli
     az login
     ```
 
-1. Use [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) to try to read the properties for the Baker file.
+1. Use [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) to try to read the properties for the Baker file.
 
     ```azurecli
     az storage blob show --account-name <storageAccountName> --container-name <containerName> --name <blobNameBaker> --auth-mode login
@@ -344,7 +344,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
     ...
     ```
 
-1. Use [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) to try to read the properties for the Cascade file.
+1. Use [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) to try to read the properties for the Cascade file.
 
     ```azurecli
     az storage blob show --account-name <storageAccountName> --container-name <containerName> --name <blobNameCascade> --auth-mode login

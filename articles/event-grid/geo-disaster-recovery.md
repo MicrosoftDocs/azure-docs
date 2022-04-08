@@ -2,7 +2,7 @@
 title: Geo disaster recovery in Azure Event Grid | Microsoft Docs
 description: Describes how Azure Event Grid supports geo disaster recovery (GeoDR) automatically. 
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 03/24/2022
 ---
 
 # Server-side geo disaster recovery in Azure Event Grid
@@ -28,6 +28,7 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 > [!IMPORTANT]
 > - There is no service level agreement (SLA) for server-side disaster recovery. If the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. Service level objectives are best-effort only. 
 > - The cost for metadata GeoDR on Event Grid is: $0.
+> - Geo-disaster recovery isn't supported for partner topics. 
 
 
 ## Next steps

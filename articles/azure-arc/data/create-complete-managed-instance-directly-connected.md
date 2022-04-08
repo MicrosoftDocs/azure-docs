@@ -42,7 +42,7 @@ In addition, you need the following additional extensions to connect the cluster
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
@@ -138,10 +138,8 @@ After the connect command completes successfully, you can view the shadow object
 The next step is to create the data controller in directly connected mode via the Azure portal. Use the same subscription and resource group that you used to [create a cluster](#create-a-cluster).
 
 1. In the portal, locate the resource group from the previous step.
-1. Select the **Kubernetes - Azure Arc** object name.
-1. Select **Settings** > **Extensions**. Select **Add**.
-1. Select **Azure Arc data controller**.
-1. Click **Create**.
+1. From the search bar in Azure portal, search for *Azure Arc data controllers*, and select **+ Create**.
+1. Select **Azure Arc-enabled Kubernetes cluster (Direct connectivity mode)**. Select **Next: Data controller details**.
 1. Specify a name for the data controller.
 1. Specify a custom location (namespace). 
 

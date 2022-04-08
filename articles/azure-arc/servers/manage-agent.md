@@ -21,7 +21,9 @@ The azcmagent tool is used to configure the Azure Connected Machine agent during
 
 * **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 
-* **config** - View and change settings to enable features and control agent behavior
+* **config** - View and change settings to enable features and control agent behavior.
+
+* **check** - Validate network connectivity.
 
 * **logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 

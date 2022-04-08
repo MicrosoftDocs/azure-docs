@@ -23,6 +23,8 @@
     items:
     - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
+    - name: Develop with IoT Edge for Linux on Windows
+      href: tutorial-develop-for-linux-on-windows.md
     - name: Develop with Windows containers
       href: tutorial-develop-for-windows.md
   - name: Develop custom code modules

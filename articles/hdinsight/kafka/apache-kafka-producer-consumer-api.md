@@ -4,7 +4,7 @@ description: Learn how to use the Apache Kafka Producer and Consumer APIs with K
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/31/2022
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 

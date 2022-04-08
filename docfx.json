@@ -213,7 +213,7 @@
     },
     "fileMetadata": {
       "author": {
-        "articles/advisor/*.md": "saket-ms",
+        "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "zr-msft",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
@@ -248,7 +248,7 @@
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "tfitzmac",
         "articles/azure-resource-manager/custom-providers/**/*.md": "tfitzmac",
-        "articles/azure-resource-manager/managed-applications/**/*.md": "tfitzmac",
+        "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
@@ -574,7 +574,7 @@
         "articles/virtual-machine-scale-sets/**/*.md": "mamccrea"
       },
       "ms.author": {
-        "articles/advisor/*.md": "sagupt",
+        "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "zarhoads",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
@@ -608,7 +608,7 @@
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "tomfitz",
         "articles/azure-resource-manager/custom-providers/**/*.md": "tomfitz",
-        "articles/azure-resource-manager/managed-applications/**/*.md": "tomfitz",
+        "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
@@ -803,9 +803,13 @@
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
       },
+      "ms.reviewer": {
+        "articles/advisor/*.md": "ikhapova",
+      },  
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
+        "articles/azure-functions/durable/**/*.md": "durable",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/agents/**/*.md": "agents",
         "articles/azure-monitor/alerts/**/*.md": "alerts",

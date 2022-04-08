@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 03/07/2022
+ms.date: 04/06/2022
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -26,7 +26,7 @@ Listed below are some of the options available to you to safeguard your data in 
 - While you can't control the precise network path for data in transit, data encryption in transit helps protect data from interception.
 - Azure is a 24x7 globally operated service; however, support and troubleshooting rarely require access to your data.
 - If you want extra control for support and troubleshooting scenarios, you can use Customer Lockbox for Azure to approve or deny access to your data.
-- Microsoft will notify you of any breach of your data (customer or personal) within 72 hours of incident declaration.
+- Microsoft will notify you of any breach of your data – customer or personal – within 72 hours of incident declaration.
 - You can monitor potential threats and respond to incidents on your own using Microsoft Defender for Cloud.
 
 Using Azure data protection technologies and intelligent edge capabilities from the Azure Stack portfolio of products, you can process confidential and secret data in secure isolated infrastructure within the public multi-tenant cloud or top secret data on premises and at the edge under your full operational control.
@@ -455,7 +455,7 @@ With innovative solutions such as [IoT Hub](https://azure.microsoft.com/services
 
 ### Precision Agriculture with Farm Beats
 
-Agriculture plays a vital role in most economies worldwide. In the US, over 70% of the rural households depend on agriculture as it contributes about 17% to the total GDP and provides employment to over 60% of the population. In project [Farm Beats](https://www.microsoft.com/research/project/farmbeats-iot-agriculture/), we gather numerous data from farms that we couldn’t get before, and then by applying AI and ML algorithms we're able to turn this data into actionable insights for farmers. We call this technique data-driven farming. What we mean by data-driven farming is the ability to map every farm and overlay it with data.  For example, what is the soil moisture level 15 cm below surface, what is the soil temperature 15 cm below surface, etc. These maps can then enable techniques, such as Precision Agriculture, which has been shown to improve yield, reduce costs, and benefit the environment. Despite the fact the Precision Agriculture as a technique was proposed more than 30 years ago, it hasn’t taken off. The biggest reason is the inability to capture numerous data from farms to accurately represent the conditions in the farm. Our goal as part of the Farm Beats project is to be able to accurately construct precision maps at a fraction of the cost.
+Agriculture plays a vital role in most economies worldwide. In the US, over 70% of the rural households depend on agriculture as it contributes about 17% to the total GDP and provides employment to over 60% of the population. In project [Farm Beats](https://www.microsoft.com/research/project/farmbeats-iot-agriculture/), we gather numerous data from farms that we couldn’t get before, and then by applying AI and ML algorithms we're able to turn this data into actionable insights for farmers. We call this technique data-driven farming. What we mean by data-driven farming is the ability to map every farm and overlay it with data.  For example, what is the soil moisture level 15 cm below surface, what is the soil temperature 15 cm below surface, and so on. These maps can then enable techniques, such as Precision Agriculture, which has been shown to improve yield, reduce costs, and benefit the environment. Despite the fact the Precision Agriculture as a technique was proposed more than 30 years ago, it hasn’t taken off. The biggest reason is the inability to capture numerous data from farms to accurately represent the conditions in the farm. Our goal as part of the Farm Beats project is to be able to accurately construct precision maps at a fraction of the cost.
 
 ### Unleashing the power of analytics with synthetic data
 
@@ -470,7 +470,7 @@ Synthetic data can exist in several forms, including text, audio, video, and hyb
 
 ### Knowledge mining
 
-The exponential growth of unstructured data gathering in recent years has created many analytical problems for government agencies. This problem intensifies when data sets come from diverse sources such as text, audio, video, imaging, etc. [Knowledge mining](/learn/modules/azure-artificial-intelligence/2-knowledge-mining) is the process of discovering useful knowledge from a collection of diverse data sources. This widely used data mining technique is a process that includes data preparation and selection, data cleansing, incorporation of prior knowledge on data sets, and interpretation of accurate solutions from the observed results. This process has proven to be useful for large volumes of data in different government agencies.
+The exponential growth of unstructured data gathering in recent years has created many analytical problems for government agencies. This problem intensifies when data sets come from diverse sources such as text, audio, video, imaging, and so on. [Knowledge mining](/learn/modules/azure-artificial-intelligence/2-knowledge-mining) is the process of discovering useful knowledge from a collection of diverse data sources. This widely used data mining technique is a process that includes data preparation and selection, data cleansing, incorporation of prior knowledge on data sets, and interpretation of accurate solutions from the observed results. This process has proven to be useful for large volumes of data in different government agencies.
 
 For instance, captured data from the field often includes documents, pamphlets, letters, spreadsheets, propaganda, videos, and audio files across many disparate structured and unstructured formats. Buried within the data are [actionable insights](https://www.youtube.com/watch?v=JFdF-Z7ypQo) that can enhance effective and timely response to crisis and drive decisions. The objective of knowledge mining is to enable decisions that are better, faster, and more humane by implementing proven commercial algorithm-based technologies.
 
@@ -501,7 +501,17 @@ When deploying applications that are subject to regulatory compliance obligation
 - Cloud Security Alliance (CSA) Cloud Controls Matrix (CCM) assessment report, including Azure Stack Hub control mapping to CCM domains and controls.
 - FedRAMP High System Security Plan (SSP) precompiled template to demonstrate how Azure Stack Hub addresses applicable controls, Customer Responsibility Matrix for the FedRAMP High baseline, and FedRAMP assessment report produced by an accredited third-party assessment organization (3PAO).
 
-**[Azure Blueprints](https://azure.microsoft.com/services/blueprints/)** is a service that helps automate compliance and cybersecurity risk management in cloud environments. For more information on Azure Blueprints, including production-ready blueprint solutions for ISO 27001, NIST SP 800-53, PCI DSS, HITRUST, and other standards, see the [Azure Blueprints guidance](../governance/blueprints/overview.md).
+**Azure Policy regulatory compliance built-in initiatives** map to compliance domains and controls in key standards, including:
+
+- [Australian Government ISM PROTECTED](../governance/policy/samples/australia-ism.md)
+- [Canada Federal PBMM](../governance/policy/samples/canada-federal-pbmm.md)
+- [ISO/IEC 27001](../governance/policy/samples/iso-27001.md)
+- [US Government FedRAMP High](../governance/policy/samples/fedramp-high.md)
+- And others
+
+For more regulatory compliance built-in initiatives, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+
+Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
 Azure compliance and certification resources are intended to help you address your own compliance obligations with various standards and regulations. You may have an established cloud adoption mandate in your country and the corresponding regulation to facilitate cloud onboarding. Or you may still operate traditional on-premises datacenters and are in the process of formulating your cloud adoption strategy. Azure’s extensive compliance portfolio can help you irrespective of your cloud adoption maturity level.
 
@@ -545,7 +555,7 @@ This section addresses common customer questions related to Azure public, privat
 
 ### Transparency and audit
 
-- **Audit documentation:** Does Microsoft make all audit documentation readily available to customers to download and examine? **Answer:** Yes, Microsoft makes independent third-party audit reports and other related documentation available for download under a non-disclosure agreement from the Azure portal. You'll need an existing Azure subscription or [free trial subscription](https://azure.microsoft.com/free/) to access the Microsoft Defender for Cloud [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade). Additional compliance documentation is available from the Service Trust Portal (STP) [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3) section. You must log in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
+- **Audit documentation:** Does Microsoft make all audit documentation readily available to customers to download and examine? **Answer:** Yes, Microsoft makes independent third-party audit reports and other related documentation available for download under a non-disclosure agreement from the Azure portal. You'll need an existing Azure subscription or [free trial subscription](https://azure.microsoft.com/free/) to access the Microsoft Defender for Cloud [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade). Extra compliance documentation is available from the Service Trust Portal (STP) [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3) section. You must log in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
 - **Process auditability:** Does Microsoft make its processes, data flow, and documentation available to customers or regulators for audit? **Answer:** Microsoft offers a Regulator Right to Examine, which is a program Microsoft implemented to provide regulators with direct right to examine Azure, including the ability to conduct an on-site examination, to meet with Microsoft personnel and Microsoft external auditors, and to access any related information, records, reports, and documents.
 - **Service documentation:** Can Microsoft provide in-depth documentation covering service architecture, software and hardware components, and data protocols? **Answer:** Yes, Microsoft provides extensive and in-depth Azure online documentation covering all these topics. For example, you can review documentation on Azure [products](../index.yml), [global infrastructure](https://azure.microsoft.com/global-infrastructure/), and [API reference](/rest/api/azure/).
 

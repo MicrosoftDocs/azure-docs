@@ -362,7 +362,7 @@ First, the function.json file must be updated to include a `route` in the HTTP t
            "get",
            "post"
        ],
-       "route": "/{*route}"
+       "route": "{*route}"
     },
     {
        "type": "http",
@@ -411,7 +411,7 @@ Update the Python code file `init.py`, depending on the interface used by your f
 ```python
 app=fastapi.FastAPI()
 
-@app.get("/hello/{name}")
+@app.get("hello/{name}")
 async def get_name(
   name: str,):
   return {
@@ -426,7 +426,7 @@ def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
 ```python
 app=Flask("Test")
 
-@app.route("/hello/<name>", methods=['GET'])
+@app.route("hello/<name>", methods=['GET'])
 def hello(name: str):
     return f"hello {name}"
 
@@ -530,7 +530,7 @@ Azure Functions supports the following Python versions:
 
 <sup>*</sup>Official CPython distributions
 
-To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
 
 When running locally, the runtime uses the available Python version.
 
