@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/05/2022
-ms.custom: cliv1
 
 ---
 # Git integration for Azure Machine Learning
@@ -188,16 +187,6 @@ After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.r
 run.properties['azureml.git.commit']
 ```
 
-### Azure CLI
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
-The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
-
-```azurecli-interactive
-az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
-```
-
-For more information, see the [az ml run](/cli/azure/ml(v1)/run) reference documentation.
 
 ## Next steps
 
