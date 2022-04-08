@@ -84,10 +84,10 @@ The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM
               {
                 "name": "Custom-Header",
                 "value": "liveness probe"
-              }],
-            "initialDelaySeconds": 7,
-            "periodSeconds": 3
-          }
+              }]
+          },
+          "initialDelaySeconds": 7,
+          "periodSeconds": 3
         },
         {
           "type": "readiness",
@@ -106,10 +106,10 @@ The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM
               {
                 "name": "Custom-Header",
                 "value": "startup probe"
-              }],
-            "initialDelaySeconds": 3,
-            "periodSeconds": 3
-          }
+              }]
+          },
+          "initialDelaySeconds": 3,
+          "periodSeconds": 3
         }]
     }]
   ...
@@ -131,8 +131,8 @@ containers:
           httpHeaders:
             - name: Custom-Header
               value: "liveness probe"
-          initialDelaySeconds: 7
-          periodSeconds: 3
+        initialDelaySeconds: 7
+        periodSeconds: 3
       - type: readiness
         tcpSocket:
           port: 8081
@@ -145,8 +145,8 @@ containers:
           httpHeaders:
             - name: Custom-Header
               value: "startup probe"
-          initialDelaySeconds: 3
-          periodSeconds: 3
+        initialDelaySeconds: 3
+        periodSeconds: 3
 ...
 ```
 
