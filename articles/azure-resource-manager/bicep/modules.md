@@ -102,7 +102,13 @@ For example:
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
 
 > [!NOTE]
-> **br/public** is an alias for the public registry. It can also be written as **module \<symbolic-name> 'br:mcr.microsoft.com/bicep/\<file-path>:\<tag>' = {}**. For more information see aliases and configuring aliases later in this section.
+> **br/public** is the alias for the public registry. It can also be written as
+>
+> ```bicep
+> module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
+> ```
+>
+> For more information see aliases and configuring aliases later in this section.
 
 #### Private module registry
 
