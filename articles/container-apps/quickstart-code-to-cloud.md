@@ -12,22 +12,22 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Quickstart: Deploy your code to Azure Container Apps
 
-This quickstart explains how to build your application and deploy it to Azure Container Apps.  It's the first in a series of tutorials that build on the Album Service application that you'll create here.  This Album Service application is a backend API that returns a static collection of music albums.
+This article demonstrates how to deploy to Azure Container Apps from a repository on your machine in the language of your choice.
 
-You'll have the option to choose between several different GitHub repositories, each with a different coding language.
+This quickstart is the first in a series of articles takes you step-by-step in building an application that takes advantage of many features in Azure Container Apps. The first step is to create a basic web API for application that returns a static collection of music albums.
 
 ## Prerequisites
 
 To begin, you need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed.
 
-To complete this project, you'll need the following:
+To complete this project, you'll need the following items:
 
 | Requirement  | Installation instructions |
 |--|--|
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
-| Azure CLI |Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker Engine |If you choose to build your application locally, you'll need the Docker Engine installed on local host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+| Docker Engine | If you choose to build your application locally, you'll need the Docker Engine installed on local host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
@@ -61,7 +61,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 
 ### Set your language preference
 
-Set an environment variable for the language you'll be using. The value can be one of the following:
+Set an environment variable for the language you'll be using. The value can be one of the following values:
 
 - csharp
 - go
@@ -160,7 +160,7 @@ New-AzResourceGroup -Name $RG_ACA -Location $LOCATION_ACA
 
 ## Create an Azure Container Registry
 
-You'll need to create an Azure Container Registry (ACR) registry instance in your new resource group and store your ACR credentials in an environment variable.  You'll, then, use the ACR credentials to log in to the registry.
+You'll need to create an Azure Container Registry (ACR) registry instance in your new resource group and store your ACR credentials in an environment variable.  You'll then use the ACR credentials to sign in to the registry.
 
 # [Bash](#tab/bash)
 
@@ -189,7 +189,7 @@ $ACR_PASS_ACA=Get-AzContainerRegistryCredential `
 
 ---
 
-Log in to your container registry.
+Sign in to your container registry.
 
 # [Bash](#tab/bash)
 
@@ -274,7 +274,7 @@ docker build -t $API_IMAGE .
 
 ---
 
-If your image was successfully built, its listed in the output of the following command:
+If your image was successfully built, it is listed in the output of the following command:
 
 # [Bash](#tab/bash)
 
@@ -293,6 +293,8 @@ docker images
 ### Push the Docker image to your ACR registry
 
 Now, push the image to your registry.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 docker push $API_IMAGE
@@ -378,7 +380,9 @@ From your web browser, navigate to the FQDN on the `/albums` endpoint.
 
 ## Save environment variables
 
-If plan to continue with the follow-on tutorials, you may want to save the environment variables that were defined in this article.  Change directory to the root of your repository and run the following script.  It will save your variables to the file, *aca_variables.env*, so that you can restore them as needed in new bash or PowerShell sessions.
+If you plan to continue with further tutorials in this series, consider saving the environment variables defined in this article.
+
+Change directory to the root of your repository and run the following script to save your variables to the file, *aca_variables.env*. As you continue on in the series, you can restore the variables as needed in new bash or PowerShell sessions.
 
 # [Bash](#tab/bash)
 
