@@ -39,7 +39,7 @@ To complete this project, you'll need the following items:
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker Engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+| Docker Engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure the Docker client is running. |
 
 ::: zone-end
 
@@ -174,18 +174,22 @@ New-AzResourceGroup -Name $RG_ACA -Location $LOCATION_ACA
 
 ## Create an Azure Container Registry
 
-You'll need to create an Azure Container Registry (ACR) registry instance in your new resource group and store your ACR credentials in an environment variable.  You'll then use the ACR credentials to sign in to the registry.
+Next, create an Azure Container Registry (ACR) registry instance in your new resource group.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az acr create \
   --resource-group $RG_ACA \
-  --name $ACR_NAME_ACA 
-  --sku Basic 
+  --name $ACR_NAME_ACA \
+  --sku Basic \
   --admin-enabled true
+```
 
-$ACR_PASS_ACA=(az acr credential show -n $ACR_NAME_ACA)
+Now store your ACR credentials in an environment variable.
+
+```azurecli
+ACR_PASS_ACA=(az acr credential show -n $ACR_NAME_ACA)
 ```
 
 # [PowerShell](#tab/powershell)
@@ -196,7 +200,11 @@ $ACA_REGISTRY = New-AzContainerRegistry `
     -Name $ACR_NAME_ACA `
     -EnableAdminUser `
     -Sku Basic
+```
 
+Now store your ACR credentials in an environment variable.
+
+```powershell
 $ACR_PASS_ACA=Get-AzContainerRegistryCredential `
     -Registry=$ACA_REGISTRY  `
 ```

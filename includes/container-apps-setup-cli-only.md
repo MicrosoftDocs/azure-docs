@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-First, sign in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
