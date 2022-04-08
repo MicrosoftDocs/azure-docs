@@ -259,7 +259,7 @@ There are some temporary limitations we're aware of and working on to remove the
 
   * Time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table  
 
-  * Maximum 40,000 tables can be added to a single link connection in private preview. 
+  * Maximum 40,000 tables can be added to a single link connection in private preview.
 
 * The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.  
 
@@ -303,5 +303,5 @@ There are some temporary limitations we're aware of and working on to remove the
 
 ## Next steps
 
-* [SQL Server Change Feed Feature](./sql-server-change-feed-feature.md)
-* [SQL Server Change Feed Stored Procedures and DMVs](./sql-server-change-feed-interface.md) 
+* [SQL Server Change Feed Feature](https://github.com/microsoft/SQLEAP/blob/main/docs/synapse-link/sql-server-change-feed-feature.md)
+* [SQL Server Change Feed Stored Procedures and DMVs](https://github.com/microsoft/SQLEAP/blob/main/docs/synapse-link/sql-server-change-feed-interface.md) 
