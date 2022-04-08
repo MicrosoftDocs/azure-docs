@@ -39,7 +39,7 @@ To complete this project, you'll need the following items:
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker Engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure the Docker client is running. |
+| Docker engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure the Docker client is running. |
 
 ::: zone-end
 
@@ -54,7 +54,7 @@ RESOURCE_GROUP="album-containerapps"
 LOCATION="canadacentral"
 ENVIRONMENT="env-album-containerapps"
 APP_NAME="album-api"
-API_IMAGE="latest"
+API_IMAGE="dev"
 GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
@@ -74,7 +74,7 @@ $LOCATION="canadacentral"
 $ENVIRONMENT="env-album-containerapps"
 $ACR_NAME="acr-album-containerapps"
 $APP_NAME="album-api"
-$API_IMAGE="latest"
+$API_IMAGE="dev"
 $GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
