@@ -804,7 +804,7 @@
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
       },
       "ms.reviewer": {
-        "articles/advisor/**/*.md": "ikhapova",
+        "articles/advisor/*.md": "ikhapova",
       },  
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
