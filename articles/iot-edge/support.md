@@ -19,7 +19,7 @@ This article provides details about which systems and components are supported b
 
 If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** – Most development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -140,7 +140,7 @@ All Windows operating systems must be version 1809 (build 17763). The specific b
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
+IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers aren't supported.
 
 For information about supported operating systems for Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
 
@@ -149,7 +149,7 @@ For information about supported operating systems for Windows containers, refer 
 
 ### Tier 2
 
-The systems listed in the following table are considered compatible with Azure IoT Edge, but are not actively tested or maintained by Microsoft.
+The systems listed in the following table are considered compatible with Azure IoT Edge, but aren't actively tested or maintained by Microsoft.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
