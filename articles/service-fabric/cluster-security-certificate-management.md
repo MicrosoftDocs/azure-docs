@@ -113,7 +113,7 @@ In either case, the rotated certificate is now provisioned to all of the nodes, 
   - existing connections will be kept alive/allowed to naturally expire or otherwise terminate; an internal handler will have been notified that a new match exists
 
 > [!NOTE] 
-> Prior to version 7.2.445 (7.2 CU4), Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property)
+> Currently (7.2 CU4+), Service Fabric selects the cert with the largest 'NotBefore' property value (most recently issued). Prior to 7.2CU4 Service Fabric picked the valid cert with the largest NotAfter (furthest expiring).
 
 This translates into the following important observations:
   - The renewal certificate may be ignored if its expiration date is sooner than that of the certificate currently in use.
