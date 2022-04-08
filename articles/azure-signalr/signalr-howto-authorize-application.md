@@ -65,7 +65,7 @@ To learn more about adding credentials, see
 
 ## Add role assignments on Azure portal
 
-This sample shows how to assign a `SignalR App Server` role to a service principal (application) over a SignalR resource. 
+The following steps describe how to assign a `SignalR App Server` role to a service principal (application) over a SignalR resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!Note]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
@@ -76,7 +76,7 @@ This sample shows how to assign a `SignalR App Server` role to a service princip
 
 1. Select **Add > Add role assignment**.
 
-   ![Screenshot that shows Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Roles** tab, select **SignalR App Server**.
 
