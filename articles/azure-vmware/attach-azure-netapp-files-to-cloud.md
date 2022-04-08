@@ -11,7 +11,7 @@ ms.date: 03/24/2022
 
 [Azure VMware Solution](/azure/azure-vmware/introduction) private clouds support attaching Network File System (NFS) datastores, created with [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?branch=main) volumes, to clusters you choose to create virtual machines (VMs) for optimal cost and performance. 
 
-Azure NetApp Files is an Azure service is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](/azure/azure-netapp-files) documentation.  
+Azure NetApp Files is an Azure service that's an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](/azure/azure-netapp-files) documentation.  
 
 > [!IMPORTANT]
 > Azure NetApp Files datastores for Azure VMware Solution (Preview) is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -24,7 +24,7 @@ For best performance, create multiple datastores. Create your VMs with VMDKs fro
 
 The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
-:::image type="content" source="../media/attach-net-app-files/architecture-netapp-files-nfs-datastores-attached.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud using ExpressRoute."lightbox="media/attach-net-app-files/architecture-netapp-files-nfs-datastores-attached.png":::
+:::image type="content" source="media/attach-netapp-files/architecture-netapp-files-nfs-datastores-attached.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud."lightbox="media/attach-netapp-files/architecture-netapp-files-nfs-datastores-attached.png":::
 
 ## Supported Regions
 
