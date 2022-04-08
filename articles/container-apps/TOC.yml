@@ -28,6 +28,8 @@
           href: get-started-existing-container-image.md
         - name: Visual Studio
           href: deploy-visual-studio.md
+      - name: With code on your machine
+        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
