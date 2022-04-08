@@ -53,11 +53,11 @@ The user is created and added to your Azure AD B2C tenant. It's preferable to ha
 
 ## Manage emergency access accounts in Azure AD B2C
 
-It is important that you prevent being accidentally locked out of your Azure Active Directory B2C (Azure AD B2C) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
+It's important that you prevent being accidentally locked out of your Azure Active Directory B2C (Azure AD B2C) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
 
 When configuring these accounts, the following requirements need to be met:
 
-- The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD B2C. 
+- The emergency access accounts shouldn't be associated with any individual user in the organization. Make sure that your accounts aren't connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It's important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD B2C. 
 
 - Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts.
 
@@ -66,11 +66,11 @@ When configuring these accounts, the following requirements need to be met:
 
 ### Create emergency access account
 
-Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the *.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
+Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the *.onmicrosoft.com domain and that aren't federated or synchronized from an on-premises environment.
 
 Use the following steps to create an emergency access account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Azure AD account,make sure you're using the directory that contains your Azure AD B2C tenant:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Azure AD account, make sure you're using the directory that contains your Azure AD B2C tenant:
 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
@@ -86,7 +86,7 @@ Use the following steps to create an emergency access account:
 
 1. Under **Identity**:
 
-    1. For **User name**, enter a unique user name such as *emergencyaccount*. 
+    1. For **User name**, enter a unique user name such as *emergency account*. 
     
     1. For **Name**, enter a name such as *Emergency Account*
     
@@ -96,7 +96,7 @@ Use the following steps to create an emergency access account:
  
     1. Select **User**.
 
-    1. In the pane that shows up, search for and select **Global administrator**, anf then select **Select** button. 
+    1. In the pane that shows up, search for and select **Global administrator**, and then select **Select** button. 
 
 1. Under **Settings**, select the appropriate **Usage location**.
 
@@ -104,11 +104,11 @@ Use the following steps to create an emergency access account:
 
 1. [Store account credentials safely](../active-directory/roles/security-emergency-access.md#store-account-credentials-safely).
 
-1. [Monitor sign-in and audit logs](../active-directory/roles/security-emergency-access.md#monitor-sign-in-and-audit-logs).
+1. [Monitor sign in and audit logs](../active-directory/roles/security-emergency-access.md#monitor-sign-in-and-audit-logs).
 
 1. [Validate accounts regularly](../active-directory/roles/security-emergency-access.md#validate-accounts-regularly).
 
-Once you create your emergence accounts you need to do the following: 
+Once you create your emergence accounts, you need to do the following: 
 
 - Make sure you [exclude at least one account from phone-based multi-factor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
 
@@ -198,9 +198,9 @@ The user is deleted and no longer appears on the **Users - All users** page. The
 
 ## Protect administrative accounts
 
-It's recommended that you protect all administrator accounts with multifactor authentication (MFA) for more security. MFA is an identity verification process during sign-in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
+It's recommended that you protect all administrator accounts with multifactor authentication (MFA) for more security. MFA is an identity verification process during sign in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
 
-![Authentication methods in use at the sign-in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
+![Authentication methods in use at the sign in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
 
 If you're not using [Conditional Access](conditional-access-user-flow.md), you can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
 
