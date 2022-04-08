@@ -708,6 +708,9 @@ items:
       href: ./hbase/apache-hbase-overview.md
   - name: Quickstarts
     items:
+    - name: Create Apache HBase cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./hbase/quickstart-bicep.md
     - name: Create Apache HBase cluster - ARM Template
       displayName: Resource Manager
       href: ./hbase/quickstart-resource-manager-template.md

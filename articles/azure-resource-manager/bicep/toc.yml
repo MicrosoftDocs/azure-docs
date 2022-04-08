@@ -51,6 +51,8 @@
       href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Hubs
       href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - HBase
+      href: ../../hdinsight/hbase/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
