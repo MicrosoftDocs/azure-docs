@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio code, available as a [free download](https://code.visualstudio.com/).
+- Visual Studio Code, available as a [free download](https://code.visualstudio.com/).
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
     - The [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -39,7 +39,10 @@ For this tutorial we'll be using a JavaScript project, but the steps are languag
 - [C# sample](https://github.com/azure-samples/containerapps-albumapi-csharp)
 - [Python sample](https://github.com/azure-samples/containerapps-albumapi-python)
 - [Go sample](https://github.com/azure-samples/containerapps-albumapi-go)
-- [PUG front end sample](https://github.com/azure-samples/containerapps-albumapi-frontend)
+
+To open any of the projects after cloning, navigate to the root folder of that project on your file system, and then right click and choose **Open in VS Code**.
+
+You can also use the Visual Studio Code user interface to open the sample project. Select **File -> Open Folder** and then navigate to the folder of the project you cloned.
 
 ## Sign in to Azure
 
