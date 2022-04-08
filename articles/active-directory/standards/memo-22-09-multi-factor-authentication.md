@@ -41,7 +41,7 @@ Consider the following approach to evaluating phishing-resistant MFA methods:
 
 * Device types and capabilities that you want to support. Examples include kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices.
 
-* User personas within your organization. Examples include front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstation, and business-to-business guest users.
+* User personas within your organization. Examples include front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstations, and business-to-business guest users.
 
 * Logistics of distributing, configuring, and registering MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
 
@@ -51,7 +51,7 @@ Consider the following approach to evaluating phishing-resistant MFA methods:
 
 The following sections describe support for implementing phishing-resistant methods for both application and virtual device sign-in scenarios.
 
-### Application sign-in scenarios from different clients
+### Application sign-in scenarios from various clients
 
 The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications:
 
@@ -102,7 +102,7 @@ The memo requires organizations to change password policies that are proven inef
 
 * Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
 
-While the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html). 
+Although the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html). 
 
 ## Next steps
 
