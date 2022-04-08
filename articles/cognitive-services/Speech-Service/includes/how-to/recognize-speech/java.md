@@ -131,7 +131,7 @@ switch (result.getReason()) {
             if (cancellation.getReason() == CancellationReason.Error) {
                 System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                 System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                System.out.println("CANCELED: Did you update the subscription info?");
+                System.out.println("CANCELED: Did you set the speech resource key and region values?");
             }
         }
         break;
@@ -187,7 +187,7 @@ recognizer.canceled.addEventListener((s, e) -> {
     if (e.getReason() == CancellationReason.Error) {
         System.out.println("CANCELED: ErrorCode=" + e.getErrorCode());
         System.out.println("CANCELED: ErrorDetails=" + e.getErrorDetails());
-        System.out.println("CANCELED: Did you update the subscription info?");
+        System.out.println("CANCELED: Did you set the speech resource key and region values?");
     }
 
     stopTranslationWithFileSemaphore.release();
