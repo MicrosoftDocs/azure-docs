@@ -17,7 +17,7 @@ These features include:
 
 - Azure Monitor metrics
 - Azure Monitor Log Analytics
-- Alerts
+- Azure Monitor Alerts
 
 >[!NOTE]
 > While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.
@@ -25,7 +25,7 @@ These features include:
 
 ## Azure Monitor metrics
 
-The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the [metrics explorer in the Azure portal](/../azure-monitor/essentials/metrics-getting-started).  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric), and custom applications.
+The Azure Monitor metrics feature allows you to monitor your app's compute and network usage.  These metrics are available to view and analyze through the [metrics explorer in the Azure portal](/../azure-monitor/essentials/metrics-getting-started).  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
 
 ### Available metrics for Container Apps
 
@@ -59,7 +59,7 @@ When you first navigate to the metrics explorer, you'll see the main page.  From
 
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Metrics blade":::
 
-You can filter your metrics by revision or replica.  For example, o filter by a replica, select **Add filter**, then select a replica from the *Value* drop-down.   You can also filter by your container app's revision.
+You can filter your metrics by revision or replica.  For example, to filter by a replica, select **Add filter**, then select a replica from the *Value* drop-down.   You can also filter by your container app's revision.
 
 :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Add a filter to chart":::
 
@@ -77,7 +77,7 @@ Application logs are available through Azure Monitor Log Analytics. Each Contain
 
 Application logs, consisting of the logs written to `stdout` and `stderr` from the container(s) in each container app, are collected and stored in the Log Analytics workspace.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.
 
-To view these logs, you need use Log Analytics queries.  The log entries are stored in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
+To view these logs, you create Log Analytics queries.  The log entries are stored in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
 
 The most commonly used Container Apps specific columns in ContainerAppConsoleLogs_CL:
 
@@ -104,7 +104,7 @@ Here's an example of a simple query, that displays log entries for the container
 ```kusto
 ContainerAppConsoleLogs_CL
 | where ContainerName_s !startswith 'probe-shim' // filters out probe-shim-* containers which should not be showing
-| where ContainerAppName_s == 'sample-app1'
+| where ContainerAppName_s == 'album-api'
 | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s
 | take 100
 ```
@@ -131,13 +131,13 @@ In the metrics explorer and the Log Analytics interface, alerts are based on exi
 
 ### Setting alerts in metrics explorer
 
-Metric alerts monitor metric data at set intervals and trigger an alert rule condition are met.  For more information, see [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md).
+Metric alerts monitor metric data at set intervals and trigger when an alert rule condition is met.  For more information, see [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md).
 
 In metrics explorer, you can create metric alerts based on Container Apps metrics.  Once you create a metric chart, you're able to create alert rules based on the chart's settings. You can create an alert rule by selecting **New alert rule**.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Create a new metric alert.":::
 
-When you create a new alert rule, the rule creation pane is opened to the **Condition** tab  A condition is started for you based on the metric that you selected for the chart, that you can edit to configure threshold and other settings.
+When you create a new alert rule, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you based on the metric that you selected for the chart, that you can edit to configure threshold and other settings.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Automatically created condition.":::
 
@@ -145,11 +145,11 @@ You can add more conditions to your alert rule by selecting the **Add condition*
 
 :::image type="content" source="media/observability/metrics-alert-add-condition.png" alt-text="Add a condition to your alert rule.":::
 
-The **Select a signal** pane lists the Container Apps metrics.  You can select a metric to base the alert criteria on.
+The **Select a signal** pane lists the Container Apps metrics where you select a metric to base the alert condition on.
 
 :::image type="content" source="media/observability/metrics-alert-select-a-signal.png" alt-text="Select a metric.":::
 
-After you've selected the metric, you can configure the setting for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](../azure-monitor/alerts/alerts-metric.md).
+After you've selected the metric, you can configure the settings for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](../azure-monitor/alerts/alerts-metric.md).
 
 For Container Apps, you can split alerts by revision and replica.  Enabling splitting will send individual alerts for each dimension you define.
 
@@ -173,19 +173,16 @@ Selecting **New alert rule** opens the **Create an alert rule** editor, where yo
 
 To learn more about creating a log alert, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md)
 
-Container Apps supports the following alert splitting dimensions:
+Enabling splitting will send individual alerts for each dimension you define.  Container Apps supports the following alert splitting dimensions:
 
 - app name
 - revision
 - container
 - log message
 
-Enabling splitting will send individual alerts for each dimension you define.
-
 :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Configure alert splitting":::
 
 To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md).
-
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
