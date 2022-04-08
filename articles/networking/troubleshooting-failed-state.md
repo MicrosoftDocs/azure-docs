@@ -6,7 +6,7 @@ author: stegag
 
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 04/08/2022
 ms.author: stegag
 
 ---
@@ -15,7 +15,7 @@ ms.author: stegag
 
 This article helps understand the meaning of various provisioning states for Microsoft.Network resources and how to effectively troubleshoot situations when the state is **Failed**.
 
-[!INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Provisioning states
 
@@ -38,11 +38,17 @@ For example, you cannot execute an operation on a VirtualNetworkGateway if it ha
 
 ## Restoring succeeded state through a PUT operation
 
-The correct way to restore succeeded state is to execute another write operation on the resource.
+The correct way to restore succeeded state is to execute another write (PUT) operation on the resource.
 
-Most times, the issue that caused the previous operation might no longer be current, hence the newer write should be successful and fix the provisioning state.
+Most times, the issue that caused the previous operation might no longer be current, hence the newer write operation should be successful and restore the provisioning state.
 
-Th
+The easiest way to achieve this task is to use Azure Powershell. You will need to issue a resource-specific "Get" command that fetches all the current configuration for the impacted resource as it is deployed. Next, you can execute a "Set" command (or equivalent) to commit to Azure a write operation containing all the resource properties as they are currently configured.
+
+> [!IMPORTANT]
+> 1. Executing a "Set" command on the resource without running a "Get" first will result in overwriting the resource with default settings which might be different from those you currently have configured. Do not just run a "Set" command unless resetting settings is intentional.
+> 2. Executing a "Get" and "Set" operation using third party software or otherwise any tool using older API version may also result in loss of some settings, as those may not be present in the API version with which you have executed the command.
+>
+## Azure Powershell cmdlets to restore Succeeded provisioning state
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -65,7 +71,10 @@ Th
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-5. Run the resource-specific commands listed below to reset the provisioning state to succeeded. Every command uses "your_resource_name" and "your_resource_group_name" - make sure to replace these strings with the appropriate Resource and Resource Group names according to your deployment.
+5. Run the resource-specific commands listed below to reset the provisioning state to succeeded. 
+ 
+> [!NOTE]
+>Every sample command in this article uses "your_resource_name" for the name of the Resource and "your_resource_group_name" for the name of the Resource Group. Make sure to replace these strings with the appropriate Resource and Resource Group names according to your deployment.
 
 ### Microsoft.Network/applicationGateways
 
@@ -110,7 +119,7 @@ Get-AzExpressRouteGateway -Name "your_resource_name" -ResourceGroupName "your_re
 ```
 
 > [!NOTE]
-> **Microsoft.Network/expressRouteGateways** are those gateways deployed within a Virtual WAN. If you have a standalone gateway of ExpressRoute type in your Virtual Network you need to execute the commands related to **Microsoft.Network/virtualNetworkGateways**.
+> **Microsoft.Network/expressRouteGateways** are those gateways deployed within a Virtual WAN. If you have a standalone gateway of ExpressRoute type in your Virtual Network you need to execute the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
 
 ### Microsoft.Network/expressRoutePorts
 
@@ -160,7 +169,7 @@ Get-AzNetworkSecurityGroup -Name "your_resource_name" -ResourceGroupName "your_r
 Get-AzNetworkVirtualAppliance -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzNetworkVirtualAppliance
 ```
 > [!NOTE]
-> Most Virtual WAN related resoures such as this leverage the "Update" cmdlet and not the "Set" for write operations.
+> Most Virtual WAN related resources such as networkVirtualAppliances leverage the "Update" cmdlet and not the "Set" for write operations.
 > 
 ### Microsoft.Network/privateDnsZones
 
@@ -204,7 +213,7 @@ Get-AzRouteTable -Name "your_resource_name" -ResourceGroupName "your_resource_gr
 Get-AzVirtualHub -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVirtualHub
 ```
 > [!NOTE]
-> Most Virtual WAN related resoures such as this leverage the "Update" cmdlet and not the "Set" for write operations.
+> Most Virtual WAN related resources such as virtualHubs leverage the "Update" cmdlet and not the "Set" for write operations.
 > 
 ### Microsoft.Network/virtualNetworkGateways
 
@@ -224,7 +233,7 @@ Get-AzVirtualNetwork -Name "your_resource_name" -ResourceGroupName "your_resourc
 Get-AzVirtualWan -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVirtualWan
 ```
 > [!NOTE]
-> Most Virtual WAN related resoures such as this leverage the "Update" cmdlet and not the "Set" for write operations.
+> Most Virtual WAN related resources such as virtualWans leverage the "Update" cmdlet and not the "Set" for write operations.
 
 ### Microsoft.Network/vpnGateways
 
@@ -232,8 +241,8 @@ Get-AzVirtualWan -Name "your_resource_name" -ResourceGroupName "your_resource_gr
 Get-AzVpnGateway -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVpnGateway
 ```
 > [!NOTE]
-> 1. **Microsoft.Network/vpnGateways** vpnGateways are those gateways deployed within a Virtual WAN. If you have a standalone gateway of VPN type in your Virtual Network you need to execute the commands related to **Microsoft.Network/virtualNetworkGateways**.
-> 2. Most Virtual WAN related resoures such as this leverage the "Update" cmdlet and not the "Set" for write operations.
+> 1. **Microsoft.Network/vpnGateways** are those gateways deployed within a Virtual WAN. If you have a standalone gateway of VPN type in your Virtual Network you need to execute the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
+> 2. Most Virtual WAN related resources such as vpnGateways leverage the "Update" cmdlet and not the "Set" for write operations.
 
 ### Microsoft.Network/vpnSites
 
@@ -241,13 +250,14 @@ Get-AzVpnGateway -Name "your_resource_name" -ResourceGroupName "your_resource_gr
 Get-AzVpnSite -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVpnSite
 ```
 > [!NOTE]
-> Most Virtual WAN related resoures such as this leverage the "Update" cmdlet and not the "Set" for write operations.
+> Most Virtual WAN related resources such as vpnSites leverage the "Update" cmdlet and not the "Set" for write operations.
 
 
 
 ## Next steps
 
 If the command executed didn't fix the failed state, it should return an error code for you.
+Most error codes contain a detailed description of what the problem might be and offer hints to solve it.
 
 Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you're still experiencing issues.
 Make sure you specify to the Support Agent both the error code you received in the latest operation, as well as the timestamp of when the operation was executed.
