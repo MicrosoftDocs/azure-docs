@@ -48,7 +48,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/en-us/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
@@ -93,7 +93,7 @@ Install the Moby engine.
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/en-us/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
 
 Install the Moby engine.
 
@@ -144,7 +144,7 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/en-us/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
 
    ```bash
    sudo apt-get update; \
@@ -206,7 +206,7 @@ To list other versions of IoT Edge and the IoT identity service that are availab
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/en-us/updates/update-rpios-stretch-to-latest/preview/).
+Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest/preview/).
 
 Install the latest version of IoT Edge and the IoT identity service package:
 
