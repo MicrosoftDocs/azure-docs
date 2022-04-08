@@ -1,6 +1,6 @@
 ---
 title: Use notebooks with Microsoft Sentinel for security hunting
-description: This article describes how to use notebooks with the Microsoft Sentinel hunting capabilities.
+description: Learn about Jupyter notebooks with the Microsoft Sentinel hunting capabilities.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual

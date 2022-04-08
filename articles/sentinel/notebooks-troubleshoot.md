@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot Jupyter notebooks 
-description: Troubleshoot Jupyter notebooks.
+title: Troubleshoot Jupyter notebooks - Microsoft Sentinel
+description: Troubleshoot errors for Jupyter notebooks in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 04/04/2022
 ---

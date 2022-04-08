@@ -1,6 +1,6 @@
 ---
 title: Hunt for security threats with Jupyter notebooks - Microsoft Sentinel
-description: Use notebooks with the Microsoft Sentinel hunting capabilities.
+description: Launch and run notebooks with the Microsoft Sentinel hunting capabilities.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
