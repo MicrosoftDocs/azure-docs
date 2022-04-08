@@ -164,48 +164,48 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
 
 1. The client interface for this sample is a web page. We read HTML content from *content/index.html* in the `index` function, and then create a new file *content/index.html* in the `resources` directory. Your directory tree should look like this:
 
-  ```    nsProject
-     | - src
-     | | - main
-     | | | - java
-     | | | | - com
-     | | | | | - signalr 
-     | | | | | | - Function.java
-     | | | - resources
-     | | | | - content
-     | | | | | - index.html
-     | - pom.xml
-     | - host.json
-     | - local.settings.json
-  ```
+    ```    nsProject
+        | - src
+        | | - main
+        | | | - java
+        | | | | - com
+        | | | | | - signalr 
+        | | | | | | - Function.java
+        | | | - resources
+        | | | | - content
+        | | | | | - index.html
+        | - pom.xml
+        | - host.json
+        | - local.settings.json
+    ```
 
 1. Open *index.html* and copy the following content:
 
-  ```html
+    ```html
     <html>
     
     <body>
-      <h1>Azure SignalR Serverless Sample</h1>
-      <div id="messages"></div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
-      <script>
+        <h1>Azure SignalR Serverless Sample</h1>
+        <div id="messages"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+        <script>
         let messages = document.querySelector('#messages');
         const apiBaseUrl = window.location.origin;
         const connection = new signalR.HubConnectionBuilder()
             .withUrl(apiBaseUrl + '/api')
             .configureLogging(signalR.LogLevel.Information)
             .build();
-          connection.on('newMessage', (message) => {
+            connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
-          });
+            });
     
-          connection.start()
+            connection.start()
             .catch(console.error);
-      </script>
+        </script>
     </body>
     
     </html>
-  ```
+    ```
 
 1. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
