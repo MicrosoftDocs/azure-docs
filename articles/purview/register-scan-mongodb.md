@@ -24,10 +24,10 @@ This article outlines how to register MongoDB, and how to authenticate and inter
 
 When scanning MongoDB source, Azure Purview supports extracting technical metadata including:
 
-    - Server
-    - Databases
-    - Collections
-    - Views
+- Server
+- Databases
+- Collections
+- Views
 
 When setting up scan, you can choose to scan one or more MongoDB database(s) entirely, or further scope the scan to a subset of collections matching the given name(s) or name pattern(s).
 
