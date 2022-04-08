@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.custom: subject-moving-resources
 ms.author: ninallam
 author: ninallam
-ms.date: 04/10/2022
+ms.date: 04/12/2022
 ms.topic: how-to
 ---
 
