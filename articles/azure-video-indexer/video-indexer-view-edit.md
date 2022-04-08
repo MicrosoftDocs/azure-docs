@@ -1,12 +1,10 @@
 ---
 title: View and edit Azure Video Indexer (formerly Azure Video Analyzer for Media) insights
-titlesuffix: Azure Video Indexer
 description: This article demonstrates how to view and edit Azure Video Indexer (formerly Azure Video Analyzer for Media) insights.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 05/15/2019
 ms.author: juliako
 ---

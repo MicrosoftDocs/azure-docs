@@ -8,7 +8,6 @@ manager: femila
 
 ms.custom: references_regions
 ms.topic: how-to
-ms.subservice: azure-video-analyzer-media
 ms.date: 12/07/2020
 ms.author: juliako
 ---

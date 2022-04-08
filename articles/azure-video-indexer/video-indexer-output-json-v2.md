@@ -1,12 +1,10 @@
 ---
 title: Examine the Azure Video Indexer output
-titleSuffix: Azure Video Indexer
 description: This topic examines the Azure Video Indexer (formerly Azure Video Analyzer for Media) output produced by the Get Video Index API.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
 ---

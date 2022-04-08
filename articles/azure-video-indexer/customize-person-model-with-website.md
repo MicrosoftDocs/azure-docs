@@ -1,12 +1,10 @@
 ---
 title: Customize a Person model with Azure Video Indexer (formerly Azure Video Analyzer for Media) website
-titleSuffix: Azure Video Indexer 
 description: Learn how to customize a Person model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 12/16/2020
 ms.author: juliako
 ---

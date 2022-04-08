@@ -2,7 +2,6 @@
 title: Sign up for Azure Video Indexer (formerly Azure Video Analyzer for Media) and upload your first video - Azure
 description: Learn how to sign up and upload your first video using the Azure Video Indexer (formerly Azure Video Analyzer for Media) portal.
 ms.topic: quickstart
-ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: mode-other
