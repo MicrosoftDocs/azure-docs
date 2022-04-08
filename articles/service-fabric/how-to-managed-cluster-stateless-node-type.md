@@ -2,7 +2,7 @@
 title: Deploy a Service Fabric managed cluster with stateless node types
 description: Learn how to create and deploy stateless node types in Service Fabric managed clusters
 ms.topic: conceptual
-ms.date: 3/14/2022
+ms.date: 4/11/2022
 author: craftyhouse
 ms.author: micraft
 ms.service: service-fabric
@@ -50,9 +50,9 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 
 ## Enabling stateless node types using Spot VMs in a Service Fabric managed cluster (Preview)
 
-[Azure Spot Virtual Machines on scale sets](../virtual-machine-scale-sets/use-spot.md) enables users to take advantage of unused compute capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict these Azure Spot Virtual Machine instances. Therefore, Spot VM node types are great for workloads that can handle interruptions and don't need to be completed within a specific timeframe. Recommended workloads include development, testing, batch processing jobs, big data, or other large-scale stateless scenarios.
+[Azure Spot Virtual Machines on scale sets](../virtual-machine-scale-sets/use-spot.md) enables users to take advantage of unused compute capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict these Azure Spot Virtual Machine instances. Therefore, Spot VM node types are great for workloads that can handle interruptions and don't need to be completed within a specific time frame. Recommended workloads include development, testing, batch processing jobs, big data, or other large-scale stateless scenarios.
 
-To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster. Virtual machine scale sets in Spot priority node types have Eviction Policy set to 'Delete'.
+To set one or more stateless node types to use Spot VM, set both **isStateless** and **IsSpotVM** properties to true. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster. Stateless node types configured to use Spot VMs have Eviction Policy set to 'Delete'.
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -70,7 +70,7 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
   "properties": {
     "isStateless": true,
     "isPrimary": false,
-    "isSpotPriority": true,
+    "IsSpotVM": true,
     "vmImagePublisher": "[parameters('vmImagePublisher')]",
     "vmImageOffer": "[parameters('vmImageOffer')]",
     "vmImageSku": "[parameters('vmImageSku')]",
