@@ -1749,4 +1749,12 @@ groups:
     title: Azure Resouce Manager
   - id: aro-bicep
     title: Bicep   
-
+# Owner: cshoe
+- id: container-apps-image-build-type
+  title: Container location
+  prompt: Choose an option
+  pivots:
+  - id: acr-remote
+    title: Azure Container Registry
+  - id: docker-local
+    title: Docker
