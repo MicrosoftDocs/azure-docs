@@ -6,8 +6,6 @@ ms.date: 04/08/2022
 ms.author: alkohli
 ---
 
-## Create a storage account
-
 Create a new storage account by using the resource group that you created in the preceding step. This is a local storage account that you use to upload the virtual disk image for the VM.
 
 ### [Az](#tab/az)
