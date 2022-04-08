@@ -137,7 +137,7 @@ az group create --name $resourceGroupName --location $regionName
 
 #### Create a Data Lake Storage Gen2 account
 
-First, check if the name is not used, then creates if it does not already exist. Then, create a Data Lake Storage Gen2 account, and a container in a Data Lake Storage Gen2 account.
+The following script creates a storage account and container.
 
 ```azurecli
 # Checking if name is not used only then creates it.
@@ -413,7 +413,7 @@ $roleName =az role definition list --query "[?contains(roleName, 'Storage Blob D
 #Getting resource id for storage account
 $scope= (az storage account show --name $storageAccountName|ConvertFrom-Json).id
 
-#Getting principal id for workspace managed identity
+#Getting principal ID for workspace managed identity
 $workSpaceIdentityObjectID=(az synapse workspace show --name $workspaceName --resource-group $resourceGroupName|ConvertFrom-Json).Identity.PrincipalId 
                     
 # Adding Storage Blob Data Contributor Azure role to SA-MI
