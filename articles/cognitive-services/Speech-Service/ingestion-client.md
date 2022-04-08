@@ -30,7 +30,7 @@ The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Sa
 > [!IMPORTANT]
 > Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/pricing/details/functions/) page for more information.
 
-Both, the Microsoft [Speech SDK](speech-sdk.md) and the [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
+Both, the Microsoft [Speech SDK](speech-sdk.md) and the [Speech-to-text REST API v3.0](rest-speech-to-text.md), can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
 
 > [!TIP]
 > You can use the tool and resulting solution in production to process a high volume of audio.

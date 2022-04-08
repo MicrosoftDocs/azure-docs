@@ -22,7 +22,7 @@ This article gives an overview of the Azure Digital Twins APIs available, and th
 Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and SDKs for managing your instance and its elements. 
 * The control plane APIs are [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) APIs, and cover resource management operations like creating and deleting your instance. 
 * The data plane APIs are Azure Digital Twins APIs, and are used for data management operations like managing models, twins, and the graph.
-* The SDKs take advantage of the existing APIs to allow for ease of development of custom applications making use of Azure Digital Twins. The control plane SDKs are available in [.NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true) and [Java](/java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true), and the data plane SDKs are available in [.NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), [Java](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true), [JavaScript](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true), and [Python](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
+* The SDKs take advantage of the existing APIs to allow for ease of development of custom applications making use of Azure Digital Twins.
 
 ## Overview: control plane APIs
 
