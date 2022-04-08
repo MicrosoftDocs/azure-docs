@@ -317,7 +317,7 @@ For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `A
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set.
 For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
-For Android, iOS and macOS, Speech SDK uses system api to decode the compressed audio, therefore, no extra configuration is needed.
+For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
 ## Others tips
 
