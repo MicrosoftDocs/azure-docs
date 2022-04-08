@@ -267,6 +267,8 @@ In JavaScript correlation is turned off by default in order to minimize the tele
 > [!WARNING] 
 > Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
 
+The following sample code shows the configurations required to enable correlation:
+
 ### [Snippet](#tab/snippet)
 
 ```javascript
@@ -299,6 +301,7 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
   /* ...Other Configuration Options... */
 } });
 ``` 
+---
 
 ### Correlation header excluded domains
 
@@ -348,7 +351,11 @@ Here's a sample of how to create a dynamic JS using Razor:
 </script>
 ```
 
-When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+> [!NOTE]
+> When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+
+> [!CAUTION]
+>The application UX is not yet optimized to show these "first hop" advanced distributed tracing scenarios. However, the data will be available in the requests table for query and diagnostics.
 
 ## Extensions
 
