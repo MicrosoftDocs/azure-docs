@@ -45,8 +45,8 @@ To configure FSLogix profile container, do the following on each session host re
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and [download the FSLogix agent](https://aka.ms/fslogix_download).
 3. Open the downloaded .zip file, navigate to either **Win32\\Release** or **x64\\Release** (depending on your operating system) and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](/fslogix/install-ht/).
-4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
-5. From the start menu, run **regddit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
+4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed successfully.
+5. From the start menu, run **regedit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
 6. Create a key named **Profiles**.
 7. Create the following values for the Profiles key:
 
