@@ -69,9 +69,6 @@ Below you'll find more information on prerequisites and steps to set up the samp
 3. `npm run setup` from the root directory
 4. `npm run start` from the root directory
 
-The single threaded chat sample is essentially two "applications" a client and server application.  When the server app is visited
-from the browser, it will redirect traffic towards the locally deployed chat front end service.
-
 You can test the sample locally by opening multiple browser sessions with the URL of your chat to simulate a multi-user chat.
 
 ## Publish the sample to Azure
