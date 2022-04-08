@@ -10,7 +10,11 @@ ms.date: 3/31/2022
 
 # How to configure permissions for Azure Managed Grafana Preview
 
-By default, when a Grafana workspace is created, Azure Managed Grafana adds it to the Log Analytics Reader role for all Log Analytics resources within a subscription. This means that the new Grafana workspace can access and search all monitoring data and access monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources, in your subscription. In this article, you'll learn how to manually edit permissions for a specific resource.
+By default, when a Grafana workspace is created, Azure Managed Grafana grants it the Monitoring Reader role for all Azure Monitor data and Log Analytics resources within a subscription.
+
+This means that the new Grafana workspace can access and search all monitoring data in the subscription, including viewing the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
+
+In this article, you'll learn how to manually edit permissions for a specific resource.
 
 ## Prerequisites
 

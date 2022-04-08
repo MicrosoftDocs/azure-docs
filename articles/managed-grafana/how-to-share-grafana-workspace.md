@@ -22,7 +22,7 @@ A DevOps team may build dashboards to monitor and diagnose an application or inf
 Azure Managed Grafana supports the Admin, Viewer and Editor roles:
 
 - The Admin role provides full control of the workspace including viewing, editing, and configuring data sources.
-- The Editor role provides read-write access to the Managed Grafana workspace.
+- The Editor role provides read-write access to the dashboards in the workspace
 - The Viewer role provides read-only access to dashboards in the workspace.
 
 The Admin role is automatically assigned to the creator of a Grafana workspace. More details on Admin, Editor, and Viewer roles can be found at [Grafana organization roles](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
