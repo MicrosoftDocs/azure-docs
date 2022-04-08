@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Meet authorization requirements of Memorandum 22-09
 
-This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described by the US Federal Government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
+This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
 The memo requires specific types of enforcement within your multifactor authentication (MFA) policies. Specifically, you must account for device-based controls, role-based controls, attribute-based controls, and privileged access management.
 

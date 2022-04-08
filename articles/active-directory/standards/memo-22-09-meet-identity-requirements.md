@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Meet identity requirements of Memorandum 22-09 with Azure Active Directory
 
-Executive order [14028, Improving the Nation's Cyber Security](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity), directs federal agencies on advancing security measures that dramatically reduce the risk of successful cyberattacks against the federal government's digital infrastructure. On January 26, 2022, the [Office of Management and Budget (OMB)](https://www.whitehouse.gov/omb/) released the Federal Zero Trust Strategy [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) in support of EO 14028. 
+US executive order [14028, Improving the Nation's Cyber Security](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity), directs federal agencies on advancing security measures that dramatically reduce the risk of successful cyberattacks against the federal government's digital infrastructure. On January 26, 2022, the [Office of Management and Budget (OMB)](https://www.whitehouse.gov/omb/) released the federal Zero Trust strategy in [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf), in support of EO 14028. 
 
-This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by Memorandum M-22-09. 
+This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in Memorandum M-22-09. 
 
 The release of Memorandum 22-09 is designed to support Zero Trust initiatives within federal agencies. It also provides regulatory guidance in supporting federal cybersecurity and data privacy paws. The memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v1.1(U)_Mar21.pdf), 
 
