@@ -48,20 +48,17 @@ For more information about permissions, see the [FSLogix documentation](/fslogix
 
 ## Configure the FSLogix profile container
 
-To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
+To configure FSLogix profile container, do the following on each session host registered to the host pool:
 
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to [this link](https://aka.ms/fslogix_download) to download the FSLogix agent.
+2. Launch an internet browser and [download the FSLogix agent](https://aka.ms/fslogix_download).
 3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](/fslogix/install-ht/).
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
-5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
 6. Create a key named **Profiles**.
 7. Create the following values for the Profiles key:
 
 | Name                | Type               | Data/Value                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
-| VHDLocations        | Multi-String Value | "Network path for file share"     |
-
->[!IMPORTANT]
->To help secure your Azure Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Azure Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).
+| VHDLocations        | Multi-String Value | \\\\hostname\\share                |
