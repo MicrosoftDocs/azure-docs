@@ -9,8 +9,8 @@ ms.author: eur
 ### Speech SDK 1.21.0: April 2022 release
 
 #### New features
-- **Java & Java Script**: Add support for Continuous Language Identification when using the SpeechRecognizer object
-- **Java Script**: Add Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
+- **Java & JavaScript**: Add support for Continuous Language Identification when using the SpeechRecognizer object
+- **JavaScript**: Add Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
 - **Python**: Add support for Conversation Transcription
 - **Go**: Add support for Speaker Recognition
 - **All programming languages**: Speech Synthesis: Add duration property in word boundary events. Add support for punctuation boundary and sentence boundary
@@ -19,9 +19,9 @@ ms.author: eur
 
 #### Bug fixes
 - Fix to allow building on iOS devices when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
-- **Java Script**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
-- **Java Script**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
-- **Java Script**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
+- **JavaScript**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
+- **JavaScript**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
+- **JavaScript**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
 - **C++** Fix C++ headers to remove a warning when compiling using C++17 or newer
 
 #### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
