@@ -88,7 +88,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     1. `az extension add --name vmware`
 1. Create a datastore using an existing ANF volume in Azure VMware Solution private cloud cluster.
     1. `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
-1. If needed, you can display the help on the datastores
+1. If needed, you can display the help on the datastores.
     1. `az vmware datastore -h`
 1. Show the details of an ANF-based datastore in a private cloud cluster.
     1. `az vmware datastore show --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
@@ -97,14 +97,17 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 ## Delete an Azure NetApp Files-based datastore from your private cloud
 
-You can delete an Azure NetApp Files-based datastore, which is used in Azure VMware Solution private cloud, using the command below. Keep in mind that the actual Azure NetApp Files (ANF) volume would still exist.   
+You can delete an Azure NetApp Files-based datastore, which is used in Azure VMware Solution private cloud. Use the **Delete an ANF-based private cloud datastore** command, provided below, to perform this operation. There's no maintenance window required for this operation. 
 
-There's no maintenance window required for this operation. 
+Note that the actual Azure NetApp Files (ANF) volume would still exist. 
 
-Delete an ANF based private cloud datastore 
+**Delete an ANF based private cloud datastore**
+
 `az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
 ## Next steps
+
+Now that you've attached a datastore on Azure NetApp Files-based NFS volume to your Azure VMware Solution hosts, you can create your VMs.
 
 ## FAQs
 
@@ -124,3 +127,34 @@ Delete an ANF based private cloud datastore
 
     We're currently validating and working on the benchmarking. For Azure NetApp Files volumes with "Basic" network features, the connectivity from Azure VMware Solution is bound by the bandwidth of the ExpressRoute circuit and the ExpressRoute Gateway along with the latency that comes with that architecture.
 
+    For Azure NetApp Files volumes with "standard" network features (in Public preview), ExpressRoute FastPath is supported. When enabled, FastPath sends network traffic directly to Azure NEtApp Files volumes bypassing the gateway and providing higher bandwidth and lower latency.
+
+    For higher bandwidth, create VMDKs and stripe the logical volumes across VMDKs. As a best practice, create multiple datastores on multiple ANF volumes.
+
+    For more details, refer to [Guidelines for Azure NEtApp Files newtwork planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies) and [About Azure ExpressRoute FastPath](/azure/expressroute/about-fastpath).
+
+- **What are my options for backup and recovery?**
+    
+   Azure NetApp Files support [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files Backup, which provides the ability to offload your Azure NetApp Files snapshots to Azure storage, is currently under private preview. Only for this technology are copies and stores changed blocks relative to previously offloaded snapshots in an efficient format, dramatically increasing RPO/RTO while lowering backup data transfer burden on the AVS service.   
+
+- **How do I monitor Storage Usage?**
+    
+    You can monitor storage and performance usage for datastores using Azure NetApp Files volume metrics blade for the Datastore volume and set alerts in Azure Monitor for these metrics.
+
+- **What metrics are available for monitoring?**
+
+    Usage and performance metrics are available for monitoring the Datastore volume. 
+
+    Replication metrics are also available for ANF datastore and is replicated to another region using Cross Regional Replication. Please refer to [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) for more details. 
+
+- **What happens if a new node is added to the cluster, or an existing node is removed from the cluster?**
+
+    When you add a new node to the cluster, it will automatically gain access to the datastore. No impact on the datastore on the node removal. 
+
+- **How are the datastores charged, is there an additional charge?**
+
+    Azure NetApp Files NFS volumes that are used as datastores will be billed following the [capacity pool based billing model](/azure/azure-netapp-files/azure-netapp-files-cost-model). Billing will depend on the service level. There is no additional charge for using Azure NetApp Files NFS volumes as datastores. 
+
+- **How many datastores are we supporting with Azure VMware Solution?**
+
+    The default is eight but it can be changed.
