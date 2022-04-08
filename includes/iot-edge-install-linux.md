@@ -32,6 +32,17 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
+# [Debian](#tab/debian)
+
+Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -57,6 +68,15 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the only container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
 
 # [Ubuntu](#tab/ubuntu)
+
+Install the Moby engine.
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install moby-engine
+   ```
+
+# [Debian](#tab/debian)
 
 Install the Moby engine.
 
@@ -105,6 +125,13 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
      sudo apt-get install iotedge
    ```
 
+# [Debian](#tab/debian)
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install iotedge
+   ```
+
 # [Raspberry Pi OS](#tab/rpios)
 
    ```bash
@@ -135,6 +162,20 @@ The steps in this section represent the typical process to install the latest ve
 >If you already have an IoT Edge device running an older version and want to upgrade to 1.2, use the steps in [Update the IoT Edge security daemon and runtime](../articles/iot-edge/how-to-update-iot-edge.md). Version 1.2 is sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
 # [Ubuntu](#tab/ubuntu)
+
+Install the latest version of IoT Edge and the IoT identity service package:
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install aziot-edge
+   ```
+
+To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
+
+   ```bash
+   apt list -a aziot-edge aziot-identity-service
+   ```
+# [Debian](#tab/debian)
 
 Install the latest version of IoT Edge and the IoT identity service package:
 
