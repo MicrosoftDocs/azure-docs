@@ -73,6 +73,8 @@
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
+    - name: Application Gateway
+      href: ../../application-gateway/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Content Delivery Network
       href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DDoS Protection
