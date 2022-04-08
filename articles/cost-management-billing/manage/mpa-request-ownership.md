@@ -6,13 +6,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 04/08/2022
 ms.author: banders
 ---
 
 # Get billing ownership of Azure subscriptions to your MPA account
 
-To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).
+To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA). CSPs can also take over subscription billing ownership from customers a Microsoft Customer Agreement with a Microsoft representative (MCA-Enterprise).
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
@@ -94,12 +94,13 @@ When you send or accept transfer request, you agree to terms and conditions. For
 
 ## Supported subscription types
 
-You can request billing ownership of the subscription types listed below.
+You can request billing ownership of the following subscription types.
 
-* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
+* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)<sup>1</sup>
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
+* Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-\* You must convert a Dev/Test subscription to an EA Enterprise offer via a support ticket. An Enterprise Dev/Test subscription will be billed at a pay-as-you-go rate after it's transferred. Any discount offered via the Enterprise Dev/Test offer through the customer's EA won't be available to the CSP partner.
+<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There is no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 
@@ -165,9 +166,9 @@ If these two directories don’t match, the subscriptions couldn't be transferre
 
 ### EA subscription in the non-organization directory
 
-The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
+The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name *[domain name].onmicrosoft.com* or a verified, non-federated custom domain name such as *contoso.com*.  
 
-To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+To add a new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Check access to a Microsoft Partner Agreement
 
