@@ -1,15 +1,15 @@
 ---
-title: Embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps
-description: Learn how to embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps.
+title: Embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps
+description: Learn how to embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps.
 ms.topic: how-to
 ms.date: 03/29/2022
 ms.author: juliako
 ms.custom: devx-track-js
 ---
 
-# Embed Video Analyzer for Media widgets in your apps
+# Embed Azure Video Indexer widgets in your apps
 
-This article shows how you can embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps. Video Analyzer for Media supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
+This article shows how you can embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps. Azure Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
 Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
@@ -66,7 +66,7 @@ The `location` parameter must be included in the embedded links, see [how to get
 
 To embed a video, use the portal as described below:
 
-1. Sign in to the [Video Analyzer for Media](https://www.videoindexer.ai/) website.
+1. Sign in to the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
 1. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
 1. Click **&lt;/&gt; Embed**.
@@ -99,22 +99,22 @@ To provide editing insights capabilities in your embedded widget, you must pass 
 
 The Cognitive Insights widget can interact with a video on your app. This section shows how to achieve this interaction.
 
-![Cognitive Insights widget Video Analyzer for Media](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+![Cognitive Insights widget Azure Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### Flow overview
 
 When you edit the transcripts, the following flow occurs:
 
 1. You edit the transcript in the timeline.
-1. Video Analyzer for Media gets these updates and saves them in the [from transcript edits](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) in the language model.
+1. Azure Video Indexer gets these updates and saves them in the [from transcript edits](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) in the language model.
 1. The captions are updated:
 
-    * If you are using Video Analyzer for Media's player widget - it’s automatically updated.
+    * If you are using Azure Video Indexer's player widget - it’s automatically updated.
     * If you are using an external player - you get a new captions file user the **Get video captions** call.
 
 ### Cross-origin communications
 
-To get Video Analyzer for Media widgets to communicate with other components, the Video Analyzer for Media service:
+To get Azure Video Indexer widgets to communicate with other components, the Azure Video Indexer service:
 
 - Uses the cross-origin communication HTML5 method `postMessage`.
 - Validates the message across VideoIndexer.ai origin.
@@ -123,7 +123,7 @@ If you implement your own player code and integrate with Cognitive Insights widg
 
 ### Embed widgets in your app or blog (recommended)
 
-This section shows how to achieve interaction between two Video Analyzer for Media widgets so that when a user selects the insight control on your app, the player jumps to the relevant moment.
+This section shows how to achieve interaction between two Azure Video Indexer widgets so that when a user selects the insight control on your app, the player jumps to the relevant moment.
 
 1. Copy the Player widget embed code.
 2. Copy the Cognitive Insights embed code.
@@ -132,14 +132,14 @@ This section shows how to achieve interaction between two Video Analyzer for Med
 
 Now when a user selects the insight control on your app, the player jumps to the relevant moment.
 
-For more information, see the [Video Analyzer for Media - Embed both Widgets demo](https://codepen.io/videoindexer/pen/NzJeOb).
+For more information, see the [Azure Video Indexer - Embed both Widgets demo](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### Embed the Cognitive Insights widget and use Azure Media Player to play the content
 
 This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance by using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
 
-1. Add a Video Analyzer for Media plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
-2. Instantiate Azure Media Player with the Video Analyzer for Media plug-in.
+1. Add a Azure Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+2. Instantiate Azure Media Player with the Azure Video Indexer plug-in.
 
     ```javascript
     // Init the source.
@@ -190,7 +190,7 @@ You can now communicate with Azure Media Player.
 
 For more information, see the [Azure Media Player + VI Insights demo](https://codepen.io/videoindexer/pen/rYONrO).
 
-### Embed the Video Analyzer for Media Cognitive Insights widget and use a different video player
+### Embed the Azure Video Indexer Cognitive Insights widget and use a different video player
 
 If you use a video player other than Azure Media Player, you must manually manipulate the video player to achieve the communication.
 
@@ -243,7 +243,7 @@ For more information, see the [Azure Media Player + VI Insights demo](https://co
 
 ## Adding subtitles
 
-If you embed Video Analyzer for Media insights with your own [Azure Media Player](https://aka.ms/azuremediaplayer), you can use the `GetVttUrl` method to get closed captions (subtitles). You can also call a JavaScript method from the Video Analyzer for Media AMP plug-in `getSubtitlesUrl` (as shown earlier).
+If you embed Azure Video Indexer insights with your own [Azure Media Player](https://aka.ms/azuremediaplayer), you can use the `GetVttUrl` method to get closed captions (subtitles). You can also call a JavaScript method from the Azure Video Indexer AMP plug-in `getSubtitlesUrl` (as shown earlier).
 
 ## Customizing embeddable widgets
 
@@ -267,13 +267,13 @@ Notice that this option is relevant only in cases when you need to open the insi
 
 ### Player widget
 
-If you embed Video Analyzer for Media player, you can choose the size of the player by specifying the size of the iframe.
+If you embed Azure Video Indexer player, you can choose the size of the player by specifying the size of the iframe.
 
 For example:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
-By default, Video Analyzer for Media player has autogenerated closed captions that are based on the transcript of the video. The transcript is extracted from the video with the source language that was selected when the video was uploaded.
+By default, Azure Video Indexer player has autogenerated closed captions that are based on the transcript of the video. The transcript is extracted from the video with the source language that was selected when the video was uploaded.
 
 If you want to embed with a different language, you can add `&captions=<Language Code>` to the embed player URL. If you want the captions to be displayed by default, you can pass &showCaptions=true.
 
@@ -287,11 +287,11 @@ By default, the player will start playing the video. you can choose not to by pa
 
 ## Code samples
 
-See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Video Analyzer for Media API and Widgets:
+See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Azure Video Indexer API and Widgets:
 
 | File/folder                       | Description                                |
 |-----------------------------------|--------------------------------------------|
-| `azure-media-player`              | Load Video Analyzer for Media video in a custom Azure Media Player.                        |
+| `azure-media-player`              | Load Azure Video Indexer video in a custom Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Embed VI Insights with a custom Azure Media Player.                             |
 | `control-vi-embedded-player`      | Embed VI Player and control it from outside.                                    |
 | `custom-index-location`           | Embed VI Insights from a custom external location (can be customer a blob).     |
@@ -308,6 +308,6 @@ For more information, see [supported browsers](video-indexer-overview.md#support
 
 ## Next steps
 
-For information about how to view and edit Video Analyzer for Media insights, see [View and edit Video Analyzer for Media insights](video-indexer-view-edit.md).
+For information about how to view and edit Azure Video Indexer insights, see [View and edit Azure Video Indexer insights](video-indexer-view-edit.md).
 
-Also, check out [Video Analyzer for Media CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Also, check out [Azure Video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

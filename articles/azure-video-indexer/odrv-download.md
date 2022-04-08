@@ -1,21 +1,21 @@
 ---
-title: Index videos stored on OneDrive - Azure Video Analyzer for media
-description: Learn how to index videos stored on OneDrive by using Azure Video Analyzer for Media (formerly Video Indexer).
+title: Index videos stored on OneDrive - Azure Video Indexer
+description: Learn how to index videos stored on OneDrive by using Azure Video Indexer (formerly Azure Video Analyzer for Media).
 ms.topic: article
 ms.date: 12/17/2021
 ---
 
 # Index your videos stored on OneDrive
 
-This article shows how to index videos stored on OneDrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website.
+This article shows how to index videos stored on OneDrive by using the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
 
 ## Supported file formats
 
-For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Index a video by using the website
 
-1. Sign into the [Video Analyzer for Media](https://www.videoindexer.ai/) website, and then select **Upload**.
+1. Sign into the [Azure Video Indexer](https://www.videoindexer.ai/) website, and then select **Upload**.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Screenshot that shows the Upload button.":::
@@ -40,16 +40,16 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
 
    `https://onedrive.live.com/download?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
 
-1. Now enter this URL in the Azure Video Analyzer for Media portal in the URL field.
+1. Now enter this URL in the Azure Video Indexer portal in the URL field.
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-url.png" alt-text="Screenshot that shows the onedrive url field.":::
 
-After your video is downloaded from OneDrive, Video Analyzer for Media starts indexing and analyzing the video.
+After your video is downloaded from OneDrive, Azure Video Indexer starts indexing and analyzing the video.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Screenshot that shows the progress of an upload.":::
 
-Once Video Analyzer for Media is done analyzing, you will receive an email with a link to your indexed video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
+Once Azure Video Indexer is done analyzing, you will receive an email with a link to your indexed video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
 
 ## Upload and index a video by using the API
 
@@ -57,11 +57,11 @@ You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#ap
 
 ### Configurations and parameters
 
-This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Video Analyzer for Media portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
+This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
 #### externalID
 
-Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Video Analyzer for Media portal can be searched via the specified external ID.
+Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer portal can be searched via the specified external ID.
 
 #### callbackUrl
 
@@ -69,7 +69,7 @@ Use this parameter to specify a callback URL.
 
 [!INCLUDE [callback url](./includes/callback-url.md)]
 
-Video Analyzer for Media returns any existing parameters provided in the original URL. The URL must be encoded.
+Azure Video Indexer returns any existing parameters provided in the original URL. The URL must be encoded.
 
 #### indexingPreset
 
@@ -89,46 +89,46 @@ Use this parameter to define an AI bundle that you want to apply on your audio o
 > [!NOTE]
 > The preceding advanced presets include models that are in public preview. When these models reach general availability, there might be implications for the price.
 
-Video Analyzer for Media covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
+Azure Video Indexer covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
 
 Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 
-Video Analyzer for Media indexes videos according to their priority. Use the `priority` parameter to specify the index priority. The following values are valid: `Low`, `Normal` (default), and `High`.
+Azure Video Indexer indexes videos according to their priority. Use the `priority` parameter to specify the index priority. The following values are valid: `Low`, `Normal` (default), and `High`.
 
 This parameter is supported only for paid accounts.
 
 #### streamingPreset
 
-After your video is uploaded, Video Analyzer for Media optionally encodes the video. It then proceeds to indexing and analyzing the video. When Video Analyzer for Media is done analyzing, you get a notification with the video ID.
+After your video is uploaded, Azure Video Indexer optionally encodes the video. It then proceeds to indexing and analyzing the video. When Azure Video Indexer is done analyzing, you get a notification with the video ID.
 
 When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered.
 
 After the indexing and encoding jobs are done, the video is published so you can also stream your video. The streaming endpoint from which you want to stream the video must be in the **Running** state.
 
-For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Video Analyzer for Media encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
+For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Azure Video Indexer encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
 The default setting is [content-aware encoding](/media-services/latest/encode-content-aware-concept).
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 
 #### videoUrl
 
-This parameter specifies the URL of the video or audio file to be indexed. If the `videoUrl` parameter is not specified, Video Analyzer for Media expects you to pass the file as multipart/form body content.
+This parameter specifies the URL of the video or audio file to be indexed. If the `videoUrl` parameter is not specified, Azure Video Indexer expects you to pass the file as multipart/form body content.
 
 ### Code sample
 
-The following C# code snippets demonstrate the usage of all the Video Analyzer for Media APIs together.
+The following C# code snippets demonstrate the usage of all the Azure Video Indexer APIs together.
 
 ### [Classic account](#tab/With-classic-account/)
 
 After you copy the following code into your development platform, you'll need to provide two parameters:
 
-* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Video Analyzer for Media account.
+* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Azure Video Indexer account.
 
   To get your API key:
 
-  1. Go to the [Video Analyzer for Media portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.
@@ -371,7 +371,7 @@ namespace VideoIndexerArm
 
         public static async Task Main(string[] args)
         {
-            // Build Azure Video Analyzer for Media resource provider client that has access token through Azure Resource Manager
+            // Build Azure Video Indexer resource provider client that has access token through Azure Resource Manager
             var videoIndexerResourceProviderClient = await VideoIndexerResourceProviderClient.BuildVideoIndexerResourceProviderClient();
 
             // Get account details
@@ -381,7 +381,7 @@ namespace VideoIndexerArm
             Console.WriteLine($"account id: {accountId}");
             Console.WriteLine($"account location: {accountLocation}");
 
-            // Get account-level access token for Azure Video Analyzer for Media
+            // Get account-level access token for Azure Video Indexer
             var accessTokenRequest = new AccessTokenRequest
             {
                 PermissionType = AccessTokenPermission.Contributor,
@@ -654,7 +654,7 @@ The upload operation might return the following status codes:
 - The byte array option times out after 30 minutes.
 - The URL provided in the `videoURL` parameter must be encoded.
 - Indexing Media Services assets has the same limitation as indexing from a URL.
-- Video Analyzer for Media has a duration limit of 4 hours for a single file.
+- Azure Video Indexer has a duration limit of 4 hours for a single file.
 - The URL must be accessible (for example, a public URL).
 
   If it's a private URL, the access token must be provided in the request.
@@ -674,4 +674,4 @@ For information about a storage account that's behind a firewall, see the [FAQ](
 
 ## Next steps
 
-[Examine the Azure Video Analyzer for Media output produced by an API](video-indexer-output-json-v2.md)
+[Examine the Azure Video Indexer output produced by an API](video-indexer-output-json-v2.md)

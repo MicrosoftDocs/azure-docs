@@ -1,7 +1,7 @@
 ---
-title: Customize a Person model with Azure Video Analyzer for Media (formerly Video Indexer) website
-titleSuffix: Azure Video Analyzer for Media
-description: Learn how to customize a Person model with the Azure Video Analyzer for Media (formerly Video Indexer) website.
+title: Customize a Person model with Azure Video Indexer (formerly Azure Video Analyzer for Media) website
+titleSuffix: Azure Video Indexer 
+description: Learn how to customize a Person model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
@@ -11,15 +11,15 @@ ms.date: 12/16/2020
 ms.author: juliako
 ---
 
-# Customize a Person model with the Video Analyzer for Media website
+# Customize a Person model with the Azure Video Indexer website
 
-Azure Video Analyzer for Media (formerly Video Indexer) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Video Analyzer for Media](customize-person-model-overview.md).
+Azure Video Indexer (formerly Azure Video Analyzer for Media) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
 
-You can use the Video Analyzer for Media website to edit faces that were detected in a video, as described in this topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
+You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
 
 ## Central management of Person models in your account
 
-1. To view, edit, and delete the Person models in your account, browse to the Video Analyzer for Media website and sign in.
+1. To view, edit, and delete the Person models in your account, browse to the Azure Video Indexer website and sign in.
 1. Select the content model customization button on the left of the page.
 
     > [!div class="mx-imgBorder"]
@@ -45,16 +45,16 @@ You can use the Video Analyzer for Media website to edit faces that were detecte
 ## Add a new person to a Person model
 
 > [!NOTE]
-> Video Analyzer for Media allows you to add multiple people with the same name in a Person model. However, it's recommended you give unique names to each person in your model for usability and clarity.
+> Azure Video Indexer allows you to add multiple people with the same name in a Person model. However, it's recommended you give unique names to each person in your model for usability and clarity.
 
 1. To add a new face to a Person model, select the list menu button next to the Person model that you want to add the face to.
 1. Select **+ Add person** from the menu.
 
     A pop-up will prompt you to fill out the Person's details. Type in the name of the person and select the check button.
 
-    You can then choose from your file explorer or drag and drop the face images of the face. Video Analyzer for Media will take all standard image file types (ex: JPG, PNG, and more).
+    You can then choose from your file explorer or drag and drop the face images of the face. Azure Video Indexer will take all standard image file types (ex: JPG, PNG, and more).
 
-    Video Analyzer for Media can detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face to. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
+    Azure Video Indexer can detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face to. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
 
 ## Rename a Person model
 
@@ -126,11 +126,11 @@ To use your Person model on a new video, do the following steps:
 1. Select the drop-down and select the Person model that you created.
 1. Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Person model.
 
-If you don't specify a Person model during the upload, Video Analyzer for Media will index the video using the Default Person model in your account.
+If you don't specify a Person model during the upload, Azure Video Indexer will index the video using the Default Person model in your account.
 
 ## Use a Person model to reindex a video
 
-To use a Person model to reindex a video in your collection, go to your account videos on the Video Analyzer for Media home page and hover over the name of the video that you want to reindex.
+To use a Person model to reindex a video in your collection, go to your account videos on the Azure Video Indexer home page and hover over the name of the video that you want to reindex.
 
 You see options to edit, delete, and reindex your video.
 
@@ -157,9 +157,9 @@ If you don't assign a Person model to the video during upload, your edit is save
 ### Edit a face
 
 > [!NOTE]
-> If a Person model has two or more different people with the same name, you won't be able to tag that name within the videos that use that Person model. You'll only be able to make changes to people that share that name in the People tab of the content model customization page in Video Analyzer for Media. For this reason, it's recommended that you give unique names to each person in your Person model.
+> If a Person model has two or more different people with the same name, you won't be able to tag that name within the videos that use that Person model. You'll only be able to make changes to people that share that name in the People tab of the content model customization page in Azure Video Indexer . For this reason, it's recommended that you give unique names to each person in your Person model.
 
-1. Browse to the Video Analyzer for Media website and sign in.
+1. Browse to the Azure Video Indexer website and sign in.
 1. Search for a video you want to view and edit in your account.
 1. To edit a face in your video, go to the Insights tab and select the pencil icon on the top-right corner of the window.
 

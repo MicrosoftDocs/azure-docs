@@ -1,22 +1,22 @@
 ---
-title:  Deploy Azure Video Analyzer for Media with ARM template
-titleSuffix: Azure Video Analyzer for Media (formerly Video Indexer)
-description: In this tutorial you will create an Azure Video Analyzer for Media account by using Azure Resource Manager (ARM) template.
+title:  Deploy Azure Video Indexer with ARM template
+titleSuffix: Azure Video Indexer (formerly Azure Video Analyzer for Media)
+description: In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
 ms.date: 12/01/2021
 ms.author: juliako
 ---
 
-# Tutorial: deploy Azure Video Analyzer for Media with ARM template
+# Tutorial: deploy Azure Video Indexer with ARM template
 
 ## Overview
 
-In this tutorial you will create an Azure Video Analyzer for Media (formerly Video Indexer) account by using Azure Resource Manager (ARM) template (preview).
-The resource will be deployed to your subscription and will create the Azure Video Analyzer for Media resource based on parameters defined in the avam.template file.
+In this tutorial you will create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account by using Azure Resource Manager (ARM) template (preview).
+The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
-> This sample is *not* for connecting an existing Azure Video Analyzer for Media classic account to an ARM-based Video Analyzer for Media account.
-> For full documentation on Azure Video Analyzer for Media API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
+> This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
+> For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
 > The current API Version is "2021-10-27-preview". Check this Repo from time to time to get updates on new API Versions.
 
 ## Prerequisites
@@ -39,7 +39,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 2. Fill in the required parameters (see below)
 3. Run the Following PowerShell commands:
 
-    * Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
+    * Create a new Resource group on the same location as your Azure Video Indexer account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
 
     ```powershell
@@ -60,17 +60,17 @@ The resource will be deployed to your subscription and will create the Azure Vid
 ### name
 
 * Type: string
-* Description: Specifies the name of the new Azure Video Analyzer for Media account.
+* Description: Specifies the name of the new Azure Video Indexer account.
 * required: true
 
 ### location
 
 * Type: string
-* Description: Specifies the Azure location where the Azure Video Analyzer for Media account should be created.
+* Description: Specifies the Azure location where the Azure Video Indexer account should be created.
 * Required: false
 
 > [!NOTE]
-> You need to deploy Your Azure Video Analyzer for Media account in the same location (region) as the associated Azure Media Services(AMS) resource exists.
+> You need to deploy Your Azure Video Indexer account in the same location (region) as the associated Azure Media Services(AMS) resource exists.
 
 ### mediaServiceAccountResourceId
 
@@ -81,23 +81,23 @@ The resource will be deployed to your subscription and will create the Azure Vid
 ### managedIdentityId
 
 * Type: string
-* Description: The Resource ID of the Managed Identity used to grant access between Azure Media Services(AMS) resource and the Azure Video Analyzer for Media account.
+* Description: The Resource ID of the Managed Identity used to grant access between Azure Media Services(AMS) resource and the Azure Video Indexer account.
 * Required: true
 
 ### tags
 
 * Type: object
-* Description: Array of objects that represents custom user tags on the Azure Video Analyzer for Media account
+* Description: Array of objects that represents custom user tags on the Azure Video Indexer account
 
     Required: false
 
 ## Reference documentation
 
-If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
+If you're new to Azure Video Indexer (formerly Azure Video Analyzer for Media), see:
 
-* [Azure Video Analyzer for Media Documentation](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
-* [Azure Video Analyzer for Media Developer Portal](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
-* After completing this tutorial, head to other Azure Video Analyzer for Media samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
+* [Azure Video Indexer Documentation](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
+* [Azure Video Indexer Developer Portal](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
+* After completing this tutorial, head to other Azure Video Indexer samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
 
 If you're new to template deployment, see:
 
@@ -107,4 +107,4 @@ If you're new to template deployment, see:
 
 ## Next steps
 
-[Connect an existing classic paid Video Analyzer for Media account to ARM-based account](connect-classic-account-to-arm.md)
+[Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md)

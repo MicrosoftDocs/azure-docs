@@ -1,7 +1,7 @@
 ---
-title: Examine the Azure Video Analyzer for Media output
-titleSuffix: Azure Video Analyzer for Media
-description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by the Get Video Index API.
+title: Examine the Azure Video Indexer output
+titleSuffix: Azure Video Indexer
+description: This topic examines the Azure Video Indexer (formerly Azure Video Analyzer for Media) output produced by the Get Video Index API.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
@@ -11,26 +11,26 @@ ms.date: 11/16/2020
 ms.author: juliako
 ---
 
-# Examine the Video Analyzer for Media output
+# Examine the Azure Video Indexer output
 
-When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Indexer (formerly Azure Video Analyzer for Media) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
+You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
 
 You can also use the Get Video Index API. If the response status is `OK`, you get a detailed JSON output as the response content.
 
-![Screenshot of the Insights tab in Azure Video Analyzer for Media.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Screenshot of the Insights tab in Azure Video Indexer.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-This article examines the Video Analyzer for Media output (JSON content). For information about what features and insights are available to you, see [Video Analyzer for Media insights](video-indexer-overview.md#video-insights).
+This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
-> All the access tokens in Video Analyzer for Media expire in one hour.
+> All the access tokens in Azure Video Indexer expire in one hour.
 
 ## Get the insights
 
 To get insights produced on the website or the Azure portal:
 
-1. Browse to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
+1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Find a video whose output you want to examine.
 1. Press **Play**.
 1. Select the **Insights** tab to get summarized insights. Or select the **Timeline** tab to filter the relevant insights.
@@ -328,9 +328,9 @@ Example:
 
 #### faces/animatedCharacters
 
-The `animatedCharacters` element replaces `faces` if the video was indexed with an animated characters model. This indexing is done through a custom model in Custom Vision. Video Analyzer for Media runs it on keyframes.
+The `animatedCharacters` element replaces `faces` if the video was indexed with an animated characters model. This indexing is done through a custom model in Custom Vision. Azure Video Indexer runs it on keyframes.
 
-If faces (not animated characters) are present, Video Analyzer for Media uses the Face API on all the video's frames to detect faces and celebrities.
+If faces (not animated characters) are present, Azure Video Indexer uses the Face API on all the video's frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
@@ -517,7 +517,7 @@ If faces (not animated characters) are present, Video Analyzer for Media uses th
 
 #### brands
 
-Video Analyzer for Media detects business and product brand names in the speech-to-text transcript and/or video OCR. This information does not include visual recognition of brands or logo detection.
+Azure Video Indexer detects business and product brand names in the speech-to-text transcript and/or video OCR. This information does not include visual recognition of brands or logo detection.
 
 |Name|Description|
 |---|---|
@@ -527,7 +527,7 @@ Video Analyzer for Media detects business and product brand names in the speech-
 |`referenceUrl` | The brand's Wikipedia URL, if exists. For example: [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |`description`|The brand's description.|
 |`tags`|A list of predefined tags that were associated with this brand.|
-|`confidence`|The confidence value of the Video Analyzer for Media brand detector (`0`-`1`).|
+|`confidence`|The confidence value of the Azure Video Indexer brand detector (`0`-`1`).|
 |`instances`|A list of time ranges for this brand. Each instance has a `brandType` value, which indicates whether this brand appeared in the transcript or in an OCR.|
 
 ```json
@@ -666,7 +666,7 @@ Sentiments are aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 #### visualContentModeration
 
-The `visualContentModeration` block contains time ranges that Video Analyzer for Media found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
+The `visualContentModeration` block contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
 Videos that contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
 
@@ -714,7 +714,7 @@ Videos that contain adult or racy content might be available for private view on
 
 #### emotions
 
-Video Analyzer for Media identifies emotions based on speech and audio cues. 
+Azure Video Indexer identifies emotions based on speech and audio cues. 
 
 |Name|Description|
 |---|---|
@@ -804,7 +804,7 @@ Video Analyzer for Media identifies emotions based on speech and audio cues.
 
 #### topics
 
-Video Analyzer for Media makes an inference of main topics from transcripts. When possible, the second-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+Azure Video Indexer makes an inference of main topics from transcripts. When possible, the second-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
 
 |Name|Description|
 |---|---|
@@ -814,7 +814,7 @@ Video Analyzer for Media makes an inference of main topics from transcripts. Whe
 |`confidence`|The confidence score in the range `0`-`1`. Higher is more confident.|
 |`language`|The language used in the topic.|
 |`iptcName`|The IPTC media code name, if detected.|
-|`instances` |Currently, Video Analyzer for Media does not index a topic to time intervals. The whole video is used as the interval.|
+|`instances` |Currently, Azure Video Indexer does not index a topic to time intervals. The whole video is used as the interval.|
 
 ```json
 "topics": [{
@@ -886,7 +886,7 @@ Video Analyzer for Media makes an inference of main topics from transcripts. Whe
 
 ## Next steps
 
-Explore the [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai).
+Explore the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai).
 
-For information about how to embed widgets in your application, see [Embed Video Analyzer for Media widgets into your applications](video-indexer-embed-widgets.md). 
+For information about how to embed widgets in your application, see [Embed Azure Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

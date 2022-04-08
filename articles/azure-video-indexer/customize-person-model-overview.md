@@ -1,14 +1,14 @@
 ---
-title: Customize a Person model in Azure Video Analyzer for Media (formerly Video Indexer) - Azure  
-description: This article gives an overview of what is a Person model in Azure Video Analyzer for Media (formerly Video Indexer) and how to customize it. 
+title: Customize a Person model in Azure Video Indexer (formerly Azure Video Analyzer for Media) - Azure  
+description: This article gives an overview of what is a Person model in Azure Video Indexer (formerly Azure Video Analyzer for Media) and how to customize it. 
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: kumud
 ---
 
-# Customize a Person model in Video Analyzer for Media
+# Customize a Person model in Azure Video Indexer 
 
-Azure Video Analyzer for Media (formerly Video Indexer) supports celebrity recognition in your videos. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by Video Analyzer for Media are still detected but are left unnamed. Customers can build custom Person models and enable Video Analyzer for Media to recognize faces that are not recognized by default. Customers can build these Person models by pairing a person's name with image files of the person's face.  
+Azure Video Indexer (formerly Azure Video Analyzer for Media) supports celebrity recognition in your videos. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by Azure Video Indexer are still detected but are left unnamed. Customers can build custom Person models and enable Azure Video Indexer to recognize faces that are not recognized by default. Customers can build these Person models by pairing a person's name with image files of the person's face.  
 
 If your account caters to different use-cases, you can benefit from being able to create multiple Person models per account. For example, if the content in your account is meant to be sorted into different channels, you might want to create a separate Person model for each channel. 
 
@@ -17,6 +17,6 @@ If your account caters to different use-cases, you can benefit from being able t
 
 Once a model is created, you can use it by providing the model ID of a specific Person model when uploading/indexing or reindexing a video. Training a new face for a video, updates the specific custom model that the video was associated with. 
 
-If you do not need the multiple Person model support, do not assign a Person model ID to your video when uploading/indexing or reindexing. In this case, Video Analyzer for Media will use the default Person model in your account. 
+If you do not need the multiple Person model support, do not assign a Person model ID to your video when uploading/indexing or reindexing. In this case, Azure Video Indexer will use the default Person model in your account. 
 
-You can use the Video Analyzer for Media website to edit faces that were detected in a video and to manage multiple custom Person models in your account, as described in the [Customize a Person model using a website](customize-person-model-with-website.md) topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
+You can use the Azure Video Indexer website to edit faces that were detected in a video and to manage multiple custom Person models in your account, as described in the [Customize a Person model using a website](customize-person-model-with-website.md) topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).

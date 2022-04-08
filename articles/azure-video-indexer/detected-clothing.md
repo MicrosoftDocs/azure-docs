@@ -9,7 +9,7 @@ ms.author: juliako
 
 # People's detected clothing (preview)
 
-Video Analyzer for Media detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
+Azure Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
  
 Two examples where this feature could be useful:
  
@@ -20,17 +20,17 @@ The newly added clothing detection feature is available when indexing your file 
  
 :::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::  
 
-When you choose to see **Insights** of your video on the [Video Analyzer for Media](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
+When you choose to see **Insights** of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
 
 :::image type="content" source="./media/detected-clothing/observed-people.png" alt-text="Observed people screenshot":::  
  
-If you are interested to view People's detected clothing in the Timeline of your video on the Video Analyzer for Media website, go to **View** -> **Show Insights** and select the **All** option or **View** -> **Custom View** and select **Observed People**. 
+If you are interested to view People's detected clothing in the Timeline of your video on the Azure Video Indexer website, go to **View** -> **Show Insights** and select the **All** option or **View** -> **Custom View** and select **Observed People**. 
 
 :::image type="content" source="./media/detected-clothing/observed-person.png" alt-text="Observed person screenshot":::  
  
-Searching for a specific clothing to return all the observed people wearing it is enabled using the search bar of either the **Insights** or from the **Timeline** of your video on the Video Analyzer for Media website .
+Searching for a specific clothing to return all the observed people wearing it is enabled using the search bar of either the **Insights** or from the **Timeline** of your video on the Azure Video Indexer website .
 
-The following JSON response illustrates what Video Analyzer for Media returns when tracing observed people having detected clothing associated:
+The following JSON response illustrates what Azure Video Indexer returns when tracing observed people having detected clothing associated:
 
 ```json
 "observedPeople": [
