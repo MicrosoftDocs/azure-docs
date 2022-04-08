@@ -144,44 +144,13 @@ az rest --method GET --uri $uri
 
 
 ```azurepowershell
-$AppId="Provide App Id"
-$AppSecret="Provide App secret"
-$TenantId="Provide the Tenant Id" 
-$resourceGroupName="Provide the Resource Group name having Synapse Analytics workspace"
-$workspaceName="Provide the Workspace Name"
-$subscriptionId="Provide Subscription Id"
+Connect-AzAccount
+$subscriptionId="Provide the subscription ID (GUID) of the subscription containing your Azure Synapse Analytics workspace"
+$resourceGroupName="Provide the name of the resource group containing your workspace"
+$workspaceName="Provide the name of your workspace"
 
-function getBearerToken()
-{
-  $tokenEndpoint = {https://login.microsoftonline.com/{0}/oauth2/token} -f $TenantId
-  $resourceURL = "https://management.azure.com/";
-
-  $Body = @{
-          'resource'= $resourceURL
-          'client_id' = $AppId
-          'grant_type' = 'client_credentials'
-          'client_secret' = $AppSecret
-          
-  }
-
-  $params = @{
-      ContentType = 'application/x-www-form-urlencoded'
-      Headers = @{'accept'='application/json'}
-      Body = $Body
-      Method = 'Post'
-      URI = $tokenEndpoint
-  }
-
-  $token = Invoke-RestMethod @params
-
-  Return "Bearer " + ($token.access_token).ToString()
-}
-
-$contentType = "application/json"      
-$basicAuth = getBearerToken
-$header = @{
-     "authorization" = "$basicAuth"
-};
+$token = (Get-AzAccessToken -ResourceUrl "https://management.azure.com/").Token
+$header = @{Authorization="Bearer $token"}
 
 $url = "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Synapse/workspaces/$workspaceName\?api-version=2021-06-01" 
 ```
