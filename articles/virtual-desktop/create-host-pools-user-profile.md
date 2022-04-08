@@ -3,7 +3,7 @@ title: Azure Virtual Desktop FSLogix profile container share - Azure
 description: How to set up an FSLogix profile container for a Azure Virtual Desktop host pool using a virtual machine-based file share.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/20/2019
+ms.date: 04/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -18,19 +18,11 @@ This article will tell you how to set up a FSLogix profile container share for a
 
 ## Create a new virtual machine that will act as a file share
 
-When creating the virtual machine, be sure to place it on either the same virtual network as the host pool virtual machines or on a virtual network that has connectivity to the host pool virtual machines. You can create a virtual machine in multiple ways:
+When creating the virtual machine, be sure to place it on either the same virtual network as the host pool virtual machines or on a virtual network that has connectivity to the host pool virtual machines. It must also be joined to your Active Directory domain. You can create a virtual machine in multiple ways. Here are a few options:
 
 - [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
-
-After creating the virtual machine, join it to the domain by doing the following things:
-
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. On the virtual machine, launch **Control Panel** and select **System**.
-3. Select **Computer name**, select **Change settings**, and then select **Change…**
-4. Select **Domain** and then enter the Active Directory domain on the virtual network.
-5. Authenticate with a domain account that has privileges to domain-join machines.
 
 ## Prepare the virtual machine to act as a file share for user profiles
 
@@ -52,13 +44,13 @@ To configure FSLogix profile container, do the following on each session host re
 
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and [download the FSLogix agent](https://aka.ms/fslogix_download).
-3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](/fslogix/install-ht/).
+3. Open the downloaded .zip file, navigate to either **Win32\\Release** or **x64\\Release** (depending on your operating system) and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](/fslogix/install-ht/).
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
-5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
+5. From the start menu, run **regddit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
 6. Create a key named **Profiles**.
 7. Create the following values for the Profiles key:
 
-| Name                | Type               | Data/Value                        |
-|---------------------|--------------------|-----------------------------------|
-| Enabled             | DWORD              | 1                                 |
-| VHDLocations        | Multi-String Value | \\\\hostname\\share                |
+   | Name                | Type               | Data/Value                        |
+   |---------------------|--------------------|-----------------------------------|
+   | Enabled             | DWORD              | 1                                 |
+   | VHDLocations        | Multi-String Value | \\\\hostname\\share                |
