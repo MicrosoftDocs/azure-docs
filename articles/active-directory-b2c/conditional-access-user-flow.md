@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2022
+ms.date: 04/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 author: kengaderdus
@@ -120,7 +120,7 @@ To add a Conditional Access policy:
 
     | Include  |License   |   Notes|
     |---|---|---|
-    |**All users**    | P1, P2  | If you choose to include **All Users**, this policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
+    |**All users**    | P1, P2  | This policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
 
 1. Select **Cloud apps or actions**, and then **Select apps**. Browse for your [relying party application](tutorial-register-applications.md).
 1. Select **Conditions**, and then select from the following conditions. For example, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
