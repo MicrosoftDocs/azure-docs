@@ -18,7 +18,7 @@ ms.author: eur
 - **iOS platform**: Add support for ARMv7 architecture
 
 #### Bug fixes
-- Fix to allow building on iOS devices when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
+- **iOS platform**: Fix to allow building for the target "Any iOS Device", when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
 - **JavaScript**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
 - **JavaScript**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
 - **JavaScript**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
