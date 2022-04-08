@@ -136,50 +136,19 @@ Remote runs (jobs) let you train your models on more powerful computes, such as 
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your remote runs into your Azure Machine Learning workspace. Any run with MLflow Tracking code in it logs metrics automatically to the workspace. 
 
-First, you should create a `src` subdirectory and create a file with your training code in a `train.py` file in the `src` subdirectory. All your training code will go into the `src` subdirectory, including `train.py`.
+First, you should create a `src` subdirectory and create a file with your training code in a `hello_world.py` file in the `src` subdirectory. All your training code will go into the `src` subdirectory, including `train.py`.
 
 The training code is taken from this [MLfLow example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/src/hello-mlflow.py) in the Azure Machine Learning example repo. 
 
 Copy this code into the file:
 
-```Python
-# imports
-import os
-import mlflow
-
-from random import random
-
-# define functions
-def main():
-    mlflow.log_param("hello_param", "world")
-    mlflow.log_metric("hello_metric", random())
-    os.system(f"echo 'hello world' > helloworld.txt")
-    mlflow.log_artifact("helloworld.txt")
-
-
-# run functions
-if __name__ == "__main__":
-    # run main function
-    main()
-```
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/hello.mlflow.yml":::
 
 Use the [Azure Machine Learning CLI (v2)](how-to-train-cli.md) to submit a remote run. When using the Azure Machine Learning CLI (v2), the MLflow tracking URI and experiment name are set automatically and directs the logging from MLflow to your workspace. Learn more about [logging Azure Machine Learning CLI (v2) experiments with MLflow](how-to-train-cli.md#model-tracking-with-mlflow) 
 
 Create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory. Copy this code into the file:
 
-```YAML
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-experiment_name: experiment_with_mlflow
-command: >-
-  pip install mlflow azureml-mlflow
-  &&
-  python train.py
-code:
-  local_path: src
-environment:
-  image: python:3.8
-compute: azureml:MyCluster
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/jobs/basics/hello.mlflow.yml":::
 
 Open your terminal and use the following to submit the job.
 
