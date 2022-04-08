@@ -87,9 +87,9 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ### Troubleshooting
 
-1. The app shows an "Unsupported browser" screen but I am on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
+- The app shows an "Unsupported browser" screen but I am on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
 
-	If your app is being served over a hostname other then localhost, you must serve traffic over https and not http.
+		If your app is being served over a hostname other than localhost, you must serve traffic over https and not http.
 
 ## Publish to Azure
 
