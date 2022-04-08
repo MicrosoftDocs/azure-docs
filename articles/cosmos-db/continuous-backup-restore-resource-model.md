@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 # Resource model for the Azure Cosmos DB point-in-time restore feature
 [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL, MongoDB, Graph (preview) and Table API(preview)  accounts.
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored. This feature is supported in Azure Cosmos DB API for SQL and the Cosmos DB API for MongoDB. Currently, this feature is in preview for Azure Cosmos DB Gremlin API and Table API accounts.
 
 ## Database account's resource model
 
