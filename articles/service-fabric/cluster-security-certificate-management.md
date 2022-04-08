@@ -39,11 +39,11 @@ The security approach in a Service Fabric cluster is a case of "cluster owner de
   - Certificates declared in the presentation rules should pass the [validation rules](cluster-security-certificates.md#validation-rules) 
 
 Service Fabric, for its part, assumes the following responsibilities:
-  - Locating certificates matching those declared in the cluster definition
+  - Locating certificates that match the declarations in the cluster definition
   - Granting access to the corresponding private keys to Service Fabric-controlled entities on a 'need' basis
   - Validating certificates in strict accordance with established security best-practices and the cluster definition
   - Raising alerts on impending expiration of certificates, or failures to perform the basic steps of certificate validation
-  - Validating (to some degree) that the certificate-related aspects of the cluster definitions are met by the underlying configuration of the hosts 
+  - Validating (to some degree) that the certificate-related aspects of the cluster definition are met by the underlying configuration of the hosts 
 
 It follows that the certificate management burden (as active operations) falls solely on the cluster owner. In the following sections, we'll take a closer look at each of the management operations, with available mechanisms and their impact on the cluster.
 
