@@ -85,8 +85,6 @@
           href: use-gitops-with-helm.md
         - name: At-scale deployment of configurations using Azure Policy (Flux v1)
           href: use-azure-policy.md
-        - name: Deploy IoT workloads (Flux v1)
-          href: deploy-azure-iot-edge-workloads.md
   - name: Manage your cluster
     items:
     - name: Deploy and manage cluster extensions
