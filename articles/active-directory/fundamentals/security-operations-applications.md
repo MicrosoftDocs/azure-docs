@@ -169,6 +169,21 @@ For more information on consent operations, see the following resources:
 |-|-|-|-|-|
 | End-user consent stopped due to risk-based consent| Medium| Azure AD Audit logs| Core Directory / ApplicationManagement / Consent to application<br> Failure status reason = Microsoft.online.Security.userConsent<br>BlockedForRiskyAppsExceptions| Monitor and analyze any time consent is stopped due to risk. Look for:<li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc. |
 
+## Application Authentication Flows
+There are several flows defined in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application that is being built. In some cases, there is a choice of flows available to the application, and in this case, some authentication flows are recommended over others. Specifically, resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly. The application then uses those credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), as this flow is  highly recommended. 
+
+
+The only scenario where ROPC is suggested is for automated testing of applications. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
+
+ 
+Device code flow is another OAuth 2.0 protocol flow specifically for input constrained devices and is not used in all environments. If this type of flow is seen in the environment and not being used in an input constrained device scenario further investigation is warranted. This can be a misconfigured application or potentially something malicious.
+
+Monitor application authentication using the following formation:
+
+| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
+| - | - | - | - | - |
+| Applications that are using the ROPC authentication flow|Medium | Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow.This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)|
+|Applications that are using the Device code flow |Low to medium|Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices which may not be present in all environments. If successful device code flows are seen without an environment need for them they should be further investigated for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)|
 ## Application configuration changes
 
 Monitor changes to any application’s configuration. Specifically, configuration changes to the uniform resource identifier (URI), ownership, and logout URL.
