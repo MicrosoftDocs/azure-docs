@@ -83,6 +83,10 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Security
+    items:
+    - name: Attestation
+      href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
