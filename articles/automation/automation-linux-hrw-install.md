@@ -51,9 +51,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
   20.04 LTS | Focal Fossa 
   18.04 LTS | Bionic Beaver 
   16.04 LTS | Xenial Xerus   
-  14.04 LTS | Trusty Tahr 
-  12.04 LTS |  
-
+  14.04 LTS | Trusty Tahr  
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
