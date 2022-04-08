@@ -1,7 +1,7 @@
 ---	
 title: Azure Function Rule Example
 titleSuffix: An Azure Communication Services how-to guide
-description: Learn how to wire up Azure Functions to Job Router decision points
+description: Learn how to wire up Azure Functions to Job Router decision points.
 author: danielgerlag
 manager: bo.gao
 services: azure-communication-services
@@ -59,7 +59,7 @@ public static class GetPriority
 }
 ```
 
-## Configure a policy to use the Azure Function
+## Configure a policy to use the Azure function
 
 Inspect your deployed function in the Azure portal and locate the function Uri and authentication key. Then use the SDK to configure a policy that uses a rule engine to point to that function.
 
