@@ -25,7 +25,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |ARM API version|2021-11-01|
 |`arcdata` Azure CLI extension version|	1.3.0|
 |Arc enabled Kubernetes helm chart extension version|1.1.19211001|
-|Arc Data extension for Azure Data Studio|1.0|
+|Arc Data extension for Azure Data Studio|1.1.0|
 
 ## March 08, 2022
 
