@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 04/08/2022
 ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) stores its Customer Data in a geographical loc
 
 For information about where Azure AD and other Microsoft services' data is located, see the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
-From April 1, 2022, Microsoft began storing Azure AD’s Customer Data for new tenants with a Japan billing address within the Japanese datacenters.
+From April 15, 2022, Microsoft began storing Azure AD’s Customer Data for new tenants with a Japan billing address within the Japanese datacenters. From April 15, 2033 to June 30, 2022 a backup copy of the Azure AD’s Customer Data for these new tenants will be stored in Singapore to ensure a smooth transition to the Japanese datacenters.  This copy will be destroyed on June 30, 2022.
 
 Additionally, certain Azure AD features do not yet support storage of Customer Data in Japan. Please go to the [Azure AD data map](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9), for specific feature information. For example, Microsoft Azure AD Multi-Factor Authentication stores Customer Data in the US and processes it globally. See [Data residency and customer data for Azure AD Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
