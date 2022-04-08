@@ -1,0 +1,116 @@
+---
+title: Move an Azure Load testing resource to another region
+titleSuffix: Azure Load Testing
+description: Learn how to move an Azure Load testing resource to another region.
+services: load-testing
+ms.service: load-testing
+ms.custom: subject-moving-resources
+ms.author: ninallam
+author: ninallam
+ms.date: 04/10/2022
+ms.topic: how-to
+---
+
+# Move your Azure Load Testing Preview resources between regions
+
+This article describes how to move Azure Load Testing Preview resources to a different Azure region. You might move your resources to another region for one of the following reasons:
+
+- Take advantage of a new Azure region
+
+- Deploy features or services that are available only in specific regions
+
+- Meet internal policy and governance requirements
+
+- Respond to capacity planning requirements
+
+Azure Load Testing resources are region-specific and can't be moved across regions. You must create a copy of your existing resources in the target region, then create tests in the new resource.
+
+## Prerequisites
+
+- Make sure that the target region supports Azure Load Testing and any related service whose resources you want to move.
+
+- Have access to the tests in the resource you're migrating.
+
+## Prepare
+
+To get started, you'll need to export and then modify an ARM template. You will also need to download artifacts for any exiting tests in the resource.
+
+1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](/azure/azure-resource-manager/templates/export-template-portal).
+
+1. Download the input artifacts for all the tests from the resource. Navigate to the **Tests** section in the resource and then click on the test name. **Download the input file** for the test by clicking the More button (...) on the right side of the latest test run.
+
+    :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
+
+## Move
+
+Load and modify the template so you can create a new Azure Load Testing resource in the target region and then create tests in the new resource.
+
+### Move the resource
+
+1. In the Azure portal, select **Create a resource**.
+
+1. In the Marketplace, search for **template deployment**. Select **Template deployment (deploy using custom templates)**.
+
+1. Select **Create**.
+
+1. Select **Build your own template in the editor**.
+
+1. Select **Load file**, and then select the template.json file that you downloaded in the last section.
+
+1. In the uploaded template.json file, name the target Azure Load Testing resource by entering a new **defaultValue** for the resource name This example sets the defaultValue of the resource name to `myLoadTestResource`.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "loadtest_name": {
+                "defaultValue": "myLoadTestResource",
+                "type": "String"
+            }
+        },
+    ```
+
+1. Edit the **location** property to use your target region. This example sets the target region to `eastus`.
+
+```json
+"resources": [
+        {
+            "type": "Microsoft.LoadTestService/loadtests",
+            "apiVersion": "2021-12-01-preview",
+            "name": "[parameters('loadtest_name')]",
+            "location": "eastus",
+```
+
+    To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/data-residency/). The code for a region is the region name with no spaces. For example, East US = eastus.
+
+1. Click on **Save**.
+
+1. Enter the **Subscription** and **Resource group** for the target resource.
+
+1. Select **Review and create**, then select **Create**.
+
+### Create tests
+
+Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](/azure/load-testing/quickstart-create-and-run-load-test#create_test)
+
+1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
+
+1. Upload the JMeter script and configuration files present in the input artifacts.
+
+## Clean up source resources
+
+After the move is complete, delete the Azure Load Testing resource from the source region. You pay for resources, even when the resource is not being utilized.
+
+1. In the Azure portal search and select **Azure Load Testing**.
+
+1. Click on the resource name.
+
+1. On the resource overview page click on **Delete**, and the confirm.
+
+> [!NOTE]
+> Test results for the test runs in the previous resource will be load once the resource is deleted.
+
+## Next steps
+
+- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
