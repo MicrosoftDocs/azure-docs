@@ -471,6 +471,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Restore a SQL pool from a deleted workspace
+        href: ./backuprestore/restore-sql-pool-from-deleted-workspace.md
       - name: Pause and resume using Synapse Pipelines
         href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
@@ -848,6 +850,10 @@ items:
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-database.md
+    - name: SQL server 2022
+      items:
+      - name: Configure Synapse Link
+        href: ./synapse-link/connect-synapse-link-sql-server-2022.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse

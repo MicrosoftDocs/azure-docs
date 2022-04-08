@@ -8,7 +8,7 @@ ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: kendralittle, mathoma
-ms.date: 06/04/2020
+ms.date: 04/06/2022
 ---
 
 # Request quota increases for Azure SQL Database and SQL Managed Instance
@@ -105,11 +105,11 @@ If your subscription needs access in a particular region, select the **Region ac
 
 ### Request enabling specific hardware in a region
 
-If a hardware generation you want to use is not available in your region, you may request it using the following steps. For more information on hardware generations and regional availability, see [Hardware generations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) or [Hardware generations for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
+If the hardware you want to use is not available in your region, you may request it using the following steps. For more information on hardware regional availability, see [Hardware configurations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-configuration) or [Hardware configurations for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-configurations).
 
 1. Select the **Other quota request** quota type.
 
-1. In the **Description** field, state your request, including the name of the hardware generation and the name of the region you need it in.
+1. In the **Description** field, state your request, including the name of the hardware and the name of the region you need it in.
 
    ![Request hardware in a new region](./media/quota-increase-request/hardware-in-new-region.png)
 

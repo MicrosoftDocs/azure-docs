@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma, danil
-ms.date: 03/22/2022
+ms.date: 04/06/2022
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,8 +115,8 @@ Based on the information in the discover and assess phase, create an appropriate
 
 SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [purchasing model](../../database/service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or "vCores," with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This purchasing model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
 
-- Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](../../managed-instance/resource-limits.md#hardware-generation-characteristics).
-- Based on the baseline memory usage, choose [the service tier that has matching memory](../../managed-instance/resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
+- Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](../../managed-instance/resource-limits.md#hardware-configuration-characteristics).
+- Based on the baseline memory usage, choose [the service tier that has matching memory](../../managed-instance/resource-limits.md#hardware-configuration-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
 - Based on the baseline IO latency of the file subsystem, choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
 - Based on baseline throughput, pre-allocate the size of data or log files to get expected IO performance.
 

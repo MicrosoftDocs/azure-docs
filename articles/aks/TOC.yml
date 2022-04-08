@@ -185,7 +185,7 @@
           href: node-updates-kured.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
-        - name: Custom node configuration (preview)
+        - name: Custom node configuration
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
@@ -264,7 +264,7 @@
                   href: managed-aad.md
                 - name: Azure AD integration (legacy)
                   href: azure-ad-integration-cli.md
-                - name: Enable GMSA integration (Preview)
+                - name: Enable GMSA integration
                   href: use-group-managed-service-accounts.md
             - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
@@ -317,6 +317,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Bring your own CNI
+          href: use-byo-cni.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
