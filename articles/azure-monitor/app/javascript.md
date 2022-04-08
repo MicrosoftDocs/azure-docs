@@ -259,7 +259,7 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send, the following examples show standard configuration options for enabling correlation.
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. The following examples show standard configuration options for enabling correlation.
 
 > [!NOTE]
 > If you are using Application Insights JS SDK version 2.5.11 or earlier, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps). For Application Insights JS SDK version 2.6.0 or later this recommendation does not apply.
