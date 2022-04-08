@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ms.custom: devx-track-azurepowershell
 ---
 # vCore purchasing model overview - Azure SQL Database and Azure SQL Managed Instance 
@@ -22,9 +22,9 @@ This article provides a brief overview of the vCore purchasing model used by bot
 [!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
 
 > [!IMPORTANT]
-> In Azure SQL Database, compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
+> In Azure SQL Database, compute resources (CPU and memory), I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
 
-The vCore purchasing model provides transparency in the hardware details that power compute, control over the hardware generation, higher scaling granularity, and pricing discounts with the [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
+The vCore purchasing model provides transparency in database CPU, memory, and storage resource allocation, hardware configuration, higher scaling granularity, and pricing discounts with the [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 
 In the case of Azure SQL Database, the vCore purchasing model provides higher compute, memory, I/O, and storage limits than the DTU model.
 
