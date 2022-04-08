@@ -269,7 +269,7 @@ In JavaScript correlation is turned off by default in order to minimize the tele
 
 The following sample code shows the configurations required to enable correlation:
 
-### [Snippet](#tab/snippet)
+# [Snippet](#tab/snippet)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -286,7 +286,7 @@ cfg: { // Application Insights Configuration
 </script>
 ``` 
 
-### [NPM](#tab/npm)
+# [NPM](#tab/npm)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -301,7 +301,6 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
   /* ...Other Configuration Options... */
 } });
 ``` 
----
 
 ### Correlation header excluded domains
 
