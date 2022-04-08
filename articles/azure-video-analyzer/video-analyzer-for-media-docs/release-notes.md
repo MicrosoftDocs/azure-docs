@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/04/2022
+ms.date: 04/07/2022
 ms.author: juliako
 ---
 
@@ -13,12 +13,36 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Analyzer for Media (former Video Indexer) developments, this article provides you with information about:
 
+* [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## March 2022
+## Upcoming critical changes
+
+> [!Important]
+> This section describes a critical upcoming change for the `Upload-Video` API.
+
+
+### Upload-Video API
+
+In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
+
+```csharp
+var content = new MultipartFormDataContent();
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
+```
+
+In the coming weeks, our service will fail requests of this type.
+
+In order to upload a video from a URL, change your code to send null in the request body:
+
+```csharp
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
+```
+
+## March 2022 release updates
 
 ### Closed Captioning files now support including speakers’ attributes
 
@@ -259,7 +283,7 @@ To enable the dark mode open the settings panel and toggle on the **Dark Mode** 
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
 
-## December 2020
+## December 2020 
 
 ### Video Analyzer for Media deployed in the Switzerland West and Switzerland North
 
@@ -472,7 +496,7 @@ Multiple advancements announced at IBC 2019:
 
     The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## August 2019
+## August 2019 updates
 
 ### Video Analyzer for Media deployed in UK South
 
