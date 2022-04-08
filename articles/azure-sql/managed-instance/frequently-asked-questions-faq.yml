@@ -12,7 +12,7 @@ metadata:
   author: MashaMSFT
   ms.author: mathoma
   ms.reviewer: urmilano, danil, nnikolic
-  ms.date: 09/21/2020
+  ms.date: 04/06/2022
 title: Azure SQL Managed Instance frequently asked questions (FAQ)
 summary: |
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ sections:
         answer: |
           ### Where can I find technical characteristics and resource limits for SQL Managed Instance?
           
-          For available hardware generation characteristics, see [Technical differences in hardware generations](resource-limits.md#hardware-generation-characteristics).
+          For available hardware characteristics, see [Technical differences in hardware configurations](resource-limits.md#hardware-configuration-characteristics).
           For available service tiers and their characteristics, see [Technical differences between service tiers](resource-limits.md#service-tier-characteristics).
           
           ### What service tier am I eligible for?
@@ -180,15 +180,15 @@ sections:
           For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
           
       - question: |
-          Switch hardware generation 
+          Switch hardware configuration
         answer: |
-          ### Can I switch my managed instance hardware generation between Gen4 and Gen5 online?
+          ### Can I switch my managed instance hardware between Gen4 and Gen5 online?
           
-          Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware generations.
+          Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware configurations.
           
           This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process.
           
-          Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on later hardware generations. Switching from Gen5 to Gen4 is also not available.
+          Note: Gen4 hardware is being retired and is no longer available for new deployments. All new databases must be deployed on later hardware configurations. Switching from Gen5 to Gen4 is also not available.
           
       - question: |
           Performance 
@@ -266,7 +266,7 @@ sections:
           
           ### Can I increase storage space assigned to an instance, independently from compute resources?
           
-          Yes, you can purchase add-on storage, independently from compute, to some extent. See *Max instance reserved storage* in the [Table](resource-limits.md#hardware-generation-characteristics).
+          Yes, you can purchase add-on storage, independently from compute, to some extent. See *Max instance reserved storage* in the [Table](resource-limits.md#hardware-configuration-characteristics).
           
           ### How can I optimize my storage performance in General Purpose service tier?
           
