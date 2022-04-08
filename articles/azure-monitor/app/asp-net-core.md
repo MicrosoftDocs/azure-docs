@@ -96,7 +96,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 3. Set up the connection string.
 
-    Although you can provide the connection string as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
+    Although you can provide a connection string as part of the `ApplicationInsightsServiceOptions` argument to AddApplicationInsightsTelemetry, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
 
     ```json
         {
