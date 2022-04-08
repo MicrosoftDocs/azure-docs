@@ -2,36 +2,55 @@
 title: Update management center (preview) support matrix
 description: Provides a summary of supported regions and operating system settings
 ms.service: update-management-center
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.date: 03/07/2022
 ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Update management center support matrix
+# Support matrix for update management center (preview)
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by update management center (Preview) including the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by update management center (preview) including the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
 
-## Make WSUS configuration settings
+## Update sources supported
 
-Update Management supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
+**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services(WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the WSUS last synchronize with Microsoft update, the results in the update management center (preview) might differ  to what the Microsoft update shows. You can specify sources for scanning an downloading updates using [specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
 
-To restrict machines to the internal update service, set [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
+**Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in update management center (preview) depends on where the machines are configured to report.
 
-## Third-party updates on Windows
+## Types of updates supported
 
-Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+### Operating system updates
+Update management center (preview) supports operating system updates for both Windows and Linux.
+
+### First party updates on Windows
+By default, the Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. You can configure this option if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) available for Windows 2016 and later.
+
+If you have machines running Windows Server 2012 R2, you can't configure this setting through Group Policy. Run the following PowerShell command on these machines:
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+### Third-party updates
+**Windows**: Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows update management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+
+**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it is scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
+
 
 ## Supported regions
-Update management center (Preview) will scale to all regions for both Azure VMs and Azure Arc-enabled servers. Listed below are the Azure public cloud where you can use update management center (Preview).
+
+Update management center (preview) will scale to all regions for both Azure VMs and Azure Arc-enabled servers. Listed below are the Azure public cloud where you can use update management center (Preview).
 
 # [Azure virtual machine](#tab/azurevm)
 
-Update management center (Preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where compute virtual machines are available.
+Update management center (preview) is available in all Azure public regions where compute virtual machines are available.
 
 # [Azure Arc-enabled servers](#tab/azurearc)
-Update management center (Preview) **on demand assessment, on demand patching** on **Azure arc-enabled servers** is supported in the following regions currently. It implies that VMs must be in below regions:
+Update management center (preview) is supported in the following regions currently. It implies that VMs must be in below regions:
 
 **Geography** | **Supported Regions**
 --- | ---
@@ -45,7 +64,7 @@ United Kingdom | UK South
 
 ## Supported operating systems
 
-The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (Preview), ensure that the target machines meet the operating system requirements.
+The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -97,21 +116,6 @@ As the Update management center (Preview) depends on your machine's OS package m
  
  > [!NOTE]
  > For patching, update management center (preview) relies on classification data available on the machine. Unlike other distributions, CentOS YUM package manager does not have this information available in the RTM version to classify updates and packages in different categories.
-
-## Network planning
-
-To prepare your network to support, update management center (Preview), you may need to configure some infrastructure components.
-
-For Windows machines, you must allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) (WSUS) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
-
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
-
-## VM images
-
-Update management center (Preview) supports Azure VMs created using Azure Marketplace images, the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details see:
-
-- [Manual install of Azure Windows VM agent](/azure/virtual-machines/extensions/agent-windows#manual-installation)
-- [Manual install of Azure Linux VM agent](/azure/virtual-machines/extensions/agent-linux#installation)
 
 
 ## Next steps
