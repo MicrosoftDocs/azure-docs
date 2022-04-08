@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://federation.usbank.com/sp/ACS.saml2`
 
     c. In the **Sign-on URL** text box, type the URL:
-    `https://federation.usbank.com/sp/startSSO.ping?PartnerIdpId=USBank%3ASAML2.0%3APrepaid_IDP`
+    `https://federation.usbank.com/sp/startSSO.ping?PartnerIdpId=<ID>`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
