@@ -846,6 +846,10 @@ items:
         href: ./synapse-link/how-to-copy-to-sql-pool.md  
       - name: Query Azure Cosmos DB analytical store with serverless SQL pool
         href: sql/query-cosmos-db-analytical-store.md?context=/azure/synapse-analytics/context/context
+    - name: SQL server 2022
+      items:
+      - name: Configure Synapse Link
+        href: ./synapse-link/connect-synapse-link-sql-server-2022.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse
