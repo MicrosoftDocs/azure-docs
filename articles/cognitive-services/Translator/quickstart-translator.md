@@ -204,7 +204,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
@@ -491,7 +491,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "de")
@@ -779,7 +779,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     u.RawQuery = q.Encode()
@@ -1059,7 +1059,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "th")
@@ -1344,7 +1344,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("language", "th")
@@ -1624,7 +1624,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "es")
@@ -1916,7 +1916,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     u.RawQuery = q.Encode()
@@ -2186,7 +2186,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
@@ -2488,7 +2488,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")

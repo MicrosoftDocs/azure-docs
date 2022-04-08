@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma, danil
-ms.date: 03/22/2022
+ms.date: 04/06/2022
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -47,7 +47,7 @@ After you've verified that your source environment is supported, start with the 
 
 In the Discover phase, scan the network to identify all SQL Server instances and features used by your organization. 
 
-Use [Azure Migrate](../../../migrate/migrate-services-overview.md) to assesses migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
+Use [Azure Migrate](../../../migrate/migrate-services-overview.md) to assess migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
 
 Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. The toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
 
@@ -115,8 +115,8 @@ Based on the information in the discover and assess phase, create an appropriate
 
 SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [purchasing model](../../database/service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or "vCores," with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This purchasing model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
 
-- Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](../../managed-instance/resource-limits.md#hardware-generation-characteristics).
-- Based on the baseline memory usage, choose [the service tier that has matching memory](../../managed-instance/resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
+- Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](../../managed-instance/resource-limits.md#hardware-configuration-characteristics).
+- Based on the baseline memory usage, choose [the service tier that has matching memory](../../managed-instance/resource-limits.md#hardware-configuration-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
 - Based on the baseline IO latency of the file subsystem, choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
 - Based on baseline throughput, pre-allocate the size of data or log files to get expected IO performance.
 
@@ -152,14 +152,15 @@ activities to the platform as they are built in. Therefore, some instance-level 
 need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as 
 [high availability](../../database/high-availability-sla.md) is built in.
 
-SQL Managed Instance supports the following database migration options (currently these are the 
-only supported migration methods):
+This article covers two of the recommended migration options: 
 
 - Azure Database Migration Service - migration with near-zero downtime.
 - Native `RESTORE DATABASE FROM URL` - uses native backups from SQL Server and requires some 
 downtime.
 
-This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+This guide describes the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+
+For other migration tools, see [Compare migration options](sql-server-to-managed-instance-overview.md#compare-migration-options). 
 
 ### Database Migration Service
 
@@ -233,15 +234,6 @@ To learn more about this migration option, see [Restore a database to Azure SQL 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 
-## Migation tools
-
-While using [Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md), or [native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) to migrate a database to Managed Instance, consider as well the following migration tools:
-
-|Migration option  |When to use  |Considerations  |
-|---------|---------|---------|
-|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migrate single databases or multiple databases at scale. </br> - Can run in both online (minimal downtime) and offline (acceptable downtime) modes. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Easy to setup and get started. </br> - Requires setup of self-hosted integration runtime to access on-premises SQL Server and backups. </br> - Includes both assessment and migration capabilities. |
-|[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> </br> Supported sources: </br> - SQL Server (2008 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance. </br> - Databases being restored during the migration process will be in a restoring mode and can't be used to read or write until the process has finished.| 
-|[Link feature for Managed Instance](../../managed-instance/link-feature.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> - Minimum downtime migration is needed.  </br> </br> Supported sources: </br> - SQL Server (2016 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - GCP Compute SQL Server VM | - The migration entails establishing a VPN connectivity between SQL Server and Managed Instance, and opening inbound communication ports. </br> - Always On technology is used to replicate database near real-time, making an exact replica of SQL Server database on Managed Instance. </br> - Database can be used for R/O access on Managed Instance while migration is in progress. </br> - Provides the best performance minimum downtime migration. | 
 
 ## Data sync and cutover
 

@@ -47,9 +47,6 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
 - A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions require using connection strings instead of instrumentation keys. Connection strings identify the appropriate endpoint for your Application Insights resource which provides the fastest way to ingest your telemetry for alerting and reporting. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
 For Visual Studio for Mac, use the [manual guidance](#enable-application-insights-server-side-telemetry-no-visual-studio). Only the Windows version of Visual Studio supports this procedure.
@@ -99,7 +96,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 3. Set up the connection string.
 
-    Although you can provide the connection string as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
+    Although you can provide a connection string as part of the `ApplicationInsightsServiceOptions` argument to AddApplicationInsightsTelemetry, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
 
     ```json
         {
@@ -471,6 +468,10 @@ It's important to note that the following example doesn't cause the ApplicationI
 ```
 
 For more information, see [ILogger configuration](ilogger.md#logging-level).
+
+### How can I get all custom ILogger error messages?
+
+Disable adaptive sampling. Examples of how to do this are provided in [Configure the Application Insights SDK](#configure-the-application-insights-sdk) section of this article.
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 

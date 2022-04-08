@@ -108,7 +108,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+Create an internal load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
 
 ```azurecli
   az network lb create \

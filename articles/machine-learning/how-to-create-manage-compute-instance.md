@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions
+ms.custom: devx-track-azurecli, references_regions, cliv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
