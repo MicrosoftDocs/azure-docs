@@ -24,10 +24,14 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
     1.	On the page for the VM, select **Networking** from the left menu.
     1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+
     :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing SSH connections.":::
+
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. From the **Service** dropdown select **SSH**.
+    
     :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
+
     1. For **Name**, type *SSH*.
     1. When you are done, select **Add**.
     1. You should now have an SSH rule in the table of inbound port rules.
@@ -35,11 +39,14 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 - Your VM must have a public IP address. To check if your VM has a public IP address, select **Overview** from the left menu and look at the **Networking** section. If you see an IP address next to **Public IP address**, then your VM has a public IP
  
     If your VM does not have a public IP Address, it will look like this:
+
     :::image type="content" source="media/linux-vm-connect/no-pip.png" alt-text="Screenshot of how the networking section looks when you do not have a public IP.":::
+
  
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
 - Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
+- 
 -     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="":::
  
 
