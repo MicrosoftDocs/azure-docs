@@ -64,9 +64,9 @@ Below you'll find more information on prerequisites and steps to set up the samp
    git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
    ```
    
-1. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+1. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Connection String`, add the connection string to the **samples/Server/appsetting.json** file. Input your connection string in the variable: `ResourceConnectionString`.
-1. Get the `Endpoint string` from the Azure portal. For more information on Endpoint strings, see [Create an Azure Communication Resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+1. Get the `Endpoint string` from the Azure portal. For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Endpoint String`, add the endpoint string to the **samples/Server/appsetting.json** file. Input your endpoint string in the variable `EndpointUrl`
 
 ## Local run
@@ -87,7 +87,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ### Troubleshooting
 
-1. The app shows an "Unsupported browser" screen but I am on a [supported browser](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-client-library-browser-support).
+1. The app shows an "Unsupported browser" screen but I am on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#calling-client-library-browser-support).
 
 	If your app is being served over a hostname other then localhost, you must serve traffic over https and not http.
 
