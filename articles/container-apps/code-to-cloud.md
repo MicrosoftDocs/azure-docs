@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 This article demonstrates how to deploy to Azure Container Apps from a repository on your machine in the language of your choice.
 
-This quickstart is the first in a series of articles takes you step-by-step in building an application that takes advantage of many features in Azure Container Apps. The first step is to create a basic web API for application that returns a static collection of music albums.
+This quickstart is the first in a series of articles that walk you through how to leverage core capabilities within Azure Container Apps. The first step is to create a backedend web API for application that returns a static collection of music albums.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To complete this project, you'll need the following items:
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure the Docker client is running. |
+| Docker engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure Docker is running. |
 
 ::: zone-end
 
@@ -50,12 +50,11 @@ Now Azure CLI setup is validated, define the initial environment variables used 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="album-containerapps"
-LOCATION="canadacentral"
-ENVIRONMENT="env-album-containerapps"
-APP_NAME="album-api"
-API_IMAGE="dev"
-GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
+RESOURCE_GROUP_ACA="album-containerapps"
+LOCATION_ACA="canadacentral"
+ENVIRONMENT_ACA="env-album-containerapps"
+API_NAME_ACA="album-api"
+GITHUB_USERNAME_ACA="<YOUR_GITHUB_USERNAME>"
 ```
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
@@ -63,19 +62,17 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Now create a unique container registry name.
 
 ```azurecli
-ACR_NAME=$GITHUB_USERNAME"acaalbums"
+ACR_NAME_ACA=$GITHUB_USERNAME_ACA"acaalbums"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP="album-containerapps"
-$LOCATION="canadacentral"
-$ENVIRONMENT="env-album-containerapps"
-$ACR_NAME="acr-album-containerapps"
-$APP_NAME="album-api"
-$API_IMAGE="dev"
-$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
+$RESOURCE_GROUP_ACA="album-containerapps"
+$LOCATION_ACA="canadacentral"
+$ENVIRONMENT_ACA="env-album-containerapps"
+$API_NAME_ACA="album-api"
+$GITHUB_USERNAME_ACA="<YOUR_GITHUB_USERNAME>"
 ```
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
@@ -83,7 +80,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Now create a unique container registry name.
 
 ```powershell
-$ACR_NAME=$GITHUB_USERNAME"acaalbums"
+$ACR_NAME_ACA=$GITHUB_USERNAME_ACA"acaalbums"
 ```
 
 ---
@@ -118,13 +115,13 @@ Next, set an environment variable for the target port of your application.  If y
 # [Bash](#tab/bash)
 
 ```bash
-PORT_NUMBER="<TARGET_PORT>"
+API_PORT_ACA="<TARGET_PORT>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$PORT_NUMBER="<TARGET_PORT>"
+$API_PORT_ACA="<TARGET_PORT>"
 ```
 
 ---
@@ -133,27 +130,27 @@ Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, 
 
 ## Prepare the GitHub repository
 
-Next, fork the repository for your preferred language and then clone the repository to your local machine.
+Navigate to the repository for your preferred language and fork the repository. Click the **Fork** button at the top of the page to fork the repo to your account.
 
-**TODO: Need repo locations from Kendall**
+- [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
+- [Go](https://github.com/azure-samples/containerapps-albumapi-go)
+- [JavaScript](https://github.com/azure-samples/containerapps-albumapi-javascript)
+- [Python](https://github.com/azure-samples/containerapps-albumapi-python)
 
-- [C#](https://github.com/Azure-Samples/TODO)
-- [Go](https://github.com/Azure-Samples/TODO)
-- [node](https://github.com/Azure-Samples/TODO)
-- [Python](https://github.com/Azure-Samples/TODO)
+Now you can clone your fork of the sample repository.
 
 Use the following git command to clone your forked repo to your development environment:
 
 # [Bash](#tab/bash)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git
+git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git
+git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git
 ```
 
 ---
@@ -174,14 +171,14 @@ Create a resource group to organize the services related to your container app d
 
 ```azurecli
 az group create \
-  --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --name $RESOURCE_GROUP_ACA \
+  --location "$LOCATION_ACA"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+New-AzResourceGroup -Name $RESOURCE_GROUP_ACA -Location $LOCATION_ACA
 ```
 
 ---
@@ -194,8 +191,8 @@ Next, create an Azure Container Registry (ACR) registry instance in your new res
 
 ```azurecli
 az acr create \
-  --resource-group $RESOURCE_GROUP \
-  --name $ACR_NAME \
+  --resource-group $RESOURCE_GROUP_ACA \
+  --name $ACR_NAME_ACA \
   --sku Basic \
   --admin-enabled true
 ```
@@ -203,15 +200,15 @@ az acr create \
 Now store your ACR credentials in an environment variable.
 
 ```azurecli
-ACR_CREDENTIALS=(az acr credential show -n $ACR_NAME)
+ACR_PASSWORD_ACA=(az acr credential show -n $ACR_NAME_ACA)
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 $ACA_REGISTRY = New-AzContainerRegistry `
-    -ResourceGroupName $RESOURCE_GROUP `
-    -Name $ACR_NAME `
+    -ResourceGroupName $RESOURCE_GROUP_ACA `
+    -Name $ACR_NAME_ACA `
     -EnableAdminUser `
     -Sku Basic
 ```
@@ -219,7 +216,7 @@ $ACA_REGISTRY = New-AzContainerRegistry `
 Now store your ACR credentials in an environment variable.
 
 ```powershell
-$ACR_CREDENTIALS=Get-AzContainerRegistryCredential `
+$ACR_PASSWORD_ACA=Get-AzContainerRegistryCredential `
     -Registry=$ACA_REGISTRY  `
 ```
 
@@ -230,13 +227,13 @@ Sign in to your container registry.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr login --name $ACR_NAME
+az acr login --name $ACR_NAME_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Connect-AzContainerRegistry -Name $ACR_NAME
+Connect-AzContainerRegistry -Name $ACR_NAME_ACA
 ```
 
 ---
@@ -254,13 +251,13 @@ The following command uses ACR to remotely build the Dockerfile for the album AP
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr build --registry $ACR_NAME --image $APP_NAME .
+az acr build --registry $ACR_NAME_ACA --image $API_NAME_ACA .
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az acr build --registry $ACR_NAME --image $APP_NAME .
+az acr build --registry $ACR_NAME_ACA --image $API_NAME_ACA .
 ```
 
 ---
@@ -272,14 +269,14 @@ To verify that your image is now available in ACR, run the command below.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr manifest list-metadata --registry $ACR_NAME --name $APP_NAME
+az acr manifest list-metadata --registry $ACR_NAME_ACA --name $API_NAME_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Get-AzContainerRegistryManifest -RegistryName $ACR_NAME `
-  -Repository album-api
+Get-AzContainerRegistryManifest -RegistryName $ACR_NAME_ACA `
+  -Repository $API_NAME
 ```
 
 ---
@@ -356,18 +353,18 @@ Create the Container Apps environment using the following command.
 
 ```azurecli
 az containerapp env create \
-  --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --name $ENVIRONMENT_ACA \
+  --resource-group $RESOURCE_GROUP_ACA \
+  --location "$LOCATION_ACA"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp env create `
-  --name $ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+  --name $ENVIRONMENT_ACA `
+  --resource-group $RESOURCE_GROUP_ACA `
+  --location $LOCATION_ACA
 ```
 
 ---
@@ -384,11 +381,11 @@ Create and deploy your container app with the following command.
 
 ```azurecli
 az containerapp create \
-  --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $ENVIRONMENT \
-  --image $ACR_NAME_ACA.azurecr.io/$API_NAME \
-  --target-port $PORT_NUMBER \
+  --name $API_NAME_ACA \
+  --resource-group $RESOURCE_GROUP_ACA \
+  --environment $ENVIRONMENT_ACA \
+  --image $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA \
+  --target-port $API_PORT_ACA \
   --ingress 'external' \
   --query configuration.ingress.fqdn
 ```
@@ -398,10 +395,10 @@ az containerapp create \
 ```azurecli
 az containerapp create `
   --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --environment $ENVIRONMENT `
-  --image $APP_NAME `
-  --target-port $PORT_NUMBER `
+  --resource-group $RESOURCE_GROUP_ACA `
+  --environment $ENVIRONMENT_ACA `
+  --image $API_NAME_ACA `
+  --target-port $API_PORT_ACA `
   --ingress 'external' `
   --query configuration.ingress.fqdn
 ```
@@ -441,13 +438,13 @@ If you're not going to continue to the next tutorial, run the following command 
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete --name $RESOURCE_GROUP
+az group delete --name $RESOURCE_GROUP_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $RESOURCE_GROUP_ACA -Force
 ```
 
 ---
