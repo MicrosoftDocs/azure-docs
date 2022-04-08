@@ -275,12 +275,24 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ### Missing configuration for .NET
 
-1. Verify you are using version `2.4.0-beta2` or later
-1. Edit the `ApplicationInsights.config` file
+1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. Edit the `ApplicationInsights.config` file
     * Verify that the `instrumentation key` or `connection string points` to the Application Insights resource you are using
     * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there add it
     * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there add it
-1. Restart the application
+     
+ ```xml
+<TelemetryModules>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+</TelemetryModules>
+
+<TelemetryProcessors>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
+<TelemetryProcessors>
+````
+3. Restart the application
 
 ## Next steps
 
