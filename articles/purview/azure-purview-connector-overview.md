@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 04/08/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,8 +23,10 @@ The table below shows the supported capabilities for each data source. Select th
 | Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes](how-to-access-policies-storage.md) |
 ||    [Azure Cosmos DB](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No|
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No |
+|| [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No |
 ||    [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)| [Yes](register-scan-adls-gen1.md#register) | [Yes](register-scan-adls-gen1.md#scan)| Limited* | No |
 ||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes](how-to-access-policies-storage.md) |
+|| [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No |
 || [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No |
 || [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No |
