@@ -197,6 +197,8 @@ To create and run a new scan, do the following:
 
         :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
+1. Select **Test connection**.
+
 1. Select **Continue**.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
