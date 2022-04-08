@@ -25,7 +25,8 @@ Use the following table to help determine which operations are charged. All bill
 - The operations that result in charges, with either:
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
-- One or more terms in *italics* following each operation (or endpoint). These terms represent billable operations that are charged against quota for your IoT hub. They're displayed in the quota usage section in the support pages in Azure portal. They may also be returned by customer support. You can use the table below to cross-reference these terms with the corresponding operation to help you understand quota usage and billing for your IoT solution.  
+- One or more terms in *italics* following each operation (or endpoint). These terms represent billable operations that are charged against quota for your IoT hub. You may see these terms supplied as part of a quota usage insight when you initiate a support request on Azure portal. They may also be returned by customer support. You can use the table below to cross-reference these terms with the corresponding operation to help you understand quota usage and billing for your IoT solution. For more information, see [Example 4](#example-4).
+  
 
 | Operation category | Billing information |
 | --------- | ------------------- |
@@ -96,16 +97,12 @@ Your batching strategy will depend on your scenario and on how time-critical the
 
 ## Example #4
 
-The terms in italics in the table above are displayed for quota usage in the support pages in Azure portal. They can also be returned by customer support. To see quota usage information in a support request:
+When you open a support request on Azure portal, diagnostics specific to your reported issue are run. The result is displayed as an insight on the **Solutions** tab of your request. One such insight reports quota usage for your IoT hub using the terms in italics in the table above. Whether this particular insight is returned will depend on the results of the diagnostics performed on your IoT hub for the problem you're reporting. If the quota usage insight is reported, you can use the table above to cross-reference the reported usage term or terms with the operation(s) that they refer to.
 
-1. In Azure portal, select **New Support Request** on the left pane of your IoT hub. Provide a summary, select **Technical** for the **Issue type**, and select appropriate values for the issue you're experiencing in the rest of the required fields. Then select **Next Solutions** to go to the **Solutions** page.
+For example, the following screenshot shows a support request initiated for a problem with device-to-cloud telemetry.
 
-    The following screenshot shows values selected for a problem with device-to-cloud telemetry.
+:::image type="content" source="./media/iot-hub-devguide-pricing/self-help-select-problem.png" alt-text="Screenshot that shows selecting an issue in Azure portal support request.":::
 
-    :::image type="content" source="./media/iot-hub-devguide-pricing/self-help-select-problem.png" alt-text="Screenshot that shows selecting an issue in Azure portal support request.":::
+After selecting **Next Solutions**, the quota usage insight is returned by the diagnostics under **IoT Hub daily message quota breakdown**. It shows the breakdown for device to cloud messages sent to the IoT hub. In this case, message routing is enabled on the IoT hub, so the messages are shown as *Device to Cloud Telemetry Routing*. Be aware that the quota usage insight may not be returned for the same problem on a different IoT hub. What is returned will depend on the activity and state of that IoT hub.
 
-1. On the **Solutions** page, you can see quota usage appropriate to your selected issue under **IoT Hub daily message quota breakdown**.
-
-    The following screenshot shows the breakdown for device to cloud messages sent to the IoT hub selected in step 1. In this case, message routing is enabled on the IoT hub, so the messages are shown as *Device to Cloud Telemetry Routing*.
-
-    :::image type="content" source="./media/iot-hub-devguide-pricing/self-help-solutions.png" alt-text="Screenshot that shows quota usage in Azure portal support request.":::
+:::image type="content" source="./media/iot-hub-devguide-pricing/self-help-solutions.png" alt-text="Screenshot that shows quota usage in Azure portal support request.":::
