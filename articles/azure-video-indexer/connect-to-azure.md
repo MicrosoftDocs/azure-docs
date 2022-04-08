@@ -25,7 +25,7 @@ This article shows how to create a Azure Video Indexer classic account. The topi
 
 If you are moving from a *trial* to *paid ARM-Based* Azure Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Azure Video Indexer account to Azure Government](#video-indexer-in-azure-government).
+The article also covers [Linking a Azure Video Indexer account to Azure Government](#azure-video-indexer-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 
