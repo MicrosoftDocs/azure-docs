@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # Use TLS/SSL certificates in your application in Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to use public certificates in Azure Spring Cloud for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
 
 When you let Azure Spring Cloud manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Cloud instance.
@@ -82,7 +84,7 @@ X509Certificate cert = (X509Certificate) factory.generateCertificate(is);
 
 ### Load a certificate into the trust store
 
-For a java application, you can choose **Load into trust store** for the selected certificate. The certificate will be automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
+For a Java application, you can choose **Load into trust store** for the selected certificate. The certificate will be automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
 
 The following log from your app shows that the certificate is successfully loaded.
 

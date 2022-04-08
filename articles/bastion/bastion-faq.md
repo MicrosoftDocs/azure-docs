@@ -1,51 +1,15 @@
 ---
-title: Azure Bastion FAQ | Microsoft Docs
+title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 03/22/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
 
-## FAQs
-
-### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
-
-No. When you connect to a VM using Azure Bastion, you don't need a public IP on the Azure virtual machine that you are connecting to. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
-
-### Is IPv6 supported?
-
-At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you will only be able to send and receive IPv4 traffic via Azure Bastion. 
-
-### Can I use Azure Bastion with Azure Private DNS Zones?
-
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select does not overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following in the name:
-* core.windows.net
-* azure.com
-
-Note that if you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion is *not* supported with these setups.
-
-The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
-
-### <a name="rdpssh"></a>Do I need an RDP or SSH client?
-
-No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
-
-### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
-
-No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
-
-### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
-
-At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
-
-### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
-
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+## <a name="host"></a>Bastion
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -55,9 +19,68 @@ The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome
 
 For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
 
+### <a name="ipv6"></a>Is IPv6 supported?
+
+At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you'll only be able to send and receive IPv4 traffic via Azure Bastion.
+
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 
-Azure Bastion doesn't move or store customer data out of the region it is deployed in.
+Azure Bastion doesn't move or store customer data out of the region it's deployed in.
+
+### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
+
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
+
+* management.azure.com
+* blob.core.windows.net
+* core.windows.net
+* vaultcore.windows.net
+* vault.azure.com
+* azure.com
+
+You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net).
+
+The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
+
+### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
+
+For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work. However, we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
+
+### <a name="subnet"></a> Can I deploy multiple Azure resources in my Azure Bastion subnet?
+
+No. The Azure Bastion subnet (*AzureBastionSubnet*) is reserved only for the deployment of your Azure Bastion resource.
+
+### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
+
+No. UDR isn't supported on an Azure Bastion subnet.
+
+For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+
+Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+
+No. Downgrading from a Standard SKU to a Basic SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
+
+No, Bastion connectivity to Azure Virtual Desktop isn't supported.
+
+### <a name="session"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
+
+A session should be initiated only from the Azure portal. Sign in to the Azure portal and begin your session again. If you go to the URL directly from another browser session or tab, this error is expected. It helps ensure that your session is more secure and that the session can be accessed only through the Azure portal.
+
+### <a name="udr"></a>How do I handle deployment failures?
+
+Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+
+### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
+
+Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+
+## <a name="vm"></a>VM features and connections
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
@@ -66,15 +89,48 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network of the target virtual machine (in the case that the Bastion is in a peered Virtual Network).
+* Reader Role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+
+### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
+
+No. When you connect to a VM using Azure Bastion, you don't need a public IP on the Azure virtual machine that you're connecting to. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
+
+### <a name="rdpssh"></a>Do I need an RDP or SSH client?
+
+No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
+
+### <a name="native-client"></a>Can I connect to my VM using a native client?
+
+Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](connect-native-client-windows.md).
+
+### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
+
+No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
+
+### <a name="rdpfeaturesupport"></a>What features are supported for VM sessions?
+
+See [About VM connections and features](vm-about.md) for supported features.
+
+### <a name="audio"></a>Is remote audio available for VMs?
+
+Yes. See [About VM connections and features](vm-about.md#audio).
+
+### <a name="file-transfer"></a>Does Azure Bastion support file transfer?
+
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](vm-upload-download-native.md).
+
+### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
+
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
-No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+No, access to Windows Server VMs by Azure Bastion doesn't require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
 Azure Bastion currently supports the following keyboard layouts inside the VM:
+
 * en-us-qwerty
 * en-gb-qwerty
 * de-ch-qwertz
@@ -91,45 +147,17 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
+To establish the correct key mappings for your target language, you must set either the keyboard layout on your local computer to English (United States) or the keyboard layout inside the target VM to English (United States). That is, the keyboard layout on your local computer must be set to English (United States) while the keyboard layout on your target VM is set to your target language, or vice versa. 
+
+To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add English (United States). You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
+
+### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
+
+Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
-Azure Bastion currently does not support timezone redirection and is not timezone configurable.
-
-### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
-
-For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
-
-### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
-
-No. UDR is not supported on an Azure Bastion subnet.
-
-For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
-
-### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
-
-Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
-
-### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
-
-No. Downgrading from a Standard SKU to a Basic SKU is not supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
-
-### <a name="subnet"></a> Can I deploy multiple Azure resources in my Azure Bastion subnet?
-
-No. The Azure Bastion subnet (*AzureBastionSubnet*) is reserved only for the deployment of your Azure Bastion resource.
-
-### <a name="session"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
-
-A session should be initiated only from the Azure portal. Sign in to the Azure portal and begin your session again. If you go to the URL directly from another browser session or tab, this error is expected. It helps ensure that your session is more secure and that the session can be accessed only through the Azure portal.
-
-### <a name="udr"></a>How do I handle deployment failures?
-
-Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
-
-### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
-
-Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You are responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
 
 ## <a name="peering"></a>VNet peering
 
@@ -139,12 +167,9 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 
 ### If my peered VNets are deployed in different subscriptions, will connectivity via Bastion work?
 
-Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
+Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants aren't supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
-
-### Does Bastion support connectivity to Azure Virtual Desktop?
-No, Bastion connectivity to Azure Virtual Desktop is not supported.
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 
@@ -153,18 +178,15 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+* Reader Role on the virtual network (Not needed if there isn't a peered virtual network).
 
 |Permissions|Description|Permission type|
 |---|---| ---|
 |Microsoft.Network/bastionHosts/read |Gets a Bastion Host|Action|
-|Microsoft.Network/virtualNetworks/BastionHosts/action |Gets Bastion Host references in a Virtual Network.|Action|
-|Microsoft.Network/virtualNetworks/bastionHosts/default/action|Gets Bastion Host references in a Virtual Network.|Action|
+|Microsoft.Network/virtualNetworks/BastionHosts/action |Gets Bastion Host references in a virtual network.|Action|
+|Microsoft.Network/virtualNetworks/bastionHosts/default/action|Gets Bastion Host references in a virtual network.|Action|
 |Microsoft.Network/networkInterfaces/read|Gets a network interface definition.|Action|
 |Microsoft.Network/networkInterfaces/ipconfigurations/read|Gets a network interface IP configuration definition.|Action|
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
-
-### What is the maximum screen resolution supported via Bastion?  
-Currently, 1920x1080 (1080p) is the maximum supported resolution. 

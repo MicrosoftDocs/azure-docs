@@ -12,14 +12,14 @@ ms.service: azure-communication-services
 ---
 
 # Best practices: Azure Communication Services calling SDKs
-This article provides information about best practices related to the Azure Communication Services (ACS) calling SDKs.
+This article provides information about best practices related to the Azure Communication Services calling SDKs.
 
-## ACS web JavaScript SDK best practices
+## Azure Communication Services web JavaScript SDK best practices
 This section provides information about best practices associated with the Azure Communication Services JavaScript voice and video calling SDK.
 
 ## JavaScript voice and video calling SDK
 
-### Plug-in microphone or enable microphone from device manager when ACS call in progress
+### Plug-in microphone or enable microphone from device manager when Azure Communication Services call in progress
 When there is no microphone available at the beginning of a call, and then a microphone becomes available, the "noMicrophoneDevicesEnumerated" call diagnostic event will be raised.
 When this happens, your application should invoke `askDevicePermission` to obtain user consent to enumerate devices. Then user will then be able to mute/unmute the microphone.
 
@@ -33,7 +33,7 @@ Your application should invoke `call.hangup` when the `onbeforeunload` event is 
 Your application should not connect to calls from multiple browser tabs simultaneously as this can cause undefined behavior due to resource allocation for microphone and camera on the device. Developers are encouraged to always hang up calls when completed in the background before starting a new one.
 
 ### Handle OS muting call when phone call comes in.
-While on an ACS call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the users microphone and camera. On Android the call automatically unmutes and video restarts after the phone call ends. On iOS it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to used SDK 1.2.3-beta.1 or higher.
+While on an Azure Communication Services call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the user's microphone and camera. On Android, the call automatically unmutes and video restarts after the phone call ends. On iOS, it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to use SDK 1.2.3-beta.1 or higher.
 
 ```javascript
 const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
@@ -49,10 +49,17 @@ Your application should invoke `call.startVideo(localVideoStream);` to start a v
 You can use the Azure Communication Services SDK to manage your devices and media operations.
 - Your application shouldn't use native browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of the SDK. If you do, you'll have to manually dispose your media stream(s) before using `DeviceManager` or other device management APIs via the Communication Services SDK.
 
-### Request device permissions
+#### Request device permissions
 You can request device permissions using the SDK:
 - Your application should use `DeviceManager.askDevicePermission` to request access to audio and/or video devices.
 - If the user denies access, `DeviceManager.askDevicePermission` will return 'false' for a given device type (audio or video) on subsequent calls, even after the page is refreshed. In this scenario, your application must detect that the user previously denied access and instruct the user to manually reset or explicitly grant access to a given device type.
+
+
+#### Camera being used by another process
+- On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
+- This is not an issue in MacOS Chrome nor MacOS Safari because the OS will let processes/threads share the camera device.
+- On mobile devices, if a ProcessA requests the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
+- On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
 
 ## Next steps
 For more information, see the following articles:

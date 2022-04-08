@@ -1,3 +1,5 @@
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
 In this quickstart, you'll learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
 ## Prerequisites
@@ -188,7 +190,7 @@ private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
         localVideoStream = new LocalVideoStream[1];
         localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].MediaUriAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -226,7 +228,7 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
         localVideoStream = new LocalVideoStream[1];
         localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].MediaUriAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -285,14 +287,13 @@ private async Task AddVideoStreams(IReadOnlyList<RemoteVideoStream> streams)
 
     foreach (var remoteVideoStream in streams)
     {
-        var remoteUri = await remoteVideoStream.CreateBindingAsync();
+        var remoteUri = await remoteVideoStream.Start();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
             RemoteVideo.Source = remoteUri;
             RemoteVideo.Play();
         });
-        remoteVideoStream.Start();
     }
 }
 ```

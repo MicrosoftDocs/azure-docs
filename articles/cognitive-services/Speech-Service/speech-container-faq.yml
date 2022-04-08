@@ -8,11 +8,10 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 01/24/2022
   ms.author: eur
   ms.custom: devx-track-csharp
-    
 title: Speech service containers frequently asked questions (FAQ)
 summary: When using the Speech service with containers, you can refer to these frequently asked questions before contacting support. This article captures questions of varying degree, from general to technical. 
 

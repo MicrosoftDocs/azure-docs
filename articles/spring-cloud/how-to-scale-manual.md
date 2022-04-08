@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This documentation demonstrates how to scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article demonstrates how to scale any Spring application using the Azure Spring Cloud dashboard in the Azure portal.
 
 Scale your application up and down by modifying its number of virtual CPUs (vCPUs) and amount of memory. Scale your application in and out by modifying the number of application instances.
 
@@ -49,7 +51,7 @@ If you modify the scaling attributes, keep the following notes in mind:
 
 * **Memory/GB**: The maximum amount of memory per application instance is 8 GB. The total amount of memory for an application is the value set here multiplied by the number of application instances.
 
-* **App instance count**: In the Standard tier, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the microservice application.
+* **App instance count**: In the Standard tier, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
 
 Be sure to select **Save** to apply your scaling settings.
 

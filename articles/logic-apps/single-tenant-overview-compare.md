@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 04/04/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -225,13 +225,13 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
+  * The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+
     > [!NOTE]
-    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
-    > credentials or connection string that you use when you create a connection. If you disable this identity, 
-    > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
-    >
-    > The user-assigned managed identity is currently unavailable on the **Logic App (Standard)** resource type.
+    > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
+    > This identity differs from the authentication credentials or connection string that you use when you 
+    > create a connection. If you disable this identity, connections won't work at run time. To view 
+    > this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 
@@ -312,10 +312,10 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
 ## Strict network and firewall traffic permissions
 
-If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your logic app workflows. To find the fully qualified domain names (FQDNs) for these connections, review the corresponding sections in these topics:
+If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your workflows. You can optionally allow traffic from [service tags](../virtual-network/service-tags-overview.md) and use the same level of restrictions or policies as Azure App Service. You also need to find and use the fully qualified domain names (FQDNs) for your connections. For more information, review the corresponding sections in the following documentation:
 
-* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
+* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 
 ## Next steps
 

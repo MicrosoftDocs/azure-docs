@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 02/03/2022
 ---
 
 # Parameters in Bicep
@@ -153,6 +153,25 @@ To help users understand the value to provide, add a description to the paramete
 @description('Must be at least Standard_A3 to support 2 NICs.')
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
+
+Markdown-formatted text can be used for the description text:
+
+```bicep
+@description('''
+Storage account name restrictions:
+- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+''')
+@minLength(3)
+@maxLength(24)
+param storageAccountName string
+```
+
+When you hover your cursor over **storageAccountName** in VSCode, you see the formatted text:
+
+:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
+
+Make sure the text is well-formatted Markdown. Otherwise the text won't be rendered correctly.
 
 ## Use parameter
 

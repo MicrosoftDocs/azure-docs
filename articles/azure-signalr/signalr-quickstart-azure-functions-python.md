@@ -1,8 +1,8 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
-author: anthonychu
-ms.author: antchu
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
@@ -180,15 +180,24 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         
         import azure.functions as func
         
+        etag = ''
+        start_count = 0
         
         def main(myTimer: func.TimerRequest, signalRMessages: func.Out[str]) -> None:
-            headers = {'User-Agent': 'serverless'}
+            global etag
+            global start_count
+            headers = {'User-Agent': 'serverless', 'If-None-Match': etag}
             res = requests.get('https://api.github.com/repos/azure/azure-signalr', headers=headers)
-            jres = res.json()
+            if res.headers.get('ETag'):
+                etag = res.headers.get('ETag')
         
+            if res.status_code == 200:
+                jres = res.json()
+                start_count = jres['stargazers_count']
+            
             signalRMessages.set(json.dumps({
                 'target': 'newMessage',
-                'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(jres['stargazers_count']) ]
+                'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(start_count) ]
             }))
         ```
 

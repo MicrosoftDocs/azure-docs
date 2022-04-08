@@ -3,7 +3,7 @@ title: OAuth 2.0 device code flow | Azure
 titleSuffix: Microsoft identity platform
 description: Sign in users without a browser. Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/25/2021
-ms.author: hirsin
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
 ---

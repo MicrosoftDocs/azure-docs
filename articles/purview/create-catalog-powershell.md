@@ -6,7 +6,8 @@ ms.author: hophan
 ms.date: 10/28/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI

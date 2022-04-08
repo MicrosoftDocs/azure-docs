@@ -2,13 +2,14 @@
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 08/21/2020
+ms.date: 03/31/2022
 
 ---
 
 # Install Log Analytics agent on Linux computers
+The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
+
+
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
@@ -70,14 +71,14 @@ Again, only if you are using an older version of the agent, the python2 executab
 The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
-- FIPs
-- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
+- FIPS
+- SELinux (Marketplace images for CentOS and RHEL with their default settings)
 
 The following are not supported:
 - CIS
-- SELINUX (custom hardening like MLS)
+- SELinux (custom hardening like MLS)
 
-CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like Github Enterprise Server which include customizations such as limitations to user account privileges are not supported.
 
 ## Agent prerequisites
 

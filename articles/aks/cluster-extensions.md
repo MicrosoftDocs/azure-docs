@@ -31,6 +31,19 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
+> [!NOTE]
+> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
+> ```yml
+> apiVersion: aadpodidentity.k8s.io/v1
+> kind: AzurePodIdentityException
+> metadata:
+>  name: k8s-extension-exception
+>  namespace: <release-namespace-of-extension>
+> spec:
+>  podLabels:
+>    clusterconfig.azure.com/managedby: k8s-extension
+> ```
+
 ### Register provider for cluster extensions
 
 #### [Azure CLI](#tab/azure-cli)
@@ -233,13 +246,14 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 <!-- LINKS -->
 <!-- INTERNAL -->
 [arc-k8s-extensions]: ../azure-arc/kubernetes/conceptual-extensions.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
+[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all

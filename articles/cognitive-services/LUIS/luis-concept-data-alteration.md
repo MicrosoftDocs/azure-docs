@@ -112,5 +112,4 @@ int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
+[Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)

@@ -110,7 +110,7 @@ Because a skill's inputs and outputs are reading from and writing to enrichment 
 
 ## Context
 
-Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/`). A context determines:
+Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). A context determines:
 
 + The number of times the skill executes, over a single value (once per field, per document), or for context values of type collection, where adding an `/*` results in skill invocation, once for each instance in the collection. 
 

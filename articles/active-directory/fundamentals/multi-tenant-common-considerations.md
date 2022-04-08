@@ -103,7 +103,7 @@ Additionally, while the following CA conditions can be used, be aware of the pos
 ## Other access control considerations
 
 Some additional considerations when configuring access control.
-* Define [access control policies](../external-identities/conditional-access.md) to control access to resources.
+* Define [access control policies](../external-identities/authentication-conditional-access.md) to control access to resources.
 * Design CA policies with guest users in mind. 
 * Create policies specifically for guest users. 
 * If your organization is using the [All Users] condition in your existing CA policy, this policy will affect guest users because [Guest] users are in scope of [All Users].

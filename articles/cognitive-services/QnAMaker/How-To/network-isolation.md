@@ -3,7 +3,7 @@ title: Network isolation
 description: Users can restrict public access to QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
 ---
@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 # Recommended settings for network isolation
 
 Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## Restrict access to App Service (QnA runtime)
 
@@ -34,11 +36,19 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -We
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of access restriction rule with the addition of public IP address]( ../media/network-isolation/public-address.png) ](  ../media/network-isolation/public-address.png#lightbox)
 
+### Outbound access from App Service
+
+The QnA Maker App Service requires outbound access to the below endpoints. Please make sure they’re added to the allow list if there are any restrictions on the outbound traffic.
+- https://qnamakerstore.blob.core.windows.net
+- https://qnamaker-data.trafficmanager.net
+- https://qnamakerconfigprovider.trafficmanager.net
+
+
 ### Configure App Service Environment to host QnA Maker App Service
 
 The App Service Environment (ASE) can be used to host the QnA Maker App Service instance. Follow the steps below:
 
-1. Create a [new Azure Cognitive Search Resource](https://ms.portal.azure.com/#create/Microsoft.Search).
+1. Create a [new Azure Cognitive Search Resource](https://portal.azure.com/#create/Microsoft.Search).
 2. Create an external ASE with App Service.
     - Follow this [App Service quickstart](../../../app-service/environment/create-external-ase.md#create-an-ase-and-an-app-service-plan-together) for instructions. This process can take up to 1-2 hours.
     - Finally, you will have an App Service endpoint that will appear similar to: `https://<app service name>.<ASE name>.p.azurewebsite.net` . 

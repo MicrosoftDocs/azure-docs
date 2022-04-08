@@ -27,20 +27,20 @@ ms.subservice: azure-arc-data
 [az sql mi-arc dag](reference-az-sql-mi-arc-dag.md) | Create or Delete a Distributed Availability Group.
 ## az sql mi-arc create
 To set the password of the SQL managed instance, set the environment variable AZDATA_PASSWORD
-```bash
+```azurecli
 az sql mi-arc create 
 ```
 ### Examples
 Create an indirectly connected SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc create -n sqlmi1 --k8s-namespace namespace --use-k8s
 ```
 Create an indirectly connected SQL managed instance with 3 replicas in HA scenario.
-```bash
+```azurecli
 az sql mi-arc create -n sqlmi2 --replicas 3  --k8s-namespace namespace --use-k8s
 ```
 Create a directly connected SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc create --name name --resource-group group  --location location --subscription subscription   --custom-location custom-location
 ```
 ### Global Arguments
@@ -56,12 +56,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc update
 Update the configuration of a SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc update 
 ```
 ### Examples
 Update the configuration of a SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc update --path ./spec.json -n sqlmi1 --use-k8s
 ```
 ### Global Arguments
@@ -77,12 +77,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc delete
 Delete a SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc delete 
 ```
 ### Examples
 Delete a SQL managed instance using provided namespace.
-```bash
+```azurecli
 az sql mi-arc delete --name sqlmi1 --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments
@@ -98,16 +98,16 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc show
 Show the details of a SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc show 
 ```
 ### Examples
 Show the details of an indirect connected SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc show --name sqlmi1 --k8s-namespace namespace --use-k8s
 ```
 Show the details of a directly connected SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc show --name sqlmi1 --resource-group resource-group            
 ```
 ### Global Arguments
@@ -123,12 +123,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc get-mirroring-cert
 Retrieve certificate of availability group mirroring endpoint from sql mi and store in a file.
-```bash
+```azurecli
 az sql mi-arc get-mirroring-cert 
 ```
 ### Examples
 Retrieve certificate of availability group mirroring endpoint from sqlmi1 and store in file fileName1
-```bash
+```azurecli
 az sql mi-arc get-mirroring-cert -n sqlmi1 --cert-file fileName1
 ```
 ### Global Arguments
@@ -144,12 +144,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc upgrade
 Upgrade SQL managed instance to the desired-version specified.  If desired-version is not specified, the data controller version will be used.
-```bash
+```azurecli
 az sql mi-arc upgrade 
 ```
 ### Examples
 Upgrade SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc upgrade -n sqlmi1 --k8s-namespace arc --desired-version v1.1.0 --use-k8s
 ```
 ### Global Arguments
@@ -165,12 +165,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc list
 List SQL managed instances.
-```bash
+```azurecli
 az sql mi-arc list 
 ```
 ### Examples
 List SQL managed instances.
-```bash
+```azurecli
 az sql mi-arc list --use-k8s
 ```
 ### Global Arguments

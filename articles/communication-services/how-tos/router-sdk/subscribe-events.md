@@ -13,7 +13,9 @@ ms.custom: template-how-to
 
 # Subscribe to Job Router events
 
-This guide outlines the steps to subscribe to Job Router events from your Azure Communication Services Event Grid subscription. Receiving events is a critical capability your custom applications will need to perform. The actions Job Router will perform on Jobs you submit happen asynchronously and while the SDK provides endpoints to query the status and state of objects in the system, building a reactive event-driven custom application has significant benefits.
+This guide outlines the steps to set up a subscription for Job Router events and how to receive them.
+
+For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -22,169 +24,96 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
-- Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
-- Review the [GitHub sample project using a customized version of the Event Grid Viewer for Job Router](https://github.com/Azure/communication-preview/tree/master/samples/Job-Router/Event-Grid-Viewer)
 
 ## Create an Event Grid subscription
 
 > [!NOTE]
-> The following scripts are being executed using PowerShell
+> Since Job Router is still in preview, the events are not included in the portal UI. You have to use an Azure Resource Manager (ARM) template to create a subscription that references them.
 
-**Log into your Azure account**
+This template deploys an Event Grid subscription on a Storage Queue for Job Router events.
+If the storage account, queue or system topic doesn't exist, they'll be created as well.
 
-```powershell
-armclient azlogin
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftDocs%2Fazure-docs%2Fmain%2Farticles%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
+
+### Parameters
+
+- **Azure Communication Services Resource Name**: The name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set to `contoso`.
+- **Storage Name**: The name of your Azure Storage Account. If it doesn't exist, it will be created.
+- **Event Sub Name**: The name of the event subscription to create.
+- **System Topic Name**: If you have existing event subscriptions on your Azure Communication Services resource, find the `System Topic` name in the `Events` tab of your Azure Communication Services resource. Otherwise, specify a unique name such as the Azure Communication Services resource name itself.
+- **Queue Name**: The name of your Queue within your Storage Account. If it doesn't exist, it will be created.
+
+### Deployed resources
+
+The following resources are deployed as part of the solution
+
+- **Storage Account**: If the storage account name doesn't exist.
+- **Storage Queue**: If the queue doesn't exist within the storage account.
+- **Event Grid System Topic**: If the topic doesn't exist.
+- **Event Grid Subscription**: A subscription for all Job Router events on the storage queue.
+
+## Quick-start: Receive Event Grid events via an Azure Storage Queue
+
+### Create a new C# application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EventReceiver`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+
+```console
+dotnet new console -o EventReceiver
 ```
 
-**Set subscription and resource group name**
-```powershell
-$env:SUB = 'subscriptions/<insert_subscription_id>'
-$env:RG = 'resourcegroups/<insert_resource_group_name>'
+Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+
+```console
+cd EventReceiver
+dotnet build
 ```
 
-**List all ACS resources in subscription**
-```powershell
-armclient get "/$env:SUB/$env:RG/providers/Microsoft.Communication/communicationservices?api-version=2020-08-20"
-```
-**Output**
+### Install the packages
 
-:::image type="content" source="media/create-subscription-output.png" alt-text="Output of PowerShell command":::
+Install the Azure Storage Queues and Event Grid packages.
 
-As we can see, there is currently only one Azure Communication Services resource under the given subscription and resource group.
-
-**Set PowerShell variables**
-
-Set the name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set `ACS_RESOURCE_NAME` to the prefix of the DNS name; `contoso`.
-
-```powershell
-$env:ACS_RESOURCE_NAME = "<insert_acs_resource_name>"
-$env:ACS_RESOURCE_ARM_ID = "/$env:SUB/$env:RG/providers/Microsoft.Communication/CommunicationServices/$env:ACS_RESOURCE_NAME"
-$env:API_VERSION = "?api-version=2020-06-01"
-$env:EVENT_SUBSCRIPTIONS_PATH = "providers/Microsoft.EventGrid/eventSubscriptions"
-$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_All"
+```console
+dotnet add package Azure.Storage.Queues
+dotnet add package Azure.Messaging.EventGrid
 ```
 
-**Create a new event subscription for Router events**
+### Receive messages from the queue
 
-Copy and paste the following json payload in a text file named `test.json`.
+Copy the following code snippet and paste into source file: **Program.cs**
 
-*Sample payload*
-```json
+```csharp
+using Azure.Storage.Queues;
+using Azure.Messaging.EventGrid;
+
+// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/azure/storage/queues/storage-tutorial-queues
+
+var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
+
+while (true)
 {
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
-      "properties": {
-        "endpointUrl": "<insert_webhook_path_here>"
-      }
-    },
-    "filter": {
-      "includedEventTypes": [
-        "Microsoft.Communication.RouterJobReceived",
-        "Microsoft.Communication.RouterJobClassified",
-        "Microsoft.Communication.RouterJobLabelsUpdated",
-        "Microsoft.Communication.RouterJobClassificationFailed",
-        "Microsoft.Communication.RouterJobCompleted",
-        "Microsoft.Communication.RouterJobClosed",
-        "Microsoft.Communication.RouterJobCancelled",
-        "Microsoft.Communication.RouterJobExceptionTriggered",
-        "Microsoft.Communication.RouterWorkerOfferIssued",
-        "Microsoft.Communication.RouterWorkerOfferAccepted",
-        "Microsoft.Communication.RouterWorkerOfferDeclined",
-        "Microsoft.Communication.RouterWorkerOfferRevoked",
-        "Microsoft.Communication.RouterWorkerOfferExpired",
-        "Microsoft.Communication.RouterWorkerRegistered",
-        "Microsoft.Communication.RouterWorkerDeregistered"
-      ],
-      "subjectBeginsWith": "",
-      "subjectEndsWith": ""
+    var msg = await queueClient.ReceiveMessageAsync();
+    if (msg.Value == null)
+    {
+        await Task.Delay(TimeSpan.FromSeconds(1));
+        continue;
     }
-  }
+    var json = Convert.FromBase64String(msg.Value.Body.ToString());
+    var evt = EventGridEvent.Parse(BinaryData.FromBytes(json));
+
+    Console.WriteLine($"Received event: {evt.EventType} - {evt.Subject} - {evt.Data}");
+
+    await queueClient.DeleteMessageAsync(msg.Value.MessageId, msg.Value.PopReceipt);
 }
 ```
 
-**Create the event subscription**
-```powershell
-armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT_SUBSCRIPTION_NAME/$env:API_VERSION" .\test.json
+### Run the code
+
+Run the application from your application directory with the `dotnet run` command.
+
+```console
+dotnet run
 ```
-**Output**
-
-:::image type="content" source="media/create-subscription.png" alt-text="Create event subscription":::
-
-As we can see, the event subscription is being created and is currently in a state of `Creating`. It generally takes a few seconds to create.
-
-**Verify the event subscription was successfully created**
-```powershell
-armclient get "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:API_VERSION"
-```
-
-**Output**
-
-:::image type="content" source="media/verify-subscription-created.png" alt-text="Verify subscription was created":::
-
-As we can see the event subscription has been successfully created now for all Router events.
-
-## Creating a subscription with filters
-
-While setting up event subscriptions, you can also use advanced filters controlling the exact events that needs to sent to a particular subscription. For example, given the sample below, only `RouterJobCancelled` events are subscribed to and sent to the webhook under the following conditions:
-
-- The job **priority** is greater than `5`
-- The job was assigned to an escalation queue
-- The job was canceled due to inactivity
-- The disposition code for canceled Jobs ends with `_JobCancelledDueToInactivity`
-- The Queue ID ends with the name `EscalationQueue`
-
-```json
-{
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
-      "properties": {
-        "endpointUrl": "<insert_webhook_path_here>",
-        "maxEventsPerBatch": 1,
-        "preferredBatchSizeInKilobytes": 64
-      }
-    },
-    "filter": {
-      "subjectEndsWith": "_JobCancelledDueToInactivity",
-      "isSubjectCaseSensitive": true,
-      "includedEventTypes": [
-        "Microsoft.Communication.RouterJobCancelled"
-      ],
-      "advancedFilters": [
-        {
-          "operatorType": "NumberGreaterThan",
-          "key": "data.priority",
-          "value": 5
-        },
-        {
-          "operatorType": "StringEndsWith",
-          "key": "data.queueId",
-          "values": [
-            "EscalationQueue"
-          ]
-        }
-      ],
-      "enableAdvancedFilteringOnArrays": true
-    }
-  }
-}
-```
-
-Copy and paste the above json payload in a text and name it `test-with-advanced-filters.json` then execute the following PowerShell code:
-
-```powershell
-$env:API_VERSION = "?api-version=2020-10-15-preview"
-$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_WithFilters"
-armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT_SUBSCRIPTION_NAME/$env:API_VERSION" .\test-with-advanced-filters.json
-```
-
-**Output**
-
-:::image type="content" source="media/advanced-filters.png" alt-text="Advanced filters output":::
-
-> [!NOTE]
-> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](../../../event-grid/event-filtering.md)
 
 ## Events Catalog
 
@@ -192,13 +121,13 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 |------|:------------:| ---------- |
 | [`RouterJobReceived`](#microsoftcommunicationrouterjobreceived) | `Job` | A new job was created for routing |
 | [`RouterJobClassified`](#microsoftcommunicationrouterjobclassified)| `Job` | The classification policy was applied to a job |
-| [`RouterJobLabelsUpdated`](#microsoftcommunicationrouterjoblabelsupdated) | `Job` | The labels of the job were changed |
+| [`RouterJobQueued`](#microsoftcommunicationrouterjobqueued)  | `Job` | A job has been successfully enqueued |
 | [`RouterJobClassificationFailed`](#microsoftcommunicationrouterjobclassificationfailed) | `Job` | Router failed to classify job using classification policy |
 | [`RouterJobCompleted`](#microsoftcommunicationrouterjobcompleted) | `Job` | A job was completed and enters wrap-up |
 | [`RouterJobClosed`](#microsoftcommunicationrouterjobclosed) | `Job` | A job was closed and wrap-up is finished |
 | [`RouterJobCancelled`](#microsoftcommunicationrouterjobcancelled) | `Job` | A job was canceled |
 | [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
-| [`RouterJobExceptionCleared`](#microsoftcommunicationrouterjobexceptioncleared) | `Job` | A job exception has cleared |
+| [`RouterJobWorkerSelectorsExpired`](#microsoftcommunicationrouterjobworkerselectorsexpired)  | `Job` |  One or more worker selectors on a job have expired  |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
 | [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |
 | [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
@@ -230,12 +159,25 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
   "eventType": "Microsoft.Communication.RouterJobReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -245,12 +187,14 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> </ul> | When this event is sent out, the classification process is yet to have been executed. |
+| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li><li>Queued</li> </ul> | When a this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
-| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value if there is a direct queue assignment. |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value in case of direct queue assignment.
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobClassified
 
@@ -281,12 +225,25 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
   "eventType": "Microsoft.Communication.RouterJobClassified",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -298,12 +255,14 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job (direct queue assignment) |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
-| priority | `int` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| classificationPolicyId | `string` | ❌ | |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicy` is not used for queue selection
+| priority | `int` | ✔️ | | `null` when `classificationPolicy` is not used for applying priority on job
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
-### Microsoft.Communication.RouterJobLabelsUpdated
+### Microsoft.Communication.RouterJobQueued
 
 [Back to Event Catalog](#events-catalog)
 
@@ -311,31 +270,44 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}",
+  "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}",
   "data": {
     "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
     "channelReference": "test-abc",
-    "jobStatus": "Queued",
     "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
-    "priority": 5,
-    "labelsAddedOrChanged": {
-      "English": "5",
-      "Office": "7"
-    },
+    "priority": 1,
     "labels": {
       "Locale": "en-us",
       "Segment": "Enterprise",
-      "Token": "FooToken",
-      "English": "5",
-      "Office": "7"
-    }
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
-  "eventType": "Microsoft.Communication.RouterJobLabelsUpdated",
+  "eventType": "Microsoft.Communication.RouterJobQueued",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -344,14 +316,14 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
-| channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> <li>Queued</li> <li>Assigned</li> <li>Completed</li> <li>Closed</li> <li>Canceled</li> <li>ClassificationFailed</li> </ul> |
+| channelReference | `string` | ✔️ |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
+| queueId | `string` | ❌ | |
 | priority | `int` | ❌ |
-| labelsAddedOrChanged | `Dictionary<string, object>` | ✔️ | | Labels added or changed based on user input. |
-| labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job. |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating job
+| attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
@@ -380,12 +352,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobClassificationFailed",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -398,7 +375,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobCompleted
 
@@ -419,13 +397,18 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
-    "workerId": ""
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "workerId": "e3a3f2f9-3582-4bfe-9c5a-aa57831a0f88"
   },
   "eventType": "Microsoft.Communication.RouterJobCompleted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -437,8 +420,9 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | assignmentId| `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 | workerId | `string` | ❌ | |
 
 ### Microsoft.Communication.RouterJobClosed
@@ -462,12 +446,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobClosed",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -479,10 +468,11 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
-| dispositionCode| `string` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| dispositionCode| `string` | ✔️ | | Based on user input
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobCancelled
 
@@ -504,12 +494,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
     "queueId": ""
   },
   "eventType": "Microsoft.Communication.RouterJobCancelled",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -517,13 +512,14 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| note| `string` | ✔️ | | Based on user input |
+| note| `string` | ✔️ | | Based on user input
 | dispositionCode| `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| queueId | `string` | ✔️ | | Non-null when job is canceled after successful classification. |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| queueId | `string` | ✔️ | |
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
@@ -544,12 +540,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobExceptionTriggered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -562,32 +563,54 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
-### Microsoft.Communication.RouterJobExceptionCleared
+### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
 [Back to Event Catalog](#events-catalog)
 
 ```json
 {
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
+  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/exceptionrule/{rulekey}",
+  "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}",
   "data": {
-    "ruleKey": "r100",
     "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
     "channelReference": "test-abc",
     "channelId": "FooVoiceChannelId",
+    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
     "labels": {
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectorsExpired": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectorsExpired": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
-  "eventType": "Microsoft.Communication.RouterJobExceptionCleared",
+  "eventType": "Microsoft.Communication.RouterJobWorkerSelectorsExpired",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -595,11 +618,14 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| ruleKey | `string` | ❌ | |
 | jobId| `string` | ❌ |
-| channelReference | `string` | ❌ |
+| channelReference | `string` | ✔️ |
+| queueId | `string` | ❌ | |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
+| attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
 ## Worker Events
 
@@ -626,12 +652,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "jobTags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterWorkerOfferIssued",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -648,7 +679,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | offerTimeUtc | `DateTimeOffset` | ❌ |
 | expiryTimeUtc| `DateTimeOffset` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -668,6 +700,11 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
+    "jobTags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
     "channelReference": "test-abc",
     "channelId": "FooVoiceChannelId",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
@@ -677,7 +714,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerOfferAccepted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -688,7 +725,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
@@ -715,7 +753,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerOfferDeclined",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -750,7 +788,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerOfferRevoked",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -785,7 +823,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerOfferExpired",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -793,8 +831,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| offerId | `string` | ❌ |
 | workerId | `string` | ❌ |
+| offerId | `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
@@ -837,7 +875,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerRegistered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -866,11 +904,16 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
   "eventType": "Microsoft.Communication.RouterWorkerDeregistered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
+
 **Attribute list**
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
+
+<!-- LINKS -->
+[event-grid-overview]: ../../../event-grid/overview.md
+[filter-events]: ../../../event-grid/how-to-filter-events.md

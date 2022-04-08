@@ -33,8 +33,6 @@ Alerts provide information about an extensive range of security and operational 
 
 - Suspicious traffic detected
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/address-scan-detected-screen.png" alt-text="Address scan detected.":::
-
 Relevant information is sent to partner systems when forwarding rules are created.
 
 ## About Forwarding rules and certificates
@@ -45,7 +43,7 @@ In these cases, the sensor or on-premises management console is the client and i
 
 Your Defender for IoT system was set up to either validate certificates or ignore certificate validation.  See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for information about enabling and disabling validation.
 
-If validation is enabled and the certificate can not be verified, communication between Defender for IoT and the server will be halted.  The sensor will display an error message indicating the validation failure.  If the validation is disabled and the certificate is not valid, communication will still be carried out.
+If validation is enabled and the certificate cannot be verified, communication between Defender for IoT and the server will be halted.  The sensor will display an error message indicating the validation failure.  If the validation is disabled and the certificate isn't valid, communication will still be carried out.
 
 The following Forwarding rules allow encryption and certificate validation:
 - Syslog CEF
@@ -54,51 +52,44 @@ The following Forwarding rules allow encryption and certificate validation:
 
 ## Create forwarding rules
 
-**To create a new forwarding rule on a sensor**:
+**To create a new forwarding rule**:
 
 1. Sign in to the sensor.
 
 1. Select **Forwarding** on the side menu.
 
-1. Select **Create Forwarding Rule**.
+1. Select **Create new rule**.
+1. Add a rule name.
+1. Define rule conditions:
+    -  Select the severity level.  This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+    
+    - Select a protocol(s) that should be detected. 
+       Information will forwarding if the traffic detected was running selected protocols. 
+    
+    - Select which engines the rule should apply to.
+    Alert information detected from selected engines will be forwarded
+ 
+1. Define rule actions by selecting a server.
 
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Create a Forwarding Rule icon.":::
+   Forwarding rule actions instruct the sensor to forward alert information to selected partner vendors or servers. You can create multiple actions for each forwarding rule.
 
-1. Enter a name for the forwarding rule.
+1. Select **Save**.
 
-1. Select the severity level.
+## Forwarding rule actions
 
-   This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-
-1. Select any protocols to apply.
-
-   Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-1. Select which engines the rule should apply to.
-
-   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
-
-1. Select an action to apply, and fill in any parameters needed for the selected action.
-
-   Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-1. Add another action if desired.
-
-1. Select **Submit**.
+You can send alert information to the servers described in this section.
 
 ### Email address action
 
 Send mail that includes the alert information. You can enter one email address per rule.
 
-To define email for the forwarding rule:
+**To define email for the forwarding rule:**
 
-1. Enter a single email address. If you need to add more than one email, you will need to create another action for each email address.
-
-    :::image type="content" source="media/how-to-forward-alert-information-to-partners/forward-email.png" alt-text="Scrrenshot of the forwarding alert screen to forward the alerts to an email address.":::
+1. Enter a single email address. If you need to add more than one email, you'll need to create another action for each email address.
 
 1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
-1. Select **Submit**.
+1. Select **Save**.
 
 ### Syslog server actions
 
@@ -112,8 +103,6 @@ The following formats are supported:
 
 - Object messages
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/create-actions-rule.png" alt-text="Create forwarding rule actions.":::
-
 Enter the following parameters:
 
 - Syslog host name and port.
@@ -124,7 +113,6 @@ Enter the following parameters:
 
 - TLS encryption certificate file and key file for CEF servers (optional).
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configure your encryption for your forwarding rule.":::
 
 | Syslog text message output fields | Description |
 |--|--|
@@ -155,17 +143,17 @@ Enter the following parameters:
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 
-After you enter all the information, select **Submit**.
+
 
 ### Webhook server action
 
 Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends an HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.
 
+This action is available from the on-premises management console.
+
 **To define to a webhook action:**
 
 1. Select the Webhook action.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
 
 1. Enter the server address in the **URL** field.
 
@@ -191,20 +179,6 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 **To define a webhook extended action**:
 
-1. In the management console, select **Forwarding** from the left-hand pane.
-
-1. Add a forwarding rule by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false"::: button.
-
-1. Add a meaningful name for the forwarding alert.
-
-1. Select a severity level.
-
-1. Select **Add**.
-
-1. In the Select Type drop down window, select **Webhook Extended**.
-
-   :::image type="content" source="media/how-to-forward-alert-information-to-partners/webhook-extended.png" alt-text="Select the webhook extended option from the select type drop down options menu.":::
-
 1. Add the endpoint data URL in the URL field.
 
 1. (Optional) Customize the HTTP header with a key and value definition. Add extra headers by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: button.
@@ -221,23 +195,20 @@ Once the Webhook Extended forwarding rule has been configured, you can test the 
 
     :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Select the run button to test your forwarding rule.":::
 
-You will know the forwarding rule is working if you see the Success notification appear.
+You will know the forwarding rule is working if you see the Success notification.
 
-:::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="The alert has worked correctly if the success notification appears.":::
 
 ### NetWitness action
 
 Send alert information to a NetWitness server.
 
-To define NetWitness forwarding parameters:
+**To define NetWitness forwarding parameters:**
 
 1. Enter NetWitness **Hostname** and **Port** information.
 
 1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/add-timezone.png" alt-text="Add a time zone to your forwarding rule.":::
-
-1. Select **Submit**.
+1. Select **Save**.
 
 ### Integrated vendor actions
 
@@ -259,9 +230,7 @@ For details about setting up forwarding rules for the integrations, refer to the
 
 Test the connection between the sensor and the partner server that's defined in your forwarding rules:
 
-1. Select the rule from the **Forwarding rule** dialog box.
-
-1. Select the **More** box.
+1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row. 
 
 1. Select **Send Test Message**.
 
@@ -271,11 +240,15 @@ Test the connection between the sensor and the partner server that's defined in 
 
 **To edit a forwarding rule**:
 
-- On the **Forwarding Rule** screen, select **Edit** under the **More** drop-down menu. Make the desired changes and select **Submit**.
+1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row.
+1. Select **Edit** and update the rule.
+1. Select **Save**.
 
 **To remove a forwarding rule**:
 
-- On the **Forwarding Rule** screen, select **Remove** under the **More** drop-down menu. In the **Warning** dialog box, select **OK**.
+1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row.
+1. Select **Delete** and confirm.
+1. Select **Save**. 
 
 ## Forwarding rules and alert exclusion rules
 
@@ -283,6 +256,6 @@ The administrator might have defined alert exclusion rules. These rules help adm
 
 This means that the forwarding rules you define might be ignored based on exclusion rules that your administrator has created. Exclusion rules are defined in the on-premises management console.
 
-## See also
+## Next steps
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+For more information, see [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md).

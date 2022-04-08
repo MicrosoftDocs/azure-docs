@@ -8,12 +8,16 @@ ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 12/22/2021
+ms.date: 03/31/2022
 ms.topic: how-to
-ms.custom: deploy, devplatv2
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
+ms.devlang: azurecli
 ---
 
 # Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
 
@@ -119,7 +123,7 @@ and `tfserving-deployment.yml` contains:
 model:
     name: tfserving-mounted
     version: 1
-    local_path: ./half_plus_two
+    path: ./half_plus_two
 ```
 
 then your model will be located under `/var/azureml-app/azureml-models/tfserving-deployment/1` in your deployment:
@@ -137,7 +141,7 @@ endpoint_name: tfserving-endpoint
 model:
   name: tfserving-mounted
   version: 1
-  local_path: ./half_plus_two
+  path: ./half_plus_two
 model_mount_path: /var/tfserving-model-mount
 .....
 ```

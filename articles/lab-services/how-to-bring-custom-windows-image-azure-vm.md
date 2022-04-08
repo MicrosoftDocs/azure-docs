@@ -49,5 +49,5 @@ You'll need permission to create an Azure VM in your school's Azure subscription
 ## Next steps
 
 * [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
+* [Attach or detach a shared image gallery](how-to-attach-detach-shared-image-gallery.md)
 * [Use a shared image gallery](how-to-use-shared-image-gallery.md)

@@ -7,7 +7,7 @@ author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: jhakulin
 ---

@@ -54,13 +54,13 @@ landingContent:
           - text: Azure Government compliance
             url: documentation-government-plan-compliance.md
           - text: Cloud services by audit scope
-            url: /compliance/azure-services-in-fedramp-auditscope.md
+            url: ./compliance/azure-services-in-fedramp-auditscope.md
           - text: Export controls
             url: documentation-government-overview-itar.md
           - text: Trusted Internet Connections
-            url: /compliance/compliance-tic.md
+            url: ./compliance/compliance-tic.md
           - text: Accelerate your path to ATO
-            url: /compliance/documentation-accelerate-compliance.md
+            url: ./compliance/documentation-accelerate-compliance.md
 
   # Card
   - title: Deploy and manage
@@ -92,7 +92,7 @@ landingContent:
           - text: Azure secure isolation guidance
             url: azure-secure-isolation-guidance.md
           - text: Secure Azure computing architecture
-            url: /compliance/secure-azure-computing-architecture.md
+            url: ./compliance/secure-azure-computing-architecture.md
           - text: Develop with Storage API
             url: documentation-government-get-started-connect-to-storage.md
           - text: Develop with Cognitive Services

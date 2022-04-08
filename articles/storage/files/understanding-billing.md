@@ -1,11 +1,11 @@
 ---
 title: Understand Azure Files billing | Microsoft Docs
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2021
-ms.author: rogarana
+ms.date: 3/21/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -128,7 +128,7 @@ Similarly, if you put a highly accessed workload in the cool tier, you will pay 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
 ### Logical size versus physical size
-The data at-rest capacity charge for Azure Files is billed based on the logical size, often called colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
+The data at-rest capacity charge for Azure Files is billed based on the logical size, often colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
@@ -158,7 +158,7 @@ For each server that you have connected to a sync group, there is an additional 
 The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
 
 #### Cloud enumeration scans cost
-Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of two LIST transactions per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of one LIST transaction per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
 
 > [!Tip]  
 > If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.

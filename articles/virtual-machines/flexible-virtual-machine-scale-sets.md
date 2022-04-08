@@ -162,7 +162,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Azure Load Balancer Standard SKU | Yes |
 | Application Gateway | Yes |
 | Infiniband Networking | No |
-| Basic SLB | No |
+| Azure Load Balancer Basic SKU | No |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) |
 
 ### Backup and recovery 

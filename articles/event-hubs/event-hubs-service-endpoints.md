@@ -2,7 +2,7 @@
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 10/28/2021
+ms.date: 02/23/2021
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific virtual networks 
@@ -166,6 +166,8 @@ When adding virtual network or firewalls rules, set the value of `defaultAction`
           "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],
         "properties": {
+          "publicNetworkAccess": "Enabled",
+          "defaultAction": "Deny",
           "virtualNetworkRules": 
           [
             {
@@ -175,9 +177,8 @@ When adding virtual network or firewalls rules, set the value of `defaultAction`
               "ignoreMissingVnetServiceEndpoint": false
             }
           ],
-          "ipRules":[<YOUR EXISTING IP RULES>],
-          "trustedServiceAccessEnabled": false,
-          "defaultAction": "Deny"
+          "ipRules":[],
+          "trustedServiceAccessEnabled": false
         }
       }
     ],
@@ -189,6 +190,28 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+
+## default action and public network access 
+
+### REST API
+
+The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network (VNet) rules. That is, if you didn't have any IP filters or VNet rules, it's treated as `Allow`. 
+
+From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and VNet rules are enforced. If the default action is set to `Allow`, IP filters and VNet rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
+
+The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
+
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/preview/private-endpoint-connections/create-or-update).
+
+> [!NOTE]
+> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+
+### Azure portal
+
+Azure portal always uses the latest API version to get and set properties.  If you had previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and VNet rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
+
+:::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Public access page with the All networks option selected.":::
+
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources for Azure Data Catalog.
-author: JasonWHowell
-ms.author: jasonh
+author: ChandraKavya
+ms.author: kchandra
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 02/24/2022
 ---
 # Supported data sources in Azure Data Catalog
 
@@ -192,7 +192,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Native mode servers only. SharePoint mode is not supported. SQL Server 2008 and later versions only</td>
+      <td>Native mode servers only. SharePoint mode isn't supported. SQL Server 2008 and later versions only</td>
     </tr>
     <tr>
       <td>SQL Server table</td>
@@ -368,7 +368,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs are not yet supported. Choose Azure DocumentDB in the Data Source list.</td>
+      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs aren't yet supported. Choose Azure DocumentDB in the Data Source list.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>

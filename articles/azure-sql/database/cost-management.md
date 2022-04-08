@@ -6,6 +6,7 @@ ms.author: kendralittle
 ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.subservice: service-overview
+ms.reviewer: mathoma
 ms.topic: how-to
 ms.date: 06/30/2021
 ---
@@ -70,7 +71,8 @@ Billing depends on the SKU of your product, the generation hardware of your SKU,
 - And for storage: geo-redundant storage (GRS), locally redundant storage (LRS), and zone-redundant storage (ZRS)
 - It's also possible to have a deprecated SKU from deprecated resource offerings
 
-To learn more, see [service tiers](service-tiers-general-purpose-business-critical.md). 
+For more information, see [vCore-based purchasing model](service-tiers-vcore.md), [DTU-based purchasing model](service-tiers-dtu.md), or [compare purchasing models](purchasing-models.md). 
+
 
 The following table shows the most common billing meters and their possible SKUs for **single databases**: 
 

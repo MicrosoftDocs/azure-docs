@@ -2,7 +2,7 @@
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 03/10/2022
 ---
 
 # Array functions for ARM templates
@@ -27,11 +27,16 @@ Resource Manager provides several functions for working with arrays in your Azur
 
 To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [array](../bicep/bicep-functions-array.md) functions.
+
 ## array
 
 `array(convertToArray)`
 
 Converts the value to an array.
+
+In Bicep, use the [array](../bicep/bicep-functions-array.md#array) function.
 
 ### Parameters
 
@@ -62,6 +67,8 @@ The output from the preceding example with the default values is:
 `concat(arg1, arg2, arg3, ...)`
 
 Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string.
+
+In Bicep, use the [concat](../bicep/bicep-functions-array.md#concat) function.
 
 ### Parameters
 
@@ -104,6 +111,8 @@ The output from the preceding example with the default values is:
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
+In Bicep, use the [contains](../bicep/bicep-functions-array.md#contains) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -134,9 +143,11 @@ The output from the preceding example with the default values is:
 
 ## createArray
 
-`createArray (arg1, arg2, arg3, ...)`
+`createArray(arg1, arg2, arg3, ...)`
 
 Creates an array from the parameters.
+
+In Bicep, the `createArray` function isn't supported. To construct an array, see the Bicep [array](../bicep/data-types.md#arrays) data type.
 
 ### Parameters
 
@@ -170,6 +181,8 @@ The output from the preceding example with the default values is:
 
 Determines if an array, object, or string is empty.
 
+In Bicep, use the [empty](../bicep/bicep-functions-array.md#empty) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -200,6 +213,8 @@ The output from the preceding example with the default values is:
 
 Returns the first element of the array, or first character of the string.
 
+In Bicep, use the [first](../bicep/bicep-functions-array.md#first) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -229,6 +244,8 @@ The output from the preceding example with the default values is:
 
 Returns a single array or object with the common elements from the parameters.
 
+In Bicep, use the [intersection](../bicep/bicep-functions-array.md#intersection) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -256,9 +273,11 @@ The output from the preceding example with the default values is:
 
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns the last element of the array, or last character of the string.
+
+In Bicep, use the [last](../bicep/bicep-functions-array.md#last) function.
 
 ### Parameters
 
@@ -288,6 +307,8 @@ The output from the preceding example with the default values is:
 `length(arg1)`
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
+
+In Bicep, use the [length](../bicep/bicep-functions-array.md#length) function.
 
 ### Parameters
 
@@ -330,6 +351,8 @@ For more information about using this function with an array, see [Resource iter
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
 
+In Bicep, use the [max](../bicep/bicep-functions-array.md#max) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -358,6 +381,8 @@ The output from the preceding example with the default values is:
 `min(arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
+
+In Bicep, use the [min](../bicep/bicep-functions-array.md#min) function.
 
 ### Parameters
 
@@ -388,6 +413,8 @@ The output from the preceding example with the default values is:
 
 Creates an array of integers from a starting integer and containing a number of items.
 
+In Bicep, use the [range](../bicep/bicep-functions-array.md#range) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -416,6 +443,8 @@ The output from the preceding example with the default values is:
 `skip(originalValue, numberToSkip)`
 
 Returns an array with all the elements after the specified number in the array, or returns a string with all the characters after the specified number in the string.
+
+In Bicep, use the [skip](../bicep/bicep-functions-array.md#skip) function.
 
 ### Parameters
 
@@ -447,6 +476,8 @@ The output from the preceding example with the default values is:
 
 Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
+In Bicep, use the [take](../bicep/bicep-functions-array.md#take) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -476,6 +507,8 @@ The output from the preceding example with the default values is:
 `union(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
+
+In Bicep, use the [union](../bicep/bicep-functions-array.md#union) function.
 
 ### Parameters
 

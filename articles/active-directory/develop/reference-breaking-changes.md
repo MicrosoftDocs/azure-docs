@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 11/24/2021
 ms.author: ryanwi
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ms.custom: aaddev, has-adal-ref
 ---
 

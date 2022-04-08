@@ -92,7 +92,7 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 * Make sure you don't create outputs for sensitive data. Output values can be accessed by anyone who has access to the deployment history. They're not appropriate for handling secrets.
 
-* Instead of passing property values around through outputs, use the [existing keyword](resource-declaration.md#existing-resources) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
+* Instead of passing property values around through outputs, use the [existing keyword](existing-resource.md) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
 
 For more information about Bicep outputs, see [Outputs in Bicep](outputs.md).
 

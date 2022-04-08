@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub classic IP filter (deprecated) | Microsoft Docs
 description: How to upgrade from classic IP filter and what are the benefits
-author: jlian
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: jlian 
+ms.author: kgremban 
 ms.custom: devx-track-azurepowershell
 ---
 

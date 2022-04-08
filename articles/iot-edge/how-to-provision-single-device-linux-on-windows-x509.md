@@ -1,20 +1,26 @@
 ---
 title: Create and provision an IoT Edge for Linux on Windows device using X.509 certificates - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with X.509 certificates
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/27/2021
-ms.author: kgremban
-monikerRange: "iotedge-2018-06"
+ms.date: 02/09/2022
+ms.author: patricka
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+>[!NOTE]
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+:::moniker-end
+<!-- end 1.2 -->
 
 Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
@@ -62,6 +68,9 @@ You're ready to set up your device with its cloud identity and authentication in
 
 To provision your device using X.509 certificates, you will need your **IoT hub name**, **device ID**, and the absolute paths to your **identity certificate** and **private key** on your Windows host machine.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
 
 # [PowerShell](#tab/powershell)
@@ -94,10 +103,31 @@ For more information about the `Provision-EflowVM` command, see [PowerShell func
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed with the type `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
 ---
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Have the device identity certificate and its matching private key ready on your target device. Know the absolute path to both files.
+
+Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
+
+```powershell
+Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "HUB_HOSTNAME_HERE" -deviceId "DEVICE_ID_HERE" -identityCertPath "ABSOLUTE_PATH_TO_IDENTITY_CERT_HERE" -identityPrivKeyPath "ABSOLUTE_PATH_TO_PRIVATE_KEY_HERE"
+```
+
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 # [PowerShell](#tab/powershell)
 
@@ -141,8 +171,48 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
 
 ---
+:::moniker-end
+<!--end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+
+   ```powershell
+   Connect-EflowVm
+   ```
+
+   >[!NOTE]
+   >The only account allowed to SSH to the virtual machine is the user that created it.
+
+1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+
+   ```bash
+   sudo iotedge list
+   ```
+
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. Retrieve the service logs.
+
+       ```bash
+       sudo iotedge system logs
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

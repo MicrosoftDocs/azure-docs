@@ -1,5 +1,6 @@
 ---
-title: Manage AWS costs and usage in Azure Cost Management
+title: Manage AWS costs and usage in Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders

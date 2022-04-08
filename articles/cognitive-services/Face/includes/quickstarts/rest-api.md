@@ -43,7 +43,9 @@ Make the following changes:
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the URL in the body of the request to point to a different image.
 
-Once you've made your changes, open a command prompt and enter the new command. 
+Once you've made your changes, open a command prompt and enter the new command. The code will process the following remote image.
+
+![An older man and woman](../../media/quickstarts/lillian-gish.jpg)
 
 ### Examine the results
 
@@ -89,13 +91,6 @@ The returned face information now includes face attributes. For example:
         "pitch": 0,
         "roll": 0.1,
         "yaw": -32.9
-      },
-      "gender": "female",
-      "age": 22.9,
-      "facialHair": {
-        "moustache": 0,
-        "beard": 0,
-        "sideburns": 0
       },
       "glasses": "NoGlasses",
       "emotion": {
@@ -183,6 +178,8 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
 
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
+
 ### Find matches
 
 Copy the following command to a text editor.
@@ -202,7 +199,7 @@ Use the following JSON content for the `body` value:
 
 ### Examine the results
 
-You'll receive a JSON response that lists the IDs of the faces that match your query face.
+You'll receive a JSON response that lists the IDs of the faces that match your query face. 
 
 ```json
 [
@@ -213,6 +210,10 @@ You'll receive a JSON response that lists the IDs of the faces that match your q
     ...
 ] 
 ```
+
+In this program, the face detected in this image should be returned as the face that's similar to the source image face.
+
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Clean up resources
 

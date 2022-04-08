@@ -8,7 +8,8 @@ ms.topic: quickstart
 ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli, contperf-fy22q2
+ms.devlang: azurecli
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
 
@@ -53,12 +54,12 @@ If you no longer need the Azure resources created in this quickstart, you can us
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
 
 To delete a resource group by name:
-1. Run the [az group delete](/cli/azure/group#az_group_delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli-interactive
     az group delete --name MyResourceGroup
     ```
-1. Run the [az group list](/cli/azure/group#az_group_list) command to confirm the resource group is deleted.  
+1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
 
     ```azurecli-interactive
     az group list

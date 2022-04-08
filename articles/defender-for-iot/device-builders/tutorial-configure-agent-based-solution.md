@@ -34,7 +34,7 @@ In this tutorial you will learn how to:
 
 **To enable data collection**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Settings** > **Data Collection**.
 
@@ -63,7 +63,7 @@ You can choose to add storage of an additional information type as `raw events`.
 
 **To enable Log Analytics to work with micro agent**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Settings** > **Data Collection**.
 
@@ -87,7 +87,7 @@ In order to secure your IoT solution, the IP addresses of the incoming, and outg
 
 **To enable the collection of IP address data**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Settings** > **Data Collection**.
 

@@ -18,7 +18,7 @@ This table lists help for fixing the following assessment readiness issues.
 
 **Issue** | **Fix**
 --- | ---
-Unsupported boot type | Azure doesn't support VMs with an EFI boot type. Convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to handle the migration of such VMs. It will convert the boot type of the VM to BIOS during the migration.
+Unsupported boot type | Azure does not support UEFI boot type for VMs with the Operating Systems: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2. Check list of Operating Systems that support UEFI-based machines [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)
 Conditionally supported Windows operating system | The operating system has passed its end-of-support date and needs a Custom Support Agreement for [support in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading before you migrate to Azure. Review information about [preparing servers running Windows Server 2003](prepare-windows-server-2003-migration.md) for migration to Azure.
 Unsupported Windows operating system | Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the server before you migrate to Azure.
 Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure. For more information, see [this website](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
@@ -29,7 +29,7 @@ Requires a Microsoft Visual Studio subscription | The server is running a Window
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the server exceeds Azure VM support. Reduce storage requirements for the server before migration.
 VM not found for the required network performance | The network performance (in/out) required for the server exceeds Azure VM support. Reduce the networking requirements for the server.
 VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.<br/><br/> Azure Migrate: Discovery and assessment assesses the disks based on the disk limits for Ultra disks (64 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is <64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
+One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assesses the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is <64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
 One or more unsuitable network adapters | Remove unused network adapters from the server before migration.
 Disk count exceeds limit | Remove unused disks from the server before migration.
 Disk size exceeds limit | Azure Migrate: Discovery and assessment supports disks with up to 64-TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
@@ -48,8 +48,8 @@ This table lists help for fixing the following assessment readiness issues.
 
 **Issue** | **Fix**
 --- | ---
-Unsupported IPv6 | Only applicable to Azure VMware Solution assessments. Azure VMware Solution doesn't support IPv6 internet addresses.Contact the Azure VMware Solution team for remediation guidance if your server is detected with IPv6.
-Unsupported OS | Support for certain Operating System versions have been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software)
+Unsupported IPv6 | Only applicable to Azure VMware Solution assessments. Azure VMware Solution doesn't support IPv6 internet addresses. Contact the Azure VMware Solution team for remediation guidance if your server is detected with IPv6.
+Unsupported OS | Support for certain Operating System versions has been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software)
 
 
 ## Suggested migration tool in an import-based Azure VMware Solution assessment is unknown
@@ -66,7 +66,7 @@ In the case of VMware and Hyper-V VMs, an Azure VM assessment marks Linux VMs as
 - You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](../virtual-machines/linux/endorsed-distros.md).
 - After you've verified the endorsed distribution, you can ignore this warning.
 
-This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. An Azure VM assessment uses the operating system detected from the VM by using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
+This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. An Azure VM assessment uses the operating system detected from the VM by using the guest credentials provided. This Operating System data identifies the right OS information in the case of both Windows and Linux VMs.
 
 ## Operating system version not available
 
@@ -83,10 +83,10 @@ An Azure VM assessment might recommend Azure VM SKUs with more cores and memory 
 
 Let's look at an example recommendation:
 
-We have an on-premises VM with four cores and 8 GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
+We have an on-premises VM with 4 cores and 8 GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
 
-- If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
-- If the assessment is **Performance-based**, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) is recommended.
+- If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
+- If the assessment is **Performance-based**, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of 4 cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
 
 ## Why is the recommended Azure disk SKU bigger than on-premises in an Azure VM assessment?
@@ -177,6 +177,14 @@ No, currently only disk size, total throughput, and total IOPS are used for sizi
 
 This result is possible because not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
 
+## Why is my assessment showing a warning that it was created with an invalid offer?
+
+Your assessment was created with an offer that is no longer valid and hence, the **Edit** and **Recalculate** buttons are disabled. You can create a new assessment with any of the valid offers - *Pay as you go*, *Pay as you go Dev/Test*, and *Enterprise Agreement*. You can also use the **Discount(%)** field to specify any custom discount on top of the Azure offer. [Learn more](how-to-create-assessment.md).
+
+## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
+
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more.](concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment)
+
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
 When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
@@ -215,12 +223,12 @@ To collect network traffic logs:
    - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
 1. Close Developer Tools.
 
-## Where is the operating system data in my assessment discovered from?
+## Where is the Operating System data in my assessment discovered from?
 
-- For VMware VMs, by default, it's the operating system data provided by the vCenter Server.
+- For VMware VMs, by default, it's the Operating System data provided by the vCenter Server.
    - For VMware Linux VMs, if application discovery is enabled, the OS details are fetched from the guest VM. To check which OS details are in the assessment, go to the **Discovered servers** view, and mouse over the value in the **Operating system** column. In the text that pops up, you'd be able to see whether the OS data you see is gathered from the vCenter Server or from the guest VM by using the VM credentials.
    - For Windows VMs, the operating system details are always fetched from the vCenter Server.
-- For Hyper-V VMs, the operating system data is gathered from the Hyper-V host.
+- For Hyper-V VMs, the Operating System data is gathered from the Hyper-V host.
 - For physical servers, it is fetched from the server.
 
 ## Common web apps discovery errors

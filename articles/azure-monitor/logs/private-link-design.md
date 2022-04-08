@@ -15,7 +15,7 @@ As discussed in the [Azure Monitor Private Link overview article](private-link-s
 
 The simplest and most secure approach would be:
 1. Create a single Private Link connection, with a single Private Endpoint and a single AMPLS. If your networks are peered, create the Private Link connection on the shared (or hub) VNet.
-2. Add *all* Azure Monitor resources (Application Insights components, Log Analytics workspaces and [Data Collection endpoints](../agents/data-collection-endpoint-overview.md)) to that AMPLS.
+2. Add *all* Azure Monitor resources (Application Insights components, Log Analytics workspaces and [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md)) to that AMPLS.
 3. Block network egress traffic as much as possible.
 
 If you can't add all Azure Monitor resources to your AMPLS, you can still apply your Private Link to some resources, as explained in [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks). While useful, this approach is less recommended since it doesn't prevent data exfiltration.
@@ -82,7 +82,7 @@ In the following diagram, VNet1 uses the Open mode and VNet2 uses the Private On
 The AMPLS object has the following limits:
 * A VNet can only connect to **one** AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
 * An AMPLS object can connect to 300 Log Analytics workspaces and 1000 Application Insights components at most.
-* An Azure Monitor resource (Workspace or Application Insights component or [Data Collection Endpoint](../agents/data-collection-endpoint-overview.md)) can connect to 5 AMPLSs at most.
+* An Azure Monitor resource (Workspace or Application Insights component or [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md)) can connect to 5 AMPLSs at most.
 * An AMPLS object can connect to 10 Private Endpoints at most.
 
 > [!NOTE]
@@ -90,7 +90,7 @@ The AMPLS object has the following limits:
 
 In the below diagram:
 * Each VNet connects to only **one** AMPLS object.
-* AMPLS A connects to two workspaces and one Application Insight component, using 2 of the possible 300 Log Analytics workspaces and 1 of the possible 1 Application Insights components it can connect to.
+* AMPLS A connects to two workspaces and one Application Insight component, using 2 of the possible 300 Log Analytics workspaces and 1 of the possible 1000 Application Insights components it can connect to.
 * Workspace2 connects to AMPLS A and AMPLS B, using two of the five possible AMPLS connections.
 * AMPLS B is connected to Private Endpoints of two VNets (VNet2 and VNet3), using two of the 10 possible Private Endpoint connections.
 
@@ -106,7 +106,7 @@ That granularity allows you to set access according to your needs, per workspace
 
 Blocking queries from public networks means clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes logs, metrics, and the live metrics stream. Blocking queries from public networks affects all experiences that run these queries, such as workbooks, dashboards, Insights in the Azure portal, and queries run from outside the Azure portal.
 
-Your [Data Collection endpoints](../agents/data-collection-endpoint-overview.md) can be set to:
+Your [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md) can be set to:
 * Accept or block access from public networks (networks not connected to the resource AMPLS).
 
 See [Set resource access flags](./private-link-configure.md#set-resource-access-flags) for configuration details.
@@ -188,11 +188,11 @@ The latest versions of the Windows and Linux agents must be used to support secu
 
 **Azure Monitor Windows agents**
 
-Azure Monitor Windows agent version 1.1.1.0 or higher (using [Data Collection endpoints](../agents/data-collection-endpoint-overview.md))
+Azure Monitor Windows agent version 1.1.1.0 or higher (using [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md))
 
 **Azure Monitor Linux agents**
 
-Azure Monitor Windows agent version 1.10.5.0 or higher (using [Data Collection endpoints](../agents/data-collection-endpoint-overview.md))
+Azure Monitor Windows agent version 1.10.5.0 or higher (using [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md))
 
 **Log Analytics Windows agent (on deprecation path)**
 
@@ -207,7 +207,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 ### Azure portal
-To use Azure Monitor portal experiences such as Application Insights, Log Analytics and [Data Collection endpoints](../agents/data-collection-endpoint-overview.md), you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your Network Security Group.
+To use Azure Monitor portal experiences such as Application Insights, Log Analytics and [Data Collection endpoints](../essentials/data-collection-endpoint-overview.md), you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your Network Security Group.
 
 ### Programmatic access
 To use the REST API, [CLI](/cli/azure/monitor) or PowerShell with Azure Monitor on private networks, add the [service tags](../../virtual-network/service-tags-overview.md)  **AzureActiveDirectory** and **AzureResourceManager** to your firewall.

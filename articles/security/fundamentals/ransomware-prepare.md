@@ -55,7 +55,7 @@ To achieve this, organizations should identify and execute quick wins to strengt
 
 Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
 
-Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's [Security rapid modernization plan](https://aka.ms/sparoadmap), which covers:
+Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's [Security rapid modernization plan](/security/compass/security-rapid-modernization-plan), which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
@@ -175,6 +175,3 @@ Other articles in this series:
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
-
-
-

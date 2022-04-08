@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
@@ -81,12 +80,12 @@ $svcprincipal = az ad sp create --id $azureAdApplication.ApplicationId
 Start-Sleep -s 15 # to avoid a PrincipalNotFound error, pause for 15 seconds
 
 # if you still get a PrincipalNotFound error, then rerun the following until successful.
-$roleassignment = az role assignment create --role "Contributor" --assignee $azureAdApplication.ApplicationId.Guid
+$roleassignment = az role assignment create --role "Contributor" --scope /subscriptions/{Subscription-id}/resourceGroups/{resource-group-name} --assignee $azureAdApplication.ApplicationId.Guid
 
 # output the values we need for our C# application to successfully authenticate
 Write-Output "Copy these values into the C# sample app"
 
-Write-Output "_subscriptionId:" (az account show --query "id")
+Write-Output "-subscriptionId:" (az account show --query "id")
 Write-Output "_tenantId:" (az account show --query "tenantId")
 Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret

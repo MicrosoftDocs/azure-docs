@@ -2,13 +2,12 @@
 metadata:
   title: Azure SignalR Service frequently asked questions
   description: Get answers to frequently asked questions about Azure SignalR Service, including troubleshooting and typical usage scenarios.
-  author: sffamily
+  author: vicancy
   ms.service: signalr
-  ms.topic: overview
+  ms.topic: faq
   ms.custom: devx-track-dotnet
   ms.date: 11/13/2019
-  ms.author: zhshang
-    
+  ms.author: lianwei
 title: Azure SignalR Service FAQ
 summary: |
 

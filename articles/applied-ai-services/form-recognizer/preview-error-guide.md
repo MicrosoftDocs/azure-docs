@@ -86,6 +86,7 @@ When possible, more details are specified in the *inner error* property.
 | InvalidRequest | ContentSourceNotAccessible | Content is not accessible: {details} |
 | InvalidRequest | ContentSourceTimeout | Timeout while receiving the file from client. |
 | InvalidRequest | DocumentModelLimit | Account cannot create more than {maximumModels} models. |
+| InvalidRequest | DocumentModelLimitNeural | Account cannot create more than 10 custom neural models per month. Please contact support to request additional capacity. |
 | InvalidRequest | DocumentModelLimitComposed | Account cannot create a model with more than {details} component models. |
 | InvalidRequest | InvalidContent | The file is corrupted or format is unsupported. Refer to documentation for the list of supported formats. |
 | InvalidRequest | InvalidContentDimensions | The input image dimensions are out of range. Refer to documentation for supported image dimensions. |

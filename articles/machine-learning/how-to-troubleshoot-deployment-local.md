@@ -5,7 +5,8 @@ description: Try a local model deployment as a first step in troubleshooting mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2

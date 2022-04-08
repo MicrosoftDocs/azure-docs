@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/14/2021
+ms.date: 02/25/2022
 ms.author: markvi
 ms.reviewer: besiler 
 
@@ -39,8 +39,6 @@ This article explains how to download activity logs in Azure AD.
 
 - By downloading the logs, you can control for how long logs are stored. 
 
-- You can download up to 250 000 records. If you want to download more data, use the reporting API.
-
 - Your download is based on the filter you have set. 
 
 - Azure AD supports the following formats for your download:
@@ -51,6 +49,7 @@ This article explains how to download activity logs in Azure AD.
 
 - The timestamps in the downloaded files are always based on UTC.
 
+- For large data sets (> 250 000 records), you should use the reporting API to download the data.
 
 
 ## What license do you need?

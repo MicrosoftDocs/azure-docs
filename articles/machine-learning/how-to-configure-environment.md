@@ -56,7 +56,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure portal
 
-    **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
     ![Azure portal](./media/how-to-configure-environment/configure.png)
 

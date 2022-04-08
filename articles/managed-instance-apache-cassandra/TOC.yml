@@ -51,6 +51,10 @@
       href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
+    - name: Enable materialized views
+      href: materialized-views.md
+    - name: Nodetool commands
+      href: dba-commands.md               
 - name: Reference
   items:
     - name: REST API

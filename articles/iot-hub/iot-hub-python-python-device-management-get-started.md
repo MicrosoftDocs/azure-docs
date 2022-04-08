@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure IoT Hub device management (Python) | Microsoft Docs
 description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Python to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.author: lizross
+ms.author: kgremban
 ms.custom: mqtt, devx-track-python, devx-track-azurecli
 ---
 

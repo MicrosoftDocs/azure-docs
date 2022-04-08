@@ -1,5 +1,6 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management
+title: Optimize your cloud investment with Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders

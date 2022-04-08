@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 02/14/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -33,8 +33,8 @@ You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manage
 
 To access blob data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
 
-- A data access role, such as **Storage Blob Data Contributor**
-- The Azure Resource Manager **Reader** role
+- A data access role, such as **Storage Blob Data Reader** or **Storage Blob Data Contributor**
+- The Azure Resource Manager **Reader** role, at a minimum
 
 To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -48,8 +48,6 @@ You can also assign an Azure Resource Manager role that provides additional perm
 
 > [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md).
->
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify blob data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 # [PowerShell](#tab/powershell)
 
@@ -131,7 +129,7 @@ For information about assigning roles with PowerShell at the subscription or res
 
 # [Azure CLI](#tab/azure-cli)
 
-To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
+To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
 
 To assign a role scoped to a container, specify a string containing the scope of the container for the `--scope` parameter. The scope for a container is in the form:
 

@@ -1,8 +1,10 @@
 ---
 title: Microsoft Defender for Storage - excluding a storage account 
 description: Excluding a specific storage account from a subscription with Microsoft Defender for Storage enabled.
-ms.date: 01/16/2022
+ms.date: 02/06/2022
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 # Exclude a storage account from Microsoft Defender for Storage protections
 
@@ -38,7 +40,7 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
     If you skip this stage, your untagged resources will continue receiving daily updates from the subscription level enablement policy. That policy will enable Defender for Storage again on the account.
 
     > [!TIP]
-    > Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
+    > Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
 1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the ``Disable-AzSecurityAdvancedThreatProtection`` cmdlet (using the same resource ID): 
 
@@ -106,15 +108,60 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 ---
 
-
 ## Exclude an Azure Databricks Storage account
 
-When Defender for Storage is enabled on a subscription, it's not currently possible to exclude a Storage account if it belongs to an Azure Databricks workspace.
+### Exclude an active Databricks workspace
 
-Instead, you can disable Defender for Storage on the subscription and enable Defender for Storage for each Azure Storage account from the **Security** page:
+Microsoft Defender for Storage can exclude specific active Databricks workspace storage accounts, when the plan is already enabled on a subscription.
 
-:::image type="content" source="media/defender-for-storage-exclude/defender-plan-enable-resource.png" alt-text="Screenshot of enabling Microsoft Defender for Storage from the security page of an Azure Storage account." lightbox="media/defender-for-storage-exclude/defender-plan-enable-resource.png":::
+**To exclude an active Databricks workspace**: 
 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Azure Databricks** > **`Your Databricks workspace`** > **Tags**.
+
+1. In the Name field, enter `AzDefenderPlanAutoEnable`.
+
+1. In the Value field, enter `off`.
+
+1. Select **Apply**.
+
+    :::image type="content" source="media/defender-for-storage-exclude/workspace-exclude.png" alt-text="Screenshot showing the location, and how to apply the tag to your Azure Databricks account.":::
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **`Your subscription`**.
+
+1. Toggle the Defender for Storage plan to **Off**.
+
+    :::image type="content" source="media/defender-for-storage-exclude/storage-off.png" alt-text="Screenshot showing how to switch the Defender for Storage plan to off.":::
+
+1. Select **Save**.
+
+1. Toggle the Defender for Storage plan to **On**.
+
+1. Select **Save**.
+
+The tags will be inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on. 
+
+> [!Note] 
+> Tags can't be added directly to the Databricks Storage account, or its Managed Resource Group.
+
+### Prevent auto-enabling on a new Databricks workspace storage account 
+
+When you create a new Databricks workspace, you have the ability to add a tag that will prevent your Microsoft Defender for Storage account from enabling automatically.
+
+**To prevent auto-enabling on a new Databricks workspace storage account**:
+
+ 1. Follow [these steps](/azure/databricks/scenarios/quickstart-create-Databricks-workspace-portal?tabs=azure-portal) to create a new Azure Databricks workspace.
+ 
+ 1. In the Tags tab, enter a tag named `AzDefenderPlanAutoEnable`.
+ 
+ 1. Enter the value `off`.
+ 
+    :::image type="content" source="media/defender-for-storage-exclude/tag-off.png" alt-text="Screenshot that shows how to create a tag in the Databricks workspace.":::
+
+1. Continue following the instructions to create your new Azure Databricks workspace.
+ 
+The Microsoft Defender for Storage account will inherit the tag of the Databricks workspace, which will prevent Defender for Storage from turning on automatically.
 
 ## Next steps
 

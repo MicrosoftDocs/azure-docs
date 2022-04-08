@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, Javascript - Speech service"
+title: "Quickstart: Recognize speech from an audio file, JavaScript - Speech service"
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: eric-urban

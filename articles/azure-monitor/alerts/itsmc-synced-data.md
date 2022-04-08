@@ -2,7 +2,7 @@
 title: Data synced from your ITSM product to LA Workspace
 description: This article provides an overview of Data synced from your ITSM product to LA Workspace.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 2/23/2022
 ms.custom: references_regions
 
 ---
@@ -10,11 +10,11 @@ ms.custom: references_regions
 # Data synced from your ITSM product
 
 Incidents and change requests are synced from your ITSM tool to your Log Analytics workspace, based on the connection's configuration (using "Sync Data" field):
-* [ServiceNow](./itsmc-connections-servicenow.md)
-* [System Center Service Manager](./itsmc-connections-scsm.md)
-* [Cherwell](./itsmc-connections-cherwell.md)
-* [Provance](./itsmc-connections-provance.md)
-
+ - [ServiceNow](./itsmc-connections-servicenow.md)
+ - [System Center Service Manager](./itsmc-connections-scsm.md)
+  >[!NOTE]
+  > As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.
+  > Existing ITSM connections are supported.
 ## Synced data
 
 This section shows some examples of data gathered by ITSMC.

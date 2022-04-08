@@ -23,19 +23,25 @@ IoT Central lets you complete device management tasks such as:
 - Troubleshoot and remediate issues with devices.
 - Provision new devices.
 
+## Search your devices
+
+IoT Central lets you search devices by device name, ID, property value or cloud property value.
+
+:::image type="content" source="media/overview-iot-central-operator/search-devices.png" alt-text="Screenshot that shows how to search devices":::
+
 ## Monitor and manage devices
 
 :::image type="content" source="media/overview-iot-central-operator/simulated-telemetry.png" alt-text="Screenshot that shows a device view":::
 
 To monitor devices, use the custom device views defined by a solution builder. These views can show device telemetry and property values. An example is the **Overview** view shown in the previous screenshot.
 
-For more detailed information, use device groups and the built-in analytics features. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
+For more detailed information, use device groups and the built-in analytics features. To learn more, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 To manage individual devices, use device views to set device and cloud properties, and call device commands. Examples include the **Manage device** and **Commands** views in the previous screenshot.
 
 To manage devices in bulk, create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
-To manage IoT Edge devices, [create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates) and deploy them onto the device directly from IoT Central. You can also run commands on modules from within IoT Central.  
+To manage IoT Edge devices, you can use the IoT Central UI to[create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
 
 If your IoT Central application uses *organizations*, an administrator controls which devices you have access to.
 

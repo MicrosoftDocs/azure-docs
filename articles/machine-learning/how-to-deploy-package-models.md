@@ -7,6 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
+author: ssalgadodev
+ms.author: ssalgado
 ms.reviewer: larryfr
 ms.custom: deploy
 ---

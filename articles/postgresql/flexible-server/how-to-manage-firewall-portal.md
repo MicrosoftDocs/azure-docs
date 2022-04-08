@@ -4,6 +4,7 @@ description: Create and manage firewall rules for Azure Database for PostgreSQL 
 author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

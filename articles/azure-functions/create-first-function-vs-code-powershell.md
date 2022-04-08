@@ -27,7 +27,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.NET 6 runtime](https://dotnet.microsoft.com/download)  
++ [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download/dotnet)  
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 

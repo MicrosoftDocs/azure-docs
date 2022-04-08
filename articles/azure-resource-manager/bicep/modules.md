@@ -59,7 +59,7 @@ To deploy **more than one instance** of a module, add the `for` expression. You 
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
-Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they're determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Resource dependencies](resource-declaration.md#dependencies).
+Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they're determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Resource dependencies](resource-dependencies.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
 
@@ -83,7 +83,7 @@ If you've [published a module to a registry](bicep-cli.md#publish), you can link
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br** is the schema name for a Bicep registry.
+- **br** is the scheme name for a Bicep registry.
 - **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
@@ -99,7 +99,7 @@ The full path for a module in a registry can be long. Instead of providing the f
 
 ### File in template spec
 
-After creating a [template spec](../templates/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
+After creating a [template spec](../bicep/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
 
 ```bicep
 module <symbolic-name> 'ts:<sub-id>/<rg-name>/<template-spec-name>:<version>' = {

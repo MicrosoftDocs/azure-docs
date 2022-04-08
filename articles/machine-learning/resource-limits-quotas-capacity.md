@@ -70,7 +70,7 @@ To learn how increase resource quotas, see ["Manage and increase quotas for reso
 
 ## Limit increases
 
-Some limits can be increased for individual workspaces by [contacting support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). 
+Some limits can be increased for individual workspaces by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). 
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix Azure Cosmos DB service unavailable e
 author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/28/2020
+ms.date: 02/03/2022
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -18,7 +18,11 @@ The Java v4 SDK wasn't able to connect to Azure Cosmos DB.
 The following list contains known causes and solutions for service unavailable exceptions.
 
 ### The required ports are being blocked
-Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
+Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled. If the account is configured with private endpoint then additional ports are required to be opened.
+
+```
+failed to establish connection to {account name}.documents.azure.com/<unresolved>:3044 due to io.netty.channel.ConnectTimeoutException:
+```
 
 ### Client initialization failure
 The following exception is hit if the SDK is not able to talk to the Cosmos DB instance. This normally points to some security protocol like a firewall rule is blocking the requests.
@@ -40,6 +44,9 @@ Exception in thread "main" ServiceUnavailableException{userAgent=azsdk-java-cosm
 ```
 
 Follow the [request timeout troubleshooting steps](troubleshoot-request-timeout-java-sdk-v4-sql.md#troubleshooting-steps) to resolve it.
+
+#### UnknownHostException
+UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
 
 ### Service outage
 Check the [Azure status](https://status.azure.com/status) to see if there's an ongoing issue.

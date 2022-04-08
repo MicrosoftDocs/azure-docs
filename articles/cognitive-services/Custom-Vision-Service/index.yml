@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Custom Vision documentation # < 60 chars
-summary: Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, based on their visual characteristics.  # < 160 chars
+summary: Azure Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies content labels to images based on their visual characteristics.  # < 160 chars
 
 metadata:
   title: Custom Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/27/2021 #Required; mm/dd/yyyy format.
+  ms.date: 02/02/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -55,14 +55,14 @@ landingContent:
             url: get-started-build-detector.md
           - text: Using the Custom Vision SDK
             url: quickstarts/object-detection.md
-      - linkListType: tutorial
-        links:
-          - text: Logo detector for mobile
-            url: logo-detector-mobile.md
       - linkListType: how-to-guide
         links:
           - text: Use the prediction API
             url: use-prediction-api.md
+      - linkListType: tutorial
+        links:
+          - text: Logo detector for mobile
+            url: logo-detector-mobile.md
 
   - title: Test and improve models
     linkLists:
@@ -75,7 +75,7 @@ landingContent:
           - text: Use Smart Labeler
             url: suggested-tags.md
 
-  - title: Export models
+  - title: Export your model
     linkLists:
       - linkListType: how-to-guide
         links:

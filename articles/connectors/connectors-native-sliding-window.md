@@ -1,9 +1,9 @@
 ---
 title: Schedule tasks to handle contiguous data
-description: Create and run recurring tasks that handle contiguous data by using sliding windows in Azure Logic Apps
+description: Create and run recurring tasks that handle contiguous data by using sliding windows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
+ms.reviewer: deli, azla
 ms.topic: conceptual
 ms.date: 03/25/2020
 ---
@@ -28,7 +28,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

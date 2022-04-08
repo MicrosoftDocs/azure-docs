@@ -87,10 +87,10 @@ From the project directory, open the *program.cs* file and add the following `us
 
 In the application's **Program** class, create variables for your resource's key and endpoint.
 
-
 > [!IMPORTANT]
 > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
+
+> [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_creds)]
@@ -145,6 +145,12 @@ Face detection is required as a first step in all the other scenarios. This sect
 Create a new method to detect faces. The `DetectFaceExtract` method processes three of the images at the given URL and creates a list of **[DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface)** objects in program memory. The list of **[FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype)** values specifies which features to extract. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
+
+The above code processes the following remote images:
+
+![Photo of a woman smiling](../../media/quickstarts/detection-1.jpg)
+![Photo of a man, woman, and baby](../../media/quickstarts/detection-5.jpg)
+![Photo of an older man and woman](../../media/quickstarts/detection-6.jpg)
 
 > [!TIP]
 > You can also detect faces in a local image. See the [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations) methods such as **DetectWithStreamAsync**.
@@ -220,12 +226,19 @@ The following method detects faces in a set of target images and in a single sou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
 
+In this program, the following remote image will be used as the source:
+
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
+
 ### Print matches
 
 The following code prints the match details to the console:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
 
+In this program, the face detected in this image should be returned as the face that's similar to the source image face.
+
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Run the application
 

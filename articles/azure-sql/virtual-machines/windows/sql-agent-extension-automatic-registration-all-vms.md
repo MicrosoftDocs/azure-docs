@@ -56,7 +56,7 @@ To register your SQL Server VM with the extension, you'll need:
 To enable automatic registration of your SQL Server VMs in the Azure portal, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-1. Navigate to the [**SQL virtual machines**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
+1. Navigate to the [**SQL virtual machines**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
 1. Select **Automatic SQL Server VM registration** to open the **Automatic registration** page. 
 
    :::image type="content" source="media/sql-agent-extension-automatic-registration-all-vms/automatic-registration.png" alt-text="Select Automatic SQL Server VM registration to open the automatic registration page":::

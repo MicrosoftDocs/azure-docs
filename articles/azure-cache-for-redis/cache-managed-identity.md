@@ -1,21 +1,22 @@
 ---
-title: Managed Identity
+title: Managed identity for storage accounts
 titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 03/10/2022
 ms.author: franlanglois
+
 ---
 
-# Managed identity with Azure Cache for Redis (Preview)
+# Managed identity for storage (Preview)
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
 
-## Managed identity with storage accounts
+## Use managed identity with storage accounts
 
-Azure Cache for Redis can use a managed identity to connect with a storage account, useful in two scenarios:
+Presently, Azure Cache for Redis can use a managed identity to connect with a storage account, useful in two scenarios:
 
 - [Data Persistence](cache-how-to-premium-persistence.md)--scheduled backups of data in your cache through an RDB or AOF file.
 
@@ -27,7 +28,7 @@ Managed identity lets you simplify the process of securely connecting to your ch
    > This functionality does not yet support authentication for connecting to a cache instance.
    >
 
-Azure Cache for Redis supports [both types of managed identity](/azure/active-directory/managed-identities-azure-resources/overview):
+Azure Cache for Redis supports [both types of managed identity](../active-directory/managed-identities-azure-resources/overview.md):
 
 - **System-assigned identity** is specific to the resource. In this case, the cache is the resource. When the cache is deleted, the identity is deleted.
 
@@ -93,9 +94,9 @@ To use managed identity, you must have a premium-tier cache.
 
    :::image type="content" source="media/cache-managed-identity/identity-add.png" alt-text="User assigned identity status is on":::
 
-1. A sidebar pops up to allow you to select any available user-assigned identity to your subscription. Choose an identity and select **Add**. For more information on user assigned managed identities, see [manage user-assigned identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+1. A sidebar pops up to allow you to select any available user-assigned identity to your subscription. Choose an identity and select **Add**. For more information on user assigned managed identities, see [manage user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
    >[!Note]
-   >You need to [create a user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) in advance of this step.
+   >You need to [create a user assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) in advance of this step.
    >
    :::image type="content" source="media/cache-managed-identity/choose-identity.png"  alt-text="new Object principal ID shown for user assigned identity":::
 
@@ -152,7 +153,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
    :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="storag blob data contributor list":::
 
 > [!NOTE]
-> Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](/azure/storage/common/storage-network-security?tabs=azure-portal), making firewall exceptions easier to implement.
+> Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement.
 
 ## Use managed identity to access a storage account
 
@@ -192,4 +193,4 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 ## Next steps
 
 - [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
-- [What are managed identifies](/azure/active-directory/managed-identities-azure-resources/overview)
+- [What are managed identifies](../active-directory/managed-identities-azure-resources/overview.md)

@@ -23,7 +23,7 @@ Every user must have a user account before they can sign in and access an applic
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
+1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
 

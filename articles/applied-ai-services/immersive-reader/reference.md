@@ -3,14 +3,14 @@ title: "Immersive Reader SDK Reference"
 titleSuffix: Azure Applied AI Services
 description: The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 services: cognitive-services
-author: metanMSFT
+author: rwallerms
 manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 11/15/2021
-ms.author: metang
+ms.author: rwaller
 ---
 
 # Immersive Reader JavaScript SDK Reference (v1.2)

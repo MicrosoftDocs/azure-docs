@@ -8,7 +8,8 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli, devx-track-java, devx-track-javaee
+ms.devlang: azurecli
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -71,7 +72,7 @@ az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64
 ```
 
 ## Open ports for connectivity
-In this task you must configure some external endpoints for the database listener and EM Express to use by setting up the Azure Network Security Group that protects the VM. 
+In this task you must configure some external endpoints for the database listener to use by setting up the Azure Network Security Group that protects the VM. 
 
 1. To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule as follows:
    ```bash
@@ -83,7 +84,7 @@ In this task you must configure some external endpoints for the database listene
        --priority 1001 ^
        --destination-port-range 1521
    ```
-2. To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with az network nsg rule create as follows:
+2. To open the endpoint that you use to access Oracle remotely, create a Network Security Group rule with az network nsg rule create as follows:
    ```bash
    az network nsg rule create ^
        --resource-group rg-oracle ^
@@ -323,32 +324,6 @@ The Oracle software is already installed on the Marketplace image. Create a samp
     ```bash
     echo "export ORACLE_SID=oratest1" >> ~oracle/.bashrc
     ```
-
-## Oracle EM Express connectivity
-
-For a GUI management tool that you can use to explore the database, set up Oracle EM Express. To connect to Oracle EM Express, you must first set up the port in Oracle. 
-
-1. Connect to your database using sqlplus:
-
-    ```bash
-    sqlplus sys as sysdba
-    ```
-
-2. Once connected, set the port 5502 for EM Express
-
-    ```bash
-    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
-    ```
-
-3.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
-
-    ```https
-    https://<VM ip address or hostname>:5502/em
-    ```
-
-    You can log in by using the **SYS** account, and check the **as sysdba** checkbox. Use the password **OraPasswd1** that you set during installation. 
-
-    ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## Automate database startup and shutdown
 

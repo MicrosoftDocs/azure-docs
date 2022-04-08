@@ -30,7 +30,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](../a
 
 The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with _DefaultPolicy_ for _Protection_.
 
-```json
+```bicep
 @description('Specifies a name for generating resource names.')
 @maxLength(8)
 param projectName string

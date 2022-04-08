@@ -6,6 +6,8 @@
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
+  - name: About Azure IoT Edge for Linux on Windows
+    href: iot-edge-for-linux-on-windows.md
 - name: Quickstarts
   expanded: true
   items:
@@ -21,6 +23,8 @@
     items:
     - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
+    - name: Develop with IoT Edge for Linux on Windows
+      href: tutorial-develop-for-linux-on-windows.md
     - name: Develop with Windows containers
       href: tutorial-develop-for-windows.md
   - name: Develop custom code modules
@@ -75,8 +79,6 @@
   items:
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge for Linux on Windows
-    href: iot-edge-for-linux-on-windows.md
   - name: IoT Edge modules
     items:
     - name: Understand Azure IoT Edge modules
@@ -113,6 +115,8 @@
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
+  - name: Limits and restrictions
+    href: iot-edge-limits-and-restrictions.md
 - name: How-to guides
   items:
   - name: Install and provision IoT Edge
@@ -187,6 +191,8 @@
       href: how-to-visual-studio-develop-module.md
     - name: Develop with Visual Studio Code
       href: how-to-vs-code-develop-module.md
+    - name: Configure module build options
+      href: how-to-configure-module-build-options.md
     - name: Configure module createOptions
       items:
         - name: Understand and use createOptions
@@ -271,8 +277,6 @@
       href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     items:
-    - name: Azure DevOps Starter
-      href: how-to-devops-starter.md
     - name: Azure DevOps
       items:
       - name: YAML

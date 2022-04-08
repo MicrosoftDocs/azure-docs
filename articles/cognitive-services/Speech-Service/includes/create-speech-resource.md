@@ -13,7 +13,7 @@ ms.author: eur
 ## Create a Speech resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Speech**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource
+1. Click [Create **Speech**](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource
 1. Enter all required settings:
 
     |Setting|Value|

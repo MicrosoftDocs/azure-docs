@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -34,7 +34,7 @@ See the [application development lifecycle](../overview.md#application-developme
 After you have reviewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on what's wrong with your model's prediction. 
 
 > [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md#data-split) that was created during training.
+> This guide focuses on data from the [validation set](train-model.md) that was created during training.
 
 ### Review test set
 

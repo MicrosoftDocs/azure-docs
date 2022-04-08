@@ -3,7 +3,7 @@ title: Content Moderator encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Content Moderator encryption of data at rest.
 author: erindormier
-manager: venkyv
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

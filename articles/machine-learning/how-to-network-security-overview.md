@@ -211,13 +211,13 @@ For more information on the required domain names and IP addresses, see [how to 
 
 ## Microsoft Sentinel
 
-Microsoft Sentinel is a security solution that can integrate with Azure Machine Learning. For example, using Jupyter notebooks provided through Azure Machine Learning. For more information, see [Use Jupyter notebooks to hunt for security threats](/azure/sentinel/notebooks).
+Microsoft Sentinel is a security solution that can integrate with Azure Machine Learning. For example, using Jupyter notebooks provided through Azure Machine Learning. For more information, see [Use Jupyter notebooks to hunt for security threats](../sentinel/notebooks.md).
 
 ### Public access
 
 Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
 
-For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](/azure/sentinel/notebooks?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/common-public-endpoint-deployment.svg" alt-text="Diagram showing Microsoft Sentinel public connection.":::
 
@@ -225,7 +225,7 @@ For information on this process, see [Create an Azure ML workspace from Microsof
 
 If you want to secure your workspace and associated resources in a VNet, you must create the Azure Machine Learning workspace first. You must also create a virtual machine 'jump box' in the same VNet as your workspace, and enable Azure Bastion connectivity to it. Similar to the public configuration, SOC analysts and administrators can connect using Microsoft Sentinel, but some operations must be performed using Azure Bastion to connect to the VM.
 
-For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](/azure/sentinel/notebooks?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/private-endpoint-deploy-bastion.svg" alt-text="Daigram showing Microsoft Sentinel connection through a VNet.":::
 

@@ -1,4 +1,4 @@
-### YamlMime:Hub
+### YamlMime:Landing
 
 title: Azure Machine Learning documentation
 summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
@@ -10,126 +10,110 @@ metadata:
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
-  ms.topic: hub-page
+  ms.topic: landing-page
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 10/21/2021
+  ms.date: 02/04/2022
   ms.custom: jordan-changes
 
-# highlightedContent section 
-highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
-    # Card
-    - title: What is Azure Machine Learning?
-      itemType: overview
-      url: overview-what-is-azure-machine-learning.md
-    # Card
-    - title: Set up resources
-      itemType: get-started
-      url: quickstart-create-resources.md
-    # Card
-    - title: 'Preview: Train models with v2 CLI'
-      itemType: tutorial
-      url: how-to-train-cli.md      
-    # Card
-    - title: Architecture & terms
-      itemType: overview
-      url: concept-azure-machine-learning-architecture.md 
-    # Card
-    - title: 'Day 1: Get started with Python'
-      itemType: get-started
-      url: tutorial-1st-experiment-hello-world.md 
-    # Card
-    - title: "Migrate from ML Studio (classic)"
-      itemType: how-to-guide
-      url: migrate-overview.md      
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-conceptualContent:
-# Supports up to 3 sections
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
-    # Card
-    - title: Train models
+landingContent:
+  - title: 'Overview'
+    linkLists:
+      - linkListType: overview
+        links:  
+          - text: "What is Azure Machine Learning?"       
+            url: overview-what-is-azure-machine-learning.md
+          - text: "What is Azure Machine Learning studio?"
+            url:  overview-what-is-machine-learning-studio.md
+          - text:  Architecture & terms
+            url: concept-azure-machine-learning-architecture.md 
+  # Card
+  - title: Get Started
+    linkLists:
+      - linkListType: tutorial
+        links:   
+        - text: Set up resources
+          url: quickstart-create-resources.md
+        - text: "Train with the v2 CLI (preview)"
+          url: how-to-train-cli.md   
+        - text: "Day 1: Get started with Python"
+          url: tutorial-1st-experiment-hello-world.md
+        - text: "Migrate from ML Studio (classic)"
+          url: migrate-overview.md
+  # Card
+  - title: Train models
+    linkLists:
+      - linkListType: how-to-guide
+        links:            
+          - text: Run training code in the cloud (v2 CLI preview)
+            url: how-to-train-cli.md
+          - text: Train and deploy a model in Jupyter notebook
+            url:  tutorial-train-deploy-notebook.md
+          - text: Tune hyperparameters for model training
+            url: how-to-tune-hyperparameters.md
+          - text: Build pipelines from reuseable components
+            url: how-to-create-machine-learning-pipelines.md
+          - text: "AutoML: Train a classification model"
+            url: tutorial-first-experiment-automated-ml.md
+  # Card
+  - title: Deploy models
+    linkLists:
+      - linkListType: deploy
+        links:
+        - text: Streamline model deployment with endpoints (preview)
+          url: concept-endpoints.md
+        - text: Real-time scoring with a managed endpoint (preview)
+          url: how-to-deploy-managed-online-endpoints.md
+        - text: Batch scoring with managed endpoints (preview)
+          url: how-to-use-batch-endpoint.md
+        - text: Options for deploying models without using endpoints            
+          url: how-to-deploy-and-where.md
+  # Card
+  - title: "Manage the ML lifecycle (MLOps)"
+    linkLists:
+    - linkListType: how-to-guide
       links:
-        - url: how-to-train-cli.md
-          itemType: how-to-guide
-          text: Run training code in the cloud (v2 CLI preview)
-        - url: how-to-tune-hyperparameters.md
-          itemType: how-to-guide
-          text: Tune hyperparameters for model training
-        - url: how-to-create-machine-learning-pipelines.md
-          itemType: how-to-guide
-          text: Build pipelines from reuseable components
-        - url: tutorial-first-experiment-automated-ml.md
-          itemType: tutorial
-          text: 'AutoML: Train a classification model'
-
-    # Card
-    - title: Deploy models
+      - text: Track, monitor, analyze training runs
+        url: how-to-track-monitor-analyze-runs.md
+      - text: Model management, deployment, lineage & monitoring
+        url: concept-model-management-and-deployment.md
+      - text: DevOps for a data ingestion pipeline
+        url: how-to-cicd-data-ingestion.md
+  # Card
+  - title: "Security for ML projects"
+    linkLists:
+    - linkListType: how-to-guide
       links:
-        - url: concept-endpoints.md
-          itemType: concept
-          text: Streamline model deployment with endpoints (preview)
-        - url: how-to-deploy-managed-online-endpoints.md
-          itemType: how-to-guide
-          text: Real-time scoring with a managed endpoint (preview)
-        - url: how-to-use-batch-endpoint.md
-          itemType: how-to-guide
-          text: Batch scoring with managed endpoints (preview)
-        - url: how-to-deploy-and-where.md
-          itemType: how-to-guide
-          text: Options for deploying models without using endpoints
-
-    # Card
-    - title: Manage the ML lifecycle (MLOps)
-      links:
-        - url: how-to-track-monitor-analyze-runs.md
-          itemType: how-to-guide
-          text: Track, monitor, analyze training runs
-        - url: concept-model-management-and-deployment.md
-          itemType: concept
-          text: Model management, deployment, lineage & monitoring
-        - url: how-to-cicd-data-ingestion.md
-          itemType: how-to-guide
-          text: DevOps for a data ingestion pipeline
-    # Card
-    - title: Security for ML projects
-      links:
-        - url: tutorial-create-secure-workspace.md
-          itemType: tutorial
-          text: Create a secure workspace
-        - url: how-to-access-data.md
-          itemType: how-to-guide
-          text: Connect to data sources 
-        - url: concept-enterprise-security.md
-          itemType: concept
-          text: Enterprise security & governance
-    # Card
-    - title: Reference 
-      links:
-        - url: /python/api/overview/azure/ml/
-          itemType: reference
-          text: Python SDK
-        - url: /rest/api/azureml/
-          itemType: reference
-          text: REST API 
-        - url: /cli/azure/ml/
-          itemType: reference
-          text: V2 CLI (preview)
-        - url: ./algorithm-module-reference/module-reference.md
-          itemType: reference
-          text: Algorithm & module reference 
-    # Card
-    - title: Resources
-      links:
-        - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-          itemType: sample
-          text: Python SDK code examples
-        - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-          itemType: sample
-          text: v2 CLI code examples (preview)
-        - url: ./classic/index.yml
-          itemType: overview
-          text: ML Studio (classic) documentation
+      - text: Create a secure workspace
+        url: tutorial-create-secure-workspace.md
+      - text: Connect to data sources 
+        url: how-to-access-data.md
+      - text: Enterprise security & governance
+        url: concept-enterprise-security.md
+  # Card
+  - title: Reference docs     
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Python SDK
+          url: /python/api/overview/azure/ml/
+        - text: REST API 
+          url: /rest/api/azureml/
+        - text: V2 CLI (preview)
+          url: /cli/azure/ml/
+        - text: Algorithm & component reference 
+          url: ./algorithm-module-reference/module-reference.md
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Python SDK code examples
+          url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+        - text: v2 CLI code examples (preview)
+          url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
+        - text: ML Studio (classic) documentation
+          url: ./classic/index.yml

@@ -110,6 +110,8 @@
       href: policy-migration-mfa.md
 - name: Reference
   items:
+  - name: Office 365 application
+    href: reference-office-365-application-contents.md
   - name: Beta Graph APIs
     items: 
     - name: conditionalAccessPolicy API

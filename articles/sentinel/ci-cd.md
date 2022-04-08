@@ -32,7 +32,7 @@ Before connecting your Microsoft Sentinel workspace to an external source contro
 
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository.
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 ### Maximum connections and deployments
 
@@ -288,7 +288,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced SIEM Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

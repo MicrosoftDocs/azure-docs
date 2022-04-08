@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2022
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -68,6 +68,8 @@ Here's a code sample to add a `DefaultAzureCredential` to your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+
 #### Set up local Azure credentials
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
@@ -88,7 +90,7 @@ In an Azure function, you can use the managed identity credentials like this:
 
 The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this method instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
+To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
 * [the app registration's Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [the app registration's Directory (tenant) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [the Azure Digital Twins instance's URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)

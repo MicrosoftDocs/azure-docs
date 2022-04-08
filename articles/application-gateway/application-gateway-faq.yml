@@ -5,11 +5,10 @@ metadata:
   services: application-gateway
   author: vhorne
   ms.service: application-gateway
-  ms.topic: article
-  ms.date: 10/20/2021
+  ms.topic: faq
+  ms.date: 02/07/2022
   ms.author: victorh
   ms.custom: references_regions
-    
 title: Frequently asked questions about Application Gateway
 summary: |
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +44,7 @@ sections:
         answer: |
           Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
           
-          For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./overview-v2.md#supported-regions)
+          For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./overview-v2.md#unsupported-regions)
           
       - question: Is this deployment dedicated for my subscription, or is it shared across customers?
         answer: Application Gateway is a dedicated deployment in your virtual network.
@@ -117,7 +116,7 @@ sections:
           
       - question: How does application gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. Active connections will gracefully be drained from the instance(s) being updated.  While the update is in progress, Application Gateway will temporarily run at reduced capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. As each update domain's instances are being updated, the remaining instances in other update domains will continue to serve traffic. Active connections are gracefully drained from the instance(s) being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway will temporarily run at reduced max capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic may flow through Application Gateway, however WAF exclusions may be required if using WAF sku.

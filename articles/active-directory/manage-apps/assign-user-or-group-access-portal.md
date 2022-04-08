@@ -14,7 +14,7 @@ ms.author: ergreenl
 ms.reviewer: davidmu
 ms.custom: contperf-fy22q2, contperf-fy22q3
 
-#customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
+#customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell
 ---
 
 # Assign users and groups to an application

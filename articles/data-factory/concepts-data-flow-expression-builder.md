@@ -46,7 +46,7 @@ In mapping data flows, expressions can be composed of column values, parameters,
 
 ### Functions
 
-Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-flow-expression-functions.md).
+Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-transformation-functions.md).
 
 #### Address array indexes
 
@@ -189,4 +189,4 @@ In the portal for the service, timestamp is being shown in the **current browser
 
 ## Next steps
 
-[Begin building data transformation expressions](data-flow-expression-functions.md)
+[Begin building data transformation expressions](data-transformation-functions.md)

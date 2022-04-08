@@ -10,7 +10,8 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 12/16/2021
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow
+ms.custom: devx-track-python, mlflow, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2) (preview)
@@ -53,24 +54,29 @@ To track a local run, you need to point your local machine to the Azure Machine 
 
 # [MLflow SDK](#tab/mlflow)
 
-The following code uses `mlflow` and the [`subprocess`](https://docs.python.org/3/library/subprocess.html) classes in Python to run the Azure Machine Learning CLI (v2) command to retrieve the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+The following code uses `mlflow` and your Azure Machine Learning workspace details to construct the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
 ```Python
 import mlflow
-import subprocess
 
-#Get MLfLow URI through the Azure ML CLI (v2) and convert to string
-MLFLOW_TRACKING_URI = subprocess.run(["az", "ml", "workspace", "show", "--query", "mlflow_tracking_uri", "-o", "tsv"], stdout=subprocess.PIPE, text=True)
+## Construct AzureML MLFLOW TRACKING URI
+def get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace):
+    return "azureml://{}.api.azureml.ms/mlflow/v1.0/subscriptions/{}/resourceGroups/{}/providers/Microsoft.MachineLearningServices/workspaces/{}".format(region, subscription_id, resource_group, workspace)
 
-MLFLOW_TRACKING_URI = str(MLFLOW_TRACKING_URI.stdout).strip()
+region='<REGION>' ## example: westus
+subscription_id = '<SUBSCRIPTION_ID>' ## example: 11111111-1111-1111-1111-111111111111
+resource_group = '<RESOURCE_GROUP>' ## example: myresourcegroup
+workspace = '<AML_WORKSPACE_NAME>' ## example: myworkspacename
+
+MLFLOW_TRACKING_URI = get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace)
 
 ## Set the MLFLOW TRACKING URI
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
 ## Make sure the MLflow URI looks something like this: 
-## azureml://westus.api.azureml.ms/mlflow/v1.0/subscriptions/<Sub-ID>/resourceGroups/<RG>/providers/Microsoft.MachineLearningServices/workspaces/<WS>
+## azureml://<REGION>.api.azureml.ms/mlflow/v1.0/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<AML_WORKSPACE_NAME>
 
-print("MLFlow Tracking URI:",MLFLOW_TRACKING_URI)
+print("MLFlow Tracking URI:", MLFLOW_TRACKING_URI)
 ```
 
 # [Terminal](#tab/terminal)

@@ -1,10 +1,10 @@
 ---
-title: Receive and respond to calls by using HTTPS
-description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
+title: Receive and respond to HTTPS requests
+description: Handle inbound HTTPS calls from external services using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/04/2021
 tags: connectors
 ---
@@ -26,12 +26,16 @@ This article shows how to use the Request trigger and Response action so that yo
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 > [!NOTE]
-> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
-> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+>
+> In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can 
+> use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger 
+> by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review 
+> [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
+
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
@@ -280,6 +284,11 @@ When you use the Request trigger to handle inbound requests, you can model the r
 1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
+
+> [!IMPORTANT]
+> If you have one or more Response actions in a complex workflow with branches, make sure 
+> that the workflow run processes at least one Response action during runtime. 
+> Otherwise, if all Response actions are skipped, the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
 
 ## Next steps
 

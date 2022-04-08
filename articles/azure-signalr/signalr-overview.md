@@ -1,12 +1,12 @@
 ---
 title: What is Azure SignalR Service?
 description: Better understand what typical use case scenarios to use Azure SignalR, and learn the key benefits of Azure SignalR.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: overview
 ms.custom: devx-track-dotnet 
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
 ---
 
 # What is Azure SignalR Service?

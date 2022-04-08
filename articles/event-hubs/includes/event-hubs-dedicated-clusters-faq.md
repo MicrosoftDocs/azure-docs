@@ -31,7 +31,26 @@ In the testing, the following criteria was used:
 
 ### Can I scale up/down my cluster?
 
-After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
+After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
+
+
+### When to scale my dedicated cluster? 
+
+As scaling the dedicated clusters requires submitting a support request, it's important to determine when to scale up your dedicated cluster proactively. 
+
+CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicator to consider whether you need to scale up your dedicated cluster or not.
+
+To monitor the CPU usage of the dedicated cluster you need to follow these steps. 
+- In the metrics blade of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
+:::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
+
+
+- Select `CPU` as the metrics and use the `Max` as the aggregation. 
+- Then add a filter for the property type `Role`, use the equal operator and select all three values(`SBSAdmin`, `SBSFE`, `SBSEH`) from the dropdown.  
+
+Then you can monitor this metic to determine when you should scale your dedicated cluster. 
+You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.  
+
 
 ### How does Geo-DR work with my cluster?
 

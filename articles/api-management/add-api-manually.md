@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit, devdivchpfy22
 
 # Add an API manually
 
-This article shows steps to add an API manually to the API Management (APIM) instance. When you want to mock the APIAc, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
+This article shows steps to add an API manually to the API Management (APIM) instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 

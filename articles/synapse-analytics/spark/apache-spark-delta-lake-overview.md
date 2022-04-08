@@ -1,14 +1,13 @@
 ---
 title: Overview of how to use Linux Foundation Delta Lake in Apache Spark for Azure Synapse Analytics
 description: Learn how to use Delta Lake in Apache Spark for Azure Synapse Analytics, to create, and use tables with ACID properties.
-services: synapse-analytics
-author: jasonwhowell
+author: juluczni
+ms.author: juluczni
 ms.service:  synapse-analytics
 ms.reviewer: euang
 ms.topic: overview
 ms.subservice: spark
-ms.date: 07/28/2020
-ms.author: jasonh
+ms.date: 02/15/2022
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ---
@@ -943,7 +942,7 @@ Now you are going to verify that a table is not a delta format table, then conve
 
 ```python
 parquet_id = random.randint(0,1000)
-parquet_path = "/parquet/parquet-table-{0}-{1}".format(session_id, parquet_path)
+parquet_path = "/parquet/parquet-table-{0}-{1}".format(session_id, parquet_id)
 data = spark.range(0,5)
 data.write.parquet(parquet_path)
 DeltaTable.isDeltaTable(spark, parquet_path)

@@ -1,7 +1,6 @@
 ---
 title: System views for dedicated SQL pool (formerly SQL DW)
 description: Links to the documentation for system views for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-services: synapse-analytics
 author: WilliamDAssafMSFT 
 manager: craigg
 ms.service: synapse-analytics

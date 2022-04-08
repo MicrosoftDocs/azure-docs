@@ -1,7 +1,6 @@
 ---
 title: Manage Python libraries for Apache Spark
 description: Learn how to add and manage Python libraries used by Apache Spark in Azure Synapse Analytics.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual

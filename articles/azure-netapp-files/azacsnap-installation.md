@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/08/2021
+ms.date: 02/05/2022
 ms.author: phjensen
 ---
 
@@ -110,7 +110,7 @@ Create RBAC Service Principal
 1. Create a service principal using Azure CLI per the following example:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --role Contributor --sdk-auth
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     1. This should generate an output like the following example:
@@ -136,6 +136,9 @@ Create RBAC Service Principal
 
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
+   
+   > [!WARNING]
+   > Make sure the format of the JSON file is exactly as described above.  Especially with the URLs enclosed in double quotes (").
 
 # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 

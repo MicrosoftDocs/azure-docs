@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -79,7 +79,7 @@ If your identity provider doesn't support these protocols, Azure AD join doesn't
 
 You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
 
-**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 and above devices.
+**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 or newer.
 
 ### User configuration
 
@@ -102,11 +102,11 @@ Azure AD join:
 - Isn't supported on previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade at least to Windows 10 to deploy Azure AD join.
 - Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support.
  
-**Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
+**Recommendation:** Always use the latest Windows release to take advantage of updated features.
 
 ### Management platform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Starting in Windows 10 there is a built-in MDM agent that works with all compatible MDM solutions.
 
 > [!NOTE]
 > Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
@@ -126,7 +126,7 @@ Review supported and unsupported policies to determine whether you can use an MD
 If your MDM solution isn't available through the Azure AD app gallery, you can add it following the process 
 outlined in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Azure AD joined devices.
 
@@ -183,7 +183,7 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device isn't supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
-Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+Starting with the Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 or newer device to another Azure AD joined device. 
 
 ### RADIUS and Wi-Fi authentication
 
