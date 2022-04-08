@@ -80,7 +80,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 
 ## Design resources
 
-Find comprehensive components, composites, and UX guidance in the [Azure Communication Services UI Kit for Figma](ADD LINK). This design resource is purpose-built to help design your video calling and chat experiences faster and with less effort.  
+Find comprehensive components, composites, and UX guidance in the [UI Library Design Kit for Figma](ADD LINK). This design resource is purpose-built to help design your video calling and chat experiences faster and with less effort.  
 
 ## Other Microsoft Communication Services
 
