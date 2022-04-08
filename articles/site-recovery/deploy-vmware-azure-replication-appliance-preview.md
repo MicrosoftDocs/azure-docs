@@ -239,18 +239,17 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
 
-  - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+  - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-  - **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
+  - **Azure Site Recovery replication appliance key**: Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **Site Recovery** > **VMware to Azure: Prepare Infrastructure**.
 
-  - After pasting the key, select **Login.**
-    You will be redirected to a new authentication tab.
+  - After pasting the key, click **Login.** You will be redirected to a new authentication tab.
 
-      By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
+      By default, an authentication code will be generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
 
   - Enter your Microsoft Azure credentials to complete registration.
 
-      After successful registration, you can close the tab and move to configuration manager to continue the set up.
+      After successful registration, you can close the tab and move to appliance configuration manager to continue the set up.
 
       ![authentication code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
 
@@ -258,9 +257,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
       > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
 
 
-6. Select **Login** to reconnect with the session. For authentication code, refer to the section *Summary* or *Register with Azure Recovery Services vault* in the configuration manger.
-
-7. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can logout in case you want to change the vault. Else, Select **Continue** to proceed.
+6. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can log out in case you want to change the vault. Else, select **Continue** to proceed.
 
     ![Appliance registered](./media/deploy-vmware-azure-replication-appliance-preview/app-setup.png)
 
@@ -268,18 +265,18 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     ![Configuration of vCenter](./media/deploy-vmware-azure-replication-appliance-preview/vcenter-information.png)
 
-8. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
+7. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name. This is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
 >[!NOTE]
-> iF  you're trying to add the same vCenter Server to multiple appliances, then ensure that the same friendly name is used in both the appliances.
+> If  you're trying to add the same vCenter Server to multiple appliances, then ensure that the same friendly name is used in all the appliances.
 
-9. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter.
+8. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter.
 
    >[!NOTE]
-   > - For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
+   > - For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push install mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
    > - Visit the appliance configurator to edit or add credentials to access your machines.
 
-10. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
+9. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
     Ensure you do not close the browser while configuration is in progress.
 

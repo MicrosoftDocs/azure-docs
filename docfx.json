@@ -213,7 +213,7 @@
     },
     "fileMetadata": {
       "author": {
-        "articles/advisor/*.md": "saket-ms",
+        "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "zr-msft",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
@@ -574,7 +574,7 @@
         "articles/virtual-machine-scale-sets/**/*.md": "mamccrea"
       },
       "ms.author": {
-        "articles/advisor/*.md": "sagupt",
+        "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "zarhoads",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
@@ -803,6 +803,9 @@
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
       },
+      "ms.reviewer": {
+        "articles/advisor/*.md": "ikhapova",
+      },  
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
