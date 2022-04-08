@@ -8,7 +8,7 @@ ms.author: eur
 
 ### Speech CLI 1.21.0: April 2022 release
 
-Uses [Speech SDK 1.21.0](release-notes-sdk.md#Speech-SDK-1.21.0:-April-2022-release)
+Uses [Speech SDK 1.21.0](release-notes-sdk.md#speech-sdk-1210-april-2022-release)
 
 #### New features
 
