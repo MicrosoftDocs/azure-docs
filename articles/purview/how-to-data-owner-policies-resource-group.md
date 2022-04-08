@@ -50,7 +50,7 @@ In the end, your resource will have the  **Data use governance** toggle to **Ena
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:
 
-:::image type="content" source="./media/tutorial-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png" alt-text="Screenshot that shows a sample data owner policy giving access to a resource group.":::
+:::image type="content" source="./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png" alt-text="Screenshot that shows a sample data owner policy giving access to a resource group.":::
 
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
