@@ -1,4 +1,4 @@
---
+---
 title: Certificate management in a Service Fabric cluster 
 description: Learn about managing certificates in a Service Fabric cluster secured with X.509 certificates.
 ms.topic: conceptual
