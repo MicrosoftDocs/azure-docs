@@ -1,6 +1,6 @@
 ---
-title: Memo 22-09 multifactor authentication requirements overview
-description: Get guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum 22-09.
+title: Memo M-22-09 multifactor authentication requirements overview
+description: Get guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum M-22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Meet multifactor authentication requirements of Memorandum 22-09
+# Meet multifactor authentication requirements of memorandum M-22-09
 
-This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
+This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
 
 The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. Phishing is the attempt to obtain and compromise credentials, such as by sending a spoofed email that leads to an inauthentic site.
 
@@ -108,7 +108,7 @@ While the memo isn't specific on which policies to use with passwords, consider 
 
 The following articles are a part of this documentation set:
 
-[Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 
 [Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 

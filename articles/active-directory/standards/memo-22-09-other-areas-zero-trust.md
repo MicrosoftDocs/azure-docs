@@ -1,6 +1,6 @@
 ---
-title: Memo 22-09 other areas of Zero Trust
-description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum 22-09.
+title: Memo M-22-09 other areas of Zero Trust
+description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum M-22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Other areas of Zero Trust addressed in Memorandum 22-09
+# Other areas of Zero Trust addressed in memorandum M-22-09
 
-This article addresses the identity pillar of Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Some areas of the Zero Trust maturity model cover topics beyond the identity pillar. 
+This article addresses the identity pillar of Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Some areas of the Zero Trust maturity model cover topics beyond the identity pillar. 
 
 This article addresses the following cross-cutting themes:
 
@@ -28,7 +28,7 @@ This article addresses the following cross-cutting themes:
 * Governance 
 
 ## Visibility
-It's important to monitor your Azure Active Directory (Azure AD) tenant. You must adopt an "assume breach" mindset and meet compliance standards in Memorandum M-22-09 and [Memorandum M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/M-21-31). Three primary log types are used for security analysis and ingestion:
+It's important to monitor your Azure Active Directory (Azure AD) tenant. You must adopt an "assume breach" mindset and meet compliance standards in memorandum M-22-09 and [memorandum M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/M-21-31). Three primary log types are used for security analysis and ingestion:
 
 * [Azure audit logs](../reports-monitoring/concept-audit-logs.md). Used for monitoring operational activities of the directory itself, such as creating, deleting, updating objects like users or groups. Also used for making changes to configurations of Azure AD, like modifications to a conditional access policy.
 
@@ -85,14 +85,14 @@ It's important that you understand and document clear processes for how you inte
 * [Azure Active Directory governance operations reference guide](../fundamentals/active-directory-ops-guide-govern.md). 
 * [Azure Active Directory security operations guide](../fundamentals/security-operations-introduction.md). It can help you secure your operations and understand how security and governance overlap.
 
-After you understand operational governance, you can use [governance features](../governance/identity-governance-overview.md) to implement portions of your governance controls. These include features mentioned in [Meet authorization requirements of Memo 22-09](memo-22-09-authorization.md). 
+After you understand operational governance, you can use [governance features](../governance/identity-governance-overview.md) to implement portions of your governance controls. These include features mentioned in [Meet authorization requirements of memorandum M-22-09](memo-22-09-authorization.md). 
 
  
 ## Next steps
 
 The following articles are a part of this documentation set:
 
-[Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 
 [Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 

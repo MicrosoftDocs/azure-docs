@@ -1,6 +1,6 @@
 ---
-title: Memo 22-09 enterprise-wide identity management systems
-description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09.
+title: Memo M-22-09 enterprise-wide identity management systems
+description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum M-22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -125,7 +125,7 @@ Devices integrated with Azure AD can be either [hybrid joined devices](../device
 
 The following articles are a part of this documentation set:
 
-[Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 

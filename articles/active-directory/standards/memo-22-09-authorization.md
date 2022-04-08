@@ -1,6 +1,6 @@
 ---
-title: Memo 22-09 authorization requirements 
-description: Get guidance on meeting authorization requirements outlined in US government OMB memorandum 22-09.
+title: Memo M-22-09 authorization requirements 
+description: Get guidance on meeting authorization requirements outlined in US government OMB memorandum M-22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Meet authorization requirements of Memorandum 22-09
+# Meet authorization requirements of memorandum M-22-09
 
-This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
+This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
 The memo requires specific types of enforcement within your multifactor authentication (MFA) policies. Specifically, you must account for device-based controls, role-based controls, attribute-based controls, and privileged access management.
 
@@ -66,7 +66,7 @@ Azure includes [ABAC for Storage](../../role-based-access-control/conditions-ove
 
 ## Privileged access management 
 
-The M-22-09 memo specifically calls out the use of privileged access management tools that use single-factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA logon for an admin and produce a generated password for an alternate account that's used to access the system. The system is still accessed with a single factor. 
+The M-22-09 memo specifically calls out the use of privileged access management tools that use single-factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA sign-in for an admin and produce a generated password for an alternate account that's used to access the system. The system is still accessed with a single factor. 
 
 Microsoft has tools for implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. You can enforce MFA for most privileged systems directly, whether these systems are applications, infrastructure elements, or devices. 
 
@@ -76,7 +76,7 @@ Azure also features PIM capabilities to step up into a specific privileged role.
 
 The following articles are part of this documentation set:
 
-[Meet identity requirements of Memorandum 22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 
 [Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 
