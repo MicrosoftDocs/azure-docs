@@ -105,7 +105,7 @@ The table describes the attributes of a `deployment`:
 | `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.path` scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | `environment` | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section. |
 | `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. |
+| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. We reserve an extra 20% for performing upgrades. |
 
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
