@@ -90,7 +90,7 @@ After you understand operational governance, you can use [governance features](.
  
 ## Next steps
 
-The following articles are a part of this documentation set:
+The following articles are part of this documentation set:
 
 [Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 

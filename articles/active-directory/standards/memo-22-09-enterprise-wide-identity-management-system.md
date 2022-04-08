@@ -59,7 +59,7 @@ Classify assets in terms of:
 - The sensitivity of data that they contain.
 - Laws and regulations that establish specific requirements for confidentiality, integrity, or availability of data/information in each major system and that apply to the system's information protection requirements.
 
-As a part of your application inventory, you need to determine if your current applications use cloud-ready or [legacy authentication protocols](../fundamentals/auth-sync-overview.md):
+As a part of your application inventory, you need to determine if your current applications use cloud-ready protocols or [legacy authentication protocols](../fundamentals/auth-sync-overview.md):
 
 * Cloud-ready applications support modern protocols for authentication, such as SAML, WS-Federation/Trust, OpenID Connect (OIDC), and OAuth 2.0.
 
@@ -95,7 +95,7 @@ For apps that use legacy authentication protocols, consider the following:
 
    *  [Use Azure AD Application Proxy or secure hybrid partner access](../manage-apps/secure-hybrid-access.md) to provide secure access.
 
-*  Decommission access to apps that are no longer needed or that aren't supported (for example, apps added by shadow IT processes). 
+*  Decommission access to apps that are no longer needed or that aren't supported (for example, apps that shadow IT processes added). 
 
 ## Connecting devices
 
@@ -123,7 +123,7 @@ Devices integrated with Azure AD can be either [hybrid joined devices](../device
 
 ## Next steps
 
-The following articles are a part of this documentation set:
+The following articles are part of this documentation set:
 
 [Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 

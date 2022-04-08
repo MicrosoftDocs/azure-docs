@@ -21,9 +21,9 @@ US executive order [14028, Improving the Nation's Cyber Security](https://www.wh
 
 This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in memorandum M-22-09. 
 
-The release of memorandum M-22-09 is designed to support Zero Trust initiatives within federal agencies. It also provides regulatory guidance in supporting federal cybersecurity and data privacy paws. The memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v1.1(U)_Mar21.pdf), 
+The release of memorandum M-22-09 is designed to support Zero Trust initiatives within federal agencies. It also provides regulatory guidance in supporting federal cybersecurity and data privacy paws. The memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v1.1(U)_Mar21.pdf): 
 
-"The foundational tenet of the Zero Trust Model is that no actor, system, network, or service operating outside or within the security perimeter is trusted. Instead, we must verify anything and everything attempting to establish access. It is a dramatic paradigm shift in philosophy of how we secure our infrastructure, networks, and data, from verify once at the perimeter to continual verification of each user, device, application, and transaction."
+>"The foundational tenet of the Zero Trust Model is that no actor, system, network, or service operating outside or within the security perimeter is trusted. Instead, we must verify anything and everything attempting to establish access. It is a dramatic paradigm shift in philosophy of how we secure our infrastructure, networks, and data, from verify once at the perimeter to continual verification of each user, device, application, and transaction."
 
 The memo identifies five core goals that federal agencies must reach. These goals are organized through the Cybersecurity Information Systems Architecture (CISA) Maturity Model. CISA's Zero Trust model describes five complementary areas of effort, or pillars: identity, devices, networks, applications and workloads, and data. These themes cut across these areas: visibility and analytics, automation and orchestration, and governance.
 
@@ -48,7 +48,7 @@ The article series features guidance that encompasses existing agency investment
  
 ## Next steps
 
-The following articles are a part of this documentation set:
+The following articles are part of this documentation set:
 
 [Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
 

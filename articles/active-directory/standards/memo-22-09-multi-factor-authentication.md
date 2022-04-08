@@ -106,7 +106,7 @@ While the memo isn't specific on which policies to use with passwords, consider 
 
 ## Next steps
 
-The following articles are a part of this documentation set:
+The following articles are part of this documentation set:
 
 [Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
 
