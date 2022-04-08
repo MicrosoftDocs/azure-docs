@@ -11,13 +11,20 @@ ms.author: eur
 Uses [Speech SDK 1.21.0](release-notes-sdk.md#speech-sdk-1210-april-2022-release)
 
 #### New features
+- WEBVTT Caption generation
+    - Added `--output vtt` support to `spx translate`
+    - Supports `--output vtt file FILENAME` to override default VTT FILENAME
+    - Supports `--output vtt file -` to write to standard output
+    - Individual VTT files are created for each target language (e.g. `--target en;de;fr`)
+- SRT Caption generation
+    - Added `--output srt` support to `spx recognize`, `spx intent`, and `spx translate`
+    - Supports `--output srt file FILENAME` to override default SRT FILENAME
+    - Supports `--output srt file -` to write to standard output
+    - For `spx translate` individual SRT files are created for each target language (e.g. `--target en;de;fr`)
 
-- Speech Translation
-    - Added WEBTT caption output to `spx translate` using `--output vtt` and optional `--output vtt file FILENAME`
-    - Added SRT caption output to `spx translate` using `--output srt` and optional `--output srt file FILENAME`
-    - Caption output creates multiple SRT or VTT files, one per target translation language
-- Speech Recognition and Intent Recognition
-    - `spx recognize [...] --output srt`
+#### Bug fixes
+- Corrected WEBVTT timespan output to properly use `hh:mm:ss.fff` format
+
 
 ### Speech CLI 1.20.0: January 2022 release
 
