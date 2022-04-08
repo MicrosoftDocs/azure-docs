@@ -29,7 +29,7 @@
         - name: Visual Studio
           href: deploy-visual-studio.md
       - name: With code on your machine
-        href: code-to-cloud.md
+        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
