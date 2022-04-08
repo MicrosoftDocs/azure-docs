@@ -801,10 +801,12 @@ GO
 [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) is a standalone application that simplifies working with event file targets stored in blobs in Azure Storage. You can use Storage Explorer to:
 
 - [Create a blob container](/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container) to hold XEvent session data.
-- [Get the shared access signature (SAS)](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for a blob container. As mentioned in [Collect deadlock graphs in Azure SQL Database with Extended Events](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), the read, write, and list permissions are required. Remove any leading `?` character from the `Query string` to use the value as the secret when [creating a database scoped credential](?tabs=event-file#create-a-database-scoped-credential).
+- [Get the shared access signature (SAS)](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for a blob container. 
+    - As mentioned in [Collect deadlock graphs in Azure SQL Database with Extended Events](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), the read, write, and list permissions are required. 
+    - Remove any leading `?` character from the `Query string` to use the value as the secret when [creating a database scoped credential](?tabs=event-file#create-a-database-scoped-credential).
 - [View and download](/azure/vs-azure-tools-storage-explorer-blobs#view-a-blob-containers-contents) extended event files from a blob container.
  
-[Download Azure Storage Explorer.](https://azure.microsoft.com/en-us/features/storage-explorer/).
+[Download Azure Storage Explorer.](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Next steps
 
