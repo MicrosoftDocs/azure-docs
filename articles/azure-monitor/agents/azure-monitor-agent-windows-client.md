@@ -1,5 +1,5 @@
 ---
-title: Setup the Azure Monitor agent on Windows client devices (Preview)
+title: Set up the Azure Monitor agent on Windows client devices (Preview)
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
 author: shseth
@@ -10,31 +10,31 @@ ms.custom: references_region
 ---
 
 # Azure Monitor agent on Windows client devices (Preview)
-This article provides all the required information for using the new Azure Monitor Agent and Data Collection Rules on Windows client device types listed below.  
+This article provides instructions and guidance for using the client installer for Azure Monitor Agent. It also explains how to leverage Data Collection Rules on Windows client devices.
 
-Using the new client installer available in this preview, you can now collect telemetry data from your Windows client devices as well using the same agent currently used for servers, virtual machines.
-Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure data collection for the **same underlying agent**.
+With the new client installer available in this preview, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
+Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 ## Supported device types
 
-| Device type | Installation method | Additional information |
-|:---|:---|:---|
-| Windows 10, 11 desktops, workstations | Client installer (preview) | Installs the agent using a Windows MSI installer |
-| Windows 10, 11 laptops | Client installer (preview) | Installs the agent using a Windows MSI installer. This is supported for laptops but **not optimized yet** for battery, network consumption |
-| Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
-| On-premise servers | ]Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premise by installing Arc agent |
+| Device type | Supported? | Installation method | Additional information |
+|:---|:---|:---|:---|
+| Windows 10, 11 desktops, workstations | Yes | Client installer (preview) | Installs the agent using a Windows MSI installer |
+| Windows 10, 11 laptops | Yes |  Client installer (preview) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
+| Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
+| On-premise servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premise by installing Arc agent |
 
 
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
-2. To download the installer, the machine should have C++ redistributable version VS2015 or higher
-3. The machine must be domain joined to an AAD tenant, i.e. AADJ or Hybrid AADJ machines. This is required for the agent to fetch AAD device tokens used to authenticate and fetch data collection rules from Azure.
+2. To download the installer, the machine should have [C++ Redistributable version 2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) or higher
+3. The machine must be domain joined to an AAD tenant (AADJ or Hybrid AADJ machines), which enables the agent to fetch AAD device tokens used to authenticate and fetch data collection rules from Azure.
 4. You may need tenant admin permissions on the AAD tenant.
 5. The device must have access to the following HTTPS endpoints:
 	-	global.handler.control.monitor.azure.com
 	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
 	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)  
-    (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
+    (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 6. Existing data collection rule(s) you wish to associate with the devices. If it doesn't exist already, [follow the guidance here to create data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-associationusingrestapi). **Do not associate the rule to any resources yet**.
 	
 ## Install the agent 
@@ -63,16 +63,16 @@ Both the [generally available extension](./azure-monitor-agent-manage.md#virtual
 5. Verify successful installation:
 	- Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed 
 	- Open **Services** and confirm ‘Azure Monitor Agent’ is listed and shows as **Running**. 
-6. Proceed to create the monitored object that you will associate data collection rules to, for the agent to actually start operating.
+6. Proceed to create the monitored object that you'll associate data collection rules to, for the agent to actually start operating.
 
 > [!NOTE]
->  The agent installed with the client installer currently does not support updating configuration once it is installed. Uninstall and reinstall AMA to update its configuration. 
+>  The agent installed with the client installer currently doesn't support updating configuration once it is installed. Uninstall and reinstall AMA to update its configuration. 
 
 
 ## Create and associate a 'Monitored Object'
-You need to a 'Monitored Object' (MO) that creates a representation for the AAD tenant within AzureResourceManager (ARM), such that Data Collection Rules can associated with.
-Currently this association is only **limited** to the AAD tenant, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
-The image below demonstrates the how this works:
+You need to create a 'Monitored Object' (MO) that creates a representation for the AAD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with.
+Currently this association is only **limited** to the AAD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
+The image below demonstrates how this works:
 
 ![Diagram shows monitored object purpose and association.](media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png)
 
@@ -82,8 +82,8 @@ Then, proceed with the instructions below to create and associate them to a Moni
 
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
-This grants the ability to create and link a monitored object to a user.  
-**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate AAD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). This will give the AAD admin 'owner' permissions at the root scope.
+This step grants the ability to create and link a monitored object to a user.  
+**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate AAD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). It will give the AAD admin 'owner' permissions at the root scope.
 
 **Request URI**
 ```HTTP
@@ -114,13 +114,13 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 
 | Name | Description |
 |:---|:---|
-| roleDefinitionId | Fixed value: Role definition Id of the 'Monitored Objects Contributor' role: `/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b` |
-| principalId | Provide the `Object Id` of the identity of the user to which the role needs to be assigned. This may be the user who elevated at the beginning of step 1, or another user who will proceed to carry out later steps. |  
+| roleDefinitionId | Fixed value: Role definition ID of the 'Monitored Objects Contributor' role: `/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b` |
+| principalId | Provide the `Object Id` of the identity of the user to which the role needs to be assigned. It may be the user who elevated at the beginning of step 1, or another user who will perform later steps. |  
 
-After this is done, you will need to reauthenticate your session, and then reacquire your ARM bearer token.   
+After this step is complete, **reauthenticate** your session and **reacquire** your ARM bearer token.   
 
 #### 2. Create Monitored Object
-This creates the Monitored Object for the AAD Tenant scope, which will be used to represent client devices that are signed with that AAD Tenant identity.
+This step creates the Monitored Object for the AAD Tenant scope. It will be used to represent client devices that are signed with that AAD Tenant identity.
 
 **Permissions required**: Anyone who has 'Monitored Object Contributor' at an appropriate scope can perform this operation, as assigned in step 1.
 
@@ -132,7 +132,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
-| `AADTenantId` | path | string | Id of the AAD tenant that the device(s) belong to. The MO will be created with the same Id |  
+| `AADTenantId` | path | string | ID of the AAD tenant that the device(s) belong to. The MO will be created with the same ID |  
 
 **Headers**
 - Authorization: ARM Bearer Token
@@ -151,7 +151,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | Description |
 |:---|:---|
-| `location` | This is also the location where the MO object would be stored, and should be the **same region** where you created the Data Collection Rule. This is the location of the region from where agent communications would happen to. |
+| `location` | The Azure region where the MO object would be stored. It should be the **same region** where you created the Data Collection Rule. This is the location of the region from where agent communications would happen. |
 
 
 #### 3. Associate DCR to Monitored Object
@@ -171,7 +171,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
-| ``MOResourceId` | path | string | Full resource Id of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
+| ``MOResourceId` | path | string | Full resource ID of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
 
 **Headers**
 - Authorization: ARM Bearer Token
@@ -190,7 +190,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | Description |
 |:---|:---|
-| `dataCollectionRuleID` | This is the resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
+| `dataCollectionRuleID` | The resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
 
 
 ### Using PowerShell
@@ -295,7 +295,7 @@ You can use any of the following options to check the installed version of the a
 If you face issues during 'Uninstall', refer to [troubleshooting guidance](#troubleshoot) below
 
 ### Update the agent 
-In order to update the version, simply install the new version you wish to update to.
+In order to update the version, install the new version you wish to update to.
 
 
 ## Troubleshoot
@@ -303,30 +303,30 @@ In order to update the version, simply install the new version you wish to updat
 1. Rerun the installation with logging turned on and specify the log file name:
 	`Msiexec /I AzureMonitorAgentClientSetup.msi /L*V <log file name>`
 2. Runtime logs are collected automatically either at the default location `C:\Resources\Azure Monitor Agent\` or at the file path mentioned during installation. 
-	- If you cannot locate the path, the exact location can be found on the registry as `AMADataRootDirPath` on `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMonitorAgent`.
+	- If you can't locate the path, the exact location can be found on the registry as `AMADataRootDirPath` on `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMonitorAgent`.
 3. The 'ServiceLogs' folder contains log from AMA Windows Service, which launches and manages AMA processes 
-4. 'AzureMonitorAgent.MonitoringDataStore' contains data/logs from AMA processes .
+4. 'AzureMonitorAgent.MonitoringDataStore' contains data/logs from AMA processes.
 
 ### Common issues
 
 #### Missing DLL
-- Error message: "There is a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …" 
-- Ensure you have installed [C++ redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:  
+- Error message: "There's a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …" 
+- Ensure you have installed [C++ Redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:  
 
 #### Silent install from command prompt fails 
 Make sure to start the installer on administrator command prompt. Silent install can only be initiated from the administrator command prompt.  
 
 #### Uninstallation fails due to the uninstaller being unable to stop the service 
-- If there is an option to try again, do try it again 
-- If retry from uninstaller does not work, cancel the uninstall and stop Azure Monitor Agent service from Services (Desktop Application) 
+- If There's an option to try again, do try it again 
+- If retry from uninstaller doesn't work, cancel the uninstall and stop Azure Monitor Agent service from Services (Desktop Application) 
 - Retry uninstall 
 
-#### Force uninstall manually when uninstaller does not work 
+#### Force uninstall manually when uninstaller doesn't work 
 - Stop Azure Monitor Agent service. Then try uninstalling again. If it fails, then proceed with the following steps 
 - Delete AMA service with "sc delete AzureMonitorAgent" from admin cmd 
 - Download [this tool](https://support.microsoft.com/en-us/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d) and uninstall AMA 
-- Delete AMA binaries. They are stored in `Program Files\Azure Monitor Agent` by default 
-- Delete AMA data/logs. They are stored in `C:\Resources\Azure Monitor Agent` by default 
+- Delete AMA binaries. They're stored in `Program Files\Azure Monitor Agent` by default 
+- Delete AMA data/logs. They're stored in `C:\Resources\Azure Monitor Agent` by default 
 - Open Registry. Check `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Monitor Agent`. If it exists, delete the key. 
 
 
