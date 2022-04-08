@@ -62,12 +62,12 @@ Now that you've configured your diagnostic settings, Azure will stream all new e
    1. To use a suggested query, select a query and select **Run**, or select **Load to editor** to review the code.
    1. To create your own query, enter your query in the code editor and select **Run**. You can also perform some actions, such as editing the scope and the range of the query, as well as saving and sharing the query. The result of the query is displayed in the lower part of the screen.
 
-   :::image type="content" source="media/managed-grafana-monitoring-logs-query.png" alt-text="Screenshot of the Azure platform. Log query editing.":::
+   :::image type="content" source="media/managed-grafana-monitoring-logs-query.png" alt-text="Screenshot of the Azure platform. Log query editing." lightbox="media/managed-grafana-monitoring-logs-query-expanded.png":::
 
 1. Select **Schema and Filter** on the left side of the screen to access tables, queries and functions. You can also filter and group results, as well as find your favorites.
 1. Select **Columns** on the right of **Results** to  edit the columns of the results table, and manage the table like a pivot table.
 
-   :::image type="content" source="media/managed-grafana-monitoring-logs-filters.png" alt-text="Screenshot of the Azure platform. Log filters and columns.":::
+   :::image type="content" source="media/managed-grafana-monitoring-logs-filters.png" alt-text="Screenshot of the Azure platform. Log query filters and columns." lightbox="media/managed-grafana-monitoring-logs-filters-expanded.png":::
 
 ## Next steps
 

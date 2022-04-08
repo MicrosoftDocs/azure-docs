@@ -42,7 +42,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
    1. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at this point or later.
 
-    If you uncheck this option (or if the option greys out for you), someone with the Owner role on the subscription can do the role assignment to give you the Grafana Admin permission.
+    If you uncheck this option (or if the option grays out for you), someone with the Owner role on the subscription can do the role assignment to give you the Grafana Admin permission.
 
     > [!NOTE]
     > If creating a Grafana workspace fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.
