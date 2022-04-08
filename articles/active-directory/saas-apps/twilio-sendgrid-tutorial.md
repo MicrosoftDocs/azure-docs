@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Twilio Sendgrid SSO
 
-To configure single sign-on on **Keepabl** side, you need to send the **Certificate (Base64)** to [Keepabl support team](mailto:help@sendgrid.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Twilio Sendgrid** side, you need to send the **Certificate (Base64)** to [Twilio Sendgrid support team](mailto:help@sendgrid.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Twilio Sendgrid test user
 
