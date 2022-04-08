@@ -116,7 +116,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-    For Azure AD users and groups the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
+    For Azure AD users and groups, the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
@@ -264,7 +264,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
     ![save admin](./media/authentication-aad-configure/save-admin.png)
 
-    For Azure AD users and groups the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
+    For Azure AD users and groups, the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
