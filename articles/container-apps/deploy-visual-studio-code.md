@@ -46,7 +46,7 @@ Select **Azure: Sign in**, and Visual Studio Code will launch a browser for you 
 
 ## Create the container registry and Docker image
 
-The sample application includes a Dockerfile that is used to build a container image for the application. You can build the image for your app directly in Azure - a local Docker installation is not required. 
+The sample project includes a Dockerfile that is used to build a container image for the application. Docker images contain all of the source code and dependencies necessary to run an application. You can build the image for your app directly in Azure - a local Docker installation is not required. An image is required to create and run a container app.
 
 Container images are stored inside of container registries. You can easily create a container registry and upload an image of your app to it in a single workflow using Visual Studio Code.
 
@@ -56,7 +56,7 @@ Container images are stored inside of container registries. You can easily creat
 
 2) The command palette will open and prompt you to enter a tag for the container. Accept the default, which will use the project name with the **Run ID** appended afterward. Press enter to continue.
 
-     :::image type="content" source="media/visual-studio-code/visual-studio-code-container-tag.png" lightbox="media/visual-studio-code/visual-studio-code-build-in-azure.png" alt-text="A screenshot showing Container Apps selected.":::
+     :::image type="content" source="media/visual-studio-code/visual-studio-code-container-tag.png" alt-text="A screenshot showing Container Apps selected.":::
 
 3) Choose the subscription you would like to use to create your container registry and build your image, and then press enter to continue.
 
