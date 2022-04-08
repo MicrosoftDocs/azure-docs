@@ -112,9 +112,9 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [power](data-flow-expressions-usage.md#power) | Raises one number to the power of another.  |
 | [radians](data-flow-expressions-usage.md#radians) | Converts degrees to radians|
 | [random](data-flow-expressions-usage.md#random) | Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  |
-| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping.  |
-| [regexMatch](data-flow-expressions-usage.md#regexMatch) | Checks if the string matches the given regex pattern. Use `<regex>`(back quote) to match a string without escaping.  |
-| [regexReplace](data-flow-expressions-usage.md#regexReplace) | Replace all occurrences of a regex pattern with another substring in the given string Use `<regex>`(back quote) to match a string without escaping.  |
+| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `` `<regex>` `` (back quote) to match a string without escaping.  |
+| [regexMatch](data-flow-expressions-usage.md#regexMatch) | Checks if the string matches the given regex pattern. Use `` `<regex>` `` (back quote) to match a string without escaping.  |
+| [regexReplace](data-flow-expressions-usage.md#regexReplace) | Replace all occurrences of a regex pattern with another substring in the given string Use `` `<regex>` `` (back quote) to match a string without escaping.  |
 | [regexSplit](data-flow-expressions-usage.md#regexSplit) | Splits a string based on a delimiter based on regex and returns an array of strings.  |
 | [replace](data-flow-expressions-usage.md#replace) | Replace all occurrences of a substring with another substring in the given string. If the last parameter is omitted, it's default to empty string.  |
 | [reverse](data-flow-expressions-usage.md#reverse) | Reverses a string.  |
