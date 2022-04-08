@@ -37,7 +37,7 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you have registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
 
 To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
 
@@ -58,14 +58,14 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 
 ## Additional information
-- Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that requests the data must execute a direct access by providing a fully qualified name to the data object. If the App attempts to crawl down the hierarchy starting from the Storage account or Container, and there is no access at that level, the request will fail. The following documents show examples of how to do perform a direct access. See also blogs in the *Next steps* section of this tutorial.
+- Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that requests the data must execute a direct access by providing a fully qualified name to the data object. If the App attempts to crawl down the hierarchy starting from the Storage account or Container, and there's no access at that level, the request will fail. The following documents show examples of how to do perform a direct access. See also blogs in the *Next steps* section of this tutorial.
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
-- Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (i.e., at container or sub-container level).
+- Creating a policy at Storage account level will enable the Subjects to access system containers, for example *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (that is, at container or subcontainer level).
 
 
 ### Limits
-- The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
+- The limit for Azure Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
 
 ### Known issues
 

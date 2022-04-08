@@ -37,7 +37,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 
 - [Register multiple sources in Azure Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
-After you have registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
 
 To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
 
@@ -45,7 +45,7 @@ To ensure you securely enable data use governance, and follow best practices, fo
 
 In the end, your resource will have the  **Data use governance** toggle to **Enabled**, as shown in the picture:
 
-:::image type="content" source="./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png" alt-text="Screenshot that shows how to register a a resource group or subscription for policy by toggling the enable tab in the resource editor.":::
+:::image type="content" source="./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png" alt-text="Screenshot that shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.":::
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:
@@ -56,10 +56,10 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
 
 ## Additional information
-- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers e.g., *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (i.e., at container or sub-container level).
+- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or subcontainer level).
 
 ### Limits
-The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
+The limit for Azure Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
 
 ## Next steps
 Check blog, demo and related tutorials:
