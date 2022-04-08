@@ -4979,7 +4979,7 @@ For more information, see the [Risk detection API reference documentation](/grap
 
 ### New Federated Apps available in Azure AD app gallery - June 2019
 
-**Type:** New feature
+**Type:** New feature 
 **Service category:** Enterprise Apps
 **Product capability:** 3rd Party Integration
 
@@ -4993,7 +4993,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ### Automate user account provisioning for these newly supported SaaS apps
 
-**Type:** New feature
+**Type:** New feature 
 **Service category:** Enterprise Apps
 **Product capability:** Monitoring & Reporting
 
