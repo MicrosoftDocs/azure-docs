@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 02/08/2022
+ms.date: 04/08/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -129,14 +129,34 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
-## Scenario: Use managed online endpoints
+## Scenario: Use managed online endpoints (preview)
 
-Inbound communications with managed online endpoints are secured through the private endpoint for your Azure Machine Learning workspace. That is, if your workspace has a private endpoint then inbound communications to the managed online endpoint is private and restricted to the virtual network. If the workspace does not have a private endpoint, then the managed online endpoint is public.
+Securing a managed online endpoint with a virtual network is a preview feature.
 
-Outbound communication from the managed online endpoint can be secured to the virtual network by setting the `private_network_connection` flag to `true` for your deployments. 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-> [!IMPORTANT]
-> When securing outbound communication, a private endpoint resource is created _per deployment_.
+__Inbound__ communication with the scoring URL of the managed online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `enabled` restricts the managed online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+
+__Outbound__ communication from the managed online endpoint can be secured on a per-deployment basis by using the `private_network_connection` flag. Outbound communication in this case is from the deployment to resources such as Azure Container Registry, Key Vault, workspace, file and blob storage. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+
+> [!NOTE]
+> For secure outbound communication, a private endpoint is created for each deployment where `private_network_connection` is set to `true`.
+
+Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+
+### Supported configurations
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `private_network_connection` is true   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `private_network_connection` is false  | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `private_network_connection` is true    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `private_network_connection` is false  | Yes |
+
+> [!WARNING]
+> If the workspace flag `public_network_access` is `disabled`:
+> 1. Only private deployments are allowed to be created (deployments with `private_network_connection` set to `true`).
+> 1. If the workspace had existing _public_ managed endpoints before the flag was disabled, then the public deployments will start failing.
 
 ## Scenario: Use Azure Kubernetes Service
 
