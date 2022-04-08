@@ -82,7 +82,7 @@ Once the registry is created and the image is built successfully, you are ready 
 
 ## Create and deploy to the container app
 
-The Azure Container Apps extension for Visual Studio Code enables you to choose existing container app resources, or create new ones to deploy your applications to. In this scenario you will create a new container app environment and container app to host your application. After installing the container apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
+The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario you will create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
 
 ### Create the container app environment 
 
