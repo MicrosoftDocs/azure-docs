@@ -22,7 +22,7 @@ The `best-worker` distribution mode selects the workers that are best able to ha
 
 We want to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
 
-:::image type="content" source="../media/router/best-worker-distribution-mode-problem-statement.png" alt-text="Diagram showing Best Worker Distribution Mode problem statement" lightbox="../media/router/best-worker-distribution-mode-problem-statement.png":::
+:::image type="content" source="./media/best-worker-distribution-mode-problem-statement.png" alt-text="Diagram showing Best Worker Distribution Mode problem statement" lightbox="../media/router/best-worker-distribution-mode-problem-statement.png":::
 
 ### Situation
 
