@@ -10,6 +10,7 @@ ms.date: 04/08/2022
 Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
 To share modules with other people in your organization, create a [template spec](../templates/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
 >
@@ -101,7 +102,7 @@ For example:
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
 
 > [!NOTE]
-> **br/public** is an alias for the public registry. It can also be written as **module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}**. For more information see aliases and configuring aliases later in this section.
+> **br/public** is an alias for the public registry. It can also be written as **module \<symbolic-name> 'br:mcr.microsoft.com/bicep/\<file-path>:\<tag>' = {}**. For more information see aliases and configuring aliases later in this section.
 
 #### Private module registry
 
