@@ -83,7 +83,7 @@ The public module registry is hosted in a Microsoft container registry (MCR). Th
 
 ![Bicep public module registry modules](./media/modules/bicep-public-module-registry-modules.png)
 
-Select the versions to see the available versions. You can also select **Code** to see the main.bicep files, and open the Readme files.
+Select the versions to see the available versions. You can also select **Code** to see the module source code, and open the Readme files.
 
 There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
