@@ -437,7 +437,6 @@ To add or delete Azure Synapse RBAC assignments from Synapse Studio, follow the 
 
 The following PowerShell script adds the Synapse Administrator role assignment to an Azure AD user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName with the following command to add the users to the workspace:
 
-Add the Synapse RBAC assignment, using the objectId of the Azure AD user or group you want to assign. Then check if user is added to the access control by running the `Get-AzSynapseRoleAssignment` cmdlet.
 
 ```powershell
 New-AzSynapseRoleAssignment `
