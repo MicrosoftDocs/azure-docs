@@ -39,7 +39,6 @@ For this tutorial we'll be using a JavaScript project, but the steps are languag
 - [C# sample](https://github.com/azure-samples/containerapps-albumapi-csharp)
 - [Python sample](https://github.com/azure-samples/containerapps-albumapi-python)
 - [Go sample](https://github.com/azure-samples/containerapps-albumapi-go)
-- [PUG front end sample](https://github.com/azure-samples/containerapps-albumapi-frontend)
 
 ## Sign in to Azure
 
