@@ -197,7 +197,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  13. On the **Full Import** page,  leave the defaults and click **Next**. 
  14. On the **Object Types** page, fill in the boxes and select **Next**. 
       - **Target object**: This object is the target object in the LDAP directory.
-      - **Anchor**: This attribute should be unique in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. 
+      - **Anchor**: This attribute should be unique in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. You must be using agent version 1.1.846.0 or aboce for ObjectGUID to work as the anchor. 
       - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.  You'll refer to this attribute again subsequently in the Azure portal, when configuring attribute mappings, as an attribute to use for matching.
       - **DN**: The distinguishedName of the target object.
      
