@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 04/08/2022
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -31,7 +31,7 @@ Built-in roles include generally available and preview roles.
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | (Generally available) Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | (Generally available) Same level of access as Owner, minus the ability to assign roles or change authorization options. |
 | [Reader](../role-based-access-control/built-in-roles.md#reader) | (Generally available) Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available and preview) This role is equivalent to Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. Your service must be enabled for the preview for data requests. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available) This role is equivalent to Contributor at the service-level. </p>(Preview) Provides full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role is for search service administrators who need to fully manage the service. This role has been extended to include data plane operations. Data plane support is in preview. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. Your service must be enabled for the preview for data requests. |
 | [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | (Preview) Provides full access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | (Preview) Provides read-only access to search indexes on the search service. This role is for apps and users who run queries. |
 
