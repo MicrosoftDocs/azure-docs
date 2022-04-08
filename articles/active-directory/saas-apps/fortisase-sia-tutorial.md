@@ -73,19 +73,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, do one of the following:
 
-	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/metadata`
-
-	b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/login`
+	a. For FortiSASE VPN User SSO, do the following:
 	
-	c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/login`
+	i. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/metadata`
+
+	ii. In the **Reply URL** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/login`
+	
+	iii. In the **Sign on URL** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/login`
+	
+	a. For FortiSASE SWG User SSO, do the following:
+	
+	i. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/saml/metadata`
+
+	ii. In the **Reply URL** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/saml/login`
+	
+	iii. In the **Sign on URL** text box, type a URL using the following pattern:
+    	`https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [FortiSASE Client support team](mailto:fgc@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. On the FortiSASE portal, go to **Configuration > VPN User SSO** or **Configuration > SWG User SSO** to find the service provider URLs. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FortiSASE application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -132,11 +145,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiSASE SSO
 
-To configure single sign-on on **FortiSASE** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [FortiSASE support team](mailto:fgc@fortinet.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure SSO on the FortiSASE side:
+
+1. Go to **Configuration > VPN User SSO** or **Configuration > SWG User SSO** depending on the FortiSASE mode used.
+2. On the **Configure Identity Provider** step, use the URLs here to populate Azure's **Single sign-on > Basic SAML Configuration** section:![image](https://user-images.githubusercontent.com/97979947/162479431-a6989133-2da6-44c7-8334-421ef16bd9fd.png)
+3. On the **Configure Service Provider** step, use Azure's IdP URLs to populate FortiSASE's IdP fields. Upload and use the IdP certificate that you downloaded from Azure:![image](https://user-images.githubusercontent.com/97979947/162479447-52a6943f-5211-48e2-a637-91125540c137.png)
+4. Review and submit the configuration.
 
 ### Create FortiSASE test user
 
-In this section, a user called Britta Simon is created in FortiSASE. FortiSASE supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in FortiSASE, a new one is created after authentication.
+FortiSASE supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section.
 
 ## Test SSO 
 
