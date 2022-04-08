@@ -1,6 +1,5 @@
 ---
 title:  Deploy Azure Video Indexer with ARM template
-titleSuffix: Azure Video Indexer (formerly Azure Video Analyzer for Media)
 description: In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
 ms.date: 12/01/2021
