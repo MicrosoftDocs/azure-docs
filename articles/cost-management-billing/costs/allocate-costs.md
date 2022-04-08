@@ -121,7 +121,7 @@ The following items are currently unsupported by the cost allocation public prev
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-Cost allocation data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API is supported by the 2021-10-01 API version or later. However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
+Cost allocation data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API is supported by the 2021-10-01 version or later. However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
 ## Next steps
 
