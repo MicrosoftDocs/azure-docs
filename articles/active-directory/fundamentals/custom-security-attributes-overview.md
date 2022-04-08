@@ -149,7 +149,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Predefined values per attribute definition | 100 |  |
 > | Attribute value length | 64 | Unicode characters |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` |  |
+> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` | Attribute set name and attribute name cannot start with a number |
 > | Characters not allowed for:<br/>Attribute values | `# % & * + \ : " / < > ?` |  |
 
 ## Custom security attribute roles

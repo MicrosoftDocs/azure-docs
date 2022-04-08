@@ -119,7 +119,7 @@ If you want to delete a DDoS protection plan, you must first dissociate all virt
 
 ## Next steps
 
-To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
+To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials. 
 
 > [!div class="nextstepaction"]
 > [View and configure DDoS protection telemetry](telemetry.md)

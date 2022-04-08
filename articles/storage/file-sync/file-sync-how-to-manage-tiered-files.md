@@ -115,7 +115,7 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 > [!NOTE]  
 > If a shortcut file is brought down to the server as a tiered file, there may be an issue when accessing the file over SMB. To mitigate this, there is task that runs every three days that will recall any shortcut files. However, if you would like shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
 > ```powershell
-> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll" 
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
 > Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
 > ```
 

@@ -175,17 +175,19 @@ public async Task Sample()
     client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
     // Upload a video
-    var content = new MultipartFormDataContent();
+    MultipartFormDataContent content = null;
     Console.WriteLine("Uploading...");
+    
     // Get the video from URL
     var videoUrl = "VIDEO_URL"; // Replace with the video URL
 
     // As an alternative to specifying video URL, you can upload a file.
     // Remove the videoUrl parameter from the query parameters below and add the following lines:
-    //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =new byte[video.Length];
+    //content = new MultipartFormDataContent();
+    //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+    //byte[] buffer = new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(new ByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()
@@ -398,16 +400,16 @@ namespace VideoIndexerArm
             var client = new HttpClient(handler);
 
             // Upload a video
-            var content = new MultipartFormDataContent();
+            MultipartFormDataContent content = null;
             Console.WriteLine("Uploading...");
-            // Get the video from URL
 
             // As an alternative to specifying video URL, you can upload a file.
             // Remove the videoUrl parameter from the query parameters below and add the following lines:
-            // FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-            // byte[] buffer =new byte[video.Length];
-            // video.Read(buffer, 0, buffer.Length);
-            // content.Add(new ByteArrayContent(buffer));
+            //content = new MultipartFormDataContent();
+            //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+            //byte[] buffer = new byte[video.Length];
+            //video.Read(buffer, 0, buffer.Length);
+            //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
             var queryParams = CreateQueryString(
                 new Dictionary<string, string>()
