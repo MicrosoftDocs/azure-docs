@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 04/08/2022
 ---
 
 # Bicep modules
@@ -78,7 +78,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 #### Public module registry
 
-The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The README file in the GitHub repo lists the available modules and their latest versions:
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The [README file](https://github.com/azure/bicep-registry-modules#readme) in the GitHub repo lists the available modules and their latest versions:
 
 ![Bicep public module registry modules](./media/modules/bicep-public-module-registry-modules.png)
 
@@ -89,16 +89,19 @@ There are only a few published modules currently. More modules are coming. If yo
 To link to a public registry module, specify the module path with the following syntax:
 
 ```bicep
-module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {
+module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 ```
 
-- **br** is the scheme name for a Bicep registry.
-- **file path** can contain segments that are separated by the `/` character.
+- **br/public** is the alias for the public module registry.
+- **file path** can contain segments that can be separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
 For example:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
+
+> [!NOTE]
+> **br/public** is an alias for the public registry. It can also be written as **module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}**. For more information see aliases and configuring aliases later in this section.
 
 #### Private module registry
 
@@ -125,6 +128,8 @@ The full path for a module in a registry can be long. Instead of providing the f
 An alias for the public module registry has been predefined:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition-public.bicep" highlight="1" :::
+
+You can override the public alias in the bicepconfig.json file.
 
 ### File in template spec
 
