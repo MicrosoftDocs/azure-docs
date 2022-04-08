@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 04/08/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -148,7 +148,13 @@ For domains that have already set the **SupportsMfa** property, these rules dete
 - If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
 - If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
 
-You can check the status of your SupportsMfa flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings):
+You can check the status of protection by running [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true):
+
+```powershell
+Get-MgDomainFederationConfiguration -DomainId yourdomain.com
+``` 
+
+You can also check the status of your SupportsMfa flag with [Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
