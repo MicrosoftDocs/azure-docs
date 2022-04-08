@@ -185,7 +185,7 @@
           href: node-updates-kured.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
-        - name: Custom node configuration (preview)
+        - name: Custom node configuration
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
