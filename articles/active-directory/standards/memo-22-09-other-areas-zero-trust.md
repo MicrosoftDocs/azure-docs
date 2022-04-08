@@ -76,7 +76,7 @@ Automation is an important aspect of Zero Trust, particularly in remediation of 
 
 We recommend that you set up an Azure function or an Azure logic app to use a [system-assigned managed identity](../managed-identities-azure-resources/overview.md). Your logic app or function contains the steps or code necessary to automate the desired actions. You assign permissions to the managed identity to grant the service principal the necessary directory permissions to perform the required actions. Grant managed identities only the minimum rights necessary. 
 
-Another automation integration point is [Azure AD PowerShell](/powershell/azure/active-directory/overview?view=azureadps-2.0) modules. PowerShell is a useful automation tool for administrators and IT integrators who are performing common tasks or configurations in Azure AD. PowerShell can also be incorporated into Azure functions or Azure Automation runbooks. 
+Another automation integration point is [Azure AD PowerShell](/powershell/azure/active-directory/overview) modules. PowerShell is a useful automation tool for administrators and IT integrators who are performing common tasks or configurations in Azure AD. PowerShell can also be incorporated into Azure functions or Azure Automation runbooks. 
 
 ## Governance
 

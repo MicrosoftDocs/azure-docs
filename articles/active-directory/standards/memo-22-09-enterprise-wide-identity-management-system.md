@@ -109,7 +109,7 @@ During your inventory and scope phase, consider identifying your devices and inf
 
 You can use [Azure Automation accounts](../../automation/change-tracking/manage-inventory-vms.md) to identify devices through inventory collection connected to Azure Monitor. 
 
-[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview?view=o365-worldwide) also features device inventory capabilities and discovery. This feature discovers which devices have Defender for Endpoint configured and which devices don't. Device inventory can also come from on-premises systems such as [System Center Configuration Manager](/mem/configmgr/core/clients/manage/inventory/introduction-to-hardware-inventory) or other systems that manage devices and clients. 
+[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview) also features device inventory capabilities and discovery. This feature discovers which devices have Defender for Endpoint configured and which devices don't. Device inventory can also come from on-premises systems such as [System Center Configuration Manager](/mem/configmgr/core/clients/manage/inventory/introduction-to-hardware-inventory) or other systems that manage devices and clients. 
 
 ### Integration of devices with Azure AD
 

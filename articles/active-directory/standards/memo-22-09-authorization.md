@@ -30,7 +30,7 @@ M-22-09 specifically requires the use of at least one device-based signal when y
 | - | - |
 | Device must be managed| Integration with Intune or another mobile device management (MDM) solution that supports this integration is required. 
 Hybrid Azure AD joined| The device is managed by Active Directory and qualifies. 
-| Device must be compliant| Integration with Intune or another MDM solutions that supports this integration is required. For more information, see [Use device compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started). |
+| Device must be compliant| Integration with Intune or another MDM solution that supports this integration is required. For more information, see [Use device compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started). |
 | Threat signals| Microsoft Defender for Endpoint and other endpoint detection and response (EDR) tools have integrations with Azure AD and Intune to send threat signals that can be used to deny access. Threat signals are part of the compliant status signal. |
 | Cross-tenant access policies (public preview)| These policies permit an organization to trust device signals from devices that belong to other organizations. |
 
@@ -50,7 +50,7 @@ You can use attributes assigned to users and stored in Azure AD to create author
 
 ### Attributes assigned to data
 
-Azure AD allows integration of an authorization directly to the data. You can create integrate authorization in multiple ways.
+Azure AD allows integration of an authorization directly to the data. You can integrate authorization in multiple ways.
 
 You can configure [authentication context](../conditional-access/concept-conditional-access-cloud-apps.md) within conditional access policies. This allows you to, for example, restrict which actions a user can take within an application or on specific data. These authentication contexts are then mapped within the data source itself. 
 
