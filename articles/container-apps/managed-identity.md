@@ -27,7 +27,7 @@ With managed identities:
 - Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
-- You can add and delete user-assigned identities and assign them to multiple resources. They're independent your container app's life cycle.
+- You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
 
 ### Common use cases
 
@@ -51,7 +51,7 @@ The identity is only available within a running container, which means you can't
 
 You can configure your managed identities through:  
 
-- the Azure CLI\
+- the Azure CLI
 - your Azure Resource Manager (ARM) template
 
 When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
@@ -82,7 +82,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 
 ### Add a user-assigned identity
 
-Configuring a container app with a user-assigned identity requires that you create the identity then add its resource identifier to your container app's configuration.  You can create user-assigned identities via the Azure portal or the Azure CLI.  For information on creating and managing user-assigned identities, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+Configuring a container app with a user-assigned identity requires that you first create the identity then add its resource identifier to your container app's configuration.  You can create user-assigned identities via the Azure portal or the Azure CLI.  For information on creating and managing user-assigned identities, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 # [Azure CLI](#tab/cli)
 
@@ -203,7 +203,7 @@ GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-versio
 X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
-And a sample response might look like this example:
+A response might look like this example:
 
 ```http
 HTTP/1.1 200 OK
@@ -264,7 +264,7 @@ az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME>
 To remove one or more user-assigned identities:
 
 ```azurecli
-az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --identities <IDENTITY_NAME1>,<IDENTITY_NAME2>,...
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --identities <IDENTITY_NAME1> <IDENTITY_NAME2> ...
 ```
 
 You can also remove the system assigned identity by specifying `[system]` in `--identities`.
