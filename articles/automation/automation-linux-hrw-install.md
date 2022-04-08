@@ -45,13 +45,13 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Debian GNU/Linux 6, 7, and 8
 * SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
 * Ubuntu
-  | Linux OS | Name|
-  |---|---|
-  |20.04 LTS |Focal Fossa |
+  | **Linux OS** | **Name** |
+  |---|--- |
+  |20.04 LTS | Focal Fossa |
   |18.04 LTS | Bionic Beaver |
   |16.04 LTS | Xenial Xerus |  
   |14.04 LTS | Trusty Tahr |
-  |12.04 LTS | |
+  |12.04 LTS |  |
 
 
 > [!IMPORTANT]
