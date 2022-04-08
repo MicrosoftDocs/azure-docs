@@ -1,5 +1,5 @@
 ---	
-title: Azure Function Rule Example
+title: Azure function rule example
 titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to wire up Azure Functions to Job Router decision points.
 author: danielgerlag
