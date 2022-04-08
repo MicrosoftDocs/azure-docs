@@ -45,7 +45,7 @@ To complete this project, you'll need the following items:
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
-Now that you've validated your Azure CLI setup, define the initial environment variables used throughout this article.
+Now Azure CLI setup is validated, define the initial environment variables used throughout this article.
 
 # [Bash](#tab/bash)
 
@@ -94,7 +94,7 @@ Set an environment variable for the language you'll be using. The value can be o
 
 - csharp
 - go
-- node
+- javascript
 - python
 
 # [Bash](#tab/bash)
@@ -111,9 +111,9 @@ $LANGUAGE="<LANGUAGE_VALUE>"
 
 ---
 
-Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: `csharp`, `go`, `node`, or `python`.
+Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: `csharp`, `go`, `javascript`, or `python`.
 
-Next, set an environment variable for the target port of your application.  If you're using the node API image, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
+Next, set an environment variable for the target port of your application.  If you're using the JavaScript API, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
 
 # [Bash](#tab/bash)
 
@@ -129,7 +129,7 @@ $PORT_NUMBER="<TARGET_PORT>"
 
 ---
 
-Before you run this command, replace `<TARGE_PORT>` with `3000` for node apps, or `80` for all other apps.
+Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, or `80` for all other apps.
 
 ## Prepare the GitHub repository
 
@@ -245,11 +245,11 @@ Connect-AzContainerRegistry -Name $ACR_NAME
 
 ## Build your application
 
-With ACR Tasks, you can build the docker image for the Album Service app without the need to install Docker locally.  You'll find a dockerfile in the root directory of the GitHub repo.
+With ACR Tasks, you can build the docker image for the album API without the need to install Docker locally.  You'll find the Dockerfile in the root directory of the GitHub repo which you use to create the container image.
 
 ### Build the container with ACR
 
-The following command uses ACR to remotely build the dockerfile for the Album Service. The `.` represents the current build context, so run this command at the root of the repository where the dockerfile is located.
+The following command uses ACR to remotely build the Dockerfile for the album API. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -290,11 +290,11 @@ Get-AzContainerRegistryManifest -RegistryName $ACR_NAME `
 
 ## Build your application
 
-To build your application locally, you'll use Docker to build your image.  Then you'll add your container image to your newly created container registry.
+In the below steps, you build your container image locally using Docker. Once the image is built successfully, you push the image to your newly created container registry.
 
 ### Build the container with Docker
 
-The following command builds the image using the dockerfile for the Album Service. The `.` represents the current build context, so run this command at the root of the repository where the dockerfile is located.
+The following command builds the image using the Dockerfile for the album API. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -376,7 +376,7 @@ az containerapp env create `
 
 Now that you have an environment created, you can create and deploy your container app with the `az containerapp create` command.
 
-By setting `--ingress` to `external`, your container app will be accessible to the public internet.
+By setting `--ingress` to `external`, your container app will be accessible from the public internet.
 
 Create and deploy your container app with the following command.
 
@@ -384,10 +384,10 @@ Create and deploy your container app with the following command.
 
 ```azurecli
 az containerapp create \
-  --name my-container-app \
+  --name $API_NAME \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
-  --image $APP_NAME \
+  --image $ACR_NAME_ACA.azurecr.io/$API_NAME \
   --target-port $PORT_NUMBER \
   --ingress 'external' \
   --query configuration.ingress.fqdn
