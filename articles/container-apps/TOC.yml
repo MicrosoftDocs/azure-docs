@@ -41,7 +41,7 @@
     - name: Microservices
       href: microservices.md
     - name: Observability
-    - href: observability.md
+      href: observability.md
     - name: Health probes
       href: health-probes.md
 - name: How-to guides
