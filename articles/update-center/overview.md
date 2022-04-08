@@ -48,7 +48,7 @@ Update management center (preview) has been redesigned and doesn't depend on Azu
 
 The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers for both Windows and Linux.
 
-![Update center workflow](./media/overview/update-management-center-overview.png)
+    ![Update center workflow](./media/overview/update-management-center-overview.png)
 
 To support management of your Azure VM or non-Azure machine, update management center (preview) relies on a new [Azure extension](/azure/virtual-machines/extensions/overview) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any update management center operations such as **check for updates**, **install one time update**, **periodic assessment** on your machine. The extension supports deployment to Azure VMs or Arc-enabled servers using the extension framework. The update management center (preview) extension is installed and managed using the following:
 
@@ -68,7 +68,7 @@ The machines assigned to update management center (preview) report how up to dat
 > You can manage your Azure VMs or Arc-enabled servers directly, or at-scale with update management center (preview).
 
 ## Prerequisites
-Along with the prerequisites listed below, see [support matrix](support-matrix.md) for update management center (Preview)
+Along with the prerequisites listed below, see [support matrix](support-matrix.md) for update management center (preview)
 
 ### Role
 
@@ -97,7 +97,7 @@ You need the following permissions to create and manage update deployments. The 
 
 ### Network planning
 
-To prepare your network to support, update management center (Preview), you may need to configure some infrastructure components.
+To prepare your network to support, update management center (preview), you may need to configure some infrastructure components.
 
 For Windows machines, you must allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) (WSUS) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -105,7 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azu
 
 ### VM images
 
-Update management center (Preview) supports Azure VMs created using Azure Marketplace images, the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details see:
+Update management center (preview) supports Azure VMs created using Azure Marketplace images, the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details see:
 
 - [Manual install of Azure Windows VM agent](/azure/virtual-machines/extensions/agent-windows#manual-installation)
 - [Manual install of Azure Linux VM agent](/azure/virtual-machines/extensions/agent-linux#installation)
