@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/31/2022
+ms.date: 04/07/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -54,10 +54,12 @@ For example, suppose your requests include this header:
 My-Header: 1=1
 ```
 
-The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValue** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
 
 > [!NOTE]
-> In CRS 3.2 and newer, use the **RequestHeaderValue** match condition. In CRS 3.1 and earlier, use the **RequestHeaderNames** match condition.
+> Request attributes by key and values are only available in CRS 3.2 and newer.
+>
+> Request attributes by names work the same way as request attributes by values, and are included for backward compatibility with CRS 3.1 and earlier versions. We recommend you use request attributes by values instead of attributes by names. For example, use **RequestHeaderValues** instead of **RequestHeaderNames**.
 
 In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
 
@@ -98,7 +100,7 @@ $exclusionManagedRuleSet = New-AzApplicationGatewayFirewallPolicyExclusionManage
   -RuleGroup $ruleGroupEntry
 
 $exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion `
-  -MatchVariable "RequestHeaderNames" `
+  -MatchVariable "RequestHeaderValues" `
   -SelectorMatchOperator 'Equals' `
   -Selector 'User-Agent' `
   -ExclusionManagedRuleSet $exclusionManagedRuleSet
@@ -119,7 +121,7 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 az network application-gateway waf-policy managed-rule exclusion add \
   --resource-group $resourceGroupName \
   --policy-name $wafPolicyName \
-  --match-variable 'RequestHeaderNames' \
+  --match-variable 'RequestHeaderValues' \
   --match-operator 'Equals'\
   --selector 'User-Agent'
 
@@ -129,7 +131,7 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --type OWASP \
   --version 3.2 \
   --group-name 'REQUEST-942-APPLICATION-ATTACK-SQLI' \
-  --match-variable 'RequestHeaderNames' \
+  --match-variable 'RequestHeaderValues' \
   --match-operator 'Equals' \
   --selector 'User-Agent'
 ```
@@ -150,7 +152,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
       ]
       exclusions: [
         {
-          matchVariable: 'RequestHeaderNames'
+          matchVariable: 'RequestHeaderValues'
           selectorMatchOperator: 'Equals'
           selector: 'User-Agent'
           exclusionManagedRuleSets: [
@@ -189,7 +191,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
       ],
       "exclusions": [
         {
-          "matchVariable": "RequestHeaderNames",
+          "matchVariable": "RequestHeaderValues",
           "selectorMatchOperator": "Equals",
           "selector": "User-Agent",
           "exclusionManagedRuleSets": [
