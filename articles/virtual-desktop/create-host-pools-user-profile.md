@@ -48,7 +48,7 @@ To configure FSLogix profile container, do the following on each session host re
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed successfully.
 5. From the start menu, run **regedit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\Software\\FSLogix**.
 6. Create a key named **Profiles**.
-7. Create the following values for the Profiles key (replacing \\\\hostname\\share with your real path):
+7. Create the following values for the **Profiles** key (replacing **\\\\hostname\\share** with your real path):
 
    | Name                | Type               | Data/Value                        |
    |---------------------|--------------------|-----------------------------------|
