@@ -28,25 +28,17 @@ Administrator, or Cloud Application Administrator rights to provide tenant-wide 
 
 ## Main Components
 
-- Minimum dependencies: IoT Hub, Cosmos DB, Service Bus, Event Hub, Key Vault, Storage
-- Standard dependencies: Minimum + SignalR Service, AAD app
-registrations, Device Provisioning Service, Time Series Insights, Workbook, Log Analytics,
-Application Insights
-- Microservices: App Service Plan, App Service
-- UI (Web app): App Service Plan (shared with microservices), App Service
-- Simulation: Virtual machine, Virtual network, IoT Edge
-- Azure Kubernetes Service
+This section lists the different components of the Azure IIoT Platform. The deployment script allows to select which set of components deploy.
+- Minimum dependencies: [IoT Hub](https://azure.microsoft.com/en-gb/services/iot-hub/), [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Service Bus](https://azure.microsoft.com/en-gb/services/service-bus/), [Event Hub](https://azure.microsoft.com/en-gb/services/event-hubs/), [Key Vault](https://azure.microsoft.com/en-gb/services/key-vault/), [Storage](https://azure.microsoft.com/en-gb/product-categories/storage/)
+- Standard dependencies: Minimum + [SignalR Service](https://azure.microsoft.com/en-gb/services/signalr-service/), AAD app
+registrations, [Device Provisioning Service](https://docs.microsoft.com/en-gb/azure/iot-dps/), [Time Series Insights](https://azure.microsoft.com/en-gb/services/time-series-insights/), Workbook, Log Analytics,
+[Application Insights](https://azure.microsoft.com/en-gb/services/monitor/)
+- Microservices: App Service Plan, [App Service](https://azure.microsoft.com/en-gb/services/app-service/)
+- UI (Web app): App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/en-gb/services/app-service/)
+- Simulation: [Virtual machine](https://azure.microsoft.com/en-gb/services/virtual-machines/), Virtual network, IoT Edge
+- [Azure Kubernetes Service](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 
-## Installation types
-
-- Minimum: Minimum dependencies
-- Local: Minimum and the standard dependencies
-- Services: Local and the microservices
-- Simulation: Minimum dependencies and the simulation components
-- App: Services and the UI
-- All (default): App and the simulation
-
-## Deployment
+## Deploy Azure IIoT Platform using the deployment script
 
 1. To get started with the deployment of the IIoT Platform, clone the repository from the command prompt or terminal.
 
@@ -57,15 +49,26 @@ Application Insights
 
     On Windows:
         ```
-        .\deploy -version <version>
+        .\deploy -version <version> [-type <deploymentType>]
         ```
 
     On Linux or Mac:
         ```
-        ./deploy.sh -version <version>
+        ./deploy.sh -version <version> [-type <deploymentType>]
         ```
 
     Replace \<version> with the version you want to deploy.
+
+    Replace \<deploymentType> with the type of deployment (optional parameter).
+
+    The type of deployments are the followings:
+
+    - Minimum: Minimum dependencies
+    - Local: Minimum and the standard dependencies
+    - Services: Local and the microservices
+    - Simulation: Minimum dependencies and the simulation components
+    - App: Services and the UI
+    - All (default): App and the simulation
 
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
@@ -78,7 +81,14 @@ Application Insights
         ./deploy.ps1 -aadConfig aad.json
         ```
 
-For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
+
+## Other hosting and deployment methods
+
+Other hosting and deployment methods:
+
+- For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
+- Deploying Azure Industrial IoT Platform microservices into an existing Kubernetes cluster using [Helm](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-helm.md).
+- Deploying [Azure Kubernetes Service (AKS) cluster on top of Azure Industrial IoT Platform created by deployment script and adding Azure Industrial IoT components into the cluster](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-add-aks-to-ps1.md).
 
 References:
 - [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/tree/master/docs/deploy)
