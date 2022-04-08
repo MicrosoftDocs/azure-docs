@@ -286,7 +286,7 @@
       items:
       - name: Launch Jupyter notebook
         href: notebooks-hunt.md
-      - name: Troubleshoot Jupyter notebooks
+      - name: Troubleshoot Jupyter notebook
         href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md

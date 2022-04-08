@@ -16,8 +16,6 @@ The foundation of Microsoft Sentinel is the data store; it combines high-perform
 
 ## When to use Jupyter notebooks
 
-
-
 While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data.
 
 For example, use notebooks to:
@@ -91,8 +89,6 @@ Other resources:
 
 - Submit feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
-
-Videos:
 - Learn more about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [Credential Scan on Azure Log Analytics](https://www.youtube.com/watch?v=OWjXee8o04M) and Guided Investigation - Process Alerts.
 
     Find more notebook templates in the Microsoft Sentinel > **Notebooks** > **Templates** tab.

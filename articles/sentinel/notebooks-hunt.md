@@ -1,5 +1,5 @@
 ---
-title: Hunt for security threats with Jupyter notebooks
+title: Hunt for security threats with Jupyter notebooks - Microsoft Sentinel
 description: Use notebooks with the Microsoft Sentinel hunting capabilities.
 author: cwatson-cat
 ms.author: cwatson
@@ -11,29 +11,20 @@ ms.date: 04/04/2022
 
 # Hunt for security threats with Jupyter notebooks
 
-Add intro sentence...
+As part of your security investigations and hunting, launch and run Jupyter notebooks to programmatically analyze your data.
 
-Short overview of process:
-Create ML workspace
-Launch or download notebook
-Run code in notebook to hunt
+In this how-to guide, you'll create an Azure Machine Learning (ML) workspace, launch notebook from Sentinel portal to your Azure ML workspace, and run code in the notebook.
 
 ## Prerequisites
 
-- Endpoint?
-- VM?
+We recommend that you learn about Microsoft Sentinel notebooks in general before completing the steps in this article. See [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
-- Permissions:
+To use Microsoft Sentinel notebooks, you must have the following roles and permissions:
 
-To use Jupyter notebooks in Microsoft Sentinel, you must first have the right permissions, depending on your user role.
-
-While you can run Microsoft Sentinel notebooks in JupyterLab or Jupyter classic, in Microsoft Sentinel, notebooks are run on an [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform. To run notebooks in Microsoft Sentinel, you must have appropriate access to both Microsoft Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
-
-|Permission  |Description  |
+|Type  |Details  |
 |---------|---------|
-|**Microsoft Sentinel permissions**     |   Like other Microsoft Sentinel resources, to access notebooks on Microsoft Sentinel Notebooks blade, a Microsoft Sentinel Reader, Microsoft Sentinel Responder, or Microsoft Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Microsoft Sentinel](roles.md).|
-|**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](../machine-learning/how-to-assign-roles.md) and [Azure built-in roles](../role-based-access-control/built-in-roles.md). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](../machine-learning/how-to-assign-roles.md#create-custom-role). |
-|     |         |
+|**Microsoft Sentinel**     |- The **Microsoft Sentinel Contributor** role, in order to save and launch notebooks from Microsoft Sentinel         |
+|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
 
 ## Create an Azure ML workspace from Microsoft Sentinel
 
@@ -257,13 +248,15 @@ Having Microsoft Sentinel notebooks stored in your Azure ML workspace allows you
 
 ## Next steps
 
-Integrate your notebook experience with big data analytics in Azure Synapse. For more information, see [Integrate notebooks with Azure Synapse (Public preview)](notebooks-with-synapse.md).
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+- [Integrate notebooks with Azure Synapse (Public preview)](notebooks-with-synapse.md)
 
-Other notebooks shared in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
+Other resources:
+- Use notebooks shared in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
-We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
+- Submit feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
-- **Learn more** about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [**Credential Scan on Azure Log Analytics**](https://www.youtube.com/watch?v=OWjXee8o04M) and **Guided Investigation - Process Alerts**.
+- Learn more about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [Credential Scan on Azure Log Analytics](https://www.youtube.com/watch?v=OWjXee8o04M) and Guided Investigation - Process Alerts.
 
     Find more notebook templates in the Microsoft Sentinel > **Notebooks** > **Templates** tab.
 
@@ -276,7 +269,7 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 For more information, see:
 
 - [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)
-- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+
 - [Tutorial: Microsoft Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
 - [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)
 - [Webinar: Microsoft Sentinel notebooks fundamentals](https://www.youtube.com/watch?v=rewdNeX6H94)
