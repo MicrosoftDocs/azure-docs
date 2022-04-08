@@ -34,7 +34,7 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 
 1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the source Azure SQL Server with administrative privileges.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/ssms-connection.png" alt-text="Connect to SQL Server Management Studio with your log in credentials.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/connect-sql-server-management-studio.png" alt-text="Connect to SQL Server Management Studio with your log in credentials.":::
 
 1. Connect to your source SQL database. If you're using SSMS, expand **Databases**, right select the database you created above, and select **New Query**.
 
@@ -71,7 +71,7 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 
 1. Make sure to update your source Azure SQL Database's firewall rules as needed, to allow access from your Synapse workspace. To do this within the Azure portal, navigate to the source Azure SQL Database, open **Firewalls and virtual networks**, then set **Allow Azure services and resources to access this server** to **Yes**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/portal-sql-db-firewall.png" alt-text="Configure firewalls and virtual networks for your SQL DB using Azure portal.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/configure-firewall-sql-database.png" alt-text="Configure firewalls and virtual networks for your SQL DB using Azure portal.":::
 
 ## Create your target Synapse SQL pool and database
 
