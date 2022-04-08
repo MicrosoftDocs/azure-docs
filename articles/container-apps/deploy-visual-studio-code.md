@@ -92,7 +92,7 @@ Every container app must be part of a Container Apps environment. An environment
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-create-app-environment.png" alt-text="A screenshot showing how to create a Container Apps environment.":::
 
-2) A command palette workflow will open at the top of the screen. Enter a name for the new container app environment, such as `msdocsappenvironment`, and press enter.
+2) A command palette workflow will open at the top of the screen. Enter a name for the new Container Apps environment, such as `msdocsappenvironment`, and press enter.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-container-app-environment.png" alt-text="A screenshot showing the container app environment.":::
 
