@@ -201,7 +201,7 @@ Many of these are on our road map to address and may be supported in the future.
 
 * Service principal and user-assigned managed identity aren't supported for authenticating to source DB, so when creating Azure SQL linked service, please choose SQL Auth or Service Assigned Managed Identity (SAMI).
 
-* VNet isn't supported when creating Synapse workspace for private preview.
+* Currently, VNet isn't supported when creating Synapse workspace.
 
 * Synapse Link CANNOT be enabled for Azure SQL DB tables in following conditions:
 
@@ -210,7 +210,7 @@ Many of these are on our road map to address and may be supported in the future.
   * tables with column data types, which aren't supported by Azure Synapse including image, text, xml, timestamp, sql_variant, UDT, geometry, geography.
   * time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table
 
-* Maximum 40,000 tables can be added to a single link connection in private preview.
+* Currently, a maximum of 40,000 tables can be added to a single link connection.
 
 * The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.
 
