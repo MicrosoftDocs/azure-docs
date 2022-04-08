@@ -25,7 +25,7 @@ It's important that you have the following prerequisites completed before you be
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
 > [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service have its own event hub consumer group. 
+> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
 >
 > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
 >
