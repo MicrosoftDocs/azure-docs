@@ -98,7 +98,7 @@ When index tuning isn't successful at preventing deadlocks, other methods are av
 - If the deadlock occurs only when a particular plan is chosen for one of the queries involved in the deadlock, [forcing a query plan](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) with Query Store may prevent deadlocks from reoccurring.
 - Rewriting Transact-SQL for one or more transactions involved in the deadlock can also help prevent deadlocks. Breaking apart explicit transactions into smaller transactions requires careful coding and testing to ensure data validity when concurrent modifications occur.
 
-Learn more about each of these approaches in the [prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article.
+Learn more about each of these approaches in the [Prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article.
 
 ## Monitor and alert on deadlocks
 
@@ -128,8 +128,8 @@ You can collect deadlock graphs with XEvents using either the [ring buffer targe
 
 |Approach  |Benefits  |Considerations  |Usage scenarios  |
 |---------|---------|---------|---------|
-|Ring buffer target | <ul><li>Simple setup with Transact-SQL only.</li></ul> | <ul><li>Event data is cleared when the XEvents session is stopped for any reason, such as taking the database offline or a database failover.</li><li>Database resources are used to maintain data in the ring buffer and to query session data.</li></ul> | <ul><li>Collect sample trace data for testing and learning.</li><li>Short term needs, if you cannot set up a session using an event file target immediately.</li><li>A "landing pad" for trace data, when you have set up an automated process to persist trace data into a table.</li> </ul>  |
-Event file target  | <ul><li>Persists event data to a blob in Azure Storage so data is available even after the session is stopped.</li><li>Event files may be downloaded from the Azure Portal and analyzed locally, which does not require using database resources to query session data.</li></ul> | <ul><li>Setup is more complex and requires configuration of an Azure Storage container and database scoped credential.</ul></li>  | <ul><li>General use when you want event data to persist even after the event session stops.</li><li>Traces that generate larger amounts of event data than you would like to persist in memory.</li></ul>  |
+|Ring buffer target | <ul><li>Simple setup with Transact-SQL only.</li></ul> | <ul><li>Event data is cleared when the XEvents session is stopped for any reason, such as taking the database offline or a database failover.</li><li>Database resources are used to maintain data in the ring buffer and to query session data.</li></ul> | <ul><li>Collect sample trace data for testing and learning.</li><li>Create for short term needs if you cannot set up a session using an event file target immediately.</li><li>Use as a "landing pad" for trace data, when you have set up an automated process to persist trace data into a table.</li> </ul>  |
+Event file target  | <ul><li>Persists event data to a blob in Azure Storage so data is available even after the session is stopped.</li><li>Event files may be downloaded from the Azure Portal or [Azure Storage Explorer](#use-azure-storage-explorer) and analyzed locally, which does not require using database resources to query session data.</li></ul> | <ul><li>Setup is more complex and requires configuration of an Azure Storage container and database scoped credential.</ul></li>  | <ul><li>General use when you want event data to persist even after the event session stops.</li><li>You want to run a trace that generates larger amounts of event data than you would like to persist in memory.</li></ul>  |
 
 Select the target type you would like to use:
 
@@ -155,7 +155,7 @@ GO
 
 # [Event file target](#tab/event-file)
 
-The event file target persists deadlock graphs to a file so that they are available even after the XEvents session is stopped. The event file target also allows you to capture more deadlock graphs without allocating additional memory for a ring buffer. The event file target is suitable for long term use and for collecting larger amounts of trace data.
+The event file target persists deadlock graphs to files so they are available even after the XEvents session is stopped. The event file target also allows you to capture more deadlock graphs without allocating additional memory for a ring buffer. The event file target is suitable for long term use and for collecting larger amounts of trace data.
 
 To create an XEvents session which writes to an event file target, we will:
 
@@ -226,8 +226,8 @@ END
 GO
 ```
 
-Create a database scoped credential with the following Transact-SQL. Before running the code: 
-- Modify the URL to reflect your storage account name and your container name. This URL will be the first part of the *Blob SAS URL* you copied when you created the shared access token.
+Next, create a database scoped credential with the following Transact-SQL. Before running the code: 
+- Modify the URL to reflect your storage account name and your container name. This URL will be present at the beginning of the *Blob SAS URL* you copied when you created the shared access token. You only need the text prior to the first `?` in the string.
 - Modify the `SECRET` to contain the *Blob SAS token* value you copied when you created the shared access token.
 
 ```sql
@@ -243,7 +243,7 @@ GO
 ### Create the XEvents session
 
 Create and start the XEvents session with the following Transact-SQL. Before running the statement:
-- Replace the filename value to reflect your storage account name and your container name. This URL will be present at the beginning of the *Blob SAS URL* you copied when you created the shared access token: you only need the text prior to the first `?` in the string.
+- Replace the `filename` value to reflect your storage account name and your container name. This URL will be present at the beginning of the *Blob SAS URL* you copied when you created the shared access token. You only need the text prior to the first `?` in the string.
 - Optionally change the filename stored. The filename you specify here will be part of the actual filename(s) used for the blob(s) storing event data: additional values will be appended so that all event files have a unique name.
 - Optionally add additional events to the session.
 
@@ -266,7 +266,10 @@ GO
 
 ## Cause a deadlock in AdventureWorksLT
 
-To cause a deadlock, you will need to connect two sessions to the `AdventureWorksLT` database. We'll refer to these sessions as **Session A** and **Session B**. 
+> [!NOTE]
+> This example works in the AdventureWorksLT database with the default schema and data when RCSI has been enabled. See [Create the AdventureWorksLT database](#create-the-adventureworkslt-database) for instructions to create the database.
+
+To cause a deadlock, you will need to connect two sessions to the `AdventureWorksLT` database. We'll refer to these sessions as **Session A** and **Session B**.
 
 In **Session A**, run the following Transact-SQL. This code begins an [explicit transaction](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions) and runs a single statement that updates the `SalesLT.Product` table. To do this, the transaction acquires an [update (U) lock](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-modifying-data) on one row on table `SalesLT.Product` which is converted to an exclusive (X) lock. We leave the transaction open.
 
@@ -798,7 +801,7 @@ GO
 [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) is a standalone application that simplifies working with event file targets stored in blobs in Azure Storage. You can use Storage Explorer to:
 
 - [Create a blob container](/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container) to hold XEvent session data.
-- [Get the shared access signature (SAS)](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for a blob container. As mentioned in [Collect deadlock graphs in Azure SQL Database with Extended Events](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), the read, write, and list permissions are required.
+- [Get the shared access signature (SAS)](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for a blob container. As mentioned in [Collect deadlock graphs in Azure SQL Database with Extended Events](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), the read, write, and list permissions are required. Remove any leading `?` character from the `Query string` to use the value as the secret when [creating a database scoped credential](?tabs=event-file#create-a-database-scoped-credential).
 - [View and download](/azure/vs-azure-tools-storage-explorer-blobs#view-a-blob-containers-contents) extended event files from a blob container.
  
 [Download Azure Storage Explorer.](https://azure.microsoft.com/en-us/features/storage-explorer/).
