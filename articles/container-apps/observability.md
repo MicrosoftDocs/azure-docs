@@ -145,7 +145,7 @@ You can add more conditions to your alert rule by selecting the **Add condition*
 
 :::image type="content" source="media/observability/metrics-alert-add-condition.png" alt-text="Add a condition to your alert rule.":::
 
-The **Select a signal** pane lists the Container Apps metrics where you select a metric to base the alert condition on.
+When you add an alert condition, the **Select a signal** pane is opened.  This pane lists the Container Apps metrics from which you can select for the condition.
 
 :::image type="content" source="media/observability/metrics-alert-select-a-signal.png" alt-text="Select a metric.":::
 
