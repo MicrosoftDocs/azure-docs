@@ -239,7 +239,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
-1. Assign yourself to the Attestation Contributor role for the attestaton provider, to ensure you have permissions to configure an attestation policy.
+1. Assign yourself to the Attestation Contributor role for the attestation provider, to ensure you have permissions to configure an attestation policy.
 
    ```powershell
    New-AzRoleAssignment -SignInName $context.Account.Id `
