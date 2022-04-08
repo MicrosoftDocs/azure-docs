@@ -20,14 +20,27 @@ This quickstart is the first in a series of articles takes you step-by-step in b
 
 To complete this project, you'll need the following items:
 
+::: zone pivot=""
+
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+
+::: zone-end
+
 ::: zone pivot="docker-local"
-| Docker Engine | Install the Docker Engine on your computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+
+| Requirement  | Instructions |
+|--|--|
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
+| GitHub Account | Sign up for [free](https://github.com/join). |
+| git | [Install git](https://git-scm.com/downloads) |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+| Docker Engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). |
+
 ::: zone-end
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
