@@ -22,7 +22,7 @@ ms.author: eur
 - **JavaScript**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
 - **JavaScript**: Fix request id desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
 - **JavaScript**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
-- **C++** Fix C++ headers to remove a warning when compiling using C++17 or newer
+- **C++**: Fix C++ headers to remove a warning when compiling for C++17 or newer
 
 #### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - New **Java** samples for Speech Recognition with Language Identification

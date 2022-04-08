@@ -8,9 +8,16 @@ ms.author: eur
 
 ### Speech CLI 1.21.0: April 2022 release
 
+Uses [Speech SDK 1.21.0](release-notes-sdk.md#Speech-SDK-1.21.0:-April-2022-release)
+
 #### New features
 
-#### Bug fixes
+- Speech Translation
+    - Added WEBTT caption output to `spx translate` using `--output vtt` and optional `--output vtt file FILENAME`
+    - Added SRT caption output to `spx translate` using `--output srt` and optional `--output srt file FILENAME`
+    - Caption output creates multiple SRT or VTT files, one per target translation language
+- Speech Recognition and Intent Recognition
+    - `spx recognize [...] --output srt`
 
 ### Speech CLI 1.20.0: January 2022 release
 
