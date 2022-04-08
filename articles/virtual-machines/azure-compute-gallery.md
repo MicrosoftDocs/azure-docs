@@ -116,6 +116,11 @@ There are some limitations on community galleries:
 > [!IMPORTANT]
 > Microsoft does not provide support for images in the Community Gallery.
 
+## Contact information
+
+https://msrc.microsoft.com/report/abuse
+https://msrc.microsoft.com/report/infringement
+
 ## Explicit access using RBAC
 
 As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:

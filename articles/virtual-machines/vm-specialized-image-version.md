@@ -70,8 +70,6 @@ az vm create --resource-group myResourceGroup \
     --specialized
 ```
 
-
-
 ### [PowerShell](#tab/powershell)
 
 Once you have a specialized image version, you can create one or more new VMs using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
