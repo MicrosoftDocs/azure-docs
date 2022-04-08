@@ -338,7 +338,7 @@ $restoredPool = Restore-AzSynapseSqlPool -FromRestorePoint `
                                          -PerformanceLevel DW100c -AsJob
 ```
 
-Tracks the status of the restore:
+The following tracks the status of the restore operation:
 
 ```powershell
 Get-Job | Where-Object Command -In ("Restore-AzSynapseSqlPool") | `
