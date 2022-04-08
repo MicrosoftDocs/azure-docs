@@ -23,7 +23,7 @@ Create a new storage account by using the resource group that you created in the
     ```
     
     > [!NOTE]
-    > By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-add-storage-accounts.md).
+    > By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](../articles/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
     Here's an example output:
     
@@ -69,7 +69,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
+> By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](../articles/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 Here's some example output:
 
