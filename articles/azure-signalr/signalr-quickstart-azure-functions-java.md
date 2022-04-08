@@ -24,7 +24,7 @@ In this article, you'll use Azure SignalR Service, Azure Functions, and Java to 
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Used to run Azure Function apps locally.
   
   - The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
-  - To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
+  - To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build Java Azure Function apps.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 11
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
