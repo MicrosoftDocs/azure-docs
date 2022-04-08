@@ -45,8 +45,8 @@ Here's how to create a Conditional Access policy that requires multifactor authe
    
    - If you're using Azure Virtual Desktop (classic), choose these apps:
        
-       - **Azure Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Azure Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client
+       - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client
        
         After that, skip ahead to step 11.
 
@@ -61,7 +61,15 @@ Here's how to create a Conditional Access policy that requires multifactor authe
    > 
    > If you're using Azure Virtual Desktop (classic), if the Conditional Access policy blocks all access and only excludes Azure Virtual Desktop app IDs, you can fix this by adding the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 to the policy. Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
 
-10. Go to **Conditions** > **Client apps**. In **Configure**, select **Yes**, and then select where to apply the policy:
+10. Once you've selected your app, choose **Select**, and then select **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Cloud apps or actions page. The Azure Virtual Desktop and Azure Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+
+    >[!NOTE]
+    >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+    
+11. Go to **Conditions** > **Client apps**. In **Configure**, select **Yes**, and then select where to apply the policy:
     
     - Select **Browser** if you want the policy to apply to the web client.
     - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
@@ -69,14 +77,6 @@ Here's how to create a Conditional Access policy that requires multifactor authe
    
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Client apps page. The user has selected the mobile apps and desktop clients check box.](media/select-apply.png)
-
-11. Once you've selected your app, choose **Select**, and then select **Done**.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Cloud apps or actions page. The Azure Virtual Desktop and Azure Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
-
-    >[!NOTE]
-    >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
 
 12. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
 13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to the time you want between prompts, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched an hour after the last one.
