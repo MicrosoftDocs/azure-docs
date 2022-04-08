@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 # Resource model for the Azure Cosmos DB point-in-time restore feature
 [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL, MongoDB, Graph (preview) and Table API(preview)  accounts.
 
 ## Database account's resource model
 
@@ -202,6 +202,8 @@ Each resource represents a single database and all the graphs under that databas
 | gremlinDatabaseName	| The name of the Graph database. |
 | graphNames | The list of Graphs under this database. |
 
+To get a list of all Gremlin database and graph combinations that exist on the account at the given timestamp and location, see [Restorable Graph Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-resources/list) article.
+
 ### Restorable Graph database 
 
 Each resource contains information about a mutation event, such as a creation and deletion, that occurred on the Graph database. This information can help in the scenario where the database was accidentally deleted and user needs to find out when that event happened. 
@@ -213,7 +215,7 @@ Each resource contains information about a mutation event, such as a creation an
 | ownerResourceId	| The resource ID of the Graph database. |
 | operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user. </li></ul> |
 
-To get a list of all database mutation, see the [Restorable Graph Databases - List article. 
+To get a event feed of all mutations on the Gremlin database for the account, see the [Restorable Graph Databases - List]( /rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-databases/list) article.
 
 ### Restorable Graphs 
 
@@ -226,7 +228,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the Graph collection. |
 | operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user.</li></ul> |
 
-To get a list of all container mutations under the same database, see graph rest article.
+To get a list of all container mutations under the same database, see graph [Restorable Graphs - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-graphs/list) article.
 
 ### Restorable Table resources 
 
@@ -236,7 +238,7 @@ Lists all the restorable Azure Cosmos DB Tables available for a specific databas
 |---------|---------|
 | TableNames | The list of Table containers under this account. |
 
-To get a list of Table that exist on the account at the given timestamp and location, see Restorable Table Resources - List article. 
+To get a list of Table that exist on the account at the given timestamp and location, see [Restorable Table Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-table-resources/list) article. 
 
 ### Restorable Table  
 
@@ -249,7 +251,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the Table resource. |
 | operationType |	The operation type of this Table event. Here are the possible values:<br/><ul><li> Create: Table creation event</li><li> Delete: Table deletion event</li><li> Replace: Table modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
-To get a list of all table mutations under the same database, see Restorable Table - List article. 
+To get a list of all table mutations under the same database, see [Restorable Table - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-tables/list) article. 
 
 
 ## Next steps
