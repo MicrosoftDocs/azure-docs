@@ -297,7 +297,7 @@ Azure container apps supports all the available [scalers](https://keda.sh/docs/s
 }
 ```
 
-Let's go through an example of setting up an [Azure Storage Queue](https://keda.sh/docs/scalers/azure-storage-queue/) scaler where we will be auto scaling based on Azure Storage Queues.
+The following is an example of setting up an [Azure Storage Queue](https://keda.sh/docs/scalers/azure-storage-queue/) scaler that you can configure to auto scale based on Azure Storage Queues.
 
 Below is the Azure Storage Queue trigger specification from Keda docs. You will need the trigger `type` and any other required parameters. You can also add other optional parameters depending on your need. In this example, you will need the `accountName` and the name of the cloud environment that the queue belongs to `cloud` to set up your scaler in Azure Container Apps.
 
