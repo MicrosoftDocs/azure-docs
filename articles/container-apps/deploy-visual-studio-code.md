@@ -27,14 +27,19 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Clone the project
 
-To follow along with this tutorial, [Download the Sample Project](https://github.com/kendallroden/codetocloud/archive/refs/heads/master.zip) from [the repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below:
+To follow along with this tutorial, [Download the Sample Project](https://github.com/azure-samples/containerapps-albumapi-javascript/archive/refs/heads/master.zip) from [the repository](https://github.com/azure-samples/containerapps-albumapi-javascript) or clone it using the Git command below:
 
 ```bash
-git clone https://github.com/kendallroden/codetocloud
-cd msdocs-app-service-sqldb-dotnetcore
+git clone https://github.com/azure-samples/containerapps-albumapi-javascript
+cd containerapps-albumapi-javascript
 ```
 
-The root of the cloned project contains subfolders for the sample project in various languages.  This quickstart is technology agnostic, so you can load whichever language folder you'd like to use.  For this tutorial we'll be using the aca-node folder.  You can right click on any language folder and select **Open in Code**, or open the folder through the Visual Studio code user interface.
+For this tutorial we'll be using a JavaScript project, but the steps are language agnostic.  If you would prefer to follow along using a different language, the same sample project is also available in the tools below.
+
+- [C# sample](https://github.com/azure-samples/containerapps-albumapi-csharp)
+- [Python sample](https://github.com/azure-samples/containerapps-albumapi-python)
+- [Go sample](https://github.com/azure-samples/containerapps-albumapi-go)
+- [PUG front end sample](https://github.com/azure-samples/containerapps-albumapi-frontend)
 
 ## Sign in to Azure
 
