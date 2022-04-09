@@ -73,13 +73,18 @@ The **General** tab contains information specific to the table itself.
    - In addition, there is a collapsible section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
       - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.     
-      - **Input folder** the folder in ADLS where the data loaded to this table will live. This can be edited via the file browser.
+      - **Input folder** the folder in ADLS where the data loaded to this table will live. You can either browse the folder location or edit it manually using the pencil icon. 
       - **Data format** the data format of the data in the **Input folder** Lake databases in Azure Synapse support parquet and delimited text as the storage formats for data. If the data format doesn't match the data in the folder, queries to the table will fail.
    - For a **Data format** of Delimited text, there are further settings:
         - **Row headers** check this box if the data has row headers.
         - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
+        - **Enable multiline in data** check this box if the data has multiple lines.
+        - **Quote Character** specify the custom quote character for a delimited text file.
+        - **Escape Character** specify the custom escape character for a delimited text file.
         - **Data compression** the compression type used on the data.
-        - **Delimiter** the field delimiter used in the data files. Supported values are: Comma (,), tab (\t), and pipe (|). 
+        - **Delimiter** the field delimiter used in the data files. Supported values are: Comma (,), tab (\t), and pipe (|).
+        - **Partition columns** the list of partition columns will be displayed here.
+        - **Appendable** check this box if you are querying Dataverse data from SQL Serverless.
    - For Parquet data, there's the following setting:
         - **Data compression** the compression type used on the data.
 
@@ -87,7 +92,7 @@ The **General** tab contains information specific to the table itself.
 The **Columns** tab is where the columns for the table are listed and can be modified. On this tab are two lists of columns: **Standard columns** and **Partition columns**. **Standard columns** are any column that stores data, is a primary key, and otherwise isn't used for the partitioning of the data. **Partition columns** store data as well, but are used to partition the underlying data into folders based on the values contained in the column. Each column has the following properties.
 ![Screenshot of the Columns tab](./media/modify-lake-database/columns-tab.png)
    - **Name** the name of the column. Must be unique within the table.
-   - **PK** or primary key. Indicates whether the column is a primary key for the table. Not applicable to partition columns.
+   - **Keys** indicates whether the column is a primary key (PK) and/or foreign key (FK) for the table. Not applicable to partition columns.
    - **Description** a description of the column. If the column was created from a database template, the description of the concept represented by this column will be seen. This field is editable and can be changed to match the description that matches your business requirements.
    - **Nullability** indicates whether there can be null values in this column. Not applicable to partition columns.
    - **Data type** sets the data type for the Column based on the available list of Spark data types. 
@@ -100,7 +105,8 @@ At the top of the **Columns** tab is a command bar that can be used to interact 
       - **Partition column** adds a new custom partition column.
    - **Clone** duplicates the selected column. Cloned columns are always of the same type as the selected column.
    - **Convert type** is used to change the selected **standard column** to a **partition column** and the other way around. This option will be grayed out if you have selected multiple columns of different types or the selected column is ineligible to be converted because of a **PK** or **Nullability** flag set on the column.
-   - **Delete** deletes the selected columns from the table. This action is irreversible. 
+   - **Delete** deletes the selected columns from the table. This action is irreversible.
+You can also re-arrange the order of the columns by drag and drop using the double vertical ellipses that show up on the left of the column name when you hover over or click on the column as shown in the image above.
 
 #### Partition Columns
 
