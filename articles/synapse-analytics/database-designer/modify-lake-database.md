@@ -140,5 +140,5 @@ At the top of the **Relationships** tab, is the command bar that can be used to 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below. 
 - [Create an empty lake database](./create-empty-lake-database.md)
-- [Learn more about lake databases](./concepts-lake-database.md)
+- [Clone a lake database](./clone-lake-database.md)
 - [Create a lake database from lake database template](./create-lake-database-from-lake-database-templates.md)
