@@ -4,7 +4,7 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 04/09/2022
 ms.author: govindk
 ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
