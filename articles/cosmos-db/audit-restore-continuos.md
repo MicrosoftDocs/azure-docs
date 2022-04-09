@@ -20,15 +20,15 @@ When a restore is triggered on a source account, a log is emitted with the statu
 
 To get the list of just the restore operations that were triggered on a specific account, you can open the Activity Log blade of the source account, and search for `Restore database account` in the search bar with the required Timespan filter. The UserPrincipalName of the user that triggered the restore can be found from the `Event initiated by` column. 
 
-:::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit.png" border="false":::
+:::image type="content" source="./media/restore-account-continuous-backup/continuous-backup-restore-audit.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit.png" border="false":::
 
 The parameters of the restore request can be found by clicking on the event and selecting the JSON tab: 
-:::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-json.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-json.png" border="false":::
+:::image type="content" source="./media/restore-account-continuous-backup/continuous-backup-restore-audit-json.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-json.png" border="false":::
 
 ## Audit the restores that were triggered on a deleted database account
 
 For the accounts that were already deleted, there would not be any database account page. Instead, the Activity Logs blade in the subscription page can be used to get the restores that were triggered on a deleted account. Once the Activity Log blade under the subscription page is opened, a new filter can be added to narrow down the results specific to the resource group the account existed in, or even using the database account name in the Resource filter. The Resource for the activity log is the database account on which the restore was triggered. 
-:::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-deleted.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-deleted.png" border="false":::
+:::image type="content" source="./media/restore-account-continuous-backup/continuous-backup-restore-audit-deleted.png" alt-text="Azure Cosmos DB restore audit activity log." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-audit-deleted.png" border="false":::
 
 The activity logs can also be accessed using Azure CLI or Azure PowerShell. More information on Activity logs can be found here: [Azure Activity log - Azure Monitor | Microsoft Docs](/azure-monitor/essentials/activity-log)
 
