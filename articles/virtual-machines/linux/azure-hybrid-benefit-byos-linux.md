@@ -81,7 +81,7 @@ To start using the benefit for SUSE:
 
     | License Type  | Software Updates  | Allowed VMs|  
     |---|---|---|
-    | SLES | Installs SLES repositories into your virtual machine. | SLES BASIC PAYG VMs, SLES BYOS VMs, SLES custom on-prem image VMs|
+    | SLES | Installs SLES repositories into your virtual machine. | SLES BYOS VMs, SLES custom on-prem image VMs|
     | SLES_SAP | Installs SLES SAP repositories into your virtual machine. | SLES SAP BYOS VMs, SLES custom on-prem image VMs|
     | SLES_HPC | Installs SLES High Performance Compute related repositories into your virtual machine. | SLES HPC BYOS VMs, SLES custom on-prem image VMs|
 
