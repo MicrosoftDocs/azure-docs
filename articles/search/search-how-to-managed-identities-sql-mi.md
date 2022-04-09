@@ -44,11 +44,11 @@ Follow these steps to assign the search service system managed identity permissi
 
 1. Authenticate with your Azure AD account.
 
-:::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/sql-login.png" alt-text="Screenshot of the Connect to Server dialog." border=false:::
+:::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/sql-login.png" alt-text="Screenshot of the Connect to Server dialog." border="false":::
 
 3. From the left pane, locate the SQL database you will be using as data source for indexing and right-click it. Select **New Query**. 
 
-:::image type="content" source="/media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/new-query.png" alt-text="Screenshot of the SQL new query." border=false::
+:::image type="content" source="/media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/new-query.png" alt-text="Screenshot of the SQL new query." border="false":::
 
 
 4. In the T-SQL window, copy the following commands and include the brackets around your search service name. Click on **Execute**.
@@ -59,7 +59,7 @@ Follow these steps to assign the search service system managed identity permissi
     EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
 
- :::image type="content" source="/media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/execute-query.png" alt-text="Screenshot of T-SQL commands and Execute query." border=false::
+ :::image type="content" source="/media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/execute-query.png" alt-text="Screenshot of T-SQL commands and Execute query." border="false":::
 
 If you later change the search service system identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
@@ -77,7 +77,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 1. Select **Access control (IAM)**.
 1. Select **Add** then **Add role assignment**.
 
-:::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/sql-mi-iam-access.png" alt-text="Screenshot of the Access Control page." border=true:::
+:::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/sql-mi-iam-access.png" alt-text="Screenshot of the Access Control page." border="true":::
 
 4. Select the appropriate **Reader** role.
 1. Leave **Assign access to** as **Azure AD user, group or service principal**.
@@ -85,7 +85,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
     Example for SQL Managed Instance using a system-assigned managed identity:
 
-    :::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/add-role-assignment.png" alt-text="Screenshot of the member role assignment." border=true:::
+    :::image type="content" source="media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers-with-managed-identity/add-role-assignment.png" alt-text="Screenshot of the member role assignment." border="true":::
 
 ## 3 - Create the data source
 
