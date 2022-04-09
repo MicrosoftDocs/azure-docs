@@ -92,7 +92,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. Select your Azure subscription, select **System-assigned managed identity**, and then select **App Service**.
+1. Select your Azure subscription, for Managed Identity select **App Service**, then select your App Service name.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
