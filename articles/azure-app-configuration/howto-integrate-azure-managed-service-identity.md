@@ -88,7 +88,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. On the **Role** tab, select the **App Configuration Data Reader** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](./media/role-based-access-control/media/add-role-assignment-role.png)
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
