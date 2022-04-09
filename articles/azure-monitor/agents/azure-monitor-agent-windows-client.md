@@ -28,8 +28,8 @@ Both the [generally available extension](./azure-monitor-agent-manage.md#virtual
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
 2. To download the installer, the machine should have [C++ Redistributable version 2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) or higher
-3. The machine must be domain joined to an AAD tenant (AADJ or Hybrid AADJ machines), which enables the agent to fetch AAD device tokens used to authenticate and fetch data collection rules from Azure.
-4. You may need tenant admin permissions on the AAD tenant.
+3. The machine must be domain joined to an Azure AD tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Azure AD device tokens used to authenticate and fetch data collection rules from Azure.
+4. You may need tenant admin permissions on the Azure AD tenant.
 5. The device must have access to the following HTTPS endpoints:
 	-	global.handler.control.monitor.azure.com
 	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
@@ -39,7 +39,7 @@ Both the [generally available extension](./azure-monitor-agent-manage.md#virtual
 	
 ## Install the agent 
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
-	![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)
+	[![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
 2. Open an elevated admin command prompt window and update path to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command: 
 	```cli
@@ -70,8 +70,8 @@ Both the [generally available extension](./azure-monitor-agent-manage.md#virtual
 
 
 ## Create and associate a 'Monitored Object'
-You need to create a 'Monitored Object' (MO) that creates a representation for the AAD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with.
-Currently this association is only **limited** to the AAD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
+You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with.
+Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
 The image below demonstrates how this works:
 
 ![Diagram shows monitored object purpose and association.](media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png)
@@ -83,7 +83,7 @@ Then, proceed with the instructions below to create and associate them to a Moni
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
 This step grants the ability to create and link a monitored object to a user.  
-**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate AAD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). It will give the AAD admin 'owner' permissions at the root scope.
+**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). It will give the Azure AD admin 'owner' permissions at the root scope.
 
 **Request URI**
 ```HTTP
@@ -120,7 +120,7 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 After this step is complete, **reauthenticate** your session and **reacquire** your ARM bearer token.   
 
 #### 2. Create Monitored Object
-This step creates the Monitored Object for the AAD Tenant scope. It will be used to represent client devices that are signed with that AAD Tenant identity.
+This step creates the Monitored Object for the Azure AD Tenant scope. It will be used to represent client devices that are signed with that Azure AD Tenant identity.
 
 **Permissions required**: Anyone who has 'Monitored Object Contributor' at an appropriate scope can perform this operation, as assigned in step 1.
 
@@ -132,7 +132,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
-| `AADTenantId` | path | string | ID of the AAD tenant that the device(s) belong to. The MO will be created with the same ID |  
+| `AADTenantId` | path | string | ID of the Azure AD tenant that the device(s) belong to. The MO will be created with the same ID |  
 
 **Headers**
 - Authorization: ARM Bearer Token
@@ -277,7 +277,7 @@ Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
 The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
 
-![Diagram shows agent heartbeat logs on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)
+[![Diagram shows agent heartbeat logs on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)
 
 
 ## Manage the agent
@@ -324,7 +324,7 @@ Make sure to start the installer on administrator command prompt. Silent install
 #### Force uninstall manually when uninstaller doesn't work 
 - Stop Azure Monitor Agent service. Then try uninstalling again. If it fails, then proceed with the following steps 
 - Delete AMA service with "sc delete AzureMonitorAgent" from admin cmd 
-- Download [this tool](https://support.microsoft.com/en-us/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d) and uninstall AMA 
+- Download [this tool](https://support.microsoft.com/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d) and uninstall AMA 
 - Delete AMA binaries. They're stored in `Program Files\Azure Monitor Agent` by default 
 - Delete AMA data/logs. They're stored in `C:\Resources\Azure Monitor Agent` by default 
 - Open Registry. Check `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Monitor Agent`. If it exists, delete the key. 
