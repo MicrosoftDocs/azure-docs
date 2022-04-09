@@ -106,6 +106,7 @@ At the top of the **Columns** tab is a command bar that can be used to interact 
    - **Clone** duplicates the selected column. Cloned columns are always of the same type as the selected column.
    - **Convert type** is used to change the selected **standard column** to a **partition column** and the other way around. This option will be grayed out if you have selected multiple columns of different types or the selected column is ineligible to be converted because of a **PK** or **Nullability** flag set on the column.
    - **Delete** deletes the selected columns from the table. This action is irreversible.
+
 You can also re-arrange the order of the columns by drag and drop using the double vertical ellipses that show up on the left of the column name when you hover over or click on the column as shown in the image above.
 
 #### Partition Columns
