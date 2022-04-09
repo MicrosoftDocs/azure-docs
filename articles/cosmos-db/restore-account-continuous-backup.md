@@ -815,6 +815,82 @@ You can also restore an account using Resource Manager template. When defining t
 }
 ```
 
+### Restore ARM template for Gremlin API account 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "name": "ademo-pitr1",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2016-03-31",
+      "location": "West US",
+      "properties": {
+        "locations": [
+          {
+            "locationName": "West US"
+          }
+        ],
+        "backupPolicy": { 
+          "type": "Continuous" 
+        }, 
+        "databaseAccountOfferType": "Standard",
+        "createMode": "Restore",
+        "restoreParameters": {
+            "restoreSource": "/subscriptions/2296c272-5d55-40d9-bc05-4d56dc2d7588/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/5cb9d82e-ec71-430b-b977-cd6641db85bc",
+            "restoreMode": "PointInTime",
+            "restoreTimestampInUtc": "2021-10-27T23:20:46Z",
+            "gremlinDatabasesToRestore": { 
+                "databaseName": "db1", 
+                "graphNames": [ 
+                    "graph1", "graph2" 
+                ] 
+            }
+        }
+      }
+    }
+  ]
+}
+```
+
+### Restore ARM template for Table API account 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "name": "ademo-pitr1",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2016-03-31",
+      "location": "West US",
+      "properties": {
+        "locations": [
+          {
+            "locationName": "West US"
+          }
+        ],
+        "backupPolicy": { 
+          "type": "Continuous" 
+        }, 
+        "databaseAccountOfferType": "Standard",
+        "createMode": "Restore",
+        "restoreParameters": {
+            "restoreSource": "/subscriptions/1296c352-5d33-40d9-bc05-4d56dc2a7521/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4bcb9d82e-ec71-430b-b977-cd6641db85ad",
+            "restoreMode": "PointInTime",
+            "restoreTimestampInUtc": "2022-04-13T10:20:46Z",
+             "tablesToRestore": [ 
+                "table1", "table2" 
+            ] 
+        }
+      }
+    }
+  ]
+}
+```
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:  
 
 ```azurecli-interactive
