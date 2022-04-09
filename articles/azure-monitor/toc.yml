@@ -92,11 +92,7 @@ items:
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
-      items:
-      - name: Data collection rules
-        href: agents/resource-manager-data-collection-rules.md
-      - name: Data puller
-        href: logs/data-ingestion-from-file.md
+      href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
