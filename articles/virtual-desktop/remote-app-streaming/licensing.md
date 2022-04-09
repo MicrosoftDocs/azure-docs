@@ -63,6 +63,9 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Cost per user each month depends on user behavior
   - Only includes access rights to Azure Virtual Desktop
 
+> [!IMPORTANT]
+> Per-user access pricing only supports the use of Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Windows Server session hosts are not currently supported with per-user access pricing.
+
 ## Licensing other products and services for use with Azure Virtual Desktop
 
 The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft 365 Defender, or Universal Print. This means that if you choose a per-user license, you'll need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
