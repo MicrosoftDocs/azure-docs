@@ -328,4 +328,6 @@ Then run the following command:
 az deployment group create --resource-group $rgName --template-file .\XTCMK-Storage.json
 ```
 
-
+#### Azure Disk Encryption Set 
+Create a file for an ARM template called `XTCMK-des.json` with the following contents. Be sure to update the `parameter` values based on your configuration.
+Coming soon.
