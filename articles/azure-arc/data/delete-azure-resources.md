@@ -11,9 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Delete resources from Azure
+# Delete resources from Azure Arc data services
 
-This article describes how to delete Azure Arc-enabled data service resources from Azure.
+This article describes how to delete Azure Arc data service resources from Azure.
 
 > [!WARNING]
 > When you delete resources as described in this article, these actions are irreversible.
