@@ -171,7 +171,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[FourPoints Technology](https://www.4points.com)|
 |[For The Record LTD](https://www.fortherecord.com/)|
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
-|[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
