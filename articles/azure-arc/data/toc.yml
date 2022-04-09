@@ -165,7 +165,7 @@ items:
               href: configure-security-postgres-hyperscale.md
             - name: Manage server group (Azure Data Studio)
               href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
-            - name: Use Postgres extensions
+            - name: Use PostgreSQL extensions
               href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
