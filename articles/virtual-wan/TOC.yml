@@ -79,6 +79,8 @@
       href: scenario-route-between-vnets-firewall.md
     - name: Application Gateway and backend pools
       href: scenario-secured-hub-app-gateway.md
+    - name: Microsoft 365 - ExpressRoute private peering
+      href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
