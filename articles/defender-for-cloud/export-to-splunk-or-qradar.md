@@ -85,7 +85,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     ![Screenshot of creating client secret.](./media/export-to-siem/  create-client-secret.png)
 1. After the secret is created, copy the Secret ID and save it for later use together with the Application ID and Directory (tenant) ID.
 
-Step 7. **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
+## Step 7. **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
 
 1. Go to the Event Hubs namespace you created.
 1. In the menu, go to **Access control**.
