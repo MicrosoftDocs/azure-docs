@@ -64,16 +64,22 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 ## Stream alerts to QRadar and Splunk
 
 The export of security alerts to Splunk and QRadar uses Event Hubs and a built-in connector.
-You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts.
-
-Then, you’ll need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
+You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts for your subscription or tenant.
+Then you’ll need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
 
 ### Prerequisites
 
-Before you set up the Azure services for continuous export, make sure you have: 
+Before you set up the Azure services for exporting alerts, make sure you have: 
 
 - Azure subscription ([Create a free account](https://azure.microsoft.com/free/))
 - Azure resource group ([Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md))
+- **Owner** role on the alerts scope (subscription, management group or tenant), or these specific permissions:
+  - Write permissions for event hubs and the Event Hub Policy
+  - Create permissions for [Azure AD applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Azure AD application
+  - Assign permissions for policies, if you're using the Azure Policy 'DeployIfNotExist'
+  <!-- - To export to a Log Analytics workspace:
+    - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
+    - if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action` -->
 
 ### Step 1. Set up the Azure services
 
@@ -89,29 +95,31 @@ You can set up your Azure environment to support continuous export using either:
 
     Here's an overview of the steps you'll do in the Azure portal:
 
-    1. Create an Event Hubs name space and event hub.
+    1. Create an Event Hubs namespace and event hub.
     2. Define a policy for the event hub with “Send” permissions.
     3. **If you are streaming your alerts to QRadar SIEM** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
     4. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
     5. Enable continuous export of your security alerts to the defined event hub.
     6. **If you are streaming your alerts to QRadar SIEM** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
     7. **If you are streaming your alerts to Splunk SIEM**:
-        1. Create an Microsoft Azure Active Directory application.
-        2. Save Tenant, App ID, App password.
+        1. Create a Microsoft Azure Active Directory application.
+        2. Save the Tenant, App ID, and App password.
         3. Give permissions to the Azure AD Application to read from the event hub you created before.
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
 ### Step 2. Connect the event hub to your preferred solution using the built-in connectors
 
+Each SIEM platform has a tool to enable it to receive alerts from Azure Event Hubs. Install the tool for your platform to start receiving alerts.
+
 | Tool | Hosted in Azure | Description |
 |:---|:---| :---|
-|  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hubs Protocol are available for download from [the IBM support website](https://www.ibm.com/support). |
-| Splunk | No | [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/) is an open source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance, if for example you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
+|  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hubs Protocol are available for download from [the IBM support website](https://www.ibm.com/docs/en/qsip/7.4?topic=microsoft-azure-platform). |
+| Splunk | No | [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/) is an open source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance, for example if you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
 
 ## Stream alerts with continuous export
 
-To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, connect Defender for Cloud using continuous export and Azure Event Hubs:
+To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, connect Defender for Cloud using continuous export and Azure Event Hubs:
 
 > [!NOTE]
 > To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to an event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
