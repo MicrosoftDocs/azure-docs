@@ -655,6 +655,8 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
+      - name: Log analytics alerts legacy API
+        href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -676,6 +678,12 @@ items:
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: alerts/action-groups.md
+      - name: Create action groups with Resource Manager
+        href: alerts/action-groups-create-resource-manager-template.md
+      - name: Notification rate limiting
+        href: alerts/alerts-rate-limiting.md
+      - name: SMS alert behavior
+        href: alerts/alerts-sms-behavior.md
       - name: Common alert schema
         href: alerts/alerts-common-schema.md
       - name: Common alert schema definition
@@ -686,20 +694,12 @@ items:
         href: alerts/alerts-non-common-schema-definitions.md        
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: Create action groups with Resource Manager
-        href: alerts/action-groups-create-resource-manager-template.md
       - name: Implement a Logic App action
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
-    - name: Alert API
-      href: alerts/api-alerts.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
