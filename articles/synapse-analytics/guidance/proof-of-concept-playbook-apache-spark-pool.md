@@ -183,3 +183,6 @@ When all the POC tests are completed you can evaluate the results. Begin by eval
 ## Next steps
 
 Work with technical stakeholders and business interests to plan for the next phase of the project whether it’s going to be another follow up POC or production migration.
+
+
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

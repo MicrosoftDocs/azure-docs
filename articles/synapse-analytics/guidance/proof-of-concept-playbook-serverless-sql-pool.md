@@ -151,3 +151,4 @@ References:
 - [Serverless SQL Pool in Azure Synapse Analytics](../sql/on-demand-workspace-overview.md)
 - [Build data analytics solutions using Azure Synapse serverless SQL pools](https://docs.microsoft.com/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
 - [Solution Providers Home](https://www.microsoft.com/solution-providers/home)
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

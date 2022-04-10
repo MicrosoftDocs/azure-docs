@@ -11,73 +11,74 @@ ms.date: 04/30/2022
 
 # Data warehousing with dedicated SQL pool
 
-## Prepare for your proof of concept
+[!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
-Before going through the process of creating Goals for your Azure Synapse Analytics POC it is worth taking some time to understand the service capabilities and how they might apply to your POC. To make the most of your POC execution time, read about it in the Service Overview. Additionally, it is worth reading through the Azure Synapse SQL Pools Architectural Overview to familiarize yourself with how SQL pools separate compute and storage to provide industry- leading performance.
+This article TODO.
 
-Finally, take a look at our [videos](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse&page=1&sort=newest&tag=data-and-analytics&service=synapse-analytics) walking through use cases and new announcements regarding Azure Synapse.
+## Prepare for your POC
+
+Before deciding on your Azure Synapse Analytics proof of concept (POC) goals, it's worth first spending some time to understand the service capabilities and how they might apply to your POC. To make the most of your POC project time, read about it in the [Service Overview](#todo). Additionally, it's worth reading through the [Azure Synapse SQL architecture](../sql/overview-architecture.md) to familiarize yourself with how SQL pools separate compute and storage to provide industry-leading performance.
+
+> [!TIP]
+> We recommend that you browse our [on-demand content](https://docs.microsoft.com/shows/browse?terms=synapse) to stay updated on the latest Azure Synapse announcements, features, and products.
 
 ## Identify sponsors and potential blockers
 
-Now that you are familiar with Azure Synapse. It is time to make sure that your proof of concept has the necessary backing and will not hit any roadblocks.
+Once you're familiar with Azure Synapse, it's time to make sure that your POC has the necessary support and won't hit any roadblocks. You should:
 
-Now is the time to:
-
-- Identify any restrictions or guidelines that your organization has about moving data to the cloud.
-- Identify executive and business sponsorship for a cloud-based data warehouse project.
-- Verify that your workload is appropriate for Azure Synapse. Read more [here](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md).
+- Identify any restrictions or policies that your organization has about storing data to the cloud.
+- Identify executive and business sponsorship for a cloud-based enterprise data warehouse (EDW) project.
+- Verify that your workload is appropriate for Azure Synapse. For more information, see [Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md).
 
 ## Set your timeline
 
-A proof of concept is a scoped, time-bounded exercise with specific, measurable goals and metrics of success. Ideally, it should have some basis in business reality so that the results are meaningful.
+A POC is a scoped, time-bounded exercise with specific, measurable goals and metrics that define success. Ideally, it should have some basis in business reality so that the results are meaningful.
 
-In our experience, proof of concepts have the best outcome when they are timeboxed to two weeks. This provides enough time for work to be completed without the burden of too many use cases and complex test matrices.
+POCs have the best outcome when they're *timeboxed*. Timeboxing allocates a fixed and maximum unit of time to an activity. In our experience, two weeks provides enough time to complete the work without the burden of too many use cases or complex test matrices. Working within this fixed time period, we suggest that you follow this timeline:
 
-Working within this timeline, you can follow this rough agenda:
-
-- Loading: Three days or less
-- Querying: Five days or less
-- Value added tests: Two days or less
-
-This agenda is intended to be more of a guideline than a rule.
+1. **Data loading** - Three days or less
+1. **Querying** - Five days or less
+1. **Value added tests** - Two days or less
 
 Here are some tips:
 
 > [!div class="checklist"]
-> - Make realistic estimates of the time that will be required to complete the tasks in your plan.
-> - The time to complete your proof of concept will be influenced by the size of its dataset, the number of database objects (for example, tables, views, and stored procedures), the complexity of your database objects, and the number of interfaces you are testing.
-> - If you find that your proof of concept is estimated to run longer than four weeks, consider reducing its scope to focus on the highest priority goals.
-> - Get buy-ins from all the lead resources and sponsors for the timeline before continuing.
+> - Make realistic estimates of the time that you will require to complete the tasks in your plan.
+> - Recognize that the time to complete your POC will be related to the size of your dataset, the number of database objects (tables, views, and stored procedures), the complexity of the database objects, and the number of interfaces you will test.
+> - If you estimate that your POC will run longer than four weeks, consider reducing the scope to focus only on the most important goals.
+> - Get support from all the lead resources and sponsors for the timeline before commencing the POC.
 
-Now that you have determined that there are no immediate blockers and you have set your timeline, let's move on to scoping an architecture.
+Once you've determined that there aren't any immediate obstacles and you've set a timeline, you can scope a high-level architecture.
 
-## Creating a high-level proof of concept scoped architecture
+## Create a high-level scoped architecture
 
-Your high-level future architecture will likely contain many data sources, numerous data consumers, Big Data components, and possibly machine learning and AI data consumers. In order to keep the goal of your proof of concept achievable within your set timeframe, decide which of these components will be part of the proof of concept and which ones will be excluded from it.
+A high-level future architecture likely contains many data sources and data consumers, big data components, and possibly machine learning and AI data consumers. To keep your POC goals achievable (and within the bounds of your set timeline), decide which of these components will form part of the POC and which will be excluded.
 
-Additionally, if you are already using Azure, you need to identify the following:
+Additionally, if you're already using Azure, identify the following:
 
-- Any resources you already have in Azure (for example, Azure Active Directory, ExpressRoute) that can be used during the proof of concept.
+- Any existing Azure resources that you can use during the POC. For example, resources can include [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), or [Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 - What Azure region(s) your organization prefers.
-- A subscription for non-production, proof of concept work.
-- The throughput of your network connection to Azure. Also, check with other business users that your proof of concept can consume some of that throughput without having an adverse effect on production solutions.
+- A subscription you can use for non-production POC work.
+- The throughput of your network connection to Azure.
+    > [!IMPORTANT]
+    > Be sure to check that your POC can consume some of that throughput without having an adverse effect on production solutions.
 
 ## Migration considerations
 
-If you are migrating from a legacy data warehouse system to Azure Synapse, here are some questions to consider:
+If you're migrating from a legacy EDW system to Azure Synapse, here are some questions to consider:
 
-- Are you migrating and want to make as few changes to existing Extract, Transform, Load process (ETL) and data warehouse consumption as possible?
+- Are you migrating and want to make as few changes to existing Extract, Transform, and Load (ETL) processes and data warehouse consumption as possible?
 - Are you migrating but want to do some extensive improvements along the way?
-- Are you building an entirely new data warehouse environment (green field)?
+- Are you building an entirely new EDW environment (sometimes called a *greenfield project*)?
 
 Next, you need to consider your pain points.
 
-## Identify your current pain points
+## Identify current pain points
 
-Your proof of concept should contain use cases to prove potential solutions to address your current pain points. Here are some questions to consider:
+Your POC should contain use cases to prove potential solutions to address your current pain points. Here are some questions to consider:
 
-- What gaps in our current implementation do we expect Azure Synapse to fill?
-- What new business needs are you being asked to support?
+- What gaps in your current implementation do you expect Azure Synapse to fill?
+- What new business needs are you required to support?
 - What service level agreements (SLAs) are you required to meet?
 - What will be the workloads (for example, ETL, batch queries, analytics, reporting queries, or interactive queries)?
 
@@ -85,118 +86,120 @@ The next step is to set your goals.
 
 ## Set goals
 
-Identify why you are doing a proof of concept and write out clear goals. It is important to know before you start the service what outputs you want from your proof of concept and what you will do with them.
+Identify why you're doing a POC and be sure to define clear goals. It's also important to know what outputs you want from your POC and what you plan to do with them.
 
-Keep in mind that a proof of concept should be a short and focused effort to quickly prove or test a limited set of concepts. If you have a long list of items to prove, you may want more than one proof of concept with gates between them where you determine whether you need the next one.
+Keep in mind that a POC should be a short and focused effort to quickly prove or test a limited set of concepts. If you have a long list of items to prove, you may want to dive them into multiple POCs. POCs can have gates between them so you can determine whether to proceed to the next POC.
 
-Here are some example proof of concept goals:
+Here are some example POC goals:
 
 - We need to know that the query performance for our big complex reporting queries will meet our new SLAs.
 - We need to know the query performance for our interactive users.
 - We need to know whether our existing ETL processes are a good fit and where improvements need to be made.
 - We need to know whether we can shorten our ETL runtimes and by how much.
-- We need to know that the enterprise data warehouse (EDW) has sufficient security capabilities to secure our data.
+- We need to know that the EDW has sufficient security capabilities to adequately secure our data.
 
 The next step is to plan your testing.
 
 ## Create a test plan
 
-Using your goals, identify specific tests to run in order to support those goals and provide the outputs you identified. It is important to make sure that you have at least one test to support each goal and the expected output. Identify specific queries, reports, ETL, and other processes that will be run so that a very specific dataset can be identified.
+Using your goals, identify specific tests to run in order to support those goals and provide your identified outputs. It's important to make sure that you have at least one test for each goal and the expected output. Identify specific queries, reports, ETL and other processes that you will run to help you determine a specific dataset.
 
-Refine your tests by adding multiple testing scenarios to clarify any table structure questions that have arisen.
+Refine your tests by adding multiple testing scenarios to clarify any table structure questions that arise.
 
-Effective proof of concept execution is usually defined by good planning. Make sure all stakeholders agree to a written test plan that ties each proof of concept goal to a set of clearly stated test cases and measurements of success.
+Good planning usually defines an effective POC execution. Make sure all stakeholders agree to a written test plan that ties each POC goal to a set of clearly stated test cases and measurements of success.
 
-Most test plans revolve around performance and the expected user experience. What follows is an example of a test plan. It is important to customize your test plan to meet your business requirements. Clearly defining what you are testing will pay dividends later in this process.
+Most test plans revolve around performance and the expected user experience. What follows is an example of a test plan. It's important to customize your test plan to meet your business requirements. Clearly defining what you are testing will pay dividends later in this process.
 
-|Goal|Test|Expected Outcomes|
+|Goal/Test|Expected outcomes|
 |---------|---------|---------|
-|We need to know that the query performance for our big complex reporting queries will meet our new SLAs|- Sequential test of "complex" queries<br/>- Concurrency test of complex queries against stated SLAs|- Queries A, B, and C finished in 10, 13, and 21 seconds, respectively<br/>- With 10 concurrent users, queries A, B, and C finished in 11, 15, and 23 seconds, on average|
-|We need to know the query performance for our interactive users|- Concurrency test of selected queries at an expected concurrency level of 50 users.<br/>- Run the preceding with result-set caching|- At 50 concurrent users, average execution time is expected to be under 10 seconds, and without result-set caching<br/>- At 50 concurrent users, average execution time is expected to be under five seconds with result-set caching|
-|We need to know whether our existing ETL processes can run within the SLA|- Run one or two ETL processes to mimic production loads|- Loading incrementally onto a core fact table must complete in less than 20 minutes (including staging and data cleansing)<br/>- Dimensional processing needs to take less than five minutes|
-|We need to know that the EDW has sufficient security capabilities to secure our data|- Review and enable network security (VNET and private endpoints), data security (row-level security, Dynamic Data Masking)|- Prove that data never leaves our tenant.<br/>- Ensure that PII is easily secured|
+|We need to know that the query performance for our big complex reporting queries will meet our new SLAs|- Sequential test of complex queries<br/>- Concurrency test of complex queries against stated SLAs|- Queries A, B, and C completed in 10, 13, and 21 seconds, respectively<br/>- With 10 concurrent users, queries A, B, and C completed in 11, 15, and 23 seconds, on average|
+|We need to know the query performance for our interactive users|- Concurrency test of selected queries at an expected concurrency level of 50 users.<br/>- Run the preceding query with [result set caching](../sql-data-warehouse/performance-tuning-result-set-caching.md)|- At 50 concurrent users, average execution time is expected to be under 10 seconds, and without result set caching<br/>- At 50 concurrent users, average execution time is expected to be under five seconds with result set caching|
+|We need to know whether our existing ETL processes can run within the SLA|- Run one or two ETL processes to mimic production loads|- Loading incrementally into a core fact table must complete in less than 20 minutes (including staging and data cleansing)<br/>- Dimension processing needs to take less than five minutes|
+|We need to know that the EDW has sufficient security capabilities to secure our data|- Review and enable [network security](security-white-paper-network-security.md) (VNet and private endpoints), [access control](security-white-paper-access-control.md) (row-level security, dynamic data masking)|- Prove that data never leaves our tenant.<br/>- Ensure that personally identifiable information (PII) is easily secured|
 
 The next step is to identify your dataset.
 
-## Identify and validate the proof of concept dataset
+## Identify and validate the POC dataset
 
-From the tests scoped you can identify the data that will need in Azure Synapse to execute those tests. Now take some time to review this dataset by considering the following:
+Using the scoped tests, you can now identify the dataset required to execute those tests in Azure Synapse. Review your dataset by considering the following:
 
-- You need to verify that the dataset will adequately represent your future processing on Azure Synapse in both content, complexity, and scale.
-- Do not use a dataset that is too small (smaller than 1 TB in size) as you will not see representative performance.
-- Do not use a dataset that is too large, as your proof of concept is not intended to complete your full data migration.
-- Identify the distribution pattern and indexing option for each table.
-- If there are any questions regarding distribution. Indexing, or partitioning, add tests to your proof of concept to answer your questions.
-- Remember that you may want to test more than one distribution option or indexing option for certain tables.
-- Make sure that you have checked with the business owners for any blockers for moving this data to the cloud.
+- Verify that the dataset adequately represents your production dataset in terms of content, complexity, and scale.
+- Don't use a dataset that's too small (less than 1TB), as you might not achieve representative performance.
+- Don't use a dataset that's too large, as the POC isn't intended to complete a full data migration.
+- Identify the [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md),  [indexing option](../sql-data-warehouse/sql-data-warehouse-tables-index.md), and [partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md) for each table. If there are any questions regarding distribution, indexing, or partitioning, add tests to your POC to answer them. Bear in mind that you may want to test more than one distribution option or indexing option for some tables.
+- Check with the business owners for any blockers for moving the POC dataset to the cloud.
 - Identify any security or privacy concerns.
 
-Next, you need to put together a team.
+Next, you need to assemble a team.
 
-## Assemble your team
+## Assemble a team
 
-Specifically identify the team members needed and the commitment that will be required to support your proof of concept. The team members should include:
+Identify the team members and their commitment to support your POC. Team members should include:
 
-- A project manager to run the proof of concept project.
+- A project manager to run the POC project.
 - A business representative to oversee requirements and results.
-- An application data expert to source the data for the proof of concept.
+- An application data expert to source the data for the POC dataset.
 - An Azure Synapse specialist.
-- An expert advisor to optimize the proof of concept tests.
-- Any resources that will be required for specific components of your proof of concept project but are not necessarily required for its entire duration. These resources could include network administrators, Azure administrators, and Active Directory administrators.
+- An expert advisor to optimize the POC tests.
+- Any person who will be required for specific POC project tasks but who aren't required for its entire duration. These supporting resources could include network administrators, Azure administrators, or Azure AD administrators.
 
-Since you are evaluating a new platform, we recommend engaging an expert advisor to assist with your proof of concept. Microsoft's partner community has global availability of expert consultants who are able to demonstrate the features and performance of Azure Synapse Analytics.
+> [!TIP]
+> Since you're evaluating a new platform, we recommend engaging an expert advisor to assist with your POC. [Microsoft's partner community](https://appsource.microsoft.com/marketplace/partner-dir) has global availability of expert consultants who can help you assess, evaluate, or implement Azure Synapse.
 
-Now that you are fully prepared, it is time to put your proof of concept into practice.
+Now that you are fully prepared, it's time to put your POC into practice.
 
-## Put it into practice
+## Put the POC into practice
 
-It is important to keep the following in mind:
+It's important to keep the following in mind:
 
-- Implement your proof of concept project with the discipline and rigor of any production project.
-- Run it according to plan.
-- Have a change request process in place to prevent your proof of concept from growing and changing out of control.
+- Implement your POC project with the discipline and rigor of any production project.
+- Run the POC according to plan.
+- Have a change request process in place to prevent your POC scope from growing or changing.
 
 ## Set up
 
-Before tests can start, you need to setup the test environment and load the data:
+Before tests can start, you need to setup the test environment. It involves four stages:
 
-TODO: Image
+1. Setup
+1. Data loading
+1. Querying
+1. Value added tests
 
-Setting up a proof of concept on Azure Synapse is as easy as clicking a few buttons.
+:::image type="content" source="media/proof-of-concept-playbook-dedicated-sql-pool/proof-of-concept-playbook-dedicated-sql-pool-setup.png" alt-text="Image shows the four test environment stages: Setup, Data loading, Querying, and Value added tests.":::
 
-Perform the following steps:
+### Setup
 
-- From the [Azure portal](https://www.portal.azure.com/), follow [this tutorial](../sql-data-warehouse/create-data-warehouse-portal.md) to create an Azure Synapse SQL pool.
-- Ensure that the SQL pool's [firewalls](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) are open to your client machine.
-- Download and install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+You can set up a POC on Azure Synapse by following these steps:
 
-When you set up your SQL pool, you can set the [Data Warehouse Units](../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) (DWUs). DWUs range from 100 to 30,000 and define the performance characteristics of your SQL pool. This value can be changed at any point by [scaling your SQL pool](../sql-data-warehouse/quickstart-scale-compute-portal.md).
+1. In the [Azure portal](https://www.portal.azure.com/), complete [this tutorial](../sql-data-warehouse/create-data-warehouse-portal.md) to create an Azure Synapse SQL pool.
+1. Create an [IP firewall rule](../../azure-sql/database/firewall-configure.md) to allow your client machine to connect to the SQL pool.
+1. Download and install [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 
-We suggest developing code and unit testing at DW500c or below and running load and performance tests at DW1000c or above. At any point, you can [pause your SQL pool](../sql-data-warehouse/pause-and-resume-compute-portal.md), which will save on costs.
+Once set up, you can select the [Data Warehouse Units (DWUs)](../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) for the SQL pool. DWUs define the performance characteristics of the SQL pool, and they range from 100 to 30,000. You can change it at any time by [scaling the SQL pool](../sql-data-warehouse/quickstart-scale-compute-portal.md).
 
-## Data loading
+> [!TIP]
+> We recommend that you *develop code and unit testing* by using the DW500c service level (or below). We recommend that you *run load and performance tests* by using the DW1000c service level (or above). You can [pause the SQL pool](../sql-data-warehouse/pause-and-resume-compute-portal.md) at any time to cease billing, which will save on costs.
 
-Now that your SQL pool has been created, it is time to load some data.
+### Data loading
 
-Do the following:
+Once you've set up the SQL pool, you can follow these steps to load data:
 
-- If you have not already done so, load some data into an Azure Storage blob. We advise using a [General-purpose V2 storage blob](../../storage/common/storage-account-overview.md) with locally redundant storage for a proof of concept. There are several tools for migrating your data to an Azure Storage blob. The easiest way is to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and copy files into the storage container.
-- Now that you have data in your Azure storage container, you can load it into the SQL pool. Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement.
+1. Load the data into [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md). For a POC, we recommend that you use a [general-purpose V2 storage account](../../storage/common/storage-account-overview.md) with [locally-redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). While there are several tools for migrating data to Azure Blob Storage, the easiest way is to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), which can copy files into a storage container.
+2. Load the data into the SQL pool. Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and the [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement. You can use SSMS to connect to the SQL pool to use either method.
 
-To load data, you need to connect to your Azure Synapse SQL pool via a tool such as [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&view=sql-server-ver15). Once connected to your database, you can use [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) or the [COPY INTO](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement.
+When you load data into the SQL pool for the first time, you need to consider which [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) and [index option](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to use. While SQL pools support a variety of both, it's a best practice to rely on default settings. Default settings use round-robin distribution and a clustered columnstore index. If necessary, you can adjust these settings later, which is described later in this article.
 
-When loading data for the first time into Azure Synapse SQL pools, a common question is what [distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) and [index](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to choose. While Azure Synapse SQL pools support a variety of both, it is a best practice to use the defaults of round-robin distribution and clustered columnstore index. From here, you can fine-tune your environment, which we will discuss in a later section.
-
-The following is a COPY INTO example:
+The following example shows the COPY load method:
 
 ```tsql
+--Note when specifying the column list, input field numbers start from 1
 COPY INTO
-    test_1 (Col_one default 'myStringDefault' 1, Col_two default 1 3)
+    test_1 (Col_1 default 'myStringDefault' 1, Col_2 default 1 3)
 FROM
     'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/'
 WITH (
     FILE_TYPE = 'CSV',
-    CREDENTIAL = (IDENTITY= 'Storage Account Key', SECRET='<Your_Account_Key>'),
+    CREDENTIAL = (IDENTITY = 'Storage Account Key' SECRET = '<Your_Account_Key>'),
     FIELDQUOTE = '"',
     FIELDTERMINATOR = ',',
     ROWTERMINATOR = '0x0A',
@@ -204,20 +207,16 @@ WITH (
     FIRSTROW = 2
 );
 ```
-Let's now move on to querying.
 
-## Querying
+### Querying
 
-Deriving analytics from your data is why you are looking at a data warehouse in the first place, so let's see how to get the most out of your database. Most proof of concepts start by running a small number of representative queries against the data warehouse, first in sequence and then concurrently. This should be defined in your test plan.
+The primary purpose of an EDW is to perform analytics, which requires querying the EDW. Most POCs start by running a small number of representative queries against the EDW, at first sequentially and then concurrently. You should define both approaches in your test plan.
 
-### Sequential query test
+#### Sequential query tests
 
-Running queries sequentially is extremely easy with SSMS. It is important to run these tests using a user with a sufficient large resource class. For simple queries, we recommend Static 20. For more complex queries, we suggest Static 40.
+It's easy to run sequential query tests in SSMS. It's important to run these tests by using a user with a sufficiently large [resource class](../sql-data-warehouse/resource-classes-for-workload-management.md). A resource class is a pre-determined resource limit in SQL pool that governs compute resources and concurrency for query execution. For simple queries, we recommend using the pre-defined **staticrc20** resource class. For more complex queries, we recommend using the pre-defined **staticrc40** resource class.
 
-The following SQL query uses a [query label](https://docs.microsoft.com/sql/t-sql/queries/option-clause-transact-sql?view=sql-server-ver15) to keep track of the first query in Dynamic Management Views (DMV). Then it uses `sys.dm_pdw_exec_requests` to determine query execution duration:
-
-> [!TIP]
-> Using a query label is a great way to keep track of your queries.
+Notice that the following first query uses a [query label](../sql/develop-label.md) to provide a mechanism to keep track of the query. The second query uses the `sys.dm_pdw_exec_requests` dynamic management view to search by the label.
 
 ```tsql
 /* Use the OPTION(LABEL = '') Syntax to add a query label to track the query in DMVs */
@@ -237,70 +236,75 @@ WHERE
     [label] = 'Test1';
 ```
 
-### Concurrent query test
+#### Concurrent query tests
 
-After baselining single query performance, many customers evaluate running multiple read queries simultaneously. This is intended to mimic a business intelligence scenario running against the SQL pool. The easiest way to run this test is to download a stress testing tool. The most popular tool for this is [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
+After recording sequential query performance, you can then run multiple queries concurrently. That way, you can simulate a business intelligence workload running against the SQL pool. The easiest way to run this test is to download a stress testing tool. The most popular tool is [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
 
-An expected outcome of this test is a minimum, maximum, and average execution time at a given concurrency level. For example, suppose that you want to mimic a business intelligence workload that generates 100 concurrent queries. You would setup JMeter to run those 100 concurrent queries in a loop and look at the steady state execution. This could be done with result-set caching on and off to show the benefits of that feature.
+The tool reports on minimum, maximum, and median query durations for a given concurrency level. For example, suppose that you want to simulate a business intelligence workload that generates 100 concurrent queries. You can setup JMeter to run those 100 concurrent queries in a loop and then review the steady state execution. It can be done with result set caching on or off to evaluate the suitability of that feature.
 
-Document your results that clearly show the results.
+Be sure to document your results. Here's an example of some results:
 
-|Concurrency|# Queries Run|DWU|Min Duration(s)|Max Duration(S)|Median Duration(s)|
+|Concurrency|# Queries run|DWU|Min duration(s)|Max duration(S)|Median duration(s)|
 |---------|---------|---------|---------|---------|---------|
 |100|1,000|5,000|3|10|5|
 |50|5,000|5,000|3|6|4|
 
-### Mixed workload test
+#### Mixed workload tests
 
-Mixed workload testing is simply an addition to the concurrent query test. By adding a data update statement, like something from the loading process, into the workload mix, the workload better simulates an actual production workload.
+Mixed workload testing is an extension of the [concurrent query tests](#concurrent-query-tests). By adding a data loading process into the workload mix, the workload will better simulate a real production workload.
 
 ### Tune your query tests
 
-Depending on the query workload running on Azure Synapse, you may need to fine-tune your data warehouse's distributions and indexes. For guidance, please refer to our [best practices guide](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Depending on the query workload running on Azure Synapse, you may need to fine-tune your EDW's distributions and indexes. For more information, see [Best practices for dedicated SQL pools in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-The most common mistakes seen during setup are as follows:
+The most common mistakes seen during setup are:
 
-- Large queries run with too small a [resource class](../sql-data-warehouse/resource-classes-for-workload-management.md).
-- DWUs are too small for the workload.
+- Large queries run with a resource class that's too low.
+- The SQL pool service level DWUs are too low for the workload.
 - Large tables require [hash distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
-Common tuning changes that can be applied are as follows:
+To improve query performance, you can:
 
-- [Materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md) are used to accelerate common aggregations.
-- Replicate small dimension tables.
-- Hash distribute large fact tables that are joined or aggregated.
+- Create [materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md), which can accelerate queries involving common aggregations.
+- [Replicate tables](../sql-data-warehouse/design-guidance-for-replicated-tables.md), especially for small dimension tables.
+- [Hash distribute](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md#hash-distributed) large fact tables that are joined or aggregated.
 
-Let's now look at value added tests.
+### Value added tests
 
-## Value added tests
+Once query performance testing is complete, it's a good time to test specific features to verify that they satisfy your intended use cases. These features include:
 
-After core price performance testing is complete, it is a good time to test specific features to verify that they satisfy your intended use case. More often than not, these features are follows:
-
+- [Row-level security](../../sql/relational-databases/security/row-level-security.md?view=azure-sqldw-latest&preserve-view=true)
 - [Column-level security](../sql-data-warehouse/column-level-security.md)
-- [Row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15)
-- [Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started?toc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15)
-- Intra-cluster scaling via [Workload isolation](../sql-data-warehouse/sql-data-warehouse-workload-isolation.md)
+- [Dynamic data masking](../../azure-sql/database/dynamic-data-masking-overview.md)
+- Intra-cluster scaling via [workload isolation](../sql-data-warehouse/sql-data-warehouse-workload-isolation.md)
 
 Finally, you need to interpret your results.
 
 ## Interpret results
 
-Now that you have raw data pertaining to the performance of your data warehouse, it is important to contextualize that data. A common tactic for doing this is to compare the runs in terms of price/performance. Simply put, price/performance removes the differences in price per DWU or service hardware and gives a single comparable number for each performance test.
+Once you have test results for your EDW, it's important to interpret that data. A common approach you can take is to compare the runs in terms of *price/performance*. Simply put, price/performance removes the differences in price per DWU or service hardware and provides a single comparable number for each performance test.
 
-Let's look at an example:
+Here's an example:
 
-|Test|Test Duration|DWU|$/hr for DWU|Cost of Test|
+|Test|Test duration|DWU|$/hr for DWU|Cost of test|
 |---------|---------|---------|---------|---------|
 |Test 1|10 min|1000|$12/hr|$2|
 |Test 2|30 min|500|$6/hr|$3|
 
-The preceding example makes it very easy to see that running Test 1 at DWU1000 is more cost effective, at $2 per test run rather than $3 per test run. This methodology can be used to compare results across vendors in a proof of concept scenario.
+This example makes it easy to see that **Test 1** at DWU1000 is more cost effective at $2 per test run compared with $3 per test run.
 
-In summary, once all the proof of concept tests are completed, the next step is to evaluate the results:
+> [!NOTE]
+> You can also use this methodology to compare results *across vendors* in a POC.
 
-- Begin by evaluating whether the proof of concept goals have been met and the desired outputs collected.
-- Make a note of where additional testing is warranted or where additional questions were raised.
+In summary, once you complete all the POC tests, you're ready to evaluate the results. Begin by evaluating whether the POC goals have been met and the desired outputs collected. Make note of where additional testing is warranted and additional questions that were raised.
 
 ## Next steps
 
-TODO
+> [!div class="nextstepaction"]
+> [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)
+
+> [!div class="nextstepaction"]
+> [Big data analytics with Apache Spark pool](proof-of-concept-playbook-apache-spark-pool.md)
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions](../overview-faq.yml)
