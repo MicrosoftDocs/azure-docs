@@ -166,8 +166,17 @@ The PuTTY format and OpenSSH format use different file name extensions. The PuTT
 1. Save the private key file with the `.pem` file name extension.
 
 ## Finding the MD5 key
-SFTP connctor will reject the connection if the fingerprint of the server does not match the expected fingerprint
-the key is a string Delimited by colon.
+SFTP connector will reject the connection if the fingerprint of the server does not match the expected fingerprint.
+the key is a 47 characters string delimited by colon.
+
+In the PuTTY  window, go to connection -> SSH -> Host Keys, and make sure that RSA is on top of the algorithm selection policy list.
+ ![algorithm selection policy](./media/connectors-sftp-ssh/putty-pick-the-RSA-for-key-algorithm.png)
+ 
+Use PuTTY to connect , once the connection is established  you will get security alert popup , click on more info and copy the 47 characters.
+ ![algorithm selection policy](./media/connectors-sftp-ssh/putty-copy-md5-instruction.png)
+> [!IMPORTANT]
+> You may need to clear the entry in your windows registry to be able to get the security alert popup
+> **Computer\HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys**
 
 
 ## Considerations
