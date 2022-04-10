@@ -9,16 +9,25 @@ ms.topic: conceptual
 
 This article lists the hardware specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own physical appliances.
 
+Microsoft support teams will be better able to assist deployments using pre-configured appliances which are available in our labs.  
+
 > [!TIP]
-> We recommend purchasing [pre-configured appliances](ot-pre-configured-appliances.md) with the software already installed, for improved performance, compatibility, stability, and more.
+> [Pre-configured physical appliances](ot-pre-configured-appliances.md) have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:
+>
+>- **Performance** over the total assets monitored
+>- **Compatibility** with new Defender for IoT releases, with validations for upgrades and driver support
+>- **Stability**, validated physical appliances undergo traffic monitoring and packet loss tests
+>- **In-lab experience**, Microsoft support teams train using validated physical appliances and have a working knowledge of the hardware
+>- **Availability**, components are selected to offer long-term worldwide availability
 >
 
 ## OS compatibility
 
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04.
-All hardware components must be compatible with Ubuntu version 18.04.
+All hardware components must be compatible with Ubuntu version 18.04 and later versions.
 
 ## Specifications
+
 # [CPU requirements](#tab/cpu_requirements)
 
 | Deployment type |Supported models and versions |
@@ -40,11 +49,12 @@ All hardware components must be compatible with Ubuntu version 18.04.
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
-| **Corporate**      | RAID 5 with HPE Smart Array P408i (a SR Gen10 Controller) , 6x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive<br> RAID 5 with HPE Smart Array P408i (an SR controller, 3x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)) <br> 600IOPS      |
-| **Enterprise**      | RAID 1 with HPE Smart Array P208i-a, 2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)  <br>  RAID 5 with HPE Smart Array P208i-a, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive <br>RAID 5 with Dell PERC H330, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive<br> 300IOPS      |
-| **Production line** | 128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3-year warranty wide-temperature SSD <br>128 GB 3ME3 wide temperature mSATA SSD <br> 150 IOPS|
+| **Corporate**<br>~600 IOPS      | RAID 5 with HPE Smart Array P408i (a SR Gen10 Controller) , 6x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive<br> RAID 5 with HPE Smart Array P408i (an SR controller, 3x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in))       |
+| **Enterprise**<br>~300IOPS       | RAID 1 with HPE Smart Array P208i-a, 2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)  <br>  RAID 5 with HPE Smart Array P208i-a, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive <br>RAID 5 with Dell PERC H330, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive     |
+| **Production line**<br>~150 IOPS| | 128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3-year warranty wide-temperature SSD <br>128 GB 3ME3 wide temperature mSATA SSD 
 
 ---
+
 ## Next steps
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
