@@ -165,6 +165,11 @@ The PuTTY format and OpenSSH format use different file name extensions. The PuTT
 
 1. Save the private key file with the `.pem` file name extension.
 
+## Finding the MD5 key
+SFTP connctor will reject the connection if the fingerprint of the server does not match the expected fingerprint
+the key is a string Delimited by colon.
+
+
 ## Considerations
 
 This section describes considerations to review when you use this connector's triggers and actions.
