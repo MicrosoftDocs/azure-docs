@@ -284,23 +284,25 @@ The console will display restore failures.
 
 ## Update a standalone sensor version
 
-This procedure describes how to update a standalone sensor version. If you are upgrading from a version higher than 22.1.x, you can jump straight to [Update your sensor software version](#update-your-sensor-software-version). 
+This procedure describes how to update a standalone sensor version. If you are upgrading from a version higher than 22.1.x, you can jump straight to [Update your sensor software version](#update-your-sensor-software-version).
 
-However, if you're upgrading from a version earlier than 22.1.x, make sure to [Download a new activation file for version 22.1.x or higher](#download-a-new-activation-file-for-version-221x-or-higher) before you upgrade, and then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
+However, if you're upgrading from a version earlier than 22.1.x, make sure to [prepare for an update to version 22.1.x or higher](#prepare-for-an-update-to-version-221x-or-higher), including updating your firewall rules and downloading an new activation file. Then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
 
 Updates from legacy versions may require a series of upgrades. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
 
-### Download a new activation file for version 22.1.x or higher
+### Prepare for an update to version 22.1.x or higher
 
 Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
 
-1. Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+**Modify required firewall rules**:
 
-1. In Defender for IoT, select **Sites and sensors** on the left.
+Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
-1. Select the site where you want to update your sensor, and then navigate to the sensor you want to update.
+**Download a new activation file**:
 
-1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
+1. In Defender for IoT, select **Sites and sensors** on the left, and then find the sensor you want to update. If you know your site and sensor name, you can browse to it directly. Alternately filter the sensors listed by *Sensor version*, showing all sensor versions that contain *10*.
+
+1. For the sensor you want to update, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
 
@@ -309,6 +311,36 @@ Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade wi
 1. When the new activation file is ready, download it and verify that the sensor status has switched to **Pending activation**.
 
 ### Update your sensor software version
+
+This procedure describes how to update your OT sensor software version, either remotely from the Azure portal, or manually by installing the updates on your sensor machine.
+
+# [From the Azure portal (Preview)](#tab/portal)
+
+This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal.
+
+> [!TIP]
+> Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.
+>
+
+**To update your sensor from the Azure portal**:
+
+1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed. If you know your site and sensor name, you can browse to it directly. Alternately filter the sensors listed by *Sensor version* and show all sensor versions that contain a number earlier than the most recent version available.
+
+1. Select one or more sensors to update, and then select **Update (Preview)** > **Download package**. For a specific sensor, you can also access the **Download package** option from the **...** options menu to the right of the sensor row.
+
+1. In the **Download package** pane that appears on the right, check to make sure that you're downloading the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+
+    When you're ready, select **Download package**. The software download to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your upgrade versions.
+
+1. When the **Sensor version** column reads *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+
+1. In the **Update sensor** pane that appears on the right, check to verify your update details. When you're ready, select **Update now** > **Confirm update**.
+
+# [Install manually](#tab/manual)
+
+This procedure includes downloading your update package and installing it manually on your sensor machine.
+
+**To download your update and install it manually**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Updates**.
 

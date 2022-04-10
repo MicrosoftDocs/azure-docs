@@ -99,7 +99,7 @@ For more information about each model, see [Appliance specifications](#appliance
 
 ### Virtual sensors
 
-This section provides describes virtual sensors that are available.
+This section describes virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|

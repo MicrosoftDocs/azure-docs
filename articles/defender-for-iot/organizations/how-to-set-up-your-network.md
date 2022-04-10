@@ -13,7 +13,7 @@ OT network sensors use agentless, patented technology to discover, learn, and co
 
 This article is intended for personnel experienced in operating and managing OT and IoT networks, such as automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, and CIOs.
 
-We recommend that you use this article together with our [predeployment checklist](predeployment-checklist.md).
+We recommend that you use this article together with our [pre-deployment checklist](pre-deployment-checklist.md).
 
 For assistance or support, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
@@ -221,13 +221,13 @@ This section provides troubleshooting for common issues when preparing your netw
 
     :::image type="content" source="media/how-to-set-up-your-network/system-sanity-command.png" alt-text="Screenshot of the system sanity command.":::
 
-For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## Next steps
 
 For more information, see:
 
-- [Predeployment checklist](predeployment-checklist.md)
+- [Predeployment checklist](pre-deployment-checklist.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
 - [Defender for IoT installation](how-to-install-software.md)

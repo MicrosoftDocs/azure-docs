@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma, urosmil
 ms.custom: references_regions
-ms.date: 03/07/2022
+ms.date: 04/04/2022
 ---
 
 # Maintenance window
@@ -179,8 +179,9 @@ servicehealthresources
 | extend impact = properties.Impact
 | extend impactedService = parse_json(impact[0]).ImpactedService
 | where  impactedService =~ 'SQL Database'
-| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
-| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = todatetime(tolong(properties.ImpactStartTime)), impactMitigationTime = todatetime(tolong(properties.ImpactMitigationTime))
+| where eventType == 'PlannedMaintenance'
+| order by impactStartTime desc
 ```
 
 To check for the maintenance events for all managed instances in your subscription, use the following sample query in Azure Resource Graph Explorer:
@@ -191,8 +192,9 @@ servicehealthresources
 | extend impact = properties.Impact
 | extend impactedService = parse_json(impact[0]).ImpactedService
 | where  impactedService =~ 'SQL Managed Instance'
-| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
-| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = todatetime(tolong(properties.ImpactStartTime)), impactMitigationTime = todatetime(tolong(properties.ImpactMitigationTime))
+| where eventType == 'PlannedMaintenance'
+| order by impactStartTime desc
 ```
 
 For the full reference of the sample queries and how to use them across tools like PowerShell or Azure CLI, visit [Azure Resource Graph sample queries for Azure Service Health](../../service-health/resource-graph-samples.md). 

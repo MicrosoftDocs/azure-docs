@@ -9,9 +9,9 @@ ms.date: 03/22/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last 6 months. 
+This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than 6 months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -50,21 +50,45 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 **Sensor version**: 22.2.1
 
 - [Active discovery scans](#active-discovery-scans-public-preview)
+- [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
+
 - [Device detection enhancements](#device-detection-enhancements)
 - [Download PCAP files from the Azure portal](#download-pcap-files-from-the-azure-portal)
 - [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal)
 - [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements)
-- [Documentation improvements](#documentation-improvements)
 
 ### Active discovery scans (Public preview)
 
-Now you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network. Active discovery scans:
+Now you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
 
-- Allow for faster deployments, enriching your existing device data with more details
-- Discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device
+Active discovery scans allow for faster deployments, enriching your existing device data with more details. They also help you discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device.
 
-Active scans run detection activity directly in your network and must be configured carefully. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
+> [!IMPORTANT]
+> Active scans run detection activity directly in your network and must be configured carefully.
+>
+
+View scanning data from active discovery scans from your sensor console only. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
+
+### Sensor management from the Azure portal
+
+For sensor versions 22.2.x and higher, you can configure sensor settings, upgrade your sensor software, and monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+
+On the **Sites and sensors** page:
+
+- **To create and apply settings** across one or more sensors in your network, select **Sensor settings (Preview)**.
+
+- **To update sensor software**, select a connected sensor with a legacy software version, and then select **Update (Preview)**. Use the **Sensor version** column and/or filter to find sensors with legacy software.
+
+- **To monitor sensor health**, use the new sensor health widgets and table column data.
+
+:::image type="content" source="media/release-notes/cloud-management.png" alt-text="Screenshot highlighting the new cloud management features in the Azure portal.":::
+
+To view all data for a specific sensor, select the sensor name to view a full sensor **Overview** page. The sensor details page lists sensor data, sensor health, and the list of any sensor settings applied. For example:
+
+:::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor Overview page.":::
+
+For more information, see <X>.
 
 ### Device detection enhancements
 
@@ -108,17 +132,36 @@ Cloud support for uploading the file starting in April
 Cloud connected sensors, starting in april - log gets sent automatically to support when you open a ticket - for sensor versions starting in 22.1.3.
 
 
+## April 2022
+
+- [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
+- [Documentation improvements](#documentation-improvements)
+
+### Extended device property data in the Device inventory
+
+**Sensor software version**: 22.1.4
+
+Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
 ### Documentation improvements
 
 **Release note tracking per version**
 
-Starting in version 22.2.x, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in April 2022, we're releasing version 22.2.1.
+Starting in April 2022, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in April 2022, we're releasing version 22.2.1.
 
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
 **Documentation reorganization for end-user organizations**
 
-This month we've reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started. Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and maintaining your Defender for IoT system.
+This month we've reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started. Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
 
 **New and updated articles include**:
 
@@ -127,7 +170,7 @@ This month we've reorganized our Defender for IoT documentation for end-user org
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- Best practices
+- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
 - [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Get started with Enterprise IoT
+title: Get started with enterprise IoT - Microsoft Defender for IoT
 description: In this tutorial, you'll learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 ms.topic: tutorial
 ms.date: 12/12/2021
@@ -52,8 +52,8 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
 
     | Tier | Requirements |
     |--|--|
-    | **Minimum** | To support at least 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
-    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+    | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16 GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32 GB RAM of DDR4 or better<br>- 500 GB HDD |
    
     Make sure that your server or VM also has:
    

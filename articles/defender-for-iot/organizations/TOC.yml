@@ -115,7 +115,7 @@
     items:
     - name: Manage an Azure subscription
       href: how-to-manage-subscriptions.md
-    - name: Onboard sensors in the Azure portal
+    - name: Manage sensors from the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
@@ -195,7 +195,7 @@
 - name: Resources
   items:
   - name: OT network pre-deployment checklist
-    href: predeployment-checklist.md
+    href: pre-deployment-checklist.md
   - name: Microsoft Defender for IoT ninja training
     href: resources-training-sessions.md
   - name: Regional availability

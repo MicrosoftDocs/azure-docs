@@ -1,5 +1,5 @@
 ---
-title: OT Network monitoring best practices for Microsoft Defender for IoT
+title: OT network monitoring best practices for Microsoft Defender for IoT
 description: Learn about best practices for planning your OT network monitoring with Microsoft Defender for IoT.
 ms.topic: conceptual
 ms.date: 03/27/2022
@@ -13,7 +13,7 @@ Review these best practices when planning your network. For more information, se
 
 ## Understand your network architecture
 
-When planning your network monitoring, you must understand your system network architecture and how it will need to connect into to Defender for IoT. Also, understand where each of your system elements falls in the Purdue Reference model for Industrial Control System (ICS) OT network segmentation.
+When planning your network monitoring, you must understand your system network architecture and how it will need to connect to Defender for IoT. Also, understand where each of your system elements falls in the Purdue Reference model for Industrial Control System (ICS) OT network segmentation.
 
 Defender for IoT network sensors receive traffic from multiple sources, either by switch mirror ports (SPAN ports) or network TAPs. The network sensor's management port connects to the business, corporate, or sensor management network for network management from the Azure portal or an on-premises management system.
 
@@ -206,7 +206,7 @@ The advantages of TAPs include:
 
 - TAPs are hardware-based and can't be compromised
 - TAPs pass all traffic, even damaged messages, which the switches often drop
-- TAPs aren't not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
+- TAPs aren't processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
 
 For forensic purposes, a TAP is the best device.
 

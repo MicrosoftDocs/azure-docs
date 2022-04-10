@@ -29,9 +29,13 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
-## Onboard sensors
+## Onboard OT sensors
 
-Onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
+Onboard an OT sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
+
+> [!NOTE]
+> Enterprise IoT sensors also require onboarding and activation, with slightly different steps. For more information, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md).
+>
 
 **Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
@@ -69,17 +73,27 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. This page supports the following management tasks:
 
-- **Export sensor data**. To export a CSV file with details about all sensors listed, select **Export** at the top of the page.
+|Task  |Steps  |
+|---------|---------|
+| **Define OT sensor settings** | Select **Sensor settings (Preview**). For more information, see [Define OT sensor settings](#define-ot-sensor-settings). |
+| **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md). |
+|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see [Reactivate a sensor for upgrades to version 22.x from a legacy version](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version) and [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).       |
+| **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see <x>. |
+|**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
+|**Download an activation file**     |   Select the **...** options menu at the right of a sensor row > **Download activation file**. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
+|**Edit a sensor zone**    | Select the **...** options menu at the right of a sensor row > **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
+|**Edit automatic threat intelligence updates**     | Select the **...** options menu at the right of a sensor row > **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
+|**Delete a sensor**     |  Delete sensors only if you're no longer working with them. Select the **...** options menu at the right of a sensor row > **Delete sensor**.       |
+|Row7     |         |
+|Row8     |         |
+|Row9     |         |
+|Row10     |         |
 
-- **Edit sensor details**. To edit a sensor zone, or to toggle on/off the **Automatic Threat Intelligence Update** option, select the **...** options menu at the right of a sensor row > **Edit**.
+## Define OT sensor settings
 
-    Make your changes as needed and select **Save**.
+This procedure describes how to define sensor settings and apply them across your OT sensor network.
 
-- **Delete a sensor**. Delete sensors if you're no longer working with them. Select the **...** options menu at the right of a sensor row > **Delete sensor**.
 
-- **Download an activation file**. You'll need to download a new activation file for your sensor if you want to [reactivate the sensor](#reactivate-a-sensor). Select the **...** options menu at the right of a sensor row > **Download activation file**.
-
-- **Prepare to update to 22.X**. Use this option specifically when upgrading sensors to version 22.x. For more information, see [below](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
 
 ## Reactivate a sensor
 
