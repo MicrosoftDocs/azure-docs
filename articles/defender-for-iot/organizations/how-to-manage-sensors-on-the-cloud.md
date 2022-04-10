@@ -71,29 +71,78 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 ## Manage on-boarded sensors
 
-Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. This page supports the following management tasks:
+Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a sensor in the grid to drill down to more options and details on the sensor details page, or do any of the following:
 
 |Task  |Steps  |
 |---------|---------|
 | **Define OT sensor settings** | Select **Sensor settings (Preview**). For more information, see [Define OT sensor settings](#define-ot-sensor-settings). |
-| **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md). |
-|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see [Reactivate a sensor for upgrades to version 22.x from a legacy version](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version) and [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).       |
-| **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see <x>. |
+| **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
+|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version)     |
+| **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version). |
 |**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
-|**Download an activation file**     |   Select the **...** options menu at the right of a sensor row > **Download activation file**. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
-|**Edit a sensor zone**    | Select the **...** options menu at the right of a sensor row > **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
-|**Edit automatic threat intelligence updates**     | Select the **...** options menu at the right of a sensor row > **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
-|**Delete a sensor**     |  Delete sensors only if you're no longer working with them. Select the **...** options menu at the right of a sensor row > **Delete sensor**.       |
-|Row7     |         |
-|Row8     |         |
-|Row9     |         |
-|Row10     |         |
+|**Download an activation file**     |   Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Download activation file**. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
+|**Edit a sensor zone**    | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
+|**Edit automatic threat intelligence updates**     | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
+|**Delete a sensor**     |  Delete sensors only if you're no longer working with them. Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Delete sensor**.      |
+|**Monitor sensor health**     | Use the health widget above the grid to understand your overall system health, and the **Sensor health** column data to view health messages for specific sensors. Select a sensor to view more sensor health details on the sensor details **Overview** page.        |
 
-## Define OT sensor settings
+A sensor details page provides basic information about the sensor, sensor health, and sensor settings, and also provides options for sensor management, such as downloading activation files, or deleting a sensor. For example:
 
-This procedure describes how to define sensor settings and apply them across your OT sensor network.
+:::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor overview page.":::
 
+## Define and view OT sensor settings (Public preview)
 
+This procedure describes how to define sensor settings from the Azure portal and apply them across your OT sensor network.
+
+> [!TIP]
+> Current settings available from the Azure portal include bandwidth caps, subnets, and VLAN naming.
+>
+> You can manage other sensor settings directly from the sensor console. For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+>
+
+**To configure and apply a sensor setting**:
+
+1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**.
+
+    Alternately, to manage settings for a specific sensor, select that sensor in the grid > **Sensor settings (Preview)**.
+
+1. Select **Add** and use the wizard to define values for your setting.
+
+1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
+
+1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. Use the following tabs to learn more:
+
+    # [Bandwidth cap](#tab/bandwidth)
+
+    For a bandwidth cap, define the maximum bandwidth you want the sensor to use, either in Kbps or Mbps.
+
+    # [Subnet](#tab/subnet)
+
+    To define your sensor's subnets do any of the following:
+
+    - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+
+    - Select **Auto subnet learning** to have Defender for IoT automatically learn subnets from existing network data.
+
+    - Select **Resolve all Internet traffic as internal/private** to treat all public IPs as local addresses. If you select this option, your sensor will not send any alerts about unauthorized internet activity.
+
+    - Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
+
+    # [VLAN naming](#tab/vlan)
+
+    To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
+
+    ---
+
+1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting. Selecting a site or zone applies the setting to all connected sensors.
+
+1. When you're finished, select **Review and create** to create your setting and apply it as configured.
+
+After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings.png" alt-text="Screenshot of the Sensor settings page in the Azure portal.":::
 
 ## Reactivate a sensor
 
@@ -120,6 +169,13 @@ Make sure that you've started with the relevant updates steps for this update. F
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
+
+## Understand sensor health
+
+This procedure describes how to understand more about sensor health from the Azure portal.
+
+## Manage sensors from View sensor details and take actions per sensor
+
 
 ## Upload a diagnostics log for support (Public preview)
 
