@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/22/2022
+ms.date: 04/10/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -76,19 +76,20 @@ For sensor versions 22.2.x and higher, you can configure sensor settings, upgrad
 
 On the **Sites and sensors** page:
 
-- **To create and apply settings** across one or more sensors in your network, select **Sensor settings (Preview)**.
-
-- **To update sensor software**, select a connected sensor with a legacy software version, and then select **Update (Preview)**. Use the **Sensor version** column and/or filter to find sensors with legacy software.
+- **To create and apply settings** across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
 
 - **To monitor sensor health**, use the new sensor health widgets and table column data.
 
+- **To update sensor software**, select a connected sensor with a legacy software version, and then select **Update (Preview)**. Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
+
+
 :::image type="content" source="media/release-notes/cloud-management.png" alt-text="Screenshot highlighting the new cloud management features in the Azure portal.":::
 
-To view all data for a specific sensor, select the sensor name to view a full sensor **Overview** page. The sensor details page lists sensor data, sensor health, and the list of any sensor settings applied. For example:
+We've also added a new sensor details page, where you can view all data for a specific sensor. On the **Sites and sensors** page, select a specific sensor name to open the sensor details **Overview** page. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied. For example:
 
 :::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor Overview page.":::
 
-For more information, see <X>.
+For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md) and [Manage individual sensors](how-to-manage-individual-sensors.md).
 
 ### Device detection enhancements
 
@@ -114,7 +115,7 @@ For more information, see [Download a PCAP log file for a specific alert](how-to
 
 Starting in sensor version [22.1.1](#new-support-diagnostics-log), you can download a diagnostic log from the sensor console to send to support when you open a ticket.
 
-Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal. For cloud-connected sensors, starting from sensor version 22.1.3, the diagnostic log is automatically available to support when you open the ticket.
+Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal. For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
 
 :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 

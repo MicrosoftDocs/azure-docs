@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 03/30/2022
+ms.date: 04/10/2022
 ms.topic: how-to
 ---
 
@@ -172,10 +172,34 @@ Make sure that you've started with the relevant updates steps for this update. F
 
 ## Understand sensor health
 
-This procedure describes how to understand more about sensor health from the Azure portal.
+This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
 
-## Manage sensors from View sensor details and take actions per sensor
+**To view overall sensor health**:
 
+1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid. For example:
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-widget.png" alt-text="Screenshot of the sensor health widget.":::
+
+1. To check on specific sensors, filter the sensors shown by sensor health, and select one or more sensor health issues to verify.
+
+1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
+
+1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page.
+
+1. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-recommendation.png" alt-text="Screenshot of a sensor health recommendation.":::
+
+### Sensor health issues
+
+Defender for IoT will indicate a sensor health issue for any of the following scenarios:
+
+- Sensor traffic to Azure isn't stable
+- Sensor fails regular sanity tests
+- Sensor is overloaded and is dropping packets
+- No traffic detected by the sensor
+- Sensor software version is out of date and cannot connect
+- A [remote sensor upgrade](how-to-manage-individual-sensors.md#from-the-azure-portal-previewtabportal) fails, for software versions starting from version 22.2.0 and higher
 
 ## Upload a diagnostics log for support (Public preview)
 
