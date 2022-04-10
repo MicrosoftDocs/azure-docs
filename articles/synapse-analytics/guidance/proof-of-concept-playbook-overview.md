@@ -11,7 +11,7 @@ ms.date: 04/30/2022
 
 # Synapse proof of concept playbook
 
-Whether it's an enterprise data warehouse migration, a big data re-platforming, or a green field implementation; each project traditionally starts with a proof of concept (POC).
+Whether it's an enterprise data warehouse migration, a big data re-platforming, or a greenfield implementation, each project traditionally starts with a proof of concept (POC).
 
 The *Synapse proof of concept playbook* is a series of related articles that provide a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics POC project. The overall objective of a POC is to validate potential solutions to technical problems, such as how to integrate systems or how to achieve certain results through a specific configuration. As emphasized by this series, an effective POC validates that certain concepts have the potential for real-world production application.
 
@@ -36,14 +36,14 @@ The playbook delivers the following content:
 
 The playbook includes three subjects:
 
-- [Data warehousing with dedicated SQL pool](proof-of-concept-playbook-dedicated-sql-pool.md)
+- [Data warehousing with dedicated SQL pool (formerly SQL DW)](proof-of-concept-playbook-dedicated-sql-pool.md)
 - [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)
 - [Big data analytics with Apache Spark pool](proof-of-concept-playbook-apache-spark-pool.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data warehousing with dedicated SQL pool](proof-of-concept-playbook-dedicated-sql-pool.md)
+> [Data warehousing with dedicated SQL pool (formerly SQL DW)](proof-of-concept-playbook-dedicated-sql-pool.md)
 
 > [!div class="nextstepaction"]
 > [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)

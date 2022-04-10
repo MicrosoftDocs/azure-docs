@@ -1,5 +1,5 @@
 ---
-title: Data warehousing with dedicated SQL pool
+title: Data warehousing with dedicated SQL pool (formerly SQL DW)
 description: TODO
 author: peter-myers
 ms.author: v-petermyers
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/30/2022
 ---
 
-# Data warehousing with dedicated SQL pool
+# Data warehousing with dedicated SQL pool (formerly SQL DW)
 
 [!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
-This article TODO.
+This article provides a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool (formerly SQL DW).
 
 ## Prepare for your POC
 
-Before deciding on your Azure Synapse Analytics proof of concept (POC) goals, it's worth first spending some time to understand the service capabilities and how they might apply to your POC. To make the most of your POC project time, read about it in the [Service Overview](#todo). Additionally, it's worth reading through the [Azure Synapse SQL architecture](../sql/overview-architecture.md) to familiarize yourself with how SQL pools separate compute and storage to provide industry-leading performance.
+Before deciding on your Azure Synapse POC goals, we recommend that you first read the [Azure Synapse SQL architecture](../sql/overview-architecture.md) article to familiarize yourself with how a dedicated SQL pool (formerly SQL DW) separates compute and storage to provide industry-leading performance.
 
 > [!TIP]
-> We recommend that you browse our [on-demand content](https://docs.microsoft.com/shows/browse?terms=synapse) to stay updated on the latest Azure Synapse announcements, features, and products.
+> We also recommend that you browse our [on-demand content](https://docs.microsoft.com/shows/browse?terms=synapse) to stay updated on the latest Azure Synapse announcements, features, and products.
 
 ## Identify sponsors and potential blockers
 
@@ -171,23 +171,23 @@ Before tests can start, you need to setup the test environment. It involves four
 
 You can set up a POC on Azure Synapse by following these steps:
 
-1. In the [Azure portal](https://www.portal.azure.com/), complete [this tutorial](../sql-data-warehouse/create-data-warehouse-portal.md) to create an Azure Synapse SQL pool.
-1. Create an [IP firewall rule](../../azure-sql/database/firewall-configure.md) to allow your client machine to connect to the SQL pool.
+1. In the [Azure portal](https://www.portal.azure.com/), complete [this tutorial](../sql-data-warehouse/create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW).
+1. Create an [IP firewall rule](../../azure-sql/database/firewall-configure.md) to allow your client machine to connect to the dedicated SQL pool (formerly SQL DW).
 1. Download and install [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 
-Once set up, you can select the [Data Warehouse Units (DWUs)](../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) for the SQL pool. DWUs define the performance characteristics of the SQL pool, and they range from 100 to 30,000. You can change it at any time by [scaling the SQL pool](../sql-data-warehouse/quickstart-scale-compute-portal.md).
+Once set up, you can select the [Data Warehouse Units (DWUs)](../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) for the dedicated SQL pool (formerly SQL DW). DWUs define the performance characteristics of the SQL pool, and they range from 100 to 30,000. You can change it at any time by [scaling the dedicated SQL pool (formerly SQL DW)](../sql-data-warehouse/quickstart-scale-compute-portal.md).
 
 > [!TIP]
-> We recommend that you *develop code and unit testing* by using the DW500c service level (or below). We recommend that you *run load and performance tests* by using the DW1000c service level (or above). You can [pause the SQL pool](../sql-data-warehouse/pause-and-resume-compute-portal.md) at any time to cease billing, which will save on costs.
+> We recommend that you *develop code and unit testing* by using the DW500c service level (or below). We recommend that you *run load and performance tests* by using the DW1000c service level (or above). You can [pause the dedicated SQL pool (formerly SQL DW)](../sql-data-warehouse/pause-and-resume-compute-portal.md) at any time to cease billing, which will save on costs.
 
 ### Data loading
 
-Once you've set up the SQL pool, you can follow these steps to load data:
+Once you've set up the dedicated SQL pool (formerly SQL DW), you can follow these steps to load data:
 
 1. Load the data into [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md). For a POC, we recommend that you use a [general-purpose V2 storage account](../../storage/common/storage-account-overview.md) with [locally-redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). While there are several tools for migrating data to Azure Blob Storage, the easiest way is to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), which can copy files into a storage container.
-2. Load the data into the SQL pool. Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and the [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement. You can use SSMS to connect to the SQL pool to use either method.
+2. Load the data into the dedicated SQL pool (formerly SQL DW). Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and the [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement. You can use SSMS to connect to the dedicated SQL pool (formerly SQL DW) to use either method.
 
-When you load data into the SQL pool for the first time, you need to consider which [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) and [index option](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to use. While SQL pools support a variety of both, it's a best practice to rely on default settings. Default settings use round-robin distribution and a clustered columnstore index. If necessary, you can adjust these settings later, which is described later in this article.
+When you load data into the dedicated SQL pool (formerly SQL DW) for the first time, you need to consider which [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) and [index option](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to use. While a dedicated SQL pool (formerly SQL DW) supports a variety of both, it's a best practice to rely on default settings. Default settings use round-robin distribution and a clustered columnstore index. If necessary, you can adjust these settings later, which is described later in this article.
 
 The following example shows the COPY load method:
 
@@ -214,7 +214,7 @@ The primary purpose of an EDW is to perform analytics, which requires querying t
 
 #### Sequential query tests
 
-It's easy to run sequential query tests in SSMS. It's important to run these tests by using a user with a sufficiently large [resource class](../sql-data-warehouse/resource-classes-for-workload-management.md). A resource class is a pre-determined resource limit in SQL pool that governs compute resources and concurrency for query execution. For simple queries, we recommend using the pre-defined **staticrc20** resource class. For more complex queries, we recommend using the pre-defined **staticrc40** resource class.
+It's easy to run sequential query tests in SSMS. It's important to run these tests by using a user with a sufficiently large [resource class](../sql-data-warehouse/resource-classes-for-workload-management.md). A resource class is a pre-determined resource limit in dedicated SQL pool (formerly SQL DW) that governs compute resources and concurrency for query execution. For simple queries, we recommend using the pre-defined **staticrc20** resource class. For more complex queries, we recommend using the pre-defined **staticrc40** resource class.
 
 Notice that the following first query uses a [query label](../sql/develop-label.md) to provide a mechanism to keep track of the query. The second query uses the `sys.dm_pdw_exec_requests` dynamic management view to search by the label.
 
@@ -238,7 +238,7 @@ WHERE
 
 #### Concurrent query tests
 
-After recording sequential query performance, you can then run multiple queries concurrently. That way, you can simulate a business intelligence workload running against the SQL pool. The easiest way to run this test is to download a stress testing tool. The most popular tool is [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
+After recording sequential query performance, you can then run multiple queries concurrently. That way, you can simulate a business intelligence workload running against the dedicated SQL pool (formerly SQL DW). The easiest way to run this test is to download a stress testing tool. The most popular tool is [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi), which is a third-party open source tool.
 
 The tool reports on minimum, maximum, and median query durations for a given concurrency level. For example, suppose that you want to simulate a business intelligence workload that generates 100 concurrent queries. You can setup JMeter to run those 100 concurrent queries in a loop and then review the steady state execution. It can be done with result set caching on or off to evaluate the suitability of that feature.
 
@@ -255,12 +255,12 @@ Mixed workload testing is an extension of the [concurrent query tests](#concurre
 
 ### Tune your query tests
 
-Depending on the query workload running on Azure Synapse, you may need to fine-tune your EDW's distributions and indexes. For more information, see [Best practices for dedicated SQL pools in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Depending on the query workload running on Azure Synapse, you may need to fine-tune your EDW's distributions and indexes. For more information, see [Best practices for dedicated SQL pools (formerly SQL DW) in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 The most common mistakes seen during setup are:
 
 - Large queries run with a resource class that's too low.
-- The SQL pool service level DWUs are too low for the workload.
+- The dedicated SQL pool (formerly SQL DW) service level DWUs are too low for the workload.
 - Large tables require [hash distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 To improve query performance, you can:
