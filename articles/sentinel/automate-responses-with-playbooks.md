@@ -3,7 +3,7 @@ title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
 author: yelevin
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 04/10/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -74,14 +74,14 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
 
-#### Two kinds of Logic Apps
+#### Two types of Logic Apps
 
 Microsoft Sentinel now supports two Logic Apps resource types:
 
 - **Logic App (Consumption)**, based on the classic, original Logic Apps engine, and
 - **Logic App (Standard)**, based on the new Logic Apps engine.
 
-**Logic Apps Standard** features a single-tenant, containerized environment that provides fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
+**Logic Apps Standard** features a single-tenant, containerized environment that provides higher performance, fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
 
 You can leverage this powerful new version of Logic Apps by creating new Standard workflows in the Logic Apps environment. These workflows will then be available to you as playbooks in Microsoft Sentinel, where you can use them the same ways you use legacy Logic App Consumption playbooks:
 - Attach them to automation rules and/or analytics rules.

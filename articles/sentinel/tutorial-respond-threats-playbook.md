@@ -70,29 +70,91 @@ Get a more complete and detailed introduction to automating threat response usin
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
+# [Logic Apps Consumption](#tab/LAC)
 ### Prepare the playbook and Logic App
 
 1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
 
-1. On the top menu, select **Create** and **Add new playbook**.
+1. From the top menu, select **Create** and then, depending on which you want to create, either **Playbook with incident trigger** or **Playbook with alert trigger**.
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new playbook":::
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new Consumption playbook.":::
 
-    A new browser tab will open and take you to the **Create a logic app** wizard.
+    Either way, the **Create playbook** wizard will appear.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook.png" alt-text="Create a logic app":::
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-LAC.png" alt-text="Create a logic app":::
 
-1. Enter your **Subscription** and **Resource group**, and give your playbook a name under **Logic app name**.
+1. In the **Basics** tab:
 
-1. For **Region**, select the Azure region where your Logic App information is to be stored.
+    1. Select the **Subscription**, **Resource group**, and **Region** of your choosing from their respective drop-down lists. The chosen region is where your Logic App information will be stored.
 
-1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable log analytics** check box, and enter your **Log Analytics workspace** name.
+    1. Enter a name for your playbook under **Playbook name**.
 
-1. If you want to apply tags to your playbook, click **Next : Tags >** (not connected to tags applied by automation rules. [Learn more about tags](../azure-resource-manager/management/tag-resources.md)). Otherwise, click **Review + Create**. Confirm the details you provided, and click **Create**.
+    1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable diagnostics logs in Log Analytics** check box, and choose your **Log Analytics workspace** from the drop-down list.
 
-1. While your playbook is being created and deployed (this will take a few minutes), you will be taken to a screen called **Microsoft.EmptyWorkflow**. When the "Your deployment is complete" message appears, click **Go to resource.**
+    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you may need to use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
 
-1. You will be taken to your new playbook's [Logic Apps Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow. You'll see a screen with a short introductory video and some commonly used Logic App triggers and templates. [Learn more](../logic-apps/logic-apps-create-logic-apps-from-templates.md) about creating a playbook with Logic Apps.
+    1. Select **Next : Connections >**.
+
+1. In the **Connections** tab:
+
+    Ideally you should leave this section as is, configuring Logic Apps to connect to Microsoft Sentinel with managed identity. [Learn about this and other authentication alternatives](authenticate-playbooks-to-sentinel.md).
+
+    Select **Next : Review and create >**.
+
+1. In the **Review and create** tab:
+
+    Review the configuration choices you have made, and select **Create and continue to designer**.
+
+1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow.
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger.":::
+
+# [Logic Apps Standard](#tab/LAS)
+
+### Prepare the Logic App and workflow
+
+1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
+
+1. From the top menu, select **Create** and then **Blank playbook**.
+
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new Standard playbook.":::
+
+    A new browser tab will open and take you to the **Create Logic App** wizard.
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
+
+1. In the **Basics** tab:
+
+    1. Select the **Subscription** and **Resource Group** of your choosing from their respective drop-down lists.
+
+    1. Enter a name for your Logic App. For **Publish**, choose **Workflow**. Select the **Region** where you wish to deploy the logic app.
+
+    1. For **Plan type**, choose **Standard**.
+
+    1. Select **Next : Hosting >**.
+
+1. In the **Hosting** tab:
+
+    1. For **Storage type**, choose **Azure Storage**, and choose or create a **Storage account**.
+
+    1. Choose a **Windows Plan**.
+
+1. Select **Next : Monitoring >**.
+
+1. In the **Monitoring** tab:
+
+    1. If you want to enable performance monitoring in Azure Monitor for this application, leave the toggle on Yes. Otherwise, toggle it to No.
+    
+        > [!NOTE]
+        > This monitoring is **not required for Microsoft Sentinel** and **will cost you extra**.
+
+    1. Select **Next : Review + create >**.
+
+1. In the **Review + create** tab:
+
+    Review the configuration choices you have made, and select **Create**.
+
+1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow. You'll see a screen with a short introductory video and some commonly used Logic App triggers and templates. [Learn more](../logic-apps/logic-apps-create-logic-apps-from-templates.md) about creating a playbook with Logic Apps.
 
 1. Select the **Blank Logic App** template.
 
@@ -119,6 +181,9 @@ Every playbook must start with a trigger. The trigger defines the action that wi
 
 > [!NOTE]
 > When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md).
+
+
+---
 
 ### Add actions
 
