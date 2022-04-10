@@ -5,9 +5,8 @@ ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# Which appliances do I need? OT appliances for sensors and on-premises management consoles
-
-This article is designed to help you choose the right appliances for sensors and on-premises management consoles to fit your organization's network monitoring needs. You can use both physical or virtual appliances.
+# Which appliances do I need? 
+This article is designed to help you choose the right OT appliances for sensors and on-premises management consoles to fit your organization's network monitoring needs. You can use both physical or virtual appliances.
 
 ## Corporate IT/OT mixed environments
 
