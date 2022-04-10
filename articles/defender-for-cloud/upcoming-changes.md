@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 04/07/2022
+ms.date: 04/10/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -94,9 +94,9 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** May 2022
 
-Currently Vulnerability Assessment (VA) for containers shows both medium and low level vulnerabilities if customers have a patch. Customers are unable to hide these vulnerabilities.
+Currently Defender for Containers filters vulnerabilities with both medium and low level severities, if customers do not have a patch. Customers are unable to view these vulnerabilities.
 
-This update will make it so that any findings with a CVE associated with it, will under the VA findings by default, regardless of the severity. This allows for maximum visibility while still allowing you to filter undesired vulnerabilities by using the disable rule that is available on recommendations.
+As part of this update, all findings with a CVE, regardless of their severity, or availability of a patch, will be visible. This allows for maximum visibility while still allowing you to filter undesired vulnerabilities by using the disable rule that is available on recommendations.
 
 :::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
