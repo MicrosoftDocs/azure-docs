@@ -31,11 +31,10 @@ You can purchase any of the following appliances for your OT network sensors:
 
 |Capacity  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|
-|C5600     | [HPE ProLiant DL360](hpe-proliant-dl360.md)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**:1U <br>**Ports**: Fifteen RJ45 or 8 SFP (OPT)     |
-|E1800     | [HPE ProLiant DL20 Plus](hpe-proliant-dl20-plus-enterprise.md)        |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
-|E1800     |   [Dell PowerEdge R340](dell-poweredge-r340-xl.md)      |    **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U<br>**Ports**: Eight RJ45 or six SFP (OPT)      |
-|L500     |  [HPE ProLiant DL20 Plus](hpe-proliant-dl20-plus-smb.md)       |      **Max bandwidth**: 200Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: 1U<br>**Ports**: Four RJ45         |
-|L100     |  [YS-Techsystems YS-FIT2](ys-techsystems-ys-fit2.md)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: One RJ45          |
+|[Corporate]     | [HPE ProLiant DL360](hpe-proliant-dl360.md)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**:1U <br>**Ports**: Fifteen RJ45 or 8 SFP (OPT)     |
+|[Enterprise]     | [HPE ProLiant DL20/DL20 Plus](hpe-proliant-dl20-plus-enterprise.md)        |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
+|[SMB]     |  [HPE ProLiant DL20 Plus](hpe-proliant-dl20-plus-smb.md)       |      **Max bandwidth**: 200Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: 1U<br>**Ports**: Four RJ45         |
+|[Office]     |  [YS-Techsystems YS-FIT2](ys-techsystems-ys-fit2.md)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: One RJ45          |
 
 
 > [!NOTE]
@@ -47,8 +46,7 @@ You can purchase any of the following appliances for your OT on-premises managem
 
 |Capacity  |Appliance  |Max sensors  |Physical specifications  |
 |---------|---------|---------|---------|
-|E1800     | [HPE ProLiant DL20 Plus](hpe-proliant-dl20-plus-enterprise.md)        | 300     |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
-|E1800     |   [Dell PowerEdge R340](dell-poweredge-r340-xl.md)      |  300     |  **Mounting**: 1U<br>**Ports**: Eight RJ45 or six SFP (OPT)      |
+|[Enterprise]     | [HPE ProLiant DL20/DL20 Plus](hpe-proliant-dl20-plus-enterprise.md)        | 300     |  **Mounting**: 1U <br>**Ports**: Eight RJ45 or six SFP (OPT)         |
 
 ## Next steps
 
