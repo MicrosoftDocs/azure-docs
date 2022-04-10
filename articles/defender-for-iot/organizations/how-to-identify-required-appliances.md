@@ -7,7 +7,7 @@ ms.topic: how-to
 
 
 
-# Identify required appliances
+# OT monitoring appliance catalog
 
 This article provides information on certified Defender for IoT sensor appliances. Defender for IoT can be deployed on physical and virtual appliances.
 
