@@ -48,7 +48,7 @@ Update management center (preview) has been redesigned and doesn't depend on Azu
 
 The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers for both Windows and Linux.
 
-    ![Update center workflow](./media/overview/update-management-center-overview.png)
+![Update center workflow](./media/overview/update-management-center-overview.png)
 
 To support management of your Azure VM or non-Azure machine, update management center (preview) relies on a new [Azure extension](/azure/virtual-machines/extensions/overview) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any update management center operations such as **check for updates**, **install one time update**, **periodic assessment** on your machine. The extension supports deployment to Azure VMs or Arc-enabled servers using the extension framework. The update management center (preview) extension is installed and managed using the following:
 
