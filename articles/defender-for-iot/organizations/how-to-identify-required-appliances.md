@@ -1,7 +1,7 @@
 ---
-title: Identify required appliances
-description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console.
-ms.date: 03/23/2022
+title: OT monitoring appliance catalog - Microsoft Defender for IoT
+description: Learn about hardware and virtual appliances for certified Microsoft Defender for IoT sensors and the on-premises management console.
+ms.date: 04/10/2022
 ms.topic: how-to
 ---
 
