@@ -86,7 +86,7 @@ To troubleshoot connectivity issues to the Azure Storage account:
   1. On the storage account **Overview** page, select **Firewalls and virtual networks** in the left navigation.
   1. Ensure that **Firewalls and virtual networks** is set to **All networks**. Or, if the **Selected networks** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
 
-For in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security.md).
+For in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security).
 
 ## Troubleshoot artifact failures from the lab VM
 
@@ -158,4 +158,3 @@ If you need more help, try one of the following support channels:
 - Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - Go to the [Azure support site](https://azure.microsoft.com/support/options) and select **Get Support** to file an Azure support incident.
-
