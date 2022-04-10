@@ -170,7 +170,7 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
 
-## Understand sensor health
+## Understand sensor health (Public preview)
 
 This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
 
@@ -205,7 +205,9 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 
 If you need to open a support ticket for a locally managed sensor, upload a diagnostics log to the Azure portal for the support team.
 
-For cloud-connected sensors, the diagnostics log is automatically available to your support team when you open a support ticket.
+> [!TIP]
+> For cloud-connected sensors, the diagnostics log is automatically available to your support team when you open a support ticket.
+>
 
 **To upload a diagnostics report**:
 

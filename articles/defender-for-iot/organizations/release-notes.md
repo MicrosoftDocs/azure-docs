@@ -113,25 +113,20 @@ For more information, see [Download a PCAP log file for a specific alert](how-to
 
 ### Support diagnostic log enhancements (Public preview)
 
-Starting in sensor version [22.1.1](#new-support-diagnostics-log), you can download a diagnostic log from the sensor console to send to support when you open a ticket.
+Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
 
-Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal. For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
+Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal.
 
 :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
+
+> [!TIP]
+> For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
+>
 
 For more information, see:
 
 - [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
-
-### Upload diagnostics for support from the Azure portal
-
-Uploading the diag log - supported for offline sensors starting in version 22.1.1.
-
-Cloud support for uploading the file starting in April
-
-Cloud connected sensors, starting in april - log gets sent automatically to support when you open a ticket - for sensor versions starting in 22.1.3.
-
 
 ## April 2022
 
