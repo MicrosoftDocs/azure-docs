@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service:  synapse-analytics 
 ms.topic: how-to
 # ms.subservice: spark
-ms.date: 03/30/2022
+ms.date: 04/11/2022
 author: matt1883
 ms.author: mahi
 ms.reviewer: wiassaf
@@ -13,9 +13,11 @@ ms.reviewer: wiassaf
 
 # Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (tenant)
 
-The Synapse Analytics workspace will not be accessible after transferring a subscription to a different Azure AD directory (tenant). When you try to launch the Synapse studio after the move, you will see the error: "Failed to load one or more resources due to no access, error code 403."
+This article describes how to recover the Synapse Analytics workspace after transferring its subscription to a different Azure AD directory. The Synapse Analytics workspace will not be accessible after transferring a subscription to a different Azure AD directory (tenant). 
 
-:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-identity-403error-tenantmove.png" alt-text="Synapse Studio Error 403 after tenant migration":::
+When you try to launch the Synapse studio after the move, you will see the error: "Failed to load one or more resources due to no access, error code 403."
+
+:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-identity-403-error-tenantmove.png" alt-text="Screenshot of Synapse Studio Error 403 after tenant migration.":::
 
 Follow the steps in this article after transferring a subscription across tenant to recover the Synapse Analytics workspace.
 
@@ -41,9 +43,9 @@ After transferring the subscription to another tenant, follow the below steps to
 3. [Set the SQL Active Directory admin.](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database)
 4. Re-create [Azure AD users and groups](sql/sql-authentication.md?tabs=provisioned#non-administrator-users) based on their equivalent users and groups in the new Azure AD tenant for the dedicated and serverless SQL pools.
 5. Assign Azure RBAC to Azure AD users, groups to Synapse Analytics workspace. This step should be first step after recovering the workspace. Without this step, launching Synapse Studio will throw 403 messages, due to Azure AD users not having permissions on the workspace:
-```JSON
-{"error":{"code":"Unauthorized","message":"The principal '<subscriptionid>' does not have the required Synapse RBAC permission to perform this action. Required permission: Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
-```
+   ```JSON
+   {"error":{"code":"Unauthorized","message":"The principal '<subscriptionid>' does not    have the required Synapse RBAC permission to perform this action. Required permission:    Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
+   ```
 6. Assign Azure RBAC roles to Azure AD users, groups, service principals to all the resources used in the workspace artifacts, such as ADLS Gen2. For more information on Azure RBAC in ADLS Gen2, see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
 7. Add Synapse RBAC role assignments to Azure AD users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
 8. Recreate all the Azure AD logins and users in dedicated and serverless SQL pool. For more information, see [SQL Authentication in Azure Synapse Analytics](sql/sql-authentication.md)
@@ -161,7 +163,7 @@ The below command will get the status of the workspace.
 (Invoke-WebRequest -Method GET -Uri $url -ContentType $contentType -Headers $header).Content|ConvertFrom-Json
 ```
 
-:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-workspace-status.png" alt-text="Workspace Status PowerShell":::
+:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-workspace-status.png" alt-text="Screenshot of the Workspace Status PowerShell.":::
 
 Run the following command to disable the System Assigned Managed Identity for the workspace.
 
@@ -169,7 +171,7 @@ Run the following command to disable the System Assigned Managed Identity for th
 $bodyJson = @{identity= @{type='None'}}| ConvertTo-Json
 Invoke-RestMethod -Method PATCH -Uri $url -ContentType $contentType -Headers $header -Body  $bodyJson;
 ``` 
-:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-workspace-put-none.png" alt-text="Disable SAMI PowerShell":::
+:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-workspace-put-none.png" alt-text="Screen shot of how to Disable SAMI PowerShell.":::
 
 In the previous screenshot, the `provisioningState` value is Provisioning and not Succeeded. It takes few minutes to change the status to Succeeded. Before re-enabling the System Assigned Managed Identity for the workspace, the `provisioningState` value should be Succeeded.
 
@@ -187,6 +189,13 @@ Execute the following command to check the provisioningState value and the Ident
 (Invoke-WebRequest -Method GET -Uri $url -ContentType $contentType -Headers $header).Content|ConvertFrom-Json
 ```
 
-:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-identity-type-systemassigned.png" alt-text="Identity type System Assigned":::
+:::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-identity-type-systemassigned.png" alt-text="Screenshot of an Identity type System Assigned.":::
 
 ---
+
+## Next steps
+
+- [Transfer an Azure subscription to a different Azure AD directory](../role-based-access-control/transfer-subscription.md)
+- [Move an Azure Synapse Analytics workspace from one region to another](how-to-move-workspace-from-one-region-to-another.md)
+- [Assign Azure RBAC (role based access control) permissions to the required Azure AD users, groups, and managed identities](../role-based-access-control/transfer-subscription.md#step-3-re-create-resources)
+- [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
