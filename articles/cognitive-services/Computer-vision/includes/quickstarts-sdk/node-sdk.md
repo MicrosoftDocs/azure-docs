@@ -70,7 +70,7 @@ Create a new file, *index.js*, and open it in a text editor.
 
 ## Read printed and handwritten text
 
-1. Paste the follwoing code into your *index.js* file.
+1. Paste the following code into your *index.js* file.
 
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart-single.js?name=snippet_single)]
 

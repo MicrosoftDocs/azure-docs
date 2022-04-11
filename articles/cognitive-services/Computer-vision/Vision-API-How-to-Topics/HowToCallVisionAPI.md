@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 03/08/2022
+ms.date: 04/11/2022
 ms.custom: "seodec18"
 ---
 
@@ -24,7 +24,7 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 #### [REST](#tab/rest)
 
-WHen analyzing a local image, you put the binary image data in the HTTP request body. For a remote image, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
+When analyzing a local image, you put the binary image data in the HTTP request body. For a remote image, you specify the image's URL by formatting the request body like this: `{"url":"http://example.com/images/test.jpg"}`.
 
 #### [C#](#tab/csharp)
 
@@ -57,17 +57,17 @@ Save a reference to the URL of the image you want to analyze.
 
 ### Select visual features
 
-The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples below add all of the available visual features, but for practical usage you will likely only need one or two.
+The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples below add all of the available visual features, but for practical usage you'll likely only need one or two.
 
 #### [REST](#tab/rest)
 
-You can specify which features you want to use by setting the URL query parameters of the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). A parameter can have multiple values, separated by commas. Each feature you specify will require additional computation time, so only specify what you need.
+You can specify which features you want to use by setting the URL query parameters of the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
 
 |URL parameter | Value | Description|
 |---|---|--|
-|`visualFeatures`|`Adult` | detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (aka racy content) is also detected.|
+|`visualFeatures`|`Adult` | detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content ("racy" content) is also detected.|
 |`visualFeatures`|`Brands` | detects various brands within an image, including the approximate location. The Brands argument is only available in English.|
-|`visualFeatures`|`Categories` | categorizes image content according to a taxonomy defined in documentation. This is the default value of `visualFeatures`.|
+|`visualFeatures`|`Categories` | categorizes image content according to a taxonomy defined in documentation. This value is the default value of `visualFeatures`.|
 |`visualFeatures`|`Color` | determines the accent color, dominant color, and whether an image is black&white.|
 |`visualFeatures`|`Description` | describes the image content with a complete sentence in supported languages.|
 |`visualFeatures`|`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
@@ -77,7 +77,7 @@ You can specify which features you want to use by setting the URL query paramete
 |`details`| `Celebrities` | identifies celebrities if detected in the image.|
 |`details`|`Landmarks` |identifies landmarks if detected in the image.|
 
-A populated URL might look like the following:
+A populated URL might look like this:
 
 `https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
 
@@ -126,7 +126,7 @@ The following URL query parameter specifies the language. The default value is `
 |`language`|`pt` | Portuguese|
 |`language`|`zh` | Simplified Chinese|
 
-A populated URL might look like the following:
+A populated URL might look like this:
 
 `https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
 
@@ -180,7 +180,7 @@ This section shows you how to parse the results of the API call. It includes the
 
 #### [REST](#tab/rest)
 
-The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following is an example of a JSON response.
+The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following text is an example of a JSON response.
 
 ```json
 {  
@@ -229,12 +229,12 @@ See the following list of possible errors and their causes:
     * `InvalidImageUrl` - Image URL is badly formatted or not accessible.
     * `InvalidImageFormat` - Input data is not a valid image.
     * `InvalidImageSize` - Input image is too large.
-    * `NotSupportedVisualFeature` - Specified feature type is not valid.
+    * `NotSupportedVisualFeature` - Specified feature type isn't valid.
     * `NotSupportedImage` - Unsupported image, for example child pornography.
     * `InvalidDetails` - Unsupported `detail` parameter value.
-    * `NotSupportedLanguage` - The requested operation is not supported in the language specified.
-    * `BadArgument` - Additional details are provided in the error message.
-* 415 - Unsupported media type error. The Content-Type is not in the allowed types:
+    * `NotSupportedLanguage` - The requested operation isn't supported in the language specified.
+    * `BadArgument` - More details are provided in the error message.
+* 415 - Unsupported media type error. The Content-Type isn't in the allowed types:
     * For an image URL, Content-Type should be `application/json`
     * For a binary image data, Content-Type should be `application/octet-stream` or `multipart/form-data`
 * 500
