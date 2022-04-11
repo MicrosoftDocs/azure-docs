@@ -21,7 +21,7 @@ The key benefits of using the Azure SQL Migration extension for Azure Data Studi
 1. Assess your SQL Server databases for Azure readiness or to identify any migration blockers before migrating them to Azure. You can assess SQL Server databases running on both Windows and Linux Operating System using the Azure SQL Migration extension.
 1. Get right-sized Azure recommendation based on performance data collected from your source SQL Server databases. To learn more, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](ads-sku-recommend.md).
 1. Perform online (minimal downtime) and offline database migrations using an easy-to-use wizard. To see step-by-step tutorial, see sample [Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-online-ads.md).
-1. Monitor all migrations started in Azure Data Studio from the Azure Portal. To learn more, see [Monitor database migration progress from the Azure Portal](#monitor-database-migration-progress-from-the-azure-portal).
+1. Monitor all migrations started in Azure Data Studio from the Azure portal. To learn more, see [Monitor database migration progress from the Azure portal](#monitor-database-migration-progress-from-the-azure-portal).
 1. Leverage the capabilities of the Azure SQL Migration extension to assess and migrate databases at scale using automation with Azure PowerShell and Azure CLI. To learn more, see [Migrate databases at scale using automation](migration-dms-powershell-cli.md).
 
 ## Architecture of Azure SQL Migration extension for Azure Data Studio
@@ -102,7 +102,13 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
 - Configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
-## Monitor database migration progress from the Azure Portal
+## Monitor database migration progress from the Azure portal
+When you migrate database(s) using the Azure SQL Migration extension for Azure Data Studio, the migrations are orchestrated by the Azure Database Migration Service that was created or used in the wizard. To monitor database migrations from the Azure portal, 
+- Open the [Azure portal](https://portal.azure.com/)
+- Search for or navigate to your Azure Database Migration Service by the resource name
+  :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Search Azure Database Migration Service resource in portal":::
+- Select the **Monitor Migrations** tile in the **Overview** page to view the details of your database migrations.
+  :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Monitor migrations in Azure portal":::
 
 
 ## Known issues and limitations
@@ -127,6 +133,9 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
 - Provide your own machine or on-premises server to install Azure Data Studio.
 - A self-hosted integration runtime is needed to access database backups from your on-premises network share.
+
+## Supported regions
+For the list of Azure regions that support database migrations using the Azure SQL Migration extension for Azure Data studio (powered by Azure DMS), see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)
 
 ## Next steps
 
