@@ -103,7 +103,7 @@ After the move is complete, delete the Azure Load Testing resource from the sour
 
 1. In the Azure portal, search and select **Azure Load Testing**.
 
-1. Click on the resource name.
+1. Select your Azure Load Testing resource.
 
 1. On the resource overview page click on **Delete**, and the confirm.
 
