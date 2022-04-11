@@ -117,7 +117,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/index.yml",
-            "redirect_url": "/azure/azure-video-indexer/index.yml",
+            "redirect_url": "/azure/azure-video-indexer",
             "redirect_document_id": false
         },
         {
