@@ -25,8 +25,8 @@ Security defaults make it easier to help protect your organization from these id
 
 - [Requiring all users to register for Azure AD Multi-Factor Authentication](#require-all-users-to-register-for-azure-ad-multi-factor-authentication).
 - [Requiring administrators to do multi-factor authentication](#require-administrators-to-do-multi-factor-authentication).
-- [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
 - [Requiring users to do multi-factor authentication when necessary](#require-users-to-do-multi-factor-authentication-when-necessary).
+- [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
 - [Protecting privileged activities like access to the Azure portal](#protect-privileged-activities-like-access-to-the-azure-portal).
 
 ## Who's it for?
@@ -62,7 +62,10 @@ All users in your tenant must register for multi-factor authentication (MFA) in 
 
 ### Require administrators to do multi-factor authentication
 
-Administrators have increased access to your environment. Because of the power these highly privileged accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication. We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
+Administrators have increased access to your environment. Because of the power these highly privileged accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication. 
+
+> [!TIP]
+> We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
 
 After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
@@ -80,6 +83,14 @@ After registration with Azure AD Multi-Factor Authentication is finished, the fo
 - SharePoint administrator
 - User administrator
 
+### Require users to do multi-factor authentication when necessary
+
+We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers frequently target end users. 
+
+After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
+
+One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Azure AD decides when a user will be prompted for Multi-Factor Authentication, based on factors such as location, device, role and task. This functionality protects all applications registered with Azure AD including SaaS applications.
+
 ### Block legacy authentication protocols
 
 To give your users easy access to your cloud apps, Azure AD supports various authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
@@ -95,14 +106,6 @@ After security defaults are enabled in your tenant, all authentication requests 
 > Before you enable security defaults, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
 
 - [How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
-
-### Require users to do multi-factor authentication when necessary
-
-We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers frequently target end users. 
-
-After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
-
-One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Azure AD decides when a user will be prompted for Multi-Factor Authentication, based on factors such as location, device, role and task. This functionality protects all applications registered with Azure AD including SaaS applications.
 
 ### Protect privileged activities like access to the Azure portal
 
