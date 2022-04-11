@@ -57,7 +57,7 @@ To learn more, see [Tutorial: Use device groups to analyze device telemetry](tut
 
 Use the **Devices** page to manage individual devices connected to your application:
 
-:::image type="content" source="media/device-management-options​.png" alt-text="Screenshot showing the device management options.":::
+:::image type="content" source="media/overview-iot-central-operator/device-management-options​.png" alt-text="Screenshot showing the device management options.":::
 
 For individual device, you can complete tasks such as [block or unblock it](howto-manage-devices-individually.md#device-status-values), [attach it to a gateway](tutorial-define-gateway-device-type.md), [approve it](howto-manage-devices-individually.md#device-status-values), [migrate it to a new device template](howto-edit-device-template.md#migrate-a-device-across-versions), [associate it with an organization](howto-create-organizations.md), and [generate a map to transform the incoming telemetry and properties](howto-map-data.md).
 
