@@ -79,6 +79,8 @@
       href: scenario-route-between-vnets-firewall.md
     - name: Application Gateway and backend pools
       href: scenario-secured-hub-app-gateway.md
+    - name: Microsoft 365 - ExpressRoute private peering
+      href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -149,6 +151,8 @@
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
+    - name: Configure forced tunneling
+      href: how-to-forced-tunnel.md
     - name: Client profiles
       items:
       - name: Download global and hub-based profiles
