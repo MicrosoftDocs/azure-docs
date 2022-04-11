@@ -42,7 +42,7 @@ The disable showmount capability is currently in public preview. If you're using
 
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-3. Confirm that you've disabled the showmount in the **Overview** menu of your Azure subscription. 
+3. Confirm that you've disabled the showmount in the **Overview** menu of your Azure subscription. The attribute **Disable Showmount** will display as true if the operation succeeded.
 
     :::image type="content" source="../media/azure-netapp-files/disable-showmount.png" alt-text="Screenshot of the Azure interface depicting the disable showmount option." lightbox="../media/azure-netapp-files/disable-showmount.png":::
 
