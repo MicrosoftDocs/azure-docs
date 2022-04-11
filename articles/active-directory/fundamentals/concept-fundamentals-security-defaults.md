@@ -54,7 +54,7 @@ To enable security defaults in your directory:
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
 
-## Policies enforced
+## Enforced security policies
 
 ### Require all users to register for Azure AD Multi-Factor Authentication
 
