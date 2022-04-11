@@ -1,5 +1,5 @@
 ---
-title: Disable the show mount in Azure NetApp Files | Microsoft Docs
+title: Disable showmount in Azure NetApp Files | Microsoft Docs
 description: By disabling the showmount, you can hide mounted files in a subscription from view.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -23,7 +23,7 @@ Showmount is a read-only attribute. By default, showmount is enabled.
 
 ## Register the feature to disable showmount
 
-The disable showmount capability is currently in public preview. If you are using this feature for the first time, you need to register the feature first. By registering the feature, you disable the showmount. By unregistering the feature, you enable the showmount. 
+The disable showmount capability is currently in public preview. If you're using this feature for the first time, you need to register the feature first. By registering the feature, you disable the showmount. By unregistering the feature, you enable the showmount. 
 
 1.  Register the feature by running the following commands:
 
@@ -42,7 +42,7 @@ The disable showmount capability is currently in public preview. If you are usin
 
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-3. Confirm that you have disabled the showmount in the **Overview** menu of your Azure subscription. 
+3. Confirm that you've disabled the showmount in the **Overview** menu of your Azure subscription. 
 
     :::image type="content" source="../media/azure-netapp-files/disable-showmount.png" alt-text="Screenshot of the Azure interface depicting the disable showmount option." lightbox="../media/azure-netapp-files/disable-showmount.png":::
 
