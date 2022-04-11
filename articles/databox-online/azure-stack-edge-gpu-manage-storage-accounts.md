@@ -39,6 +39,12 @@ To create an Edge storage account, do the following procedure:
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
 
+## Get access keys for local storage account
+
+To get access keys for your local storage account, do the following procedure:
+
+[!INCLUDE [Get access keys](../../includes/azure-stack-edge-gpu-get-access-keys-for-local-storage-account.md)]
+
 ## Delete an Edge storage account
 
 Take the following steps to delete an Edge storage account.
