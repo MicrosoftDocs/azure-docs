@@ -6,11 +6,8 @@ ms.date: 03/16/2022
 
 ---
 
-# Configure data collection for the Azure Monitor agent
-
-Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
-
-For a complete description of data collection rules, see [Data collection rules in Azure Monitor](../essentials/data-collection-rule-overview.md).
+# Configure data collection for Azure Monitor agent
+This article describes how to create a [data collection rule](../essentials/data-collection-rule-overview.md) to collect events and performance counters data from virtual machines using the Azure Monitor agent. The data collection rule defines data coming into Azure Monitor and specify where it should be sent. 
 
 > [!NOTE]
 > This article describes how to configure data for virtual machines with the Azure Monitor agent only.

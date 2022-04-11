@@ -6,25 +6,29 @@ ms.date: 04/08/2022
 
 ---
 
-# Collect text logs with Azure Monitor agent
+# Collect text logs with Azure Monitor agent (preview)
 With the [Azure Monitor agent](azure-monitor-agent-overview.md), you can collect text logs from an agent computer and send to a custom log table in a Log Analytics workspace. This same process can be used for IIS logs since they're stored in text files.
+
+> [!NOTE]
+> This feature is currently in public preview and isn't completely implemented in the Azure portal. 
 
 ## Log files supported
 The log file being collected must not allow circular logging, log rotation where the file is overwritten with new entries, or the file is renamed and the same file name is reused for continued logging.
-
-## Steps to collect text logs
-
-1. Create a new table in your workspace to receive the collected data.
-2. Create a data collection endpoint for the Azure Monitor agent to connect.
-3. Create a data collection rule to define the structure of the log file and destination of the collected data.
-4. Assign Resources and Create Associations
-
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
 - [Permissions to create Data Collection Rule objects](/azure/azure-monitor/essentials/data-collection-rule-overview#permissions) in the workspace.
+
+## Steps to collect text logs
+
+
+1. Create a new table in your workspace to receive the collected data.
+2. Create a data collection endpoint for the Azure Monitor agent to connect.
+3. Create a data collection rule to define the structure of the log file and destination of the collected data.
+4. Create association between the data collection rule and the agent collecting the log file.
+
 
 
 ## Collect workspace details
@@ -337,6 +341,19 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 
 ## Create association between DCR and agent computer
+The final step is to create a data collection association that associates the data collection rule to the agents where the log file to be collected will be located. 
+
+1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you just created.
+
+    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Data collection rules menu item":::
+
+2. Select **Resources** and then click **Add** to view the available resources.
+
+    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Data collection rules menu item":::
+
+3. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Click **Apply**.
+
+    :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Add resource to data collection rule":::
 
 
 ## Next steps
