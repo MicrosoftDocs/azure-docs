@@ -12,7 +12,7 @@ ms.date: 04/12/2022
 ms.author: allensu
 ---
 
-# Azure Virtual Network NAT metrics
+# Azure Virtual Network NAT metrics and alerts
 
 This article provides an overview of all NAT gateway metrics and diagnostic capabilities. This article also provides general guidance on how to use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. 
 
