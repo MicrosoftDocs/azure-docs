@@ -885,6 +885,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-blob.json",
     ".openpublishing.redirection.azure-sql.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
