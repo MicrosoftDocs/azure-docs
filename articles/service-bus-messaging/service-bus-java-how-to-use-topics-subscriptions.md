@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics (Java)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Java programming language.
-ms.date: 02/13/2021
+ms.date: 03/24/2022
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: mode-api
@@ -58,15 +58,10 @@ If you are using Eclipse and created a Java console application, convert your Ja
 		</plugins>
 	</build>
 	<dependencies>
-  		<dependency>
-    		<groupId>com.azure</groupId>
-    		<artifactId>azure-core</artifactId>
-    		<version>1.13.0</version>
-		</dependency>
 		<dependency>
     		<groupId>com.azure</groupId>
     		<artifactId>azure-messaging-servicebus</artifactId>
-    		<version>7.0.2</version>
+    		<version>7.7.0</version>
 		</dependency>
 	</dependencies>
 </project>

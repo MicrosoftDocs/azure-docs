@@ -36,14 +36,14 @@ Follow these steps to create a new console application and install the Speech SD
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of `Program.cs` with the following code. 
-    
+
     ```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Audio;
-    
+
     class Program 
     {
         static string YourSubscriptionKey = "YourSubscriptionKey";
@@ -62,27 +62,27 @@ Follow these steps to create a new console application and install the Speech SD
                 case ResultReason.Canceled:
                     var cancellation = CancellationDetails.FromResult(speechRecognitionResult);
                     Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-            
+
                     if (cancellation.Reason == CancellationReason.Error)
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Double check the speech resource key and region.");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;
             }
         }
-    
+
         async static Task Main(string[] args)
         {
             var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
-            
+
             //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
             //using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-    
+
             Console.WriteLine("Speak into your microphone.");
             var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
             OutputSpeechRecognitionResult(speechRecognitionResult);
