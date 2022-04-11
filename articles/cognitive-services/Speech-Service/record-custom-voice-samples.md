@@ -107,16 +107,21 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
 - Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
 
-### Difference between script for voice talent and script for training
+### Difference between voice talent script and training script
 
-The sample scripts we provided on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) are just defined for voice talent. If you use the sample scripts to upload for training, you must normalize them in their spoken form. The scripts prepared for voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Make sure the scripts used for training match the recordings of your voice talent, especially scripts contaning digits, symbols, abbreviation, date, and time. We provide a few examples of text normalization rules and explain the difference between script for voice talent and script for training.
+The training script can differ from the voice talent script, especially for scripts that contain digits, symbols, abbreviations, date, and time. Scripts prepared for the voice talent must follow the native reading conventions, such as 50% and $45. The scripts used for training must be normalized to match the audio recording, such as *fifty percent* and *forty-five dollars*. 
 
-| Category |Script for voice talent<br> (non-normalized) | Script for training <br> (normalized) |
+> [!NOTE] 
+> We provide some example scripts for the voice talent on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). To use the example scripts for training, you must normalize them according to the recordings of your voice talent before uploading the file.
+
+The following table shows the difference between scripts for voice talent and the normalized script for training.
+
+| Category |Voice talent script example | Training script example (normalized) |
 | --------- | --------- | --------------------------- |
-| Digits |For example, '123'.| Normalize '123' according to the recordings, such as 'one hundred and twenty-three' . |
-| Symbols | For example, '50%'.| Normalize '50%' according to the recordings, such as 'fifty percent'. |
-| Abbreviation | For example, 'ASAP'.| Normalize 'ASAP' according to the recordings, such as 'as soon as possible'. |
-| Date and time | For example, 'in 2008'. | Normalize '2008' according to the recordings, such as 'two thousand and eight'. |
+| Digits |123| one hundred and twenty-three |
+| Symbols |50%| fifty percent|
+| Abbreviation |ASAP| as soon as possible|
+| Date and time |March 3rd at 5:00 PM| March third at five PM|
 
 ### Typical defects of a script
 
