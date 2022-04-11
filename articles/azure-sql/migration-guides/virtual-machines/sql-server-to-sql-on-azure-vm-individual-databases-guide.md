@@ -83,10 +83,10 @@ During the assessment of user databases, use Data Migration Assistant to [import
 
 #### Assessments at scale
 
-If you have multiple servers that require a Data Migration Assistant assessment, you can automate the process by using scripts using one of the following options. To learn more about using scripting see [Migrate databases at scale using automation](../../../dms/migration-dms-powershell-cli.md).
+If you have multiple servers that require Azure readiness assessment, you can automate the process by using scripts using one of the following options. To learn more about using scripting see [Migrate databases at scale using automation](../../../dms/migration-dms-powershell-cli.md).
 - [Az.DataMigration PowerShell module](/powershell/module/az.datamigration)
 - [az datamigration CLI extension](/cli/azure/datamigration)
-- [DMA command-line interface](/sql/dma/dma-commandline)
+- [Data Migration Assistant command-line interface](/sql/dma/dma-commandline)
 
 For summary reporting across large estates, Data Migration Assistant assessments can also be [consolidated into Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 

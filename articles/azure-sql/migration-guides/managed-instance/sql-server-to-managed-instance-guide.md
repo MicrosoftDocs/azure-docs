@@ -70,13 +70,11 @@ Proceed to the following steps to assess and migrate databases to Azure SQL Mana
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
-Determine whether SQL Managed Instance is compatible with the database requirements of 
-your application. SQL Managed Instance is designed to provide easy lift and shift migration for 
-the majority of existing applications that use SQL Server. However, you may sometimes require 
-features or capabilities that are not yet supported and the cost of implementing a workaround is
-too high. 
+Determine whether SQL Managed Instance is compatible with the database requirements of your application. SQL Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
-You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
+The [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data to recommend a right-sized SQL Server on Azure Virtual Machines to meet the performance needs of your workload (with the least price).
+
+You can also use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
 - [Azure target recommendations](/sql/dma/dma-assess-sql-data-estate-to-sqldb)
 - [Azure SKU recommendations](/sql/dma/dma-sku-recommend-sql-db)
@@ -101,7 +99,14 @@ If SQL Managed Instance is not a suitable target for your workload, SQL Server o
 
 #### Scaled Assessments and Analysis
 
-Data Migration Assistant supports performing scaled assessments and consolidation of the assessment reports for analysis. If you have multiple servers and databases that need to be assessed and analyzed at scale to provide a wider view of the data estate, click on the following links to learn more.
+If you have multiple servers or databases that require Azure readiness assessment, you can automate the process by using scripts using one of the following options. To learn more about using scripting see [Migrate databases at scale using automation](../../../dms/migration-dms-powershell-cli.md).
+
+- [Az.DataMigration PowerShell module](/powershell/module/az.datamigration)
+- [az datamigration CLI extension](/cli/azure/datamigration)
+- [Data Migration Assistant command-line interface](/sql/dma/dma-commandline)
+
+
+Data Migration Assistant also supports consolidation of the assessment reports for analysis. If you have multiple servers and databases that need to be assessed and analyzed at scale to provide a wider view of the data estate, click on the following links to learn more.
 
 - [Performing scaled assessments using PowerShell](/sql/dma/dma-consolidatereports)
 - [Analyzing assessment reports using Power BI](/sql/dma/dma-consolidatereports#dma-reports)
@@ -110,6 +115,8 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 >Running assessments at scale for multiple databases can also be automated using [DMA's Command Line Utility](/sql/dma/dma-commandline) which also allows the results to be uploaded to [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) for further analysis and target readiness.
 
 ### Deploy to an optimally sized managed instance
+
+You can use the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to get right-sized Azure SQL Managed Instance recommendation. The extension collects performance data from your source SQL Server instance to provide right-sized Azure recommendation that meets your workload's performance needs with minimal cost. To learn more, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](../../../dms/ads-sku-recommend.md)
 
 Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](../../managed-instance/create-template-quickstart.md).
 
@@ -154,7 +161,7 @@ need to be migrated, such as maintenance jobs for regular backups or Always On c
 
 This article covers two of the recommended migration options: 
 
-- Azure Database Migration Service - migration with near-zero downtime.
+- Azure SQL Migration extension for Azure Data Studio - migration with near-zero downtime.
 - Native `RESTORE DATABASE FROM URL` - uses native backups from SQL Server and requires some 
 downtime.
 
@@ -162,21 +169,24 @@ This guide describes the two most popular options - Azure Database Migration Ser
 
 For other migration tools, see [Compare migration options](sql-server-to-managed-instance-overview.md#compare-migration-options). 
 
-### Database Migration Service
+### Migrate using the Azure SQL Migration extension for Azure Data Studio (minimal downtime)
 
-To perform migrations using DMS, follow the steps below:
+To perform a minimal downtime migration using Azure Data Studio, follow the high level steps below. For a detailed step-by-step tutorial, see [Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio](../../../dms/tutorial-sql-server-managed-instance-online-ads.md):
 
-1. [Register the **Microsoft.DataMigration** resource provider](../../../dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider) in your subscription if you are performing this for the first time.
-1. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
-1. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database Managed Instance**. Choose the type of activity in the project creation blade - online or offline data migration. 
-1.  Specify the source SQL Server details on the **Migration source** details page and the target Azure SQL Managed Instance details on the **Migration target** details page. Select **Next**.
-1. Choose the database you want to migrate. 
-1. Provide configuration settings to specify the **SMB Network Share** that contains your database backup files. Use Windows User credentials with DMS that can access the network share. Provide your **Azure Storage account details**. 
-1. Review the migration summary, and choose **Run migration**. You can then monitor the migration activity and check the progress of your database migration.
-1. After database is restored, choose **Start cutover**. The migration process copies the tail-log backup once you make it available in the SMB network share and restore it on the target. 
-1. Stop all incoming traffic to  your source database and update the connection string to the new Azure SQL Managed Instance database. 
-
-For a detailed step-by-step tutorial of this migration option, see [Migrate SQL Server to an Azure SQL Managed Instance online using DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
+1. Download and install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) and the [Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+1. Launch the Migrate to Azure SQL wizard in the extension in Azure Data Studio.
+1. Select databases for assessment and view migration readiness or issues (if any). Additionally, collect performance data and get right-sized Azure recommendation.
+1. Select your Azure account and your target Azure SQL Managed Instance from your subscription.
+1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
+1. Create a new Azure Database Migration Service using the wizard in Azure Data Studio. If you have previously created Azure Database Migration Service using Azure Data Studio you can can reuse the same if desired.
+1. *Optional*: If your backups are on an on-premises network share, download and install [self-hosted integration runtime](https://www.microsoft.com/en-us/download/details.aspx?id=39717) on a machine that can connect to source SQL Server and the location containing the backup files.
+1. Start the database migration and monitor the progress in Azure Data Studio. You can also monitor the progress under the Azure Database Migration Service resource in Azure Portal.
+1. Complete the cutover.
+   1. Stop all incoming transactions to the source database.
+   1. Make application configuration changes to point to the target database in Azure SQL Managed Instance.
+   1. Take any tail log backups for the source database in the backup location specified.
+   1. Ensure all database backups have the status Restored in the monitoring details page.
+   1. Select Complete cutover in the monitoring details page.
    
 
 ### Backup and restore 
