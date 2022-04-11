@@ -72,6 +72,34 @@ mvn clean package -DskipTests -Denv=cloud
 
 Compiling the project takes several minutes. After it's completed, you should have individual JAR files for each service in their respective folders.
 
+## Provision an instance of Azure Spring Cloud
+
+The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
+
+1. In a new tab, open the [Azure portal](https://portal.azure.com/).
+
+2. From the top search box, search for **Azure Spring Cloud**.
+
+3. Select **Azure Spring Cloud** from the results.
+
+    ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+
+4. On the Azure Spring Cloud page, select **Create**.
+
+    ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
+
+5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
+
+    - **Subscription**: Select the subscription you want to be billed for this resource.
+    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
+    - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+    - **Location**: Select the region for your service instance.
+
+    ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. Select **Review and create**.
+
+
 ## Generate configurations and deploy to the Azure Spring Cloud
 
 To generate configurations and deploy the app, follow these steps:
@@ -87,7 +115,7 @@ To generate configurations and deploy the app, follow these steps:
    * **Subscription ID** - the subscription you used to create an Azure Spring Cloud instance.
    * **Service instance** - the name of your Azure Spring Cloud instance.
    * **App name** - an app name of your choice, or use the default value `artifactId`.
-   * **Public endpoint** - whether or not to expose the public access to this app.
+   * **Public endpoint** - true to expose the app to public access; otherwise, false.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.
 
