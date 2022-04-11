@@ -1,11 +1,11 @@
 ---
-title: Gain insight into devices discovered by a specific sensor
+title: View your device inventory from a sensor console
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
 ms.date: 03/09/2022
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in an inventory
+# View your device inventory from a sensor console
 
 The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
 

@@ -1,11 +1,11 @@
 ---
-title: Manage your IoT devices with the device inventory for organizations
+title: View your device inventory from the Azure portal
 description: Learn how to manage your IoT devices with the device inventory for organizations.
 ms.date: 03/09/2022
 ms.topic: how-to
 ---
 
-# Manage your IoT devices with the device inventory for organizations
+# View your device inventory from the Azure portal
 
 > [!NOTE]
 > The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -60,9 +60,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ### Active discovery scans (Public preview)
 
-Now you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
+Starting in version 22.2.x, you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
 
 Active discovery scans allow for faster deployments, enriching your existing device data with more details. They also help you discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device.
+
+Active discovery scans are supported for the following protocols:
+
+- WMI
+- DNS lookup
+- Rockwell (public preview)
+- Siemens (public preview)
+- Cisco (public preview)
+- Hirshman switches (public preview
+- Ping sweep (public preview)
+- Bacnet (public preview)
 
 > [!IMPORTANT]
 > Active scans run detection activity directly in your network and must be configured carefully.
