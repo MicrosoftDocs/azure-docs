@@ -36,7 +36,7 @@ Create a new storage account by using the resource group that you created in the
     
     PS C:\WINDOWS\system32>
     ```
----
+    ---
 
 ### [AzureRM](#tab/azure-rm)
 

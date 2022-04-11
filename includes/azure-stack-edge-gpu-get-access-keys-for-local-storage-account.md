@@ -32,7 +32,7 @@ Get the storage account key for the account that you created in the earlier step
     
     PS C:\WINDOWS\system32>
     ```
----
+    ---
 
 ### [AzureRM](#tab/azure-rm)
 
