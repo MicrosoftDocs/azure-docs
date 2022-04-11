@@ -171,6 +171,8 @@
       href: edge-locations-by-region.md
     - name: Edge locations by abbreviation
       href: edge-locations-by-abbreviation.md
+  - name: Azure CLI
+    href: /cli/azure/afd
   - name: REST API
     href: /rest/api/frontdoor
   - name: Python SDK
