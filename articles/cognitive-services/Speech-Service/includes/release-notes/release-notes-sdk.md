@@ -13,6 +13,7 @@ ms.author: eur
 - **JavaScript**: Added Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
 - **Python**: Added support for Conversation Transcription
 - **Go**: Added support for Speaker Recognition
+- **C++ & C#**: Added support for a required group of words in the Intent Recognizer (simple patter matching). For example: "(set|start|begin) a timer" where either "set", "start" or "begin" must be present for the intent to be recognized.
 - **All programming languages, Speech Synthesis**: Added duration property in word boundary events. Added support for punctuation boundary and sentence boundary
 - **Objective-C/Swift/Java**: Added word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
 - **iOS platform**: Added support for ARMv7 architecture
