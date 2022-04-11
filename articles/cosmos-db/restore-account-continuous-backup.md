@@ -49,7 +49,7 @@ Deleting source account while a restore is in-progress could result in failure o
 
 ### Restorable timestamp for live accounts
 
-To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to its latest version.
 
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
@@ -162,8 +162,7 @@ Restore-AzCosmosDBAccount `
   -Location "West US"
 
 ```
-**Example 3:** Restore Graph account 
-This example restores the collections *graph1* and *graph2* from `MyDB1` and the entire database `MyDB2`, which includes all the containers under it.
+**Example 3:** Restore Graph account. This example restores the collections *graph1* and *graph2* from `MyDB1` and the entire database `MyDB2`, which includes all the containers under it.
 
 ```azurepowershell
 $datatabaseToRestore1 = New-AzCosmosDBGremlinDatabaseToRestore -DatabaseName "MyDB1" -GraphName "graph1", "graph2"  
@@ -294,7 +293,7 @@ Get-AzCosmosdbMongoDBRestorableDatabase `
 
 ```
 
-#### List all the versions of mongodb collections of a database in a live database account
+#### List all the versions of Mongodb collections of a database in a live database account
 
 ```azurepowershell
 
@@ -304,7 +303,7 @@ Get-AzCosmosdbMongoDBRestorableCollection `
   -Location "West US"
 ```
 
-#### List all the resources of a mongodb database account that are available to restore at a given timestamp and region
+#### List all the resources of a Mongodb database account that are available to restore at a given timestamp and region
 
 ```azurepowershell
 
