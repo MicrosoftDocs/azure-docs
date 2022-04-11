@@ -94,11 +94,13 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** May 2022
 
-Currently, Defender for Containers filters vulnerabilities with both medium and low level severities, if the vulnerability is not patched. Customers are currently unable to view these vulnerabilities.
+Currently, Defender for Containers filters out all vulnerabilities with medium and low level severities, or if the vulnerability is patched.
 
-This update, all findings with a CVE, regardless of their severity, or availability of a patch, will be visible. This allows for maximum visibility while still allowing you to filter undesired vulnerabilities by using the disable rule that is available on recommendations.
+This update will allow all findings with a CVE, regardless of their severity, or availability to patch, to be visible. This provides maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule .
 
 :::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
 ## Next steps
 
