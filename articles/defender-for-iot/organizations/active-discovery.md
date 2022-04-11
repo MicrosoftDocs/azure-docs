@@ -62,6 +62,7 @@ Configure an active discovery scan to run as a one-time scan, or to run periodic
         |---------|---------|
         | **Switch vendor** | Select a switch vendor.|
         | **Scan protocol** | The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
+
         Other scan fields differ, depending on the scan protocol you select. Enter community strings and credential details as needed.
 
         ---
