@@ -3,13 +3,13 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/24/2022
+ms.date: 04/11/2022
 
 ---
 
 # Add KMS etcd encryption to an Azure Kubernetes Service (AKS) cluster (Preview)
 
-This article shows you how to enable encryption at rest for your Kubernetes data in etcd using Azure Key Vault using Key Management Service (KMS) plugin. The KMS plugin allows you to:
+This article shows you how to enable encryption at rest for your Kubernetes data in etcd using Azure Key Vault with Key Management Service (KMS) plugin. The KMS plugin allows you to:
 
 * Use a key in Key Vault for etcd encryption
 * Bring your own keys
@@ -72,6 +72,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * KMS etcd encryption does not work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity is not available until cluster creation, thus there is a cycle dependency.
 * Using Azure Key Vault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
+* Managed HSM Support
 * Bring your own (BYO) Azure Key Vault from another tenant.
 
 
@@ -80,19 +81,19 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 Use `az keyvault create` to create a KeyVault.
 
 ```azurecli
-az keyvault create --name MyKevVault --resource-group MyResourceGroup
+az keyvault create --name MyKeyVault --resource-group MyResourceGroup
 ```
 
 Use `az keyvault key create` to create a key.
 
 ```azurecli
-az keyvault key create --name MyKeyName --vault-name MyKevVault
+az keyvault key create --name MyKeyName --vault-name MyKeyVault
 ```
 
 Use `az keyvault key show` to export the Key ID.
 
 ```azurecli
-export KEY_ID=$(az keyvault key show --name MyKeyName --vault-name MyKevVault --query 'key.kid' -o tsv)
+export KEY_ID=$(az keyvault key show --name MyKeyName --vault-name MyKeyVault --query 'key.kid' -o tsv)
 echo $KEY_ID
 ```
 
@@ -129,12 +130,12 @@ The above example stores the value of the Identity Resource Id in *IDENTITY_RESO
 Use `az keyvault set-policy` to create an Azure KeyVault policy.
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKevVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 ## Create an AKS cluster with KMS etcd encryption enabled
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption.
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption.
 
 ```azurecli-interactive
 az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
@@ -142,7 +143,7 @@ az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-iden
 
 ## Update an exiting AKS cluster to enable KMS etcd encryption
 
-Use `az aks update` with the `--enable-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
+Use `az aks update` with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
