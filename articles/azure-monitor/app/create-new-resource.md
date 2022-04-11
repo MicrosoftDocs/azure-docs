@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
 
 > [!IMPORTANT]
-> Classic Application Insights will be deprecated on [**February 29th 2024**](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024). Please follow these [instructions on how to upgrade to workspace-based Application Insights](convert-classic-resource.md). Newer regions do not support creating classic Application Insights resources. When creating a new Application Insights resource, we recommend workspace-based Application Insights.
+>  On [**February 29th 2024**](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024) Classic Application Insights will no longer be supported. Classic Application Insights will continue to work, but we’ll no longer provide updates or support for the feature. Please follow these [instructions on how to upgrade to workspace-based Application Insights](convert-classic-resource.md). Newer regions introduced since the deprecation announcement on February 2021 do not support creating classic Application Insights resources. When creating a new Application Insights resource, we recommend workspace-based Application Insights.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
