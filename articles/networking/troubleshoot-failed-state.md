@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshoot Microsoft.Network Failed Provisioning State'
-description: Learn how to troubleshoot Microsoft.Network Failed Provisioning State.
+title: 'Troubleshoot Azure Microsoft.Network failed Provisioning State'
+description: Learn how to troubleshoot Azure Microsoft.Network failed Provisioning State.
 services: networking
 author: stegag
 
@@ -11,7 +11,7 @@ ms.author: stegag
 
 ---
 
-# Troubleshoot Microsoft.Network Failed provisioning state
+# Troubleshoot Azure Microsoft.Network failed provisioning state
 
 This article helps understand the meaning of various provisioning states for Microsoft.Network resources and how to effectively troubleshoot situations when the state is **Failed**.
 
@@ -42,13 +42,13 @@ The correct way to restore succeeded state is to execute another write (PUT) ope
 
 Most times, the issue that caused the previous operation might no longer be current, hence the newer write operation should be successful and restore the provisioning state.
 
-The easiest way to achieve this task is to use Azure Powershell. You will need to issue a resource-specific "Get" command that fetches all the current configuration for the impacted resource as it is deployed. Next, you can execute a "Set" command (or equivalent) to commit to Azure a write operation containing all the resource properties as they are currently configured.
+The easiest way to achieve this task is to use Azure PowerShell. You will need to issue a resource-specific "Get" command that fetches all the current configuration for the impacted resource as it is deployed. Next, you can execute a "Set" command (or equivalent) to commit to Azure a write operation containing all the resource properties as they are currently configured.
 
 > [!IMPORTANT]
 > 1. Executing a "Set" command on the resource without running a "Get" first will result in overwriting the resource with default settings which might be different from those you currently have configured. Do not just run a "Set" command unless resetting settings is intentional.
 > 2. Executing a "Get" and "Set" operation using third party software or otherwise any tool using older API version may also result in loss of some settings, as those may not be present in the API version with which you have executed the command.
 >
-## Azure Powershell cmdlets to restore Succeeded provisioning state
+## Azure PowerShell cmdlets to restore succeeded provisioning state
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
