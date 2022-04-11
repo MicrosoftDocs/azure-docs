@@ -45,12 +45,14 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: How to recognize speech
-      href: how-to-recognize-speech.md
-    - name: Change recognition source language
-      href: how-to-specify-source-language.md
-    - name: Transcribe audio in batches
-      href: batch-transcription.md
+    - name: Speech recognition
+      items:
+      - name: How to recognize speech
+        href: how-to-recognize-speech.md
+      - name: Change recognition source language
+        href: how-to-specify-source-language.md
+      - name: Get speech recognition results
+        href: get-speech-recognition-results.md
     - name: Improve recognition with Custom Speech
       items:
         - name: Custom Speech overview
@@ -77,6 +79,8 @@ items:
           href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
+    - name: Transcribe audio in batches
+      href: batch-transcription.md
     - name: Ingestion Client
       href: ingestion-client.md
     - name: Speech-to-text FAQ
@@ -168,6 +172,12 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
+    - name: Captioning
+      items:
+      - name: Captioning with speech to text
+        href: captioning-concepts.md
+      - name: Captioning quickstart
+        href: captioning-quickstart.md
     - name: Handle call center scenarios
       displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
       href: call-center-transcription.md
