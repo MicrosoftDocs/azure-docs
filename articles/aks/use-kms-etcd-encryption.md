@@ -71,7 +71,7 @@ The following limitations apply when you integrate KMS etcd encryption with Azur
 * Changing of key Id (including key name and key version)
 * Deletion of the key, Key Vault, or the associated identity
 * System-Assigned Managed Identity
-* Leveraging KeyVault with PrivateLink enabled.
+* Leveraging Key Vault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) key vault from another tenant.
 
