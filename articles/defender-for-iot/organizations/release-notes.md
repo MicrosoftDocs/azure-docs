@@ -69,8 +69,7 @@ Active discovery scans allow for faster deployments, enriching your existing dev
 - **PLC discovery and enrichment scans**: S7 (Siemens), CIP (Rockwell)
 
 > [!IMPORTANT]
-> Active scans run detection activity directly in your network and must be configured carefully.
->
+> Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
 
 View scanning data from active discovery scans from your sensor console only. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
 

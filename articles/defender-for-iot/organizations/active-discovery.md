@@ -10,7 +10,7 @@ ms.topic: how-to
 Run active discovery scans from your OT sensors to dive deeper into your device data and detect more devices on your network. For example, OT engineers might want to enrich existing device visibility, and SOC teams might want to collect more data, identifying more CVEs and assist in investigations for alerts and possible penetration paths.
 
 > [!IMPORTANT]
-> Active discovery scans run detection activity directly in your network. Take care when configuring your active discovery scan so that you only scan necessary resources.
+> Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
 
 ## Recommended scenarios
 
