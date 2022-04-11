@@ -136,7 +136,7 @@ In metrics explorer, you can create metric alerts based on Container Apps metric
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Create a new metric alert.":::
 
-When you create a new alert rule, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you based on the metric that you selected for the chart.  You then the edit the condition to configure threshold and other settings.
+When you create a new alert rule, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you based on the metric that you selected for the chart.  You then edit the condition to configure threshold and other settings.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Automatically created condition.":::
 
