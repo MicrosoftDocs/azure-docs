@@ -1764,3 +1764,4 @@ groups:
   - id: framework-dotnet
     title: .Net
   - id: framework-spring
+    title: Spring Framework
