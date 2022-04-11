@@ -17,6 +17,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
 
+## Create a VM from your gallery
 ### [Portal](#tab/portal)
 
 Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
@@ -66,26 +67,7 @@ az vm create\
    --generate-ssh-keys
 ```
 
-To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
-
-```
-/CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
-```
-
-If you are using a community image, you will be prompted to accept the legal terms. The message will look like this: 
-
-```output
-To create the VM/VMSS from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
-```
-
 You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
-
-
-XXX
-For VM deployments of a custom image, use the 
-imageReference.communityGalleryImageId value if the custom image has been shared 
-via subscription / tenant; otherwise use the imageReference.id value if the custom image 
-has been shared using RBAC (user, group, service principal, or managed identity) 
 
 ### [PowerShell](#tab/powershell)
 
@@ -312,6 +294,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "location": "eastus",
 }
 ```
+
 Create a Linux VM. The `oSProfile` section contains some OS specific details. See the next code example for the Windows syntax.
 
 ```rest
@@ -403,6 +386,67 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 ---
+
+
+## Create a VM from a community gallery image
+
+> [!IMPORTANT]
+> The Community Gallery is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### [Portal](#tab/portal2)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+1. In the left menu, under **Other Items**, seect **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see XXXX. Depending on the image choose, the **Region**the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+### [CLI](#tab/cli2)
+
+To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
+
+```
+/CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
+```
+
+In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
+
+```azurecli-interactive
+imgDef="/CommunityGalleries/ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/myLinuxImage/Versions/latest"
+vmResourceGroup=myResourceGroup
+location=eastus
+vmName=myVM
+adminUsername=azureuser
+
+az group create --name $vmResourceGroup --location $location
+
+az vm create\
+   --resource-group $vmResourceGroup \
+   --name $vmName \
+   --image $imgDef \
+   --admin-username $adminUsername \
+   --generate-ssh-keys
+```
+
+When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
+
+```output
+To create the VM/VMSS from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
+```
+
+
+
+### [REST](#tab/rest2)
 
 **Next steps**
 

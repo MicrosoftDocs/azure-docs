@@ -94,6 +94,18 @@ The regions that a resource is replicated to can be updated after creation time.
 
 Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When a gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
 
+### Why share to the community?
+
+As a content publisher, you might want to use Community Galleries: 
+
+- If you have non-commercial, non-proprietary content to share widely on Azure. 
+
+- If you want greater control over the number of versions, regions and even the duration of VM Image availability.  
+
+- If you have daily/nightly builds to share publicly with your customers and don’t want to deal with the overhead that comes with publishing on Azure Marketplace 
+
+- If you don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.  
+
 ### How community galleries work
 
 1. You create a gallery resource under `Microsoft.Compute/Galleries` and choose community gallery as a sharing option. 
@@ -121,6 +133,29 @@ There are some limitations on community galleries:
 https://msrc.microsoft.com/report/abuse
 https://msrc.microsoft.com/report/infringement
 
+
+### Community gallery FAQ
+
+**Q**: Do Community Gallery images support auto-update?  
+
+**A**:Currently, we don’t support auto-update on any Community Gallery images.  
+
+**Q**: What are the charges for using Community Galleries?  
+
+**A**: There are no charges for using the service itself. However, content publishers would be charged for the following: 
+
+- Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
+
+- Network egress charges for replication across regions. 
+
+**Q**: If a Community Gallery image doesn’t work, whom do I contact for support?  
+
+**A**: Azure is not responsible for any issues encountered with Community Gallery images. The support is provided by the image publisher. Please look up the publisher contact information on the gallery and reach out to them for any support regarding the image.  
+
+
+**Q**: How do I request a Community Gallery image to be replicated to a specific region?  
+
+**A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
 ## Explicit access using RBAC
 
 As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
