@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 4/5/2022
+ms.date: 4/11/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -60,9 +60,26 @@ The following scenarios aren't supported in this version of the feature:
 - [Zone pinned](zone-redundancy.md) App Service Environment v2
 - App Service Environment in a region not listed in the supported regions
 
-The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into this category.
+The migration feature doesn't plan on supporting App Service Environment v1 within a Classic VNet. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into this category.
 
 The App Service platform will review your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you won't be able to migrate at this time using the migration feature. If your environment is in an unhealthy or suspended state, you won't be able to migrate until you make the needed updates.
+
+### Troubleshooting
+
+If your App Service Environment doesn't pass the validation checks or you try to perform a migration step in the incorrect order, you may see one of the following error messages:
+
+|Error message      |Description  |
+|---------|---------|
+|Migrate can only be called on an ASE in ARM VNET and this ASE is in Classic VNET.     |App Service Environments in Classic VNets can't migrate using the migration feature.       |
+|ASEv3 Migration is not yet ready.     |The underlying infrastructure isn't ready to support App Service Environment v3.         |
+|Migration cannot be called on this ASE, please contact support for help migrating.     |Support will need to be engaged for migrating this App Service Environment. This is potentially due to custom settings used by this environment.         |
+|Migrate cannot be called on Zone Pinned ASEs.     |App Service Environment v2s that are zone pinned can't be migrated using the migration feature at this time.         |
+|Migrate cannot be called if IP SSL is enabled on any of the sites|App Service Environments that have sites with IP SSL enabled can't be migrated using the migration feature at this time. |
+|Migrate is not available for this kind|App Service Environment v1 can't be migrated using the migration feature at this time. |
+|Full migration cannot be called before IP addresses are generated|You'll see this error if you attempt to migrate before finishing the pre-migration steps. |
+|Migration to ASEv3 is not allowed for this ASE|You won't be able to migrate using the migration feature. |
+|Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) has been met. You'll need to remove unneeded environments or contact support to review your options.|
+|`<ZoneRedundant><DedicatedHosts><ASEv3/ASE>` is not available in this location|You'll see this error if you're trying to migrate an App Service Environment in a region that doesn't support one of your requested features. |
 
 ## Overview of the migration process using the migration feature
 
@@ -123,7 +140,7 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
 - **What will happen to my App Service Environment v1/v2 resources after 31 August 2024?**  
-  After 31 August 2024, if you haven't migrated to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, [App Service Environment v1/v2 will no longer be available after that date](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
+  After 31 August 2024, if you haven't migrated to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, App Service Environment v1/v2 will no longer be available after that date. Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
 
 ## Next steps
 
