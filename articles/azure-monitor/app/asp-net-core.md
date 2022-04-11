@@ -129,6 +129,8 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 If you want to store the connection string in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
 In Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) and later, calling `services.AddApplicationInsightsTelemetry()` automatically reads the connection string from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There's no need to explicitly provide the `IConfiguration`.
 
+If `IConfiguration` has loaded configuration from multiple providers, then `services.AddApplicationInsightsTelemetry` prioritizes configuration from `appsettings.json`, irrespective of the order in which providers are added. Use the `services.AddApplicationInsightsTelemetry(IConfiguration)` method to read configuration from IConfiguration without this preferential treatment for `appsettings.json`.
+
 ## Run your application
 
 Run your application and make requests to it. Telemetry should now flow to Application Insights. The Application Insights SDK automatically collects incoming web requests to your application, along with the following telemetry.
@@ -537,3 +539,7 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+
+[Move a Windows VM from Amazon Web Services (AWS) to an Azure virtual machine](../../virtual-machines/windows/aws-to-azure.md#move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine)
+https://docs.microsoft.com/en-us/lifecycle/faq/azure
+
