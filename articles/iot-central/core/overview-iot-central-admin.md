@@ -104,12 +104,6 @@ An administrator can:
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
 
-## Migrate to a new version
-
-An administrator can migrate an application to a newer version. Currently, all newly created applications are V3 applications. Depending on when it was created, it may be V2. An administrator is responsible for migrating a V2 application to a V3 application.
-
-To learn more, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
-
 ## Monitor application health
 
 An administrator can use IoT Central metrics to assess the health of connected devices and the health of running data exports.
