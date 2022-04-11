@@ -186,6 +186,12 @@ items:
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+- name: Conversation summarization
+  items:
+    - name: Overview
+      href: conversation-summarization/overview.md
+    - name: Quickstart
+      href: conversation-summarization/quickstart.md
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
