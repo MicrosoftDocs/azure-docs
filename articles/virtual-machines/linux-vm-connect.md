@@ -31,7 +31,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
     1. From the **Service** dropdown select **SSH**.
     
     :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
-
+    1. Edit **Priority** and **Source** if necessary
     1. For **Name**, type *SSH*.
     1. When you are done, select **Add**.
     1. You should now have an SSH rule in the table of inbound port rules.
