@@ -39,7 +39,7 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][5])
 1. Note that the current instance count is 1. Click **Custom autoscale**.
   ![Scale setting for new web app][6]
-1. Provide a name for the scale setting, and then click **Add a rule**. This open as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
+1. Provide a name for the scale setting, and then click **Add a rule**. This opens as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
   ![Create scale setting for a web app][7]
 1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
 
