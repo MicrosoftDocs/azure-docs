@@ -35,13 +35,6 @@ The following deployment types are available in Azure Static Web Apps.
 
 ## Configuration
 
-There are two configuration types available for enabling preview environments. Both configuration types apply only to non-production branches.
-
-| Type | Description |
-|--|--|
-| **Named environment** | Changes made to any non-production branches are available via a single URL that includes the designated environment name. |
-| **Branch environments** | Changes made to any non-production branches are available via URLs using individual branch names. |
-
 To enable stable URL environments, make the following changes to your [configuration file](configuration.md).
 
 - Set the `production_branch` input on the `static-web-apps-deploy` GitHub action to your production branch name
