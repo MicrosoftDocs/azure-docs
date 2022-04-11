@@ -21,9 +21,30 @@ ms.author: v-eschaffer
 
 ## Prerequisites
 
-To complete this article:
-
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
+
+    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
+
+        # [CLI](#tab/CLI)
+        ```azurecli-interactive
+        echo "Enter your email address that is used to sign in to Azure:" &&
+        read upn &&
+        az ad user show --id $upn --query "objectId" &&
+        echo "Press [ENTER] to continue ..."
+        ```
+
+        # [PowerShell](#tab/PowerShell)
+        ```azurepowershell-interactive
+        $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+        (Get-AzADUser -UserPrincipalName $upn).Id
+        Write-Host "Press [ENTER] to continue..."
+        ```
+
+        ---
+
+    2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Review the Bicep file
 
@@ -64,18 +85,23 @@ Two Azure resources are defined in the Bicep file:
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+echo "Enter your key vault name:" &&
+read keyVaultName &&
+az keyvault secret list --vault-name $keyVaultName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+$keyVaultName = Read-Host -Prompt "Enter your key vault name"
+Get-AzKeyVaultSecret -vaultName $keyVaultName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
