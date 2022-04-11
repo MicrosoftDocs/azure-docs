@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/03/2022
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.reviewer: wiassaf
 ---
@@ -17,7 +17,7 @@ Azure Cosmos DB offers an API to get the latest restorable timestamp of a contai
 
 This API also takes the account location as an input parameter and returns the latest restorable timestamp for the given container in this location. If an account exists in multiple locations, then the latest restorable timestamp for a container in different locations could be different because the backups in each location are taken independently.
 
-By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL, Table (preview), Graph API (preview), and MongoDB accounts.
+By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL API, MongoDB API, Table API (preview), Gremlin API (preview) accounts.
 
 ## Use cases
 
