@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Copy an incremental snapshot to a new region
 
-Incremental snapshots can be copied to any region. The process is managed by Azure, which removes the old maintenance overhead of managing the copy process by staging a storage account in the target region. Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the progress of the copy so you know when a target snapshot is ready to restore disks in the target region. You are only charged for the bandwidth cost of the data transfer across the region and the read transactions on the source snapshots.
+Incremental snapshots can be copied to any region. The process is managed by Azure, removing the maintenance overhead of managing the copy process by staging a storage account in the target region. Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the progress of the copy so you know when a target snapshot is ready to restore disks in the target region. You're only charged for the bandwidth cost of the data transfer across the region and the read transactions on the source snapshots.
 
 This article covers copying an incremental snapshot from one region to another. See [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md) for conceptual details on incremental snapshots.
 
@@ -146,3 +146,7 @@ You can also use Azure Resource Manager templates to copy an incremental snapsho
 
 ```
 ---
+
+## Next steps
+
+If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
