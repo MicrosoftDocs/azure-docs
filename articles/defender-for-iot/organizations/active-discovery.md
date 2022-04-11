@@ -48,20 +48,21 @@ Configure an active discovery scan to run as a one-time scan, or to run periodic
     1. Define the following scanning options, which depend on the use case selected:
         # [PLC discovery and enrichment](#tab/plc)
 
-        |Name  |Description  |
-        |---------|---------|
-        | **Scan protocol** | The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols). |
-        | **Port** | The port value is automatically populated with the default port for your selected protocol. Modify the value as needed. |
-        | **Timeout** | Define a timeout in seconds for your scan, after which the scan stops running. |
-        | **Device limit** | Define a maximum number of devices or controllers to scan. |
-        | **Scan depth** | Define the device depth for your scan. For example, a device connected to the main PLC is one level down, and a device connected to a first level device is two levels down from the main PLC. |
+        - **Scan protocol**.  The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
+
+        - **Port**. The port value is automatically populated with the default port for your selected protocol. Modify the value as needed.
+
+        - **Timeout**.  Define a timeout in seconds for your scan, after which the scan stops running.
+
+        - **Device limit**. Define a maximum number of devices or controllers to scan.
+
+        - **Scan depth**.  Define the device depth for your scan. For example, a device connected to the main PLC is one level down, and a device connected to a first level device is two levels down from the main PLC.
 
         # [Switch discovery scan](#tab/switch)
 
-        |Name  |Description  |
-        |---------|---------|
-        | **Switch vendor** | Select a switch vendor.|
-        | **Scan protocol** | The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
+        - **Switch vendor**. Select a switch vendor.
+
+        - **Scan protocol**. The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
 
         Other scan fields differ, depending on the scan protocol you select. Enter community strings and credential details as needed.
 
