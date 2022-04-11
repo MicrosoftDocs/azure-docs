@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-formre
 ms.date: 04/11/2022
-ms.author: jaep3347
+ms.author: jppark
 ---
 
 # Use the Read Model
