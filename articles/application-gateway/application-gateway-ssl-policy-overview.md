@@ -26,9 +26,43 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 ## Predefined TLS policy
 
-Application Gateway offers several predefined security policies. You can configure your gateway with any of these policies to get the appropriate level of security. The policy names are annotated by the year and month in which they were configured. Each policy offers different TLS protocol versions and/or cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
+Application Gateway offers several predefined security policies. You can configure your gateway with any of these policies to get the appropriate level of security. The policy names are annotated by the year and month in which they were configured (AppGwSslPolicy&lt;YYYYMMDD&gt;). Each policy offers different TLS protocol versions and/or cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 
-The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies, you can refer to the PowerShell, CLI, REST API or the Listeners blade in portal. <table here>
+The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies, you can refer to the PowerShell, CLI, REST API or the Listeners blade in portal.
+
+| Predefined policy names (AppGwSslPolicy&lt;YYYYMMDD&gt;) | 20150501  | 20170401 | 2017041S | 20220101 | 20220101S |
+| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+| **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
+| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
+| TLS_AES_256_GCM_SHA384 | &cross; | &cross; | &cross; | &check; | &check; |
+| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
+| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &check; | &check; |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | &check; | &cross; | &cross; | &check; | &cross; |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | &check; | &cross; | &cross; | &check; | &cross; |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_RSA_WITH_AES_256_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_RSA_WITH_AES_128_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_256_CBC_SHA256 | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_128_CBC_SHA256 | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_256_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_RSA_WITH_AES_128_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
+| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &check; | &check; |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | &check; | &check; | &check; | &check; | &cross; |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | &check; | &check; | &check; | &check; | &cross; |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA | &check; | &check; | &check; | &cross; | &cross; |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
+| TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
 
 ## Custom TLS policy
 
