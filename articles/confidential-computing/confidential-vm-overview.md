@@ -102,7 +102,7 @@ Confidential VMs *don't support*:
 - Azure Backup
 - Azure Site Recovery
 - Azure Dedicated Host 
-- Virtual machine scale set for pre-encrypted OS disks
+- Microsoft Azure Virtual Machine Scale Sets for pre-encrypted OS disks
 - Capturing an image of a VM
 - Azure Compute Gallery
 - Ephemeral OS disks
