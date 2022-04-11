@@ -48,7 +48,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 Also, you can define an action to [**run a playbook**](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. **Only** playbooks activated by the [**incident trigger**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
 
-Playbooks using [either version of Logic Apps (Standard or Consumption)](automate-responses-with-playbooks.md#two-kinds-of-logic-apps) will be available to run from automation rules.
+Playbooks using [either version of Logic Apps (Standard or Consumption)](automate-responses-with-playbooks.md#two-types-of-logic-apps) will be available to run from automation rules.
 
 ### Expiration date
 
