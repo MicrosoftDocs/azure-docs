@@ -64,7 +64,7 @@ Replace the `index.html` in the URL with `api/anchors`. It should look like this
 
 On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 
-Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Append the URL with `api/anchors`. It should look like this: `https://<your_app_name>.azurewebsites.net/api/anchors`.
+Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Append the URL with `/swagger/api/anchors`. It should look like this: `https://<your_app_name>.azurewebsites.net/swagger/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
@@ -122,6 +122,8 @@ Ensure that **Export Project** doesn't have a check mark. Select **Build And Run
 
 ## Configure the account information
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
+
+[!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene-shared.md)]
 
 On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 

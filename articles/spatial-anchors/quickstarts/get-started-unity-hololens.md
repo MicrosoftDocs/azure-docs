@@ -51,7 +51,7 @@ Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-pa
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-[!INCLUDE [HoloLens Unity Build Settings](spatial-anchors-unity-hololens-build-settings.md)]
+[!INCLUDE [HoloLens Unity Build Settings](../../../includes/spatial-anchors-unity-hololens-build-settings.md)]
 
 ## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
