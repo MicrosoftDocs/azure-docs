@@ -65,7 +65,7 @@ Before migration, it is still a good practice to run an assessment of your SQL S
 
 The [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data to recommend a right-sized SQL Server on Azure Virtual Machines to meet the performance needs of your workload (with the least price).
 
-To learn more about Azure recommendations, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](https://docs.microsoft.com/en-us/azure/dms/ads-sku-recommend.md).
+To learn more about Azure recommendations, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](../../../dms/ads-sku-recommend.md).
 
 > [!IMPORTANT]
 >To assess databases using the Azure SQL Migration extension, ensure that the logins used to connect the source SQL Server are members of the sysadmin server role or have CONTROL SERVER permission.
@@ -83,7 +83,7 @@ During the assessment of user databases, use Data Migration Assistant to [import
 
 #### Assessments at scale
 
-If you have multiple servers that require a Data Migration Assistant assessment, you can automate the process by using scripts using one of the following options. To learn more about using scripting see [Migrate databases at scale using automation](../dms/migration-dms-powershell-cli.md).
+If you have multiple servers that require a Data Migration Assistant assessment, you can automate the process by using scripts using one of the following options. To learn more about using scripting see [Migrate databases at scale using automation](../../../dms/migration-dms-powershell-cli.md).
 - [Az.DataMigration PowerShell module](/powershell/module/az.datamigration)
 - [az datamigration CLI extension](/cli/azure/datamigration)
 - [DMA command-line interface](/sql/dma/dma-commandline)
@@ -108,7 +108,7 @@ The following sections provide steps for performing either a migration by using 
 
 ### Migrate using the Azure SQL Migration extension for Azure Data Studio (minimal downtime)
 
-To perform a minimal downtime migration using Azure Data Studio, follow the high level steps below. For a detailed step-by-step tutorial, see [Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio](../dms/tutorial-sql-server-to-virtual-machine-online-ads.md):
+To perform a minimal downtime migration using Azure Data Studio, follow the high level steps below. For a detailed step-by-step tutorial, see [Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio](../../../dms/tutorial-sql-server-to-virtual-machine-online-ads.md):
 
 1. Download and install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) and the [Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 1. Launch the Migrate to Azure SQL wizard in the extension in Azure Data Studio.
