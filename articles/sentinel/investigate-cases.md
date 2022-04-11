@@ -36,7 +36,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have, how many are open, how many you've set to **In progress**, and how many are closed. For each incident, you can see the time it occurred, and the status of the incident. Look at the severity to decide which incidents to handle first.
 
-    ![View incident severity](media/investigate-cases/incident-severity.png)
+    :::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of view of incident severity." lightbox="media/investigate-cases/incident-severity.png":::
 
 1. You can filter the incidents as needed, for example by status or severity. For more information, see [Search for incidents](#search-for-incidents).
 
@@ -44,7 +44,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
 
-    ![View alert details](media/investigate-cases/incident-timeline.png)
+    :::image type="content" source="media/investigate-cases/incident-timeline.png" alt-text="Screenshot of view of alert details." lightbox="media/investigate-cases/incident-timeline.png":::
 
     For example:
 
@@ -56,7 +56,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. Incidents can be assigned to a specific user or to a group. For each incident you can assign an owner, by setting the **Owner** field. All incidents start as unassigned. You can also add comments so that other analysts will be able to understand what you investigated and what your concerns are around the incident.
 
-    ![Assign incident to user](media/investigate-cases/assign-incident-to-user.png)
+    :::image type="content" source="media/investigate-cases/assign-incident-to-user.png" alt-text="Screenshot of assigning incident to user.":::
 
     Recently selected users and groups will appear at the top of the pictured drop-down list.
 
@@ -81,7 +81,7 @@ To use the investigation graph:
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
 
-    [ ![View map.](media/investigate-cases/investigation-map.png) ](media/investigate-cases/investigation-map.png#lightbox)
+    [![View map.](media/investigate-cases/investigation-map.png)](media/investigate-cases/investigation-map.png#lightbox)
 
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
@@ -99,17 +99,17 @@ To use the investigation graph:
 
    For example, on a computer you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
 
-    ![View related alerts](media/investigate-cases/related-alerts.png)
+    :::image type="content" source="media/investigate-cases/related-alerts.png" alt-text="Screenshot: view related alerts" lightbox="media/investigate-cases/related-alerts.png":::
 
 1. For each exploration query, you can select the option to open the raw event results and the query used in Log Analytics, by selecting **Events\>**.
 
 1. In order to understand the incident, the graph gives you a parallel timeline.
 
-    ![View timeline in map](media/investigate-cases/map-timeline.png)
+    :::image type="content" source="media/investigate-cases/map-timeline.png" alt-text="Screenshot: view timeline in map." lightbox="media/investigate-cases/map-timeline.png":::
 
 1. Hover over the timeline to see which things on the graph occurred at what point in time.
 
-    ![Use timeline in map to investigate alerts](media/investigate-cases/use-timeline.png)
+    :::image type="content" source="media/investigate-cases/use-timeline.png" alt-text="Screenshot: use timeline in map to investigate alerts.'" lightbox="media/investigate-cases/use-timeline.png":::
 
 ## Comment on incidents
 

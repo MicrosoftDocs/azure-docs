@@ -6,37 +6,37 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 04/11/2022
 ---
 
 # Search the Azure Purview Data Catalog
 
 After data is scanned and ingested into the Azure Purview data map, data consumers need to easily find the data needed for their analytics or governance workloads. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether you can trust the data and take a dependency on it.
 
-The goal of search in Azure Purview is to speed up the process of data discovery to quickly find the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you're looking for.
+The goal of search in Azure Purview is to speed up the process of quickly finding the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you're looking for.
 
-## Search the catalog for assets
+## Searching the catalog
 
 The search bar can be quickly accessed from the top bar of the Azure Purview Studio UX. In the data catalog home page, the search bar is in the center of the screen.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-Once you click on the search bar, you'll be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
+Once you click on the search bar, you'll be presented with your search history and the items recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Azure Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help narrow down your search such as name, data type, classifications, and glossary terms. As you enter in search keywords, Azure Purview dynamically suggests results and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
-Once you enter in your search, Azure Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
+Once you enter in your search, Azure Purview returns a list of data assets and glossary terms a user is a data reader for to that matched to the keywords entered in.
 
 The Azure Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Azure Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
 If the top results don’t include the assets you're looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications, and the containing collection. If you're interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use a pill filter to narrow down your search.
 
 > [!NOTE]
-> Search will only return assets in collections you're a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
+> Search will only return items in collections you're a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
@@ -76,15 +76,15 @@ The following table contains the operators that can be used to compose a search 
 | NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause. Must be in all caps  | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
 | () | Groups a set of keywords and operators together. When combining multiple operators, parentheses specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
-| field:keyword | Searches the keyword in a specific attribute of an asset. Field search is case insensitive and is limited to the following fields at this time: <ul><li>name</li><li>description</li><li>entityType</li><li>assetType</li><li>classification</li><li>term</li><li>contact</li></ul> | The query `description: German` returns all assets that contain the word "German" in the description.<br><br>The query `term:Customer` will return all assets with glossary terms that include "Customer". |
+| field:keyword | Searches the keyword in a specific attribute of an asset. Field search is case insensitive and is limited to the following fields at this time: <ul><li>name</li><li>description</li><li>entityType</li><li>assetType</li><li>classification</li><li>term</li><li>contact</li></ul> | The query `description: German` returns all assets that contain the word "German" in the description.<br><br>The query `term:Customer` will return all assets with glossary terms that include "Customer" and all glossary terms that match to "Customer". |
 
 > [!TIP]
-> Searching "*" will return all the assets in the catalog.
+> Searching "*" will return all the assets and glossary terms in the catalog.
 
 ### Known limitations
 
 * Searching for classifications only matches on the formal classification name. For example, the keywords "World Cities" don't match classification "MICROSOFT.GOVERNMENT.CITY_NAME".
-*  Grouping isn't supported within a field search. Customers should use operators to connect field searches. For example,`name:(alice AND bob)` is invalid search syntax, but `name:alice AND name:bob` is supported.
+* Grouping isn't supported within a field search. Customers should use operators to connect field searches. For example,`name:(alice AND bob)` is invalid search syntax, but `name:alice AND name:bob` is supported.
 
 ## Next steps
 
