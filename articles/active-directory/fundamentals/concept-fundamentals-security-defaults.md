@@ -54,37 +54,6 @@ To enable security defaults in your directory:
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
 
-## Backup administrator accounts
-
-Every organization should have at least two backup administrator accounts configured. We call these emergency access accounts.
-
-These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
-
-Emergency access accounts are:
-
-- Assigned Global Administrator rights in Azure AD.
-- Aren't used on a daily basis.
-- Are protected with a long complex password.
- 
-The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials. 
-
-To create an emergency access account: 
-
-1. Sign in to the **Azure portal** as an existing Global Administrator.
-1. Browse to **Azure Active Directory** > **Users**.
-1. Select **New user**.
-1. Select **Create user**.
-1. Give the account a **User name**.
-1. Give the account a **Name**.
-1. Create a long and complex password for the account.
-1. Under **Roles**, assign the **Global Administrator** role.
-1. Under **Usage location**, select the appropriate location.
-1. Select **Create**.
-
-You may choose to [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) for these accounts using Azure AD PowerShell.
-
-For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
-
 ## Policies enforced
 
 ### Require all users to register for Azure AD Multi-Factor Authentication
@@ -161,7 +130,9 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 > [!NOTE]
 > The Azure AD Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multi-factor authentication. Organizations should not be using this account for other purposes.
 
-## Authentication methods
+## Deployment considerations
+
+### Authentication methods
 
 Security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
@@ -179,11 +150,42 @@ Security defaults allow registration and use of Azure AD Multi-Factor Authentica
 > [!WARNING]
 > Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
-## Disabled MFA status
+### Backup administrator accounts
+
+Every organization should have at least two backup administrator accounts configured. We call these emergency access accounts.
+
+These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+
+Emergency access accounts are:
+
+- Assigned Global Administrator rights in Azure AD.
+- Aren't used on a daily basis.
+- Are protected with a long complex password.
+ 
+The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials. 
+
+To create an emergency access account: 
+
+1. Sign in to the **Azure portal** as an existing Global Administrator.
+1. Browse to **Azure Active Directory** > **Users**.
+1. Select **New user**.
+1. Select **Create user**.
+1. Give the account a **User name**.
+1. Give the account a **Name**.
+1. Create a long and complex password for the account.
+1. Under **Roles**, assign the **Global Administrator** role.
+1. Under **Usage location**, select the appropriate location.
+1. Select **Create**.
+
+You may choose to [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) for these accounts using Azure AD PowerShell.
+
+For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+
+### Disabled MFA status
 
 If your organization is a previous user of per-user based Azure AD Multi-Factor Authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure AD Multi-Factor Authentication.
 
-## Conditional Access
+### Conditional Access
 
 You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
 
@@ -196,7 +198,7 @@ If you want to enable Conditional Access to configure a set of policies, which f
 - [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
-## Disabling security defaults
+### Disabling security defaults
 
 Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
 
