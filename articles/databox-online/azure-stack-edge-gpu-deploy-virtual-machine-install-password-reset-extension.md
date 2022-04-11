@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 04/11/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -142,7 +142,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 To check the deployment status of extensions for a given VM, run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mywindowsvm -Name windowsVMAccessExt 
+PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyWindowsVM> -Name <MyWindowsMAccessExt>
 
 ResourceGroupName       : myasepro2rg 
 VMName                  : mywindowsvm 
@@ -196,7 +196,7 @@ PS C:\WINDOWS\system32>
 To check the deployment status of extensions for a given VM, run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mylinuxvm5 -Name linuxVMAccessExt 
+PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyLinuxVM> -Name <MyLinuxVMAccessExt> 
 
 ResourceGroupName       : myasepro2rg 
 VMName                  : mylinuxvm5 
@@ -250,8 +250,6 @@ PS C:\WINDOWS\system32>
 
 To verify the VM password update, connect to the VM using the new password.
 
-If authentication fails...
-
 ### [Linux](#tab/linux)
 
 To verify the VM password update, connect to the VM using the new password.
@@ -297,10 +295,6 @@ See "man sudo_root" for details.
 azureuser@mylinuxvm5:~$ 
 
 ```
-
-If authentication fails...
-
----
 
 ## Remove the extension
 
