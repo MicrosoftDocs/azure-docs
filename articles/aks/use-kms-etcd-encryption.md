@@ -113,7 +113,7 @@ IDENTITY_OBJECT_ID=$(az identity show --name MyIdentity --resource-group MyResou
 echo $IDENTITY_OBJECT_ID
 ```
 
-The above example stores the value of the Identity Obeject Id in *IDENTITY_OBJECT_ID*.
+The above example stores the value of the Identity Object Id in *IDENTITY_OBJECT_ID*.
 
 Use `az identity show` to get Identity Resource Id.
 
