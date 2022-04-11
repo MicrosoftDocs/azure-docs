@@ -2,9 +2,7 @@
 title: Collect Windows event log data sources with Log Analytics agent in Azure Monitor
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 02/26/2021
+ms.date: 04/06/2022
 
 ---
 

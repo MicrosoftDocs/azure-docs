@@ -14,13 +14,9 @@ ms.custom: ignite-fall-2021
 
 This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
 
-> [!IMPORTANT]
->
-> - The **automation rules** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## What are automation rules?
 
-Automation rules are a new concept in Microsoft Sentinel. This feature allows users to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents (not just to alerts as before), automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules will streamline automation use in Microsoft Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
+Automation rules are a way to centrally manage the automation of incident handling, allowing you to perform simple automation tasks without using playbooks. For example, automation rules allow you to automatically assign incidents to the proper personnel, tag incidents to classify them, and change the status of incidents and close them. Automation rules can also automate responses for multiple analytics rules at once, control the order of actions that are executed, and run playbooks for those cases where more complex automation tasks are necessary. In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your incident orchestration processes.
 
 ## Components
 

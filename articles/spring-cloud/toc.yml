@@ -248,14 +248,6 @@ items:
   items:
   - name: Reference architecture
     href: reference-architecture.md
-- name: DevOps deployment
-  items:
-  - name: CI/CD with Azure DevOps
-    href: how-to-cicd.md
-  - name: CI/CD with GitHub Actions
-    href: how-to-github-actions.md
-  - name: Auth with Key Vault in GitHub Actions
-    href: github-actions-key-vault.md
 - name: Reference
   items:
   - name: Azure CLI plugin

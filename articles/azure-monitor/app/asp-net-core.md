@@ -96,7 +96,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 3. Set up the connection string.
 
-    Although you can provide the connection string as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
+    Although you can provide a connection string as part of the `ApplicationInsightsServiceOptions` argument to AddApplicationInsightsTelemetry, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
 
     ```json
         {
@@ -128,6 +128,8 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 If you want to store the connection string in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
 In Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) and later, calling `services.AddApplicationInsightsTelemetry()` automatically reads the connection string from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There's no need to explicitly provide the `IConfiguration`.
+
+If `IConfiguration` has loaded configuration from multiple providers, then `services.AddApplicationInsightsTelemetry` prioritizes configuration from `appsettings.json`, irrespective of the order in which providers are added. Use the `services.AddApplicationInsightsTelemetry(IConfiguration)` method to read configuration from IConfiguration without this preferential treatment for `appsettings.json`.
 
 ## Run your application
 

@@ -189,6 +189,8 @@
       href: /rest/api/frontdoor/#front-door-classic
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/frontdoor
+    - name: Java SDK
+      href: /java/api/overview/azure/resourcemanager-cdn-readme
 - name: Resources
   items:
   - name: Azure Roadmap
