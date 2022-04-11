@@ -18,21 +18,36 @@ ms.author: pamistel
 ## Configure the account information
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
+Open the Scene called **AzureSpatialAnchorsLocalSharedDemo** found in `Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsLocalSharedDemo` by double clicking on it on the project pane
+
+On the Project pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 
 Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Append the URL with `/swagger/api/anchors`. It should look like this: `https://<your_app_name>.azurewebsites.net/swagger/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
-## Deploy 
+## Export + deploy the HoloLens application
 
-Sign in to your Android device and connect it to your computer by using a USB cable.
+[!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Open **Build Settings** by selecting **File** > **Build Settings**.
+Select **Build**. In the dialog box, select a folder in which to export the HoloLens Visual Studio project.
 
-Under **Scenes In Build**, ensure that each scene has a check mark next to it.
+When the export is complete, a folder containing the exported HoloLens project will appear.
 
-Ensure that **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your *.apk* file. You can pick any name for it.
+In the folder, double-click **HelloAR U3D.sln** to open the project in Visual Studio.
+
+Change the **Solution Configuration** to **Release**, change the **Solution Platform** to **x86**, and select **Device** from the deployment target options.
+
+If using HoloLens 2, use **ARM64** as the **Solution Platform**, instead of **x86**.
+
+   ![Visual Studio configuration](./media/get-started-unity-hololens/visual-studio-configuration.png)
+
+Turn on the HoloLens device, sign in, and connect the device to the PC by using a USB cable.
+
+Select **Debug** > **Start debugging** to deploy your app and start debugging.
+
+## Running the app
+In the app, select **LocalSharedDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -53,9 +68,11 @@ Ensure that **Export Project** doesn't have a check mark. Select **Build And Run
 ## Configure the account information
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
+Open the Scene called **AzureSpatialAnchorsLocalSharedDemo** found in `Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsLocalSharedDemo` by double clicking on it on the project pane
 
-Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Replace `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+On the Project pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
+
+Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Append the URL with `/swagger/api/anchors`. It should look like this: `https://<your_app_name>.azurewebsites.net/swagger/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
@@ -68,6 +85,9 @@ Open **Build Settings** by selecting **File** > **Build Settings**.
 Under **Scenes In Build**, ensure that each scene has a check mark next to it.
 
 Ensure that **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your *.apk* file. You can pick any name for it.
+
+## Running the app
+In the app, select the **LocalShare** demo using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -87,11 +107,11 @@ Ensure that **Export Project** doesn't have a check mark. Select **Build And Run
 ## Configure the account information
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-[!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene-shared.md)]
+Open the Scene called **AzureSpatialAnchorsLocalSharedDemo** found in `Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsLocalSharedDemo` by double clicking on it on the project pane
 
-On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
+On the Project pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 
-Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Replace `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Append the URL with `/swagger/api/anchors`. It should look like this: `https://<your_app_name>.azurewebsites.net/swagger/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
@@ -102,6 +122,9 @@ Open **Build Settings** by selecting **File** > **Build Settings**.
 Under **Scenes In Build**, ensure that each scene has a check mark next to it.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
+
+## Running the app
+In the app, select the **LocalShare** demo using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
