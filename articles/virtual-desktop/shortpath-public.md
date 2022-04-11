@@ -12,8 +12,8 @@ ms.author: denisgun
 
 Remote Desktop Protocol (RDP) can use multiple different types of network transport to establish a connection between Remote Desktop Client and Session host.
 
-- Reverse connect - by default, RDP uses a TCP-based [reverse connect transport](./network-connectivity.md). This transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. This transport is also used as a fallback if the RDP Shortpath connection is unsuccessfull.
-- RDP Shortpath for managed networks - UDP-based transport designed for direct connectivity in controlled network setups. For example connectivity over the ExpressRoute or Azure Stack HCI deployments. For more information, see the [documentation](./shortpath.md).
+- Reverse connect - by default, RDP uses a TCP-based [reverse connect transport](./network-connectivity.md). This transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. This transport is also used as a fallback if the RDP Shortpath connection is unsuccessful.
+- RDP Shortpath for managed networks - UDP-based transport designed for direct connectivity in controlled network setups. For example, connectivity over the ExpressRoute or Azure Stack HCI deployments. For more information, see the [documentation](./shortpath.md).
 - RDP Shortpath for public networks, currently in preview, is described in this document.
 
  > [!NOTE]
@@ -69,7 +69,7 @@ When the client receives the list of candidates from the server, the client perf
 After the session host and client exchange their candidate lists, both parties attempt to connect with each other using all the gathered candidates. This connection attempt is simultaneous on both sides.
 Many of the NAT gateways are configured to allow the incoming traffic to the socket as soon the outbound data transfer initializes it. This behavior of NAT gateways is the reason the simultaneous connection is essential.
 After the initial packet exchange, the client and session host may establish one or many data flows. After that, Remote Desktop Protocol chooses the fastest network path. Client then establishes a secure TLS connection with the session host and initiates the RDP Shortpath transport.
-After RDP establishes the Shortpath transport,  RDP moves all Dynamic Virtual Channels (DVCs) to the new transport, including remote graphics, input, and device redirection.
+After RDP establishes the Shortpath, all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection move to the new transport.
 
 ## Enabling the preview of RDP Shortpath for public networks
 
