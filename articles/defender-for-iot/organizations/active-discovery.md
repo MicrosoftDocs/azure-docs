@@ -76,6 +76,9 @@ Configure an active discovery scan to run as a one-time scan, or to run periodic
 
 1. When you're done, select **Save**. Your active discovery scan will start running as configured.
 
+> [!TIP]
+> To run your scan immediately as a one-time scan, save your scan and then select **Run scan** in the **Active discovery** page toolbar.
+
 ## View scanning results
 
 After your active discovery scan completes, scanning results are shown in the **Active discovery (Preview)** page.
