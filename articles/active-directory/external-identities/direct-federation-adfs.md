@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 04/11/2022
 
 ms.author: mimart
 author: msmimart
@@ -74,8 +74,17 @@ An AD FS server must already be set up and functioning before you begin this pro
 1. In the navigation pane, select **Relying Party Trusts**.
 1. Under **Actions**, select **Add Relying Party Trust**. 
 1. In the **Add Relying Party Trust** wizard, select **Claims aware**, and then select **Start**.
-1. In the **Select Data Source** section, select the check box for **Import data about the relying party published online or on a local network**. Enter this federation metadata URL: `https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml`. Select **Next**.
-1. Leave the other settings in their default options. Continue to select **Next**, and finally select **Close** to close the wizard.
+1. In the **Select Data Source** section, select **Enter data about the relying party manually**, and then select **Next**. 
+1. On the **Specify Display Name** page, type a name in **Display name**, under **Notes** type a description for this relying party trust, and then select **Next**.
+1. On the **Configure Certificate** page, if you have an optional token encryption certificate, select **Browse** to locate a certificate file, and then select **Next**.
+1. On the **Configure URL** page, select the **Enable support for the WS-Federation Passive protocol** check box. Under **Relying party WS-Federation Passive protocol URL**, type the URL for this relying party trust: `https://login.microsoftonline.com/login.srf`
+1. Select **Next**.
+1. On the **Configure Identifiers** page, specify the relying party trust identifier, including the tenant ID of the service partner’s Azure AD tenant: `https://login.microsoftonline.com/<tenant_ID>/`
+2. Select **Add** to add the identifier to the list, and then select **Next**.
+3. On the **Choose Access Control Policy** page, select a policy, and then select **Next**.
+4. On the **Ready to Add Trust** page, review the settings, and then select **Next** to save your relying party trust information.
+5. On the **Finish** page, select **Close**. This action automatically displays the **Edit Claim Rules** dialog box.
+
 
 ### Create claims rules
 
