@@ -254,10 +254,17 @@ To get a token for a resource, make an HTTP GET request to this endpoint, includ
 For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
 
 -----
+## View managed identities
+
+You can show the system-assigned and user-assigned managed identities using the following Azure CLI command.  The output will show the managed identity type, tenant IDs and principal IDs of all managed identities assigned to your container app.
+
+```azurecli
+az containerapps identity show
+```
 
 ## Remove a managed identity
 
-When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the container app resource itself.
+When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the container app resource itself.  Removing user-assigned managed identities from your container app doesn't remove them from Azure Active Directory.
 
 # [Azure CLI](#tab/cli)
 
@@ -268,6 +275,13 @@ az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> 
 ```
 
 To remove one or more user-assigned identities:
+
+```azurecli
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
+    --user-assigned <IDENTITY_NAME1> <IDENTITY_NAME2>
+```
+
+To remove all user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
