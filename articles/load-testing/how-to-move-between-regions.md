@@ -15,19 +15,11 @@ ms.topic: how-to
 
 This article describes how to move your Azure Load Testing Preview resource to another Azure region. You might want to move your resource for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-- Take advantage of a new Azure region
-
-- Deploy features or services that are available only in specific regions
-
-- Meet internal policy and governance requirements
-
-- Respond to capacity planning requirements
-
 Azure Load Testing resources are region-specific and can't be moved across regions automatically. You can use an Azure Resource Manager template (ARM template) to export the existing configuration of your Load Testing resource instead. Then, stage the resource in another region and create the tests in the new resource.
 
 ## Prerequisites
 
-- Make sure that the target region supports Azure Load Testing and any related service whose resources you want to move.
+- Make sure that the target region supports Azure Load Testing.
 
 - Have access to the tests in the resource you're migrating.
 
@@ -40,6 +32,9 @@ To get started, you'll need to export and then modify an ARM template. You will 
 1. Download the input artifacts for all the tests from the resource. Navigate to the **Tests** section in the resource and then click on the test name. **Download the input file** for the test by clicking the More button (...) on the right side of the latest test run.
 
     :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
+
+> [!NOTE]
+> If you are using an Azure Key Vault to configure secrets for your load test, you can continue to use the same Key Vault.  
 
 ## Move
 
@@ -97,6 +92,11 @@ Once the resource is created in the target location, you can create new tests by
 
 1. Upload the Apache JMeter script and optional configuration files from the downloaded input artifacts.
 
+If you are invoking the previous Azure Load Testing resource in a CI/CD workflow you can update the `loadTestResource` parameter in the [Azure Load testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) or [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing) of your workflow.
+
+> [!NOTE]
+> If you have configured any of your load test with secrets from Azure Key Vault, make sure to grant the new resource access to the Key Vault following the steps mentioned [here](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#grant-access-to-your-azure-key-vault).
+
 ## Clean up source resources
 
 After the move is complete, delete the Azure Load Testing resource from the source region. You pay for resources, even when the resource is not being utilized.
@@ -108,7 +108,7 @@ After the move is complete, delete the Azure Load Testing resource from the sour
 1. On the resource overview page, Select **Delete**, and then confirm.
 
 > [!NOTE]
-> Test results for the test runs in the previous resource will be load once the resource is deleted.
+> Test results for the test runs in the previous resource will be lost once the resource is deleted.
 
 ## Next steps
 
