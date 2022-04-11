@@ -168,4 +168,4 @@
 - name: Troubleshooting
   items:
   - name: Troubleshoot Microsoft.Network Failed provisioning state
-    href: troubleshooting-failed-state.md
+    href: troubleshoot-failed-state.md
