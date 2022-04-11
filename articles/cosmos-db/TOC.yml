@@ -971,11 +971,11 @@
           items:
             - name: Java SDK v4
               href: sql/sql-api-sdk-java-v4.md
-            - name: Async Java SDK v2
+            - name: Async Java SDK v2 (legacy)
               href: sql/sql-api-sdk-async-java.md
-            - name: Sync Java SDK v2
+            - name: Sync Java SDK v2 (legacy)
               href: sql/sql-api-sdk-java.md
-            - name: Spring Data Connector v2
+            - name: Spring Data Connector v2 (legacy)
               href: sql/sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql/sql-api-sdk-java-spring-v3.md
@@ -983,7 +983,7 @@
               href: sql/sql-api-sdk-java-spark-v3.md
             - name: Spark 2 OLTP Connector
               href: sql/sql-api-sdk-java-spark.md
-            - name: Java bulk executor library v2
+            - name: Java bulk executor library v2 (legacy)
               href: sql/sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
@@ -1300,6 +1300,8 @@
         - name: MongoDB extension commands
           href: mongodb/custom-commands.md
           displayName: custom commands
+        - name: Configure role-based access control (RBAC)
+          href: mongodb/how-to-setup-rbac.md
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM

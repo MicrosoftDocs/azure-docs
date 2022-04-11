@@ -2,9 +2,9 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
-ms.date: 03/15/2022
+ms.author: elkrieger
+author: ElazarK
+ms.date: 04/07/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -223,6 +223,9 @@ The following describes the components necessary in order to receive the full pr
 
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
+
+### Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set (VMSS)?
+Yes.
 
 ### Does Microsoft Defender for Containers support AKS without scale set (default) ?
 No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported. 

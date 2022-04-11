@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 04/06/2022
+ms.date: 04/11/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,12 +21,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** March 2022
+**Estimated date for change:** May 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 

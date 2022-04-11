@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 04/06/2022
 ---
 
 # Bicep functions
@@ -19,7 +19,7 @@ All Bicep functions are contained within two namespaces - `az` and `sys`. Typica
 // Parameter contains the same name as a function
 param range int
 
-// Must use sys namespace to call the function. 
+// Must use sys namespace to call the function.
 // The second use of range refers to the parameter.
 output result array = sys.range(1, range)
 ```
@@ -40,7 +40,6 @@ The following functions are available for working with arrays. All of these func
 * [empty](./bicep-functions-array.md#empty)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
-* [items](./bicep-functions-array.md#items)
 * [last](./bicep-functions-array.md#last)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)
@@ -92,6 +91,7 @@ The following functions are available for working with objects. All of these fun
 * [contains](./bicep-functions-object.md#contains)
 * [empty](./bicep-functions-object.md#empty)
 * [intersection](./bicep-functions-object.md#intersection)
+* [items](./bicep-functions-object.md#items)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
 * [union](./bicep-functions-object.md#union)
