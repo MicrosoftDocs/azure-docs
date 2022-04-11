@@ -1,52 +1,55 @@
 ---
 title: "Quickstart: Get started with Translator"
 titleSuffix: Azure Cognitive Services
-description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
+description: "Learn to translate text with the Translator service. Examples are provided in C#, Go, Java, JavaScript and Python."
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 07/06/2021
+ms.date: 04/11/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other
-keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
 # Quickstart: Get started with Translator
 
-In this quickstart, you learn to use the Translator service via REST. You start with basic examples and move onto some core configuration options that are commonly used during development, including:
-
-* [Translation](#translate-text)
-* [Transliteration](#transliterate-text)
-* [Language identification/detection](#detect-language)
-* [Calculate sentence length](#get-sentence-length)
-* [Get alternate translations](#dictionary-lookup-alternate-translations) and [examples of word usage in a sentence](#dictionary-examples-translations-in-context)
+In this quickstart, you learn to use the Translator service to [translate text](../reference/v3-0-translate.md) using the programming language of your choice and the REST API.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
-    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+* Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to retrieve your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+
+    :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Platform setup
 
-# [C#](#tab/csharp)
+### [C#: Visual Studio](#tab/csharp)
 
-* Create a new project: `dotnet new console -o your_project_name`
-* Replace Program.cs with the C# code shown below.
-* Set the key and endpoint values in Program.cs.
-* [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
-* Run the program from the project directory: ``dotnet run``
+1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
+
+1. Open Visual Studio.
+
+1. On the Start page, choose **Create a new project**.
+
+    :::image type="content" source="media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+
+1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
+
+    :::image type="content" source="media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+
+1. In the **Configure your new project** dialog window, enter `translator_quickstart` in the Project name box. Then choose Next.
+
+    :::image type="content" source="media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
 
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 * Create a new Go project in your favorite code editor.
 * Add the code provided below.
@@ -56,18 +59,51 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
 
-# [Java](#tab/java)
+### [Java](#tab/java)
 
-* Create a working directory for your project. For example: `mkdir sample-project`.
-* Initialize your project with Gradle: `gradle init --type basic`. When prompted to choose a **DSL**, select **Kotlin**.
-* Update `build.gradle.kts`. Keep in mind that you'll need to update your `mainClassName` depending on the sample.
-  ```java
+### Set-up your Java environment
+
+* You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
+
+  >[!TIP]
+  >
+  > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+  > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
+
+* If you aren't using VS Code, make sure you have the following installed in your development environment:
+
+  * A [**Java Development Kit** (JDK)](https://www.oracle.com/java/technologies/downloads/) version 8 or later.
+
+  * [**Gradle**](https://gradle.org/), version 6.8 or later.
+
+### Create a new Gradle project
+
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-text-app**, and navigate to it.
+
+    ```console
+    mkdir translator-text-app && translator-text-app
+    ```
+
+1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+    ```console
+    gradle init --type basic
+    ```
+
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (translator-text-app)
+
+
+1. Update `build.gradle.kts` with the following code:
+
+  ```kotlin
   plugins {
     java
     application
   }
   application {
-    mainClassName = "<NAME OF YOUR CLASS>"
+    mainClass.set("TranslatorText")
   }
   repositories {
     mavenCentral()
@@ -77,12 +113,33 @@ In this quickstart, you learn to use the Translator service via REST. You start 
     compile("com.google.code.gson:gson:2.8.5")
   }
   ```
+
+### Create a Java Application
+
 * Create a Java file and copy in the code from the provided sample. Don't forget to add your key.
 * Run the sample: `gradle run`.
 
+1. From the form-recognizer-app directory, run the following command:
 
+    ```console
+    mkdir -p src/main/java
+    ```
 
-# [Node.js](#tab/nodejs)
+   You'll create the following directory structure:
+
+    :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
+
+1. Navigate to the `java` directory and create a file named **`TranslatorText.java`**.
+
+    > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item TranslatorText.java**.
+
+1. Open the `TranslatorText.java` file and copy in the code from the provided sample.
+
+### [Node.js](#tab/nodejs)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
@@ -91,7 +148,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
