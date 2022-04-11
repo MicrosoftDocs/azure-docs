@@ -58,7 +58,7 @@ You can configure your managed identities through:
 
 When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
 
->[!NOTE]
+> [!NOTE]
 > When adding a managed identity to a container app deployed before  April 11, 2022, you must create a new revision.
 
 ### Add a system-assigned identity
@@ -68,7 +68,7 @@ When a managed identity is added, deleted, or modified on a running container ap
 Run the `az containerapp identity assign` command to create a system-assigned identity:
 
 ```azurecli
-az containerapp identity assign --name myApp --resource-group myResourceGroup
+az containerapp identity assign --name myApp --resource-group myResourceGroup --system-assigned
 ```
 
 # [ARM template](#tab/arm)
@@ -100,7 +100,8 @@ Configuring a container app with a user-assigned identity requires that you firs
 1. Run the `az containerapps identity assign` command to assign the identity to the app. The identities parameter is a space separated list.
 
     ```azurecli
-    az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> --identities <IDENTITY_NAME> 
+    az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> \
+        --user-assigned <IDENTITY_NAME1> <IDENTITY_NAME2>
     ```
 
 # [ARM template](#tab/arm)
@@ -263,16 +264,15 @@ When you remove a system-assigned identity, it's deleted from Azure Active Direc
 To remove the system-assigned identity:
 
 ```azurecli
-az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME>
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --system-assigned
 ```
 
 To remove one or more user-assigned identities:
 
 ```azurecli
-az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --identities <IDENTITY_NAME1> <IDENTITY_NAME2> ...
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
+    --user-assigned <IDENTITY_NAME1> <IDENTITY_NAME2>
 ```
-
-You can also remove the system assigned identity by specifying `[system]` in `--identities`.
 
 # [ARM template](#tab/arm)
 
