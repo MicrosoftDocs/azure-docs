@@ -64,16 +64,10 @@ Starting in version 22.2.x, you can configure active discovery scans from your s
 
 Active discovery scans allow for faster deployments, enriching your existing device data with more details. They also help you discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device.
 
-Active discovery scans are supported for the following protocols:
+**Supported protocols currently include**:
 
-- WMI
-- DNS lookup
-- Rockwell (public preview)
-- Siemens (public preview)
-- Cisco (public preview)
-- Hirshman switches (public preview
-- Ping sweep (public preview)
-- Bacnet (public preview)
+- Switch discovery scans: SNMPv1, SNMPv2, SNMPv3, HTTP
+- PLC discovery and enrichment scans: S7 (Siemens), CIP (Rockwell)
 
 > [!IMPORTANT]
 > Active scans run detection activity directly in your network and must be configured carefully.
