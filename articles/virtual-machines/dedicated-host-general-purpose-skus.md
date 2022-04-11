@@ -291,7 +291,7 @@ The DCsv2-Type1 is a Dedicated Host SKU utilizing the IntelÂ® Coffee Lake (XeonÂ
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a DCsv2-Type1 host.
 
-| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+| Physical cores | Available pCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
 | 8              | 8               | 64 GiB        | DC8 v2  | 1     |
 
