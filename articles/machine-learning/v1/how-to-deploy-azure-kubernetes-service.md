@@ -15,7 +15,7 @@ ms.date: 10/21/2021
 
 # Deploy a model to an Azure Kubernetes Service cluster
 
-[!INCLUDE [deploy-v2](../../../includes/machine-learning-deploy-v2.md)]
+[!INCLUDE [deploy-v2](../../../includes/machine-learning-deploy-v1.md)]
 
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
@@ -31,7 +31,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. For information on connecting an AKS cluster to your workspace, see [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](./how-to-troubleshoot-deployment-local.md)
+> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](../how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -51,7 +51,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](../how-to-deploy-and-where.md).
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](../how-to-deploy-and-where.md).
 
@@ -70,7 +70,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
     1. The system calculates a hash of: 
         - The base image 
-        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md))
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](../how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](../how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
@@ -108,7 +108,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
  ![Connectivity Requirements for AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
 
-For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../../aks/limit-egress-traffic.md).
 
 For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/machine-learning/how-to-access-azureml-behind-firewall.md).
 
@@ -219,7 +219,7 @@ The component that handles autoscaling for Azure ML model deployments is azureml
 > [!IMPORTANT]
 > * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by Azure ML, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
-> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
+> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../../aks/cluster-autoscaler.md).
 
 Autoscaling can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
 
@@ -355,7 +355,7 @@ To __disable__ authentication, set the `auth_enabled=False` parameter when creat
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
+For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md).
 
 ### Authentication with keys
 
