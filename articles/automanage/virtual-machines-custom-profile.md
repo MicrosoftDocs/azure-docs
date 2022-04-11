@@ -76,13 +76,13 @@ The following ARM template will create an Automanage custom profile. Details on 
           "Audit"
         ]
       },
-      "logAnalyticsWorkspace": {
-        "type": "string"
-      },
-      "logAnalyticsWorkspace": {
-        "type": "bool",
-        "defaultValue": false
-      }
+        "logAnalyticsWorkspace": {
+            "type": "String"
+        },
+        "LogAnalyticsBehavior": {
+            "defaultValue": false,
+            "type": "Bool"
+        }
     },
     "resources": [
       {
@@ -119,6 +119,8 @@ The following ARM template will create an Automanage custom profile. Details on 
               "BootDiagnostics/Enable": true,
               "ChangeTrackingAndInventory/Enable": true,
               "LogAnalytics/Enable": true,
+              "LogAnalytics/Reprovision": "[parameters('LogAnalyticsBehavior')]",
+              "LogAnalytics/Workspace": "[parameters('logAnalyticsWorkspace')]",
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
               "Tags/ResourceGroup": {
