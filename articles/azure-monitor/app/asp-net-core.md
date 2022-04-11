@@ -539,7 +539,3 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
-
-[Move a Windows VM from Amazon Web Services (AWS) to an Azure virtual machine](../../virtual-machines/windows/aws-to-azure.md#move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine)
-https://docs.microsoft.com/en-us/lifecycle/faq/azure
-
