@@ -579,8 +579,6 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-go
-    title: Go
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-set-diberry-3core
@@ -981,7 +979,7 @@ groups:
   prompt: Choose an experience
   pivots:
   - id: experience-azp
-    title: Azure Portal
+    title: Azure portal
   - id: experience-azcli
     title: Azure CLI
 # Owner: msangapu
@@ -1746,7 +1744,15 @@ groups:
   prompt: Choose an option
   pivots:
   - id: aro-arm
-    title: Azure Resouce Manager
+    title: Azure Resource Manager
   - id: aro-bicep
     title: Bicep   
-
+# Owner: mametcal
+- id: appconfig-provider
+  title: Client Library pivots
+  prompt: Choose a Client Library
+  pivots:
+  - id: framework-dotnet
+    title: .Net
+  - id: framework-spring
+    title: Spring

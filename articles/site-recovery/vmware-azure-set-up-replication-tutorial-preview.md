@@ -13,7 +13,7 @@ This article describes how to enable replication for on-premises VMware VMs, for
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 
-This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md) for disaster recovery to Azure.
 
 
 In this tutorial, you learn how to:
@@ -23,15 +23,11 @@ In this tutorial, you learn how to:
 > * Set up the replication target settings.
 > * Enable replication for a VMware VM.
 
-> [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
-
 ## Get started
 
 VMware to Azure replication includes the following procedures:
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- To get started, navigate to [Azure preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
 - Prepare Azure account
 - Prepare infrastructure
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
