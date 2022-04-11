@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
-ms.reviewer: laobri
-ms.date: 11/03/2021
+ms.reviewer: larryfr
+ms.date: 03/31/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -38,7 +38,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 ## Deploy locally
 
-Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
+Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before deployment to the cloud.
 
 > [!TIP]
 > Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
@@ -55,6 +55,22 @@ As a part of local deployment the following steps take place:
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
 For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+
+## Conda installation
+ 
+Generally, issues with mlflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
+
+To debug conda installation problems, try the following:
+
+1. Check the logs for conda installation. If the container crashed or taking too long to start up, it is likely that conda environment update has failed to resolve correctly.
+
+1. Install the mlflow conda file locally with the command `conda env create -n userenv -f <CONDA_ENV_FILENAME>`. 
+
+1. If there are errors locally, try resolving the conda environment and creating a functional one before redeploying. 
+
+1. If the container crashes even if it resolves locally, the SKU size used for deployment may be too small. 
+    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container may crash. 
+    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones may be needed depending on which dependencies are specified in the conda file.
 
 ## Get container logs
 
@@ -150,7 +166,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Kubernetes quota
 
-The requested CPU or memory couldn't be satisfied. Please adjust your request or the cluster.
+The requested CPU or memory couldn't be satisfied. Adjust your request or the cluster.
 
 #### Other quota
 
@@ -244,7 +260,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
 
 For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
 
@@ -262,7 +278,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## Bandwidth limit issues
 
-Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
 - Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
@@ -288,5 +304,5 @@ When you access online endpoints with REST requests, the returned status codes a
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
+- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
 

@@ -20,7 +20,7 @@ Creating project is the first step toward building a model.
 
 ## Create a project
 
-1. In the [Custom Translator](https://portal.customtranslator.azure.ai) portal, select **Create project**.
+1. In the [Custom Translator](https://legacy.portal.customtranslator.azure.ai/) legacy portal, select **Create project**.
 
     ![Create project](media/how-to/how-to-create-project.png)
 

@@ -154,7 +154,9 @@
       - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication error
-        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+      - name: CLI parsing failures
+        href: troubleshoot-error-cli-parse.md  
 - name: Reference
   items:
   - name: REST API reference
