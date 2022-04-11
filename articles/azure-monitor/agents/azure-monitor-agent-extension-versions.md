@@ -19,7 +19,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 | Release Date | Release notes | Windows | Linux |  
 |:---|:---|:---|:---| 
 | March 2022 | <ul><li>Fixed timestamp and XML format bugs in Windows Event logs</li><li>Full Windows OS information in Log Analytics Heartbeat table</li><li>Fixed Linux performance counters to collect instance values instead of 'total' only</li></ul> | 1.3.0.0 | 1.17.5.0 |
-| Feburary 2022 | <ul><li>Bugfixes for the AMA Client installer (private preview)</li><li>Versioning fix to reflect appropriate Windows major/minor/hotfix versions</li><li>Internal test improvement on Linux</li></ul> | 1.2.0.0 | 1.15.3 | 
+| February 2022 | <ul><li>Bugfixes for the AMA Client installer (private preview)</li><li>Versioning fix to reflect appropriate Windows major/minor/hotfix versions</li><li>Internal test improvement on Linux</li></ul> | 1.2.0.0 | 1.15.3 | 
 | January 2022 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><li>Fixed installation failure on Windows Server 2008 R2 SP1</li></ul> | 1.1.5.1<sup>Hotfix</sup> | 1.15.2.0<sup>Hotfix</sup> |  
 | December 2021 | <ul><li>Fixed issues impacting Linux Arc-enabled servers</li><li>'Heartbeat' table > 'Category' column reports "Azure Monitor Agent" in Log Analytics for Windows</li></ul>  | 1.1.4.0 | 1.14.7.0<sup>2</sup> |  
 | September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Fixed issue for Arc Windows servers</li></ul> | 1.1.3.2<sup>Hotfix</sup> | 1.12.2.0 <sup>1</sup> |  
