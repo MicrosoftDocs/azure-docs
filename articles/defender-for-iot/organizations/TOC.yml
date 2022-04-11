@@ -33,7 +33,7 @@
       items:
       - name: OT sensor cloud connection methods
         href: architecture-connections.md
-      - name: OT system requirements
+      - name: OT monitoring appliance catalog
         href: how-to-identify-required-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md

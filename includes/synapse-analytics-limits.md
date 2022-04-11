@@ -16,7 +16,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |
-| Synapse workspaces in an Azure subscription | 20 | 20 |
+| Synapse workspaces in an Azure subscription | 2 | 2 |
 
 ### Synapse Pipeline Limits
 

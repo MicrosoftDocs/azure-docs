@@ -945,7 +945,7 @@ To install the software:
 
 ## Legacy appliances
 
-This section describes installation procedures for *legacy* appliances only. See [Identify required appliances](how-to-identify-required-appliances.md#identify-required-appliances), if you are buying a new appliance.
+This section describes installation procedures for *legacy* appliances only. See [Identify required appliances](how-to-identify-required-appliances.md), if you are buying a new appliance.
 
 ### Nuvo 5006LP installation
 

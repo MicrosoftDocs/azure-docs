@@ -33,6 +33,7 @@ To complete this quickstart:
 - You need a Windows computer with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need to have Unity installed. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
 
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -50,17 +51,9 @@ Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-pa
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-Open **Build Settings** by selecting **File** > **Build Settings**.
+[!INCLUDE [HoloLens Unity Build Settings](../../../includes/spatial-anchors-unity-hololens-build-settings.md)]
 
-
-In the **Platform** section, select **Universal Windows Platform**. Change the **Target Device** to **HoloLens**.
-
-Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
-
-![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
-
-Close the **Build Settings** window.
-
+## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens Visual Studio project
