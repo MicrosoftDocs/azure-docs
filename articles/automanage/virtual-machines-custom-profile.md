@@ -55,7 +55,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 The following ARM template will create an Automanage custom profile. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
 
 > [!NOTE]
-> If you want to use a specific log analytics workspace, specify the ID of the workspace like this: "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+> If you want to use a specific log analytics workspace, specify the ID of the workspace like this: "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
 
 ```json
 {
@@ -156,7 +156,7 @@ The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose 
 * Audit : This will install the Azure security baseline using the Guest Configuration extension. You will be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
 
 You can also specific an existing log analytics workspace by adding this setting to the configuration section of properties below: 
-* "LogAnalytics/Workspace": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+* "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
 * "LogAnalytics/Reprovision": false
 Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it is not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used. 
 
