@@ -59,7 +59,7 @@ You can configure your managed identities through:
 When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
 
 >[!NOTE]
-> When adding a managed identity for a container app deployed before  04/11/2022, you must create a new revision.
+> When adding a managed identity to a container app deployed before  April 11, 2022, you must create a new revision.
 
 ### Add a system-assigned identity
 
