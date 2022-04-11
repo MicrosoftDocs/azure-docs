@@ -241,6 +241,17 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 `cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }`
 
+#### Note
+
+Support for unique index on existing collections with data is available in preview. You can sign up for this preview through the Azure portal:
+
+1. Go to “Preview Features” area in your Azure subscription.
+2. Under “Type”, select “Microsoft.DocumentDB”.
+3. Click on “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” in the list of available preview features.
+4. Click the “Register” button at the bottom of the page to join the preview.
+
+:::image type="content" source="./media/mongodb-indexing/unique-Reindex-Preview.png" alt-text="Enable unique index on existing collections preview":::
+
 #### Limitations
 
 On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
@@ -271,7 +282,7 @@ db.books.createIndex(
 ) 
 ```
 
-To delete a partial unique index using om Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
+To delete a partial unique index using from Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
 Then drop the index with the following command:
 
 ```shell
