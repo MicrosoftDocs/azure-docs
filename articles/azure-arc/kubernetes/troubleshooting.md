@@ -158,6 +158,28 @@ To recover from this issue, follow these steps:
 3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
 4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
 
+### CryptoHash module error
+
+When attempting to onboard Kubernetes clusters to the Azure Arc platform, the local environment (i.e., the client console) may return the following error message:
+
+```output
+Cannot load native module 'Crypto.Hash._MD5'
+```
+
+Adding the extensions `connectedk8s` and `k8s-configuration` using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions) or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions) sometimes fails to successfully download dependent modules. To fix this problem, manually remove and then add the extensions in the local environment:
+
+```azurecli
+az extension remove --name connectedk8s
+
+az extension remove --name k8s-configuration
+```
+
+```azurecli
+az extension add --name connectedk8s
+
+az extension add --name k8s-configuration
+```
+
 ## GitOps management
 
 ### Flux v1 - General
