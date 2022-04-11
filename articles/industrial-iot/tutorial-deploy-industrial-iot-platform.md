@@ -29,13 +29,13 @@ Administrator, or Cloud Application Administrator rights to provide tenant-wide 
 ## Main Components
 
 This section lists the different components of the Azure IIoT Platform. The deployment script allows to select which set of components deploy.
-- Minimum dependencies: [IoT Hub](https://azure.microsoft.com/en-gb/services/iot-hub/), [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Service Bus](https://azure.microsoft.com/en-gb/services/service-bus/), [Event Hub](https://azure.microsoft.com/en-gb/services/event-hubs/), [Key Vault](https://azure.microsoft.com/en-gb/services/key-vault/), [Storage](https://azure.microsoft.com/en-gb/product-categories/storage/)
-- Standard dependencies: Minimum + [SignalR Service](https://azure.microsoft.com/en-gb/services/signalr-service/), AAD app
-registrations, [Device Provisioning Service](https://docs.microsoft.com/en-gb/azure/iot-dps/), [Time Series Insights](https://azure.microsoft.com/en-gb/services/time-series-insights/), Workbook, Log Analytics,
-[Application Insights](https://azure.microsoft.com/en-gb/services/monitor/)
-- Microservices: App Service Plan, [App Service](https://azure.microsoft.com/en-gb/services/app-service/)
-- UI (Web app): App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/en-gb/services/app-service/)
-- Simulation: [Virtual machine](https://azure.microsoft.com/en-gb/services/virtual-machines/), Virtual network, IoT Edge
+- Minimum dependencies: [IoT Hub](https://azure.microsoft.com/services/iot-hub/), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Service Bus](https://azure.microsoft.com/services/service-bus/), [Event Hub](https://azure.microsoft.com/services/event-hubs/), [Key Vault](https://azure.microsoft.com/services/key-vault/), [Storage](https://azure.microsoft.com/product-categories/storage/)
+- Standard dependencies: Minimum + [SignalR Service](https://azure.microsoft.com/services/signalr-service/), AAD app
+registrations, [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/), [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/), Workbook, Log Analytics,
+[Application Insights](https://azure.microsoft.com/services/monitor/)
+- Microservices: App Service Plan, [App Service](https://azure.microsoft.com/services/app-service/)
+- UI (Web app): App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/services/app-service/)
+- Simulation: [Virtual machine](https://azure.microsoft.com/services/virtual-machines/), Virtual network, IoT Edge
 - [Azure Kubernetes Service](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 
 ## Deploy Azure IIoT Platform using the deployment script
@@ -73,8 +73,7 @@ registrations, [Device Provisioning Service](https://docs.microsoft.com/en-gb/az
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
     - Ask the AAD admin to grant tenant-wide admin consent for the application
-    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the -
-    aadConfig argument.
+    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the `-aadConfig` argument.
         ```bash
         cd deploy/scripts
         ./aad-register.ps1 -Name <application-name> -Output aad.json
