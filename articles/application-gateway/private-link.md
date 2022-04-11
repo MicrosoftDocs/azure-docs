@@ -57,6 +57,7 @@ Four components are required to implement Private Link with Application Gateway:
 - API version 2020-03-01 or later should be used to configure Private Link configurations.
 - Static IP allocation method in the Private Link Configuration object isn't supported.
 - The subnet used for PrivateLinkConfiguration cannot be same as the Application Gateway subnet.
+- Private link configuration for Application Gateway does not expose the "Alias" property and must be referenced via resource URI.
 
 ## Next steps
 
