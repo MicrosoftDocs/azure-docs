@@ -277,22 +277,9 @@ You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neu
 
 Use this table to determine which speaking languages are supported for each neural voice. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 
-| Voice                            | Locale language           | Description                                                 |
+| Voice                            | Primary and default locale           | Additional locales  |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
-|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
-|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
-|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
-|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
-|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
-|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
-|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
-|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
-|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
-|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
-|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
-|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
-|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+| `en-US-JennyMultilingualNeural`  | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`  |
 
 **Example**
 
