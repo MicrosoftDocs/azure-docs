@@ -49,7 +49,7 @@ The following examples demonstrate how to enable stable preview environments.
 ### Deployment environment
 
 ```yml
-ame: Azure Static Web Apps CI/CD
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
