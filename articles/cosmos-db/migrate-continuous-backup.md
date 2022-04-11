@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/03/2022
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.reviewer: wiassaf
 ---
@@ -29,7 +29,7 @@ The following are the key reasons to migrate into continuous mode:
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
-> * If the account is of type Table API or Graph API. These two APIs are in preview.
+> * If the account is of type Table API or Gremlin API. These two APIs are in preview.
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
@@ -169,7 +169,7 @@ You can restore your account after the migration completes. If the migration com
 Yes.
 
 #### Which accounts can be targeted for backup migration?
-Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Graph API are in preview.
+Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
 
 Accounts enabled with analytical storage and multiple-write regions are not supported for migration.
 

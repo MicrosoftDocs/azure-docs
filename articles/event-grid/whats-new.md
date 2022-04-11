@@ -33,9 +33,9 @@ This release corresponds to REST API version 2021-10-15-preview, which includes 
 This release corresponds to REST API version 2021-06-01-preview, which includes the following new features:
 
 - [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
-- [Private link support for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#privateendpoint). Azure portal doesn't support it yet. 
-- [IP Filtering for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#inboundiprule). Azure portal doesn't support it yet. 
-- [System Identity for partner topics](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-topics/update#request-body). Azure portal doesn't support it yet.
+- [Private link support for partner namespaces](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/create-or-update#privateendpoint). Azure portal doesn't support it yet. 
+- [IP Filtering for partner namespaces](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/create-or-update#inboundiprule). Azure portal doesn't support it yet. 
+- [System Identity for partner topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/update#request-body). Azure portal doesn't support it yet.
 - [User Identity for system topics, custom topics and domains](enable-identity-custom-topics-domains.md)
 
 ## 6.1.0-preview (2020-10)
@@ -108,14 +108,14 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
 - This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/list-by-subscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/list-by-subscription).
 	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
 
 ## 4.1.0-preview (2019-03)
 - This release corresponds to the 2019-02-01-preview API version.
 - It adds support to the following new functionalities:
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/list-by-subscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/list-by-subscription).
 	* [Manual create/delete of domain topics](how-to-event-domains.md)
 	* [Service Bus Queue as destination](handler-service-bus.md)
 
