@@ -86,7 +86,7 @@ Load and modify the template so you can create a new Azure Load Testing resource
 
 ### Create tests
 
-Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](/azure/load-testing/quickstart-create-and-run-load-test#create_test)
+Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](/azure/load-testing/quickstart-create-and-run-load-test#create_test).
 
 1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
 
@@ -112,4 +112,4 @@ After the move is complete, delete the Azure Load Testing resource from the sour
 
 ## Next steps
 
-- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
+- Learn how to run high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
