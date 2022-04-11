@@ -25,10 +25,10 @@ Supply values for the following parameters:
 ResourceGroupName: myaseazrg
 Name: myaseazsa
     
-KeyName     Value                                                                                          Permissions
--------     -----                                                                                          ------
-key1        gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==       Full
-key2        kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==       Full
+KeyName    Value                                                                                       Permissions
+-------    -----                                                                                       ------
+key1       gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==    Full
+key2       kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==    Full
     
 PS C:\WINDOWS\system32>
 ```
