@@ -1,0 +1,96 @@
+---
+title: Summarize text with the extractive summarization API
+titleSuffix: Azure Cognitive Services
+description: This article will show you how to summarize text with the extractive summarization API.
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: language-service
+ms.topic: how-to
+ms.date: 03/01/2022
+ms.author: aahi
+ms.custom: language-service-summarization, ignite-fall-2021
+---
+
+# How to use conversation summarization (preview)
+
+> [!IMPORTANT] 
+> conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive summarization. 
+
+In general, there are two approaches for automatic text summarization: extractive and abstractive. This API provides extractive summarization.
+
+Extractive summarization produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
+
+This feature is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
+
+The AI models used by the API are provided by the service, you just have to send content for analysis.
+
+## Features
+
+> [!TIP]
+> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+
+The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
+
+Each returned summary contains:
+* A numerical ID for identifying the summary.
+* A participant ID (such as *Agent* or *Customer*) for determining which participant of the chat log was associated with the summary.
+
+There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and conversation summarization, consider the following:
+* key phrase extraction returns phrases while extractive summarization returns sentences
+* conversation summarization returns summaries based on full chat logs.
+
+## Determine how to process the data (optional)
+
+### Specify the conversation summarization model
+
+By default, conversation summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
+
+### Input languages
+
+When you submit documents to be processed by key phrase extraction, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+
+## Submitting data
+
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+
+When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
+<!--
+You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
+
+You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
+
+
+|parameter value  |Description  |
+|---------|---------|
+|Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
+|Offset    | Keeps the original order in which the sentences appear in the input document.        |
+-->
+
+## Getting conversation summarization results
+
+When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
+
+The following is an example of content you might submit for summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
+ 
+**Agent**: "*Hello, how can I help you*?"
+
+**Customer**: "*How can I upgrade Office? I've been trying the entire day.*"
+
+**Agent**: "*Press the upgrade button please. Then sign in and follow the instructions.*"
+
+Summarization is performed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
+
+Using the above example, the API might return the following summarized sentences:
+
+|Summarized text  | Aspect |
+|---------|----|
+|  "Customer wants to upgrade their subscription. Customer doesn't know how."       | issue  |
+| "Customer needs to press upgrade button, and sign in."     | resolution |
+
+
+## See also
+
+* [conversation summarization overview](../overview.md)
