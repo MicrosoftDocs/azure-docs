@@ -45,7 +45,7 @@ registrations, [Device Provisioning Service](https://docs.microsoft.com/en-gb/az
     git clone https://github.com/Azure/Industrial-IoT
     cd Industrial-IoT
 
-2. Start the guided deployment, the script will collect the required information, such as Azure account, subscription, target resource and group and application name.
+2. Start the guided deployment. The script will collect the required information, such as Azure account, subscription, target resource and group and application name.
 
     On Windows:
         ```
@@ -61,19 +61,19 @@ registrations, [Device Provisioning Service](https://docs.microsoft.com/en-gb/az
 
     Replace \<deploymentType> with the type of deployment (optional parameter).
 
-    The type of deployments are the followings:
+    The types of deployments are the followings:
 
     - Minimum: Minimum dependencies
-    - Local: Minimum and the standard dependencies
-    - Services: Local and the microservices
-    - Simulation: Minimum dependencies and the simulation components
-    - App: Services and the UI
-    - All (default): App and the simulation
+    - Local: Minimum and standard dependencies
+    - Services: Local and microservices
+    - Simulation: Minimum dependencies and simulation components
+    - App: Services and UI
+    - All (default): App and simulation
 
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
     - Ask the AAD admin to grant tenant-wide admin consent for the application
-    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad- register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the -
+    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the -
     aadConfig argument.
         ```bash
         cd deploy/scripts
