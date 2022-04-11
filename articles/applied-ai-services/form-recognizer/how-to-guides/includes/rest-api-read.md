@@ -100,7 +100,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 }
 ```
 
-To view the entire output,visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/rest-api-read-output.json).
+To view the entire output,visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/curl/FormRecognizer/v3-rest-sdk-read-output.md).
 
 ## Next step
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
