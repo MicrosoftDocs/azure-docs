@@ -9,7 +9,12 @@ ms.topic: how-to
 
 Run active discovery scans from your OT sensors to dive deeper into your device data and detect more devices on your network. For example, OT engineers might want to enrich existing device visibility, and SOC teams might want to collect more data, identifying more CVEs and assist in investigations for alerts and possible penetration paths.
 
-For example, we recommend running active discovery scans in the following scenarios:
+> [!IMPORTANT]
+> Active discovery scans run detection activity directly in your network. Take care when configuring your active discovery scan so that you only scan necessary resources.
+
+## Recommended scenarios
+
+We recommend running active discovery scans in the following scenarios:
 
 - **Non-optimal port monitoring locations**, such as in remote locations with only one or two PLCs and legacy network wiring
 - **Data that doesn't pass over the wire**, such as patches installed on Windows machines, USB-enabled or disabled properties, MAC address tables in routers, and more
@@ -17,10 +22,6 @@ For example, we recommend running active discovery scans in the following scenar
 - **Switches that don't support SPAN/mirror ports**, where you'll need other methods to capture device data
 - **Highly segmented networks**, where costs would be prohibitive to put sensors on each segment
 - **Local programs that prevent ping access**, such as dormant assets that don't communicate over the network
-
-> [!IMPORTANT]
-> Active discovery scans run detection activity directly in your network. Take care when configuring your active discovery scan so that you only scan necessary resources.
-
 
 ## Supported protocols
 
@@ -60,9 +61,9 @@ Configure an active discovery scan to run as a one-time scan, or to run periodic
         |Name  |Description  |
         |---------|---------|
         | **Switch vendor** | Select a switch vendor.|
-        | **Scan protocol** | The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).  <!--select na for what?>|
-
+        | **Scan protocol** | The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
         Other scan fields differ, depending on the scan protocol you select. Enter community strings and credential details as needed.
+
         ---
 
     1. In the **Target** area, enter one or more IP address ranges to scan.
@@ -77,11 +78,11 @@ Configure an active discovery scan to run as a one-time scan, or to run periodic
 
 After your active discovery scan completes, scanning results are shown in the **Active discovery (Preview)** page.
 
-1. Select a scan to view detailed results in a pane on the right.
+Select a scan to view detailed results in a pane on the right.
 
-    :::image type="content" source="media/active-discovery/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results.":::
+:::image type="content" source="media/active-discovery/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results." lightbox="media/active-discovery/active-discovery-results.png":::
 
-    Newly discovered or enriched devices are numbered in the **Update device** column. Select the linked number to view details about the new or enhanced devices.
+Newly discovered or enriched devices are numbered in the **Update device** column. Select the linked number to view details about the new or enhanced devices.
 
 ## Next steps
 

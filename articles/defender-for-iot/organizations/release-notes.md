@@ -51,7 +51,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
-
 - [Device detection enhancements](#device-detection-enhancements)
 - [Download PCAP files from the Azure portal](#download-pcap-files-from-the-azure-portal)
 - [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal)
@@ -66,8 +65,8 @@ Active discovery scans allow for faster deployments, enriching your existing dev
 
 **Supported protocols currently include**:
 
-- Switch discovery scans: SNMPv1, SNMPv2, SNMPv3, HTTP
-- PLC discovery and enrichment scans: S7 (Siemens), CIP (Rockwell)
+- **Switch discovery scans**: SNMPv1, SNMPv2, SNMPv3, HTTP
+- **PLC discovery and enrichment scans**: S7 (Siemens), CIP (Rockwell)
 
 > [!IMPORTANT]
 > Active scans run detection activity directly in your network and must be configured carefully.

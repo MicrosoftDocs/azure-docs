@@ -53,6 +53,8 @@
       href: how-to-manage-device-inventory-for-organizations.md
     - name: View OT assets from a sensor console
       href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - name: Run active discovery scans from a sensor console
+      href: active-discovery.md
     - name: View OT assets on a sensor device map
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT assets on a sensor per zone
