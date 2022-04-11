@@ -1,5 +1,5 @@
 ---
-title: "Train a custom model in the Form Recognizer Studio"
+title: "Use SDKs and REST API for Read Model"
 titleSuffix: Azure Applied AI Services
 description: Learn how to build, label, and train a custom model in the Form Recognizer Studio.
 author: laujan
@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/16/2022
-ms.author: lajanuar
+ms.date: 04/11/2022
+ms.author: jaep3347
 ---
 
 # Build your training dataset for a custom model
