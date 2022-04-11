@@ -95,7 +95,7 @@ Once the resource is created in the target location, you can create new tests by
 
 1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
 
-1. Upload the JMeter script and configuration files present in the input artifacts.
+1. Upload the Apache JMeter script and optional configuration files from the downloaded input artifacts.
 
 ## Clean up source resources
 
