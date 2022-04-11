@@ -134,7 +134,7 @@ az keyvault set-policy -n MyKevVault --key-permissions decrypt encrypt --object-
 
 ## Create an AKS cluster with KMS etcd encryption enabled
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the `-enable-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption.
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption.
 
 ```azurecli-interactive
 az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
