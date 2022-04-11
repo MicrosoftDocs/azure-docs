@@ -2,7 +2,7 @@
 author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 04/11/2022
 ms.author: pamistel
 ---
 Open **Build Settings** by selecting **File** > **Build Settings**.
