@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 04/11/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -217,7 +217,8 @@ Follow these steps to connect to a Windows VM.
 
 ## Next steps
 
-- [Deploy a GPU VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)
+- [Deploy a GPU VM](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/dotnetSamples/CloudManaged/README.md)
+- [Deploy a cloud managed VM via a script](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
