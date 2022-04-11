@@ -1,20 +1,22 @@
 ---
 title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - single server'
 description: In this quickstart guide, you'll create an Azure Database for PostgreSQL server by using the Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: quickstart
-ms.date: 01/26/2022 
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 01/26/2022 
 ---
+
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
 
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes.
 
 > [!TIP]
-> Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az postgres up](/cli/azure/postgres#az-postgres-up) Azure CLI command. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -101,7 +103,7 @@ psql --host=<server_name>.postgres.database.azure.com --port=5432 --username=<ad
 
 ## Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az-vm-extension-set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

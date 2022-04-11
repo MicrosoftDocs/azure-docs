@@ -2,10 +2,15 @@
 title: Install & deploy Linux C# agent
 description: Learn how to install and deploy the Defender for IoT C#-based security agent on Linux
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy Defender for IoT C# based security agent for Linux
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+>
+
 
 This guide explains how to install and deploy the Defender for IoT C#-based security agent on Linux.
 
@@ -48,7 +53,7 @@ This script performs the following actions:
 
 - Adds a service user (with interactive sign in disabled).
 
-- Installs the agent as a **Daemon** - assumes the device uses **systemd** for classic deployment model.
+- Installs the agent as a **Daemon** - assumes the device uses **systemd** for legacy deployment model.
 
 - Configures **sudoers** to allow the agent to do certain tasks as root.
 

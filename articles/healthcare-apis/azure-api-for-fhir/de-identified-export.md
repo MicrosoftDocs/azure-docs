@@ -1,14 +1,14 @@
 ---
-title: Exporting de-identified data (preview) for Azure API for FHIR
+title: Exporting de-identified data for Azure API for FHIR
 description: This article describes how to set up and use de-identified export for Azure API for FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/28/2022
+ms.date: 02/28/2022
 ms.author: ginle
 ---
-# Exporting de-identified data (preview) for Azure API for FHIR
+# Exporting de-identified data for Azure API for FHIR
 
 > [!Note] 
 > Results when using the de-identified export will vary based on factors such as data inputted, and functions selected by the customer. Microsoft is unable to evaluate the de-identified export outputs or determine the acceptability for customer's use cases and compliance needs. The de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.

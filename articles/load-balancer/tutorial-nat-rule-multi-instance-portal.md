@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a multiple instance inbound NAT rule - Azure portal"
+title: "Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
 author: asudbring
@@ -10,7 +10,7 @@ ms.date: 03/10/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Create a multiple instance inbound NAT rule using the Azure portal
+# Tutorial: Create a multiple virtual machines inbound NAT rule using the Azure portal
 
 Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and virtual machines
 > * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, and load-balancing rule
-> * Create a multiple instance inbound NAT rule
+> * Create a multiple VMs inbound NAT rule
 > * Create a NAT gateway for outbound internet access for the backend pool
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
@@ -102,7 +102,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select the existing **myNSG** |
 
-## Create load balancer
+## Create a load balancer
 
 You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
@@ -206,7 +206,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 27. Select **Create**.
 
-## Create multiple instance inbound NAT rule
+## Create a multiple VMs inbound NAT rule
 
 In this section, you'll create a multiple instance inbound NAT rule to the backend pool of the load balancer.
 
@@ -233,7 +233,10 @@ In this section, you'll create a multiple instance inbound NAT rule to the backe
 
 6. Leave the rest at the default and select **Add**.
 
-## Create NAT gateway
+> [!NOTE]
+> To view the port mappings to the backend pool virtual machines, see [View port mappings](manage-inbound-nat-rules.md#view-port-mappings).
+
+## Create a NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
 

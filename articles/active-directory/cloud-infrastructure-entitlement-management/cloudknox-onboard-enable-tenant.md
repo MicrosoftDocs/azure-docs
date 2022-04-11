@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2022
+ms.date: 03/14/2022
 ms.author: v-ydequadros
 ---
 
@@ -17,7 +17,6 @@ ms.author: v-ydequadros
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 
 This article describes how to enable CloudKnox Permissions Management (CloudKnox) in your organization. Once you've enabled CloudKnox, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
 
@@ -31,7 +30,6 @@ To enable CloudKnox in your organization:
 - You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
 
-
 > [!NOTE]
 > During public preview, CloudKnox doesn't perform a license check.
 
@@ -39,6 +37,8 @@ To enable CloudKnox in your organization:
 
 - To view a video on how to enable CloudKnox in your Azure AD tenant, select [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
 - To view a video on how to configure and onboard AWS accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
+- To view a video on how to configure and onboard GCP accounts in CloudKnox, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+
 
 ## How to enable CloudKnox on your Azure AD tenant
 

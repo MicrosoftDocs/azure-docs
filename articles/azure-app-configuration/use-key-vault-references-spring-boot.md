@@ -90,10 +90,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --role Contributor --sdk-auth
+    az ad sp create-for-rbac -n "http://mySP" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     This operation returns a series of key/value pairs:

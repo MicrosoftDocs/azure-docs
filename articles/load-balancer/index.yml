@@ -68,8 +68,6 @@ landingContent:
             url: load-balancer-multivip-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Configure load balancing and outbound rules in Load Balancer (Azure CLI)
-            url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
           - text: Create an Internet facing load balancer with IPv6 (PowerShell)
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode

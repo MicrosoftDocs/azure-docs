@@ -106,7 +106,7 @@ To complete this tutorial, you need to:
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
 2. Select **Online migration** as the migration mode.
     > [!NOTE]
-    > In the online migration mode, the source SQL Server database is available for read and write activity while database backups are continuously restored on the target SQL Server on Azure Virtual Machine. Application downtime is limited to duration for the cutover at the end of migration.
+    > In the online migration mode, the source SQL Server database can be used for read and write activity while database backups are continuously restored on the target SQL Server on Azure Virtual Machine. Application downtime is limited to duration for the cutover at the end of migration.
 3. In step 5, select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
