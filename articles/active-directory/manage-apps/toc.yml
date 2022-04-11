@@ -26,6 +26,8 @@
       href: tutorial-manage-access-security.md
     - name: Govern and monitor
       href: tutorial-govern-monitor.md
+    - name: Manage certificates
+      href: tutorial-manage-certificates-for-federated-single-sign-on.md 
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -53,8 +55,6 @@
         href: what-is-access-management.md
       - name: Certificate signing options
         href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md 
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -81,6 +81,8 @@
       items:
       - name: Consent and permissions overview
         href: consent-and-permissions-overview.md
+      - name: Admin consent workflow overview
+        href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
         href: manage-consent-requests.md
       - name: Protect against consent phishing

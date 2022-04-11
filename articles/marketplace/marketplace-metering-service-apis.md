@@ -28,8 +28,6 @@ TLS version 1.2 version is enforced as the minimal version for HTTPS communicati
 
 The usage event API should be called by the publisher to emit usage events against an active resource (subscribed) for the plan purchased by the specific customer. The usage event is emitted separately for each custom dimension of the plan defined by the publisher when publishing the offer.
 
-Only one usage event can be emitted for each hour of a calendar day. For example, at 8:15am today, you can emit one usage event. If this event is accepted, the next usage event will be accepted from 9:00 am today. If you send an additional event between 8:15 and 8:59:59 today, it will be rejected as a duplicate. You should accumulate all units consumed in an hour and then emit it in a single event.
-
 Only one usage event can be emitted for each hour of a calendar day per resource. If more than one unit is consumed in an hour, then accumulate all the units consumed in the hour and then emit it in a single event. Usage events can only be emitted for the past 24 hours. If you emit a usage event at any time between 8:00 and 8:59:59 (and it is accepted) and send an additional event for the same day between 8:00 and 8:59:59, it will be rejected as a duplicate.
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
@@ -296,7 +294,7 @@ GET: https://marketplaceapi.microsoft.com/api/usageEvents
 
 | Parameter | Recommendation |
 | ------------ | ------------- |
-| ApiVersion | Use this format: 2018-08-31 |
+| ApiVersion | Use 2018-08-31. |
 | usageStartDate | DateTime in ISO8601 format. For example, 2020-12-03T15:00 or 2020-12-03 |
 | UsageEndDate (optional) | DateTime in ISO8601 format. Default = current date |
 | offerId (optional) | Default = all available |
