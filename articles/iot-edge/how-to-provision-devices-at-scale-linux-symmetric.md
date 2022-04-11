@@ -1,8 +1,8 @@
 ---
 title: Create and provision IoT Edge devices using symmetric keys on Linux - Azure IoT Edge | Microsoft Docs
 description: Use symmetric key attestation to test provisioning Linux devices at scale for Azure IoT Edge with device provisioning service
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -121,7 +121,7 @@ Have the following information ready:
    method = "symmetric_key"
    registration_id = "PASTE_YOUR_REGISTRATION_ID_HERE"
 
-   symmetric_key = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
+   symmetric_key = { value = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE" }
    ```
 
 1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.

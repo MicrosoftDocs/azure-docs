@@ -120,7 +120,7 @@ az containerapp create \
   --environment "my-environment-name" \
   --image demos/myQueueApp:v1 \
   --secrets "queue-connection-string=$CONNECTIONSTRING" \
-  --environment-variables "QueueName=myqueue,ConnectionString=secretref:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
@@ -136,7 +136,7 @@ az containerapp create `
   --environment "my-environment-name" `
   --image demos/myQueueApp:v1 `
   --secrets "queue-connection-string=$CONNECTIONSTRING" `
-  --environment-variables "QueueName=myqueue,ConnectionString=secretref:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.

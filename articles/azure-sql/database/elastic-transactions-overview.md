@@ -1,5 +1,5 @@
 ---
-title: Distributed transactions across cloud databases (preview)
+title: Distributed transactions across cloud databases
 description: Overview of Elastic Database Transactions with Azure SQL Database and Azure SQL Managed Instance.
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,13 +10,11 @@ ms.author: scoriani
 ms.reviewer: kendralittle, mathoma
 ms.date: 11/02/2021
 ---
-# Distributed transactions across cloud databases (preview)
+# Distributed transactions across cloud databases
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!IMPORTANT]
-> Distributed transactions for Azure SQL Managed Instance are now generally available. Elastic Database Transactions for Azure SQL Database are in preview.
 
-Elastic database transactions for Azure SQL Database (Preview) and Azure SQL Managed Instance allow you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](/dotnet/api/system.transactions) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+Elastic database transactions for Azure SQL Database and Azure SQL Managed Instance allow you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](/dotnet/api/system.transactions) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 Additionally, for managed instance distributed transactions are available in [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
 
 On premises, such a scenario usually requires running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC isn't available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database or SQL Managed Instance. Applications can connect to any database to launch distributed transactions, and one of the databases or servers will transparently coordinate the distributed transaction, as shown in the following figure.
@@ -221,9 +219,6 @@ using (TransactionScope s = new TransactionScope())
 
 ## Transactions for SQL Database
 
-> [!IMPORTANT]
-> Distributed transactions for Azure SQL Database are in preview. 
-
 Elastic database transactions are supported across different servers in Azure SQL Database. When transactions cross server boundaries, the participating servers first need to be entered into a mutual communication relationship. Once the communication relationship has been established, any database in any of the two servers can participate in elastic transactions with databases from the other server. With transactions spanning more than two servers, a communication relationship needs to be in place for any pair of servers.
 
 Use the following PowerShell cmdlets to manage cross-server communication relationships for elastic database transactions:
@@ -233,9 +228,6 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 * **Remove-AzSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship.
 
 ## Transactions for SQL Managed Instance
-
-> [!IMPORTANT]
-> Distributed transactions for Azure SQL Managed Instance are now generally available.
 
 Distributed transactions are supported across databases within multiple instances. When transactions cross managed instance boundaries, the participating instances need to be in a mutual security and communication relationship. This is done by creating a [Server Trust Group](../managed-instance/server-trust-group-overview.md), which can be done by using the Azure portal or Azure PowerShell or the Azure CLI. If instances are not on the same Virtual network then you must configure [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) and Network security group inbound and outbound rules need to allow ports 5024 and 11000-12000 on all participating Virtual networks.
 

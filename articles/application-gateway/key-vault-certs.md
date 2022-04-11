@@ -2,11 +2,11 @@
 title: TLS termination with Azure Key Vault certificates
 description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/04/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # TLS termination with Key Vault certificates
@@ -40,8 +40,7 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
 
-> [!WARNING]
-> Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a Key Vault under a different subscription than your Application Gateway will result in a failure.
+References to Key Vaults in other Azure subscriptions is supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure Portal today.
 
 ## Certificate settings in Key Vault
 
@@ -124,7 +123,7 @@ Application Gateway supports certificates referenced in Key Vault via the Role-b
 > [!Note]
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
 
-In this example, we’ll use PowerShell to reference a new Key Vault certificate.
+In this example, we’ll use PowerShell to reference a new Key Vault secret.
 ```
 # Get the Application Gateway we want to modify
 $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName MyResourceGroup
@@ -132,25 +131,12 @@ $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName 
 Set-AzApplicationGatewayIdentity -ApplicationGateway $appgw -UserAssignedIdentityId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyManagedIdentity"
 # Get the secret ID from Key Vault
 $secret = Get-AzKeyVaultSecret -VaultName "MyKeyVault" -Name "CertificateName"
-$secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
+$secretId = $secret.Id.Replace($secret.Version, "") # Remove the secret version so AppGW will use the latest version in future syncs
 # Specify the secret ID from Key Vault 
 Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationGateway $appgw -Name $secret.Name
 # Commit the changes to the Application Gateway
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
-
-> [!NOTE]
-> If you require Application Gateway to sync the last version of the certificate with the key vault, provide the versionless `secretId` value (no hash). To do this, in the preceding example, replace the following line:
->
-> ```
-> $secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
-> ```
-> 
-> With this line:
->
-> ```
-> $secretId = $secret.Id.Replace($secret.Version, "") # https://<keyvaultname>.vault.azure.net/secrets/
-> ```
 
 Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Listener (or select an existing) and specify the Protocol to HTTPS.
 

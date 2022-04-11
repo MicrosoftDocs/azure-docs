@@ -1,8 +1,8 @@
 ---
 title: Supported operating systems, container engines - Azure IoT Edge
 description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 02/08/2022
 ms.topic: conceptual
 ms.service: iot-edge
@@ -109,7 +109,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 :::moniker-end
 <!-- end 1.2 -->
 
-All Windows operating systems must be version 1809 (build 17763) or later.
+All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
 >[!NOTE]
 >Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.

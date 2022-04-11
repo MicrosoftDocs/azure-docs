@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 03/14/2022
 ms.author: banders
 ---
 
@@ -36,123 +36,125 @@ Before you begin, make sure that the person you're requesting billing ownership 
 - For an Enterprise Agreement, the person must be an Account Owner.
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
+> [!NOTE]
+> To perform a transfer, the destination account must be a paid account with a valid form of payment. For example, if the destination is an Azure free account, you can upgrade it to a pay-as-you-go Azure plan under a Microsoft Customer Agreement. Then you can make the transfer.
+
 When you're ready, use the following instructions. You can also go along with the following video that outlines each step of the process.
 
 >[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
 
-## Request billing ownership
+## Create the transfer request
+
+The following procedure has you navigate to **Transfer requests** by selecting a **Billing scope** &gt; **Billing account** &gt; **Billing profile** &gt; **Invoice sections** to **Add a new request**. If you navigate to **Add a new request** from selecting a billing profile, you'll have to select a billing profile and then select an invoice section.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement. Use the same credentials that you used to accept your Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for Cost Management + Billing." lightbox="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" :::
 1. On the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for Azure usage in your subscriptions. Select the billing account labeled **Microsoft Customer Agreement**.  
-    [![Screenshot that shows search in portal for cost management + billing](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)  
-    > [!NOTE]
-    >The Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
-1. Select **Billing profiles** from the left-hand side.  
-    [![Screenshot that shows selecting billing profiles](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
-    > [!NOTE]
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-scopes.png" alt-text="Screenshot that shows search in portal for Cost Management + Billing." lightbox="./media/mca-request-billing-ownership/billing-scopes.png" :::  
+        The Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
+1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the subscriptions, their usage  will be billed to this billing profile.  
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::  
+    >[!NOTE]
     > If you don't see Billing profiles, you are not in the right billing scope. You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
-1. Select a **Billing profile** from the list. Once you take over the ownership of the subscriptions, their usage  will be billed to this billing profile.
-1. Select **Invoice sections** from the left-hand side.  
-    [![Screenshot that shows selecting invoice sections](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
-1. Select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure subscription billing - that's where the Azure subscription consumption is transferred to.
-1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
-    [![Screenshot that shows selecting transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old subscriptions. Select **Send transfer request**.  
-    [![Screenshot that shows sending a transfer request](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
+1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure subscription billing - that's where the Azure subscription consumption is transferred to.  
+    :::image type="content" source="./media/mca-request-billing-ownership/invoice-section.png" alt-text="Screenshot that shows selecting invoice sections." lightbox="./media/mca-request-billing-ownership/invoice-section.png" :::  
+1. Select **Transfer requests** from the lower-left side and then select **Add a new request**. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old subscriptions.  
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-request-add-email.png" alt-text="Screenshot that shows selecting transfer requests." lightbox="./media/mca-request-billing-ownership/transfer-request-add-email.png" :::
+1. Select **Send transfer request**.
 
 ## Review and approve transfer request
 
-1. The user gets an email with instructions to review your transfer request.  
-    ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
-1. To approve the transfer request, the user selects the link in the email and follows the instructions.  
-
-    The user selects the billing account that they want to transfer Azure products from. Once selected, eligible products that can be transferred are shown. Once the Azure products to be transferred are selected, select **Validate**.
-
+1. The user gets an email with instructions to review your transfer request. Select **Review the request** to open it in the Azure portal.  
+    :::image type="content" source="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" :::
+1. In the Azure portal, the user selects the billing account that they want to transfer Azure products from. Then they select eligible subscriptions on the **Subscriptions** tab.  
+    :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" alt-text="Screenshot showing the Subscriptions tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" :::  
     >[!NOTE]
-    > Disabled subscriptions can't be transferred and will show up in the "Non-transferrable Azure Products" list if applicable. 
+    > Disabled subscriptions can't be transferred.
+1. If there are reservations available to transfer, select the **Reservations** tab. Then select them. 
+    :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" :::
+1. Select the **Review request** tab and verify the information about the subscriptions and reservations to transfer. If there is Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
+    :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mca-request-billing-ownership/review-transfer-request-complete.png" :::
+1. You'll briefly see a `Transfer is in progress` message. When the transfer is completed successfully, you'll see the Transfer details page with the `Transfer completed successfully` message.  
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-completed-successfully.png" alt-text="Screenshot showing the Transfer completed successfully page." lightbox="./media/mca-request-billing-ownership/transfer-completed-successfully.png" :::
 
-    [![Screenshot that shows review transfer request](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox)
-1. The **Transfer Validation Result** area shows the status of the Azure products that are going to be transferred. Here are the possible states:
-    * **Passed** - Validation for this Azure product has passed and can be transferred.
-    * **Warning** - There's a warning for the selected Azure product. While the product can still be transferred, doing so will have some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription.
-    * **Failed** - The selected Azure product can't be transferred because of an error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products.  
-    ![Screenshot that shows validation experience](./media/mca-request-billing-ownership/validate-transfer-request.png)
-1. After validation completes as **Passed**, select **Transfer**. You'll see a `Transfer is in progress` message and then when complete, a `Transfer completed successfully` message is shown.
+On the Review request tab, the following status messages might be displayed.
+
+* **Ready to transfer** - Validation for this Azure product has passed and can be transferred.
+* **Warnings** - There's a warning for the selected Azure product. While the product can still be transferred, doing so will have some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription. Select **Check details** for more information.
+* **Failed** - The selected Azure product can't be transferred because of an error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products.  
 
 ## Check the transfer request status
 
+As the user that requested the transfer:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. In the billing scopes page, select the billing account for which the transfer request was sent.
-1. Select **Billing profiles** from the left-hand side.  
-    [![Screenshot that shows selecting billing profiles](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
-1. Select the **Billing profile** for which the transfer request was sent.
-1. Select **Invoice sections** from the left-hand side.  
-    [![Screenshot that shows selecting invoice sections](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
-1. Select the invoice section from the list for which the transfer request was sent.
-1. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:  
-    [![Screenshot that shows list of transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+1. Search for **Cost Management + Billing**.
+1. In the billing scopes page, select the billing account where the transfer request was started and then in the left menu, select **Transfer requests**.
+1. Select the billing profile and invoice section where the transfer request was started and review the status.  
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status. " lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
 
-   |Column|Definition|
-   |---------|---------|
-   |Request date|The date when the transfer request was sent|
-   |Recipient|The email address of the user that you sent the request to transfer billing ownership|
-   |Expiration date|The date when the request expires|
-   |Status|The status of transfer request|
+The Transfer requests page displays the following information:
 
-    The transfer request can have one of the following statuses:
+|Column|Definition|
+|---------|---------|
+|Request date|The date when the transfer request was sent|
+|Recipient|The email address of the user that you sent the request to transfer billing ownership|
+|Expiration date|The date when the request expires|
+|Status|The status of transfer request|
 
-   |Status|Definition|
-   |---------|---------|
-   |In progress|The user hasn't accepted the transfer request|
-   |Processing|The user approved the transfer request. Billing for subscriptions that the user selected is getting transferred to your invoice section|
-   |Completed| The billing for subscriptions that the user selected is transferred to your invoice section|
-   |Finished with errors|The request completed but billing for some subscriptions that the user selected couldn't be transferred|
-   |Expired|The user didn't accept the request on time and it expired|
-   |Canceled|Someone with access to the transfer request canceled the request|
-   |Declined|The user declined the transfer request|
+The transfer request can have one of the following statuses:
+
+|Status|Definition|
+|---------|---------|
+|In progress|The user hasn't accepted the transfer request.|
+|Processing|The user approved the transfer request. Billing for subscriptions that the user selected is getting transferred to your invoice section.|
+|Completed| The billing for subscriptions that the user selected is transferred to your invoice section.|
+|Finished with errors|The request completed but billing for some subscriptions that the user selected couldn't be transferred.|
+|Expired|The user didn't accept the request on time and it expired.|
+|Canceled|Someone with access to the transfer request canceled the request.|
+|Declined|The user declined the transfer request.|
+
+As the user that approved the transfer:
 
 1. Select a transfer request to view details. The transfer details page displays the following information:  
-    [![Screenshot that shows list of transferred subscriptions](./media/mca-request-billing-ownership/mca-transfer-completed.png)](./media/mca-request-billing-ownership/mca-transfer-completed.png#lightbox)
+  :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" alt-text="Screenshot that shows the Transfer status page with example status." lightbox="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" :::
 
-   |Column  |Definition|
-   |---------|---------|
-   |Transfer request ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to speed up your support request|
-   |Transfer requested on|The date when the transfer request was sent|
-   |Transfer requested by|The email address of the user who sent the transfer request|
-   |Transfer request expires on| The date when the transfer request expires|
-   |Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
-   |Transfer link sent to recipient|The url that was sent to the user to review the transfer request|
+|Column  |Definition|
+|---------|---------|
+|Transfer ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to speed up your support request. |
+|Transfer requested date|The date when the transfer request was sent. |
+|Transfer requested by|The email address of the user who sent the transfer request. |
+|Transfer request expires date| Only appears while the transfer status is `Pending`. The date when the transfer request expires. |
+|Transfer link sent to recipient| Only appears while the transfer status is `Pending`. The URL that was sent to the user to review the transfer request. |
+|Transfer completed date|Only appears when the transfer status is `Completed`. The date and time that the transfer was completed. |
 
 ## Supported subscription types
 
 You can request billing ownership of the subscription types listed below.
 
-- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
-- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)\*
-- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
+- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
+- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)<sup>1</sup>
+- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)<sup>1</sup>
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)<sup>1</sup>
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
-- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)<sup>2</sup>
+- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)<sup>1</sup>
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
-- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
-- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
-- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)\*
-- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)\*
-- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)\*
-- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)\*
+- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
+- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)<sup>1</sup>
+- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)<sup>1</sup>
+- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)<sup>1</sup>
+- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)<sup>1</sup>
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)<sup>1</sup>
+- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)<sup>1</sup>
 
-\* Any credit available on the subscription won't be available in the new account after the transfer.
+<sup>1</sup> Any credit available on the subscription won't be available in the new account after the transfer.
 
-\*\* Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
+<sup>2</sup> Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
 
 ## Additional information
 

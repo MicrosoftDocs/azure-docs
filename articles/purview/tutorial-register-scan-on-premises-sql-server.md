@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 
 ## Sign in to Azure Purview Studio
 
-To interact with Azure Purview, you'll connect to the [Azure Purview Studio](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Azure Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Azure Purview Studio** tile on the overview page.
+To interact with Azure Purview, you'll connect to the [Azure Purview Studio](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Azure Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Azure Purview Studio** tile on the overview page.
 
 :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Azure Purview window in Azure portal, with Azure Purview Studio button highlighted." border="true":::
 
@@ -50,7 +50,7 @@ To create and manage collections in Azure Purview, you'll need to be a **Collect
 
     :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/find-collections.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. The root collection is the top collection in your collection list and will have the same name as your Azure Purview resource. In our example below, it is called Azure Purview Account.
+1. Select your root collection. The root collection is the top collection in your collection list and will have the same name as your Azure Purview account. In our example below, it is called Azure Purview Account.
 
     :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-root-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
@@ -58,7 +58,7 @@ To create and manage collections in Azure Purview, you'll need to be a **Collect
 
     :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
     :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 

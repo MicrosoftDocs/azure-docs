@@ -273,7 +273,7 @@ After the move, follow the below steps to clear the old identities, and create n
     Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal. 
     Direct browser link: [https://shell.azure.com](https://shell.azure.com).
 
-1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az_account_get_access_token).
+1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az-account-get-access-token).
     ```azurecli-interactive
     az account get-access-token
     ```

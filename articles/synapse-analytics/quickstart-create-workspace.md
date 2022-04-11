@@ -5,7 +5,7 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 09/03/2020
+ms.date: 03/23/2022
 ms.author: saveenr
 ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
@@ -30,7 +30,6 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 
 > [!NOTE]
 > After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
-> Additionally, you currently cannot create a Synapse Analytics workspace in a [Cloud Solution Provider (CSP)](/partner-center/csp-overview) subscription.
 
 ## Open Synapse Studio
 

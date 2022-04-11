@@ -54,7 +54,7 @@ When creating the account using the Azure portal, set the **Apply Free Tier Disc
 
 ### ARM template
 
-To create a free tier account by using an ARM template, set the property`"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
+To create a free tier account by using an ARM template, set the property `"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
 
 ### CLI
 
@@ -67,7 +67,6 @@ az cosmosdb create \
     -g "MyResourcegroup" \
     --enable-free-tier true \
     --default-consistency-level "Session"
-    
 ```
 
 ### PowerShell

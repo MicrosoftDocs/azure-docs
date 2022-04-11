@@ -129,7 +129,7 @@ az keyvault set-policy \
 ```
 #### Assign RBAC role
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
 ```azurecli
 az role assignment create --assignee $identityPrincipalID \
@@ -541,7 +541,7 @@ You will also be unable to change (rotate) the encryption key. The resolution st
 
 **User-assigned identity**
 
-If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registry. For example:
+If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registry. For example:
 
 ```azurecli
 az acr identity assign -n myRegistry \

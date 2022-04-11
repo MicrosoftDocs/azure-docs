@@ -16,8 +16,6 @@ Once enabled, Defender for IoT will automatically identify other Azure services,
 
 You can select other Azure resource groups that are part of your IoT solution. Your selections allow you to add entire subscriptions, resource groups, or single resources.
 
-After defining all of the resource relationships, Defender for IoT will use Defender for Cloud to provide you security recommendations, and alerts for your resources.
-
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]

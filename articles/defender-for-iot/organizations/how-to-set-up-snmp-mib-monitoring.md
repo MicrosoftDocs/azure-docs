@@ -7,9 +7,9 @@ ms.topic: how-to
 
 # Set up SNMP MIB monitoring
 
-You can perform sensor health monitoring by using Simple Network Management Protocol (SNMP). The sensor responds to SNMP queries sent from an authorized monitoring server. The SNMP monitor polls the sensor OIDs periodically (up to 50 times a second).
+Monitoring sensor health is possible through the Simple Network Management Protocol (SNMP). The sensor responds to SNMP requests sent by an authorized monitoring server. The SNMP monitor polls sensor OIDs periodically (up to 50 times a second).
 
-The SNMP supported versions are SNMP v2 or SNMP v3. SNMP uses UDP as its transport protocol with port 161 (SNMP).
+Supported SNMP versions are SNMP version 2 and version 3. The SNMP protocol utilizes UDP as its transport protocol with port 161.
 
 ## Sensor OIDs
 
@@ -33,15 +33,18 @@ Note that:
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
 - You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data.
 
+## Prerequisites for AES and 3-DES Encryption Support for SNMP Version 3
+- The network management station (NMS) must support Simple Network Management Protocol (SNMP) Version 3 to be able to use this feature.
+- It is important to understand the SNMP architecture and the terminology of the architecture to understand the security model used and how the security model interacts with the other subsystems in the architecture.
+- Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
 
 
 ## Set up SNMP monitoring
 
-1. Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
 1. On the side menu, select **System Settings**.
-2. Expand **Sensor Management**, and select **SNMP MIB Monitoring** :
-3. Select **Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
-4. In **Authentication** section, select the SNMP version.
+1. Expand **Sensor Management**, and select **SNMP MIB Monitoring** :
+1. Select **Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
+1. In **Authentication** section, select the SNMP version.
     - If you select V2, type the string in **SNMP v2 Community String**. You can enter up to 32 characters, and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed.
     - If you select V3, specify the following:
     
@@ -49,12 +52,16 @@ Note that:
         |--|--|
         | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
-        | **Auth Type** | Select MD5 or SHA. |
-        | **Encryption** | Select DES or AES. |
+        | **Auth Type** | Select MD5 or SHA-1. |
+        | **Encryption** | Select DES (56 bit key size)<sup>[1](#1)</sup> or AES (AES 128 bits supported)<sup>[2](#2)</sup>. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
 
-5. Select **Save**.
+    <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
 
-## See also
+    <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model
 
-[Export troubleshooting logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+1. Select **Save**.
+
+## Next steps
+
+For more information, see [Export troubleshooting logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).

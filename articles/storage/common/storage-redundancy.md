@@ -72,7 +72,7 @@ The following table shows which types of storage accounts support ZRS in which r
 
 | Storage account type | Supported regions | Supported services |
 |--|--|--|
-| General-purpose v2<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Japan East<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) UK South<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) South Central US<br /> (US) West US 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
+| General-purpose v2<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Japan East<br /> (Asia Pacific) Central India<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) UK South<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) South Central US<br /> (US) West US 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
 | Premium block blobs<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
 | Premium file shares | Asia Southeast<br /> Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
 
@@ -181,9 +181,11 @@ The following table describes key parameters for each redundancy option:
 | Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Percent durability of objects over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Availability for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
-| Availability for write requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
+| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br /><br />At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool or Archive access tiers) for GZRS<br /><br />At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GZRS |
+| Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) |
 | Number of copies of data maintained on separate nodes | Three copies within a single region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
+
+For more information, see the [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
 
 ### Durability and availability by outage scenario
 

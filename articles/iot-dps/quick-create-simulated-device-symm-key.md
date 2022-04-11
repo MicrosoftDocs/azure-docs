@@ -563,7 +563,7 @@ To update and run the provisioning sample with your device information:
     pip install azure-iot-device
     ```
 
-6. Run the python sample code in *_provision_symmetric_key.py_*.
+6. Run the Python sample code in *_provision_symmetric_key.py_*.
 
     ```cmd
     python provision_symmetric_key.py

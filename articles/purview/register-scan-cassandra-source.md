@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 03/05/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -39,16 +39,18 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-  For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+**If your data store is not publically accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
+
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
 ## Register
 
@@ -97,8 +99,7 @@ To create and run a new scan:
 
     1. **Name**: Specify a name for the scan.
 
-    1. **Connect via integration runtime**: Select the configured
-        self-hosted integration runtime.
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
 
     1. **Credential**: When you configure the Cassandra credentials, be sure
         to:
@@ -127,10 +128,10 @@ To create and run a new scan:
     to use Secure Sockets Layer (SSL) when connecting to the
     Cassandra server. By default, this option is set to **False**.
 
-    1. **Maximum memory available**: Specify the maximum memory (in GB) available on your VM to be used for scanning processes. This value depends on the size of Cassandra server to be scanned.
+    1. **Maximum memory available** (applicable when using self-hosted integration runtime): Specify the maximum memory (in GB) available on your VM to be used for scanning processes. This value depends on the size of Cassandra server to be scanned.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="scan Cassandra source" border="true":::
 
-1. Select **Test connection.**
+1. Select **Test connection** (available when using self-hosted integration runtime).
 
 1. Select **Continue**.
 
@@ -151,7 +152,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

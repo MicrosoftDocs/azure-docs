@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 02/23/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources, contperf-fy22q2
 ms.service: digital-twins
@@ -28,20 +28,21 @@ Before you attempt to recreate your Azure Digital Twins instance, go over the co
 
 Here are some questions to consider:
 
-* What are the **models** uploaded to my instance? How many are there?
-* What are the **twins** in my instance? How many are there?
-* What's the general shape of the **graph** in my instance? How many relationships are there?
-* What **endpoints** do I have in my instance?
-* What **routes** do I have in my instance? Do they have filters?
-* Where does my instance **connect to other Azure services**? Some common integration points include:
+* What are the models uploaded to my instance? How many are there?
+* What are the twins in my instance? How many are there?
+* What's the general shape of the graph in my instance? How many relationships are there?
+* What endpoints do I have in my instance?
+* What routes do I have in my instance? Do they have filters?
+* Where does my instance connect to other Azure services? Some common integration points include:
 
     - Azure Event Grid, Azure Event Hubs, or Azure Service Bus
     - Azure Functions
     - Azure Logic Apps
+    - Azure Data Explorer
     - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
-* What other **personal or company apps** do I have that connect to my instance?
+* What other personal or company apps do I have that connect to my instance?
 
 You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
@@ -72,7 +73,7 @@ Next, you'll complete the "move" of your instance by creating a new instance in 
 
 First, create a new instance of Azure Digital Twins in your target region. Follow the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Keep these pointers in mind:
 
-* You can keep the same name for the new instance *if* it's in a different resource group. If you need to use the same resource group that contains your original instance, your new instance will need its own distinct name.
+* You can keep the same name for the new instance if it's in a different resource group. If you need to use the same resource group that contains your original instance, your new instance will need its own distinct name.
 * Enter the new target region when prompted for a location.
 
 After this step is complete, you'll need the host name of your new instance to continue setting it up with your data. If you didn't make a note of the host name during setup, follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
@@ -103,7 +104,7 @@ If you have endpoints or routes in your original instance, you'll need to recrea
 
 Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
 
-* You *don't* need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
+* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the [Prerequisites section](how-to-manage-routes.md#prerequisite-create-endpoint-resources) in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
 * Remember to add any required filters to the routes you create.
 
@@ -120,11 +121,12 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Functions. If you have an Azure function whose code includes the host name of the original instance, you should update this value to the new instance's host name and republish the function.
 * Event Grid, Event Hubs, or Service Bus.
 * Logic Apps.
+* Azure Data Explorer.
 * Time Series Insights.
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations *don't* need to be recreated. If you're using an [app registration](./how-to-create-app-registration-portal.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration-portal.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 
