@@ -23,7 +23,7 @@ This article describes how to move your Azure Load Testing Preview resource to a
 
 - Respond to capacity planning requirements
 
-Azure Load Testing resources are region-specific and can't be moved across regions. You must create a copy of your existing resources in the target region, then create tests in the new resource.
+Azure Load Testing resources are region-specific and can't be moved across regions automatically. You can use an Azure Resource Manager template (ARM template) to export the existing configuration of your Load Testing resource instead. Then, stage the resource in another region and create the tests in the new resource.
 
 ## Prerequisites
 
