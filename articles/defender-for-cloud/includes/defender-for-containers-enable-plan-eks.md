@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 02/27/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
@@ -21,9 +21,12 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
     :::image type="content" source="../media/defender-for-kubernetes-intro/enable-containers-plan-on-aws-connector.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector.":::
 
-1. Optionally, to change the retention period for your audit logs, select **Configure**, enter the required timeframe, and select **Save**.
+1. (Optional) To change the retention period for your audit logs, select **Configure**, enter the required timeframe, and select **Save**.
 
     :::image type="content" source="../media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="../media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png":::
+
+    > [!Note]
+    > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](../supported-machines-endpoint-solutions-clouds-containers.md).
 
 1. Continue through the remaining pages of the connector wizard.
 

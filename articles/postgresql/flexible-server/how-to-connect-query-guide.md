@@ -5,8 +5,8 @@ services: postgresql
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.date: 11/30/2021
 ---
 

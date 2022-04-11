@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 03/17/2022
 ms.custom: references_regions
 ---
 
@@ -16,9 +16,20 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.16 - March 2022
+
+### New features
+
+- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
+
+### Fixed
+
+- The "Arc" proxy bypass keyword no longer includes Azure Active Directory endpoints on Linux. Azure Storage endpoints for extension downloads are now included with the "Arc" keyword.
+
 ## Version 1.15 - February 2022
 
 ### Known issues
+
 - The "Arc" proxy bypass feature on Linux includes some endpoints that belong to Azure Active Directory. As a result, if you only specify the "Arc" bypass rule, traffic destined for Azure Active Directory endpoints will not use the proxy server as expected. This issue will be fixed in an upcoming release.
 
 ### New features
@@ -27,6 +38,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
   - Added TLS 1.2 check
   - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
   - New `--skip-network-check` flag to override the new network check behavior
+  - On-demand network check now available using `azcmagent check`
 - [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
 - Oracle Linux 8 is now supported
 
@@ -67,14 +79,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Improved reliability when validating signatures of extension packages.
 - `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
 - `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
-
-## Version 1.11 - September 2021
-
-### Fixed
-
-- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
-- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
-- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
 
 ## Next steps
 

@@ -1,10 +1,11 @@
 ---
 title: Audit logging in Azure Database for PostgreSQL - Single Server
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Single Server.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: nlarin
+author: niklarin
 ms.date: 01/28/2020
 ---
 

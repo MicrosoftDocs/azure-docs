@@ -84,12 +84,10 @@ This framework extends the confidentiality, integrity, and verifiability propert
 
 Marblerun supports confidential containers created with Graphene, Occlum, and EGo, with [examples for each SDK](https://docs.edgeless.systems/marblerun/#/examples?id=examples). The framework runs on Kubernetes alongside your existing cloud-native tooling. There's a CLI and helm charts. Marblerun also supports confidential computing nodes on AKS. Follow Marblerun's [guide to deploy Marblerun on AKS](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment).
 
-## Confidential Containers demo
+## Confidential Containers reference architectures
 
-For a sample application, see the [healthcare demo with confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
-
-> [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
-
+- [Confidential data messaging for healthcare reference architecture and sample with Intel SGX confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
+- [Confidential big-data processing with Apache Spark on AKS with Intel SGX confidential containers](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql). 
 
 ## Get in touch
 

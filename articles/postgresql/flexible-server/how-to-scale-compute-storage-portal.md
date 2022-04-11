@@ -1,8 +1,8 @@
 ---
 title: Scale operations - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to perform scale operations in Azure Database for PostgreSQL through the Azure portal.
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

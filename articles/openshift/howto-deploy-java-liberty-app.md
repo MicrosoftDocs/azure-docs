@@ -37,7 +37,7 @@ Complete the following prerequisites to successfully walk through this guide.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
-   * [Azure CLI to create a cluster](/cli/azure/aro#az_aro_create)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
    * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
@@ -48,15 +48,33 @@ Complete the following prerequisites to successfully walk through this guide.
 
 1. Verify you can sign in to the OpenShift CLI with the token for user `kubeadmin`.
 
-### Enable the built-in container registry for OpenShift
+### Configure Azure Active Directory authentication
 
-The steps in this tutorial create a Docker image which must be pushed to a container registry accessible to OpenShift. The simplest option is to use the built-in registry provided by OpenShift. To enable the built-in container registry, follow the steps in [Configure built-in container registry for Azure Red Hat OpenShift 4](built-in-container-registry.md). Three items from those steps are used in this article.
+Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets you use Azure AD to sign in to the ARO cluster. Follow the steps in [Configure Azure Active Directory authentication](configure-azure-ad-cli.md) to set up your cluster.
 
-* The username and password of the Azure AD user for signing in to the OpenShift web console.
-* The output of `oc whoami` after following the steps for signing in to the OpenShift CLI. This value is called **aad-user** for discussion.
-* The container registry URL.
+After you complete the setup, return to this document and sign in to the cluster with an Azure AD user.
 
-Note these items down as you complete the steps to enable the built-in container registry.
+1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user. We'll leverage the OpenShift OpenID authentication against Azure Active Directory to use OpenID to define the administrator.
+
+   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
+   
+      :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
+   1. Select **AAD**
+
+   > [!NOTE]
+   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this article.
+1. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
+   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
+   1. Sign in to a new tab window with the same user if necessary.
+   1. Select **Display Token**.
+   1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
+
+       ```bash
+       oc login --token=<login-token> --server=<server-url>
+       ```
+
+1. Run `oc whoami` in the console and note the output as **\<aad-user>**.  We'll use this value later in the article.
+1. Sign out of the OpenShift web console. Select the button in the top right of the browser window labeled as the **\<aad-user>** and choose **Log Out**.
 
 ### Create an OpenShift namespace for the Java app
 
@@ -81,8 +99,7 @@ Besides image management, the **aad-user** will also be granted administrative p
    # Switch to project "open-liberty-demo"
    oc project open-liberty-demo
    Now using project "open-liberty-demo" on server "https://api.x8xl3f4y.eastus.aroapp.io:6443".
-   # Note: replace "<aad-user>" with the one noted by executing the steps in
-   # Configure built-in container registry for Azure Red Hat OpenShift 4
+
    oc adm policy add-role-to-user admin <aad-user>
    clusterrole.rbac.authorization.k8s.io/admin added: "kaaIjx75vFWovvKF7c02M0ya5qzwcSJ074RZBfXUc34"
    ```
@@ -122,7 +139,7 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
 3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
 
    ```text
-   String url ="jdbc:mysql://<Database name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
+   String url ="jdbc:mysql://<Server name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
    ```
 
 4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
@@ -243,38 +260,18 @@ The directory `2-simple` of your local clone shows the Maven project with the ab
 
 To deploy and run your Liberty application on an ARO 4 cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-### Build application image
-
 Complete the following steps to build the application image:
 
 # [with DB connection](#tab/with-mysql-image)
 
-After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image.
+### Log in to the OpenShift CLI as the Azure AD user
 
-```bash
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
-
-# Fetch maven artifactId as image name, maven build version as image version
-IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
-
-# If you are build with Open Liberty base image
-docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
-# If you are build with WebSphere Liberty base image
-docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
-```
-
-### Push the image to the container image registry
-
-When you're satisfied with the state of the application, push it to the built-in container image registry by following the instructions below.
-
-#### Log in to the OpenShift CLI as the Azure AD user
+Since you have already successfully run the app in the Liberty Docker container, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
 
 1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
@@ -285,47 +282,57 @@ When you're satisfied with the state of the application, push it to the built-in
    1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
 
        ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "open-liberty-demo".
+       oc login --token=<login-token> --server=<server-url>
        ```
 
-#### Push the container image to the container registry for OpenShift
+### Build the application and push to the image stream
 
-Execute these commands to push the image to the container registry for OpenShift.
+Next, you're going to build the image remotely on the cluster by executing the following commands.
 
-```bash
-# Note: replace "<Container_Registry_URL>" with the fully qualified name of the registry
-Container_Registry_URL=<Container_Registry_URL>
+1. Identify the source directory and Dockerfile.
 
-# Create a new tag with registry info that refers to source image
-docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}
+   ```bash
+   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+   
+   # Fetch maven artifactId as image name, maven build version as image version
+   IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
 
-# Sign in to the built-in container image registry
-docker login -u $(oc whoami) -p $(oc whoami -t) ${Container_Registry_URL}
-```
+   # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
 
-Successful output will look similar to the following.
+   # If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+   # mv Dockerfile Dockerfile.backup
+   # mv Dockerfile-wlp Dockerfile
+   ```
 
-```bash
-WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-Login Succeeded
-```
+1. Create an image stream.
 
-Push image to the built-in container image registry with the following command.
+   ```bash
+   oc create imagestream ${IMAGE_NAME}
+   ```
 
-```bash
-docker push ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}
-```
+1. Create a build configuration which specifies the image stream tag of the build output.
+
+   ```bash
+   oc new-build --name ${IMAGE_NAME}-config --binary --strategy docker --to ${IMAGE_NAME}:${IMAGE_VERSION}
+   ```
+
+1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+
+   ```bash
+   oc start-build ${IMAGE_NAME}-config --from-dir . --follow
+   ```
 
 # [without DB connection](#tab/without-mysql-mage)
 
+### Build and run the application locally with Docker
+
+Before deploying the containerized application to a remote cluster, build and run with your local Docker to verify whether it works:
+
 1. Change directory to `2-simple` of your local clone.
-2. Run `mvn clean package` to package the application.
-3. Run one of the following commands to build the application image.
+1. Run `mvn clean package` to package the application.
+1. Run one of the following commands to build the application image.
    * Build with Open Liberty base image:
 
      ```bash
@@ -340,25 +347,19 @@ docker push ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION
      docker build -t javaee-cafe-simple:1.0.0 --pull --file=Dockerfile-wlp .
      ```
 
-### Run the application locally with Docker
-
-Before deploying the containerized application to a remote cluster, run with your local Docker to verify whether it works:
-
 1. Run `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` in your console.
-2. Wait for Liberty server to start and the application to deploy successfully.
-3. Open `http://localhost:9080/` in your browser to visit the application home page.
-4. Press **Control-C** to stop the application and Liberty server.
+1. Wait for Liberty server to start and the application to deploy successfully.
+1. Open `http://localhost:9080/` in your browser to visit the application home page.
+1. Press **Control-C** to stop the application and Liberty server.
 
-### Push the image to the container image registry
+### Log in to the OpenShift CLI as the Azure AD user
 
-When you're satisfied with the state of the application, push it to the built-in container image registry by following the instructions below.
-
-#### Log in to the OpenShift CLI as the Azure AD user
+When you're satisfied with the state of the application, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
 
 1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
@@ -369,43 +370,42 @@ When you're satisfied with the state of the application, push it to the built-in
    1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
 
        ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "default".
+       oc login --token=<login-token> --server=<server-url>
        ```
 
-#### Push the container image to the container registry for OpenShift
+### Build the application and push to the image stream
 
-Execute these commands to push the image to the container registry for OpenShift.
+Next, you're going to build the image remotely on the cluster by executing the following commands.
 
-```bash
-# Note: replace "<Container_Registry_URL>" with the fully qualified name of the registry
-Container_Registry_URL=<Container_Registry_URL>
+1. Identity the source directory and the Dockerfile.
 
-# Create a new tag with registry info that refers to source image
-docker tag javaee-cafe-simple:1.0.0 ${Container_Registry_URL}/open-liberty-demo/javaee-cafe-simple:1.0.0
+   ```bash
+   cd <path-to-your-repo>/open-liberty-on-aro/2-simple
 
-# Sign in to the built-in container image registry
-docker login -u $(oc whoami) -p $(oc whoami -t) ${Container_Registry_URL}
-```
+   # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
 
-Successful output will look similar to the following.
+   # If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+   # mv Dockerfile Dockerfile.backup
+   # mv Dockerfile-wlp Dockerfile
+   ```
 
-```bash
-WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-Login Succeeded
-```
+1. Create an image stream.
 
-Push image to the built-in container image registry with the following command.
+   ```bash
+   oc create imagestream javaee-cafe-simple
+   ```
 
-```bash
+1. Create a build configuration which specifies the image stream tag of the build output.
 
-docker push ${Container_Registry_URL}/open-liberty-demo/javaee-cafe-simple:1.0.0
-```
+   ```bash
+   oc new-build --name javaee-cafe-simple-config --binary --strategy docker --to javaee-cafe-simple:1.0.0
+   ```
 
+1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+
+   ```bash
+   oc start-build javaee-cafe-simple-config --from-dir . --follow
+   ```
 
 ---
 
@@ -452,8 +452,8 @@ Now you can deploy the sample Liberty application to the ARO 4 cluster with the 
 1. [Log in to the OpenShift CLI with the token for the Azure AD user](https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/guides/howto-deploy-java-liberty-app.md#log-in-to-the-openshift-cli-with-the-token).
 1. Run the following commands to deploy the application.
    ```bash
-   # Change directory to "<path-to-repo>/3-integration/connect-db/mysql"
-   cd <path-to-repo>/3-integration/connect-db/mysql
+   # Change directory to "<path-to-repo>/3-integration/connect-db/mysql/target"
+   cd <path-to-repo>/3-integration/connect-db/mysql/target
 
    # Change project to "open-liberty-demo"
    oc project open-liberty-demo 

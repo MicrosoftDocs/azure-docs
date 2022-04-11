@@ -76,7 +76,7 @@ We currently recommend creating a minimum of two custom roles for the APP ID, on
 }
 ```
 
-The json above must be stored in three text files, and you can use either the AzureRM, AZ PowerShell cmdlets, or Azure CLI to create the roles using either **New-AzureRmRoleDefinition (AzureRM)** or **New-AzRoleDefinition (AZ)**.
+The json above must be stored in two text files, and you can use either the AzureRM, AZ PowerShell cmdlets, or Azure CLI to create the roles using either **New-AzureRmRoleDefinition (AzureRM)** or **New-AzRoleDefinition (AZ)**.
 
 For more information, see the article [Azure custom roles](../role-based-access-control/custom-roles.md).
 

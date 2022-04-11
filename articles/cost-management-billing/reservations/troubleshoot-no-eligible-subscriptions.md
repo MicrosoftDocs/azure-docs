@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 06/27/2021
+ms.date: 03/22/2022
 ---
 
 # Troubleshoot no eligible subscriptions

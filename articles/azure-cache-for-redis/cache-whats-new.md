@@ -70,10 +70,10 @@ Active geo-replication public preview now supports:
 
 ### Azure TLS Certificate Change
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements. For full details, see [Azure TLS Certificate Changes](/azure/security/fundamentals/tls-certificate-changes).
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements. For full details, see [Azure TLS Certificate Changes](../security/fundamentals/tls-certificate-changes.md).
 
 For more information on the effect to Azure Cache for Redis, see [Azure TLS Certificate Change](cache-best-practices-development.md#azure-tls-certificate-change).
 
 ## Next steps
 
-If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).  
+If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).

@@ -77,18 +77,18 @@ public class DetectedLanguage
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+private const string key_var = "TRANSLATOR_TEXT_KEY";
+private static readonly string key = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscriptionKey)
+    if (null == key)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -102,10 +102,10 @@ static Program()
 
 ## Create a function to determine sentence length
 
-In the `Program` class, create a new function called `BreakSentenceRequest()`. This function takes four arguments: `subscriptionKey`, `endpoint`, `route`, and `inputText`.
+In the `Program` class, create a new function called `BreakSentenceRequest()`. This function takes four arguments: `key`, `endpoint`, `route`, and `inputText`.
 
 ```csharp
-static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
+static public async Task BreakSentenceRequest(string key, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -155,7 +155,7 @@ request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
 request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 // Send the request and get response.
 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -185,13 +185,13 @@ static async Task Main(string[] args)
     string route = "/breaksentence?api-version=3.0";
     // Feel free to use any string.
     string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await BreakSentenceRequest(subscriptionKey, endpoint, route, breakSentenceText);
+    await BreakSentenceRequest(key, endpoint, route, breakSentenceText);
     Console.WriteLine("Press any key to continue.");
     Console.ReadKey();
 }
 ```
 
-You'll notice that in `Main`, you're declaring `subscriptionKey`, `endpoint`, `route`, and the text to evaluate `breakSentenceText`.
+You'll notice that in `Main`, you're declaring `key`, `endpoint`, `route`, and the text to evaluate `breakSentenceText`.
 
 ## Run the sample app
 
@@ -227,7 +227,7 @@ This message is built from the raw JSON, which will look like this:
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 

@@ -150,6 +150,8 @@
       href: deploy-best-practices.md
     - name: Azure Arc hosting (preview)
       href: overview-arc-integration.md
+    - name: Monitoring overview
+      href: overview-monitoring.md      
     - name: Security
       items:
         - name: Recommendations
@@ -415,7 +417,7 @@
         - name: Migrate ASP.NET
           href: app-service-asp-net-migration.md
         - name: Migrate containerized ASP.NET
-          href: /azure/migrate/tutorial-app-containerization-aspnet-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+          href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fapp-service%2ftoc.json
         - name: Migrate Java
           href: app-service-java-migration.md
         - name: Migrate Spring Boot

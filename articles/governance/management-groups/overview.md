@@ -6,19 +6,19 @@ ms.topic: overview
 ---
 # What are Azure management groups?
 
-If your organization has many subscriptions, you may need a way to efficiently manage access,
-policies, and compliance for those subscriptions. Azure management groups provide a level of scope
-above subscriptions. You organize subscriptions into containers called "management groups" and apply
-your governance conditions to the management groups. All subscriptions within a management group
-automatically inherit the conditions applied to the management group. Management groups give you
-enterprise-grade management at a large scale no matter what type of subscriptions you might have.
-All subscriptions within a single management group must trust the same Azure Active Directory
+If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
+policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
+above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+cascade by inheritence to all associated subscriptions.
+
+Management groups give you
+enterprise-grade management at scale no matter what type of subscriptions you might have.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD)
 tenant.
 
 For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all management groups,
-subscriptions, and resources under that management group by only allowing VMs to be created in that
-region.
+virtual machine (VM) creation. This policy would be applied to all nested management groups,
+subscriptions, and resources, and allow VM creation only in authorized regions.
 
 ## Hierarchy of management groups and subscriptions
 
