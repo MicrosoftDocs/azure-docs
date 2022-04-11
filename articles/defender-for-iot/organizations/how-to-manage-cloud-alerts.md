@@ -165,17 +165,6 @@ View more information about the alert, such as:
 
 If you're integrating with Microsoft Sentinel, the Alert details and entity information are sent to Microsoft Sentinel.
 
-### Download a PCAP log file for a specific alert
-
-For sensors with software versions 22.2.x and higher, you can download a PCAP log file directly from the alert details page.
-
-**To download a PCAP log file**:
-
-1. In the **Alerts** page in the Azure portal, select an alert with IP address entities listed.
-
-1. On the alert details, page, under **Entities**, expand the **IP** section and select **Download full list to CSV**.
-
-The PCAP file for the selected alert is downloaded and you can save it locally.
 ### Alert remediation steps
 
 Defender for IoT provides remediation steps you can carry out for the alert. Remediation steps are designed to help SOC teams better understand OT issues and resolutions.

@@ -52,10 +52,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Device detection enhancements](#device-detection-enhancements)
-- [Download PCAP files from the Azure portal](#download-pcap-files-from-the-azure-portal)
-- [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal)
-- [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal)
-- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements)
+- [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal-public-preview)
+- [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal-public-preview)
+- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 
 ### Active discovery scans (Public preview)
 
@@ -101,12 +100,6 @@ For more information, see [Manage sensors with Defender for IoT in the Azure por
 - Support and detection policies for hybrid networks
 
 - Support for Windows 11 and Server 2019 devices
-
-### Download PCAP files from the Azure portal (Public preview)
-
-Now you can download PCAP files for specific alerts from the Azure portal. In Defender for IoT on the Azure portal, on an alert details page in the **Entities** > **IP** section, select **Download full list to CSV**.
-
-For more information, see [Download a PCAP log file for a specific alert](how-to-manage-cloud-alerts.md#download-a-pcap-log-file-for-a-specific-alert).
 
 ### Learn and close alerts from the Azure portal  (Public preview)
 

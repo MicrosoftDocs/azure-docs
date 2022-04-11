@@ -75,7 +75,7 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 
 |Task  |Steps  |
 |---------|---------|
-| **Define OT sensor settings** | Select **Sensor settings (Preview**). For more information, see [Define OT sensor settings](#define-ot-sensor-settings). |
+| **Define OT sensor settings** | Select **Sensor settings (Preview**). For more information, see [Define and view OT sensor settings (Public preview)](#define-and-view-ot-sensor-settings-public-preview). |
 | **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
 |**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version)     |
 | **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version). |
@@ -157,7 +157,7 @@ You may need to reactivate your sensor because you want to:
 In such cases, do the following:
 
 1. [Delete your existing sensor](#manage-on-boarded-sensors).
-1. [Onboard your sensor](#onboard-sensors), registering it again with any new settings.
+1. [Onboard your sensor](#onboard-ot-sensors), registering it again with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
 ### Reactivate a sensor for upgrades to version 22.x from a legacy version
@@ -199,7 +199,7 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - Sensor is overloaded and is dropping packets
 - No traffic detected by the sensor
 - Sensor software version is out of date and cannot connect
-- A [remote sensor upgrade](how-to-manage-individual-sensors.md#from-the-azure-portal-previewtabportal) fails, for software versions starting from version 22.2.0 and higher
+- A [remote sensor upgrade](how-to-manage-individual-sensors.md&tabs=portal#update-a-standalone-sensor-version) fails, for software versions starting from version 22.2.0 and higher
 
 ## Upload a diagnostics log for support (Public preview)
 

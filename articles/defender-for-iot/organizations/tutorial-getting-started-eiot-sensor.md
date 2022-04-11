@@ -223,7 +223,7 @@ Once you've validated your setup, the device inventory will start to populate wi
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you'll be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
+The device inventory is where you'll be able to view all of your device systems, and network information. Learn more about the device inventory see [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 ## Remove the sensor (optional)
 
