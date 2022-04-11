@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/04/2022
+ms.date: 04/11/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -138,8 +138,21 @@ You can also check whether all the required ports are open.
      - Microsoft Azure AD Connect Agent Updater
      - Microsoft Azure AD Connect Provisioning Agent Package
 
+### Provisioning agent history
+This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. 
 
+Microsoft provides direct support for the latest agent version and one version before.
 
+## Download link
+You can download the latest version of the agent using [this link](https://aka.ms/onpremprovisioningagent).
+
+## 1.1.846.0
+
+April 11th, 2022 - released for download
+
+### Fixed issues
+
+- We added support for ObjectGUID as an anchor for the generic LDAP connector when provisioning users into AD LDS. 
 
 
 ## Next steps
