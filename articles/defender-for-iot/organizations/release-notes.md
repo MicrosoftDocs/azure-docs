@@ -84,14 +84,19 @@ On the **Sites and sensors** page:
 
 - **To update sensor software**, select a connected sensor with a legacy software version, and then select **Update (Preview)**. Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
 
+The following image highlights the new sensor management options now available from the **Sites and sensors** page in the Azure portal:
 
 :::image type="content" source="media/release-notes/cloud-management.png" alt-text="Screenshot highlighting the new cloud management features in the Azure portal.":::
 
-We've also added a new sensor details page, where you can view all data for a specific sensor. On the **Sites and sensors** page, select a specific sensor name to open the sensor details **Overview** page. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied. For example:
+We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied. For example:
 
 :::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor Overview page.":::
 
-For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md) and [Manage individual sensors](how-to-manage-individual-sensors.md).
+For more information, see:
+
+- [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview)
+- [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
+- [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version)
 
 ### Device detection enhancements
 
