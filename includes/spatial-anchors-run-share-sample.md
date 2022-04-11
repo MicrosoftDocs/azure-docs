@@ -28,7 +28,7 @@ Save the scene by selecting **File** > **Save**.
 
 ## Export + deploy the HoloLens application
 
-[!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
+[!INCLUDE [Export Unity Project](./spatial-anchors-unity-export-project-snip.md)]
 
 Select **Build**. In the dialog box, select a folder in which to export the HoloLens Visual Studio project.
 
@@ -40,7 +40,7 @@ Change the **Solution Configuration** to **Release**, change the **Solution Plat
 
 If using HoloLens 2, use **ARM64** as the **Solution Platform**, instead of **x86**.
 
-   ![Visual Studio configuration](./media/get-started-unity-hololens/visual-studio-configuration.png)
+   ![Visual Studio configuration](../articles/spatial-anchors/quickstarts/media/get-started-unity-hololens/visual-studio-configuration.png)
 
 Turn on the HoloLens device, sign in, and connect the device to the PC by using a USB cable.
 
