@@ -156,7 +156,7 @@ Document Page 1 has 86 line(s), 697 word(s),
   Found language 'en' with confidence 0.95.
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-read-output.md).
+To view the entire output, visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-read-output.md).
 
 ## Next step
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
