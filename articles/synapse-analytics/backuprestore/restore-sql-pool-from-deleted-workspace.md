@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 03/29/2022
-ms.author: realAngryAnalytics
+ms.author: stevehow
 ms.reviewer: wiassaf
 ---
 
