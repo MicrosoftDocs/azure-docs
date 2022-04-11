@@ -2,9 +2,10 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.author: elkrieger
-author: ElazarK
-ms.date: 02/24/2022
+ms.date: 04/11/2022
+ms.author: benmansheim
+ms.custom: references_regions
+author: bmansheim
 ---
 
 # Microsoft Defender for Cloud's enhanced security features
@@ -139,3 +140,45 @@ This article explained Defender for Cloud's pricing options. For related materia
 - [How to optimize your Azure workload costs](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Pricing details according to currency or region](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 - You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
+> [!IMPORTANT]
+> Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
+> The feature will not be supported after August 31, 2024.
+> Regions that support solution targeting until the deprecation date are:
+> 
+> | Region code | Region name |
+> | :--- | :---------- |
+> | CCAN | canadacentral |
+> | CHN | switzerlandnorth |
+> | CID | centralindia |
+> | CQ | brazilsouth |
+> | CUS | centralus |
+> | DEWC | germanywestcentral |
+> | DXB | UAENorth |
+> | EA | eastasia |
+> | EAU | australiaeast |
+> | EJP | japaneast |
+> | EUS | eastus |
+> | EUS2 | eastus2 |
+> | NCUS | northcentralus |
+> | NEU | NorthEurope |
+> | NOE | norwayeast |
+> | PAR | FranceCentral |
+> | SCUS | southcentralus |
+> | SE | KoreaCentral |
+> | SEA | southeastasia |
+> | SEAU | australiasoutheast |
+> | SUK | uksouth |
+> | WCUS | westcentralus |
+> | WEU | westeurope |
+> | WUS | westus |
+> | WUS2 | westus2 |
+>
+> | Air-gapped clouds | Region code | Region name |
+> | :---- | :---- | :---- |
+> | UsNat | EXE | usnateast | 
+> | UsNat | EXW | usnatwest | 
+> | UsGov | FF | usgovvirginia | 
+> | China | MC | ChinaEast2 | 
+> | UsGov | PHX | usgovarizona | 
+> | UsSec | RXE | usseceast | 
+> | UsSec | RXW | ussecwest | 

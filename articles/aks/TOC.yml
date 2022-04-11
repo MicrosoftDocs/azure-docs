@@ -185,7 +185,7 @@
           href: node-updates-kured.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
-        - name: Custom node configuration (preview)
+        - name: Custom node configuration
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
@@ -264,7 +264,7 @@
                   href: managed-aad.md
                 - name: Azure AD integration (legacy)
                   href: azure-ad-integration-cli.md
-                - name: Enable GMSA integration (Preview)
+                - name: Enable GMSA integration
                   href: use-group-managed-service-accounts.md
             - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
@@ -374,14 +374,14 @@
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-        - name: CSI Storage Drivers
-          items:
-            - name: Enable CSI Storage Drivers
-              href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers
-              href: azure-disk-csi.md
-            - name: Azure Files CSI drivers
-              href: azure-files-csi.md
+    - name: CSI Storage Drivers
+      items:
+        - name: Enable CSI Storage Drivers
+          href: csi-storage-drivers.md
+        - name: Azure Disk CSI drivers
+          href: azure-disk-csi.md
+        - name: Azure Files CSI drivers
+          href: azure-files-csi.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
