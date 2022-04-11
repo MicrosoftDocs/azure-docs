@@ -140,9 +140,8 @@ This article explained Defender for Cloud's pricing options. For related materia
 - [Pricing details according to currency or region](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 - You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
 > [!IMPORTANT]
-> Solution targeting has been deprecated as the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use it if you already have it configured, but it's being removed from regions where it is not already being used. 
->
-> The feature will longer be supported after August 31, 2024.
+> Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
+> The feature will not be supported after August 31, 2024.
 > Regions that support solution targeting until the deprecation date are:
 > 
 > | Region code | Region name |
