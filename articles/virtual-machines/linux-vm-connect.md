@@ -46,8 +46,8 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
 - Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
-- 
--     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="":::
+
+     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="":::
  
 
 ## Connect to the VM
