@@ -42,7 +42,7 @@ To restore an existing dedicated SQL pool (formerly SQL DW) from a restore point
 6. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
 
     1. To restore the dedicated SQL pool (formerly SQL DW) to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
-    2. To restore to a different subscription, see the [below section](sql-data-warehouse-restore-active-paused-dw#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
+    2. To restore to a different subscription, see the [below section](#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
 
 7. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 

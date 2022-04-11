@@ -71,7 +71,7 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 6. Restore the dedicated SQL pool to the desired restore point using [Restore-AzSynapseSqlPool](/powershell/module/az.synapse/restore-azsynapsesqlpool?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) PowerShell cmdlet.
 
     1. To restore the dedicated SQL pool to a different workspace, make sure to specify the other workspace name.  This workspace can also be in a different resource group and region.
-    2. To restore to a different subscription, see the [below section](restore-sql-pool#restore-an-existing-dedicated-sql-pool-to-a-different-subscription-through-powershell).
+    2. To restore to a different subscription, see the [below section](#restore-an-existing-dedicated-sql-pool-to-a-different-subscription-through-powershell).
 
 7. Verify that the restored dedicated SQL pool is online.
 
