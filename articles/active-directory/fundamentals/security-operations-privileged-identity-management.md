@@ -90,24 +90,6 @@ The following are recommended baseline settings:
 | Azure AD roles assignment| High| <li>Require justification for activation.<li>Require approval to activate.<li>Set two-level approver process.<li>On activation, require Azure Active Directory Multi-Factor Authentication (MFA).<li>Set maximum elevation duration to 8 hrs.| <li>Privileged Role Administration<li>Global Administrator| A privileged role administrator can customize PIM in their Azure AD organization, including changing the experience for users activating an eligible role assignment. |
 | Azure Resource Role Configuration| High| <li>Require justification for activation.<li>Require approval to activate.<li>Set two-level approver process.<li>On activation, require Azure MFA.<li>Set maximum elevation duration to 8 hrs.| <li>Owner<li>Resource Administrator<li>User Access <li>Administrator<li>Global Administrator<li>Security Administrator| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment. |
 
-## External user sign-ins
-
-This monitoring detects sign-ins of privileged accounts in another AD tenant.
-
-| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
-| - |- |- |- |- |
-| Administrators authenticating to other Azure AD tenants| Medium| Azure AD Sign-ins log| Status = success<br><br>Resource tenantID != Home Tenant ID| When scoped to Privileged Users this detects when an administrator has successfully authenticated to another Azure AD tenant with an identity in your organization's tenant. <br><br>Alert if Resource TenantID is not equal to Home Tenant ID |
-|Admin User state changed from Guest to Member|Medium|Azure AD Audit logs|Activity: Update user<br><br>Category: UserManagement<br><br>UserType changed from Guest to Member|Monitor and alert on change of user type from Guest to Member.<br><br> Was this expected?
-|Guest users invited to tenant by non-approved inviters|Medium|Azure AD Audit logs|Activity: Invite external user<br><br>Category: UserManagement<br><br>Initiated by (actor): User Principal Name|Monitor and alert on non-approved actors inviting external users.
-
-## Changes to privileged accounts
-
-This monitoring detects changes to privileged accounts.
-
-| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
-| - |- |- |- |- |
-| Addition of a Temporary Access Pass to a privileged account| High| Azure AD Audit logs| Activity: Admin registered security info<br><br>Status Reason: Admin registered temporary access pass method for user<br><br>Category: UserManagement<br><br>Initiated by (actor): User Principal Name<br><br>Target:User Principal Name|Monitor and alert on a Temporary Access Pass being created for a privileged user.
-
 ## Azure AD roles assignment
 
 A privileged role administrator can customize PIM in their Azure AD organization. This includes changing the experience for a user who is activating an eligible role assignment as follows:

@@ -262,7 +262,13 @@ The DC agent Admin log is the primary source of information for how the software
 Complete reference for Azure AD audit activities is available at [Azure Active Directory (Azure AD) audit activity reference](../reports-monitoring/reference-audit-activities.md). 
 
 ## Conditional Access
-In Azure AD, you can protect access to your resources by configuring conditional access policies. As an IT administrator, you want to ensure that your conditional access policies work as expected to ensure that your resources are properly protected. Monitoring and alerting on changes to conditional access is critical to ensure that polices defined by your organization for access to data are enforced correctly. Azure AD logs when changes are made to conditional access and also provides a workbooks to ensure your policies are providing the expected coverage.
+In Azure AD, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. Monitoring and alerting on changes to the Conditional Access service is critical to ensure that polices defined by your organization for access to data are enforced correctly. Azure AD logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
+
+**Workbook Links**
+
+* [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md)
+
+* [Conditional Access gap analysis workbook](../reports-monitoring/workbook-conditional-access-gap-analyzer.md)
 
 Monitor changes to Conditional Access policies using the following information:
 
@@ -270,15 +276,9 @@ Monitor changes to Conditional Access policies using the following information:
 | - | - | - | - | - |
 | New Conditional Access Policy created by non-approved actors|Medium | Azure AD Audit logs|Activity: Add conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name | Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
 |Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Delete conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
-|Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Update conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value|
+|Conditional Access Policy updated by non-approved actors|Medium|Azure AD Audit logs|Activity: Update conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value|
 |Removal of a user from a group used to scope critical Conditional Access policies|Medium|Azure AD Audit logs|Activity: Remove member from group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been removed.|
-|Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.|
-
-
-### **Workbook Links**
-[Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md)
-
-[Conditional Access gap analysis workbook](../reports-monitoring/workbook-conditional-access-gap-analyzer.md) 
+|Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.| 
 
 ## Next steps
 
