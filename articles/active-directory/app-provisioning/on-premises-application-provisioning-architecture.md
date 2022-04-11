@@ -139,7 +139,7 @@ You can also check whether all the required ports are open.
      - Microsoft Azure AD Connect Provisioning Agent Package
 
 ### Provisioning agent history
-This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. 
+This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-prem provisioning and Cloud Sync / HR-driven provisioning.
 
 Microsoft provides direct support for the latest agent version and one version before.
 
