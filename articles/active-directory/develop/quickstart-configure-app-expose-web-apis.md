@@ -72,10 +72,7 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
     1. Enter the **Application (client) ID** of the client application you want to pre-authorize. For example, that of a web application you've previously registered.
     1. Under **Authorized scopes**, select the scopes for which you want to suppress consent prompting, then select **Add application**.
 
-    If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it.
-
-> [!NOTE]
-> Authorized client applications setting only works for users of the tenant with which the app registered. If a multi-tenant application request **Authorized scopes** to users of other tenants, consent is required.
+    If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it. Authorized client applications setting only works for users of the tenant with which the app registered. If a multi-tenant application request **Authorized scopes** to users of other tenants, consent is required.
 
 ## Add a scope requiring admin consent
 
