@@ -96,7 +96,7 @@ The issues are divided into three types. Refer to the following tables to check 
 
 **Auto-rejected**
 
-Data with these errors will be excluded during training.
+Data with these errors will not be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can resubmit the corrected data for training.  
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
