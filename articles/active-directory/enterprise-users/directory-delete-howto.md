@@ -89,7 +89,7 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
    
-## Delete a Azure subscription
+## Delete an Azure subscription
 
 If you have an Active or Cancelled Azure Subscription associated to your Azure AD Tenant then you would not be able to delete Azure AD Tenant. After you cancel, billing is stopped immediately. However, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. 
 
