@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: chadam, mathoma
-ms.date: 03/19/2021
+ms.reviewer: chadam, mathoma, randolphwest
+ms.date: 04/11/2022
 ---
 
 # Migration guide: SQL Server to SQL Server on Azure Virtual Machines
@@ -55,9 +55,9 @@ For more discovery tools, see the [services and tools](../../../dms/dms-tools-ma
 
 ### Assess
 
-When migrating from SQL Server on-premises to SQL Server on Azure Virtual Machines, it is very unlikely that you will have any compatibility or feature parity issues if the source and target SQL Server versions are the same. If you're _not_ upgrading the version of SQL Server, skip this step and move to the [Migrate](#migrate) section.
+When migrating from SQL Server on-premises to SQL Server on Azure Virtual Machines, it is unlikely that you'll have any compatibility or feature parity issues if the source and target SQL Server versions are the same. If you're *not* upgrading the version of SQL Server, skip this step and move to the [Migrate](#migrate) section.
 
-Before migration, it is still a good practice to run an assessment of your SQL Server databases to identify migration blockers (if any) and the [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) does that before migration.
+Before migration, it's still a good practice to run an assessment of your SQL Server databases to identify migration blockers (if any) and the [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) does that before migration.
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
@@ -70,7 +70,7 @@ To learn more about Azure recommendations, see [Get right-sized Azure recommenda
 > [!IMPORTANT]
 >To assess databases using the Azure SQL Migration extension, ensure that the logins used to connect the source SQL Server are members of the sysadmin server role or have CONTROL SERVER permission.
 
-In case of a version upgrade, use [Data Migration Assistant](/sql/dma/dma-overview) to assess on-premises SQL Server instances if you are upgrading to an instance of SQL Server on Azure Virtual Machines with a higher version to understand the gaps between the source and target versions.
+For a version upgrade, use [Data Migration Assistant](/sql/dma/dma-overview) to assess on-premises SQL Server instances if you are upgrading to an instance of SQL Server on Azure Virtual Machines with a higher version to understand the gaps between the source and target versions.
 
 #### Assess the applications
 
@@ -115,9 +115,9 @@ To perform a minimal downtime migration using Azure Data Studio, follow the high
 1. Select databases for assessment and view migration readiness or issues (if any). Additionally, collect performance data and get right-sized Azure recommendation.
 1. Select your Azure account and your target SQL Server on Azure Machine from your subscription.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
-1. Create a new Azure Database Migration Service using the wizard in Azure Data Studio. If you have previously created Azure Database Migration Service using Azure Data Studio you can can reuse the same if desired.
-1. *Optional*: If your backups are on an on-premises network share, download and install [self-hosted integration runtime](https://www.microsoft.com/en-us/download/details.aspx?id=39717) on a machine that can connect to source SQL Server and the location containing the backup files.
-1. Start the database migration and monitor the progress in Azure Data Studio. You can also monitor the progress under the Azure Database Migration Service resource in Azure Portal.
+1. Create a new Azure Database Migration Service using the wizard in Azure Data Studio. If you have previously created a Azure Database Migration Service using Azure Data Studio, you can reuse the same if desired.
+1. *Optional*: If your backups are on an on-premises network share, download and install [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a machine that can connect to source SQL Server and the location containing the backup files.
+1. Start the database migration and monitor the progress in Azure Data Studio. You can also monitor the progress under the Azure Database Migration Service resource in Azure portal.
 1. Complete the cutover.
    1. Stop all incoming transactions to the source database.
    1. Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
