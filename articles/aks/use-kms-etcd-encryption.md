@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
-* Disabling of the KMS etc encryption feature.
+* Disabling of the KMS etcd encryption feature.
 * Changing of key Id, including key name and key version.
 * Deletion of the key, Key Vault, or the associated identity.
 * KMS etcd encryption does not work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity is not available until cluster creation, thus there is a cycle dependency.
