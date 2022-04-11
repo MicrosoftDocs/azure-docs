@@ -65,7 +65,7 @@ You can also set writable properties and cloud properties that are defined in th
 
 To manage IoT Edge devices, you can use the IoT Central UI to[create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
 
-Use the **Jobs** page to manage your devices in bulk. Jobs can update properties and run commands on multiple devices. To learn more, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+Use the **Jobs** page to manage your devices in bulk. Jobs can update properties, run commands, or assign a new device template on multiple devices. To learn more, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 > [!TIP]
 > If your IoT Central application uses *organizations*, an administrator controls which devices you have access to.
