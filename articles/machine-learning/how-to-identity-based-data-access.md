@@ -233,7 +233,7 @@ The following steps outline how to set up identity-based data access for trainin
 ```yaml
 command: |
   echo "--census-csv: ${{inputs.census_csv}}"
-  python hello-census.py --iris-csv ${{inputs.census_csv}}
+  python hello-census.py --census-csv ${{inputs.census_csv}}
 code: src
 inputs:
   census_csv:
