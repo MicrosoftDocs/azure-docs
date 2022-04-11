@@ -34,15 +34,15 @@ git clone https://github.com/azure-samples/containerapps-albumapi-javascript
 cd containerapps-albumapi-javascript
 ```
 
-For this tutorial we'll be using a JavaScript project, but the steps are language agnostic.  If you would prefer to follow along using a different language, the same sample project is also available in the tools below.
+This tutorial uses a JavaScript project, but the steps are language agnostic.  If you would prefer to follow along using a different language, the same sample project is also available in the tools below.
 
 - [C# sample](https://github.com/azure-samples/containerapps-albumapi-csharp)
 - [Python sample](https://github.com/azure-samples/containerapps-albumapi-python)
 - [Go sample](https://github.com/azure-samples/containerapps-albumapi-go)
 
-To open any of the projects after cloning, navigate to the root folder of that project on your file system, and then right click and choose **Open in VS Code**.
+To open the project after cloning on Windows, navigate to the project's folder, and right click and choose **Open in VS Code**.
 
-You can also use the Visual Studio Code user interface to open the sample project. Select **File -> Open Folder** and then navigate to the folder of the project you cloned.
+For Mac or Linux, you can use the Visual Studio Code user interface to open the sample project. Select **File -> Open Folder** and then navigate to the folder of the cloned project.
 
 ## Sign in to Azure
 
@@ -54,15 +54,15 @@ Select **Azure: Sign in**, and Visual Studio Code will launch a browser for you 
 
 ## Create the container registry and Docker image
 
-The sample project includes a Dockerfile that is used to build a container image for the application. Docker images contain all of the source code and dependencies necessary to run an application. You can build and publish the image for your app directly in Azure - a local Docker installation is not required. An image is required to create and run a container app.
+The sample project includes a Dockerfile that is used to build a container image for the application. Docker images contain all of the source code and dependencies necessary to run an application. You can build and publish the image for your app directly in Azure; a local Docker installation is not required. An image is required to create and run a container app.
 
 Container images are stored inside of container registries. You can easily create a container registry and upload an image of your app to it in a single workflow using Visual Studio Code.
 
-1) First, right click on the Dockerfile in the explorer, and select **Build Image in Azure**.
+1) First, right click on the Dockerfile in the explorer, and select **Build Image in Azure**. You can also begin this workflow from the command palette by entering **Ctrl + Shift + P** on Windows or **Cmd + Shift + P** on a Mac. When the command palette opens, search for *Build Image in Azure* and select **Enter** on the matching suggestion.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-build-in-azure-small.png" lightbox="media/visual-studio-code/visual-studio-code-build-in-azure.png" alt-text="A screenshot showing how to build the image in Azure.":::
 
-2) The command palette will open and prompt you to enter a tag for the container. Accept the default, which will use the project name with the **Run ID** appended afterward. Press enter to continue.
+2) As the command palette opens, you are prompted to enter a tag for the container. Accept the default, which uses the project name with the `{{.Run.ID}}` replacement token as a suffix. Select **Enter** to continue.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-container-tag.png" alt-text="A screenshot showing Container Apps tagging.":::
 
@@ -70,19 +70,19 @@ Container images are stored inside of container registries. You can easily creat
 
 4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to step 7.  
 
-5) Enter a name for the new registry such as *msdocscapps123* where 123 are unique numbers, and then press enter.  
+5) Enter a unique name for the new registry such as *msdocscapps123*, where 123 are unique numbers of your own choosing, and then press enter. Container registry names must be globally unique across all over Azure. 
 
 6) Select **Basic** as the SKU.
 
 7) Choose **+ Create new resource group**, or select an existing resource group you'd like to use. For a new resource group, enter a name such as `msdocscontainerapps`, and press enter.
 
-8) Finally, select the location that is nearest to you. Press enter to finalize the workflow, and Azure will begin creating the container registry and building the image.  This may take a few moments to complete.
+8) Finally, select the location that is nearest to you. Select **Enter** to finalize the workflow, and Azure begins creating the container registry and building the image.  This may take a few moments to complete.
 
 Once the registry is created and the image is built successfully, you are ready to create the container app to host the published image.
 
 ## Create and deploy to the container app
 
-The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario you will create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
+The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code. 
 
 ### Create the Container Apps environment 
 
@@ -92,7 +92,7 @@ Every container app must be part of a Container Apps environment. An environment
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-create-app-environment.png" alt-text="A screenshot showing how to create a Container Apps environment.":::
 
-2) A command palette workflow will open at the top of the screen. Enter a name for the new Container Apps environment, such as `msdocsappenvironment`, and press enter.
+2) A command palette workflow will open at the top of the screen. Enter a name for the new Container Apps environment, such as `msdocsappenvironment`, and select **Enter**.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-container-app-environment.png" alt-text="A screenshot showing the container app environment.":::
 
@@ -110,11 +110,11 @@ Now that you have a container app environment in Azure you can create a containe
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-create-container-app.png" alt-text="A screenshot showing how to create the container app.":::
 
-2) A new command palette workflow will open at the top of the screen. Enter a name for the new container app, such as `msdocscontainerapp`, and then press enter.
+2) A new command palette workflow will open at the top of the screen. Enter a name for the new container app, such as `msdocscontainerapp`, and then select **Enter**.
 
      :::image type="content" source="media/visual-studio-code/visual-studio-code-container-name.png" alt-text="A screenshot showing the container app name.":::
 
-3) Next, you will be prompted to choose a container registry hosting solution to pull a Docker image from.  For this scenario, select **Azure Container Registries**, though Docker Hub is also supported.
+3) Next, you're prompted to choose a container registry hosting solution to pull a Docker image from.  For this scenario, select **Azure Container Registries**, though Docker Hub is also supported.
 
 4) Select the container registry you created previously when publishing the Docker image.
 
@@ -122,19 +122,19 @@ Now that you have a container app environment in Azure you can create a containe
 
 6) Select the tag of the image you published earlier.
 
-7) When prompted for environment variables, choose **Skip for now**. Our application does not require any environment variables.
+7) When prompted for environment variables, choose **Skip for now**. This application does not require any environment variables.
 
 8) Select **Enable** on the ingress settings prompt to enable an HTTP endpoint for your application.
 
 9) Choose **External** to configure the HTTP traffic that the endpoint will accept.
 
-10) Leave the default value of 80 for the port, and then press enter to complete the workflow.
+10) Leave the default value of 80 for the port, and then select **Enter** to complete the workflow.
 
-Visual Studio Code and Azure will create the container app for you.  The published Docker image you created earlier will also be deployed to the app.  Once this process finishes, Visual Studio Code will display a notification with a link to browse to the site.  Click this link, and your app will load in the browser. 
+During this process, Visual Studio Code and Azure create the container app for you.  The published Docker image you created earlier is also be deployed to the app.  Once this process finishes, Visual Studio Code displays a notification with a link to browse to the site.  Click this link, and to view your app in the browser. 
 
 :::image type="content" source="media/visual-studio-code/visual-studio-code-app-deploy.png" alt-text="A screenshot showing the deployed app.":::
 
-You can also append the /albums path at the end of the app URL to view data from a sample API request.  
+You can also append the `/albums` path at the end of the app URL to view data from a sample API request. 
 
 Congratulations! You successfully created and deployed your first container app using Visual Studio code.
 
