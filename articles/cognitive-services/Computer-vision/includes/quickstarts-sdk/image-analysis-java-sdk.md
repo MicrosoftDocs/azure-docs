@@ -14,7 +14,13 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library to analyze an image for tags, text description, faces, adult content, and more.
+Use the Image Analysis client library to analyze a remote image for tags, text description, faces, adult content, and more.
+
+> [!TIP]
+> You can also analyze a local. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **AnalyzeImage**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java) for scenarios involving remote images.
+
+> [!TIP]
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md) for examples that showcase all of the available features.
 
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -75,178 +81,35 @@ From your working directory, run the following command to create a project sourc
 mkdir -p src/main/java
 ```
 
-Navigate to the new folder and create a file called *ImageAnalysisQuickstart.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new folder and create a file called *ImageAnalysisQuickstart.java*. 
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_imports)]
+### Find the subscription key and endpoint
 
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java), which contains the code examples in this quickstart.
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
-Define the class **ImageAnalysisQuickstart**.
+## Analyze image
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_classdef_1)]
+1. Open *ImageAnalysisQuickstart.java* in your preferred editor or IDE and paste in the following code.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_classdef_2)]
+   [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart-single.java?name=snippet_single)]
 
-Within the **ImageAnalysisQuickstart** class, create variables for your resource's key and endpoint.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_creds)]
+1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
+   > [!IMPORTANT]
+   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+1. Navigate back to the project root folder, and build the app with:
 
-In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_main)]
-
-
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Image Analysis Java SDK.
-
-|Name|Description|
-|---|---|
-| [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes.|
-|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision)| This class comes from the client object and directly handles all of the image operations, such as image analysis, text detection, and thumbnail generation.|
-|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of VisualFeatureTypes values depending on your needs. |
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Image Analysis client library for Java:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze an image](#analyze-an-image)
-
-## Authenticate the client
-
-In a new method, instantiate a [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) object with your endpoint and key.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_auth)]
-
-
-## Analyze an image
-
-The following code defines a method, `AnalyzeLocalImage`, which uses the client object to analyze a local image and print the results. The method returns a text description, categorization, list of tags, detected faces, adult content flags, main colors, and image type.
-
-> [!TIP]
-> You can also analyze a remote image using its URL. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **AnalyzeImage**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java) for scenarios involving remote images.
-
-### Set up test image
-
-First, create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to analyze. Then add the following method definition to your **ImageAnalysisQuickstart** class. Change the value of the `pathToLocalImage` to match your image file. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_refs)]
-
-### Specify visual features
-
-Next, specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) enum for a complete list.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_features)]
-
-### Analyze
-This block prints detailed results to the console for each scope of image analysis. The **analyzeImageInStream** method returns an **ImageAnalysis** object that contains all of extracted information.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_analyze)]
-
-The following sections show how to parse this information in detail.
-
-### Get image description
-
-The following code gets the list of generated captions for the image. For more information, see [Describe images](../../concept-describing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_captions)]
-
-### Get image category
-
-The following code gets the detected category of the image. For more information, see [Categorize images](../../concept-categorizing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_category)]
-
-### Get image tags
-
-The following code gets the set of detected tags in the image. For more information, see [Content tags](../../concept-tagging-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_tags)]
-
-### Detect faces
-
-The following code returns the detected faces in the image with their rectangle coordinates and selects face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_faces)]
-
-### Detect objects
-
-The following code returns the detected objects in the image with their coordinates. For more information, see [Object detection](../../concept-object-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_objects)]
-
-
-### Detect brands
-
-The following code returns the detected brand logos in the image with their coordinates. For more information, see [Brand detection](../../concept-brand-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_brands)]
-
-
-
-### Detect adult, racy, or gory content
-
-The following code prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../../concept-detecting-adult-content.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_adult)]
-
-### Get image color scheme
-
-The following code prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../../concept-detecting-color-schemes.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_colors)]
-
-### Get domain-specific content
-
-Image Analysis can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
-
-The following code parses data about detected celebrities in the image.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_celebrities)]
-
-The following code parses data about detected landmarks in the image.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_landmarks)]
-
-### Get the image type
-
-The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_imagetype)]
-
-
-
-### Close out the method
-
-Complete the try/catch block and close the method.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyze_catch)]
-
-
-## Run the application
-
-You can build the app with:
-
-```console
-gradle build
-```
-
-Run the application with the `gradle run` command:
-
-```console
-gradle run
-```
-
-
+   ```console
+   gradle build
+   ```
+   
+   Then, run it with the `gradle run` command:
+   
+   ```console
+   gradle run
+   ```
 
 ## Clean up resources
 
@@ -254,7 +117,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
 
 ## Next steps
 
