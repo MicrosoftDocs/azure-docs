@@ -91,6 +91,16 @@ In Azure portal, you can select **Logs** under **Monitoring** on the left-pane o
 
 :::image type="content" source="media/monitor-iot-dps/logs-portal.png" alt-text="Logs page for a Dps instance.":::
 
+> [!IMPORTANT]
+> When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instances or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+
+Run queries against the **AzureDiagnostics** table to see the resource logs collected for the diagnostic settings you've created for your DPS instance.
+
+<!-- Put in a code section here. -->  
+```kusto
+AzureDiagnostics
+```
+
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for DPS resource logs is found in [Schemas in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#schemas).
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
@@ -101,22 +111,18 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
-### Sample Kusto queries
+<!-- ### Sample Kusto queries -->
 
 <!-- REQUIRED if you support logs. Please keep headings in this order -->
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
+<!--
 > [!IMPORTANT]
-> When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instanfes or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+> When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instances or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
-
-Following are queries that you can use to help you monitor your DPS instance.
-
+<!-->
 <!-- Put in a code section here. -->  
-```Kusto
-   
-```
 
 ## Alerts
 
@@ -125,14 +131,6 @@ This information is the BIGGEST request we get in Azure Monitor so do not avoid 
 -->
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
-
-The following table lists common and recommended alert rules for DPS.
-
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
 
 ## Next steps
 
