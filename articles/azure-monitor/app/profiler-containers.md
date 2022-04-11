@@ -1,11 +1,11 @@
 ---
-title: Profile Linux container in Azure with Application Insights Profiler
-description: Enable Application Insights Profiler for Azure Container Instances.
+title: Profile Azure Containers with Application Insights Profiler
+description: Enable Application Insights Profiler for Azure Containers.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 04/11/2022
 ---
 
 # Profile a Linux container in Azure with Application Insights Profiler
