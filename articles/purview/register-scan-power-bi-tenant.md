@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -48,7 +48,10 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 - You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-- If delegated auth is used, make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
+- If delegated auth is used:
+  -  Make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
+
+  -  Exclude the user from Azure multi-factor authentication.
 
 - If self-hosted integration runtime is used:
 
@@ -185,9 +188,11 @@ To create and run a new scan, do the following:
 
 This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power PI tenant are configured to allow public access.
 
-> [!Note]
-> Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied. 
-> For more information related to Power BI network, see [How to configure private endpoints for accessing Power BI](/power-bi/admin/service-security-private-links.md).
+> [!IMPORTANT]
+> Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied.
+>
+> For more information related to Power BI network, see [How to configure private endpoints for accessing Power BI](/power-bi/enterprise/service-security-private-links).
+>
 > For more information about Azure Purview network settings, see [Use private endpoints for your Azure Purview account](catalog-private-link.md).
 
 To create and run a new scan, do the following:
@@ -312,7 +317,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service Principle.":::
   
-8. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
+8. From Azure Active Directory dashboard, select newly created application and then select **App permissions**. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
    - Power BI Service Tenant.Read.All
    - Microsoft Graph openid

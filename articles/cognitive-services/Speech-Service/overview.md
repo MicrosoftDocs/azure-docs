@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/09/2022
 ms.author: eur
 ---
 
@@ -25,7 +25,7 @@ The following features are part of the Speech service. Use the links in this tab
 | | [Multidevice conversation](multi-device-conversation.md) | Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.| Yes | No |
 | | [Conversation transcription](./conversation-transcription.md) | Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers. | Yes | No |
 | | [Create custom speech models](#customize-your-speech-experience) | If you're using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| | [Pronunciation assessment](./how-to-pronunciation-assessment.md) | Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. | [Yes](./how-to-pronunciation-assessment.md) | [Yes](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
+| | [Pronunciation assessment](./how-to-pronunciation-assessment.md) | Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. | [Yes](./how-to-pronunciation-assessment.md) | [Yes](./rest-speech-to-text-short.md#pronunciation-assessment-parameters) |
 | [Text-to-speech](text-to-speech.md) | Prebuilt neural voices | Text-to-speech converts input text into humanlike synthesized speech by using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are humanlike voices powered by deep neural networks. See [Language support](language-support.md). | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
 | | [Custom neural voices](#customize-your-speech-experience) | Create custom neural voice fonts unique to your brand or product. | No | [Yes](#reference-docs) |
 | [Speech translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multilanguage translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
@@ -119,13 +119,7 @@ Other products offer speech models tuned for specific purposes, like healthcare 
 
 ## Deploy on-premises by using Docker containers
 
-[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. The Speech service offers the following containers:
-
-* Standard Speech-to-Text
-* Custom Speech-to-Text
-* Prebuilt Neural Text-to-Speech
-* Custom Neural Text-to-Speech (preview)
-* Speech Language Identification (preview)
+[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
 ## Reference docs
 

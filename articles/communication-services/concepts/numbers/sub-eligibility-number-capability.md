@@ -69,12 +69,14 @@ The tables below summarize current availability:
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
 | Denmark | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
 | Denmark | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
 ## Next steps
 
-For additional information about ACS' telephony options please see the following pages:
+For additional information about Azure Communication Services' telephony options please see the following pages:
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)

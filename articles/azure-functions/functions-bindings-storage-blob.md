@@ -57,11 +57,11 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute.Blobs/5.0.0-beta.4), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage), version 4.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -109,7 +109,7 @@ You can add this version of the extension from the preview extension bundle v3 b
 
 ```json
 {
-  "version": "3.0",
+  "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.3.0, 4.0.0)"
@@ -145,7 +145,7 @@ This section describes the function app configuration settings available for fun
     "version": "2.0",
     "extensions": {
         "blobs": {
-            "maxDegreeOfParallelism": "4"
+            "maxDegreeOfParallelism": 4
         }
     }
 }

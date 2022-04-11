@@ -1,8 +1,8 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -27,7 +27,7 @@ Using the [Azure portal](https://portal.azure.com):
    4. Select extensions you wish to allow-list.
      :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
   
-Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
+Using [Azure CLI](/cli/azure/):
 
    You can allow-list extensions via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
@@ -35,7 +35,7 @@ Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
    ```
 
-   Using [ARM Template](https://docs.microsoft.com/azure/azure-resource-manager/templates/):
+   Using [ARM Template](../../azure-resource-manager/templates/index.yml):
    Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
@@ -104,7 +104,7 @@ Using the [Azure portal](https://portal.azure.com):
      :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation .":::
   
 
-Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
+Using [Azure CLI](/cli/azure/):
 
    You can set `shared_preload_libraries` via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 

@@ -45,7 +45,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
 |Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).|
 |Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions. The functions deployed on Azure Stack Edge include mobile packet core, SD-WAN edge, and VPN services. <br>For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
-|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-placeholder.md).|
+|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-gpu-clustering-overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 

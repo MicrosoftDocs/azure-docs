@@ -88,7 +88,7 @@ The following samples illustrate public client applications (desktop/mobile appl
 The following samples show desktop or web applications that access the Microsoft Graph or a web API with no user (with the application identity).
 
 Client application | Platform | Flow/Grant | Calls an ASP.NET or ASP.NET Core 2.0 Web API
------------------- | -------- | ---------- | -------------------- 
+------------------ | -------- | ---------- | --------------------
 Daemon app (Console)          | ![This image shows the .NET Framework logo](media/sample-v2-code/logo-netframework.png) | Client Credentials with app secret or certificate | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Daemon app (Console)         | ![This image shows the .NET Core logo](media/sample-v2-code/logo-netcore.png) | Client Credentials with certificate| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET Web App  | ![This image shows the .NET Framework logo](media/sample-v2-code/logo-netframework.png) | Client credentials | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
@@ -97,7 +97,7 @@ ASP.NET Web App  | ![This image shows the .NET Framework logo](media/sample-v2-c
 
 ### Web API protected by Azure Active Directory
 
-The following sample shows how to protect a node.js web API with Azure AD.
+The following sample shows how to protect a Node.js web API with Azure AD.
 
 In the previous sections of this article, you can also find other samples illustrating a client application **calling** an ASP.NET or ASP.NET Core **Web API**. These samples are not mentioned again in this section, but you will find them in the last column of the tables above or below
 

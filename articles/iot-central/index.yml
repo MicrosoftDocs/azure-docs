@@ -63,8 +63,10 @@ landingContent:
             url: core/overview-iot-central-developer.md
       - linkListType: concept
         links:
-          - text: How devices connect
-            url: core/concepts-get-connected.md
+          - text: Device implementation
+            url: core/concepts-device-implementation.md
+          - text: Device authentication
+            url: core/concepts-device-authentication.md
           - text: Message payloads sent and received by devices
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: learn

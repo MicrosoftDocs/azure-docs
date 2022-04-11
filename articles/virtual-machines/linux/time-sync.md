@@ -113,7 +113,7 @@ symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure hos
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
+refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
 ```
 
 If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.

@@ -44,7 +44,7 @@ az login
 
 ### Sign in to Batch account
 
-Next, sign in to your Batch account in the Azure CLI using the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This step gives you access to Batch service commands. Then, you can manage Batch resources like pools, jobs, and tasks.
+Next, sign in to your Batch account in the Azure CLI using the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. This step gives you access to Batch service commands. Then, you can manage Batch resources like pools, jobs, and tasks.
 
 You can authenticate your Batch account in the Azure CLI in two ways. The default method is to [authenticate using Azure AD](#authenticate-with-azure-ad). We recommend using this method in most scenarios. Another option is to [use Shared Key authentication](#authenticate-with-shared-key).
 
