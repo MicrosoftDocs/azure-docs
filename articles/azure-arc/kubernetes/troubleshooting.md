@@ -166,7 +166,7 @@ When attempting to onboard Kubernetes clusters to the Azure Arc platform, the lo
 Cannot load native module 'Crypto.Hash._MD5'
 ```
 
-Adding the extensions `connectedk8s` and `k8s-configuration` using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions) or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions) sometimes fails to successfully download dependent modules. To fix this problem, manually remove and then add the extensions in the local environment:
+Sometimes, dependent modules fail to download successfully when adding the extensions `connectedk8s` and `k8s-configuration` via Azure CLI or Azure Powershell. To fix this problem, manually remove and then add the extensions in the local environment:
 
 ```azurecli
 az extension remove --name connectedk8s
