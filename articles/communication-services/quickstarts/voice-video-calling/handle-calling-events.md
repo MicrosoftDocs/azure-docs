@@ -49,7 +49,7 @@ For this quickstart, we will use the [Azure Event Grid Viewer Sample](/samples/a
 
 In the portal, navigate to your Azure Communication Services Resource that you created. Inside the Communication Service resource, select **Events** from the left menu of the **Communication Services** page.
 
-:::image type="content" source="../../quickstarts/sms/media/handle-sms-events/select-events.png" alt-text="Screenshot showing selecting the event subscription button within a resource's events page.":::
+:::image type="content" source="/articles/communication-services/quickstarts/sms/media/handle-sms-events/select-events.png" alt-text="Screenshot showing selecting the event subscription button within a resource's events page.":::
 
 Press **Add Event Subscription** to enter the creation wizard.
 
@@ -61,11 +61,11 @@ If you're prompted to provide a **System Topic Name**, feel free to provide a un
 
 Check out the full list of [events supported by Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
-:::image type="content" source="./media/handle-calling-events/select-events-voice-video-calling.png" alt-text="Screenshot showing the calling event types being selected.":::
+:::image type="content" source="/articles/communication-services/quickstarts/voice-video-calling/media/handle-calling-events/select-events-voice-video-calling.png" alt-text="Screenshot showing the calling event types being selected.":::
 
 Select **Web Hook** for **Endpoint type**.
 
-:::image type="content" source="../../quickstarts/sms/media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot showing the Endpoint Type field being set to Web Hook.":::
+:::image type="content" source="/articles/communication-services/quickstarts/sms/media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot showing the Endpoint Type field being set to Web Hook.":::
 
 For **Endpoint**, click **Select an endpoint**, and enter the URL of your web app.
 
@@ -73,7 +73,7 @@ In this case, we will use the URL from the [Azure Event Grid Viewer Sample](/sam
 
 Then select **Confirm Selection**.
 
-:::image type="content" source="../../quickstarts/sms/media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot showing confirming a Web Hook Endpoint.":::
+:::image type="content" source="/articles/communication-services/quickstarts/sms/media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot showing confirming a Web Hook Endpoint.":::
 
 ## Viewing voice and video calling events
 
