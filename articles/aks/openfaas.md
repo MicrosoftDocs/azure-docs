@@ -243,7 +243,7 @@ You can also test the function within the OpenFaaS UI.
 
 ## Next Steps
 
-You can continue to learn with the OpenFaaS workshop through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
+You can continue to learn with the [OpenFaaS workshop](https://github.com/openfaas/workshop) through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

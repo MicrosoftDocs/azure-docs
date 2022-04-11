@@ -1,5 +1,5 @@
 ---
-title: How to train your custom classification model - Azure Cognitive Services
+title: How to train your custom text classification model - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Learn about how to train your model for custom text classification.
 services: cognitive-services
@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-# How to train a text classification model
+# How to train a custom text classification model
 
 
 Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
@@ -28,14 +28,6 @@ Before you train your model you need:
 
 See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-## Data split
-
-Before starting the training process, files in your dataset are divided into three groups at random:
-
-* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
-
-* The **test set** contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
-
 ## Train model in Language Studio
 
 1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
@@ -48,9 +40,15 @@ Before starting the training process, files in your dataset are divided into thr
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
+If you have enabled the [**Split project data manually** selection](tag-data.md#tag-your-data) when you were tagging your data, you will see two training options:
+
+* **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
+
+* **Use a manual split**: Assign each document to either the training or testing set, this required first adding files in the test dataset.
+
 5. Click on the **Train** button.
 
-6. You can check the status of the training job in the same page. Only successfully completed tasks will generate models.
+6. You can check the status of the training job in the same page. Only successfully completed training jobs will generate models.
 
 You can only have one training job running at a time. You cannot create or start other tasks in the same project. 
 

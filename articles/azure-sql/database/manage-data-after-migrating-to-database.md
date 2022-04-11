@@ -111,7 +111,7 @@ Azure AD supports [Azure AD Multi-Factor Authentication](authentication-mfa-ssms
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Have middle-tier services which need to connect to SQL Database or Azure Synapse Analytics|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
-|||
+
 
 ### How do I limit or control connectivity access to my database
 

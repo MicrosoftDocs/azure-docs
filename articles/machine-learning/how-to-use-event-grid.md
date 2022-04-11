@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: cgronlun
-author: cjgronlund
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 10/21/2021
 ---
 

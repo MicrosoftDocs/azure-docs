@@ -104,7 +104,7 @@ To complete this tutorial, you need to:
 1. Specify your **Azure SQL Managed Instance** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
 1. Select **Offline migration** as the migration mode.
     > [!NOTE]
-    > In the offline migration mode, the source SQL Server database is not available for read and write activity while database backups are restored on target Azure SQL Managed Instance. Application downtime needs to be considered till the migration completes.
+    > In the offline migration mode, the source SQL Server database should not be used for write activity while database backups are restored on target Azure SQL Managed Instance. Application downtime needs to be considered till the migration completes.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
 
     > [!NOTE]

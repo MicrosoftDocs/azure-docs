@@ -3,6 +3,8 @@ title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
 ms.date: 03/10/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)
@@ -12,7 +14,7 @@ ms.topic: overview
 Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
 Threat protection at the cluster level is provided by the analysis of the Kubernetes audit logs. 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
 ## Availability
 
@@ -34,7 +36,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Kubernetes?
 

@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
+ms.date: 03/18/2022
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -65,7 +65,7 @@ The Marketplace Insights **Visitors** chart displays a count of _Page visits_ an
 
 ### Call to actions trend
 
-This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner, and equals the number of customers acquired for your offers. The following two examples show where *Consent given* clicks appear:
+This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner. The following two examples show where *Consent given* clicks appear:
 
 :::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="Illustrates a location where a consent button is selected.":::
 

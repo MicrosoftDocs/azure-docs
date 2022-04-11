@@ -6,7 +6,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 03/23/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
@@ -33,7 +33,6 @@ The articles below highlight concepts and design decisions for Synapse SQL devel
 | [External tables](develop-tables-external-tables.md) | Yes | Yes |
 | [CETAS](develop-tables-cetas.md)                     | Yes | Yes |
 
-
 ## Recommendations
 
 Below you'll find essential articles that emphasize specific coding techniques, tips, and recommendations for development:
@@ -48,6 +47,18 @@ Below you'll find essential articles that emphasize specific coding techniques, 
 | [Looping](develop-loops.md)                         | Yes                | Yes                     |
 | [Group by options](develop-group-by-options.md)       | Yes                | No                      |
 | [Variable assignment](develop-variable-assignment.md) | Yes                | Yes                     |
+
+## Benefits & best practices
+
+* To learn more on which scenarios are suited for Serverless SQL pool, see [Serverless SQL pool benefits](on-demand-workspace-overview.md#serverless-sql-pool-benefits) article.
+
+* [Best practices for using serverless SQL pool](best-practices-serverless-sql-pool.md)
+
+* [Best practices for optimal performance using dedicated SQL pools](best-practices-dedicated-sql-pool.md)
+
+## T-SQL feature support
+
+Transact-SQL language is used in serverless SQL pool and dedicated model can reference different objects and has some differences in the set of supported features. For more information, see [Transact-SQL features supported in Azure Synapse SQL](overview-features.md) article.
 
 ## Next steps
 For more reference information, see [SQL pool T-SQL statements](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?context=/azure/synapse-analytics/context/context).

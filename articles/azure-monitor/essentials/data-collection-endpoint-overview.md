@@ -1,19 +1,19 @@
 ---
-title: Data collection endpoints in Azure Monitor (preview)
+title: Data collection endpoints in Azure Monitor 
 description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 03/16/2022
 ms.custom: references_region
 
 ---
 
-# Data collection endpoints in Azure Monitor (preview)
+# Data collection endpoints in Azure Monitor 
 Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion settings for Azure Monitor. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Workflows that use DCEs
 The following workflows currently use DCEs:
 
-- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md))
+- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
 - [Custom logs](../logs/custom-logs-overview.md)
 
 ## Components of a data collection endpoint

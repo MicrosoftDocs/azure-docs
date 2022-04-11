@@ -7,8 +7,8 @@ ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
-author: MaraSteiu 
-ms.author: masteiu
+author: rothja 
+ms.author: jroth
 ms.reviewer: kendralittle, mathoma
 ms.date: 2/2/2022
 ---
@@ -260,6 +260,10 @@ Federation Root Database can be used in the SQL Data Sync Service without any li
 ### Can I use Data Sync to sync data exported from Dynamics 365 using bring your own database (BYOD) feature?
 
 The Dynamics 365 bring your own database feature lets administrators export data entities from the application into their own Microsoft Azure SQL database. Data Sync can be used to sync this data into other databases if data is exported using **incremental push** (full push is not supported) and **enable triggers in target database** is set to **yes**.
+
+### How do I create Data Sync in Failover group to support Disaster Recovery?
+
+- To ensure data sync operations in failover region are at par with Primary region, after failover you have to manually re-create the Sync Group in failover region with same settings as primary region.       
 
 ## Next steps
 

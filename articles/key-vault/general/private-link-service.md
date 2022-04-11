@@ -249,7 +249,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
-**Limits**: See [Azure Private Link limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits)
+**Limits**: See [Azure Private Link limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)
 
 **Pricing**: See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 

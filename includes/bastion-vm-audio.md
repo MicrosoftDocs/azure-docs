@@ -6,7 +6,7 @@ ms.service: bastion
 ms.topic: include
 
 ---
-You can enable remote audio output for your VM. Some VMs automatically enable this setting, others require you to enable audio settings manually.
+You can enable remote audio output for your VM. Some VMs automatically enable this setting, others require you to enable audio settings manually. The settings are changed on the VM itself. Your Bastion deployment doesn't need any special configuration settings to enable remote audio output.
 
 > [!NOTE]
 > Audio output takes up bandwidth on your internet connection.

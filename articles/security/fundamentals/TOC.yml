@@ -136,6 +136,8 @@
     href: key-management.md
   - name: Double encryption
     href: double-encryption.md
+  - name: Sunset for SHA-1 OCSP signing
+    href: ocsp-sha-1-sunset.md
   - name: TLS certificate changes
     href: tls-certificate-changes.md
   - name: Disk encryption

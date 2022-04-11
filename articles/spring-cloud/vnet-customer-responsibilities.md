@@ -40,7 +40,7 @@ The following list shows the resource requirements for Azure Spring Cloud servic
 | \*:123 *or* ntp.ubuntu.com:123                                | UDP:123          | NTP time synchronization on Linux nodes.  |                                                              |
 | \*.azure.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hub.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hubs.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 
 ## Azure Spring Cloud FQDN requirements/application rules
 
@@ -78,4 +78,4 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 ## Next steps
 
 - [Access your application in a private network](access-app-virtual-network.md)
-- [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)
+- [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md)

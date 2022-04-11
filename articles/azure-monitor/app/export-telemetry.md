@@ -16,6 +16,8 @@ Want to keep your telemetry for longer than the standard retention period? Or pr
 > Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
 >
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.

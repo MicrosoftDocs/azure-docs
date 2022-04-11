@@ -10,7 +10,7 @@ ms.date: 7/7/2020
 
 # Overview of business continuity with Azure Database for MariaDB
 
-This article describes the capabilities that Azure Database for MySQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
+This article describes the capabilities that Azure Database for MariaDB provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## Features that you can use to provide business continuity
 
@@ -61,8 +61,8 @@ You can use cross region read replicas to enhance your business continuity and d
 
 ## FAQ
 
-### Where does Azure Database for MySQL store customer data?
-By default, Azure Database for MySQL doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable [geo-redundant backups](concepts-backup.md#backup-redundancy-options) or create [cross-region read replica](concepts-read-replicas.md#cross-region-replication) for storing data in another region.
+### Where does Azure Database for MariaDB store customer data?
+By default, Azure Database for MariaDB doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable [geo-redundant backups](concepts-backup.md#backup-redundancy-options) or create [cross-region read replica](concepts-read-replicas.md#cross-region-replication) for storing data in another region.
 
 
 ## Next steps
