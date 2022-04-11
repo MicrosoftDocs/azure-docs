@@ -51,13 +51,10 @@ Your email domain is now ready to send emails.
 
 ## Next steps
 
-> [Understanding Email Domains in Azure Communication Services](../../concepts/Email/Understanding-email-domain-setup.md)
-
-> [Configure Email Authentication for your domain in Azure Communication Services Email](../../quickstarts/Email/setup-email-authentication.md)
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
 
 > [Best Practices for Sender Authentication Support in Azure Communication Services Email](./email-authentication-bestpractice.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
