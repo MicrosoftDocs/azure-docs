@@ -612,12 +612,6 @@
         items:
         - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Kubernetes Service
-          displayName: aks, aad, authentication, azure active directory
-          href: how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search

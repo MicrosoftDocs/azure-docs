@@ -399,7 +399,7 @@ model_name = best_child_run.properties['model_name']
 model = best_child_run.register_model(model_name = model_name, model_path='outputs/model.pt')
 ```
 
-After you register the model you want to use, you can deploy it as a web service on [Azure Container Instances (ACI)](how-to-deploy-azure-container-instance.md) or [Azure Kubernetes Service (AKS)](how-to-deploy-azure-kubernetes-service.md). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
+After you register the model you want to use, you can deploy it as a web service on [Azure Container Instances (ACI)](v1/how-to-deploy-azure-container-instance.md) or [Azure Kubernetes Service (AKS)](v1/how-to-deploy-azure-kubernetes-service.md). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
 
 This example deploys the model as a web service in AKS. To deploy in AKS, first create an AKS compute cluster or use an existing AKS cluster. You can use either GPU or CPU VM SKUs for your deployment cluster. 
 

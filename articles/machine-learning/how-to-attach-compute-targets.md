@@ -337,7 +337,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 ## <a id="aci"></a>Azure Container Instance
 
-Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
+Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md).
 
 ## <a id="kubernetes"></a>Kubernetes (preview)
 
