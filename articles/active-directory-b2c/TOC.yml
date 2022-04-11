@@ -273,6 +273,8 @@
       href: identity-provider-linkedin.md
     - name: Microsoft Account
       href: identity-provider-microsoft-account.md
+    - name: Mobile ID
+      href: identity-provider-mobile-id.md
     - name: PingOne (PingIdentity)
       href: identity-provider-ping-one.md
       displayName: Ping identity
