@@ -4,8 +4,8 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.topic: conceptual
-ms.date: 04/05/2022
+ms.topic: how-to
+ms.date: 04/11/2022
 ms.author: v-bcatherine
 ---
 
@@ -32,10 +32,12 @@ With managed identities:
 ### Common use cases
 
 System-assigned identities are best for workloads that:
+
 - are contained within a single resource
 - need independent identities
 
 User-assigned identities are ideal for workloads that:
+
 - run on multiple resources and can share a single identity
 - need pre-authorization to a secure resource
 
@@ -55,6 +57,9 @@ You can configure your managed identities through:
 - your Azure Resource Manager (ARM) template
 
 When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
+
+>[!NOTE]
+> When adding a managed identity for a container app deployed before  04/11/2022, you must create a new revision.
 
 ### Add a system-assigned identity
 
