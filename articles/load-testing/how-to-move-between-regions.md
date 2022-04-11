@@ -29,7 +29,7 @@ To get started, you'll need to export and then modify an ARM template. You will 
 
 1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](/azure/azure-resource-manager/templates/export-template-portal).
 
-1. Download the input artifacts for all the tests from the resource. Navigate to the **Tests** section in the resource and then click on the test name. **Download the input file** for the test by clicking the More button (...) on the right side of the latest test run.
+1. Download the input artifacts for all the existing tests from the resource. Navigate to the **Tests** section in the resource and then click on the test name. **Download the input file** for the test by clicking the More button (...) on the right side of the latest test run.
 
     :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
 
