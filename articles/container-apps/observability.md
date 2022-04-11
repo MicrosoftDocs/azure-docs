@@ -103,7 +103,6 @@ Here's an example of a simple query, that displays log entries for the container
 
 ```kusto
 ContainerAppConsoleLogs_CL
-| where ContainerName_s !startswith 'probe-shim' // filters out probe-shim-* containers which should not be showing
 | where ContainerAppName_s == 'album-api'
 | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s
 | take 100
@@ -118,7 +117,7 @@ Application logs can be queried from the  [Azure CLI](/cli/azure/monitor/metrics
 Example Azure CLI query to display the log entries for a container app:
 
 ```azurecli
-az monitor log-analytics query --workspace --analytics-query "ContainerAppConsoleLogs_CL | where ContainerName_s !startswith 'probe-shim' | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Message, LogLevel_s | take 100" --out table
+az monitor log-analytics query --workspace --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Message, LogLevel_s | take 100" --out table
 ```
 
 For more information, see [Viewing Logs](monitor.md#viewing-logs).
@@ -137,7 +136,7 @@ In metrics explorer, you can create metric alerts based on Container Apps metric
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Create a new metric alert.":::
 
-When you create a new alert rule, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you based on the metric that you selected for the chart, that you can edit to configure threshold and other settings.
+When you create a new alert rule, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you based on the metric that you selected for the chart.  You then the edit the condition to configure threshold and other settings.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Automatically created condition.":::
 
@@ -151,7 +150,7 @@ When you add an alert condition, the **Select a signal** pane is opened.  This p
 
 After you've selected the metric, you can configure the settings for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](../azure-monitor/alerts/alerts-metric.md).
 
-For Container Apps, you can split alerts by revision and replica.  Enabling splitting will send individual alerts for each dimension you define.
+You can add alert splitting to the condition so you can receive individual alerts for specific revisions or replicas.
 
 Example of setting a dimension for a condition:
 
