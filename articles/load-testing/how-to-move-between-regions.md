@@ -11,7 +11,7 @@ ms.date: 04/12/2022
 ms.topic: how-to
 ---
 
-# Move your Azure Load Testing Preview resources between regions
+# Move an Azure Load Testing Preview resource to another region
 
 This article describes how to move Azure Load Testing Preview resources to a different Azure region. You might move your resources to another region for one of the following reasons:
 
