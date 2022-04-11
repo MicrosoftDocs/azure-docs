@@ -2,17 +2,13 @@
 title: Metrics and alerts for Azure Virtual Network NAT
 titleSuffix: Azure Virtual Network
 description: Understand Azure Monitor metrics and alerts available for Virtual Network NAT.
-services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 04/12/2022
 ms.author: allensu
 ---
 
@@ -21,14 +17,16 @@ ms.author: allensu
 This article provides an overview of all NAT gateway metrics and diagnostic capabilities. This article also provides general guidance on how to use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. 
 
 Azure Virtual Network NAT gateway provides the following diagnostic capabilities:  
+
 - Multi-dimensional metrics and alerts through Azure Monitor. You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues. 
+
 - Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provides you with a topological map of your Azure setup and metrics dashboards. 
 
 :::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
 *Figure: Virtual Network NAT for outbound to Internet*
 
-## Metrics Overview
+## Metrics overview
 
 NAT gateway resources provide the following multi-dimensional metrics in Azure Monitor:
 
@@ -44,108 +42,175 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 ## Where to find my NAT gateway metrics
 
 NAT gateway metrics can be found in the following locations in the Azure portal.
-1. **Metrics** page under **Monitoring** from a NAT gateway's resource page.
-2. **Insights** page under **Monitoring** from a NAT gateway's resource page.
-3. Azure Monitor page under **Metrics**
+
+- **Metrics** page under **Monitoring** from a NAT gateway's resource page.
+
+- **Insights** page under **Monitoring** from a NAT gateway's resource page.
+
+- Azure Monitor page under **Metrics**.
 
 To view any one of your metrics for a given NAT gateway resource:
+
 1. Select the NAT gateway resource you would like to monitor.
+
 2. In the **Metric** drop-down menu, select one of the provided metrics.
+
 3. In the **Aggregation** drop-down menu, select the recommended aggregation listed in the [metrics overview](#metrics-overview) table. 
-4. To adjust the timeframe over which the chosen metric is presented on the metrics graph or to adjust how frequently the chosen metric is measured, select the **Time** window in the top right corner of the metrics page and make your adjustments. 
+
+4. To adjust the time frame over which the chosen metric is presented on the metrics graph or to adjust how frequently the chosen metric is measured, select the **Time** window in the top right corner of the metrics page and make your adjustments. 
 
 ## How to use NAT gateway metrics
 
 ### Bytes
 
-The Bytes metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection. Use this metric to: 
-- Assess the amount of data being processed through NAT gateway to connect outbound or return inbound. 
+The **Bytes** metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection. 
 
-To view the amount of data sent in one or both directions when connecting outbound through NAT gateway, follow these steps: 
+Use this metric: 
+
+- To assess the amount of data being processed through NAT gateway to connect outbound or return inbound.**
+
+To view the amount of data sent in one or both directions when connecting outbound through NAT gateway, use the following steps:
+
 1. Select the NAT gateway resource you would like to monitor. 
+
 2. In the **Metric** drop-down menu, select the **Bytes** metric. 
+
 3. In the **Aggregation** drop-down menu, select **Sum**.
-4.  Select to **Add filter**.
-5.  In the **Property** drop-down menu, select **Direction (Out | In)**.
-6.  In the **Values** drop-down menu, select **Out**, **In**, or both. 
-7.  To see data processed inbound or outbound as their own individual lines in the metric graph, select **Apply splitting**. 
+
+4. Select to **Add filter**.
+
+5. In the **Property** drop-down menu, select **Direction (Out | In)**.
+
+6. In the **Values** drop-down menu, select **Out**, **In**, or both. 
+
+7. To see data processed inbound or outbound as their own individual lines in the metric graph, select **Apply splitting**. 
+
 8.  In the **Values** drop-down menu, select **Direction (Out | In)**.
 
 ### Packets
 
-The packets metric shows you the amount of data packets transmitted through NAT gateway. Use this metric to:  
+The packets metric shows you the amount of data packets transmitted through NAT gateway. 
+
+Use this metric to:
+  
 - To confirm that traffic is being sent through your NAT gateway to go outbound to the internet or return inbound. 
+
 - To assess the amount of traffic being directed through your NAT gateway resource outbound or inbound (when in response to an outbound directed flow). 
 
 To view the number of packets sent in one or both directions when connecting outbound through NAT gateway, follow the same steps in the [Bytes](#bytes) section. 
 
-### Dropped Packets
+### Dropped packets
 
-The dropped packets metric shows you the number of data packets dropped by NAT gateway when directing traffic outbound or inbound in response to an outbound connection. Use this metric to: 
+The dropped packets metric shows you the number of data packets dropped by NAT gateway when directing traffic outbound or inbound in response to an outbound connection. 
+
+Use this metric to: 
+
 - Assess whether or not you are nearing or possibly experiencing SNAT exhaustion with a given NAT gateway resource. Check to see if periods of dropped packets coincide with periods of failed SNAT connections with the [Total SNAT Connection Count](#total-snat-connection-count) metric. 
+
 - Help assess if you are experiencing a pattern of failed outbound connections. 
 
 Reasons for why you may see dropped packets: 
+
 - If you are seeing a high rate of dropped packets, it may be due to outbound connectivity failure. Connectivity failure may happen for a variety of reasons. See the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat) to help you further diagnose. 
 
-### SNAT Connection Count
+### SNAT connection count
 
-The SNAT connection count metric shows you the number of newly used SNAT ports within a specified timeframe. Use this metric to: 
+The SNAT connection count metric shows you the number of newly used SNAT ports within a specified time frame. 
+
+Use this metric to: 
+
 - Evaluate the number of successful and failed attempts to make outbound connections.
+
 - Help assess if you are experiencing a pattern of failed outbound connections. 
 
-To view the number of attempted and failed connections, follow these steps: 
-1. Select the NAT gateway resource you would like to monitor. 
-2. In the **Metric** drop-down menu, select the **SNAT Connection Count** metric.
-3. In the **Aggregation** drop-down menu, select **Sum**. 
-4. Select to **Add filter**.
-5. In the **Property** drop-down menu, select **Connection State**.
-6. In the **Values** drop-down menu, select **Attempted**, **Failed**, or both.
-7. To see attempted and failed connections as their own individual lines in the metric graph, select **Apply splitting**.
-8. In the Values drop-down menu, select Connection State.
+To view the number of attempted and failed connections, use the following steps:
 
-Reasons for why you may see failed connections: 
+1. Select the NAT gateway resource you would like to monitor. 
+
+2. In the **Metric** drop-down menu, select the **SNAT Connection Count** metric.
+
+3. In the **Aggregation** drop-down menu, select **Sum**. 
+
+4. Select to **Add filter**.
+
+5. In the **Property** drop-down menu, select **Connection State**.
+
+6. In the **Values** drop-down menu, select **Attempted**, **Failed**, or both.
+
+7. To see attempted and failed connections as their own individual lines in the metric graph, select **Apply splitting**.
+
+8. In the **Values** drop-down menu, select **Connection State**.
+
+Reasons for why you may see failed connections:
+
 - If you are seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat) to help you further diagnose.  
 
-### Total SNAT Connection Count
+### Total SNAT connection count
 
-The Total SNAT connection count metric shows you the total number of active SNAT connections over a period of time. You can use this metric to: 
+The **Total SNAT connection count** metric shows you the total number of active SNAT connections over a period of time. 
+
+You can use this metric to:
+
 - Monitor SNAT port utilization on a given NAT gateway resource. 
+
 - Analyze over a given time interval to provide insight on whether or not NAT gateway connectivity should be scaled out further by adding more public IPs. 
+
 - Assess whether or not you are nearing or possibly experiencing SNAT exhaustion with a given NAT gateway resource.
 
-### Datapath availability (Preview)
+### Data path availability (Preview)
 
-The NAT gateway datapath availability metric measures the availability of the NAT gateway resource over a set interval of time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. You can use this metric to: 
+The NAT gateway data path availability metric measures the availability of the NAT gateway resource over a set interval of time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
+
+You can use this metric to: 
+
 - Monitor the availability of your NAT gateway resource.
+
 - Investigate the platform where your NAT gateway is deployed and determine if it’s healthy. 
+
 - Isolate whether an event is related to your NAT gateway or to the underlying data plane. 
 
-Reasons for why you may see a drop in datapath availability include: 
+Reasons for why you may see a drop in data path availability include: 
+
 - An infrastructure outage has occurred. 
-- There are no healthy VMs available in your NAT gateway configured subnet. To further investigate, refer to the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat) for more information. 
+
+- There aren't healthy VMs available in your NAT gateway configured subnet. For more information, see the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat). 
 
 ## Alerts
 
-Alerts can be configured in Azure Monitor for each of the preceding metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with your NAT gateway resource.  For more information about how metric alerts work, see [Azure Monitor Metric Alerts](/azure/azure-monitor/alerts/alerts-metric-overview). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
+Alerts can be configured in Azure Monitor for each of the preceding metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with your NAT gateway resource. 
+
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](/azure/azure-monitor/alerts/alerts-metric-overview). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
 
 ### Alerts for SNAT port usage
 
-Be alerted to when you are nearing the limit of available SNAT ports for a NAT gateway resource with an alert fo the total SNAT counnection count metric. To set up this alert, follow these steps: 
+Configure alerts for when you are nearing the limit of available SNAT ports for a NAT gateway resource with an alert fo the total SNAT connection count metric. 
+
+To set up the alert, use the following steps:
+
 1. From the NAT gateway resource page, select **Alerts**. 
+
 2. Select **Create alert rule**. 
+
 3. From the signal list, select **Total SNAT Connection Count**. 
+
 4. From the **Operator** drop-down menu, select **Less than or equal to**. 
+
 5. From the **Aggregation type** drop-down menu, select **Total**. 
+
 6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you have scaled out your NAT gateway outbound connectivity with public IP addresses. See [scale NAT gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource#scale-nat-gateway) for more information. 
+
 7. From the **Unit** drop-down menu, select **Count**. 
+
 8. From the **Aggregation granularity (Period)** drop-down menu, select a time period over which you would like the SNAT connection count to be measured. 
+
 9. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
+
 10. Before deploying your action, **test the action group**.
+
 11. Select **Create** to create the alert rule.
 
-[!NOTE]
-SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat). 
+>[!NOTE]
+>SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat). 
 
 ## Network Insights
 
@@ -153,22 +218,27 @@ SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaus
 
 ### View the topology of your Azure architectural setup
 
-To view a topological map of your setup in Azure, follow these steps:
+To view a topological map of your setup in Azure, use the following steps:
+
 1. From your NAT gateway’s resource page, select **Insights** from the **Monitoring** section.  
-2. On the landing page for Insights, you will see a topology map of your NAT gateway setup. This map will show you the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
+
+2. On the landing page for **Insights**, you'll see a topology map of your NAT gateway setup. This map will show you the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
+
 3. You can hover over any component in the topology map to view configuration information.  
 
 ### View all NAT gateway metrics in a dashboard
 
 The metrics dashboard can be used to better understand the performance and health of your NAT gateway resource. The metrics dashboard shows a view of all metrics for NAT gateway on a single page.  
-1. All NAT gateway metrics can be viewed in a dashboard that slides out as a blade when selecting **Show Metrics Pane**.
-2. A full page view of all NAT gateway metrics can be viewed when selecting **View Detailed Metrics**.
+
+- All NAT gateway metrics can be viewed in a dashboard that slides out as a blade when selecting **Show Metrics Pane**.
+
+- A full page view of all NAT gateway metrics can be viewed when selecting **View Detailed Metrics**.
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
 ## Limitations
 
-Resource health isn't supported.
+- Resource health isn't supported.
 
 ## Next steps
 
