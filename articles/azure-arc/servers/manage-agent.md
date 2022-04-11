@@ -304,7 +304,7 @@ Follow these steps to uninstall the Windows agent from the machine:
 
 1. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.
 
-You can also delete the Windows agent directly from the agent setup wizard. Run the the **AzureConnectedMachineAgent.msi** installer package to do so.
+You can also delete the Windows agent directly from the agent setup wizard. Run the **AzureConnectedMachineAgent.msi** installer package to do so.
 
 #### Uninstall from the command line
 
