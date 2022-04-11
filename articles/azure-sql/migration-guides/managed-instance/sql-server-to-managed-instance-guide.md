@@ -33,6 +33,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 To migrate your SQL Server to Azure SQL Managed Instance, make sure you have: 
 
 - Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools for your method.
+- Install the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 - Installed the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.
 - Created a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)
 - Configured connectivity and proper permissions to access both source and target. 
@@ -72,7 +73,7 @@ Proceed to the following steps to assess and migrate databases to Azure SQL Mana
 
 Determine whether SQL Managed Instance is compatible with the database requirements of your application. SQL Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
-The [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data to recommend a right-sized SQL Server on Azure Virtual Machines to meet the performance needs of your workload (with the least price).
+The [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data [to recommend a right-sized Azure SQL Managed Instance](../../../dms/ads-sku-recommend.md) to meet the performance needs of your workload (with the least price).
 
 You can also use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
