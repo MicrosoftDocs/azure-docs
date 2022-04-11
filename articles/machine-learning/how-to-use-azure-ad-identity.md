@@ -146,4 +146,3 @@ blob_data.readall()
 ## Next steps
 
 * For more information on how to use the Python Azure Identity client library, see the [repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) on GitHub.
-* For a detailed guide on deploying models to Azure Kubernetes Service clusters, see the [how-to](how-to-deploy-azure-kubernetes-service.md).

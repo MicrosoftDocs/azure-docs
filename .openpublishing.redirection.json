@@ -21214,6 +21214,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": true

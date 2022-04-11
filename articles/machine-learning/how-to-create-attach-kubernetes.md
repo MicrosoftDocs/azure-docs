@@ -507,4 +507,4 @@ To resolve this problem, create/attach the cluster by using the `load_balancer_t
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
-* [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)
+

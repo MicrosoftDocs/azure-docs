@@ -7,6 +7,14 @@
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
     href: reference-azure-machine-learning-cli.md
+  - name: Deploy models
+    items:
+    - name: Azure Kubernetes Service
+      displayName: aks, aad, authentication, azure active directory
+      href: how-to-deploy-azure-kubernetes-service.md
+    - name: Azure Container Instances
+      displayName: aci
+      href: how-to-deploy-azure-container-instance.md
 - name: Reference
   items: 
   - name: Machine learning CLI pipeline YAML reference

@@ -78,7 +78,7 @@ When you deploy a model from Azure Machine Learning to Azure Kubernetes Service,
 The following code demonstrates how to create a new Azure Kubernetes Service (AKS) cluster for your workspace:
 
 > [!TIP]
-> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
 > Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Services.
@@ -115,7 +115,7 @@ except Exception as e:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 

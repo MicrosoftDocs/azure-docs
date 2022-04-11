@@ -222,8 +222,8 @@ Use Application Insights' [continuous export](../azure-monitor/app/export-teleme
 In this article, you learned how to enable logging and view logs for web service endpoints. Try these articles for next steps:
 
 
-* [How to deploy a model to an AKS cluster](./how-to-deploy-azure-kubernetes-service.md)
+* [How to deploy a model to an AKS cluster](./v1/how-to-deploy-azure-kubernetes-service.md)
 
-* [How to deploy a model to Azure Container Instances](./how-to-deploy-azure-container-instance.md)
+* [How to deploy a model to Azure Container Instances](./v1/how-to-deploy-azure-container-instance.md)
 
 * [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](./concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.
