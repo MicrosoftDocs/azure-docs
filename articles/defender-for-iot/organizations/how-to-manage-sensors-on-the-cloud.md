@@ -128,6 +128,10 @@ This procedure describes how to define sensor settings from the Azure portal and
 
     - Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
 
+    For example:
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets.":::
+
     # [VLAN naming](#tab/vlan)
 
     To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
@@ -140,9 +144,6 @@ This procedure describes how to define sensor settings from the Azure portal and
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
 
-For example:
-
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings.png" alt-text="Screenshot of the Sensor settings page in the Azure portal.":::
 
 ## Reactivate a sensor
 
