@@ -102,16 +102,6 @@ However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-onlin
 - Managed identity: User assigned and system assigned
 - SSL by default for endpoint invocation
 
-### Virtual Network support (preview)
-
-Optionally, you can restrict inbound & outbound traffic to an online endpoint. This functionality is currently in preview.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-You can configure the inbound and outbound communications separately. For you can have an online endpoint that accepts incoming scoring requests from public networks, but outbound requests from the endpoint to Azure resources are secured by a virtual network. Secured communications happen using a private endpoint. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use a private endpoint created per endpoint deployment.
-
-For more information, see []().
-
 ### Autoscaling
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
