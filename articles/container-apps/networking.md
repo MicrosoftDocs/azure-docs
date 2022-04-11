@@ -26,7 +26,7 @@ As you create a custom VNET keep in mind the following:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
-- When you provide your own VNET, the network needs a [control plane subnet and an app subnet](#subnet-types). The control plane subnet provides IP addresses from your internal network to the Azure Container Apps control plane infrastructure components as well as your application containers.
+- When you provide your own VNET, the network needs a single subnet.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.
 
@@ -35,8 +35,6 @@ As you create a custom VNET keep in mind the following:
   - A single load balancer and single Kubernetes service are associated with each container apps environment.
   - Each [revision](revisions.md) is assigned an IP address in the subnet.
   - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
-
-Refer to the virtual network support section in [Introduction to App Service Environment v2](/azure/app-service/environment/intro) for details on what's supported in a Container Apps VNET.
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
 
@@ -50,19 +48,21 @@ https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-v
 
 ### Envoy behavior
 
-TODO: AAhmed ElSayed to provide details
+TODO: Ahmed ElSayed to provide details
 
 ### Ingress configuration
 
 ## Scenarios
 
-**TODO: Tomer Rosenthal to provide details**
+**TODO: PMs & Tomer to provide details**
 
 ## Portal dependencies
 
+**TODO: Tomer to provide details**
+
 For every app in Azure Container Apps, there are two URLs. The first URL is used to access your app. The second URL grants access to the log streaming service and the console.
 
-The domain suffix for these URLs is `azurecontainerapps.dev`.
+allow list 
 
 **TODO: Need input from Tomer**
 
@@ -97,12 +97,11 @@ Subnet address ranges can't overlap with the following reserved ranges:
 - 172.31.0.0/16
 - 192.0.2.0/24
 
-## Subnet types
+## Subnet
 
-As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
+As a Container Apps environment is created, you provide resource IDs for a single subnet.
 
-- **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
+When using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
 If you are using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
