@@ -42,27 +42,19 @@ Create the Email Communications Service Resource using Portal
 ![image](https://user-images.githubusercontent.com/35741731/162804745-c9890aaa-f29e-47b3-bf90-c6defed9da57.png)
 
 
-Provision the Azure subdomain
-------------------------
-1. Go the overview page of the Email Communications Service resource that you created earlier.
-2. Create the Azure Managed Domain.   
-    - (Option 1) Click the **1-click add** button under **Add a free Azure subdomain**. Move to the next step.
-    ![image](https://user-images.githubusercontent.com/35741731/162805148-27db800c-67ed-45ce-968e-4e4a58ee88ae.png)
+## Next steps
 
-    - (Option 2) Click **Provision Domains** on the left navigation panel.
-    ![image](https://user-images.githubusercontent.com/35741731/162805308-f94c6014-f500-41b5-a7e8-5129aa8e465b.png)
+> [Configure Email Authentication for your domain in Azure Communication Services Email](../../quickstarts/Email/setup-email-authentication.md)
 
-    - Click **Add domain** on the upper navigation bar.
-    - Select **Azure domain** from the dropdown.
-3. Wait for the deployment to complete.
+> [Best Practices for Sender Authentication Support in Azure Communication Services Email](./email-authentication-bestpractice.md)
 
-![image](https://user-images.githubusercontent.com/35741731/162805570-d2e7d767-132d-4e07-98c3-4b1a6f8b6b85.png)
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
 
-4. After domain creation is completed, you will see a list view with the created domain.
-![image](https://user-images.githubusercontent.com/35741731/162805744-2e0cd43c-c7f2-483a-88bb-869cb789f5cc.png)
+The following documents may be interesting to you:
 
-5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
-![image](https://user-images.githubusercontent.com/35741731/162805877-a1f66c24-1530-4c3b-8e8f-e7a5f7bed70a.png)
+- Familiarize yourself with the [Email client library](../Email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/Email/add-custom-verified-domains.md)
+- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/Email/add-azure-managed-domains.md)
 
 
  
