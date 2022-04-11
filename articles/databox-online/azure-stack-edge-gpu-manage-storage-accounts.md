@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/08/2022
+ms.date: 04/11/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to manage Edge storage accounts on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro GPU via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device.
+This article describes how to manage Edge storage accounts and local storage accounts on your Azure Stack Edge. You can manage the Azure Stack Edge Pro device via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device. Use Azure PowerShell to add local storage accounts on your device.
 
 ## About Edge storage accounts
 
