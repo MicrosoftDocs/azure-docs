@@ -887,7 +887,7 @@ Use radio buttons to select if the SDK creates a 1:1 call or joins a group call.
 
 You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and additional configurations.
 
-Dependencies
+Dependencies:
 
 ```java
 import android.widget.RadioButton;
@@ -896,13 +896,13 @@ import com.azure.android.communication.calling.JoinCallOptions;
 import java.util.UUID;
 ```
 
-Global elements
+Global elements:
 
 ```java
 RadioButton oneToOneCall, groupCall;
 ```
 
-Update `onCreate()`
+Update `onCreate()`:
 
 ```java
 @Override
@@ -938,7 +938,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Update `startCall()`
+Update `startCall()`:
 
 ```java
 private void startCall() {
@@ -996,7 +996,7 @@ private void startCall() {
     }
 ```
 
-Add `onCallTypeSelected()`
+Add `onCallTypeSelected()`:
 
 ```java
 public void onCallTypeSelected(View view) {
