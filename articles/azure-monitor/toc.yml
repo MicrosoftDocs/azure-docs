@@ -1164,7 +1164,7 @@ items:
     - name: Visualizations
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
-      href: change/change/change-analysis-powershell.md
+      href: change/change-analysis-powershell.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights

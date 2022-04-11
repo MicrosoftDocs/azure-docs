@@ -45,10 +45,11 @@ subscription using the [Set-AzContext](/powershell/module/az.accounts/set-azcont
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-## View changes to an Azure subscription
+## View Azure subscription changes
 
-The following example returns a list of the changes to all resources in your Azure subscription
-within the specified time range. Specify `StartTime` and `EndTime` in UTC date formats.
+To view changes made to all resources in your Azure subscription, you use the `Get-AzChangeAnalysis`
+command. You specify the time range for events in UTC date format using the `StartTime` and
+`EndTime` parameters.
 
 ```azurepowershell-interactive
 $startDate = Get-Date -Date '2022-04-07T12:09:03.141Z' -AsUTC
@@ -56,11 +57,11 @@ $endDate = Get-Date -Date '2022-04-10T12:09:03.141Z' -AsUTC
 Get-AzChangeAnalysis -StartTime $startDate -EndTime $endDate
 ```
 
-## View changes to an Azure resource group
+## View Azure resource group changes
 
-The following example returns a list of the changes to resources in the specified resource group of
-your Azure subscription within the last 12 hours. Specify `StartTime` and `EndTime` in UTC date
-formats.
+To view changes made to all resources in a resource group, you use the `Get-AzChangeAnalysis`
+command and specify the `ResourceGroupName` parameter. The following example returns a list of
+changes made within the last 12 hours. Specify `StartTime` and `EndTime` in UTC date formats.
 
 ```azurepowershell-interactive
 $startDate = (Get-Date -AsUTC).AddHours(-12)
@@ -68,11 +69,11 @@ $endDate = Get-Date -AsUTC
 Get-AzChangeAnalysis -ResourceGroupName <myResourceGroup> -StartTime $startDate -EndTime $endDate
 ```
 
-## View changes to an Azure resource
+## View Azure resource changes
 
-The following example uses PowerShell splatting to return a list of the changes to the specified
-resource in your Azure subscription within the last day. Specify `StartTime` and `EndTime` in UTC
-date formats.
+To view changes made to a resource, you use the `Get-AzChangeAnalysis` command and specify the
+`ResourceId` parameter. The following example uses PowerShell splatting to return a list of the
+changes made within the last day. Specify `StartTime` and `EndTime` in UTC date formats.
 
 ```azurepowershell-interactive
 $Params = @{
@@ -88,8 +89,31 @@ Get-AzChangeAnalysis @Params
 > Use Change Analysis at the resource group or subscription level to determine changes where
 > resources have been removed or deleted.
 
+## View detailed information
+
+You can view more properties for any of the commands shown in this article by piping the results to
+`Select-Object -Property *`.
+
+```azurepowershell-interactive
+$startDate = (Get-Date -AsUTC).AddHours(-12)
+$endDate = Get-Date -AsUTC
+Get-AzChangeAnalysis -ResourceGroupName <myResourceGroup> -StartTime $startDate -EndTime $endDate |
+  Select-Object -Property *
+```
+
+The `PropertyChange` property is a complex object that has addition nested properties. Pipe the
+`PropertyChange` property to `Select-Object -Property *` to see the nested properties.
+
+```azurepowershell-interactive
+$startDate = (Get-Date -AsUTC).AddHours(-12)
+$endDate = Get-Date -AsUTC
+(Get-AzChangeAnalysis -ResourceGroupName <myResourceGroup> -StartTime $startDate -EndTime $endDate |
+  Select-Object -First 1).PropertyChange | Select-object -Property *
+```
+
 ## Next steps
 
+- Learn how to use [Get-AzChangeAnalysis](/powershell/module/az.changeanalysis/get-azchangeanalysis/)
 - Learn how to [use Change Analysis in Azure Monitor](change-analysis.md)
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
