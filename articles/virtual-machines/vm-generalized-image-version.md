@@ -49,7 +49,7 @@ Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest 
 
 The example below is for creating a Linux VM secured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example.
 
-```azurecli-interactive 
+```azurecli-interactive
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
 vmResourceGroup=myResourceGroup
 location=eastus
@@ -64,6 +64,18 @@ az vm create\
    --image $imgDef \
    --admin-username $adminUsername \
    --generate-ssh-keys
+```
+
+To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
+
+```
+/CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
+```
+
+If you are using a community image, you will be prompted to accept the legal terms. The message will look like this: 
+
+```output
+To create the VM/VMSS from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
 ```
 
 You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.

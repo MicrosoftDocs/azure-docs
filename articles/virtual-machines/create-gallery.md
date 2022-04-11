@@ -210,11 +210,17 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. You can type a short description of the gallery, like *My gallery for testing*. 
 1. At the bottom of the page, select **Next: Sharing method**.
 1. On the **Sharing** tab, select **RBAC + share to public community gallery**.
+
+   :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::
+
 1. For **Community gallery prefix** type a prefix that will be appended to a GUID to create the unique name for your community gallery.
 1. For **Publisher email** type a valid e-mail address that can be used to communicate with you about the gallery.
 1. For **Publisher URL**, type the a URL for where people can go to get more information about the images in your community gallery.
 1. For **EULA**, type the URL for your end user license agreement. XXXX License agreement and privacy statement.
 1. When you are done, select **Review + create**.
+
+   :::image type="content" source="media/create-gallery/rbac+community.png" alt-text="Screenshot showing the information that needs to be completed to create a community gallery.":::
+
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
@@ -224,6 +230,7 @@ When you are ready to make the gallery public:
 
 1. On the page for the gallery, select **Sharing** from the left menu.
 1. Select **Share** from the top of the page.
+   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for shaing your gallery to the community.":::
 1. When you are done, select **Save**.
 
 
