@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/08/2022
+ms.date: 04/11/2022
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -225,6 +225,12 @@ Successfully created Resource Group:rg191113014333
 ## Create a storage account
 
 [!INCLUDE [azure-stack-edge-gpu-create-storage-account](../../includes/azure-stack-edge-gpu-create-storage-account.md)]
+
+## Get access keys for local storage account
+
+To get access keys for your local storage account, do the following procedure:
+
+[!INCLUDE [Get access keys](../../includes/azure-stack-edge-gpu-get-access-keys-for-local-storage-account.md)]
 
 ## Add the blob URI to the host file
 
