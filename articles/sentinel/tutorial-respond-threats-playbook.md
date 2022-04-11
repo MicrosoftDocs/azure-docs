@@ -70,16 +70,22 @@ Get a more complete and detailed introduction to automating threat response usin
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-# [Logic Apps Consumption](#tab/LAC)
-### Prepare the playbook and Logic App
+:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen.":::
 
 1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
 
-1. From the top menu, select **Create** and then, depending on which you want to create, either **Playbook with incident trigger** or **Playbook with alert trigger**.
+1. From the top menu, select **Create**.
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new Consumption playbook.":::
+1. The drop-down menu that appears under **Create** gives you three choices for creating playbooks:
 
-    Either way, the **Create playbook** wizard will appear.
+    1. If you're creating a **Standard** playbook (the new kind - see [Two types of Logic Apps](automate-responses-with-playbooks.md#two-types-of-logic-apps)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
+
+    1. If you're creating a **Consumption** playbook (the orignial, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
+
+# [Logic Apps Consumption](#tab/LAC)
+### Prepare the playbook and Logic App
+
+Regardless of which trigger you chose to create your playbook with in the previous step, the **Create playbook** wizard will appear.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-LAC.png" alt-text="Create a logic app":::
 
@@ -105,7 +111,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
     Review the configuration choices you have made, and select **Create and continue to designer**.
 
-1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow.
+1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger.":::
 
@@ -113,13 +119,9 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 ### Prepare the Logic App and workflow
 
-1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
+#### Create a Logic App
 
-1. From the top menu, select **Create** and then **Blank playbook**.
-
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Add a new Standard playbook.":::
-
-    A new browser tab will open and take you to the **Create Logic App** wizard.
+Since you selected **Blank playbook**, a new browser tab will open and take you to the **Create Logic App** wizard.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
 
@@ -148,36 +150,55 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
         > [!NOTE]
         > This monitoring is **not required for Microsoft Sentinel** and **will cost you extra**.
 
-    1. Select **Next : Review + create >**.
+    1. If you want you can select **Next : Tags >**  to apply tags to this Logic App for resource categorization and billing purposes. Otherwise, select **Review + create**.
 
 1. In the **Review + create** tab:
 
     Review the configuration choices you have made, and select **Create**.
 
-1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md), where you can start designing the workflow. You'll see a screen with a short introductory video and some commonly used Logic App triggers and templates. [Learn more](../logic-apps/logic-apps-create-logic-apps-from-templates.md) about creating a playbook with Logic Apps.
+1. Your playbook will take a few minutes to be created and deployed, during which you will see some deployment messages. At the end of the process you will be taken to the final deployment screen where you'll see the message "Your deployment is complete".
 
-1. Select the **Blank Logic App** template.
+    Select **Go to resource**. You will be taken to the main page of your new Logic App.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-playbook-template.png" alt-text="Logic Apps Designer template gallery":::
+    Unlike with classic Consumption playbooks, you're not done yet. Now you must create a workflow.
 
-### Choose the trigger
+#### Create a workflow (playbook)
 
-Every playbook must start with a trigger. The trigger defines the action that will start the playbook and the schema that the playbook will expect to receive.
+1. Select **Workflows** from the navigation menu of your Logic App page.
 
-1. In the search bar, look for Microsoft Sentinel. Select **Microsoft Sentinel** when it appears in the results.
+1. Select **+ Add** from the button bar at the top (it might take a few seconds for the button to be active).
 
-1. In the resulting **Triggers** tab, you will see the two triggers offered by Microsoft Sentinel:
-    - When a response to a Microsoft Sentinel Alert is triggered
-    - When Microsoft Sentinel incident creation rule was triggered
+1. The **New workflow** panel will appear. Enter a name for your workflow.
 
-   Choose the trigger that matches the type of playbook you are creating.
+1. Under **State type**, select **Stateful**.
+
+    > [!NOTE]
+    > Microsoft Sentinel does not currently support Stateless workflows to be used as playbooks.
+
+1. Select **Create**. Your workflow will be saved and will appear in the list of workflows in your Logic App. Select the workflow to proceed.
+
+1. You'll enter your workflow's page. Here you can see all the information about your workflow, including a record of all the times it will have run. From the navigation menu, select **Designer**.
+
+1. The Designer screen will open and you will immediately be prompted to add a trigger and continue designing the workflow. 
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png" alt-text="Screenshot of Logic App Standard designer." lightbox="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png":::
+
+#### Choose the trigger
+
+1. Select the **Azure** tab and enter "Sentinel" in the Search line.
+
+1. In the **Triggers** tab below, you will see the two triggers offered by Microsoft Sentinel:
+    - Microsoft Sentinel alert (preview)
+    - Microsoft Sentinel incident (preview)
+
+   Select the trigger that matches the type of playbook you are creating.
 
     > [!NOTE]
     > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
     > 
     > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
 
 > [!NOTE]
 > When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md).
