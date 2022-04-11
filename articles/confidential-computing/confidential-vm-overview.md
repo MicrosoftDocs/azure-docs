@@ -40,7 +40,7 @@ If the compute platform is missing critical settings for your VM's isolation the
 
 Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
- - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK) or customer-managed key (CMK).
+ - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
  - A confidential VM without OS disk encryption before VM deployment.
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
@@ -50,7 +50,7 @@ With Secure Boot, trusted publishers must sign OS boot components (including the
 
 Confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
 
-Starting in 2022, encrypted OS disks will begin to incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+From July 2022, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Attestation and TPM
 
@@ -101,7 +101,7 @@ Confidential VMs *don't support*:
 - Azure Backup
 - Azure Site Recovery
 - Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets for pre-encrypted OS disks
+- Microsoft Azure Virtual Machine Scale Sets for encrypted OS disks
 - Capturing an image of a VM
 - Azure Compute Gallery
 - Ephemeral OS disks
