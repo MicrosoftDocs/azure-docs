@@ -194,7 +194,7 @@ Word 'healthcare' has a confidence score of 1.00.
 Word 'is' has a confidence score of 1.00.
 ```
 
-To view the entire output,visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/java-sdk-read-output.md).
+To view the entire output,visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-read-output.md).
 
 ## Next step
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
