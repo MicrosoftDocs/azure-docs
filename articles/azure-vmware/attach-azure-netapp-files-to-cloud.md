@@ -41,7 +41,7 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
     1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
     1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace to identify and confirm the volume is for Azure VMware Solution NFS datastore.
     `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
-    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state `
+    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -58,7 +58,7 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Navigate to your Azure VMware Solution.
 1. Under **Manage**, select **Storage (preview)**.
 1. Select **Connect Azure NetApp Files volume**.
-1. In the side bar heading **Connect Azure NetApp Files volume**, select the Subscription, NetApp Account, Capacity Pool, and ANF volume to be attached as a datastore.
+1. In **Connect Azure NetApp Files volume**, select the Subscription, NetApp Account, Capacity Pool, and ANF volume to be attached as a datastore.
 1. Verify the protocol is NFS. You'll need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
 1. Select the clusters to associate the NFS volume as a datastore and provide a friendly name to the datastore.
 1. When the datastore is created, you should see all of your datastores in the **Storage (preview)**.
