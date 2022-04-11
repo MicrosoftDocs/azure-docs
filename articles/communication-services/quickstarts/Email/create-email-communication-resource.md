@@ -35,19 +35,34 @@ Create the Email Communications Service Resource using Portal
     - If you would like to add tags, click  **Next: Tags**. 
     - Click **Review + create**. 
     - Add any name/value pairs. Click **Next: Review + create**.
+    ![image](https://user-images.githubusercontent.com/35741731/162804229-ecd84729-617d-4ada-926e-1a326bfe2a9a.png)
+
 4. Wait for the validation to pass. Click **Create**. 
-5.  Wait for the Deployment to complete. Click **Go to Resource**. 
+5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
+![image](https://user-images.githubusercontent.com/35741731/162804745-c9890aaa-f29e-47b3-bf90-c6defed9da57.png)
+
 
 Provision the Azure subdomain
 ------------------------
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Create the Azure Managed Domain.   
     - (Option 1) Click the **1-click add** button under **Add a free Azure subdomain**. Move to the next step.
-    - (Option 2) Click **Domains** on the left navigation panel.
+    ![image](https://user-images.githubusercontent.com/35741731/162805148-27db800c-67ed-45ce-968e-4e4a58ee88ae.png)
+
+    - (Option 2) Click **Provision Domains** on the left navigation panel.
+    ![image](https://user-images.githubusercontent.com/35741731/162805308-f94c6014-f500-41b5-a7e8-5129aa8e465b.png)
+
     - Click **Add domain** on the upper navigation bar.
     - Select **Azure domain** from the dropdown.
-3. After domain creation is completed, you will see a list view with the created domain.
-4. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
+3. Wait for the deployment to complete.
+
+![image](https://user-images.githubusercontent.com/35741731/162805570-d2e7d767-132d-4e07-98c3-4b1a6f8b6b85.png)
+
+4. After domain creation is completed, you will see a list view with the created domain.
+![image](https://user-images.githubusercontent.com/35741731/162805744-2e0cd43c-c7f2-483a-88bb-869cb789f5cc.png)
+
+5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
+![image](https://user-images.githubusercontent.com/35741731/162805877-a1f66c24-1530-4c3b-8e8f-e7a5f7bed70a.png)
 
 
  
