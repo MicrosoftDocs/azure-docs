@@ -13,7 +13,7 @@ ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 
-# Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
+# Migrate databases with Azure SQL Migration extension for Azure Data Studio
 
 The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure.
 
