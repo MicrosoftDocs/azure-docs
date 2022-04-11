@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: larryfr
 author: rsethur
-ms.date: 04/08/2022
+ms.date: 04/11/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2
 ---
@@ -189,6 +189,16 @@ The output should appear similar to the following JSON. Note that the `provision
   "traffic": {}
 }
 ```
+
+The following table contains the possible values for `provisioning_state`:
+
+| State | Description |
+| ----- | ----- |
+| __Creating__ | The resource is being created. |
+| __Updating__ | The resource is being updated. |
+| __Deleting__ | The resource is being deleted. |
+| __Succeeded__ | The create/update operation was successful. |
+| __Failed__ | The create/update/delete operation has failed. |
 
 ### Invoke the local endpoint to score data by using your model
 
