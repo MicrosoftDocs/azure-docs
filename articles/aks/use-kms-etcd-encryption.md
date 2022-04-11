@@ -118,7 +118,7 @@ The above example stores the value of the Identity Object Id in *IDENTITY_OBJECT
 Use `az identity show` to get Identity Resource Id.
 
 ```azurecli
-IDENTITY_RESOURCE_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroupE --query 'id' -o tsv)
+IDENTITY_RESOURCE_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroup --query 'id' -o tsv)
 echo $IDENTITY_RESOURCE_ID
 ```
 
