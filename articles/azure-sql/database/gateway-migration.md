@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 07/01/2019
+ms.date: 04/06/2022
 ---
 # Azure SQL Database traffic migration to newer Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Microsoft periodically refreshes hardware to optimize the customer experience. During these refreshes, Azure adds gateways built on newer hardware generations, migrates traffic to them, and eventually decommissions gateways built on older hardware in some regions.
+Microsoft periodically refreshes hardware to optimize the customer experience. During these refreshes, Azure adds gateways built on newer hardware, migrates traffic to them, and eventually decommissions gateways built on older hardware in some regions.
 
 
 To avoid service disruptions during refreshes, allow the communication with SQL Gateway IP subnet ranges for the region. Review [SQL Gateway IP subnet ranges](connectivity-architecture.md#gateway-ip-addresses) and include the ranges for your region.

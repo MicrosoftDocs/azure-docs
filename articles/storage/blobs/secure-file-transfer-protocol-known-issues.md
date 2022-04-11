@@ -16,35 +16,29 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+>
+> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
-## Client support
+## Known unsupported clients
 
-### Known supported clients
+The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
 
-- OpenSSH 7.4+
-- WinSCP 5.17.10+
-- PuTTY 0.74+
-- FileZilla 3.53.0+
-- SSH.NET 2020.0.0+
-- libssh 1.8.2+
-- Cyberduck 7.8.2+
-- Maverick Legacy 1.7.15+
-
-### Known unsupported clients
-
-- SSH.NET 2016.1.0
-- libssh2 1.7.0
+- Axway
+- Five9
+- Kemp
+- Moveit
+- Mule
 - paramiko 1.16.0
-- AsyncSSH 2.1.0
-- SSH Go
+- Salesforce
+- SSH.NET 2016.1.0
+- Workday
+- XFB.Gateway
 
 > [!NOTE]
-> The client support lists above are not exhaustive and may change over time.
+> The unsupported client list above is not exhaustive and may change over time.
 
 ## Unsupported operations
 
@@ -104,6 +98,8 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - SSH commands, that are not SFTP, are not supported.
 
+- West Europe will temporarily still require registration of the SFTP preview feature.
+
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
@@ -112,7 +108,7 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   
   - The account needs to have hierarchical namespace enabled on it.
   
-  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
+  - Accounts in West Europe will temporarily require the customer's subscription to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
