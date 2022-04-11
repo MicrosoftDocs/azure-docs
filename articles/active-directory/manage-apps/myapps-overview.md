@@ -54,7 +54,7 @@ When signed in to the My Apps portal, a combination of default applications and 
 
 You can search for applications by entering the name in the search box at the top of the page. The applications that are listed can be formatted in **List view** or a **Grid view**.
 
-:::image type="content" source="/media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
+:::image type="content" source="../media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
 
 > [!IMPORTANT]
 > It can take several minutes for an application to appear in the My Apps portal after it has been added to the tenant. There may also be a delay in how soon users can access the application after it has been added.
@@ -67,7 +67,7 @@ How the application is represented in the My Apps portal can be controlled by de
 
 When configuring company branding, the banner logo can be defined. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
 
-:::image type="content" source="/media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
+:::image type="content" source="../media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
 For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
 
