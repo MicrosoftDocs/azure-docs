@@ -20,12 +20,13 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
 ## Prerequisites
-- In order to connect to a Windows Virtual Machine via RDP you need port 3089 open. You can validate an appropriate port is open for RDP using the troubleshooter or by checking manually in your VM settings. To check if port 3089 is open: 
+- In order to connect to a Windows Virtual Machine via RDP you need port 3389 open. You can validate an appropriate port is open for RDP using the troubleshooter or by checking manually in your VM settings. To check if port 3389 is open: 
 
     1.	On the page for the VM, select **Networking** from the left menu.
-    1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 3089 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+    1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 3389 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
     1. If there isn't a rule, add one by selecting **Add Inbound port rule**.
     1. From the **Service** dropdown select **RDP**.
+    1. Edit **priority** and **source** if necessary
     1. For **Name**, type *RDP*
     1. When finished, select **Add**
     1. You should now have an RDP rule in the table of inbound port rules.
