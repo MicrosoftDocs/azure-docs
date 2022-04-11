@@ -2,11 +2,11 @@
 title: Migrate from v1 to v2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
