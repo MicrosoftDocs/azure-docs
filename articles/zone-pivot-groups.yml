@@ -1749,4 +1749,12 @@ groups:
     title: Azure Resouce Manager
   - id: aro-bicep
     title: Bicep   
-
+# Owner: mametcal
+- id: appconfig-provider
+  title: Client Library pivots
+  prompt: Choose a Client Library
+  pivots:
+  - id: framework-dotnet
+    title: .Net
+  - id: framework-spring
+    title: Spring
