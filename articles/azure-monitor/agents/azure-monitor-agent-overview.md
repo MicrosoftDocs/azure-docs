@@ -30,10 +30,7 @@ In addition to consolidating this functionality into a single agent, the Azure M
 - **Improved extension management:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
 ### Current limitations
-When compared with the legacy agents, this new agent doesn't yet have full parity.
-- **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
-	- The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
+ Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.

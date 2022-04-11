@@ -546,7 +546,7 @@ items:
           href: agents/data-sources-iis-logs.md
         - name: Event Tracing for Windows data
           href: agents/data-sources-event-tracing-windows.md
-        - name: Custom logs
+        - name: Text logs
           href: agents/data-sources-custom-logs.md
         - name: Custom fields
           href: logs/custom-fields.md
