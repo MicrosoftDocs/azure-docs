@@ -20,7 +20,7 @@ Conversation summarization is one of the features offered by [Azure Cognitive Se
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+<!--* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.-->
 
 ## Conversation summarization feature
 
@@ -88,7 +88,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 ## Input requirements and service limits
 
 * Conversation summarization takes raw unstructured text for analysis. See the [data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
-* Conversation summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+* Conversation summarization works with a variety of written languages. <!--See [language support](language-support.md) for more information.-->
 
 ## Reference documentation and code samples
 
