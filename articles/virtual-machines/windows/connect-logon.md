@@ -26,7 +26,7 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
     1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 3389 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
     1. If there isn't a rule, add one by selecting **Add Inbound port rule**.
     1. From the **Service** dropdown select **RDP**.
-    1. Edit **priority** and **source** if necessary
+    1. Edit **Priority** and **Source** if necessary
     1. For **Name**, type *RDP*
     1. When finished, select **Add**
     1. You should now have an RDP rule in the table of inbound port rules.
