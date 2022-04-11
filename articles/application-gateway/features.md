@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 01/18/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Azure Application Gateway features
