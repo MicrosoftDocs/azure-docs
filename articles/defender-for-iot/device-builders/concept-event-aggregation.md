@@ -150,6 +150,8 @@ The data collected on each package includes:
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
 |     |         |
 
+> [!NOTE]
+> The SBOM collector currently only collects the first 1,000 packages ingested.
 
 ## Next steps
 
