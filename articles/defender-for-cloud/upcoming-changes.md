@@ -94,7 +94,7 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** May 2022
 
-Currently, Defender for Containers filters out all vulnerabilities with medium and low level severities, or if the vulnerability is patched.
+Currently, Defender for Containers filters out all vulnerabilities with medium and low level severities, if there is no patch for the vulnerability.
 
 This update will allow all findings with a CVE, regardless of their severity, or availability to patch, to be visible. This provides maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule .
 
