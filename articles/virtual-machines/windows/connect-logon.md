@@ -19,6 +19,10 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 
 To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
+## Prerequisites
+
+
+
 ## Connect to the virtual machine
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
