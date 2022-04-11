@@ -14,10 +14,13 @@ In order to stream Microsoft Defender for Cloud security alerts to IBM QRadar an
 To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
 ## Step 1. Create an Event Hubs namespace and event hub with send permissions
+
 1. In the [Event Hubs service](../event-hubs/event-hubs-create.md), create an Event Hubs namespace:
     1. Select **Create**.
     1. Enter the details of the namespace, select **Review + create**, and select **Create**.
-    ![Screenshot of creating an Event Hubs namespace in Microsoft Event Hubs.](./media/export-to-siem/create-event-hub-namespace.png)
+
+    :::image type="content" source="/media/export-to-siem/create-event-hub-namespace.png" alt-text="Screenshot of creating an Event Hubs namespace in Microsoft Event Hubs." lightbox="/media/export-to-siem/create-event-hub-namespace.png":::
+
 1. Create an event hub:
     1. In the namespace that you create, select **+ Event Hub**.
     1. Enter the details of the event hub, and select **Review + create**, and select **Create**.
@@ -28,20 +31,26 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     1. In the event hub menu, select **Shared access policies**.
     1. Select **Add**, enter a unique policy name, and select **Send**.
     1. Select **Create** to create the policy.
-    ![Screenshot of creating a shared policy in Microsoft Event Hubs.](./media/export-to-siem/create-shared-access-policy.png)
+    :::image type="content" source="/media/export-to-siem/create-shared-access-policy.png" alt-text="Screenshot of creating a shared policy in Microsoft Event Hubs." lightbox="/media/export-to-siem/create-shared-access-policy.png":::
 
 ## Step 2. **For streaming to QRadar SIEM** - Create a Listen policy
+
 1. Select **Add**, enter a unique policy name, and select **Listen**.
 1. Select **Create** to create the policy.
 1. After the listen policy is created, copy the **Connection string primary key** and save it to use later.
-    ![Screenshot of creating a listen policy in Microsoft Event Hubs.](./media/export-to-siem/create-shared-listen-policy.png)
 
-## Step 3. Create a consumer group, then copy and save the name to use in the SIEM platform:
+    :::image type="content" source="/media/export-to-siem/create-shared-listen-policy.png" alt-text="Screenshot of creating a listen policy in Microsoft Event Hubs." lightbox="/media/export-to-siem/create-shared-listen-policy.png":::
+
+## Step 3. Create a consumer group, then copy and save the name to use in the SIEM platform
+
 1. In the Entities section of the Event Hubs event hub menu, select **Event Hubs** and select the event hub you created.
-    ![Screenshot of opening the event hub Microsoft Event Hubs.](./media/export-to-siem/open-event-hub.png)
+
+    :::image type="content" source="/media/export-to-siem/open-event-hub.png" alt-text="Screenshot of opening the event hub Microsoft Event Hubs." lightbox="/media/export-to-siem/open-event-hub.png":::
+
 1. Select **Consumer group**.
 
 ## Step 4. Enable continuous export for the scope of the alerts
+
 1. In the Azure search box, search for "policy" and go to the Policy.
 1. In the Policy menu, select **Definitions**.
 1. Search for "deploy export" and select the **Deploy export to Event Hub for Azure Security Center data** built-in policy.
@@ -53,7 +62,9 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     1. (Optional) In Exclusions you can define specific subscriptions to exclude from the export.
     1. Enter an assignment name.
     1. Make sure policy enforcement is enabled.
-    ![Screenshot of assignment for the export policy.](./media/export-to-siem/create-export-policy.png)
+
+    :::image type="content" source="/media/export-to-siem/create-export-policy.png" alt-text="Screenshot of assignment for the export policy." lightbox="/media/export-to-siem/create-export-policy.png":::
+
 1. In the policy parameters:
     1. Enter the resource group where the automation resource is saved.
     1. Select resource group location.
@@ -62,7 +73,9 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
         - The Event Hubs namespace you created.
         - The event hub you created.
         - In **authorizationrules**, select the shared access policy that you created to send alerts.
-    ![Screenshot of parameters for the export policy.](./media/export-to-siem/create-export-policy-parameters.png)
+
+    :::image type="content" source="/media/export-to-siem/create-export-policy-parameters.png" alt-text="Screenshot of parameters for the export policy." lightbox="/media/export-to-siem/create-export-policy-parameters.png":::
+
 1. Select **Review and Create** and **Create** to finish the process of defining the continuous export to Event Hubs.
     - Notice that when you activate continuous export policy on the tenant (root management group level), it automatically streams your alerts on any **new** subscription that will be created under this tenant.
 
@@ -71,10 +84,13 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. Go to the Azure portal, select **Create a resource**, and select **Storage account**. If that option isn't shown, search for "storage account".
 1. Select **Create**.
 1. Enter the details for the storage account, select **Review and Create**, and then **Create**.
-    ![Screenshot of creating storage account.](./media/export-to-siem/create-storage-account.png)
+
+    :::image type="content" source="/media/export-to-siem/create-storage-account.png" alt-text="Screenshot of creating storage account." lightbox="/media/export-to-siem/create-storage-account.png":::
+
 1. After you create your storage account and go to the resource, in the menu select **Access Keys**.
 1. Select **Show keys** to see the keys, and copy the connection string of Key 1.
-    ![Screenshot of copying storage account key.](./media/export-to-siem/copy-storage-account-key.png)
+
+    :::image type="content" source="/media/export-to-siem/copy-storage-account-key.png" alt-text="Screenshot of copying storage account key." lightbox="/media/export-to-siem/copy-storage-account-key.png":::
 
 ## Step 6. **For streaming alerts to Splunk SIEM** - Create an Azure AD application
 
@@ -83,14 +99,18 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. In the menu, select **App registrations**.
 1. Select **New registration**.
 1. Enter a unique name for the application and select **Register**.
-    ![Screenshot of registering application.](./media/export-to-siem/register-application.png)
+
+    :::image type="content" source="/media/export-to-siem/register-application.png" alt-text="Screenshot of registering application." lightbox="/media/export-to-siem/register-application.png":::
+
 1. Copy to Clipboard and save the **Application (client) ID** and **Directory (tenant) ID**.
 1. Create the client secret for the application:
     1. In the menu, go to **Certificates & secrets**.
     1. Create a password for the application to prove its identity when requesting a token:
     1. Select **New client secret**.
     1. Enter a short description, choose the expiration time of the secret, and select **Add**.
-    ![Screenshot of creating client secret.](./media/export-to-siem/create-client-secret.png)
+
+    :::image type="content" source="/media/export-to-siem/create-client-secret.png" alt-text="Screenshot of creating client secret." lightbox="/media/export-to-siem/create-client-secret.png":::
+
 1. After the secret is created, copy the Secret ID and save it for later use together with the Application ID and Directory (tenant) ID.
 
 ## Step 7. **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
@@ -99,7 +119,9 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. In the menu, go to **Access control**.
 1. Select **Add** and select **Add role assignment**.
 1. Select **Add role assignment**.
-    ![Screenshot of adding a role assignment.](./media/export-to-siem/add-role-assignment.png)
+
+    :::image type="content" source="/media/export-to-siem/add-role-assignment.png" alt-text="Screenshot of adding a role assignment." lightbox="/media/export-to-siem/add-role-assignment.png":::
+
 1. In the Roles tab, search for **Azure Event Hubs Data Receiver**.
 1. Select **Next**.
 1. Select **Select Members**.
