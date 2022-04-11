@@ -1,3 +1,16 @@
+---
+title: "Use SDKs and REST API for Read Model"
+titleSuffix: Azure Applied AI Services
+description: Learn how to build, label, and train a custom model in the Form Recognizer Studio.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: how-to
+ms.date: 04/11/2022
+ms.author: jaep3347
+---
+
 # Use the Read Model
 
  In this how-to guide, you'll learn to use Azure Form Recognizer's [Read model](../concept-read.md) to extract printed and handwritten text lines, words, locations, and detected languages, in a programming language of your choice, or the REST API. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
