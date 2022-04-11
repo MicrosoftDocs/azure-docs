@@ -223,8 +223,8 @@ For more information about policy parameters, see
 An initiative definition is a collection of policy definitions that are tailored toward achieving
 a singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
-create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
-all the available security recommendations in your Azure Security Center.
+create an initiative titled **Enable Monitoring in Microsoft Defender for Cloud**, with a goal to monitor
+all the available security recommendations in your Microsoft Defender for Cloud instance.
 
 > [!NOTE]
 > The SDK, such as Azure CLI and Azure PowerShell, use properties and parameters named **PolicySet**
@@ -232,11 +232,11 @@ all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 
-- **Monitor unencrypted SQL Database in Security Center** - For monitoring unencrypted SQL databases
+- **Monitor unencrypted SQL Database in Microsoft Defender for Cloud** - For monitoring unencrypted SQL databases
   and servers.
-- **Monitor OS vulnerabilities in Security Center** - For monitoring servers that don't satisfy the
+- **Monitor OS vulnerabilities in Microsoft Defender for Cloud** - For monitoring servers that don't satisfy the
   configured baseline.
-- **Monitor missing Endpoint Protection in Security Center** - For monitoring servers without an
+- **Monitor missing Endpoint Protection in Microsoft Defender for Cloud** - For monitoring servers without an
   installed endpoint protection agent.
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing

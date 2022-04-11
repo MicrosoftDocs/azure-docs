@@ -64,22 +64,8 @@ Here is the JSON format for defining a Script activity:
             ] 
          }, 
          ... 
-      ], 
-      "scriptReference":{ 
-         "linkedServiceName":{ 
-            "referenceName": "<name>", 
-            "type": "<LinkedServiceReference>" 
-         }, 
-         "path": "<file path>", 
-         "parameters":[ 
-            { 
-               "name": "<name>", 
-               "value": "<value>", 
-               "type": "<type>", 
-               "direction": "<Input> or <Output> or <InputOutput> or <ReturnValue>", 
-               "size": 256 
-            }, 
-            ... 
+      ],     
+         ... 
          ] 
       }, 
       "logSettings": { 
@@ -114,15 +100,6 @@ The following table describes these JSON properties:
 |scripts.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.         |No         |
 |scripts.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
 |scripts.parameter.size     |The max size of the parameter. Only applies to Output/InputOutput direction parameter of type string/byte[].          |No         |
-|scriptReference     |The reference to a remotely stored script file.           |No         |
-|scriptReference.linkedServiceName     |The linked service of the script location.           |No         |
-|scriptReference.path     |The file path to the script file. Only a single file is supported.         |No         |
-|scriptReference.parameter     |The array of parameters of the script.          |No         |
-|scriptReference.parameter.name     |The name of the parameter.          |No         |
-|scriptReference.parameter.value     |The value of the parameter.          |No         |
-|scriptReference.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.          |No         |
-|scriptReference.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
-|scriptReference.parameter.size     |The max size of the parameter. Only applies to types that can be variable size.          |No         |
 |logSettings     |The settings to store the output logs. If not specified, script log is disabled.          |No         |
 |logSettings.logDestination     |The destination of log output. It can be ActivityOutput or ExternalStore. Default: ActivityOutput.          |No         |
 |logSettings.logLocationSettings     |The settings of the target location if logDestination is ExternalStore.          |No         |
@@ -163,10 +140,10 @@ Sample output:
 
 |Property name  |Description  |Condition  |
 |---------|---------|---------|
-|resultSetCount     |The count of result sets returned by the script.           |If firstRowOnly is false.          |
-|resultSets     |The array which contains all the result sets.           |If firstRowOnly is false.          |
-|resultSets.rowCount      |Total rows in the result set.         |If firstRowOnly is false.          |
-|resultSets.rows      |The array of rows in the result set.           |If firstRowOnly is false.          |
+|resultSetCount     |The count of result sets returned by the script.           |Always         |
+|resultSets     |The array which contains all the result sets.           |Always          |
+|resultSets.rowCount      |Total rows in the result set.         |Always          |
+|resultSets.rows      |The array of rows in the result set.           |Always         |
 |recordsAffected      |The row count of affected rows by the script.         |If scriptType is NonQuery.          |
 |outputParameters     |The output parameters of the script.         |If parameter type is Output or InputOutput.          |
 |outputLogs     |The logs written by the script, for example, print statement.         |If connector supports log statement and enableScriptLogs is true and logLocationSettings is not provided.          |
@@ -176,8 +153,9 @@ Sample output:
 > [!NOTE]
 > - The output is collected every time a script block is executed. The final output is the merged result of all script block outputs. The output parameter with same name in different script block will get overwritten. 
 > - Since the output has size / rows limitation, the output will be truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
-> - Any error caused by log won’t fail activity. 
-> - For consuming activity output in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Any error caused by log won’t fail the activity. 
+> - For consuming activity output resultSets in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 2MB size limit. 
 
 ## Configure the Script activity using UI
 
@@ -186,12 +164,6 @@ Sample output:
 :::image type="content" source="media/transform-data-using-script/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
-
-### Script file reference
-
-:::image type="content" source="media/transform-data-using-script/script-file-reference.png" alt-text="Screenshot showing the UI to configure a script file reference.":::
-
-If you have you a custom process to generate scripts and would like to reference it in the pipeline rather than use an in-line script, you cam specify the file path on a storage.
 
 ### Logging
 
@@ -204,7 +176,7 @@ Logging options:
 - _External storage_ – Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
  
 > [!NOTE]
-> **Billing** - The Script activity will be billed as **Pipeline activities**.
+> **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

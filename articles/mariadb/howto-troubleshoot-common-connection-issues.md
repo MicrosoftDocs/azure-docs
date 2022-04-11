@@ -25,9 +25,6 @@ Generally, connection issues to Azure Database for MariaDB can be classified as 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
 
-> [!WARNING]
-> The MySQL 8.0.27 client is incompatible with Azure Database for MariaDB - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27).
-
 ## Troubleshoot transient errors
 
 Transient errors occur when maintenance is performed, the system encounters an error with the hardware or software, or you change the vCores or service tier of your server. The Azure Database for MariaDB service has built-in high availability and is designed to mitigate these types of problems automatically. However, your application loses its connection to the server for a short period of time of typically less than 60 seconds at most. Some events can occasionally take longer to mitigate, such as when a large transaction causes a long-running recovery.

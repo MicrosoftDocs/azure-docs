@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 01/19/2022
+ms.date: 03/09/2022
 ---
 # Application volume group FAQs
 
@@ -42,6 +42,14 @@ General recommendations for snapshots in an SAP HANA environment are as follows:
 
 * Closely monitor the data volume snapshots. HANA tends to have a high change rate. Keeping snapshots for a long period might increase your capacity needs. Be sure to monitor the used capacity vs. allocated capacity.
 * If you automatically create snapshots for your (log and file) backups, be sure to monitor their retention to avoid unpredicted volume growth.
+
+## The mount instructions of a volume include a list of IP addresses. Which IP address should I use?
+
+Application volume group ensures that SAP HANA data and log volumes for one HANA host will always have separate storage endpoints with different IP addresses to achieve best performance. To host your data, log and shared volumes across the Azure NetApp Files storage resource(s) up to six storage endpoints can be created per used Azure NetApp Files storage resource. For this reason, it is recommended to size the delegated subnet accordingly. See [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It is recommended to always use the first IP address.
+
+## What is the optimal mount option for SAP HANA?
+
+To have an optimal SAP HANA experience, there is more to do on the Linux client than just mounting the volumes. A complete setup and configuration guide is available for SAP HANA on Azure NetApp Files. It includes many recommended Linux settings and recommended mount options. See the SAP HANA solutions overview on [SAP HANA on Azure NetApp Files](azure-netapp-files-solution-architectures.md#sap-hana) to select the guide for your system architecture. 
 
 ## The deployment failed and not even a single volume was created. Why is that?
 

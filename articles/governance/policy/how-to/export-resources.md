@@ -40,7 +40,7 @@ To export a policy definition from Azure portal, follow these steps:
    Policies** button at the bottom of the page.
 
    - **Repository filter**: Set to _My repositories_ to see only repositories you own or _All
-     repositories_ to see all you granted the GitHub Action access to.
+     repositories_ to see all you granted the GitHub Actions access to.
    - **Repository**: Set to the repository that you want to export the Azure Policy resources to.
    - **Branch**: Set the branch in the repository. Using a branch other than the default is a good
      way to validate your updates before merging further into your source code.
@@ -89,9 +89,9 @@ Azure Policy definitions, initiatives, and assignments can each be exported as J
 specify which object to get the JSON for. The **name** property is often a _GUID_ and isn't the
 **displayName** of the object.
 
-- Definition - [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show)
-- Initiative - [az policy set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
-- Assignment - [az policy assignment show](/cli/azure/policy/assignment#az_policy_assignment_show)
+- Definition - [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show)
+- Initiative - [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
+- Assignment - [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
 Here is an example of getting the JSON for a policy definition with **name** of
 _VirtualMachineStorage_:

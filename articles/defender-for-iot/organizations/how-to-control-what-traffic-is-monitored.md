@@ -9,6 +9,20 @@ ms.topic: how-to
 
 Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and behavior. Several tools are available to control the type of traffic that each sensor detects.
 
+## Analytics and self-learning engines
+
+Engines identify security issues via continuous monitoring and five analytics engines that incorporate self-learning to eliminate the need for updating signatures or defining rules. The engines use ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies. The five engines are:
+
+- **Protocol violation detection**: Identifies the use of packet structures and field values that violate ICS protocol specifications.
+
+- **Policy violation detection**: Identifies policy violations such as unauthorized use of function codes, access to specific objects, or changes to device configuration.
+
+- **Industrial malware detection**: Identifies behaviors that indicate the presence of known malware such as Conficker, Black Energy, Havex, WannaCry, and NotPetya.
+
+- **Anomaly detection**: Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the engine uses a patented technique called Industrial Finite State Modeling (IFSM). The solution requires a shorter learning period than generic mathematical approaches or analytics, which were originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives.
+
+- **Operational incident detection**: Identifies operational issues such as intermittent connectivity that can indicate early signs of equipment failure.
+
 ## Learning and Smart IT Learning modes
 
 The Learning mode instructs your sensor to learn your network's usual activity. Examples are devices discovered in your network, protocols detected in the network, file transfers between specific devices, and more. This activity becomes your network baseline.
@@ -29,7 +43,7 @@ The learning capabilities (Learning and Smart IT Learning) are enabled by defaul
 
 **To enable or disable learning:**
 
-1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modelling**.
+1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modeling**.
 1. Enable or disable the **Learning** and **Smart IT Learning** options.
 
 
@@ -258,7 +272,9 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 1. When the scan is finished, select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
-## See also
+## Next steps
 
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-[Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
+For more information, see:
+
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

@@ -51,7 +51,7 @@ Create your service principal:
     ```
 1. Optionally assign the User Access Administrator role to your service principal. For example: 
     ```azurecli
-    az role assignment create --assignee <your-application-ID> --role "User Access Administrator"
+    az role assignment create --assignee <your-application-ID> --role "User Access Administrator" --scope /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>
     ```
 
 For more information, see [the Azure CLI documentation for creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli)

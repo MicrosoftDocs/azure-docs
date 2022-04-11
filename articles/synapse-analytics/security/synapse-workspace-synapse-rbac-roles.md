@@ -1,13 +1,13 @@
 ---
-title: Synapse RBAC roles
-description: This article describes the built-in Synapse RBAC roles
+title: Azure Synapse RBAC roles
+description: This article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.  
 author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 11/02/2021
+ms.date: 03/31/2022
 ms.author: mesrivas
-ms.reviewer: wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,7 +15,10 @@ ms.custom: ignite-fall-2021
 
 The article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.  
 
+For more information on reviewing and assigning Synapse role memberships, see [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md) and [how to assign Synapse RBAC roles](./how-to-manage-synapse-rbac-role-assignments.md).
+
 ## What's changed since the preview?
+
 For users familiar with the Synapse RBAC roles provided during the preview, the following changes apply:
 - Workspace Admin is renamed **Synapse Administrator**
 - Apache Spark Admin is renamed **Synapse Apache Spark Administrator** and has permission to see all published code artifacts, including SQL scripts.  This role no longer gives permission to use the workspace MSI, which requires the Synapse Credential User role.  This permission is required to run pipelines. 
@@ -31,7 +34,7 @@ The following table describes the built-in roles and the scopes at which they ca
 > Users with any Synapse RBAC role at any scope automatically have the Synapse User role at workspace scope. 
 
 > [!IMPORTANT]
-> Synapse RBAC roles do not grant permissions to create or manage SQL pools, Apache Spark pools, and Integration runtimes in Synapse workspaces. Azure Owner or Azure Contributor roles on the resource group are required for these actions.
+> Synapse RBAC roles do not grant permissions to create or manage SQL pools, Apache Spark pools, and Integration runtimes in Azure Synapse workspaces. Azure Owner or Azure Contributor roles on the resource group are required for these actions.
 
 |Role |Permissions|Scopes|
 |---|---|-----|
@@ -77,7 +80,7 @@ workspaces/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br
 workspaces/roleAssignments/write, delete|Synapse Administrator
 workspaces/managedPrivateEndpoint/write, delete|Synapse Administrator</br>Synapse Linked Data Manager
 workspaces/bigDataPools/useCompute/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator 
-workspaces/bigDataPools/viewLogs/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator 
+workspaces/bigDataPools/viewLogs/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator
 workspaces/integrationRuntimes/useCompute/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator
 workspaces/integrationRuntimes/viewLogs/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator
 workspaces/artifacts/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact User
@@ -117,6 +120,5 @@ Credential |Synapse Administrator </br>Synapse Credential User
 
 ## Next steps
 
-Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md) for a workspace.
-
-Learn [how to assign Synapse RBAC roles](./how-to-manage-synapse-rbac-role-assignments.md)
+- Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md) for a workspace.
+- Learn [how to assign Synapse RBAC roles](./how-to-manage-synapse-rbac-role-assignments.md)

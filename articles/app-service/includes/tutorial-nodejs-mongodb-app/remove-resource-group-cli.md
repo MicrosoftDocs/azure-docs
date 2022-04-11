@@ -4,7 +4,7 @@ ms.author: daberry
 ms.topic: include
 ms.date: 01/30/2022
 ---
-Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 #### [bash](#tab/terminal-bash)
 

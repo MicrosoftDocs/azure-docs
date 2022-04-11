@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure Arc-enable data services - directly connected mode - Azure portal
+title: Quickstart - Deploy Azure Arc-enabled data services - directly connected mode - Azure portal
 description: Demonstrates how to deploy Azure Arc-enabled data services from beginning, including a Kubernetes cluster. Finishes with an instance of Azure SQL Managed Instance.
 author: MikeRayMSFT
 ms.author: mikeray
@@ -10,11 +10,11 @@ ms.date: 12/09/2021
 ms.custom: template-quickstart 
 ---
 
-# Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal
+# Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal
 
 This article demonstrates how to deploy Azure Arc-enabled data services in directly connected mode from the Azure portal.
 
-To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI](create-complete-managed-instance-indirectly-connected.md).
+To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI](create-complete-managed-instance-indirectly-connected.md).
 
 When you complete the steps in this article, you will have:
 
@@ -42,7 +42,7 @@ In addition, you need the following additional extensions to connect the cluster
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
@@ -138,10 +138,8 @@ After the connect command completes successfully, you can view the shadow object
 The next step is to create the data controller in directly connected mode via the Azure portal. Use the same subscription and resource group that you used to [create a cluster](#create-a-cluster).
 
 1. In the portal, locate the resource group from the previous step.
-1. Select the **Kubernetes - Azure Arc** object name.
-1. Select **Settings** > **Extensions**. Select **Add**.
-1. Select **Azure Arc data controller**.
-1. Click **Create**.
+1. From the search bar in Azure portal, search for *Azure Arc data controllers*, and select **+ Create**.
+1. Select **Azure Arc-enabled Kubernetes cluster (Direct connectivity mode)**. Select **Next: Data controller details**.
 1. Specify a name for the data controller.
 1. Specify a custom location (namespace). 
 

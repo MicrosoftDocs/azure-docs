@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix bad request exceptions such as input 
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 04/06/2021
+ms.date: 03/07/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -36,7 +36,9 @@ A response with this error means the partition key value is of an invalid type.
 The value of the partition key should be a string or a number, make sure the value is of the expected types.
 
 ## <a name="wrong-partition-key-value"></a>Wrong partition key value
-On this scenario, it's common to see the error:
+On this scenario, it's common to see these errors:
+
+*Response status code does not indicate success: BadRequest (400); Substatus: 1001*
 
 *PartitionKey extracted from document doesn’t match the one specified in the header*
 

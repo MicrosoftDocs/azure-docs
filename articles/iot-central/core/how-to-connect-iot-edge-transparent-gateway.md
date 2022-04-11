@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an Azure IoT Central applicati
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/18/2022
+ms.date: 02/28/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -35,7 +35,7 @@ To follow the steps in this article, download the following files to your comput
 
 ## Add device templates
 
-Both the downstream devices and the gateway device require device templates in IoT Central. IoT Central lets you model the relationship between your downstream devices and your gateway so you can view and manage them after they're connected.
+Both the downstream devices and the gateway device can use device templates in IoT Central. IoT Central lets you model the relationship between your downstream devices and your gateway so you can view and manage them after they're connected. A device template isn't required to attach a downstream device to a gateway.
 
 To create a device template for a downstream device, create a standard device template that models the capabilities of your device. The example shown in this article uses the thermostat device model you downloaded.
 
@@ -98,6 +98,9 @@ Before you deploy the devices, you need the:
 - **Primary key** values for the gateway and downstream devices.
 
 To find these values, navigate to each device in the device list and select **Connect**. Make a note of these values before you continue.
+
+> [!TIP]
+> You can connect the devices and establish relationships without first creating device templates for the devices. You can attach an unassigned downstream device to an unassigned gateway device.
 
 ## Deploy the gateway and devices
 

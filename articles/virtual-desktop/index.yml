@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Azure Virtual Desktop documentation
-summary: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
+summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs.
 
 metadata:
   title: Azure Virtual Desktop documentation
-  description: Azure Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
+  description: Azure Virtual Desktop securely delivers virtual desktops and remote apps and provide users with the only multi-session Windows 11 and Windows 10 experience.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
   manager: femila
   author: Heidilohr
   ms.author: helohr
-  ms.date: 03/06/2020
+  ms.date: 02/28/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -24,10 +24,16 @@ landingContent:
         links:
           - text: What is Azure Virtual Desktop?
             url: overview.md
+          - text: What's new in Azure Virtual Desktop?
+            url: whats-new.md
 
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy Azure Virtual Desktop with the getting started feature
+            url: getting-started-feature.md
       - linkListType: tutorial
         links:
           - text: Create a host pool with Azure Marketplace
@@ -39,9 +45,10 @@ landingContent:
           - text: Set up service alerts
             url: set-up-service-alerts.md
 
+  # Card
   - title: Get started with Azure Virtual Desktop (classic)
     linkLists:
-      - linkListType: tutorial
+      - linkListType: get-started
         links:
           - text: Create a tenant in Azure Virtual Desktop
             url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
@@ -81,3 +88,31 @@ landingContent:
         links:
           - text: Stream apps to your customers
             url: ./remote-app-streaming/overview.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/desktopvirtualization/
+          - text: PowerShell
+            url: /powershell/module/az.desktopvirtualization/
+          - text: REST API
+            url: /rest/api/desktopvirtualization/
+
+  # Card
+  - title: More information
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Desktop
+            url: /learn/modules/m365-wvd-intro/
+          - text: More Azure Virtual Desktop learning paths
+            url: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+      - linkListType: reference
+        links:
+          - text: User experience estimator
+            url: https://azure.microsoft.com/services/virtual-desktop/assessment/
+          - text: Pricing calculator
+            url: https://azure.microsoft.com/pricing/calculator/

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,10 @@ List of settings that can be configured to sync in recent Windows versions. Thes
 | Date, Time, and Region: region format (locale) | sync |
 | Language: language profile | sync |
 | Language: list of keyboards | sync |
+| Mouse: Primary Mouse Button | sync |
+| Passwords: Web Credentials | sync |
+| Pen: Pen Handedness | sync |
+| Touchpad: Scrolling Direction | sync |
 | Wi-Fi: Wi-Fi profiles (only WPA) | sync |
 
 ## Browser settings

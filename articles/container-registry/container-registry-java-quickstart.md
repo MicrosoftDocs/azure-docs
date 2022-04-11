@@ -134,7 +134,7 @@ Finally, you'll update your project configuration and use the command prompt to 
 
 1. Navigate to the complete project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
-   ```bash
+   ```azurecli
    az acr login && mvn compile jib:build
    ```
 

@@ -58,13 +58,15 @@ az acr check-health --ignore-errors
 
 # Check environment and target registry; skip confirmation to pull image
 az acr check-health --name myregistry --ignore-errors --yes
-```      
+```
 
 Sample output:
 
-```console
-$ az acr check-health --name myregistry --ignore-errors --yes
+```azurecli
+az acr check-health --name myregistry --ignore-errors --yes
+```
 
+```output
 Docker daemon status: available
 Docker version: Docker version 18.09.2, build 6247962
 Docker pull of 'mcr.microsoft.com/mcr/hello-world:latest' : OK

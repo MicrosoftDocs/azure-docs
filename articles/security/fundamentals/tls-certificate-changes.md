@@ -27,7 +27,7 @@ All Azure services are impacted by this change. Here are some more details for s
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Cosmos DB](../../cosmos-db/index.yml) will begin this transition in July 2022 with an expected completion in October 2022.
 - For [Azure Storage](../../storage/index.yml), [click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) Azure Cache for Redis is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
 - For [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md?tabs=linux), see [Azure Instance Metadata Service-Attested data TLS: Critical changes are almost here!](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953) for details.
 
 > [!IMPORTANT]
