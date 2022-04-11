@@ -101,7 +101,7 @@ Once the resource is created in the target location, you can create new tests by
 
 After the move is complete, delete the Azure Load Testing resource from the source region. You pay for resources, even when the resource is not being utilized.
 
-1. In the Azure portal search and select **Azure Load Testing**.
+1. In the Azure portal, search and select **Azure Load Testing**.
 
 1. Click on the resource name.
 
