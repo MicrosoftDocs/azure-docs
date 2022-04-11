@@ -48,11 +48,10 @@ Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 Brazil | Brazil South
-Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.<br/><br/> To use restricted regions as your primary or recovery region, please get yourselves allowlisted by raising a request [here](https://docs.microsoft.com/troubleshoot/azure/general/region-access-request-process).
 
 >[!NOTE]
 >
-> - To protect your VMs from or to any of the Restricted Regions, please get yourselves allowlisted by raising a request [here](https://docs.microsoft.com/troubleshoot/azure/general/region-access-request-process).
 > - For **Brazil South**, you can replicate and fail over to these regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
 > - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. Brazil Southeast can only be used as a target region.
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region.
