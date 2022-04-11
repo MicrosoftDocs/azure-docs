@@ -15,8 +15,8 @@ ms.date: 04/08/2022
 # Network traffic flow when using a secured workspace
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI/SDK you are using:"]
-> * [v1](./v1/concept-secure-network-traffic-flow.md)
-> * [v2](concept-secure-network-traffic-flow.md)
+> * [v1](concept-secure-network-traffic-flow.md)
+> * [v2](../concept-secure-network-traffic-flow.md)
 
 When your Azure Machine Learning workspace and associated resources are secured in an Azure Virtual Network, it changes the network traffic between resources. Without a virtual network, network traffic flows over the public internet or within an Azure data center. Once a virtual network (VNet) is introduced, you may also want to harden network security. For example, blocking inbound and outbound communications between the VNet and public internet. However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Management is used for deployments and management operations.
 
@@ -132,35 +132,6 @@ Data access from your compute instance or cluster goes through the private endpo
 If you use Visual Studio Code on a compute instance, you must allow other outbound traffic. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
-
-## Scenario: Use online endpoints (preview)
-
-Securing an online endpoint with a virtual network is a preview feature.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `enabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
-
-__Outbound__ communication from the online endpoint can be secured on a per-deployment basis by using the `private_network_connection` flag. Outbound communication in this case is from the deployment to resources such as Azure Container Registry, Key Vault, workspace, file and blob storage. Setting the flag to `true` will restrict communication with these resources to the virtual network.
-
-> [!NOTE]
-> For secure outbound communication, a private endpoint is created for each deployment where `private_network_connection` is set to `true`.
-
-Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
-
-### Supported configurations
-
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled | `private_network_connection` is true   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `private_network_connection` is false  | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | `private_network_connection` is true    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `private_network_connection` is false  | Yes |
-
-> [!WARNING]
-> If the workspace flag `public_network_access` is `disabled`:
-> 1. Only private deployments are allowed to be created (deployments with `private_network_connection` set to `true`).
-> 1. If the workspace had existing _public_ endpoints before the flag was disabled, then the public deployments will start failing.
 
 ## Scenario: Use Azure Kubernetes Service
 
