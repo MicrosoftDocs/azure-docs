@@ -10,30 +10,30 @@ The current API version is ```2022-01-30-preview```.
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK](../includes/how-to-guides/csharp-read.md)]
+[!INCLUDE [C# SDK](/includes/csharp-read.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java SDK](../includes/how-to-guides/java-read.md)]
+[!INCLUDE [Java SDK](/includes/java-read.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS SDK](../includes/how-to-guides/javascript-read.md)]
+[!INCLUDE [NodeJS SDK](/includes/javascript-read.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK](../includes/how-to-guides/python-read.md)]
+[!INCLUDE [Python SDK](/includes/python-read.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API](../includes/how-to-guides/rest-api-read.md)]
+[!INCLUDE [REST API](/includes/rest-api-read.md)]
 
 ::: zone-end
