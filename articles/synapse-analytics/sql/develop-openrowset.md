@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 03/23/2022
 ms.author: fipopovi
 ms.reviewer: sngun
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, contperf-fy22q3
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
