@@ -52,6 +52,8 @@
       items:
         - name: Secure OpenShift with Azure Front Door
           href: howto-secure-openshift-with-front-door.md
+        - name: Create and use a service principal
+          href: howto-create-service-principal.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster

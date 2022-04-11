@@ -1749,6 +1749,11 @@ groups:
     title: Azure Resouce Manager
   - id: aro-bicep
     title: Bicep   
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift-service-principal
+  title: Azure CLI and Azure portal
+  prompt: Choose an option
+  pivots:
   - id: aro-azurecli
     title: Azure CLI  
   - id: aro-azureportal

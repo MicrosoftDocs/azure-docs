@@ -9,7 +9,7 @@ ms.date: 03/21/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
-zone_pivot_groups: azure-red-hat-openshift
+zone_pivot_groups: azure-red-hat-openshift-service-principal
 ---
 
 # Create and use a service principal with an Azure Red Hat OpenShift cluster 
@@ -91,7 +91,7 @@ Retain your `appId` and `password`. These values are used when you create an
 
 ## Use the service principal - Azure CLI
 
-To use an existing service principal when you create an Azure Red Hat OpenShift cluster using the `az aro create` command, use the `--service-principal` and `--client-secret` parameters to specify the appId and password from the output of the az ad sp create-for-rbac command: 
+To use an existing service principal when you create an Azure Red Hat OpenShift cluster using the `az aro create` command, use the `--service-principal` and `--client-secret` parameters to specify the appId and password from the output of the `az ad sp create-for-rbac` command: 
 
 ```azure-cli 
 az aro create \ 
