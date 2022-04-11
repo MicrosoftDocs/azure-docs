@@ -789,6 +789,9 @@ items:
       href: ./interactive-query/apache-interactive-query-get-started.md
   - name: Quickstarts
     items:
+    - name: Create Interactive Query cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./interactive-query/quickstart-bicep.md
     - name: Create Interactive Query cluster - ARM Template
       displayName: Resource Manager
       href: ./interactive-query/quickstart-resource-manager-template.md
