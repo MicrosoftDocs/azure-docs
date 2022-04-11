@@ -64,7 +64,7 @@ az provider register --namespace Microsoft.ContainerService
 > Deleting the key, or the Key Vault is not supported as it will break the AKS cluster!
 
 > [!NOTE]
-> If you need to recover your Key Vault or key, reference the [Key Vault](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-cli) 
+> If you need to recover your Key Vault or key, reference the [Key Vault](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-cli) documentation.
 
 The following limitations apply when you integrate KMS etcd encryption with Azure Kubernetes Service:
 * Disabling of the KMS etc encryption feature
