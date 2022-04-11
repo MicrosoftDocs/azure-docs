@@ -70,7 +70,6 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           ...
-          production_branch: "main"
           deployment_environment: "dev"
 ```
 
