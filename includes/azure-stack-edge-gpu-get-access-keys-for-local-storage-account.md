@@ -6,32 +6,32 @@ ms.date: 04/11/2022
 ms.author: alkohli
 ---
 
-Get the storage account key for the account that you created in the earlier step. When prompted, provide the resource group name and the storage account name.
+Get the storage account key for the local storage account that you have created. You'll need to provide the resource group name and the storage account name.
 
 ### [Az](#tab/az)
 
-    ```powershell
-    Get-AzStorageAccountKey
-    ``` 
+```powershell
+Get-AzStorageAccountKey
+``` 
 
-    Here's an example output:
+Here's an example output:
 
-    ```output
-    PS C:\WINDOWS\system32> Get-AzStorageAccountKey
+```output
+PS C:\WINDOWS\system32> Get-AzStorageAccountKey
     
-    cmdlet Get-AzStorageAccountKey at command pipeline position 1
-    Supply values for the following parameters:
-    (Type !? for Help.)
-    ResourceGroupName: myaseazrg
-    Name: myaseazsa
+cmdlet Get-AzStorageAccountKey at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName: myaseazrg
+Name: myaseazsa
     
-    KeyName Value                                                                                    Permissions
-    ------- -----                                         ------
-    key1    gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==   Full
-    key2    kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==   Full
+KeyName     Value                                                                                          Permissions
+-------     -----                                                                                          ------
+key1        gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==       Full
+key2        kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==       Full
     
-    PS C:\WINDOWS\system32>
-    ```
+PS C:\WINDOWS\system32>
+```
 
 ### [AzureRM](#tab/azure-rm)
 
