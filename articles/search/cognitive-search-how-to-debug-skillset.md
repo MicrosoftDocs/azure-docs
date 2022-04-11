@@ -135,7 +135,7 @@ Custom skills can be more challenging to debug because the code runs externally.
 
 ### Run ngrok
 
-[**ngrok**](https://ngrok.com/docs) is a cross-platform application that can create a tunnelling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
+[**ngrok**](https://ngrok.com/docs) is a cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
 
 1. Install ngrok.
 
@@ -150,7 +150,7 @@ Custom skills can be more challenging to debug because the code runs externally.
     > [!NOTE]
     > By default, Azure Functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
 
-1. When ngrok starts, copy and save the public forwarding URL for the ext step.
+1. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
 
    :::image type="content" source="media/cognitive-search-debug/ngrok.png" alt-text="Screenshot of ngrok terminal." border="false":::
 
