@@ -32,15 +32,16 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 
 ## Prerequisites
 
-1.    Deploy Azure VMware Solution private cloud with a [virtual network configured](/azure/azure-vmware/deploy-azure-vmware-solution). For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
-    1. Verify the subscription is registered to Microsoft.AVS.
+1.    [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) with a virtual network configured. For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
+    1. Verify the subscription is registered to **Microsoft.AVS**.
         `az provider show -n "Microsoft.AVS" -- query registrationState`
-    1. If it's not already registered, register it.
-        `az provider register -n "Microsoft.AVS"`
+1. If it's not already registered, register it, then deploy a private cloud.
+    `az provider register -n "Microsoft.AVS"`
 1. Create an [NFS volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
     1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
-    1. Verify the subscription is registered to `ANFAvsDataStore` feature in the **Microsoft.NetApp** namespace to confirm the volume is for Azure VMware Solution NFS datastore.
-    1. The registration isn't auto approved. If your subscription wasn't registered when you signed up for preview, you'll need to send an email to the support DL and provide the subscription ID.
+    1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace to identify and confirm the volume is for Azure VMware Solution NFS datastore.
+    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
+    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state `
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
