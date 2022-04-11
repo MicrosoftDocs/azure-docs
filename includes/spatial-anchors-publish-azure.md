@@ -15,12 +15,16 @@ The Publish Wizard starts.
 1. Select Specific Target **Azure App Service (Windows)** > **Next**
 1. Sign in to the Azure portal.
 1. Select the green "+" to **Create an Azure App Service**
-    1. **Name:** Give your service a unique name
-    1. **Subscription Name:** Select your preferred Azure subscription
-    1. **Resource Group:** [!INCLUDE [resource group intro text](resource-group.md)]. Select an existing resource group or create a new one and call it _myResourceGroup_
-    1. **Hosting Plan:**[!INCLUDE [app-service-plan](app-service-plan.md)]. 
-    Select **New...**
-        
+
+#### App Service Settings
+| Setting | Suggested value | Description |
+|-|-|-|
+|Name| _myASASharingService_ | Give your service a unique name |
+|Subscription Name | | Select your preferred Azure subscription |
+|Resource Group |_myResourceGroup_ or select an existing one | [!INCLUDE [resource group intro text](resource-group.md)] |
+|Hosting Plan | Select **New...** and see table below | [!INCLUDE [app-service-plan](app-service-plan.md)] |
+ 
+#### Hosting Plan Settings        
 | Setting | Suggested value | Description |
 |-|-|-|
 |Hosting Plan| MySharingServicePlan | Give your hosting plan a unique name |
