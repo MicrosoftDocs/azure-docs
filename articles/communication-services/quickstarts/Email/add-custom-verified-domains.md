@@ -37,7 +37,7 @@ ms.custom: private_preview
     - Select **Custom domain** from the dropdown.
 3. You will be navigating to "Add a custom Domain". 
 4. Enter  your "Domain Name" and re enter domain name
-5. Click Confirm.
+5. Click **Confirm**.
    ![image](https://user-images.githubusercontent.com/35741731/162818638-aa307cde-b6a4-4069-896a-7f69702b08c0.png)
 6. Please ensure that domain name is not misspelled or click edit to correct the domain name and confirm.
 7. Click **Add**.![image](https://user-images.githubusercontent.com/35741731/162819927-d12edb4a-de94-417b-9cfb-10b41ce960bb.png)
@@ -47,8 +47,7 @@ ms.custom: private_preview
 9. You can verify the ownership of the domain by clicking **Verify Domain** ![image](https://user-images.githubusercontent.com/35741731/162819470-60f6178e-a009-43d2-8b44-4d566260f70e.png).
 
 10. If you would like to resume the verification later you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** link ![image](https://user-images.githubusercontent.com/35741731/162824226-6170beb5-6ace-4edc-9138-d7c76edcab5a.png)
-11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. ![image](https://user-images.githubusercontent.com/35741731/162824086-698b0625-6f57-483e-acb8-4929651b001c.png)
-
+11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. ![image](https://user-images.githubusercontent.com/35741731/162831193-1bc93a0b-9170-4c8b-866c-54848584d658.png)
 12.You need add the above TXT record to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. ![image](https://user-images.githubusercontent.com/35741731/162825103-b6ea623d-a4c6-4190-a928-2ed6a2b62bfa.png)
 13. Verify that TXT record is created successfully in your DNS and Click **Done**. 
 14. DNS changes will take up to 15 to 30 minutes.  Click **Close**. ![image](https://user-images.githubusercontent.com/35741731/162826317-9e377d65-7173-4eaf-b809-896f97cfc414.png)
@@ -69,10 +68,11 @@ ms.custom: private_preview
 ![image](https://user-images.githubusercontent.com/35741731/162828759-6a333949-dd51-4fc8-b4de-d7cf23a0a4e0.png)
 
 4. DNS changes will take up to 15 to 30 minutes.  Click **Close**.![image](https://user-images.githubusercontent.com/35741731/162829184-593273f7-cc43-42ce-8bd6-f2e6f17baa1d.png)
+5. Wait for Verification to complete. You can check the Verification Status from **Provision Domains** page. ![image](https://user-images.githubusercontent.com/35741731/162829426-11edc332-f4ca-4ba2-82bb-b2cc30be78f7.png)
+6. Once your sender authentication configurations are successfully verified, your email domain will be ready to send emails using custom domain.
 
-5. Once your sender authentication configurations are successfully verified, your email domain will be ready to send emails using custom domain.
 
-![image](https://user-images.githubusercontent.com/35741731/162829426-11edc332-f4ca-4ba2-82bb-b2cc30be78f7.png)
+![image](https://user-images.githubusercontent.com/35741731/162830872-70c3c490-3f46-4ae2-b75f-f2dffe41953d.png)
 
 
 ## Next steps
