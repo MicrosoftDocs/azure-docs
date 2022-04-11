@@ -17,11 +17,11 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
 1. Do one of the following:
 
-    - To buy a pre-configured appliance, select **Contact** under **Buy preconfigured appliance**. This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md).
+    - To buy a pre-configured appliance, select **Contact** under **Buy preconfigured appliance**. This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [OT monitoring appliance catalog](how-to-identify-required-appliances.md).
 
     - To install software on your own appliances, do the following:
 
-        1. Make sure that you have a supported appliance available. For more information, see [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md) and [Resource requirements for virtual appliances](ot-virtual-appliances.md).
+        1. Make sure that you have a supported appliance available. For more information, see [OT monitoring appliance catalog](how-to-identify-required-appliances.md).
 
         1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
 
