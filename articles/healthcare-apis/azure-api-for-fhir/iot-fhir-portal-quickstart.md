@@ -84,11 +84,11 @@ On the **Device mapping** page, add the following script to the JSON editor and 
         "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
         "patientIdExpression": "$.deviceId", 
         "values": [ 
-          { 
+          {  
             "required": "true",
             "valueExpression": "$.telemetry.HeartRate",
             "valueName": "hr"
-         } 
+          } 
         ]
       }
     }
