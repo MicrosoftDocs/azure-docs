@@ -52,8 +52,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Device detection enhancements](#device-detection-enhancements)
-- [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal-public-preview)
-- [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal-public-preview)
+- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 
 ### Active discovery scans (Public preview)
@@ -106,9 +105,7 @@ For more information, see:
 
 - Support for Windows 11 and Server 2019 devices
 
-### Learn and close alerts from the Azure portal  (Public preview)
-
-### Update and configure your sensor remotely from the Azure portal  (Public preview)
+### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
 ### Automatic certificate updates  (Public preview)
 
@@ -181,7 +178,6 @@ This month we've reorganized our Defender for IoT documentation for end-user org
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
-- [Upload diagnostics for support from the Azure portal](#upload-diagnostics-for-support-from-the-azure-portal)
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
