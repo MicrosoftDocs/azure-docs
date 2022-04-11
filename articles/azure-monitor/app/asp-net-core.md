@@ -160,6 +160,12 @@ Support for [performance counters](./performance-counters.md) in ASP.NET Core is
 
 By default, `EventCounterCollectionModule` is enabled. To learn how to configure the list of counters to be collected, see [EventCounters introduction](eventcounters.md).
 
+### Enrich data through HTTP
+
+```csharp
+HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
+```
+
 ## Enable client-side telemetry for web applications
 
 The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md).

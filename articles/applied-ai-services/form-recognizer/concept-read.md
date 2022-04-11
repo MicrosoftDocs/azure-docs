@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF and TIFF) and images (JPG, PNG, and BMP).
+The prebuilt-read model extracts printed and handwritten textual elements including lines, words, locations, and detected languages from documents (PDF and TIFF) and images (JPG, PNG, and BMP). The read model is the foundation for all Form Recognizer models. Layout, general document, custom, and prebuilt models use the prebuilt-read model as a basis for extracting text from documents.
 
 ## Development options
 
