@@ -77,6 +77,8 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 
 Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
 
+The custom configured traffic selectors will be proposed only when an Azure VPN gateway initiates the connection. A VPN gateway will accept any traffic selectors proposed by a remote gateway (on-premises VPN device). This behavior is consistent between all connection modes (Default, InitiatorOnly, and ResponderOnly).
+
 ### Can I update my policy-based VPN gateway to route-based?
 
 No. A gateway type cannot be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you cannot retain the IP address of the original gateway.
@@ -215,7 +217,7 @@ Transit traffic via Azure VPN gateway is possible using the classic deployment m
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be printable ASCII characters.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST only contain printable ASCII characters except space, hyphen (-) or tilde (~).
 
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
