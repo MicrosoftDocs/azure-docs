@@ -1,12 +1,13 @@
 ---
 title: "Use SDKs and REST API for Read Model"
 titleSuffix: Azure Applied AI Services
-description: Learn how to build, label, and train a custom model in the Form Recognizer Studio.
+description: Learn how to use Read Model using SDKs and REST API.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
+zone_pivot_groups: programming-languages-set-formre
 ms.date: 04/11/2022
 ms.author: jaep3347
 ---
