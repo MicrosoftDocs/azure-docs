@@ -160,19 +160,23 @@ To recover from this issue, follow these steps:
 
 ### CryptoHash module error
 
-When attempting to onboard Kubernetes clusters to the Azure Arc platform, the local environment (i.e., the client console) may return the following error message:
+When attempting to onboard Kubernetes clusters to the Azure Arc platform, the local environment (for example, your client console) may return the following error message:
 
 ```output
 Cannot load native module 'Crypto.Hash._MD5'
 ```
 
-Sometimes, dependent modules fail to download successfully when adding the extensions `connectedk8s` and `k8s-configuration` via Azure CLI or Azure Powershell. To fix this problem, manually remove and then add the extensions in the local environment:
+Sometimes, dependent modules fail to download successfully when adding the extensions `connectedk8s` and `k8s-configuration` through Azure CLI or Azure Powershell. To fix this problem, manually remove and then add the extensions in the local environment.
+
+To remove the extensions, use:
 
 ```azurecli
 az extension remove --name connectedk8s
 
 az extension remove --name k8s-configuration
 ```
+
+To add the extensions, use:
 
 ```azurecli
 az extension add --name connectedk8s
