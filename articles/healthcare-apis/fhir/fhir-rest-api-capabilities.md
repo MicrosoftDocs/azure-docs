@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/09/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # FHIR REST API capabilities for Azure Health Data Services FHIR service

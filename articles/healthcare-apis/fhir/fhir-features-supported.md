@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Supported FHIR Features
@@ -32,7 +32,7 @@ Below is a summary of the supported RESTful capabilities. For more information o
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
 | patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only. |
-| patch (conditional)            | Yes       | Yes       |
+| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |

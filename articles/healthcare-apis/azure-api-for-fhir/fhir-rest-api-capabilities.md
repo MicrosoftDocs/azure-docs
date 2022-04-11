@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # FHIR REST API capabilities for Azure API for FHIR
@@ -68,7 +68,7 @@ After you've found the record you want to restore, use the `PUT` operation to re
 
 ## Patch and Conditional Patch
 
-Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three ways to Patch resources: JSON Patch, XML Patch, and FHIR Path Patch. The FHIR Service support both JSON Patch and FHIRPath Patch along with Conditional JSON Patch and Conditional FHIRPath Patch (which allows you to Patch a resource based on a search criteria instead of a resource ID). To walk through some examples, refer to the sample [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http) and the [JSON Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/JsonPatchRequests.http) for each approach. For additional details, read the [HL7 documentation for patch operations with FHIR](https://www.hl7.org/fhir/http.html#patch).
+Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three ways to Patch resources: JSON Patch, XML Patch, and FHIRPath Patch. The FHIR Service support both JSON Patch and FHIRPath Patch along with Conditional JSON Patch and Conditional FHIRPath Patch (which allows you to Patch a resource based on a search criteria instead of a resource ID). To walk through some examples, refer to the sample [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http) and the [JSON Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/JsonPatchRequests.http) for each approach. For additional details, read the [HL7 documentation for patch operations with FHIR](https://www.hl7.org/fhir/http.html#patch).
 
 > [!NOTE]
 > When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [HTTPVerb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
