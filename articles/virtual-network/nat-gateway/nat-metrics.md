@@ -243,11 +243,11 @@ The metrics dashboard can be used to better understand the performance and healt
 
 - All NAT gateway metrics can be viewed in a dashboard when selecting **Show Metrics Pane**.
 
-    :::image type="content" source="./media/nat-metrics/nat-metrics-pane.png" alt-text="Screenshot of the Insights section of NAT gateway."::: 
+    :::image type="content" source="./media/nat-metrics/nat-metrics-pane.png" alt-text="Screenshot of the show metrics pane."::: 
 
 - A full page view of all NAT gateway metrics can be viewed when selecting **View Detailed Metrics**.
 
-    :::image type="content" source="./media/nat-metrics/detailed-metrics.png" alt-text="Screenshot of the Insights section of NAT gateway."::: 
+    :::image type="content" source="./media/nat-metrics/detailed-metrics.png" alt-text="Screenshot of the view detailed metrics."::: 
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
