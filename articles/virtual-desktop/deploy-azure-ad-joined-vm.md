@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/08/2022
+ms.date: 04/11/2022
 ms.author: helohr
 ---
 
@@ -79,7 +79,7 @@ You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined V
 
 ## User profiles
 
-You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files and you are using synced user accounts. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
+You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files while using synced user accounts. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
 
 ## Accessing on-premises resources
 
