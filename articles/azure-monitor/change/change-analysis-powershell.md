@@ -86,8 +86,8 @@ Get-AzChangeAnalysis @Params
 
 > [!NOTE]
 > A resource not found message is returned if the specified resource has been removed or deleted.
-> Use Change Analysis at the resource group or subscription level to determine changes where
-> resources have been removed or deleted.
+> Use Change Analysis at the resource group or subscription level to determine changes for resources
+> that have been removed or deleted.
 
 ## View detailed information
 
