@@ -67,7 +67,10 @@ The following reports are available in the app.
 - Azure Marketplace charges
 - Overages and total charges
 
-The Billing account overview page might show costs that differ from costs shown in the EA portal. The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
+The Billing account overview page might show costs that differ from costs shown in the EA portal. 
+
+>[!NOTE]
+>The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
 
 Data shown in the bar graph is determined by the date selection.
 
