@@ -96,9 +96,9 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 >
 > In addition, data persistence adds Managed Disks. The use of these resources is free during the public preview of Enterprise data persistence. This might change when the feature becomes generally available.
 
-## Availability by region
+### Availability by region
 
-Azure Cache for Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Next steps
 

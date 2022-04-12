@@ -24,7 +24,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 ### Availability by region
 
-Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Create a cache
 
