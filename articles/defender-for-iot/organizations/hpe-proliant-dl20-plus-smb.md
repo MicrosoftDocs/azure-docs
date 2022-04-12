@@ -1,13 +1,20 @@
 ---
-title: HPE ProLiant DL20 Plus for OT monitoring in SMB deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
+title: HPE ProLiant  DL20/DL20 Plus for OT monitoring in SMB deployments- Microsoft Defender for IoT
+description: Learn about the HPE ProLiant  DL20/DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20 Plus for SMB deployments
+# HPE ProLiant DL20/DL20 Plus for SMB deployments
 
-This article describes the *HPE ProLiant DL20 Plus** when used in SMB deployments for OT monitoring.
+This article describes the *HPE ProLiant DL20 Plus** appliance for OT monitoring.
+
+|Summary  | |
+|---------|---------|
+|**Architecture** | [SMB] |
+|**Performance** | 	Max bandwidth: 200Mbp/s <Br>Max devices: 1,000 |
+|**Physical Specifications** | Mounting: 1U<br>Ports: 4x RJ45|
+|**Status** | Supported, Available |
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20 Plus." border="false":::
 
@@ -36,7 +43,6 @@ This article describes the *HPE ProLiant DL20 Plus** when used in SMB deployment
 |PN|Description|Quantity|
 |:----|:----|:----|
 |P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
-|P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
 |P17102-L21|HPE DL20 Gen10 E-2224 FIO Kit|1|
 |879505-B21|HPE 8-GB 1Rx8 PC4-2666V-E Standard Kit|1|
 |801882-B21|HPE 1-TB SATA 7.2 K LFF RW HDD|2|
@@ -47,6 +53,115 @@ This article describes the *HPE ProLiant DL20 Plus** when used in SMB deployment
 |P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
+  
+  
+## HPE ProLiant DL20 installation
+
+This section describes the HPE ProLiant DL20 installation process, which includes the following steps:
+
+- Enable remote access and update the default administrator password.
+- Configure BIOS and RAID settings.
+- Install the software.
+
+### About the installation
+
+- Enterprise and SMB appliances can be installed. The installation process is identical for both appliance types, except for the array configuration.
+- A default administrative user is provided. We recommend that you change the password during the network configuration process.
+- During the network configuration process, you'll configure the iLO port on network port 1.
+- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+### HPE ProLiant DL20 front panel
+
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="HPE ProLiant DL20 front panel.":::
+
+### HPE ProLiant DL20 back panel
+
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="The back panel of the HPE ProLiant DL20.":::
+
+### Enable remote access and update the password
+
+Use the following procedure to set up network options and update the default password.
+
+**To enable, and update the password**:
+
+1. Connect a screen, and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
+
+    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
+
+1. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
+
+    :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
+
+    1. Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
+
+    1. Disable DHCP.
+
+    1. Enter the IP address, subnet mask, and gateway IP address.
+
+1. Select **F10: Save**.
+
+1. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
+
+1. Select **Edit/Remove User**. The administrator is the only default user defined.
+
+1. Change the default password and select **F10: Save**.
+
+### Configure the HPE BIOS
+
+The following procedure describes how to configure the HPE BIOS for the enterprise, and SMB appliances.
+
+**To configure the HPE BIOS**:
+
+1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
+
+1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
+
+1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+
+1. Select **Esc** twice to close the **System Configuration** form.
+
+
+#### For the SMB appliance
+
+1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
+
+1. Select **Proceed to Next Form**.
+
+1. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB deployments.
+
+1. Select **Proceed to Next Form**.
+
+1. In the **Logical Drive Label** form, enter **Logical Drive 1**.
+
+1. Select **Submit Changes**.
+
+1. In the **Submit** form, select **Back to Main Menu**.
+
+1. Select **F10: Save** and then press **Esc** twice.
+
+1. In the **System Utilities** window, select **One-Time Boot Menu**.
+
+1. In the **One-Time Boot Menu** form, select **Legacy BIOS One-Time Boot Menu**.
+
+1. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell.
+
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot that shows the first Boot Override window.":::
+
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
+
+### Software installation (HPE ProLiant DL20 appliance)
+
+The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+To install the software:
+
+1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
+
+1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
+
+1. Start the appliance.
+
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## Next steps
 
