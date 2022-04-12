@@ -495,7 +495,7 @@ items:
         items:
         - name: Collect events and performance
           displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-events-performance.md
+          href: agents/data-collection-rule-azure-monitor-agent.md
         - name: Collect text Logs
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-text-log.md
