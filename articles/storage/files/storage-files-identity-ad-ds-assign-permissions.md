@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 03/16/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
@@ -34,6 +34,7 @@ Most users should assign share-level permissions to specific Azure AD users or g
 There are three scenarios where we instead recommend using default share-level permissions assigned to all authenticated identities:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can alternatively use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement as you don't need to specify the permission to identities in Azure AD. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
+    - Identities that are tied to an AD but aren't synching to Azure AD DS can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer service accounts. 
 - The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
     - This is typical when you are managing multi-tenant environments. Using the default share-level permission allows you to bypass the requirement for a Azure AD hybrid identity. You can still use Windows ACLs on your files and directories for granular permission enforcement.
 - You prefer to enforce authentication only using Windows ACLS at the file and directory level. 

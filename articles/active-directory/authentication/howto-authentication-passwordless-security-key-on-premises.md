@@ -33,7 +33,7 @@ An Azure AD Kerberos Server object is created in your on-premises Active Directo
    Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
 
 1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises Azure AD DC and trades the partial TGT for a fully formed TGT.
+1. The client machine contacts an on-premises Active Directory Domain Controller and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Prerequisites
@@ -190,7 +190,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kereberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
+> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |

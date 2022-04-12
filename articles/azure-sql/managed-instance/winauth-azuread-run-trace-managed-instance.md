@@ -29,7 +29,7 @@ To use Windows Authentication to connect to and run a trace against a managed in
 - To create or modify extended events sessions, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER ANY EVENT SESSION on the managed instance.
 - To create or modify traces in SQL Server Profiler, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER TRACE on the managed instance.
 
-If you have not yet enabled Windows authentication for Azure AD principals against your managed instance, you may run a trace against a managed instance using an [Azure AD Authentication](../database/authentication-aad-overview.md) option, including:
+If you have not yet enabled Windows authentication for Azure AD principals against your managed instance, you may run a trace against a managed instance using an [Azure AD Authentication](/azure/azure-sql/database/authentication-aad-overview) option, including:
 
 - 'Azure Active Directory - Password'
 - 'Azure Active Directory - Universal with MFA'
