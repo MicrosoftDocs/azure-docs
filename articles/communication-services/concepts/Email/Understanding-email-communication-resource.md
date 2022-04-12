@@ -24,7 +24,7 @@ sending an email requires certain preconfiguration steps and you have to rely on
 - Define the P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). 
 - Setup and verify the sender domain by adding necessary DNS records for sender verification to succeed.
 
-Once the sender domain is succeffully configured correctly and verified you will able to link the verified domains with your Azure Communication Services resource and start sending emails.
+Once the sender domain is successfully configured correctly and verified you will able to link the verified domains with your Azure Communication Services resource and start sending emails.
  
 One of the key prinicipals for azure communication services is to have a simplified developer experience. Our email platform will simplify the expereicne for developers and ease this back and forth operations with organization administartors and improve the end to end expirence by allowing admin developers to configure the necessary sender authentication and other compliance releated steps to send email and letting you focus on building the required paylod.
 
@@ -34,6 +34,7 @@ Your Azure Administartors will create a new resource of type “Email Communicat
  ## Organziation Admins \ Admin Devlopers Responsibility 
 
 - Plan all the requried Email Domains for the applications in the organization
+- Create the new resource of type “Email Communication Services”
 - Add Custom Domains or get an Azure Managed Domain.
 - Perform the sender verification steps for Custom Domains
 - Setup DMARC Policy for the verified Sender Domains.
