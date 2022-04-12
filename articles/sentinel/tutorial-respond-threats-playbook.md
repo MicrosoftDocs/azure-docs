@@ -70,7 +70,7 @@ Get a more complete and detailed introduction to automating threat response usin
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen.":::
+:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
 
 1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
 
@@ -118,6 +118,12 @@ Regardless of which trigger you chose to create your playbook with in the previo
 # [Logic Apps Standard](#tab/LAS)
 
 ### Prepare the Logic App and workflow
+
+There are three steps to getting started creating a Logic Apps Standard playbook:
+
+1. [Create a Logic App](#create-a-logic-app).
+1. [Create a workflow](#create-a-workflow-playbook) (this is the actual playbook).
+1. [Choose the trigger](#choose-the-trigger).
 
 #### Create a Logic App
 
