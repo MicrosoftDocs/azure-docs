@@ -73,53 +73,17 @@ A notification appears that the deployment is created.
 
  1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machine and select **Schedule updates**.
-1. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm)
+1. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to createa a maintenance configuration and assign a schedule.
 
-
-1. 
-1. Select **Check for updates** to add machines and resources.
-1. Select the machine to view all the available updates and to create a recurring schedule.
-1. In **Select resources and check for updates** page, select the machine to view all the available updates to create a recurring schedule.
-
-	:::image type="content" source="./media/scheduled-updates/scheduling-tab-inline.png" alt-text="screenshot on create maintenance configuration." lightbox="./media/scheduled-updates/scheduling-tab-expanded.png":::
-
-1. In **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration to the scheduled recurring updates.
-
-	- In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
-	- Select **Add a schedule** and specify the schedule details such as:
-	
-		- Start on
-		- Maintenance window (in hours)
-		- Repeats(monthly, daily or weekly)
-		- Add end date
-		- Schedule summary
-
-	> [!NOTE]
-	> The hourly option is currently not supported in the portal, but can be used through the [API](./manage-vms-programmatically.md#create-a-maintenance-configuration-schedule). 
-
-	:::image type="content" source="./media/scheduled-updates/scheduled-patching-basics-page.png" alt-text="Scheduled patching basics page.":::
- 
-	
-	For the monthly option, there are two options: 
-
-	- Repeat on a calendar date (optionally run on last date of the month)
-	- Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally you can also specify an end date when you want the schedule to expire.
-
-1. In the **Machines**, verify the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
-1. In the **Updates** page, specify the updates to include in the deployment:
-
-   * Update classification(s)
-   * Include updates by specific KB IDs or package names. 
-	![Scheduled patching updates page](./media/scheduled-updates/scheduled-patching-updates-page.png)
-1. In the **Tags** page, assign tags to maintenance configurations.
-1. In the **Review + Create** page, verify your update deployment options and then select **Create**.
 A notification appears that the deployment is created.
 
 
-### Attach a maintenance configuration
 
-One maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you've created one.
+ ## Attach a maintenance configuration
+ A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you've created one.
 
+ 1. In **Update management center**, select **Machines** and select your **Subscription**.
+ 1. Select your machine and in **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration  or attach existing maintenance configuration to the scheduled recurring updates.
 1. In **Scheduling**, select **Attach maintenance configuration**. 
 1. Select the maintenance configuration that you would want to attach and select **Attach**. 
 1. In **Updates (Preview)**, select **Scheduling** and **+Attach maintenance configuration**. 
