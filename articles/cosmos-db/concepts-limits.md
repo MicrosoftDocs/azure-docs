@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 04/08/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -216,7 +216,7 @@ Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). T
 | Resource | Default limit |
 | --- | --- |
 | Maximum length of SQL query| 256 KB |
-| Maximum JOINs per query| 5 <sup>*</sup>|
+| Maximum JOINs per query| 10 <sup>*</sup>|
 | Maximum UDFs per query| 10 <sup>*</sup>|
 | Maximum points per polygon| 4096 |
 | Maximum included paths per container| 500 |

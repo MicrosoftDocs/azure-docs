@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Application Gateway data reference  
 description: Important reference material needed when you monitor Application Gateway 
-author: vhorne
-ms.author: victorh
+author: greg-lindsay
+ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
