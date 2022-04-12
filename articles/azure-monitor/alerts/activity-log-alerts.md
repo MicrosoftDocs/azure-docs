@@ -71,7 +71,7 @@ You can create up to 100 active activity log alert rules per subscription (inclu
 If you are reaching near this limit, there are several guidelines you can follow to optimize the use of activity log alerts rules, so that you can cover more resources and events with the same number of rules:
 * A single activity log alert rule can be configured to cover the scope of a single resource, a resource group, or an entire subscription. To reduce the number of rules you're using, consider to replace multiple rules covering a narrow scope with a single rule covering a broad scope. For example, if you have multiple VMs in a subscription, and you want an alert to be triggered whenever one of them is restarted, you can use a single activity log alert rule to cover all the VMs in your subscription. The alert will be triggered whenever any VM in the subscription is restarted.  
 * A single service health alert rule can cover all the services and Azure regions used by your subscription. If you're using multiple service health alert rules per subscription, you can replace them with a single rule (or with a small number of rules, if you prefer). 
-* A single resource health alert rule can cover multiple resource types and resources in your subscription. If you're using multiple resource health alert rules per subscription, you can replace them with a smaller number of rules (or even a single rule) that covers multiple resource types.
+* A single resource health alert rule can cover multiple resource types and resources in your subscription. If you're using multiple resource health alert rules per subscription, you can replace them with a smaller number of rules (or even a single rule) that covers multiple resource types. 
 
 
 ## Next steps
