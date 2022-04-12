@@ -1,6 +1,6 @@
 ---
-title: Programmatically manage updates for Azure VMs in Update management center (preview)
-description: This article tells how to use Update management center (preview) in Azure using REST API with Azure virtual machines.
+title: Programmatically manage updates for Azure VMs
+description: This article tells how to use update management center (private preview) in Azure using REST API with Azure virtual machines.
 ms.service: update-management-center
 author: mgoedtel
 ms.author: magoedte
@@ -10,11 +10,11 @@ ms.topic: conceptual
 
 # How to programmatically manage updates for Azure VMs
 
-The article details the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with Update management center (preview) in Azure. If you're new to Update management center (preview) and you want to learn more, see [overview of Update management center (preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
+This article walks you through the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with update management center (private preview) in Azure. If you are new to update management center (private preview) and you want to learn more, see [overview of update management center (private preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
 
-Update management center (preview) in Azure enables you to use the [Azure REST API](/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](/powershell/azure/) and [Azure CLI](/cli/azure/).
+Update management center (private preview) in Azure enables you to use the [Azure REST API](https://docs.microsoft.com/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) and [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
-Support for Azure REST API to manage Azure VMs is available through the update management center (preview) virtual machine extension.
+Support for Azure REST API to manage Azure VMs is available through the update management center (private preview) virtual machine extension.
 
 ## Update assessment
 
@@ -26,7 +26,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 
 # [Azure CLI](#tab/cli)
 
-To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Network/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
@@ -34,7 +34,7 @@ az rest --method post --url https://management.azure.com/subscriptions/subscript
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod
@@ -65,15 +65,15 @@ The following table describes the elements of the request body:
 | Property | Description |
 |----------|-------------|
 | `maximumDuration` | Maximum amount of time that the operation runs. It must be an ISO 8601-compliant duration string such as `PT4H` (4 hours). |
-| `rebootSetting` | Flag to state if the machine should be rebooted and if Guest OS update installation requires it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
+| `rebootSetting` | Flag to state if machine should be rebooted if Guest OS update installation requires it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on Azure VMs running a supported Microsoft Windows Server operating system. |
 | `windowsParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, UpdateRollUp, FeaturePack, ServicePack, Definition, Tools, Update` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB Ids that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `kbNumbersToInclude` is an optional list of specific KBs to be installed in addition to the classifications. For example: `1234` |
-| `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB ID specified here won't be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
+| `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB Id specified here will not be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
 | `linuxParameters` | Parameter options for Guest OS update on Azure VMs running a supported Linux server operating system. |
 | `linuxParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, Others` |
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `packageNameMasksToInclude` is an optional list of package names to be installed in addition to the classifications. For example: `mysql, libc=1.0.1.1, kernel*` |
-| `linuxParameters - packageNameMasksToExclude` | List of updates that should **not** be installed. This parameter overrides `linuxParameters - packageNameMasksToExclude`, meaning a package specified here won't be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
+| `linuxParameters - packageNameMasksToExclude` | List of updates that should **not** be installed. This parameter overrides `linuxParameters - packageNameMasksToExclude`, meaning a package specified here will not be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
 
 
 # [Azure REST API](#tab/rest)
@@ -107,7 +107,7 @@ POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Micros
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version==2020-12-01 @body.json
@@ -140,7 +140,7 @@ The format of the request body for version 2020-12-01 is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod
@@ -174,7 +174,7 @@ Invoke-AzRestMethod
 ---
 
 
-## Create a maintenance configuration schedule
+## Create a Maintenance configuration schedule
 
 To create a maintenance configuration schedule, specify the following PUT request:
 
@@ -195,9 +195,9 @@ The following table describes the elements of the request body:
 | `properties.maintenanceScope` | Gets or sets maintenanceScope of the configuration |
 | `properties.maintenanceWindow.duration` | Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00. |
 | `properties.maintenanceWindow.expirationDateTime` | Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59. |
-| `properties.maintenanceWindow.recurEvery` | Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule 's formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days. Weekly schedule is formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday, Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23, day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday. |
+| `properties.maintenanceWindow.recurEvery` | Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days. Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday. |
 | `properties.maintenanceWindow.startDateTime` | 	Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. |
-| `properties.maintenanceWindow.timeZone` |	Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]: GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Can. Australia Standard Time. |
+| `properties.maintenanceWindow.timeZone` |	Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time. |
 | `properties.namespace` | 	Gets or sets namespace of the resource |
 | `properties.visibility` | Gets or sets the visibility of the configuration. The default value is 'Custom' |
 | `systemData` | Azure Resource Manager metadata containing createdBy and modifiedBy information. |
@@ -246,7 +246,7 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the PUT request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method put --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview @body.json
@@ -290,7 +290,7 @@ The format of the request body is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview"
@@ -354,7 +354,7 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
+To specify the PUT request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method put --url https://management.azure.com/<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview @body.json
@@ -373,7 +373,7 @@ The format of the request body is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview"
@@ -389,5 +389,5 @@ Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Main
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by Update management center (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update management center (preview).
+* To view update assessment and deployment logs generated by update management center (private preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (private preview).

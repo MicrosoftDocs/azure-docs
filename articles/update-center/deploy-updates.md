@@ -4,35 +4,47 @@ description: The article details how to use Update management center (Preview) i
 ms.service: update-management-center
 ms.date: 09/02/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.custom: references_regions
 ---
 
-# Deploy updates and track results with update management center (Preview)
+# Deploy updates now and track results with update management center (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The article describes how to perform an update deployment and review the results after the deployment is complete with update management center (preview) in Azure.  
+The article describes how to perform an on-demand update on a single VM or multiple VMs using update management center (preview).
+
+See the following sections for detailed information:
+- Install updates on a single VM
+- Install updates at scale
 
 ## Supported regions
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
-## Install updates
 
-To create a new update deployment, perform the following steps.
+## Install updates on single VM
+
+**From Overview blade**
+
+To install one time updates on a single VM, follow these steps:
+
+>[!NOTE]
+> You can check the updates from **Overview** or **Machines** blade.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
+
 1. In **Update management center (Preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
-    Alternatively, you can go to **Machines**, choose your machine(s) and select **One-time update** to perform the same update.
+1. Select **Install now** to proceed with the one-time updates.
 
-   :::image type="content" source="./media/deploy-updates/one-time-updates-machines-tab-inline.png" alt-text="Example on installing one-time updates from Machines tab." lightbox="./media/deploy-updates/one-time-updates-machines-tab-expanded.png":::
+1. In **Install one-time updates**, select **+Add machine** to add the machine for deploying one-time.
 
-1. In **Install one-time updates**, select the resources and machines to install the updates.
-1. In **Machines**, select **+Add machine** to add machines that were previously not selected and click **Add**.
+1. In **Select resources**, choose the machine and select **Add**. 
+
 1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, it's necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
    > [!NOTE]
@@ -61,9 +73,61 @@ To create a new update deployment, perform the following steps.
        * If the limit is exceeded on Windows, it's often because of a service pack update that is taking a long time to install.
 
 1. When you're finished configuring the deployment, verify the summary in **Review + install** and select **Install**. 
+
 A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in the **History** The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
 
-## View update history
+**From Machines blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Update management center (Preview)**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
+
+1. Select to **Install now** to proceed with installing updates.
+
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+
+
+## Install updates at scale
+ 
+To create a new update deployment for multiple machines, follow these steps:
+
+>[!NOTE]
+> You can check the updates from **Overview** or **Machines** blade.
+
+**From Overview blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+
+1. In **Update management center (Preview)**, **Overview**, choose your **Subscription** and select **One-time update**, **Install now** to install updates.
+
+   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
+   
+1. In **Install one-time updates**, you can select the resources and machines to install the updates.
+
+1. In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
+
+The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+
+**From Machines blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+
+1. Go to **Machines**, select your subscription and choose your machines. You can choose **Select all** to select  all the machines. 
+
+1. Select **One-time update**, **Install now** to deploy one-time updates.
+  
+1.  In **Install one-time updates**, you can select the resources and machines to install the updates.
+
+1.  In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
+
+The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+
+
+
+
+## View update history for single VM
+
+You can browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions. For more information, see [Update deployment history](manage-multiple-machines.md#update-deployment-history).
 
 After your scheduled deployment starts, you can see it's status on the **History** tab. It displays the total number of deployments including the successful and failed.
 

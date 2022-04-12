@@ -4,47 +4,80 @@ description: The article details how to use Azure Update management center (prev
 ms.service: update-management-center
 ms.date: 09/02/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhir 
+ms.author: sudhirsneha
 ---
 
 # Check update compliance with update management center (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article details on how to check the status of available updates on all agent machines and manage the process of installing required updates.
+This article details on how to check the status of available updates on a single VM or multiple machines using update management center (preview).
 
-## Check updates
+
+## Check updates on single VM
+
+To check the updates on a single VM, follow these steps:
+
+>[!NOTE]
+> You can check the updates from **Overview** or **Machines** blade.
+
+**From Overview**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines.
-    The **Update status of machines** tile displays a summary of the updates of your machines.
-1. Select **Check for updates**.
-1. In **Select resources and check for updates**, choose your machine(s) and select **Check for updates**.
 
-   :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Screenshot for selecting resources and checking updates." lightbox="./media/view-updates/check-updates-expanded.png":::
+1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+
+1. In **Select resources and check for updates**, choose the machine on which you want to check the updates and select **Check for updates**.
+
+    :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example of checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
 
     An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
+**From Machines**
 
-### Update assessment scan
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-In update management center (Preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+1. In Update management center (Preview), **Machines**, select your **Subscription** to view all your machines.
 
-1. In Update management center (Preview), go to **Machines**, and select your **Subscription** to view all your machines.
-1. Select the machine(s) to initiate the scan.
-   In the **Updates (Preview)**, select **Assess updates** to start the process and get the latest assessment data for the machine(s).
-   
-   :::image type="content" source="./media/view-updates/update-assessment-assess-now-option.png" alt-text="Example showing the Assess now option to initiate scan of Azure VM.":::
+1. Select your machine and select **Check for updates**.
 
-   A notification appears when the operation is initiated and completed. After a successful scan, you can review the assessment details in the following tabs:
+    An assessment is performed and a notification appears first that *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
 
-    - **Recommended updates**—lists the updates of the total OS updates applicable. 
-    - **History**—lists the successful and failed deployments.
-    - **Scheduling**
-  
-The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
+## Check updates at scale
+
+To check the updates on your machines at scale, follow these steps:
+
+>[!NOTE]
+> You can check the updates from **Overview** or **Machines** blade.
+
+**From Overview blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+
+1. In **Select resources and check for updates**, choose your machines on which you want to check the updates and select **Check for updates**.
+
+    An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
+
+**From Machines blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In Update management center (Preview), **Machines**, select your **Subscription** to view all your machines.
+
+1. Select the **Select all** to choose all your machines and select **Check for updates**.
+
+1. Select **Assess now** to perform the assessment.
+
+   A notification appears when the operation is initiated and completed. After a successful scan,  the **Update management center (Preview) | Machines** page is refreshed to display the updates.
+
+> [!NOTE]
+> In update management center (Preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+
+ 
 ## Next steps
 
 * Learn about deploying updates to your machines to maintain security compliance by reading [deploy updates](deploy-updates.md).
