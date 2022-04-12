@@ -16,13 +16,9 @@ ms.custom: language-service-summarization, ignite-fall-2021
 # How to use conversation summarization (preview)
 
 > [!IMPORTANT] 
-> conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive summarization. 
+> conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
-In general, there are two approaches for automatic text summarization: extractive and abstractive. This API provides extractive summarization.
-
-Extractive summarization produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
-
-This feature is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
+Conversation summarization is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
@@ -37,19 +33,9 @@ Each returned summary contains:
 * A numerical ID for identifying the summary.
 * A participant ID (such as *Agent* or *Customer*) for determining which participant of the chat log was associated with the summary.
 
-There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and conversation summarization, consider the following:
-* key phrase extraction returns phrases while extractive summarization returns sentences
-* conversation summarization returns summaries based on full chat logs.
-
-## Determine how to process the data (optional)
-
-### Specify the conversation summarization model
-
-By default, conversation summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
-
-### Input languages
-
-When you submit documents to be processed by key phrase extraction, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+There is another feature in Azure Cognitive Service for Language, [document summarization](./../../text-summarization/overview.md), that can summarize sentences from large documents. When deciding between document summarization and conversation summarization, consider the following:
+* Extractive summarization returns sentences that collectively represent the most important or relevant information within the original content.
+* Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
 
 ## Submitting data
 
@@ -57,6 +43,8 @@ You submit documents to the API as strings of text. Analysis is performed upon r
 
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
+When you submit data to conversation summarization, we recommend sending one chat log per request, for better latency.
+ 
 <!--
 You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
 
