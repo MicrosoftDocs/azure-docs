@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: minxia
 author: mx-iao
-ms.date: 04/14/2022
+ms.date: 04/12/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
