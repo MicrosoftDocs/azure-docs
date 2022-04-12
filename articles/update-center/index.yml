@@ -21,10 +21,6 @@ landingContent:
         links:
           - text: What is Update management center (preview)?
             url: overview.md
-      - linkListType: get-started
-        links:
-          - text: Enable Update management center (preview)
-            url: enable-machines.md
   # Card
   - title: Manage machine update state
     linkLists:     

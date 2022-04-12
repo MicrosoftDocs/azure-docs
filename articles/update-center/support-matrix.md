@@ -115,8 +115,6 @@ Update management center (Preview) supports Azure VMs created using Azure Market
 
 
 ## Next steps
-
-- [Enable update management center (preview)](enable-machines.md) for your Azure VMs or Azure Arc-enabled servers.
 - [View updates for single machine](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
