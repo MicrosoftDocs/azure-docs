@@ -38,7 +38,7 @@ Captioning can accompany real time or pre-recorded speech. Whether you are showi
 
 For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
 
-For captioning of a prerecoding, send file input to the Speech service. For more information, see How to use compressed audio files](how-to-use-codec-compressed-audio-input-streams.md).
+For captioning of a prerecoding, send file input to the Speech service. For more information, see [How to use compressed audio files](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Caption and speech synchronization 
 
@@ -186,54 +186,6 @@ speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
 ::: zone-end
 
 Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
-
-## Capitalize intermediate results
-
-You can choose to capitalize the partial intermediate results. This is useful if you want to display the partial results in a more natural way. 
-
-To request capitalization of partial intermediate results, set the `SpeechServiceResponse_PostProcessingOptions` property to `TrueText` as shown here:
-
-::: zone pivot="programming-language-csharp"
-```csharp
-speechConfig.SetProperty(PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
-```
-::: zone-end
-::: zone pivot="programming-language-cpp"
-```cpp
-speechConfig->SetProperty(PropertyId::SpeechServiceResponse_PostProcessingOption, "TrueText");
-```
-::: zone-end
-::: zone pivot="programming-language-go"
-```go
-speechConfig.SetProperty(common.SpeechServiceResponsePostProcessingOption, "TrueText")
-```
-::: zone-end
-::: zone pivot="programming-language-java"
-```java
-speechConfig.setProperty(PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
-```
-::: zone-end
-::: zone pivot="programming-language-javascript"
-```javascript
-speechConfig.setProperty(sdk.PropertyId.SpeechServiceResponse_PostProcessingOption, "TrueText");
-```
-::: zone-end
-::: zone pivot="programming-language-objectivec"
-```objective-c
-[self.speechConfig setPropertyTo:@"TrueText" byId:SPXSpeechServiceResponsePostProcessingOption];
-```
-::: zone-end
-::: zone pivot="programming-language-swift"
-```swift
-self.speechConfig!.setPropertyTo("TrueText", by: SPXPropertyId.speechServiceResponsePostProcessingOption)
-```
-::: zone-end
-::: zone pivot="programming-language-python"
-```python
-speech_config.set_property(property_id = speechsdk.PropertyId.SpeechServiceResponse_PostProcessingOption, value = "TrueText")
-```
-::: zone-end
-
 
 ## Language identification
 

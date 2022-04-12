@@ -172,12 +172,8 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
-    - name: Captioning
-      items:
-      - name: Captioning with speech to text
-        href: captioning-concepts.md
-      - name: Captioning quickstart
-        href: captioning-quickstart.md
+    - name: Captioning with speech to text
+      href: captioning-concepts.md
     - name: Handle call center scenarios
       displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
       href: call-center-transcription.md

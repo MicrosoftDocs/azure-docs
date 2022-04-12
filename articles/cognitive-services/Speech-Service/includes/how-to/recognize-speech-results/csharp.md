@@ -23,13 +23,13 @@ The Speech service returns the offset and duration of the recognized speech.
 As soon as you start continuous recognition, the offset starts incrementing in ticks from `0` (zero). 
 
 ```csharp
-// Starts continuous recognition. Use StopContinuousRecognitionAsync() to stop recognition.
 await speechRecognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
 ```
 
 The end of a single utterance is determined by listening for silence at the end. You won't get the final recognition result until an utterance has completed. Recognizing events will provide intermediate results that are subject to change while an audio stream is being processed. Recognized events will provide the final transcribed text once processing of an utterance is completed.
 
 ### Recognizing offset and duration
+
 With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
 
 This code snippet shows how to get the offset and duration from a `Recognizing` event. 
