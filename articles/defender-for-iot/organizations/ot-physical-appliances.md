@@ -58,8 +58,8 @@ All hardware components must be compatible with Ubuntu version 18.04 and later v
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see:
 
-- [Which appliances do I need?](ot-deployment-options.md)
-- [Pre-configured physical appliances for OT monitoring](ot-preconfigured-appliances.md)
+- [Which appliances do I need?](ot-appliance-sizing.md)
+- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
 - [OT system virtual appliance requirements](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to order or install the OT monitoring appliance:
