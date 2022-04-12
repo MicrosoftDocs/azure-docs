@@ -20,15 +20,13 @@ As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, 
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and has no package manager, so you can’t manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
-The EFLOW virtual machine is designed to be reliably updated via Microsoft Update. The virtual machine operating system has an A/B update partition scheme to utilize a subset of those to make each update safe and enable a roll-back to a previous version if anything goes wrong.
+The EFLOW virtual machine is designed to be reliably updated via Microsoft Update. The virtual machine operating system has an A/B update partition scheme to utilize a subset of those to make each update safe and enable a roll-back to a previous version if anything goes wrong during the update process.
 
-Each update consists of three components that may get updated to latest versions. The first is the IoT Edge runtime and security daemon, which is updated following the IoT Edge releases to keep the newest version available. For more information about IoT Edge updates, see [Update IoT Edge](./how-to-update-iot-edge.md). 
+Each update consists of two main components that may get updated to latest versions. The first one is the EFLOW virtual machine and the internal components. For more information about EFLOW, see [Azure IoT Edge for Linux on Windows composition](./iot-edge-for-linux-on-windows.md). This also includes the virtual machine base operating system. The EFLOW virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update provides performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version indicates the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
 
-The second component is the virtual machine base operating system. The EFLOW virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update provides performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version indicates the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
+The second component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
 
-The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
-
-EFLOW updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates up to the desired version. 
+EFLOW updates are sequential and you'll require to update to every version in order, which means that in order to get to the latest version, you'll have to either do a fresh installation using the latest available version, or apply all the previous servicing updates up to the desired version. 
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
@@ -57,9 +55,7 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 ## Update using Windows Server Update Services (WSUS)
 
-Windows Server Update Services (WSUS) enables organizations to deploy the latest Microsoft product updates to their Windows IoT devices. You can use WSUS to fully manage the distribution of updates that are released through Microsoft Update to devices on your network, in particular the IoT Edge for Linux on Windows updates.
-
-For more information about WSUS, see [Device Management Overview - WSUS](/windows/iot/iot-enterprise/device-management/device-management-overview#windows-server-update-services-wsus).
+On premises updates using WSUS is supported for IoT Edge for Linux on Windows updates. For more information about WSUS, see [Device Management Overview - WSUS](/windows/iot/iot-enterprise/device-management/device-management-overview#windows-server-update-services-wsus).
 
 
 ## Offline manual update
@@ -93,18 +89,11 @@ In some scenarios with restricted or limited internet connectivity, you may want
 
 ## Managing Microsoft Updates
 
-As explained before, IoT Edge for Linux on Windows updates are serviced using Microsoft Update channel, so it's not possible to turn on/off EFLOW specific updates, without turning on/off Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
+As explained before, IoT Edges for Linux on Windows updates are serviced using Microsoft Update channel, so turn on/off EFLOW updates, you'll have to manage Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
 
 1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
-1. **Registry Keys** - By modifying the Windows Update AU registry key, following these steps:
-    1. Open the Run dialog (Windows key + R).
-    1. Type `regedit` and hit the Enter key.
-    1. When the Registry Editor opens, navigate to the following location: `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU`
-    1. Right select on the right side panel and select on New > DWORD (32-bit) Value.
-    1. Set the name of this newly created DWORD as `AllowMUUpdateService`.
-    1. Double select on the newly created DWORD and set its value as 1
-    1. Select OK and close the registry editor.
+1. **Manually manage Microsoft Updates** - For more information about how to Opt-In to Microsoft Updates, see [Opt-In to Microsoft Update](/windows/win32/wua_sdk/opt-in-to-microsoft-update):
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
