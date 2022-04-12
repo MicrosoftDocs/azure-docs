@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 04/08/2022
 
 ms.author: mimart
 author: msmimart
@@ -14,15 +14,15 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# B2B direct connect overview
+# B2B direct connect overview (Preview)
 
-Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. With B2B direct connect, users from both organizations can work together using their home credentials and B2B direct connect-enabled apps, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations. Or use it to share resources across multiple Azure AD tenants within your own organization.
+Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, users from both organizations can work together using their home credentials and a shared channel in Teams, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations. Or use it to share resources across multiple Azure AD tenants within your own organization.
 
 ![Diagram illustrating B2B direct connect](media/b2b-direct-connect-overview/b2b-direct-connect-overview.png)
 
 B2B direct connect requires a mutual trust relationship between two Azure AD organizations to allow access to each other's resources. Both the resource organization and the external organization need to mutually enable B2B direct connect in their cross-tenant access settings. When the trust is established, the B2B direct connect user has single sign-on access to resources outside their organization using credentials from their home Azure AD organization.
 
-Currently, B2B direct connect capabilities work with Teams Connect shared channels. This means that users in one organization can create a shared channel in Teams and invite an external B2B direct connect user to it. Then from within Teams, the B2B direct connect user can seamlessly access the shared channel in their home tenant Teams instance, without having to manually sign in to the organization hosting the shared channel.
+Currently, B2B direct connect capabilities work with Teams shared channels. When B2B direct connect is established between two organizations, users in one organization can create a shared channel in Teams and invite an external B2B direct connect user to it. Then from within Teams, the B2B direct connect user can seamlessly access the shared channel in their home tenant Teams instance, without having to manually sign in to the organization hosting the shared channel.
 
 For licensing and pricing information related to B2B direct connect users, refer to [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 

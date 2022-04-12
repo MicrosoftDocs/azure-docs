@@ -5,7 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/19/2020
+ms.date: 03/30/2022
 ---
 
 # What is Azure App Configuration?

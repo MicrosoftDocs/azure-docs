@@ -10,7 +10,7 @@ ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
 ms.reviewer: kendralittle, mathoma, wiassaf, urosmil
-ms.date: 03/25/2022
+ms.date: 04/04/2022
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -100,9 +100,9 @@ resources
     | extend p = parse_json(properties)
     | mvexpand d = p.value
     | where d has 'notificationId' and d.notificationId == 'LNPN-R9Z'
-    | project resource = tolower(name), status = d.status
+    | project resource = tolower(name), status = d.status, resourceGroup, location, startTimeUtc = d.startTimeUtc, endTimeUtc = d.endTimeUtc, impactType = d.impactType
 ) on resource
-|project resource, status
+| project resource, status, resourceGroup, location, startTimeUtc, endTimeUtc, impactType
 ```
 
 For the full reference of the sample queries and how to use them across tools like PowerShell or Azure CLI, visit [Azure Resource Graph sample queries for Azure Service Health](../../service-health/resource-graph-samples.md).
