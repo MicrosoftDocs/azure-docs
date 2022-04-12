@@ -36,7 +36,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 > [!IMPORTANT]
 > - This article presents a [**step-by-step guide**](#change-request-and-authorization-configuration-step-by-step-guide) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with CR deployment process should obtain the appropriate CRs from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900163* CR deploys a sample role and should not be used in this case. Instead, the administrator should manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900163* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 > [!NOTE]
 > 
@@ -44,7 +44,7 @@ Track your SAP solution deployment journey through this series of articles:
 >
 > The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 > 
-> Make sure you've copied the details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
+> Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
 >
 > For the following example, the following details are assumed:
 > - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
@@ -58,9 +58,9 @@ The deployment of Microsoft Sentinel's Continuous Threat Monitoring for SAP solu
 
 To deploy the CRs, follow the steps outlined below:
 
-### Change request and authorization configuration step-by-step guide
+## Deploy change requests
 
-#### Set up the files
+### Set up the files
 
 1. Sign in to the SAP system using SSH.
 
@@ -92,7 +92,12 @@ To deploy the CRs, follow the steps outlined below:
     chown <sid>adm:sapsys *.NPL
     ```
 
-1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+    In our example:
+    ```bash
+    chown a4hadm:sapsys *.NPL
+    ```
+
+1. Copy the cofiles (metadata files, those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
 
     ```bash
     cp -p K*.NPL /usr/sap/trans/cofiles/
@@ -104,13 +109,13 @@ To deploy the CRs, follow the steps outlined below:
     cp -p R*.NPL /usr/sap/trans/data/
     ```
 
-#### Set up the applications
+### Set up the applications
 
 1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
 
 1. Run the **STMS_IMPORT** transaction:
 
-    Type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
+    In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
     :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::
 
@@ -121,7 +126,7 @@ To deploy the CRs, follow the steps outlined below:
 
     :::image type="content" source="media/preparing-sap/import-queue-add.png" alt-text="Screenshot of adding an import queue.":::
 
-1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the boxes next to the **Transp. Request** field.
+1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the **Transp. Request** field.
 
 1. The **Transport requests** window will appear and display a list of CRs available to be deployed. Select a CR and select the green checkmark button.
 
@@ -135,40 +140,49 @@ To deploy the CRs, follow the steps outlined below:
 
     :::image type="content" source="media/preparing-sap/import-all-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-all-requests-lightbox.png":::
 
-1. In **Start Import** window, click on boxes next to **Target Client** field and select client to deploy the CRs to, then click green checkbox in **Input Help..** window, then select **Options** tab and select **Ignore Invalid Component Version** checkbox, then click the green checkbox at the bottom<br>
+1. In **Start Import** window, select the **Target Client** field.
 
-    ![Start Import](./media/preparing-sap/start_import.png "Start Import")
+1. The **Input Help..** dialog will appear. Select the number of the client you want to deploy the CRs to (`001` in our example), then select the green checkmark to confirm.
 
-1. In the **Start Import** window click **Yes** to confirm the import
+1. Back in the **Start Import** window, select the **Options** tab, mark the **Ignore Invalid Component Version** checkbox, and select the green checkmark to confirm.
 
-1. In the **Import Queue** window click **Refresh** button, wait until the import operation completes and import queue becomes empty
+    :::image type="content" source="media/preparing-sap/start-import.png" alt-text="Screenshot of the start import window.":::
 
-1. To review import status, in the **Import History** window click **More**, select **Go To**, select **Import History**
+1. In the **Start import** confirmation dialog, select **Yes** to confirm the import.
 
-    ![Import History](./media/preparing-sap/import_history.png "Import History")
+1. Back in the **Import Queue** window, select **Refresh**, wait until the import operation completes and the import queue shows as empty.
 
-1. NPLK900180 Change request is expected to end with a Warning, click on the entry to verify that the warning is associated with Table \<tablename\> was activated
+1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
 
-    ![Import Status](./media/preparing-sap/import_status.png "Import Status")
+    :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
 
-    ![Import Warning](./media/preparing-sap/import_warning.png "Import Warning")
+1. The *NPLK900180* change request is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
 
+    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lighthouse.png":::
 
-### Role configuration step-by-step guide
+    :::image type="content" source="media/preparing-sap/import-warning.png" alt-text="Screenshot of import warning message display.":::
 
-After the NPLK900163 CR (change request) is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
-In this guide, it will be assumed that the role created has a name **/MSFTSEN/SENTINEL_CONNECTOR**
-<br>
+## Configure roles
 
-The next step is to generate an active role profile
+After the *NPLK900163* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 
-1. Run the **PFCG** transaction<br>
-To run the transaction, in main SAP GUI window type **PFCG** in the top-left corner and press **Enter**
-1. In **Role Maintenance** window in the **Role** textbox type the role name `/MSFTSEN/SENTINEL_CONNECTOR` and click  **Change** button
-1. In **Change Roles** window select the **Authorizations** tab
+In this guide, assume that the role is named **/MSFTSEN/SENTINEL_CONNECTOR**.
+
+The next step is to generate an active role profile.
+
+1. Run the **PFCG** transaction:
+
+    In the **SAP Easy Access** screen, type `PFCG` in the field in the upper left corner of the screen and press the **Enter** key.
+
+1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_CONNECTOR` in the **Role** field and select the **Change** button (the pencil).
+
+1. In the **Change Roles** window select the **Authorizations** tab
+
 1. In the **Change Roles** **Authorizations** window select **Change Authorization Data**<br>
 ![Role Change - Authorizations - Change Authorization Data](./media/preparing-sap/change_role_change_auth_data.png "Role Change - Authorizations - Change Authorization Data")
+
 1. In the **Information** window click the green checkbox
+
 1. In the **Change Role: Authorizations** window click **Generate**
 <br>![Change Role - Authorizations - Generate](./media/preparing-sap/change_role_authorizations.png "Change Role - Authorizations - Generate")
 <br>Notice that after clicking, **Status** field changes from **Unchanged** to **generated**
@@ -185,10 +199,14 @@ This step-by-step guide will assume the role name is `/MSFTSEN/SENTINEL_CONNECTO
 
 1. In SAP GUI run the **SU01** transaction<br>
 To run the transaction, in SAP GUI type **SU01** in top-left corner and press **Enter**
+
 2. In **User Maintenance: Initial Screen** screen type in the name of the new user in the **User** field and press **Create Technical User button**
+
 3. In **Maintain Users** screen select **User Type** of **System**, compose and enter a complicated password in **New Password** and **Repeat Password** fields, then select the **Roles** tab
+
 4. In **Roles** tab, in the **Role Assignments** section, write down the full name of the role and press **Enter**
 <br>After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**
+
 5. Navigate to **Profiles** tab, verify profile for role is populated in the **Assigned Authorization Profiles** section and press **Save**
 
 
