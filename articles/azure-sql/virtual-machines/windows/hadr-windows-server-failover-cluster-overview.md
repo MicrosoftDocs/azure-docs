@@ -107,7 +107,7 @@ A distributed network name is recommended over a load balancer when possible bec
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. 
 
 **Supported OS**: Windows Server 2016 and later   
-**Supported SQL version**: SQL Server 2019 CU2 (FCI) and SQL Server 2019 CU8 (AG)   
+**Supported SQL version**: SQL Server 2016 SP3,SQL Server 2017 CU25,SQL Server 2019 CU2 (FCI) and SQL Server 2019 CU8 (AG)    
 **Supported HADR solution**: Failover cluster instance, and availability group   
 
 To get started, learn to configure a distributed network name resource for [a failover cluster instance](failover-cluster-instance-distributed-network-name-dnn-configure.md) or an [availability group](availability-group-distributed-network-name-dnn-listener-configure.md).
