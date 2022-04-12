@@ -27,9 +27,7 @@ For example, you can:
 
 ## Prerequisites
 
-To use data export features, you must have a [V3 application](howto-faq.yml#how-do-i-get-information-about-my-application-), and you must have the [Data export](howto-manage-users-roles.md) permission.
-
-If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
+To use data export features, you must have the [Data export](howto-manage-users-roles.md) permission.
 
 ## Set up an export destination
 

@@ -20,14 +20,14 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 
 ## Accessing Pre-Call APIs
 
-To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. Then you can access the `NetworkTest` feature and run it.
+To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `Diganostics` feature and the `preCallTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 const tokenCredential = new AzureCommunicationTokenCredential(); 
-const networkTest = await callClient.feature(Features.NetworkTest).beginTest(tokenCredential);
+const preCallTest = await callClient.feature(Features.Diganostics).preCallTest(tokenCredential);
 
 ```
 
@@ -49,14 +49,14 @@ export declare type CallDiagnosticsResult = {
 
 ```
 
-Individual result objects can be accessed as such using the `networkTest` constant above.
+Individual result objects can be accessed as such using the `preCallTest` constant above.
 
 ### Browser support
 Browser compatibility check. Checks for `Browser` and `OS` compatibility and provides a `Supported` or `NotSupported` value back. 
 
 ```javascript
 
-const browserSupport =  await networkTest.browserSupport;
+const browserSupport =  await preCallTest.browserSupport;
   if(browserSupport) {
     console.log(browserSupport.browser)
     console.log(browserSupport.os)
@@ -71,7 +71,7 @@ Permission check. Checks whether video and audio devices are available from a pe
 
 ```javascript
 
-  const deviceAccess =  await networkTest.deviceAccess;
+  const deviceAccess =  await preCallTest.deviceAccess;
   if(deviceAccess) {
     console.log(deviceAccess.audio)
     console.log(deviceAccess.video)
@@ -86,7 +86,7 @@ Device availability. Checks whether microphone, camera and speaker devices are d
 
 ```javascript
 
-  const deviceEnumeration = await networkTest.deviceEnumeration;
+  const deviceEnumeration = await preCallTest.deviceEnumeration;
   if(deviceEnumeration) {
     console.log(deviceEnumeration.microphone)
     console.log(deviceEnumeration.camera)
@@ -102,7 +102,7 @@ Performs a quick call to check in-call metrics for audio and video and provides 
 
 ```javascript
 
-  const inCallDiagnostics =  await networkTest.inCallDiagnostics;
+  const inCallDiagnostics =  await preCallTest.inCallDiagnostics;
   if(inCallDiagnostics) {    
     console.log(inCallDiagnostics.connected)
     console.log(inCallDiagnostics.bandWidth)
@@ -118,7 +118,7 @@ At this step, there are multiple failure points to watch out for:
 - If bandwidth is `Bad`, the user should be prompted to try out a different network or verify the bandwidth availability on their current one. Ensure no other high bandwidth activities might be taking place.
 
 ### Media stats
-For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `NetworkTest` feature. You can subscribe to the call media stats to get full collection of them.
+For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `PreCallTest` feature. You can subscribe to the call media stats to get full collection of them.
 
 ## Pricing
 
