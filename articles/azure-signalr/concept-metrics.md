@@ -4,12 +4,18 @@ description: Metrics in Azure SignalR Service.
 author: zackliu
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 04/12/2022
 ms.author: chenyl
 ---
 # Metrics in Azure SignalR Service
 
 Azure SignalR Service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) and [autoscale](./signalr-howto-scale-autoscale.md) base on metrics.
+
+Horizontal scaling action (adding or removing units)is triggered when a *scale condition* is satisfied.
+
+When metrics are used for the scale condition, you must define at least one *scale rule*.
+
+Some metrics have additional information available in the form of a name:value pair, known as a *dimension*. Dimensions are available to use as criteria for scale rules.
 
 ## Understand metrics
 
