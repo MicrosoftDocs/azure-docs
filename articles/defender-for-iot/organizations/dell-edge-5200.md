@@ -1,198 +1,48 @@
 ---
-title: Dell Edge 5200 - Microsoft Defender for IoT
-description: Learn about the Dell PowerEdge R340 XL appliance in its legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
+title: Dell Edge 5200 (SMB) - Microsoft Defender for IoT
+description: Learn about the Dell Edge 5200 appliance for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/04/2022
 ms.topic: reference
 ---
 
 # Dell Edge 5200
 
-This article describes the Dell PowerEdge R340 XL appliance for use in OT monitoring.
+This article describes the Dell Edge 5200 appliance for use in OT monitoring.
 
 |  |Details |
 |---------|---------|
-|**Architecture** | [Enterprise] |
-|**Performance** | 	Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
-|**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
+|**Architecture** | [SMB] |
+|**Performance** | 	Max bandwidth: 60 Mbp/s<br>Max devices: 1,000 |
+|**Physical Specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
 |**Status** | Supported, Not available pre-installed|
 
 ## Specifications
 
 |Component|	Technical specifications|
 |:----|:----|
-|Chassis|	1U rack server|
-|Dimensions|	42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
-|Weight|	Max 29.98 lb/13.6 Kg|
-|Processor|	Intel Xeon E-2144G 3.6 GHz <br>8M cache <br> 4C/8T <br> turbo (71 W|
+|Chassis|	Desktop / Wall mount server|
+|Dimensions|	211 mm (W) x 240 mm (D) x 86 mm (H)|
+|Weight|	4.7 kg|
+|Processor|	Intel® Core™ i7-9700TE|
 |Chipset|Intel C246|
-|Memory	|32 GB = Two 16 GB 2666MT/s DDR4 ECC UDIMM|
-|Storage| Three 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
-|Network controller|On-board: Two 1 Gb Broadcom BCM5720 <br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br>External: One Intel Ethernet i350 QP 1 Gb Server Adapter Low Profile|
-|Management|iDRAC nine Enterprise|
-|Device access|	Two rear USB 3.0|
-|One front| USB 3.0|
-|Power|	Dual Hot Plug Power Supplies 350 W|
-|Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm.|
-
-## Dell PowerEdgeR340XL installation
-
-Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration:
-
-- [Dell PowerEdge R340 Front Panel](#dell-poweredge-r340-front-panel) and [Dell PowerEdge R340 Back Panel](#dell-poweredge-r340-back-panel) contains the description of front and back panels, along with information required for installation, such as drivers and ports.
-
-- [Dell BIOS Configuration](#dell-bios-configuration) provides information about how to connect to the Dell appliance management interface and configure the BIOS.
-
-- [Software Installation (Dell R340)](#software-installation-dell-r340) describes the procedure required to install the Defender for IoT sensor software.
-
-### Dell PowerEdge R340XL requirements
-
-To install the Dell PowerEdge R340XL appliance, you need:
-
-- Enterprise license for Dell Remote Access Controller (iDrac)
-
-- BIOS configuration XML
-
-- Server firmware versions:
-
-  - BIOS version 2.1.6
-
-  - iDrac version 3.23.23.23
-
-### Dell PowerEdge R340 front panel
-
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel.":::
-
- 1. Left control panel
- 1. Optical drive (optional)
- 1. Right control panel
- 1. Information tag
- 1. Drives  
-
-### Dell PowerEdge R340 back panel
-
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel.":::
-
-1. Serial port
-1. NIC port (Gb 1)
-1. NIC port (Gb 1)
-1. Half-height PCIe
-1. Full-height PCIe expansion card slot
-1. Power supply unit 1
-1. Power supply unit 2
-1. System identification
-1. System status indicator cable port (CMA) button
-1. USB 3.0 port (2)
-1. iDRAC9 dedicated network port
-1. VGA port
-
-### Dell BIOS configuration
-
-Dell BIOS configuration is required to adjust the Dell appliance to work with the software.
-
-The Dell appliance is managed by an integrated iDRAC with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
-
-To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
-
-When the connection is established, the BIOS is configurable.
-
-**To configure Dell BIOS**:
-
-1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
-
-1. [Configuring the BIOS](#configuring-the-bios)
-
-#### Configure iDRAC IP address
-
-1. Power up the sensor.
-
-1. If the OS is already installed, select the F2 key to enter the BIOS configuration.
-
-1. Select **iDRAC Settings**.
-
-1. Select **Network**.
-
-   > [!NOTE]
-   > During the installation, you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
-
-1. Change the static IPv4 address to **10.100.100.250**.
-
-1. Change the static subnet mask to **255.255.255.0**.
-
-   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask.":::
-
-1. Select **Back** > **Finish**.
-
-#### Configuring the BIOS
-
-Configure the appliance BIOS if:
-
-- You did not purchase your appliance from Arrow.
-
-- You have an appliance, but do not have access to the XML configuration file.
-
-After you access the BIOS, go to **Device Settings**.
-
-**To configure the BIOS**:
-
-1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
-
-   - If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
-
-   - If the appliance is a Defender for IoT appliance, sign in by using **XXX** for the username and **XXX** for the password.
-
-1. After you access the BIOS, go to **Device Settings**.
-
-1. Choose the RAID-controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
-
-1. Select **Configuration Management**.
-
-1. Select **Create Virtual Disk**.
-
-1. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
-
-1. Select **Check All** and then select **Apply Changes**
-
-1. Select **Ok**.
-
-1. Scroll down and select **Create Virtual Disk**.
-
-1. Select the **Confirm** check box and select **Yes**.
-
-1. Select **OK**.
-
-1. Return to the main screen and select **System BIOS**.
-
-1. Select **Boot Settings**.
-
-1. For the **Boot Mode** option, select **BIOS**.
-
-1. Select **Back**, and then select **Finish** to exit the BIOS settings.
-
-### Software installation (Dell R340)
-
-The installation process takes about 20 minutes. After the installation, the system is restarted several times.
-
-**To install the software**:
-
-1. Verify that the version media is mounted to the appliance in one of the following ways:
-
-   - Connect the external CD, or disk on a key with the release.
-
-   - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
-
-1. In the **Map CD/DVD** section, select **Choose File**.
-
-1. Choose the version ISO image file for this version from the dialog box that opens.
-
-1. Select the **Map Device** button.
-
-   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot that shows a mapped device.":::
-
-1. The media is mounted. Select **Close**.
-
-1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
-
-1. Follow the software installation instructions located [here](#install-the-software).
+|Memory	|32 GB = Two 16 GB DDR4 ECC UDIMM|
+|Storage| 1x 512GB SSD |
+|Network controller|3x Intel GbE: 2x i210 + i219LM PHY|
+|Management|Intel AMT supported on i5 and i7 CPUs|
+|Device access|	6x USB 3.0|
+|Power|	DC Input 12–24 V (±10% tolerance) | AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
+
+## Appliance BOM
+
+|Quantity|PN|Description|
+|:----|:----|:----|
+|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM,OEM|
+|1|631-ADIJ|User Documentation EMEA 2|
+|1|683-1187|No Installation Service Selected (Contact Sales Rep for more details)|
+|1|709-BDGW|Parts Only Warranty 15 Months|
+|1|199-BIRV|ProSupport and Next Business Day Onsite Service Initial, 15 Month(s)|
+|1|199-BIRW|ProSupport and Next Business Day Onsite Service Extension, 21 Month(s)|
+|1|990-10090|EX-Works|
 
 
 ## Next steps
