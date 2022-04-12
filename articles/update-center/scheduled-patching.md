@@ -39,8 +39,10 @@ To schedule recurring updates on a single VM, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Update management center (Preview)**, **Overview**, select your **Subscription** and select **Schedule updates**.
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM.
+
 	> [!Note] 
 	> Currently, VMs and maintenance configuration in the same subscription are supported.
+
 	:::image type="content" source="./media/scheduled-updates/scheduling-tab-inline.png" alt-text="screenshot on create maintenance configuration." lightbox="./media/scheduled-updates/scheduling-tab-expanded.png":::
 
 1. In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
@@ -98,7 +100,8 @@ You can browse and manage all your maintenance configurations from a single plac
 
 You can create new Guest OS update maintenance configuration or modify an existing configuration:
 
-![Maintenance configuration](./media/scheduled-updates/maintenance-configurations.png)
+:::image type="content" source="./media/scheduled-updates/maintenance-configurations.png" alt-text="Maintenance configuration.":::
+
 
 ### Create a new maintenance configuration
 
@@ -106,7 +109,8 @@ You can create new Guest OS update maintenance configuration or modify an existi
 1. In the **Updates (Preview)**, select **Scheduled updates**.
 1. In **Create a maintenance configuration**, Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to createa a maintenance configuration
 
-	![Create Maintenance configuration](./media/scheduled-updates/create-maintenance-configuration.png)
+	:::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Create Maintenance configuration.":::
+	
 
 ### Add/remove machines from maintenance configuration
 
