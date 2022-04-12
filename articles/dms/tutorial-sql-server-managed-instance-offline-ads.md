@@ -15,7 +15,7 @@ ms.date: 10/05/2021
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with DMS (Preview)
 
-You can use the Azure SQL Migration extension in Azure Data Studio to migrate the database(s) from a SQL Server instance to Azure SQL Managed Instance. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
+You can use the Azure SQL Migration extension in Azure Data Studio to migrate the database(s) from a SQL Server instance to Azure SQL Managed Instance. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
 In this tutorial, you migrate the **AdventureWorks** database from an on-premises instance of SQL Server to Azure SQL Managed Instance by using Azure Data Studio with Azure Database Migration Service (DMS). This tutorial focuses on the offline migration mode that considers an acceptable downtime during the migration process.
 
@@ -46,7 +46,7 @@ To complete this tutorial, you need to:
     - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
-* Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
     > [!IMPORTANT]
@@ -58,7 +58,7 @@ To complete this tutorial, you need to:
     > - You can provide compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
 
-* If you're migrating a database protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance needs to be migrated to your target Azure SQL Managed Instance before database restore. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](../azure-sql/managed-instance/tde-certificate-migrate.md).
+* If you're migrating a database protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance needs to be migrated to your target Azure SQL Managed Instance before database restore. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), migration process using Azure Data Studio with DMS will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance.
 
@@ -177,7 +177,7 @@ After all database backups are restored on Azure SQL Managed Instance, an automa
 
 ## Next steps
 
-* For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](../azure-sql/managed-instance/restore-sample-database-quickstart.md).
-* For information about SQL Managed Instance, see [What is SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-* For information about connecting apps to SQL Managed Instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).
+* For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+* For information about SQL Managed Instance, see [What is SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
+* For information about connecting apps to SQL Managed Instance, see [Connect applications](/azure/azure-sql/managed-instance/connect-application-instance).
 

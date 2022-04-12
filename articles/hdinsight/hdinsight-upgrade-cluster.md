@@ -43,7 +43,7 @@ The following documents provide guidance on how to migrate specific workloads:
 
 ## Backup and restore
 
-For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
+For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](/azure/azure-sql/database/recovery-using-backups).
 
 ## Upgrade scenarios
 
