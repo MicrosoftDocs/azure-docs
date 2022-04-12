@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but does not include speaker ID or sound effects. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but doesn't include speaker ID or sound effects. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
@@ -32,7 +32,7 @@ The following are aspects to consider when using captioning:
 > [!TIP]
 > Try the [Azure Video Analyzer for Media](/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real time or pre-recorded speech. Whether you are showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Input audio to the Speech service
 
@@ -46,21 +46,21 @@ You'll want to synchronize captions with the audio track, whether it's done in r
 
 The Speech service returns the offset and duration of the recognized speech. 
 
-- **Offset**: Used to measure the relative position of the speech that is currently being recognized, from the time that you started speech recognition. Speech recognition does not necessarily start at the beginning of the audio track. Offset is measured in ticks, where a single tick represents one hundred nanoseconds or one ten-millionth of a second.
-- **Duration**: Duration of the utterance that is being recognized. The duration time span does not include trailing or leading silence. 
+- **Offset**: Used to measure the relative position of the speech that is currently being recognized, from the time that you started speech recognition. Speech recognition doesn't necessarily start at the beginning of the audio track. Offset is measured in ticks, where a single tick represents one hundred nanoseconds or one ten-millionth of a second.
+- **Duration**: Duration of the utterance that is being recognized. The duration time span doesn't include trailing or leading silence. 
 
 For more information, see [Get speech recognition results](get-speech-recognition-results.md).
 
 ## Get partial results
 
-Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial intermediate results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result is not guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
+Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial intermediate results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
 
 > [!NOTE]
 > Punctuation of intermediate results is not available. 
 
-For captioning of prerecorded speech or wherever latency is not a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
+For captioning of prerecorded speech or wherever latency isn't a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
 
-Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There is also some middle ground, which is referred to as "stable partial intermediate results". 
+Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial intermediate results". 
 
 You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
@@ -201,7 +201,7 @@ Examples of phrases include:
 * Homonyms
 * Words or acronyms unique to your industry or organization
 
-There are some situations where [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy. For example, if you are captioning orthodontics lectures, you might want to train a custom model with the corresponding domain data.
+There are some situations where [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy. For example, if you're captioning orthodontics lectures, you might want to train a custom model with the corresponding domain data.
 
 ## Next steps
 
