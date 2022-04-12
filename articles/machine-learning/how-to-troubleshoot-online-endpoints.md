@@ -121,6 +121,7 @@ There are three supported tracing headers:
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
+* [ImageBuildFailure](#error-imagebuildfailure)
 * [OutOfQuota](#error-outofquota)
 * [OutOfCapacity](#error-outofcapacity)
 * [BadArgument](#error-badargument)
@@ -128,6 +129,12 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCancelled](#error-operationcancelled)
 * [InternalServerError](#error-internalservererror)
+
+### ERROR: ImageBuildFailure
+
+- Check the build log to diagnose common image build failure problems. The build log path is included in the failure message: 'The build log is available in the workspace blob store "your-blob-storage" under the path "/azureml/ImageLogs/your-image-id/build.log"'.
+- No obvious error was found in the build log and the last line is 'Installing pip dependencies: ...working...'. Pinning version dependencies in your conda file could fix this issue.
+- Use [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
 
 ### ERROR: OutOfQuota
 
