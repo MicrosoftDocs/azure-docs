@@ -315,7 +315,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 ::: zone pivot="code-windows"
 
-- [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?pivots=container-windows).
+- [Migrate .NET apps to Azure App Service](app-service-asp-net-migration.md).
 
 ::: zone-end
 
