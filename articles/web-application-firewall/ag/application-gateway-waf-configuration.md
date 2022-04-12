@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/07/2022
+ms.date: 04/12/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -39,7 +39,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-In all cases matching is case insensitive. Regular expression aren't allowed as selectors.
+In all cases matching is case insensitive. Regular expressions aren't allowed as selectors.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
@@ -82,7 +82,7 @@ Suppose you want the WAF to ignore the value of the `User-Agent` request header.
 
 There can be any number of reasons to disable evaluating this header. There could be a string that the WAF detects and assumes it’s malicious. For example, the `User-Agent` header might include the classic SQL injection attack `x=x` in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
-You can use the folllowing approaches to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
+You can use the following approaches to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
 
 # [Azure portal](#tab/portal)
 
