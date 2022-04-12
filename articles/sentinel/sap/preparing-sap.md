@@ -158,17 +158,17 @@ To deploy the CRs, follow the steps outlined below:
 
 1. The *NPLK900180* change request is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
 
-    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lighthouse.png":::
+    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
 
     :::image type="content" source="media/preparing-sap/import-warning.png" alt-text="Screenshot of import warning message display.":::
 
-## Configure roles
+## Configure Sentinel role
 
 After the *NPLK900163* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 
-In this guide, assume that the role is named **/MSFTSEN/SENTINEL_CONNECTOR**.
+In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
-The next step is to generate an active role profile.
+The next step is to generate an active role profile for Microsoft Sentinel to use.
 
 1. Run the **PFCG** transaction:
 
@@ -176,49 +176,56 @@ The next step is to generate an active role profile.
 
 1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_CONNECTOR` in the **Role** field and select the **Change** button (the pencil).
 
-1. In the **Change Roles** window select the **Authorizations** tab
+    :::image type="content" source="media/preparing-sap/change-role-change.png" alt-text="Screenshot of choosing a role to change.":::
 
-1. In the **Change Roles** **Authorizations** window select **Change Authorization Data**<br>
-![Role Change - Authorizations - Change Authorization Data](./media/preparing-sap/change_role_change_auth_data.png "Role Change - Authorizations - Change Authorization Data")
+1. In the **Change Roles** window that appears, select the **Authorizations** tab.
 
-1. In the **Information** window click the green checkbox
+1. In the **Authorizations** tab, select **Change Authorization Data**.
 
-1. In the **Change Role: Authorizations** window click **Generate**
-<br>![Change Role - Authorizations - Generate](./media/preparing-sap/change_role_authorizations.png "Change Role - Authorizations - Generate")
-<br>Notice that after clicking, **Status** field changes from **Unchanged** to **generated**
-1. In the **Change Role: Authorizations** window click **Back**
-8. In the **Change Roles** window validate **Authorizations** tab displays a green box, then click **Save** button
-<br>![Change Roles - Save](./media/preparing-sap/change_role_save.png "Change Roles - Save")
+    :::image type="content" source="media/preparing-sap/change-role-change-auth-data.png" alt-text="Screenshot of changing authorization data.":::
 
-### User creation step-by-step guide
+1. In the **Information** popup, read the message and select the green checkmark to confirm.
 
-Sentinel continuous protection for SAP requires a user account to connect to SAP system
+1. In the **Change Role: Authorizations** window, select **Generate**.
 
-The following steps outline the basics on how to create a user account and assign it to the role that was created in the previous step.
-This step-by-step guide will assume the role name is `/MSFTSEN/SENTINEL_CONNECTOR`
+    :::image type="content" source="media/preparing-sap/change-role-authorizations.png" alt-text="Screenshot of generating authorizations." lightbox="media/preparing-sap/change-role-authorizations-lightbox.png":::
 
-1. In SAP GUI run the **SU01** transaction<br>
-To run the transaction, in SAP GUI type **SU01** in top-left corner and press **Enter**
+    See that the **Status** field has changed from **Unchanged** to **generated**.
 
-2. In **User Maintenance: Initial Screen** screen type in the name of the new user in the **User** field and press **Create Technical User button**
+1. Select **Back** (to the left of the SAP logo at the top of the screen).
 
-3. In **Maintain Users** screen select **User Type** of **System**, compose and enter a complicated password in **New Password** and **Repeat Password** fields, then select the **Roles** tab
+1. Back in the **Change Roles** window, verify that the **Authorizations** tab displays a green box, then select **Save**.
 
-4. In **Roles** tab, in the **Role Assignments** section, write down the full name of the role and press **Enter**
-<br>After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**
+    :::image type="content" source="media/preparing-sap/change-role-save.png" alt-text="Screenshot of saving changed role.":::
 
-5. Navigate to **Profiles** tab, verify profile for role is populated in the **Assigned Authorization Profiles** section and press **Save**
+### Create a user
 
+Microsoft Sentinel's Continuous Threat Monitoring solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
+
+In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
+
+1. Run the **SU01** transaction:
+
+    In the **SAP Easy Access** screen, type `SU01` in the field in the upper left corner of the screen and press the **Enter** key.
+
+1. In the **User Maintenance: Initial Screen** screen, type in the name of the new user in the **User** field and select **Create Technical User** from the button bar.
+
+1. In the **Maintain Users** screen, select **System** from the **User Type** drop-down list. Create and enter a complex password in the **New Password** and **Repeat Password** fields, then select the **Roles** tab.
+
+1. In the **Roles** tab, in the **Role Assignments** section, enter the full name of the role - `/MSFTSEN/SENTINEL_CONNECTOR` in our example - and press **Enter**.
+
+    After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**.
+
+1. Select the **Profiles** tab, verify that a profile for the role appears under **Assigned Authorization Profiles**, and select **Save**.
 
 ### Required ABAP authorizations
 
-The following table lists the ABAP authorizations required to ensure SAP logs can be correctly retreived by the account used by Microsoft Sentinel data connector.
+The following table lists the ABAP authorizations required to ensure that SAP logs can be correctly retrieved by the account used by Microsoft Sentinel's SAP data connector.
 
-Required authorizations are listed by log type. Only authorizations listed for the types of logs that are planneed to be ingested into Microsoft Sentinel are required.
+The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
 
 > [!TIP]
-> To create the role with all required authorizations, deploy the SAP change request NPLK900163 on the SAP system. 
-> Change request NPLK900163 creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the relevant permissions for the data connector to operate.
+> To create a role with all the required authorizations, deploy the SAP change request *NPLK900163* on the SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
@@ -285,14 +292,9 @@ Required authorizations are listed by log type. Only authorizations listed for t
 
 ## Next steps
 
-After the steps above are complete, the CRs required for Sentinel continuous protection for SAP operation are deployed, sample role is provisioned and a user account is created with necessary role profile assigned.
-The next step is to deploy the data connector agent container.
+You have now fully prepared your SAP environment. The required CRs have been deployed, a role and profile have been provisioned, and a user account has been created and assigned the proper role profile.
+
+Now you are ready to deploy the data connector agent container.
 
 > [!div class="nextstepaction"]
 > [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
-
-
-
-
-
-
