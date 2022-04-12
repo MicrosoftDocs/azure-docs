@@ -32,26 +32,26 @@ All hardware components must be compatible with Ubuntu version 18.04 and later v
 
 | Deployment type |Supported models and versions |
 |---------|---------|---------|
-| **Corporate**      |  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
-| **Enterprise** | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br> Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br> Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
-| **Production line**| Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br> Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 
+| [**Corporate**]      |  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
+| [**Enterprise**] | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br> Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br> Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
+| [**Production line**]| Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br> Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 |
 
 # [Networking requirements](#tab/networking_requirements)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
-| **Corporate**      | Intel X710  (GBe/SFP)      |
-| **Enterprise**     | Intel I350  (GBe/SFP)      |
-| **Production line**          | Intel I219<br>Broadcom BCM5720 <br>  Broadcom BCM5719      |
+| [**Corporate**]      | Intel X710  (GBe/SFP)      |
+| [**Enterprise**]     | Intel I350  (GBe/SFP)      |
+| [**Production line**]     | Intel I219<br>Broadcom BCM5720 <br>  Broadcom BCM5719      |
 
 
 # [Storage array requirements](#tab/storage_requirements)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
-| **Corporate**<br>~600 IOPS      | RAID 5 with HPE Smart Array P408i (a SR Gen10 Controller) , 6x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive<br> RAID 5 with HPE Smart Array P408i (an SR controller, 3x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in))       |
-| **Enterprise**<br>~300IOPS       | RAID 1 with HPE Smart Array P208i-a, 2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)  <br>  RAID 5 with HPE Smart Array P208i-a, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive <br>RAID 5 with Dell PERC H330, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive     |
-| **Production line**<br>~150 IOPS| | 128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3-year warranty wide-temperature SSD <br>128 GB 3ME3 wide temperature mSATA SSD 
+| [**Corporate**]<br>~600 IOPS      | RAID 5 with HPE Smart Array P408i (a SR Gen10 Controller) , 6x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive<br> RAID 5 with HPE Smart Array P408i (an SR controller, 3x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in))       |
+| [**Enterprise**]<br>~300IOPS       | RAID 1 with HPE Smart Array P208i-a, 2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in)  <br>  RAID 5 with HPE Smart Array P208i-a, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive <br>RAID 5 with Dell PERC H330, 3x 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in hot-plug hard drive     |
+| [**Production line**]<br>~150 IOPS| 128 GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> HPE Edgeline 256 GB SATA 6G Read Intensive M.2 2242 3-year warranty wide-temperature SSD <br>128 GB 3ME3 wide temperature mSATA SSD |
 
 ---
 
