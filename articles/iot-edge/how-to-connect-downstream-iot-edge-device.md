@@ -116,42 +116,52 @@ To enable secure connections, every IoT Edge device in a gateway scenario needs 
 
 You should already have IoT Edge installed on your device. If not, follow the steps to [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
-The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+Use the following steps to configure the **root CA certificate** and **device CA certificate and private key** certificates on your parent and leaf IoT Edge devices. 
 
-Use the following steps to configure certificates on your parent and leaf IoT Edge devices.
+> [!TIP]
+> If you created your certificates on a different device, you can transfer the files using options such as a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or using [Secure file copy](https://www.ssh.com/ssh/scp/).
 
-Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
+> [!IMPORTANT]
+> Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
+
+Use IoT Edge platform specific command on each parent and leaf device.
+
+### Debian or Ubuntu
 
 Install the **root CA certificate** on the parent and leaf IoT Edge device.
 
-# [Debian / Ubuntu](#tab/linux)
+**Debian or Ubuntu:**
 
-```bash
+```bash Debian / Ubuntu
 sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
 ```
 
-# [IoT Edge for Linux on Windows (EFLOW)](#tab/eflow)
+Update the certificate store.
 
 ```bash
+sudo update-ca-certificates
+```
+
+The command reports one certificate was added to `/etc/ssl/certs`.
+
+### IoT Edge for Linux on Windows (EFLOW)
+
+Install the **root CA certificate** on the parent and leaf IoT Edge device.
+
+**EFLOW:**
+
+```bash EFLOW
 sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
 ```
 
 Update the certificate store.
 
-# [Debian / Ubuntu](#tab/linux)
-
-```bash
-sudo update-ca-certificates
-```
-This command should output that one certificate was added to /etc/ssl/certs.
-
-
-# [IoT Edge for Linux on Windows (EFLOW)](#tab/eflow)
-
-```bash
+```bash EFLOW
 sudo update-ca-trust
 ```
 For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+### Update configuration file
 
 Open the IoT Edge configuration file.
 
