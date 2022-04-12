@@ -49,10 +49,10 @@ sections:
 
           Affected caches fit into one of three groups: 
 
-          #### Caches using Classic VNET injection
+          #### Caches using Classic VNet injection
           Any cache injected into a Classic VNET defaults to being built on Cloud Services 
 
-          #### Caches in an ARM VNET subnet that once contained a Cloud Services-based cache. 
+          #### Caches in an ARM VNet subnet that once contained a Cloud Services-based cache. 
           Once a Cloud Services-based cache is contained in a VNET subnet, all other caches in that subnet must also rely on Cloud Services 
 
           #### Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
@@ -71,7 +71,7 @@ sections:
             1. Migrate to a new cache in a new ARM VNET subnet.  
               This option will fix the underlying dependancy on Cloud Services while maintaining a similar VNet experience. To migrate, tear down and re-create the cache in a new ARM VNet subnet. Recommended options for migrating the data in the cache are listed here.  
 
-            ### My cache is not using VNET injection, but I received notice that I needed to migrate. What should I do? 
+            #### My cache is not using VNET injection, but I received notice that I needed to migrate. What should I do? 
 
             Check to see if your cache is using geo-replication. If so, you’ll need migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. For example: 
 
@@ -79,7 +79,7 @@ sections:
             1. Unlink your original pair of geo-replicated caches and export an RDB file from the primary cache.  
             1. Import the RDB file into the primary cache in your new geo-replicated pair.  
 
-            The new pair of geo-replicated caches should not have the dependency on Cloud Services (classic).  
+            # The new pair of geo-replicated caches should not have the dependency on Cloud Services (classic).  
 
             ### What happens if caches are not upgraded/migrated by August 31st 2024? 
 
