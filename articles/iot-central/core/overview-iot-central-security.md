@@ -44,15 +44,18 @@ Devices authenticate with the IoT Central application by using either a *shared 
 
 In IoT Central, you use *device connection groups* to manage the device authentication options in your IoT Central application.
 
-By default, devices connect to IoT Central over the public internet. For more security, connect your devices to your IoT Central application by using a *private endpoint* in an Azure Virtual Network.
-
-Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure on the public internet.
-
 To learn more, see:
 
 - [Device authentication concepts in IoT Central](concepts-device-authentication.md)
 - [How to connect devices with X.509 certificates to an IoT Central application](how-to-connect-devices-x509.md)
-- [Network security for IoT Central using private endpoints](concepts-private-endpoints.md)
+
+### Network controls for device access
+
+By default, devices connect to IoT Central over the public internet. For more security, connect your devices to your IoT Central application by using a *private endpoint* in an Azure Virtual Network.
+
+Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure on the public internet.
+
+To learn more, see [Network security for IoT Central using private endpoints](concepts-private-endpoints.md).
 
 ## Manage programmatic access
 
