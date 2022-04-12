@@ -4,11 +4,11 @@ description: The article details how to use Update management center (preview) i
 ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: SGSneha
+ms.author: v-ssudhir
 ---
 
-# Manage multiple machines with update management center (preview)
+# Manage multiple machines with update management center (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -71,21 +71,18 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 ## Summary of machine status
 
-Update management center (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
+Update management center (Preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (Preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
 
- In update management center (preview) page, select **Machines** from the left menu.
+ In update management center (Preview) page, select **Machines** from the left menu.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Update management center Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
    On the page, the table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment.
-   - **Name**
    - **Update status**—the total number of updates available identified as applicable to the machine's OS.
    - **Operating system**—the operating system running on the machine.
    - **Resource type**—the machine is either hosted in Azure or is a hybrid machine managed by Arc-enabled servers.
-   - **Patch orchestration**—
-   - **Periodic assessment**—
-   - **Maintenance configuration**— 
-   - **Status**—
+   - **Patch orchestration**— the patches are applied following availability-first principles and managed by Azure.
+   - **Periodic assessment**—an update setting that allows you to enable automatic periodic checking of updates.
 
 The column **Patch Orchestration**, the machine's patch mode. Values are:
 
@@ -113,7 +110,7 @@ For machines that haven't had a compliance assessment scan for the first time, y
    :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Assessment banner on Manage Machines page example." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::   
 
 
-Select a machine from the list to open update management center (preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
+Select a machine from the list to open update management center (Preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
 
 ### Deploy the updates
 
@@ -121,26 +118,7 @@ For assessed machines that are reporting updates available, select one or more o
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Install one time updates for machine(s) on updates preview page example." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
    
- 
-For the selected machine(s), if you want to proceed with installing updates on them. Review the information and then select **One-time update** to proceed. Complete the following steps in the **Install one-time updates** wizard to configure your update deployment.
-
-1. In the **Machines**, verify the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
-1. In the **Updates**, specify the updates to include in the deployment by specifying:
-
-   * Include Update classification
-   * Include KB ID/package—for Windows, you can refer to [MSRC](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
-   * Exclude KB ID/package—you don’t want to get installed as part of this process. Updates not shown in the list could be installed based on the time between last assessment and release of newer updates since then that are available for the selected machines. You can choose to exclude Windows updates that require a reboot by selecting the option **Exclude KBs requiring reboot for Windows server**.
-   
-      ![Specify updates to exclude pane example.](./media/manage-multiple-machines/update-center-deploy-exclude-updates-pane.png)
-   * Include by maximum patch publish date
-
-   For Windows-based updates, you can specify the publishing date. Any KB ID/updates published after the specified date are included as a part of install process.
-
-1. After selecting your update classification criteria, verify the list updates to reflect your criteria. Select **Next** to continue with your selection.
-1. In **Properties** page, select the **Reboot option** and enter the duration in **Maintenance window (in minutes)**.
-1. In the **Review + install** page, verify your update deployment options and then select **Install**. 
-
-A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you're redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+ A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you're redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 
@@ -149,7 +127,7 @@ You can create a recurring update deployment for your machines. Select your mach
 
 ## Update deployment history
 
-Update management center (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (preview), select **History** from the left menu.
+Update management center (Preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (Preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (Preview), select **History** from the left menu.
 
 
 ## Update deployment history by machines
@@ -159,10 +137,10 @@ Update management center (preview) enables you to browse information about your 
 Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a machine specific to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
 
    - **Machine Name**
-   - **Status**—reports if an assessment or update deployment is **Failed**, **Successful**, or **InProgress** to indicate the action is underway.
+   - **Status** 
    - **Update installed**
-   - **Update operation**—reports if the action performed is an **Assessment** or **Install Updates**. 
-   - **Operation type**—reports that the assessment and deployment were manually initiated. 
+   - **Update operation** 
+   - **Operation type** 
    - **Operation start time**
    - **Resource Type**
    - **Tags**
@@ -187,7 +165,7 @@ When you select any one maintenance run ID records, you can view an expanded sta
 
 The update assessment and deployment data are available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Select **Go to resource graph** to go to Azure Resource Graph Explorer. It enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-When Resource Graph Explorer opens, it automatically populates with the same query used to generate the results presented in the table on the **History** page in Update management center (preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When Resource Graph Explorer opens, it automatically populates with the same query used to generate the results presented in the table on the **History** page in Update management center (Preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 
