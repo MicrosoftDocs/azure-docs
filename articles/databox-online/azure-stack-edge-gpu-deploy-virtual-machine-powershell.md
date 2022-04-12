@@ -222,11 +222,11 @@ Successfully created Resource Group:rg191113014333
 ```
 ---
 
-## Create a storage account
+## Create a local storage account
 
 [!INCLUDE [azure-stack-edge-gpu-create-storage-account](../../includes/azure-stack-edge-gpu-create-storage-account.md)]
 
-## Get access keys for local storage account
+## Get access keys for a local storage account
 
 To get access keys for your local storage account, do the following procedure:
 

@@ -32,14 +32,17 @@ In this article, you learn how to:
 > * Add an Edge storage account
 > * Delete an Edge storage account
 
-
 ## Add an Edge storage account
 
 To create an Edge storage account, do the following procedure:
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
 
-## Get access keys for local storage account
+## Create a local storage account
+
+[!INCLUDE [azure-stack-edge-gpu-create-storage-account](../../includes/azure-stack-edge-gpu-create-storage-account.md)]
+
+## Get access keys for a local storage account
 
 To get access keys for your local storage account, do the following procedure:
 
@@ -58,7 +61,6 @@ Take the following steps to delete an Edge storage account.
     ![Confirm and delete storage account](media/azure-stack-edge-gpu-manage-storage-accounts/delete-edge-storage-account-2.png)
 
 The list of storage accounts is updated to reflect the deletion.
-
 
 ## Add, delete a container
 
@@ -81,10 +83,6 @@ The list of containers is updated to reflect the newly added container.
 You can now select a container from this list and select **+ Delete container** from the top command bar. 
 
 ![Delete a container](media/azure-stack-edge-gpu-manage-storage-accounts/add-container-3.png)
-
-## Create a storage account
-
-[!INCLUDE [azure-stack-edge-gpu-create-storage-account](../../includes/azure-stack-edge-gpu-create-storage-account.md)]
 
 ## Sync storage keys
 
