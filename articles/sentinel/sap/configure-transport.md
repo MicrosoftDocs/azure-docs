@@ -14,66 +14,59 @@ SAP's Transport Management System is normally already configured on production s
 
 If you get this error running the **STMS_IMPORT** transaction while [preparing your SAP environment](preparing-sap.md), you'll need to configure the Transport Management System.
 
-![Error while running STMS_IMPORT transaction](./media/preparing-sap/stms_import_error.png "Error while running STMS_IMPORT transaction")
+![Error while running STMS_IMPORT transaction](./media/configure-transport/stms-import-error.png "Error while running STMS_IMPORT transaction")
 
-The following steps are a sample on how to configure a transport management system.
+The following steps show the process for configuring the Transport Management System.
 
 > [!IMPORTANT] 
-> In production systems always consult with SAP administrator on the steps to configure a transport management system
+> In production systems, always consult with a SAP administrator before making changes to your SAP environment.
 
 1. Run a new instance of **SAP Logon** and sign in to **Client number** `000` as **user** `DDIC`.
 
-    ![Logon to client 000 as DDIC account](./media/preparing-sap/ddic_logon.png "Logon to client 000 as DDIC account")
+    :::image type="content" source="media/configure-transport/ddic-logon.png" alt-text="Screenshot of logging into SAP as a D D I C account.":::
 
 1. Run the **STMS** transaction:
 
     Type `STMS` in the field in the upper left corner of the screen and press the **Enter** key.
 
-1. Delete the existing TMS configuration:
+1. Remove the existing TMS configuration:
 
-    In the **Transport Management System** screen, select **More > Extras > Delete TMS Configuration**, and select **Yes** to confirm.
+    1. In the **Transport Management System** screen, select **More > Extras > Delete TMS Configuration**, and select **Yes** to confirm.
 
-    ![Delete TMS configuration](./media/preparing-sap/remove_TMS_configuration.png "Delete TMS configuration")
+        :::image type="content" source="media/configure-transport/remove-tms-configuration.png" alt-text="Screenshot of deleting existing T M S configuration.":::
 
+    1. After deleting the configuration, you will be prompted to configure the TMS transport domain.
 
-    After deletion of the configuration, TMS transport domain needs to be configured.
+    1. In the **TMS: Configure Transport Domain** dialog, select **Save**.
 
-    In the **TMS: Configure Transport Domain** screen, select **Save**.
-
-    In the **Set Password for User TMSADM**, define a complex password, make a note of the password in a secure location and click the green checkbox.
+    1. In the **Set Password for User TMSADM** dialog, define a complex password and enter it twice. Record the password in a secure location and select the green checkmark to confirm.
 
 1. Configure Transport routes:
 
-    In the **Transport Management System** screen, select **Transport Routes**.
+    1. In the **Transport Management System** screen, select **Transport Routes**.
 
-    ![Configure Transport Routes](./media/preparing-sap/tms_transport_routes.png "Configure Transport Routes")
+        :::image type="content" source="media/configure-transport/tms-transport-routes.png" alt-text="Screenshot of configuring transport routes.":::
 
-    In the **Change Transport Routes (Active)** screen, select **Display <-> Change**.
+    1. In the **Change Transport Routes (Active)** screen, select **Display <-> Change**.
 
-    ![Display/Change Transport Routes](./media/preparing-sap/transport_routes_display_change.png "Display/Change Transport Routes")
+        :::image type="content" source="media/configure-transport/transport-routes-display-change.png" alt-text="Screenshot of displaying and changing transport routes." lightbox="media/configure-transport/transport-routes-display-change-lightbox.png":::
 
-    Select **More > Configuration > Standard Configuration > Single System**.
+    1. Select **More > Configuration > Standard Configuration > Single System**.
 
-    ![Change Transport Routes->More-Configuration->Standard Configuration->Single System](./media/preparing-sap/transport_routes_display_singlesystem.png "Change Transport Routes->More-Configuration->Standard Configuration->Single System")
+        :::image type="content" source="media/configure-transport/transport-routes-display-singlesystem.png" alt-text="Screenshot of changing a single system transport route." lightbox="media/configure-transport/transport-routes-display-singlesystem.png":::
 
-    In the **Change Transport Routes (Revised)** screen, select **Save**.
+    1. In the **Change Transport Routes (Revised)** screen, select **Save**.
 
-    In the **Configuration Short Text** screen, select **Save**.
+    1. In the **Configuration Short Text** screen, select **Save**.
 
-    In the **Distribute and Activate** screen, select **Yes**.
+    1. In the **Distribute and Activate** screen, select **Yes**.
 
-
-After steps above have been carried out, Transport management system will be configured and `STMS_IMPORT` transaction will work.
-Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged on to client `001`
-
-
-
+1. Close the SAP application signed in to client `000` as `DDIC`, and return to the SAP application signed in to client `001`.
 
 ## Next steps
 
-After the steps above are complete, the CRs required for Sentinel continuous protection for SAP operation are deployed, sample role is provisioned and a user account is created with necessary role profile assigned.
-The next step is to deploy the data connector agent container.
+Now that you've configured the Transport Management System, you'll be able to successfully complete the `STMS_IMPORT` transaction and you can continue [preparing your SAP environment](preparing-sap.md) for deploying the Continuous Threat Monitoring solution for SAP in Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
+> [Deploy SAP Change Requests and configure authorization](preparing-sap.md#set-up-the-applications)
 
