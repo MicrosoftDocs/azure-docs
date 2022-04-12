@@ -17,7 +17,7 @@ ms.author: kumud
 
 This article provides a list of IPv6 configuration tasks with the portion of the Azure Resource Manager VM template that applies to. Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer that includes a dual stack virtual network with IPv4 and IPv6 subnets, a Basic Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
-To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer - Template](ipv6-configure-standard-load-balancer-template-json.md).
+To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer - Template](../ipv6-configure-standard-load-balancer-template-json.md).
 
 ## Required configurations
 
