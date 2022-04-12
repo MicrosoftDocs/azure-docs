@@ -1,15 +1,15 @@
 ---
-title: Dell PowerEdge R340 XL for OT monitoring (legacy) - Microsoft Defender for IoT
+title: Dell Edge 5200 - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R340 XL appliance in its legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# Dell PowerEdge R340 XL
+# Dell Edge 5200
 
 This article describes the Dell PowerEdge R340 XL appliance for use in OT monitoring.
 
-|Summary  | |
+|  |Details |
 |---------|---------|
 |**Architecture** | [Enterprise] |
 |**Performance** | 	Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |

@@ -187,12 +187,12 @@
         href: hpe-proliant-dl360.md
     - name: Enterprise appliances
       items:
+      - name: Dell Edge 5200
+        href: dell-edge-5200.md
       - name: HPE ProLiant DL20 Plus
         href: hpe-proliant-dl20-plus-enterprise.md
       - name: HPE ProLiant DL20
         href: hpe-proliant-dl20.md
-      - name: Dell PowerEdge R340 X
-        href: dell-poweredge-r340-xl.md
     - name: SMB appliances
       items:
       - name: HPE ProLiant DL20 Plus
@@ -205,7 +205,7 @@
       items:
       - name: HPE ProLiant DL20 (enterprise)
         href: hpe-proliant-dl20-enterprise-legacy.md
-      - name: Dell PowerEdge R340 XL (enterprise)
+      - name: Dell PowerEdge R340 XL
         href: dell-poweredge-r340-xl-legacy.md
       - name: HPE ProLiant Dl20 (SMB)
         href: hpe-proliant-dl20-smb-legacy.md
