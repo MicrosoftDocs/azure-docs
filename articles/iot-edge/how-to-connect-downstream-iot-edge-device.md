@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 02/28/2022
+ms.date: 04/12/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -118,50 +118,53 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
-Use the following steps to configure IoT Edge on your device.
+Use the following steps to configure certificates on your parent and leaf IoT Edge devices.
 
 Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
-1. Install the **root CA certificate** on this IoT Edge device.
+Install the **root CA certificate** on the parent and leaf IoT Edge device.
 
-    * **Debian/Ubuntu**
-      ```bash
-      sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
-      ```
+# [Debian / Ubuntu](#tab/linux)
 
-    * **IoT Edge for Linux on Windows (EFLOW)**
-      ```bash
-      sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
-      ```
+```bash
+sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
+```
 
-1. Update the certificate store.
+# [IoT Edge for Linux on Windows (EFLOW)](#tab/eflow)
 
-    * **Debian/Ubuntu**
-      ```bash
-      sudo update-ca-certificates
-      ```
-      This command should output that one certificate was added to /etc/ssl/certs.
+```bash
+sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+```
+
+Update the certificate store.
+
+# [Debian / Ubuntu](#tab/linux)
+
+```bash
+sudo update-ca-certificates
+```
+This command should output that one certificate was added to /etc/ssl/certs.
 
 
-    * **IoT Edge for Linux on Windows (EFLOW)**
-      ```bash
-      sudo update-ca-trust
-      ```
-      For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
-  
-  
-1. Open the IoT Edge configuration file.
+# [IoT Edge for Linux on Windows (EFLOW)](#tab/eflow)
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+```bash
+sudo update-ca-trust
+```
+For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
 
-   >[!TIP]
-   >If the config file doesn't exist on your device yet, use the following command to create it based on the template file:
-   >
-   >```bash
-   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   >```
+Open the IoT Edge configuration file.
+
+```bash
+sudo nano /etc/aziot/config.toml
+```
+
+>[!TIP]
+>If the config file doesn't exist on your device yet, use the following command to create it based on the template file:
+>
+>```bash
+>sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+>```
 
 1. Find the **Hostname** section in the config file. Uncomment the line that contains the `hostname` parameter, and update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device.
 
