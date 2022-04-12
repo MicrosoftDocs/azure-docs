@@ -98,7 +98,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 
 ## Availability by region
 
-The ability to use different Azure Cache for Redis tiers in different regions is continually changing. To check the availability by region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Next steps
 
