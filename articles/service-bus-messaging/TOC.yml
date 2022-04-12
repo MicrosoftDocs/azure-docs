@@ -294,7 +294,7 @@
   - name: Python
     items: 
     - name: azure-servicebus version 7
-      href: /python/api/overview/azure/servicebus?view=azure-python-preview
+      href: /python/api/overview/azure/servicebus
     - name: Migrate from azure-servicebus version 0.50 to version 7
       href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
   - name: JavaScript
