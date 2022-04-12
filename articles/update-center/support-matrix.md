@@ -121,4 +121,3 @@ Update management center (Preview) supports Azure VMs created using Azure Market
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
 - [Manage update settings via Portal](manage-update-settings.md)
-- [Manage multiple machines using update management center](manage-multiple-machines.md)
