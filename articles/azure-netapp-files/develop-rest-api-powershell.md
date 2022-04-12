@@ -79,7 +79,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 5. Send a test call and include the token to validate your access to the REST API:
 
     ```azurepowershell
-    $SubId = (Get-AzureRmContext).Subscription.Id 
+    $SubId = (Get-AzContext).Subscription.Id 
     Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2019-11-01
     ```
 
