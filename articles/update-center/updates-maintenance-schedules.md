@@ -18,7 +18,7 @@ This article provides an overview of the various update and maintenance options 
 Update management center (preview) provides you the flexibility to take an immediate action or schedule an update within a defined maintenance window. It also supports new patching methods such as automatic VM guest patching, hotpatching and so on.
 
 
-## Update Now/One time update
+## Update Now/One-time update
 
 Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
 
@@ -37,17 +37,17 @@ This VM property can be enabled by setting the value of Patch orchestration upda
 
 
 ## Windows automatic updates
-This mode of patching allows opertating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS). 
+This mode of patching allows operating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS. 
 
 ## Hotpatching
 
 Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](/azure/automanage/automanage-hotpatch?).
 
-In your **Update management center (preview)**, hotpatching property is available as an option that you can select from **Machines** >> **Update Settings** 
+In your **Update management center (preview)**, hotpatching property is available as an option that you can select from **Machines** > **Update Settings** 
 
-:::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot showing the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
+:::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
-For more information, see [configure update settings on your machines.](manage-update-settings.md#configure-updates-at-scale).
+For more information, see [configure update settings on your machines](manage-update-settings.md#configure-updates-at-scale).
 
 
 ## Assessment options in update management center (preview)
