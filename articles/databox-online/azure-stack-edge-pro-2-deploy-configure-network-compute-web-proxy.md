@@ -71,9 +71,12 @@ Your **Get started** page displays the various settings that are required to con
 
 Follow these steps to configure the network for your device.
 
-1. In the local web UI of your device, go to the **Get started** page. 
+1. In the local web UI of your device, go to the **Get started** page. On the **Set up a single node device** tile, select **Start**.
 
-2. On the **Network** tile, select **Configure**.  
+    ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Start button on the Set up a single node device tile is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png)
+
+
+2. On the **Network** tile, select **Needs setup**.  
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 

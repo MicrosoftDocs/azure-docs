@@ -49,7 +49,7 @@ The following tables show the resources available for a single database at each 
 | Max in-memory OLTP storage (GB) |N/A |
 | Max concurrent workers | 30 |
 | Max concurrent sessions | 300 |
-|||
+
 
 > [!IMPORTANT]
 > The Basic service tier provides less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended.
@@ -67,7 +67,7 @@ The following tables show the resources available for a single database at each 
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
 | Max concurrent workers | 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
-||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -87,7 +87,7 @@ The following tables show the resources available for a single database at each 
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
 | Max concurrent workers | 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
-|||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -101,7 +101,7 @@ The following tables show the resources available for a single database at each 
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Max concurrent workers | 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-|||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -135,7 +135,7 @@ The following table lists tempdb sizes for single databases in Azure SQL Databas
 |P6|13.9|12|166.7|
 |P11|13.9|12|166.7|
 |P15|13.9|12|166.7|
-||||
+
 
 ## Next steps
 

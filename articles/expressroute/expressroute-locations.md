@@ -74,7 +74,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported | Amsterdam2, Chennai, Dubai2, Frankfurt, Frankfurt2, Madrid, Marseille, Mumbai, Munich, New York, Singapore2 |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt |
-| **[Deutsche Telekom AG](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt2 |
+| **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-and-infrastructure/manage-it-efficiently/managed-azure/cloudconnect-for-azure)** | Supported |Supported | Frankfurt2 |
 | **du datamena** |Supported |Supported | Dubai2 |
 | **[eir](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |Supported |Supported |Dublin|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supported |Supported | Singapore, Singapore2 |
@@ -298,7 +298,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[X2nsat Inc.](https://www.x2nsat.com/expressroute/)** |Coresite |Silicon Valley, Silicon Valley 2|
 | **Zain** |Equinix |London|
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
+| **Zirro**| Cologix, Equinix | Montreal, Toronto |
 
 ## Connectivity through datacenter providers
 

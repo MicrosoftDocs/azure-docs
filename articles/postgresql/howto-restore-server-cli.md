@@ -1,13 +1,14 @@
 ---
 title: Backup and restore - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: Learn how to set backup configurations and restore a server in Azure Database for PostgreSQL - Single Server by using the Azure CLI.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: how-to
-ms.date: 10/25/2019 
+ms.author: srranga
+author: sr-msft
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+ms.date: 10/25/2019 
 ---
 
 # How to back up and restore a server in Azure Database for PostgreSQL - Single Server using the Azure CLI

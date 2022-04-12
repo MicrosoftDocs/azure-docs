@@ -152,9 +152,14 @@ To enable Host_Mem(SB) (up to 1 Gb RAM):  sudo xbutil host_mem --enable --size 1
 <br>
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
 <br>
-Starting on XRT2021.1, OnPrem FPGA in Linux exposes [M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html)
+
+<br>
+Starting on XRT2021.1:
+
+OnPrem FPGA in Linux exposes
+[M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
+<br>
 This feature is not supported in Azure NP VMs.
-<p>
  
 **Q:** Can I run xbmgmt commands? 
 

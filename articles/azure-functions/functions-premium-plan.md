@@ -108,6 +108,12 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes. 
 
+## Migration
+
+If you have an existing function app, you can use Azure CLI commands to migrate your app between a Consumption plan and a Premium plan on Windows. The specific commands depend on the direction of the migration. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md#plan-migration).
+
+This migration isn't supported on Linux.
+
 ## Plan and SKU settings
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
@@ -172,7 +178,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 40 |
+|East US | 100 | 60 |
 |East US 2| 100 | 20 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |

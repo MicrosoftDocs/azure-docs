@@ -178,6 +178,6 @@ sections:
           We recommend you use Windows Defender Application Control instead of AppLocker. 
 
       - question: |
-         When I'm testing migration, can I have the two different Windows Virtual Desktop environments exist in the same tenant?
+         When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
         answer: |
           Yes. You can have both deployments within the same Azure Active Directory tenant.

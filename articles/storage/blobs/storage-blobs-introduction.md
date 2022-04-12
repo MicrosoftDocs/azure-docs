@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 03/27/2021
+ms.date: 03/15/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -30,7 +30,7 @@ The following diagram shows the relationship between these resources.
 
 ### Storage accounts
 
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage blob endpoint forms the base address for the objects in your storage account.
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Blob Storage endpoint forms the base address for the objects in your storage account.
 
 For example, if your storage account is named *mystorageaccount*, then the default endpoint for Blob storage is:
 
@@ -38,7 +38,17 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-account-create.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+The following table describes the different types of storage accounts that are supported for Blob Storage:
+
+| Type of storage account | Performance tier | Usage |
+|--|--|--|
+| General-purpose v2 | Standard | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Blob Storage or one of the other Azure Storage services. |
+| Block blob | Premium | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency. [Learn more about workloads for premium block blob accounts...](../blobs/storage-blob-block-blob-premium.md) |
+| Page blob | Premium | Premium storage account type for page blobs only. [Learn more about workloads for premium page blob accounts...](../blobs/storage-blob-pageblob-overview.md) |
+
+To learn more about types of storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). For information about legacy storage account types, see [Legacy storage account types](../common/storage-account-overview.md#legacy-storage-account-types).
+
+To learn how to create a storage account, see [Create a storage account](../common/storage-account-create.md).
 
 ### Containers
 

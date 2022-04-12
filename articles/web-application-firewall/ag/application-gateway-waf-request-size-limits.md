@@ -45,10 +45,8 @@ WAF offers a configuration setting to enable or disable the request body inspect
 Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 
 When your WAF receives a request that's over the size limit, the behavior depends on the mode of your WAF and the version of the managed ruleset you use.
-- When your WAF policy is in prevention mode, WAF blocks requests that are over the size limit.
-- When your WAF policy is in detection mode:
-  - If you use CRS 3.2 or newer, WAF inspects the body up to the limit specified and ignores the rest.
-  - If you use CRS 3.1 or earlier, WAF inspects the entire message.
+- When your WAF policy is in prevention mode, WAF logs and blocks requests that are over the size limit.
+- When your WAF policy is in detection mode, WAF inspects the body up to the limit specified and ignores the rest. If the `Content-Length` header is present and is greater than the file upload limit, WAF ignores the entire body and logs the request.
 
 ## Next steps
 

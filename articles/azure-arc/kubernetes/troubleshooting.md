@@ -158,6 +158,32 @@ To recover from this issue, follow these steps:
 3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
 4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
 
+### CryptoHash module error
+
+When attempting to onboard Kubernetes clusters to the Azure Arc platform, the local environment (for example, your client console) may return the following error message:
+
+```output
+Cannot load native module 'Crypto.Hash._MD5'
+```
+
+Sometimes, dependent modules fail to download successfully when adding the extensions `connectedk8s` and `k8s-configuration` through Azure CLI or Azure Powershell. To fix this problem, manually remove and then add the extensions in the local environment.
+
+To remove the extensions, use:
+
+```azurecli
+az extension remove --name connectedk8s
+
+az extension remove --name k8s-configuration
+```
+
+To add the extensions, use:
+
+```azurecli
+az extension add --name connectedk8s
+
+az extension add --name k8s-configuration
+```
+
 ## GitOps management
 
 ### Flux v1 - General
@@ -708,4 +734,4 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OSM docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
 
 ### 14. Upgrade Envoy
-When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.

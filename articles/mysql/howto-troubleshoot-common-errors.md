@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 5/21/2021
 ---
 
-# Commonly encountered errors during or post migration to Azure Database for MySQL
+# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 

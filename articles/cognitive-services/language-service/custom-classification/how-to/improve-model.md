@@ -21,7 +21,7 @@ After you've trained your model you reviewed its evaluation details, you can dec
 
 To optionally improve a model, you will need to have:
 
-* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) to successfully [train a model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
