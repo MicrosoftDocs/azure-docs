@@ -332,9 +332,9 @@
       items: 
       - name: Deployment overview
         href: sap/deployment-overview.md
-      - name: Prerequisites for deploying SAP continuous threat monitoring
+      - name: Deployment prerequisites
         href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-      - name: Prepare SAP environment by deploying SAP CRs, configure Authorization and create user
+      - name: Prepare SAP environment
         href: sap/preparing-sap.md
       - name: Deploy and configure the data connector agent container
         href: sap/deploy_data_connector_agent_container.md

@@ -1,33 +1,32 @@
 ---
-title: Deploy and configure the data connector agent container | Microsoft Docs
-description: Deploy and configure the data connector agent container
+title: Deploy and configure the SAP data connector agent container | Microsoft Docs
+description: This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of Microsoft Sentinel's Continuous Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
-ms.date: 2/01/2022
+ms.date: 04/12/2022
 ---
 
-# Deploy and configure the data connector agent container
-
+# Deploy and configure the SAP data connector agent container
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-The following article provides guidance on how to create a user account for use by SAP data connector and assign it to necessary role.
+This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of Microsoft Sentinel's Continuous Threat Monitoring solution for SAP.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
 ## Deployment milestones
+
 Deployment of the SAP continuous threat monitoring solution is divided into the following sections
 
 1. [Deployment overview](deployment-overview.md)
 
-1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
-1. [Prepare SAP environment by deploying SAP CRs, configure Authorization and create user](preparing-sap.md)
+1. [Prepare SAP environment](preparing-sap.md)
 
-1. **Deploy and configure the data connector agent container (*You are here*)**
+1. **Deploy data connector agent (*You are here*)**
 
 1. [Deploy SAP security content](deploy_sap_security_content.md)
 
@@ -37,10 +36,10 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 
 
 ## Data connector agent deployment overview
-Data connector agent container should run on a VM running Linux, hosted either on-premises or in the cloud.
-Data connector agent can store configuration in Azure Key vault, in a configuration file, or in environment variables.
 
-Depending on the scenario, different configuration instructions have to be followed.
+The data connector agent container is designed to run on a VM running Linux, hosted either on-premises or in the cloud. Its configuration information can be stored in an Azure Key Vault, in a configuration file, or in local environment variables.
+
+The configuration instructions may differ depending on the scenario.
 
 When configuration is stored in Azure Key Vault, depending on the host VM placement, configuration will differ:<br>
    - A container running on the host in Azure can leverage Managed identity to seamlessly access Azure Key vault

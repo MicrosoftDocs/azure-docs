@@ -23,9 +23,9 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
-1. **Deploy SAP CRs and configure authorization (*You are here*)**
+1. **Prepare SAP environment (*You are here*)**
 
-1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
+1. [Deploy data connector agent](deploy_data_connector_agent_container.md)
 
 1. [Deploy SAP security content](deploy_sap_security_content.md)
 
@@ -86,7 +86,7 @@ To deploy the CRs, follow the steps outlined below:
 
     Note that each CR consists of two files, one beginning with K and one with R.
 
-1. Change the ownership of the files to user *\<sid\>adm* and group *sapsys*.
+1. Change the ownership of the files to user *`<sid>`adm* and group *sapsys*. (Substitute your SAP system ID for `<sid>`.)
 
     ```bash
     chown <sid>adm:sapsys *.NPL

@@ -1,10 +1,10 @@
 ---
 title: Deploy Continuous Threat Monitoring for SAP | Microsoft Docs
-description: Learn how to deploy the Microsoft Sentinel solution for SAP environments.
+description: This article introduces you to the process of deploying the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 04/12/2022
 ---
 
 # Deploy Continuous Threat Monitoring for SAP
@@ -32,7 +32,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | Milestone | Article |
 | --------- | ------- |
 | **1. Deployment overview** | **YOU ARE HERE** |
-| **2. Prerequisites** | [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
+| **2. Deployment prerequisites** | [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
 | **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
 | **4. Deploy data connector agent** | [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md) |
 | **5. Deploy SAP security content** | [Deploy SAP security content](deploy_sap_security_content.md)

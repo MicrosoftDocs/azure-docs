@@ -21,11 +21,11 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment overview](deployment-overview.md)
 
-1. **Prerequisites (*You are here*)**
+1. **Deployment prerequisites (*You are here*)**
 
-1. [Deploy SAP CRs and configure authorization](preparing-sap.md)
+1. [Prepare SAP environment](preparing-sap.md)
 
-1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
+1. [Deploy data connector agent](deploy_data_connector_agent_container.md)
 
 1. [Deploy SAP security content](deploy_sap_security_content.md)
 
