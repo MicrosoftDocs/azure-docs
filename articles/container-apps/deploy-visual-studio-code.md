@@ -22,7 +22,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 - Visual Studio Code, available as a [free download](https://code.visualstudio.com/).
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
-    - The [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+    - The [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps)
     - The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) 
 
 ## Clone the project
