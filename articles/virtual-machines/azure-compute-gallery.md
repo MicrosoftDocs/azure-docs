@@ -118,7 +118,7 @@ As a content publisher, you might want to use Community Galleries:
 > If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
 
 
-### Not supported for community galleries
+### Limitations for community galleries
 
 There are some limitations on community galleries:
 - Encrypted images are not supported
@@ -128,39 +128,30 @@ There are some limitations on community galleries:
 > [!IMPORTANT]
 > Microsoft does not provide support for images in the Community Gallery.
 
-## Contact information
-
-https://msrc.microsoft.com/report/abuse
-https://msrc.microsoft.com/report/infringement
-
-
 ### Community gallery FAQ
 
-**Q**: Do Community Gallery images support auto-update?  
-
+**Q: Do Community Gallery images support auto-update?**
 **A**:Currently, we don’t support auto-update on any Community Gallery images.  
 
-**Q**: What are the charges for using Community Galleries?  
-
-**A**: There are no charges for using the service itself. However, content publishers would be charged for the following: 
-
+**Q: What are the charges for using Community Galleries?**
+   **A**: There are no charges for using the service itself. However, content publishers would be charged for the following: 
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
-
 - Network egress charges for replication across regions. 
 
-**Q**: If a Community Gallery image doesn’t work, whom do I contact for support?  
+
+**Q: If a Community Gallery image doesn’t work, whom do I contact for support?**
 
 **A**: Azure is not responsible for any issues encountered with Community Gallery images. The support is provided by the image publisher. Please look up the publisher contact information on the gallery and reach out to them for any support regarding the image.  
 
-**Q**: I have concerns about an image, who do I contact?
+
+**Q: I have concerns about an image, who do I contact?**
 
 **A**: For issues with the community gallery:
 - To report malicious images in the community gallery, contact [Abuse Report](mailto:Abuse%20Report%20(microsoft.com)). 
 - To report images that potentially violate intellectual property rights, contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
 
-
-**Q**: How do I request a Community Gallery image to be replicated to a specific region?  
+**Q: How do I request a Community Gallery image to be replicated to a specific region?**
 
 **A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
 
