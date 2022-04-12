@@ -289,7 +289,7 @@
             - name: azure-messaging-eventhubs (latest)
               href: /java/api/overview/azure/messaging-eventhubs-readme
             - name: azure-eventhubs (legacy)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
     - name: Python
