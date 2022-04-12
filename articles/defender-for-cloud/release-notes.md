@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -25,6 +25,29 @@ Updates in April include:
 - [New Defender for Servers plans](#new-defender-for-servers-plans)
 - [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
+- [New alert flavor for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-flavor-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
+- Container scan alert title augmented with IP address reputation 
+
+### New Defender for Servers plans
+
+Microsoft Defender for Servers is now offered in two incremental plans.
+
+- Microsoft Defender for Servers Plan 2, formerly Defender for Servers
+- Microsoft Defender for Servers Plan 1, including support for Defender for Endpoint only
+
+While Microsoft Defender for Servers Plan 2 continues to provide,  complete protections from threats and vulnerabilities to your cloud and on-premises workloads, Microsoft Defender for Servers Plan 1 provides endpoint protection only, powered by Microsoft Defender for Endpoint and natively integrated with Defender for Cloud. Read more about the [Microsoft Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
+
+If you have been using Defender for Servers until now – no action is required.
+ 
+In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it's approved for general use.
+
+### Relocation of custom recommendations
+
+Custom recommendations are those created by users and have no impact on the secure score. The custom recommendations can now be found under the All recommendations tab.
+
+Use the new "recommendation type" filter, to locate custom recommendations.
+
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
 ### PowerShell script to stream alerts to Splunk and IBM QRadar
 
@@ -34,26 +57,18 @@ Just download and run the PowerShell script. After you provide a few details of 
 
 To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
 
-### New Defender for Servers plans
+### New alert flavor for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
-Microsoft Defender for Servers is now offered in two incremental plans.
+Microsoft Defender for Storage's alerts for successful and failed attempts made by threat actors to expose and exfiltrate sensitive information from misconfigured storage containers that are publicly accessible. 
 
-- Microsoft Defender for Servers Plan 2, formerly Defender for Servers
-- Microsoft Defender for Servers Plan 1, including support for Defender for Endpoint only
+A new flavor has been added to the `Publicly accessible storage containers have been exposed` alert, that allows for a faster triage and response time to a scenario that involves potential sensitive data exfiltration.
 
-While Microsoft Defender for Servers Plan 2 continues to provide complete protections from threats and vulnerabilities to your cloud and on-premises workloads, Microsoft Defender for Servers Plan 1 provides endpoint protection only, powered by Microsoft Defender for Endpoint and natively integrated with Defender for Cloud. Read more about the [Microsoft Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
+The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, when a publicly available storage container, has been found to contain names or information that is rarely exposed publicly. The discovery of this type of information suggests that the container(s) may hold sensitive information.
 
-If you have been using Defender for Servers until now – no action is required.
- 
-In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
-
-### Relocation of custom recommendations
-
-Custom recommendations are those created by users and have no impact on the secure score. The custom recommendations can now be found under the All recommendations tab.
-
-Use the new "recommendation type" filter, to locate custom recommendations.
-
-Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+| Alert (alert type) | Description | MITRE tactic | Severity |
+|--|--|--|--|
+|PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed 
+(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
 
 ## March 2022
 
