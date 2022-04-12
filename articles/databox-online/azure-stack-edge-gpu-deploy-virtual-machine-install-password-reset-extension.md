@@ -312,7 +312,7 @@ This cmdlet will remove the specified virtual machine extension. Do you want to 
   
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase 
 --------- ------------------- ---------- ------------ 
-                         True         OK OK 
+          True                OK         OK 
   
   
 PS C:\WINDOWS\system32> 
@@ -334,7 +334,7 @@ This cmdlet will remove the specified virtual machine extension. Do you want to 
   
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase 
 --------- ------------------- ---------- ------------ 
-                         True         OK OK 
+          True                OK         OK 
   
 PS C:\WINDOWS\system32>
 ```
