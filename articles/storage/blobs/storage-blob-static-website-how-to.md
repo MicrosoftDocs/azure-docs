@@ -142,7 +142,7 @@ These following instructions show you how to upload files by using [Azure Storag
 
 4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to verify blob content types" lightbox="media/storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/blob-content-type-sml.png" alt-text="Image showing how to verify blob content types" lightbox="media/storage-blob-static-website-how-to/blob-content-type-lrg.png":::
 
    > [!NOTE]
    > Storage Explorer automatically sets this property to `text/html` for commonly recognized extensions such as `.html`. However, in some cases, you'll have to set this yourself. If you don't set this property to `text/html`, the browser will prompt users to download the file instead of rendering the contents. To set this property, right-click the file, and then click **Properties**.
