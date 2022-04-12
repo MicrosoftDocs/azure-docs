@@ -19,7 +19,7 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 * SSL 2.0 and 3.0 are disabled by default for all application gateways. These protocol versions are not configurable.
 * A custom TLS policy gives you the option to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2 or TLSv1_3.
-* If no TLS policy is defined, the minimum protocol version is set to TLSv1_0, thus supporting versions 1.0, 1.1 and 1.2.
+* If no TLS policy is defined, the minimum protocol version is set to TLSv1_0 and protocol versions 1.0, 1.1 and 1.2 are supported.
 * Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy as well as SSL Profile). Hence, both old and new policies cannot co-exist. You are required to use any of the older predefined or custom policies across the gateway, in case there are clients requiring older TLS version or ciphers (for example, TLS v1.0).
 * The new predefined and custom policies are available only for Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
 * TLS cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
