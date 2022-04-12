@@ -9,8 +9,9 @@ ms.author: justinha
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
