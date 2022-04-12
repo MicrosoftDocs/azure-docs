@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
-|Private Link |The Private Link feature is now available. With Private Link, you can access Azure Health Data Services securely from your VNet as a first-party service without having to go through a public Domain Name System (DNS). for more information, see [Configure Private Link for Azure Health Data Services](./../healthcare-apis/healthcare-apis-configure-private-link.md).   |
+|Private Link |The Private Link feature is now available. With Private Link, you can access Azure Health Data Services securely from your VNet as a first-party service without having to go through a public Domain Name System (DNS). For more information, see [Configure Private Link for Azure Health Data Services](./../healthcare-apis/healthcare-apis-configure-private-link.md).   |
 
 ### FHIR service
 
@@ -52,7 +52,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
-|Events |The Events feature within Health Data Services is now generally available. Events feature allows customers to receive notifications and triggers when FHIR observations start, change, or delete.  |
+|Events |The Events feature within Health Data Services is now generally available. The Events feature allows customers to receive notifications and triggers when FHIR observations start, change, or delete.  |
 
 ## January 2022
 
