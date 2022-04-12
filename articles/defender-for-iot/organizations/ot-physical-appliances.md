@@ -28,7 +28,7 @@ All hardware components must be compatible with Ubuntu version 18.04 and later v
 
 ## Specifications
 
-# [CPU requirements](#tab/cpu-requirements)
+# [CPU requirements](#tab/cpu)
 
 | Deployment type |Supported models and versions |
 |---------|---------|---------|
@@ -36,7 +36,7 @@ All hardware components must be compatible with Ubuntu version 18.04 and later v
 | [**Enterprise**] | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br> Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br> Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) with Intel C246|
 | [**Production line**]| Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br> Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 |
 
-# [Networking requirements](#tab/networking-requirements)
+# [Networking requirements](#tab/networking)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
@@ -44,8 +44,7 @@ All hardware components must be compatible with Ubuntu version 18.04 and later v
 | [**Enterprise**]     | Intel I350  (GBe/SFP)      |
 | [**Production line**]     | Intel I219<br>Broadcom BCM5720 <br>  Broadcom BCM5719      |
 
-
-# [Storage array requirements](#tab/storage-requirements)
+# [Storage array requirements](#tab/storage)
 
 | Deployment type   |Supported models and versions |
 |---------|---------|---------|
