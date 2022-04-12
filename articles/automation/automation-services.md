@@ -78,12 +78,13 @@ The following table describes the scenarios and users for ARM template and Bicep
  
 ### [Azure Automation](/azure/automation/overview)
 
-Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. 
-It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
+Azure Automation orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environments. It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
+
+There are more than 3,000 modules in the PowerShell Gallery, and the PowerShell community continues to grow. Azure Automation based on PowerShell modules can work with multiple applications and vendors, both 1st party and 3rd party. As more application vendors release PowerShell modules for integration, extensibility and automation tasks, you could use an existing PowerShell script as-is to execute it as a PowerShell runbook in an automation account without making any changes.
 
   **Scenarios** | **Users**
   --- | ---
-  | Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage to automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance include resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises. 
+  | Allows to write an [Automation PowerShell runbook](/azure/automation/learn/powershell-runbook-managed-identity) that deploys an Azure resource by using an [Azure Resource Manager template](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).</br> </br> Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage to automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance include resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises. 
 
 ### Azure Automation based in-guest management
 
@@ -139,19 +140,22 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation scenarios where you can manage automate on-premises servers such as SQL Server, Active Directory and so on based on an external event.</br> </br> Azure resource life-cycle management and governance that includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs and so on based on Azure monitor alerts. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting.
+  | Respond to system alerts, service alerts, or high CPU/memory alerts from 1st party or 3rd party monitoring tools like Splunk or ServiceNow, create ServiceNow tickets basis alerts and so on. </br> </br> Hybrid automation scenarios where you can manage automate on-premises servers such as SQL Server, Active Directory and so on based on an external event.</br> </br> Azure resource life-cycle management and governance that includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs and so on based on Azure monitor alerts. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting.
 
 
 ### Azure functions
 
-Provides a serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
+Provides a serverless event-driven compute platform for automation that allows you to write code to react to critical events from various sources, third-party services, and on-premises systems. For example, an HTTP trigger without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
 
-  - You can use a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
-  - It allows you to orchestrate complex workflows through durable functions. 
+  - You can use a variety of languages to write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code. Functions runtime is an open source.
+  - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
+  - You can orchestrate complex workflows through [durable functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp).
+  - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
+  - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](/azure/azure-functions/functions-reference-powershell?tabs=portal). 
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
+  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications where a single or mutiple Azure Functions could be part of larger application workflow.
 
 
 ## Orchestrate complex jobs in Azure Automation
@@ -183,14 +187,18 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 
 ### Azure functions
 
-A serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
+Provides a serverless event-driven compute platform for automation that allows you to write code to react to critical events from various sources, third-party services, and on-premises systems. For example, an HTTP trigger without worrying about the underlying platform [Learn more](/azure/azure-functions/functions-overview).
 
-  - It provides a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
-  - You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
+  - You can use a variety of languages to write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code. Functions runtime is an open source.
+  - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
+  - You can orchestrate complex workflows through [durable functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp).
+  - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](/azure/azure-functions/functions-best-practices?tabs=csharp#write-robust-functions).
+  - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
+  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications where a single or mutiple Azure Functions could be part of larger application workflow.
+ 
 
 ## Next steps
 - To learn on how to securely execute the automation jobs, see [best practices for security in Azure Automation](/azure/automation/automation-security-guidelines).
