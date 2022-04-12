@@ -94,17 +94,20 @@ Configuring a container app with a user-assigned identity requires that you firs
 1. Create a user-assigned identity.
 
     ```azurecli
-    az identity create --resource-group <GROUP_NAME> --name <IDENTITY_NAME>
+    az identity create --resource-group <GROUP_NAME> --name <IDENTITY_NAME> --output json
     ```
+
+    Note the `id` property of the new identity.
 
 1. Run the `az containerapps identity assign` command to assign the identity to the app. The identities parameter is a space separated list.
 
     ```azurecli
     az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> \
-        --user-assigned <IDENTITY_ID>
+        --user-assigned <IDENTITY_RESOURCE_ID>
     ```
 
- Replace `<IDENTITY_ID>` with the `id` property of the identity you created. To assign more than one user-assigned identity, supply a space-separated list of identity IDs to the `--user-assigned` parameter.
+    Replace `<IDENTITY_RESOURCE_ID>` with the `id` property of the identity. To assign more than one user-assigned identity, supply a space-separated list of identity IDs to the `--user-assigned` parameter.
+
 # [ARM template](#tab/arm)
 
 To add one or more user-assigned identities, add an `identity` section to your ARM template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
@@ -279,14 +282,14 @@ To remove one or more user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
-    --user-assigned <IDENTITY_ID1> <IDENTITY_ID2>
+    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
 ```
 
 To remove all user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
-    --user-assigned <IDENTITY_ID1> <IDENTITY_ID2>
+    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
 ```
 
 # [ARM template](#tab/arm)
