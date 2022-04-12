@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 The log file must meet the following criteria to be collected by this feature:
 
 - The log file must be stored on a local drive of a virtual machine, virtual machine scale set, or Arc enabled server with the Azure Monitor installed.
-- Each entry in the log file must be delineated with a time stamp or an end of line.
+- Each entry in the log file must be delineated with an [ISO 8601 formatted](https://www.iso.org/standard/40874.html) time stamp or an end of line.
 - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or the file is renamed and the same file name is reused for continued logging.
 
 
@@ -45,7 +45,7 @@ The steps to configure log collection are as follows. The detailed steps for eac
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. When you create the table, you provide its name and a definition for each of its columns. 
 
-Use the **Tables - Update** API to create the table with the PowerShell code below. This code creates a table called *MyTable* with two columns. You can modify this schema to collect a different table. 
+Use the **Tables - Update** API to create the table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. You can modify this schema to collect a different table. 
 
 > [!IMPORTANT]
 > Custom tables must use a suffix of *_CL*.
