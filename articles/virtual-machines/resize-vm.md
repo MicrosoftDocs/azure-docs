@@ -126,7 +126,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
-   > If uou are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
 
 
 **Use PowerShell to resize a VM in an availability set**
