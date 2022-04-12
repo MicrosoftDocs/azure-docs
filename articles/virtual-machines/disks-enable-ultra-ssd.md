@@ -486,4 +486,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ## Next steps
 
 - [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
-- [Migrate log disk to an ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).
+- [Migrate log disk to an ultra disk](/azure/azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk).

@@ -136,7 +136,7 @@ Creation of the snapshots alone might not be sufficient for disaster recovery. Y
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use). In addition to back up and restore, [SQL Server AlwaysOn availability groups](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Next steps
 
