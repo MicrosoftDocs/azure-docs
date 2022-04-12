@@ -148,7 +148,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How do I monitor Storage Usage?**
     
-    You can monitor storage and performance usage for datastores using Azure NetApp Files volume metrics for the Datastore volume and set alerts in Azure Monitor for these metrics.
+    Use [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) to monitor storage and performance usage for datastores .
 
 - **What metrics are available for monitoring?**
 
