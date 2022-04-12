@@ -1,15 +1,20 @@
 ---
-title: HPE Edgeline EL300 (legacy SMB rugged) - Microsoft Defender for IoT
-description: Learn about the HPE Edgeline EL300 appliance in its legacy configuration when used for OT monitoring with Microsoft Defender for IoT in SMB rugged deployments.
+title: HPE Edgeline EL300 (SMB) - Microsoft Defender for IoT
+description: Learn about the HPE Edgeline EL300 appliance for IoT in SMB rugged deployments.
 ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# HPE Edgeline EL300 with legacy specifications for SMB rugged deployments
+# HPE Edgeline EL300 
 
-This article describes the HPE Edgeline EL300 appliance with its legacy specifications for use in OT monitoring for SMB rugged deployments.
+This article describes the HPE Edgeline EL300 appliance for use in OT.
 
-Legacy appliances that certified but aren't currently offered as pre-configured appliances.
+|Summary  | |
+|---------|---------|
+|**Architecture** | [SMB] |
+|**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
+|**Physical Specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
+|**Status** | Supported, Not available pre-installed|
 
 ## Specifications
 
@@ -51,6 +56,77 @@ Legacy appliances that certified but aren't currently offered as pre-configured 
 |P08019-B21 optional|HPE Edgeline EL300 DIN Rail Mount Kit|
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
 |P03456-B21 optional|HPE Edgeline 1-GbE 4-port TSN FIO Daughter Card|
+
+## HP EdgeLine 300 installation
+
+- A default administrative user is provided. We recommend that you change the password during the network configuration.
+
+- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+### HP EdgeLine 300 back panel
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
+
+### Enable remote access
+
+1. Enter the iSM IP Address into your web browser.
+
+1. Sign in using the default username, and password found on your appliance.
+
+1. Navigate to **Wired and Wireless Network** > **IPV4**
+
+    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="navigate to highlighted sections.":::
+
+1. Disable **DHCP toggle**.
+
+1. Configure the IPv4 addresses as such:
+    - **IPV4 Address**: `192.168.1.125`
+    - **IPV4 Subnet Mask**: `255.255.255.0`
+    - **IPV4 Gateway**: `192.168.1.1`
+
+1. Select **Apply**.
+
+1. Sign out, and reboot the appliance.
+
+### Configure the BIOS
+
+The following procedure describes how to configure the BIOS for HP EL300 appliance.
+
+**To configure the BIOS**:
+
+1. Turn on the appliance, and push **F9** to enter the BIOS.
+
+1. Select **Advanced**, and scroll down to **CSM Support**.
+
+    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Enable CSM support to open the additional menu.":::
+
+1. Push **Enter** to enable CSM Support.
+
+1. Navigate to Storage, and push **+/-** to change it to Legacy.
+
+1. Navigate to Video, and push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navigate to storage and video and change them to Legacy.":::
+
+1. Navigate to **Boot** > **Boot mode select**.
+
+1. Push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Change Boot mode select to Legacy.":::
+
+1. Navigate to **Save & Exit**.
+
+1. Select **Save Changes and Exit**.
+
+    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Save your changes and exit the system.":::
+
+1. Select **Yes**, and the appliance will reboot.
+
+1. Push **F11** to enter the **Boot Menu**.
+
+1. Select the device with the sensor image. Either **DVD** or **USB**.
+
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## Next steps
 
