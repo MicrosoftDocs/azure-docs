@@ -40,6 +40,8 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
+# [text-analytics](#tab/text-analytics)
+
 ```bash
 curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.1/entities/health/jobs \
 -H "Content-Type: application/json" \
@@ -60,7 +62,6 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-text-analytics-key-here"
 ```
-
 
 ### JSON response
 
@@ -216,3 +217,5 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
    }
 }
 ```
+# [Language](#tab/Language)
+
