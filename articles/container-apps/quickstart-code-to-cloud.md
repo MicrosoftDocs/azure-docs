@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 This article demonstrates how to deploy to Azure Container Apps from a repository on your machine in the language of your choice.
 
-This quickstart is the first in a series of articles that walk you through how to leverage core capabilities within Azure Container Apps. The first step is to create a backedend web API for application that returns a static collection of music albums.
+This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API for application that returns a static collection of music albums.
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, 
 
 ## Prepare the GitHub repository
 
-Navigate to the repository for your preferred language and fork the repository. Click the **Fork** button at the top of the page to fork the repo to your account.
+Navigate to the repository for your preferred language and fork the repository. Select the **Fork** button at the top of the page to fork the repo to your account.
 
 - [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
 - [Go](https://github.com/azure-samples/containerapps-albumapi-go)
@@ -242,7 +242,7 @@ Connect-AzContainerRegistry -Name $ACR_NAME_ACA
 
 ## Build your application
 
-With ACR Tasks, you can build the docker image for the album API without the need to install Docker locally.  You'll find the Dockerfile in the root directory of the GitHub repo which you use to create the container image.
+With ACR Tasks, you can build the docker image for the album API without the need to install Docker locally.  You'll find the Dockerfile in the root directory of the GitHub repo that you use to create the container image.
 
 ### Build the container with ACR
 
@@ -307,7 +307,7 @@ docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
 
 ---
 
-If your image was successfully built, it is listed in the output of the following command:
+If your image was successfully built, it's listed in the output of the following command:
 
 # [Bash](#tab/bash)
 
@@ -325,7 +325,7 @@ docker images
 
 ### Push the Docker image to your ACR registry
 
-First, login to your Azure Container Registry.
+First, sign in to your Azure Container Registry.
 
 # [Bash](#tab/bash)
 
