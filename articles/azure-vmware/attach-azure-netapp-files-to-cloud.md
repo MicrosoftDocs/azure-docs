@@ -34,14 +34,20 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 
 1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) with a virtual network configured. For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
     1. Verify the subscription is registered to **Microsoft.AVS**.
-    `az provider show -n "Microsoft.AVS" -- query registrationState`
+    
+        `az provider show -n "Microsoft.AVS" -- query registrationState`
 1. If it's not already registered, register it, then deploy a private cloud.
-    `az provider register -n "Microsoft.AVS"`
+    1. Register subscription.
+    
+        `az provider register -n "Microsoft.AVS"`
 1. Create an [NFS volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
     1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
     1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace to identify and confirm the volume is for Azure VMware Solution NFS datastore.
-    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
-    `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
+    
+        `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
+
+        `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
+
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -83,7 +89,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
     1. `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
     1. `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
-1. Verify the VMware extension is installed. If the extension is already installed, verify you are using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
+1. Verify the VMware extension is installed. If the extension is already installed, verify you're using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
     1. `az extension show --name vmware`
     1. `az extension list-versions -n vmware`
     1. `az extension update --name vmware`
@@ -138,11 +144,11 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What are my options for backup and recovery?**
     
-   Azure NetApp Files support [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files backup provides the ability to offload your Azure NetApp Files snapshots to Azure storage. Only for this technology are copies and stores changed blocks relative to previously offloaded snapshots in an efficient format, dramatically increasing RPO/RTO while lowering backup data transfer burden on the AVS service.   
+   Azure NetApp Files support [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files backup lets you offload your Azure NetApp Files snapshots to Azure storage. Only for this technology are copies and stores changed blocks relative to previously offloaded snapshots in an efficient format. This ability greatly increases RPO/RTO while lowering backup data transfer burden on the AVS service.   
 
 - **How do I monitor Storage Usage?**
     
-    You can monitor storage and performance usage for datastores using Azure NetApp Files volume metrics blade for the Datastore volume and set alerts in Azure Monitor for these metrics.
+    You can monitor storage and performance usage for datastores using Azure NetApp Files volume metrics for the Datastore volume and set alerts in Azure Monitor for these metrics.
 
 - **What metrics are available for monitoring?**
 
