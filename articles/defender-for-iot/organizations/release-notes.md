@@ -52,8 +52,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
+- [Detection support for Windows 11 and Windows Server 2019](#detection-support-for-windows-11-and-windows-server-2019)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
-- [Device detection enhancements](#device-detection-enhancements)
 
 ### Active discovery scans (Public preview)
 
@@ -118,8 +118,6 @@ Defender for IoT sensors can now discover Windows devices running Windows 11 and
 
 For more information, see [Learn Windows registry details](how-to-investigate-sensor-detections-in-a-device-inventory.md#learn-windows-registry-details).
 
-### Automatic certificate updates  (Public preview)
-
 ### Support diagnostic log enhancements (Public preview)
 
 Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
@@ -137,36 +135,9 @@ For more information, see:
 - [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
-### Documentation improvements
-
-**Release note tracking per version**
-
-Starting in May 2022, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in May 2022, we're releasing version **22.2.1**.
-
-For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
-
-**Documentation reorganization for end-user organizations**
-
-We've recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started. Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
-
-**New and updated articles include**:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Microsoft Defender for IoT architecture](architecture.md)
-- [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
-- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
-
-> [!NOTE]
-> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
->
-
 ## April 2022
 
 - [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
-- [Documentation improvements](#documentation-improvements)
 
 ### Extended device property data in the Device inventory
 
@@ -182,6 +153,35 @@ Starting for sensors updated to version 22.1.4, the **Device inventory** page on
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
+### Documentation improvements
+
+**Release note tracking per version**
+
+Starting in May 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
+
+Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in April 2022, we released version **22.1.4**.
+
+For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
+
+**Documentation reorganization for end-user organizations**
+
+We recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started.
+
+Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
+
+**New and updated articles include**:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Microsoft Defender for IoT architecture](architecture.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
+- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
+
+> [!NOTE]
+> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
+>
 
 ## March 2022
 
