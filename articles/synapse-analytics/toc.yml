@@ -208,6 +208,8 @@ items:
         href: troubleshoot/reading-utf8-text.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
+    - name: Move workspace to another tenant
+      href: how-to-recover-workspace-after-tenant-move.md
 - name: Database templates
   items:
   - name: Overview
