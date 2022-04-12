@@ -139,18 +139,18 @@ Navigate to the repository for your preferred language and fork the repository. 
 
 Now you can clone your fork of the sample repository.
 
-Use the following git command to clone your forked repo to your development environment:
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
 
 # [Bash](#tab/bash)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git
+git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git
+git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
 ```
 
 ---
@@ -158,7 +158,7 @@ git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGU
 Next, change the directory into the root of the cloned repo.
 
 ```console
-cd containerapps-albumapi-${LANGUAGE}
+cd code-to-cloud
 ```
 
 ---
@@ -276,7 +276,7 @@ az acr manifest list-metadata --registry $ACR_NAME_ACA --name $API_NAME_ACA
 
 ```powershell
 Get-AzContainerRegistryManifest -RegistryName $ACR_NAME_ACA `
-  -Repository $API_NAME
+  -Repository $API_NAME_ACA
 ```
 
 ---
@@ -296,13 +296,13 @@ The following command builds the image using the Dockerfile for the album API. T
 # [Bash](#tab/bash)
 
 ```azurecli
-docker build -t $API_IMAGE .
+docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker build -t $API_IMAGE .
+docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
 ```
 
 ---
@@ -325,18 +325,34 @@ docker images
 
 ### Push the Docker image to your ACR registry
 
-Now, push the image to your registry.
+First, login to your Azure Container Registry.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-docker push $API_IMAGE
+az acr login --name $ACR_NAME_ACA --password $ACR_PASSWORD_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker push $API_IMAGE
+az acr login --name $ACR_NAME_ACA --password $ACR_PASSWORD_ACA
+```
+
+---
+
+Now, push the image to your registry.
+
+# [Bash](#tab/bash)
+
+```azurecli
+docker push $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+docker push $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
 ```
 
 ---
@@ -394,7 +410,7 @@ az containerapp create \
 
 ```azurecli
 az containerapp create `
-  --name my-container-app `
+  --name $API_NAME_ACA `
   --resource-group $RESOURCE_GROUP_ACA `
   --environment $ENVIRONMENT_ACA `
   --image $API_NAME_ACA `
