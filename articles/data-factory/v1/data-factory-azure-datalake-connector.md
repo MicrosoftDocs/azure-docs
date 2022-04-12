@@ -196,21 +196,9 @@ For details about the Data Factory classes used in the code, see the [AzureDataL
 
 1. Make sure the `subscriptionId` and `resourceGroupName` you specify in the linked service `typeProperties` are indeed the ones that your data lake account belongs to.
 
-1. Grant, at a minimun, the **Reader** role to the user or service principal on the data lake account. To do so:
+1. Grant, at a minimun, the **Reader** role to the user or service principal on the data lake account.
 
-   1. Select **Access control (IAM)**.
-
-   1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-       | Setting | Value |
-       | --- | --- |
-       | Role | Reader |
-       | Assign access to | User, group, or service principal |
-       | Members | &lt;The user or service principal to use for your data copy activity&gt; |
-
-       ![Screenshot that shows Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 1. If you don't want to grant the **Reader** role to the user or service principal, an alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activity with the location of your Data Lake Store. Example:
 
