@@ -4,7 +4,7 @@ description: An overview of networking options for Azure Files.
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 07/02/2021
+ms.date: 04/12/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -45,7 +45,7 @@ SMB Azure file shares are immediately accessible via the storage account's publi
 
 For many environments, you may wish to apply additional network configuration to their Azure file shares:
 
-- With respect to SMB file shares, many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from legacy security guidance about deprecated and non-internet safe versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, organizational or ISP policies may not be possible to change. 
+- With respect to SMB file shares, many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from legacy security guidance about deprecated and non-internet safe versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, organizational or ISP policies may not be possible to change. If it's not possible to open up port 445 to the internet, you can allow SMB traffic to use port 443 instead of 445 by using Azure File Sync as a QUIC endpoint backed by Azure Files. To do this, follow the steps in [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md) and [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic). Note that this requires Windows Server 2022 Azure Edition and Windows 11.
 
 - With respect to NFS file shares, restricted public endpoint access restricts mounts to inside of Azure only.
 

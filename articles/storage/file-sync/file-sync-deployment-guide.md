@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 04/12/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -16,6 +16,9 @@ ms.devlang: azurecli
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 We strongly recommend that you read [Planning for an Azure Files deployment](../files/storage-files-planning.md) and [Planning for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps described in this article.
+
+> [!NOTE]  
+> You can use Azure File Sync as a QUIC endpoint backed by Azure Files to enable SMB traffic to use port 443 instead of 445. To do so, follow the steps in this deployment guide and also [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic). This configuration requires Windows Server 2022 Azure Edition and Windows 11.
 
 ## Prerequisites
 
