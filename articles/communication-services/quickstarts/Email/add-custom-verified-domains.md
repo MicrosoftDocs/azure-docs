@@ -74,6 +74,31 @@ ms.custom: private_preview
 
 ![image](https://user-images.githubusercontent.com/35741731/162830872-70c3c490-3f46-4ae2-b75f-f2dffe41953d.png)
 
+## Changing MailFrom and FROM display name for Azure Managed Domain
+
+When azure manged domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configre and change the MailFrom address and FROM displayname to more user friendly value.
+
+1. Go the overview page of the Email Communications Service resource that you created earlier.
+2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
+3. Click on the Custom Domain name that you would like to update.
+![image](https://user-images.githubusercontent.com/35741731/163034155-b7b28213-9fd2-41e9-9b6b-b2e3d61772e5.png)
+4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
+
+![image](https://user-images.githubusercontent.com/35741731/163034241-9c322cb4-0af6-4864-a4ed-8bbc7fe7487b.png)
+
+5. Click on edit link on MailFrom 
+
+![image](https://user-images.githubusercontent.com/35741731/163034285-d480e6a7-2c16-4959-938a-4136cce24df7.png)
+
+6. You will able to modify the Display Name and MailFrom address. 
+
+![image](https://user-images.githubusercontent.com/35741731/163035172-cba4c261-a8cd-4579-9b88-b7e1e7380e30.png)
+
+7. Click **Save**. You will see the updated values in the overview page. 
+
+![image](https://user-images.githubusercontent.com/35741731/163035291-f303532b-3eac-470a-9b31-aadb50aa6ec4.png)
+
+**Your email domain is now ready to send emails.**
 
 ## Next steps
 
