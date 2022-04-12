@@ -4,27 +4,28 @@ description: The article details how to use Update management center (Preview) i
 ms.service: update-management-center
 ms.date: 09/02/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.custom: references_regions
 ---
 
-# Deploy updates and track results with update management center (Preview)
+# Deploy updates now and track results with update management center (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The article describes how to perform an update deployment and review the results after the deployment is complete with update management center (preview) in Azure.  
+The article describes how to perform an on demand update deployment and review the results after the deployment is complete with update management center (preview) in Azure.  
 
 ## Supported regions
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
-## Install updates
+## Install updates at scale
 
-To create a new update deployment, perform the following steps.
+To create a new update deployment for multiple machines, perform the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. In **Update management center (Preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
     Alternatively, you can go to **Machines**, choose your machine(s) and select **One-time update** to perform the same update.
@@ -63,7 +64,13 @@ To create a new update deployment, perform the following steps.
 1. When you're finished configuring the deployment, verify the summary in **Review + install** and select **Install**. 
 A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in the **History** The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
 
-## View update history
+## View update history at scale
+
+You can browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions. For more information, see [Update deployment history](manage-multiple-machines.md#update-deployment-history).
+
+
+
+## View update history for a single VM
 
 After your scheduled deployment starts, you can see it's status on the **History** tab. It displays the total number of deployments including the successful and failed.
 
