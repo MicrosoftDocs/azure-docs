@@ -92,11 +92,7 @@ items:
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
-      items:
-      - name: Data collection rules
-        href: agents/resource-manager-data-collection-rules.md
-      - name: Data puller
-        href: logs/data-ingestion-from-file.md
+      href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -215,6 +211,8 @@ items:
   - name: IP addresses
     href: app/ip-addresses.md
     displayName: firewall, firewall exceptions, whitelist
+  - name: Self-Monitoring
+    href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
   - name: Best practices
@@ -1500,8 +1498,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
-  - name: Data reference
-    href: /azure/azure-monitor/reference/
+  - name: Monitoring data reference
+    href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:
     - name: Platform metrics
@@ -1522,10 +1520,8 @@ items:
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
       href: essentials/activity-log-schema.md
-  - name: Diagnostic extension schemas
-    items:
-    - name: Windows diagnostics extension
-      href: agents/diagnostics-extension-schema-windows.md
+  - name: Windows diagnostics extension schema
+    href: agents/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
