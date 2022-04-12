@@ -27,7 +27,7 @@ To configure update settings on your machines on a single VM, follow these steps
 **From Overview blade**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Update management center**, select **Overivew**, select your **Subscription** and select **Update settings**.
+1. In **Update management center**, select **Overview**, select your **Subscription** and select **Update settings**.
 1. In **Change update settings**, you can select the update settings that you want to change for your machine and select **Next**. 
 
     :::image type="content" source="./media/manage-update-settings/update-setting-to-change.png" alt-text="Highlighting the Update settings to change option in the Azure portal.":::
@@ -49,7 +49,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
 1. In the **Review and change**, verify your resources selected and the update settings and select **Review and change**.
 
-A notification appears to confirm that the update settings are sucessfully changed.
+A notification appears to confirm that the update settings are successfully changed.
 
 **From Machines blade**
 
@@ -58,7 +58,7 @@ A notification appears to confirm that the update settings are sucessfully chang
 1. Select **Update Settings** to proceed with the type of update for your machine.
 1. In **Change update settings**, you can select the update settings that you want to change for your machines and follow from step 3 in this [procedure](#configure-settings-on-single-vm).
 
-A notification appears to confirm that the update settings are sucessfully changed.
+A notification appears to confirm that the update settings are successfully changed.
 
 ## Configure settings at scale.
 
@@ -70,7 +70,7 @@ To configure update settings on your machines at scale, follow these steps:
 **From Overview blade**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Update management center**, select **Overivew**, select your **Subscription** and select **Update settings**.
+1. In **Update management center**, select **Overview**, select your **Subscription** and select **Update settings**.
 1. In **Change update settings**, you can select the update settings that you want to change for your machines and follow from step 3 in this [procedure](#configure-settings-on-single-vm).
 
 **From Machines blade**
@@ -80,7 +80,7 @@ To configure update settings on your machines at scale, follow these steps:
 1. Select **Update Settings** to proceed with the type of update for your machines.
 1. In **Change update settings**, you can select the update settings that you want to change for your machines and follow from step 3 in this [procedure](#configure-settings-on-single-vm).
 
-A notification appears to confirm that the update settings are sucessfully changed.
+A notification appears to confirm that the update settings are successfully changed.
 
 ## Next steps
 
