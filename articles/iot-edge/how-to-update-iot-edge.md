@@ -85,8 +85,9 @@ Check to see which versions of IoT Edge are available.
 If you want to update to the most recent version of IoT Edge, use the following command which also updates the identity service to the latest version:
 
    ```bash
-   sudo apt-get install aziot-edge
+   sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](/azure/defender-for-iot/device-builders/overview).
 <!-- end 1.2 -->
 :::moniker-end
 
@@ -235,11 +236,12 @@ When you're ready, follow these steps to update IoT Edge on your devices:
    sudo apt-get remove iotedge
    ```
 
-1. Install the most recent version of IoT Edge, along with the IoT identity service.
+1. Install the most recent version of IoT Edge, along with the IoT identity service and the Microsoft Defender for IoT micro agent for Edge. 
 
    ```bash
-   sudo apt-get install aziot-edge
+   sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](/azure/defender-for-iot/device-builders/overview).
 
 1. Import your old config.yaml file into its new format, and apply the configuration info.
 
