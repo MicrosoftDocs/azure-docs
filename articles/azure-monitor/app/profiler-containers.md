@@ -5,12 +5,12 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ---
 
-# Profile a Linux container in Azure with Application Insights Profiler
+# Profile live Azure containers with Application Insights
 
-You can enable the Application Insights Profiler for ASP.NET Core application running in Linux container almost without code. To enable the Application Insights Profiler on your container instance, you'll need to:
+You can enable the Application Insights Profiler for ASP.NET Core application running in your container almost without code. To enable the Application Insights Profiler on your container instance, you'll need to:
 
 * Add the reference to the NuGet package.
 * Set the environment variables to enable it.
@@ -28,7 +28,7 @@ In this article, you'll learn the various ways you can:
 
 ## Set up the environment
 
-1. Clone and use the following sample project:
+1. Clone and use the following [sample project](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/EnableServiceProfilerForContainerAppNet6):
       
       ```bash
       git clone https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore.git

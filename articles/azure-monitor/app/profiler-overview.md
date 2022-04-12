@@ -1,8 +1,11 @@
 ---
 title: Profile production apps in Azure with Application Insights Profiler
-description: Identify the hot path in your web server code with a low-footprint profiler.
+description: Identify the hot path in your web server code with a low-footprint profiler
+ms.author: hannahhunter
+author: hhunter-ms
+ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ms.reviewer: mbullwin
 ---
 
@@ -21,10 +24,10 @@ Profiler works with .NET applications deployed on the following Azure services. 
 | ---------------- | ------------- | --------- | ---- |
 | [Azure App Service](profiler.md) | Yes | Yes | No |
 | [Azure Virtual Machines and virtual machine scale sets for Windows](profiler-vm.md) | Yes | Yes | No |
-| [Azure Virtual MAchines and virtual machine scale sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No |
+| [Azure Virtual Machines and virtual machine scale sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No |
 | [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes | N/A |
-| Azure Container Instances for Windows | No | No | No |
-| Azure Container Instances for Linux | No | Yes | No |
+| [Azure Container Instances for Windows](profiler-containers.md) | No | Yes | No |
+| [Azure Container Instances for Linux](profiler-containers.md) | No | Yes | No |
 | Kubernetes | No | Yes | No |
 | Azure Functions | No | No | No |
 | Azure Spring Cloud | N/A | No | No |
