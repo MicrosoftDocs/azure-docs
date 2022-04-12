@@ -26,7 +26,9 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 2. Locate your storage account and display the account overview.
 
-3. Select **Static website** to display the configuration page for static websites.
+3. In the **Overview** pane, select the **Capabilities** tab. Next, select **Static website** to display the configuration page for static website.
+
+    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-configuration-sml.png" alt-text="Image showing how to access the Static website configuration page within the Azure portal" lightbox="storage-blob-static-website-how-to/select-website-configuration-lrg.png":::
 
 4. Select **Enabled** to enable static website hosting for the storage account.
 
@@ -40,7 +42,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 7. Click **Save**. The Azure portal now displays your static website endpoint.
 
-    ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-properties-sml.png" alt-text="Image showing how to set the Static website properties within the Azure portal" lightbox="storage-blob-static-website-how-to/select-website-properties-lrg.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
