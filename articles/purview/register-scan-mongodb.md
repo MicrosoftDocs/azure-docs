@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/08/2022
+ms.date: 04/12/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,6 +21,8 @@ This article outlines how to register MongoDB, and how to authenticate and inter
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
+
+The supported MongoDB versions are 2.6 to 5.1.
 
 When scanning MongoDB source, Azure Purview supports extracting technical metadata including:
 
