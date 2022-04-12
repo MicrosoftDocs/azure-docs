@@ -18,9 +18,9 @@ Before using Activity log insights, you'll have to [enable sending logs to your 
 
 ## How does Activity logs insights work?
 
-Activity logs you send to a [Log Analytics workspace](/articles/azure-monitor/logs/log-analytics-workspace-overview.md) are stored in a table called AzureActivity. 
+Activity logs you send to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) are stored in a table called AzureActivity. 
 
-Activity logs insights are a curated [Log Analytics workbook](/articles/azure-monitor/visualize/workbooks-overview.md) with dashboards that visualize the data in the AzureActivity table. For example, which administrators deleted, updated or created resources, and whether the activities failed or succeeded.
+Activity logs insights are a curated [Log Analytics workbook](/azure/azure-monitor/visualize/workbooks-overview) with dashboards that visualize the data in the AzureActivity table. For example, which administrators deleted, updated or created resources, and whether the activities failed or succeeded.
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main.png" lightbox="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
@@ -52,7 +52,7 @@ To view Activity logs insights on a resource level:
 1. At the top of the **Activity Logs Insights** page, select:
     
     1. A time range for which to view data from the **TimeRange** dropdown.
-    * **Azure Activity Logs Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
+    * **Azure Activity Logs Entries** shows the count of Activity log records in each [activity log category](/azure/azure-monitor/essentials/activity-log-schema#categories).
      
         :::image type="content" source="media/activity-log/activity-logs-insights-category-value.png" lightbox= "media/activity-log/activity-logs-insights-category-value.png" alt-text="Azure Activity Logs by Category Value":::
     
