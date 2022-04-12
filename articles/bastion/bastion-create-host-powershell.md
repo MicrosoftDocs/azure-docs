@@ -166,7 +166,7 @@ The following required roles for your resources.
 
 You can use the [Connection steps](#steps) in the section below to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
 
-[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-table.md)]
+[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
 ### <a name="steps"></a>Connection steps
 

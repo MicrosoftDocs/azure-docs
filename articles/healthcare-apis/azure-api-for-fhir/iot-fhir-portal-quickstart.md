@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal'
 description: In this quickstart, you'll learn how to deploy, configure, and use the Azure IoT Connector for FHIR feature of Azure API for FHIR using the Azure portal.
 services: healthcare-apis
-author: ms-puneet-nagpal
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 04/11/2022
 ms.author: rabhaiya
 ms.custom: mode-ui
 ---
@@ -74,25 +74,25 @@ Device mapping template transforms device data into a normalized schema. On the 
 On the **Device mapping** page, add the following script to the JSON editor and select **Save**.
 
 ```json
-{
-  "templateType": "CollectionContent",
-  "template": [
-    {
-      "templateType": "IotJsonPathContent",
-      "template": {
-        "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@Body.telemetry.HeartRate)]",
-        "patientIdExpression": "$.Properties.iotcentral-device-id",
-        "values": [
-          {
+{ 
+  "templateType": "CollectionContent", 
+  "template": [ 
+    { 
+      "templateType": "IotCentralJsonPathContent", 
+      "template": { 
+        "typeName": "heartrate", 
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "patientIdExpression": "$.deviceId", 
+        "values": [ 
+          {  
             "required": "true",
-            "valueExpression": "$.Body.telemetry.HeartRate",
+            "valueExpression": "$.telemetry.HeartRate",
             "valueName": "hr"
-          }
+          } 
         ]
       }
     }
-  ]
+  ] 
 }
 ```
 

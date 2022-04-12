@@ -24,7 +24,7 @@ Before you begin, make sure you have the following things ready:
 - [Download and import the Azure Virtual Desktop module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already
 
 ## Delete Azure Virtual Desktop (classic)
-1. Sign into Windows Virtual Desktop (classic) in your PowerShell window:
+1. Sign into Azure Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com

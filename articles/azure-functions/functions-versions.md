@@ -149,6 +149,8 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
+- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. See the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories) for more information on how to configure function app settings. ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
+
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 ::: zone pivot="programming-language-csharp" 

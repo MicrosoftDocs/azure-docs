@@ -18,10 +18,14 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - ARM
+      href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
+  - name: Azure Purview deployment checklist
+    href: tutorial-azure-purview-checklist.md
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
@@ -102,6 +106,10 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
+  - name: Data policies
+    items:
+    - name: Data owner policies
+      href: concept-data-owner-policies.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
@@ -173,6 +181,8 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MongoDB
+      href: register-scan-mongodb.md
     - name: MySQL
       href: register-scan-mysql.md
     - name: On-premises SQL Server
@@ -207,6 +217,8 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
+    - name: Monitor scan runs
+      href: how-to-monitor-scan-runs.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Search and manage data catalog
@@ -263,8 +275,6 @@ items:
       href: asset-insights.md
     - name: View glossary insights
       href: glossary-insights.md
-    - name: View scan insights
-      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
@@ -287,16 +297,16 @@ items:
         href: catalog-private-link-troubleshoot.md                     
       - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
-    - name: Azure policy exceptions
+    - name: Azure Purview deployment exceptions
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
     - name: Registering data sources for Data use governance
       href: how-to-enable-data-use-governance.md
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
     - name: View Self-service data access policy

@@ -62,8 +62,7 @@ You can also define filters to narrow down which specific subset of alerts are a
 
 * **Alert Context (payload)** - the rule will apply only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type.
 * **Alert rule id** - the rule will apply only to alerts from a specific alert rule. The value should be the full resource ID, for example `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  
-You can locate the alert rule ID by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value.  
-You can also locate it by listing your alert rules from PowerShell or CLI.
+You can locate the alert rule ID by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value. You can also locate it by listing your alert rules from PowerShell or CLI.
 * **Alert rule name** - the rule will apply only to alerts with this alert rule name. Can also be useful with a "Contains" operator.
 * **Description** - the rule will apply only to alerts that contain the specified string within the alert rule description field.
 * **Monitor condition** - the rule will apply only to alerts with the specified monitor condition, either "Fired" or "Resolved".
@@ -74,12 +73,12 @@ For example, you can use this filter with "Does not equal" to exclude one or mor
 * **Resource group** - the rule will apply only to alerts from the specified resource groups.  
 For example, you can use this filter with "Does not equal" to exclude one or more resource groups when the rule's scope is a subscription.  
 * **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its child resources.  
-For example, use "contains MICROSOFT.SQL/SERVERS" to match both SQL servers and all their child resources, like databases.
+For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
 * **Severity** - the rule will apply only to alerts with the selected severities.  
 
 **FILTERS BEHAVIOR**  
 * If you define multiple filters in a rule, all of them apply - there is a logical AND between all filters.  
-  For example, if you set both `resource type = "Virtual Machines` and `severity = "Sev0`, then the rule will apply only for Sev0 alerts on virtual machines in the scope.
+  For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule will apply only for Sev0 alerts on virtual machines in the scope.
 * Each filter may include up to five values, and there is a logical OR between the values.  
   For example, if you set `description contains ["this", "that"]`, then the rule will apply only to alerts whose description contains either "this" or "that".
 

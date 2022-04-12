@@ -163,7 +163,7 @@
       items:
         - name: Scale an AKS cluster
           href: scale-cluster.md
-        - name: Stop/Deallocate nodes with Scale-down Mode (preview)
+        - name: Stop/Deallocate nodes with Scale-down Mode
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
@@ -185,7 +185,7 @@
           href: node-updates-kured.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
-        - name: Custom node configuration (preview)
+        - name: Custom node configuration
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
@@ -226,6 +226,8 @@
           href: kubernetes-portal.md
         - name: Use tags
           href: use-tags.md
+        - name: Use labels
+          href: use-labels.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -254,6 +256,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Use KMS etcd encryption
+              href: use-kms-etcd-encryption.md
             - name: Update cluster credentials
               href: update-credentials.md
             - name: Enable Azure Active Directory integration
@@ -262,7 +266,7 @@
                   href: managed-aad.md
                 - name: Azure AD integration (legacy)
                   href: azure-ad-integration-cli.md
-                - name: Enable GMSA integration (Preview)
+                - name: Enable GMSA integration
                   href: use-group-managed-service-accounts.md
             - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
@@ -315,6 +319,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Bring your own CNI
+          href: use-byo-cni.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
@@ -370,14 +376,14 @@
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-        - name: CSI Storage Drivers
-          items:
-            - name: Enable CSI Storage Drivers
-              href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers
-              href: azure-disk-csi.md
-            - name: Azure Files CSI drivers
-              href: azure-files-csi.md
+    - name: CSI Storage Drivers
+      items:
+        - name: Enable CSI Storage Drivers
+          href: csi-storage-drivers.md
+        - name: Azure Disk CSI drivers
+          href: azure-disk-csi.md
+        - name: Azure Files CSI drivers
+          href: azure-files-csi.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
@@ -447,8 +453,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Configure Azure Monitor
-          href: open-service-mesh-azure-monitor.md
+        - name: Open Service Mesh integrations
+          href: open-service-mesh-integrations.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
@@ -469,6 +475,8 @@
           href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
+        - name: CI/CD with Azure Pipelines
+          href: ../aks/devops-pipeline.md
     - name: Troubleshoot
       items:
         - name: Common issues

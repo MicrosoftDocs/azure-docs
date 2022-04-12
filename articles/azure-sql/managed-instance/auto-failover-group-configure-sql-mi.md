@@ -72,7 +72,7 @@ Create the primary virtual network gateway using the Azure portal.
     | **Virtual network**| Select the virtual network for your secondary managed instance. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address. |
-    | &nbsp; | &nbsp; |
+
 
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
@@ -134,7 +134,7 @@ The following table shows the values necessary for the gateway for the secondary
    | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
-   | &nbsp; | &nbsp; |
+
 
    ![Secondary gateway settings](./media/auto-failover-group-configure-sql-mi/settings-for-secondary-gateway.png)
 

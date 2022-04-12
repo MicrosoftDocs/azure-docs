@@ -198,7 +198,7 @@ To prepare the managed domain for migration, complete the following steps:
 
 1. Create a variable to hold the credentials for by the migration script using the [Get-Credential][get-credential] cmdlet.
 
-    The user account you specify needs [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS and [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#contributor) Azure role to create the required Azure AD DS resources.
+    The user account you specify needs [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS and [Domain Services Contributor](../role-based-access-control/built-in-roles.md#contributor) Azure role to create the required Azure AD DS resources.
 
     When prompted, enter an appropriate user account and password:
 

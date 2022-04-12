@@ -81,7 +81,7 @@ mkdir -P channel/linux64
 <Add all .tar.bz2 from https://repo.anaconda.com/pkgs/main/linux-64/> 
 // Note: Add all dependent .tar.bz2 as well 
 
-cd channel1 
+cd channel 
 mkdir noarch 
 echo '{}' > noarch/repodata.json 
 bzip2 -k noarch/repodata.json 
@@ -121,7 +121,7 @@ dependencies:
 Once you've created the sample Conda file, you can create a virtual Conda environment. You can verify this locally by running the following commands:
 
 ```
-conda env create –file sample.yml  
+conda env create --file sample.yml  
 source activate env 
 conda list 
 ```

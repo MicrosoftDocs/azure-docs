@@ -25,3 +25,5 @@
     href: /java/api/overview/azure/resourcemanager-logz-readme
   - name: Python
     href: /python/api/overview/azure/mgmt-logz-readme
+  - name: REST API
+    href: /rest/api/logz
