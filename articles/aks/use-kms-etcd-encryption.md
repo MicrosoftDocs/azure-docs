@@ -143,7 +143,7 @@ az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-iden
 
 ## Update an exiting AKS cluster to enable KMS etcd encryption
 
-Use `az aks update` with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
+Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
@@ -154,3 +154,9 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azur
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update
