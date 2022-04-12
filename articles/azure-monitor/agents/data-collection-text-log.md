@@ -159,7 +159,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 
 ## Create data collection rule
-The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) defines the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) defines the schema of data that being collected from the log file, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 

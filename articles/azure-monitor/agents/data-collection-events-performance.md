@@ -1,12 +1,12 @@
 ---
-title: Configure data collection for the Azure Monitor agent
-description: Describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
+title: Collect events and performance data with Azure Monitor agent
+description: Describes how to create a data collection rule to collect events and performance data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
 ms.date: 03/16/2022
 
 ---
 
-# Configure data collection for Azure Monitor agent
+# Collect events and performance data with Azure Monitor agent
 This article describes how to create a [data collection rule](../essentials/data-collection-rule-overview.md) to collect events and performance counters data from virtual machines using the Azure Monitor agent. The data collection rule defines data coming into Azure Monitor and specify where it should be sent. 
 
 > [!NOTE]
@@ -15,12 +15,6 @@ This article describes how to create a [data collection rule](../essentials/data
 ## Data collection rule associations
 
 To apply a DCR to a virtual machine, you create an association for the virtual machine. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. 
-
-For example, consider an environment with a set of virtual machines running a line of business application and others running SQL Server. You might have one default data collection rule that applies to all virtual machines and separate data collection rules that collect data specifically for the line of business application and for SQL Server. The associations for the virtual machines to the data collection rules would look similar to the following diagram.
-
-![Diagram shows virtual machines hosting line of business application and SQL Server associated with data collection rules named central-i t-default and lob-app for line of business application and central-i t-default and s q l for SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
-
-
 
 ## Create rule and association in Azure portal
 
@@ -161,5 +155,6 @@ This is enabled as part of Azure CLI **monitor-control-service** Extension. [Vie
 
 ## Next steps
 
+- [Collect text logs using Azure Monitor agent.](data-collection-text-log.md)
 - Learn more about the [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - Learn more about [data collection rules](../essentials/data-collection-rule-overview.md).
