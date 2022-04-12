@@ -6,16 +6,20 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 01/25/2022
+ms.date: 03/28/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
 
 # Tutorial: Identify performance regressions with Azure Load Testing Preview and Azure Pipelines
 
-This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and Azure Pipelines. You'll configure an Azure Pipelines CI/CD workflow with the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) to run a load test for a sample web application. You'll then use the test results to identify performance regressions.
+This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and Azure Pipelines. You'll set up an Azure Pipelines CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing). Once the load test finishes, you'll use the Azure Load Testing dashboard to identify performance issues.
+
+You'll deploy a sample Node.js web app on Azure App Service. The web app uses Azure Cosmos DB for storing the data. The sample application also contains an Apache JMeter script to load test three APIs.
 
 If you're using GitHub Actions for your CI/CD workflows, see the corresponding [GitHub Actions tutorial](./tutorial-cicd-github-actions.md).
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 You'll learn how to:
 
@@ -40,21 +44,9 @@ You'll learn how to:
 
 ## Set up the sample application repository
 
-To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure an Azure Pipelines workflow to run the load test.
+To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains an Azure Pipelines definition to deploy the application on Azure and trigger a load test.
 
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
-
-1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
-
-    The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
-
-1. Select **Fork** to fork the sample application's repository to your GitHub account.
-
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
+[!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
 
 ## Set up Azure Pipelines access permissions for Azure
 
@@ -105,9 +97,16 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 ## Configure the Azure Pipelines workflow to run a load test
 
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test. 
+In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository already contains a pipelines definition file *azure-pipeline.yml*. 
 
-The sample application repository already contains a pipelines definition file. This pipeline first deploys the sample web application to Azure App Service, and then invokes the load test by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing). The pipeline uses an environment variable to pass the URL of the web application to the Apache JMeter script.
+The Azure Pipelines workflow performs the following steps for every update to the main branch:
+
+- Deploy the sample Node.js application to an Azure App Service web app.
+- Create an Azure Load Testing resource using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template, if the resource doesn't exist yet. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
+- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
+- Invoke Azure Load Testing by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) and the sample Apache JMeter script *SampleApp.jmx* and the load test configuration file *SampleApp.yaml*.
+
+Follow these steps to configure the Azure Pipelines workflow for your environment:
 
 1. Install the **Azure Load Testing** task extension from the Azure DevOps Marketplace.
 
@@ -159,6 +158,8 @@ The sample application repository already contains a pipelines definition file. 
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
+    These variables are used to configure the Azure Pipelines tasks for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
+
 1. Select **Save and run**, enter text for **Commit message**, and then select **Save and run**.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-save.png" alt-text="Screenshot that shows selections for saving and running a new Azure pipeline.":::
@@ -167,13 +168,7 @@ The sample application repository already contains a pipelines definition file. 
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
 
-## View results of a load test
-
-For every update to the main branch, the Azure pipeline executes the following steps:
-
-- Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the pipeline definition.
-- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
-- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
+## View load test results
 
 To view the results of the load test in the pipeline log:
 

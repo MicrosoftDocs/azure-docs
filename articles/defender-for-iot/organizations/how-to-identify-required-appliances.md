@@ -1,13 +1,13 @@
 ---
-title: Identify required appliances
-description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console.
-ms.date: 03/23/2022
+title: OT monitoring appliance catalog - Microsoft Defender for IoT
+description: Learn about hardware and virtual appliances for certified Microsoft Defender for IoT sensors and the on-premises management console.
+ms.date: 04/10/2022
 ms.topic: how-to
 ---
 
 
 
-# Identify required appliances
+# OT monitoring appliance catalog
 
 This article provides information on certified Defender for IoT sensor appliances. Defender for IoT can be deployed on physical and virtual appliances.
 
@@ -99,7 +99,7 @@ For more information about each model, see [Appliance specifications](#appliance
 
 ### Virtual sensors
 
-This section provides describes virtual sensors that are available.
+This section describes virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
@@ -117,7 +117,7 @@ The management console is available as a virtual deployment.
 
 After you acquire an on-premises management console, go to **Defender for IoT** > **On-premises management console** > **ISO Installation** to download the ISO.
 
-:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-iso-download-screen.png" alt-text="On-premises management console.":::
+:::image type="content" source="media/how-to-prepare-your-network/defender-for-iot-iso-download-screen.png" alt-text="On-premises management console.":::
 
 ## Appliance specifications
 

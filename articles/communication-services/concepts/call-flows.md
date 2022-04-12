@@ -42,7 +42,7 @@ For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT o
 
 ### Case 3: VoIP where neither a direct nor NAT connection is possible
 
-If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. Use of Microsoft's TURN service is charged separately.
+If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. 
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram showing a VOIP call which utilizes a TURN connection.":::
 

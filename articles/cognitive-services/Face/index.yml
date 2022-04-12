@@ -91,7 +91,7 @@ landingContent:
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
-            url: /javascript/api/overview/azure/cognitive-services/face-readme
+            url: /javascript/api/overview/azure/cognitiveservices/face
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

@@ -2,12 +2,12 @@
 title: Private Link for Azure Health Data Services
 description: This article describes how to set up a private endpoint for Azure Health Data Services
 services: healthcare-apis
-author: stevewohl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/14/2022
-ms.author: zxue
+ms.author: dseven
 ---
 
 # Configure Private Link for Azure Health Data Services
