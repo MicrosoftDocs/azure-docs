@@ -158,9 +158,18 @@ New-AzVM `
 
 ## From community gallery
 
-List the image definitions in a gallery using XXX
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate that the image is a specialized image.
+```azurecli-interactive 
+ az sig image-definition list-community \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --location westus \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
+```
+
+To create a VM from a generalized image in a community gallery, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image.
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`.
 

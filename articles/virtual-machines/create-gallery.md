@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/25/2022
+ms.date: 04/12/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -216,7 +216,7 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. For **Community gallery prefix** type a prefix that will be appended to a GUID to create the unique name for your community gallery.
 1. For **Publisher email** type a valid e-mail address that can be used to communicate with you about the gallery.
 1. For **Publisher URL**, type the URL for where users can get more information about the images in your community gallery.
-1. For **EULA**, type the URL for your end user license agreement. XXXX License agreement and privacy statement.
+1. For **Legal Agreement URL**, type the URL where end users can find legal terms for the image.
 1. When you are done, select **Review + create**.
 
    :::image type="content" source="media/create-gallery/rbac+community.png" alt-text="Screenshot showing the information that needs to be completed to create a community gallery.":::

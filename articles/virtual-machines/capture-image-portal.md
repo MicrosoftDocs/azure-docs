@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 04/12/2022
 ms.author: cynthn
 ms.custom: portal
 
