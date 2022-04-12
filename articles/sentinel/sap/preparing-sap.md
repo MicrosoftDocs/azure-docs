@@ -97,7 +97,7 @@ To deploy the CRs, follow the steps outlined below:
     chown a4hadm:sapsys *.NPL
     ```
 
-1. Copy the cofiles (metadata files, those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
 
     ```bash
     cp -p K*.NPL /usr/sap/trans/cofiles/
