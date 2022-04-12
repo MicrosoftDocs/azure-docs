@@ -181,6 +181,8 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MongoDB
+      href: register-scan-mongodb.md
     - name: MySQL
       href: register-scan-mysql.md
     - name: On-premises SQL Server
