@@ -33,7 +33,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | --------- | ------- |
 | **1. Deployment overview** | **YOU ARE HERE** |
 | **2. Prerequisites** | [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
-| **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing_sap.md) |
+| **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
 | **4. Deploy data connector agent** | [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md) |
 | **5. Deploy SAP security content** | [Deploy SAP security content](deploy_sap_security_content.md)
 | **6. Optional steps** | <li>[Configure auditing](configure_audit.md).<li>[Configure SAP data connector to use SNC](configure_snc.md)
