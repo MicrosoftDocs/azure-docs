@@ -1258,6 +1258,8 @@
     items:
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Copy incremental snapshots across regions
+      href: disks-copy-incremental-snapshot-across-regions.md
     - name: Azure Disk Backup
       items:
       - name: Overview
