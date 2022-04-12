@@ -16,12 +16,10 @@ ms.custom: devx-track-java
 
 This article describes how to use VMware Tanzu® Service Registry with Azure Spring Cloud Enterprise.
 
-The [Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. This makes it very easy to develop applications that apply the Service Discovery design pattern, which is one of the main ideas of microservices architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
+The [Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. This component helps you apply the Service Discovery design pattern to your applications. Service Discovery is one of the main ideas of the microservices architecture. It can be difficult to hand-configure each client of a service or adopt some form of access convention, and these configurations and conventions can be brittle in production. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
 
-Normally, in order to use the Service Registry and Discovery in Spring Boot applications, You will follow the procedure described in [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/).
-Basically, you create the Eureka Service Registry server yourself, start it, and then connect to the server from the Eureka Client. At this time, by accessing Eureka Server from the client, the registered Eureka Client information will be acquired and accessed.
-
-With Azure Spring Cloud Enterprise, you don't have to create or start the Eureka Server (Service Registry) yourself, and you can easily use it by checking the Service Registry when You creating the Azure Spring Cloud Enterprise. 
+To use the Service Registry and Service Discovery in Spring Boot applications, you would normally follow the instructions in [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) in the Spring documentation.
+Basically, you would create a Eureka Service Registry server yourself, start it, and then connect to the server from the Eureka Client. You would then access the Eureka Server from the client, and the registered Eureka Client information would be acquired and accessed. With Azure Spring Cloud Enterprise, however, you don't have to create or start the Eureka Server (Service Registry) yourself. You can use the Tanzu Service Registry by selecting it when you create your Azure Spring Cloud Enterprise tier instance.
 
 ## Prerequisites
 
@@ -35,11 +33,10 @@ For more information, see [Quickstart: Provision an Azure Spring Cloud service i
 
 In the following section, the resource group name and instance name used to create Azure Spring Cloud Enterprise are defined below. Please rewrite the contents of the variable according to the environment you created.
 
-|  Item  | Variable Name  |
-| ---- | ---- |
-|  Resource Group Name  |  $RESOURCE-GROUP  |
-|  Instance Name  |  $AZURE_SPRING_CLOUD_NAME  |
-
+| Item                | Variable Name            |
+|---------------------|--------------------------|
+| Resource Group Name | $RESOURCE-GROUP          |
+| Instance Name       | $AZURE_SPRING_CLOUD_NAME |
 
 ## Create Applications using Service Registry
 
