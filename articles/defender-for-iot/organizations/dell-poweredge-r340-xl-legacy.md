@@ -5,7 +5,7 @@ ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# Dell PowerEdge R340 XL
+# Dell PowerEdge R340 XL (enterprise)
 
 This article describes the Dell PowerEdge R340 XL appliance for use in OT monitoring.
 
