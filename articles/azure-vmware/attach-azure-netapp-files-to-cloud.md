@@ -64,8 +64,9 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. When the datastore is created, you should see all of your datastores in the **Storage (preview)**.
 1. You'll also notice that the NFS datastores are added in vCenter.
 1. To disconnect from a datastore, select the datastore, right-click and select **disconnect**.
-    > [NOTE!]
-    > This action only disconnects the ANF volume as a datastore. It does not delete the data or the ANF volume.
+> [!NOTE]
+> This action only disconnects the ANF volume as a datastore. It does not delete the data or the ANF volume.
+
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -82,8 +83,9 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
     1. `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
     1. `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
-1. Verify the VMware extension is installed. If the extension is already installed, check that the version is **3.0.0**. If an older version is installed, update the extension.
+1. Verify the VMware extension is installed. If the extension is already installed, verify you are using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
     1. `az extension show --name vmware`
+    1. `az extension list-versions -n vmware`
     1. `az extension update --name vmware`
 1. If it's not already installed, install it.
     1. `az extension add --name vmware`
@@ -95,6 +97,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     1. `az vmware datastore show --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 1. List all of the datastores in a private cloud cluster.
     1. `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+
 
 ## Delete an Azure NetApp Files-based datastore from your private cloud
 
