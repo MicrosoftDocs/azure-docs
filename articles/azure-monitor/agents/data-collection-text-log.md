@@ -145,7 +145,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit custom deployment values for data collection endpoint.":::
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
@@ -320,17 +320,17 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 5. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** and **Endpoint Resource ID**. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
-    :::image type="content" source="../logs/media/data-collection-text-log/custom-deployment-values.png" lightbox="../logs/media/data-collection-text-log/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="media/data-collection-text-log/custom-deployment-values.png" lightbox="media/data-collection-text-log/custom-deployment-values.png" alt-text="Screenshot to edit custom deployment values for data collection rule.":::
 
 6. Click **Review + create** and then **Create** when you review the details.
 
 7. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
 
-    :::image type="content" source="../logs/media/data-collection-text-log/data-collection-rule-details.png" lightbox="../logs/media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
 8. Change the API version to **2021-09-01-preview**.
 
-    :::image type="content" source="../logs/media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="../logs/media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
 9. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
