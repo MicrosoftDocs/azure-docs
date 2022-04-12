@@ -22,9 +22,9 @@ Then, find and select the **CMMC Level 3** Regulatory Compliance built-in
 initiative definition.
 
 > [!IMPORTANT]
-> This policy initiative was built to CMMC version 1.0 and will be updated in the future".
+> This policy initiative was built to CMMC version 1.0 and will be updated in the future.
 > CMMC Level 2 under CMMC 2.0 is similar to CMMC Level 3 under CMMC 1.0, but has different control mappings.
-> 
+>
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
 > control; however, there often is not a one-to-one or complete match between a control and one or

@@ -26,7 +26,7 @@
           href: get-started-existing-container-image-portal.md
         - name: Azure CLI
           href: get-started-existing-container-image.md
-        - name: Deploy using Visual Studio
+        - name: Visual Studio
           href: deploy-visual-studio.md
 - name: Concepts
   items:
@@ -40,6 +40,8 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Observability
+      href: observability.md
     - name: Health probes
       href: health-probes.md
 - name: How-to guides
