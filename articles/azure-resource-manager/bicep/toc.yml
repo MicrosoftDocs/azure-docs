@@ -192,6 +192,8 @@
     items:
     - name: Best practices
       href: best-practices.md
+    - name: Visual Studio Code
+      href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry
