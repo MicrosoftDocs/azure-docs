@@ -2,12 +2,12 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
-ms.author: kumud
+ms.author: mbender
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -52,7 +52,7 @@ We recommend that you use the address ranges enumerated in [RFC 1918](https://to
 You can also deploy the Shared Address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as Private IP Address space in Azure:
 * 100.64.0.0 - 100.127.255.255 (100.64/10 prefix)
 
-Other address spaces may work but may have undesirable side effects.
+Other address spaces, including all other IETF-recognized private, non-routable address spaces, may work but may have undesirable side effects.
 
 In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)

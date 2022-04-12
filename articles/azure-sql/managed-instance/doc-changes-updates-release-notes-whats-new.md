@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 04/06/2022
 ---
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,15 +28,15 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 
 | Feature | Details |
 | ---| --- |
-| [16 TB support in Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier using the new memory optimized premium-series hardware generation. | 
+| [16 TB support in Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier using the new memory optimized premium-series hardware. | 
 | [Data virtualization](data-virtualization-overview.md) | Join locally stored relational data with data queried from external data sources, such as Azure Data Lake Storage Gen2 or Azure Blob Storage. |
 |[Endpoint policies](../../azure-sql/managed-instance/service-endpoint-policies-configure.md) | Configure which Azure Storage accounts can be accessed from a SQL Managed Instance subnet. Grants an extra layer of protection against inadvertent or malicious data exfiltration.|
 | [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
 | [Managed Instance link](managed-instance-link-feature-overview.md)| Online replication of SQL Server databases hosted anywhere to Azure SQL Managed Instance. |
 | [Maintenance window advance notifications](../database/advance-notifications.md)| Advance notifications (preview) for databases configured to use a non-default [maintenance window](../database/maintenance-window.md). Advance notifications are in preview for Azure SQL Managed Instance. |
-| [Memory optimized premium-series hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new memory optimized premium-series hardware generation to take advantage of the latest Intel Ice Lake CPUs. The memory optimized hardware generation offers higher memory to vCore ratios. | 
+| [Memory optimized premium-series hardware](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new memory optimized premium-series hardware to take advantage of the latest Intel Ice Lake CPUs. Memory optimized hardware offers higher memory to vCore ratio. | 
 | [Migrate with Log Replay Service](log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
-| [Premium-series hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium-series hardware generation to take advantage of the latest Intel Ice Lake CPUs.  | 
+| [Premium-series hardware](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium-series hardware to take advantage of the latest Intel Ice Lake CPUs.  | 
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
@@ -78,7 +78,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 | Changes | Details |
 | --- | --- |
-| **16 TB support for Business Critical preview** | The Business Critical service tier of SQL Managed Instance now provides increased maximum instance storage capacity of up to 16 TB with the new premium-series and memory optimized premium-series hardware generations, which are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. |
+| **16 TB support for Business Critical preview** | The Business Critical service tier of SQL Managed Instance now provides increased maximum instance storage capacity of up to 16 TB with the new premium-series and memory optimized premium-series hardware, which are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. |
 |**16 TB support for General Purpose GA** | Deploying a 16 TB instance to the General Purpose service tier is now generally available.  See [resource limits](resource-limits.md) to learn more. |
 | **Azure AD-only authentication GA** |  Restricting authentication to your Azure SQL Managed Instance only to Azure Active Directory users is now generally available. To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). |
 | **Distributed transactions GA** | The ability to execute distributed transactions across managed instances is now generally available. See  [Distributed transactions](../database/elastic-transactions-overview.md) to learn more. |
@@ -86,7 +86,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 |**Link feature preview** | Use the link feature for SQL Managed Instance to replicate data from your SQL Server hosted anywhere to Azure SQL Managed Instance, leveraging the benefits of Azure without moving your data to Azure, to offload your workloads, for disaster recovery, or to migrate to the cloud. See the [Link feature for SQL Managed Instance](managed-instance-link-feature-overview.md) to learn more. The link feature is currently in limited public preview. |
 |**Long-term backup retention GA** | Storing full backups for a specific database with configured redundancy for up to 10 years in Azure Blob storage is now generally available. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md). |
 | **Move instance to different subnet GA** | It's now possible to move your SQL Managed Instance to a different subnet. See [Move instance to different subnet](vnet-subnet-move-instance.md) to learn more. |
-|**New hardware generation preview** | There are now two new hardware generations for SQL Managed Instance: premium-series, and a memory optimized premium-series. Both offerings take advantage of a new generation of hardware powered by the latest Intel Ice Lake CPUs, and offer a higher memory to vCore ratio to support your most resource demanding database applications. As part of this announcement, the Gen5 hardware generation has been renamed to standard-series. The two new premium hardware generations are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. |
+|**New hardware preview** | There are now two new hardware configurations for SQL Managed Instance: premium-series, and a memory optimized premium-series. Both offerings take advantage of a new hardware powered by the latest Intel Ice Lake CPUs, and offer a higher memory to vCore ratio to support your most resource demanding database applications. As part of this announcement, the Gen5 hardware has been renamed to standard-series. The two new premium hardware offerings are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. |
 |**Split what's new** | The previously-combined **What's new** article has been split by product - [What's new in SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) and [What's new in SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md), making it easier to identify what features are currently in preview, generally available, and significant documentation changes. Additionally, the [Known Issues in SQL Managed Instance](doc-changes-updates-known-issues.md) content has moved to its own page. | 
 |**16 TB support for General Purpose preview** | Support has been added for allocation of up to 16 TB of space for SQL Managed Instance in the General Purpose service tier. See [resource limits](resource-limits.md) to learn more. This instance offer is currently in preview. | 
 | **Parallel backup** | It's now possible to take backups in parallel for SQL Managed Instance in the general purpose tier, enabling faster backups. See the [Parallel backup for better performance](https://techcommunity.microsoft.com/t5/azure-sql/parallel-backup-for-better-performance-in-sql-managed-instance/ba-p/2421762) blog entry to learn more. |

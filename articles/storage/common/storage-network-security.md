@@ -142,7 +142,7 @@ Storage account and the virtual networks granted access may be in different subs
 
 ### Available virtual network regions
 
-By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature. This capability is currently in public preview. 
+By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. This capability is currently in public preview. 
 
 Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
@@ -150,7 +150,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
+To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
@@ -171,7 +171,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the virtual network.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -199,7 +199,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the virtual network.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>

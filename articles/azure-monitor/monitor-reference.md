@@ -4,7 +4,7 @@ description: Reference of all services and other resources monitored by Azure Mo
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 02/10/2021
+ms.date: 04/05/2022
 
 ---
 
@@ -197,10 +197,10 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure Logic Apps](../logic-apps/index.yml)   | Microsoft.Logic/workflows | [**Yes**](./essentials/metrics-supported.md#microsoftlogicworkflows) | [**Yes**](./essentials/resource-logs-categories.md#microsoftlogicworkflows) |   | |
  | [Azure Machine Learning](../machine-learning/index.yml)   | Microsoft.MachineLearningServices/workspaces | [**Yes**](./essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) | [**Yes**](./essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces) |   | |
  | [Azure Maps](../azure-maps/index.yml)   | Microsoft.Maps/accounts | [**Yes**](./essentials/metrics-supported.md#microsoftmapsaccounts) | No |   | |
- | [Azure Media Services](/media-services/)   | Microsoft.Media/mediaservices | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservices) | [**Yes**](./essentials/resource-logs-categories.md#microsoftmediamediaservices) |   | |
- | [Azure Media Services](/media-services/)   | Microsoft.Media/mediaservices/liveEvents | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) | No |   | |
- | [Azure Media Services](/media-services/)   | Microsoft.Media/mediaservices/streamingEndpoints | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) | No |   | |
- | [Azure Media Services](/media-services/)   | Microsoft.Media/videoAnalyzers | [**Yes**](./essentials/metrics-supported.md#microsoftmediavideoanalyzers) | [**Yes**](./essentials/resource-logs-categories.md#microsoftmediavideoanalyzers) |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservices) | [**Yes**](./essentials/resource-logs-categories.md#microsoftmediamediaservices) |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices/liveEvents | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) | No |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices/streamingEndpoints | [**Yes**](./essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) | No |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/videoAnalyzers | [**Yes**](./essentials/metrics-supported.md#microsoftmediavideoanalyzers) | [**Yes**](./essentials/resource-logs-categories.md#microsoftmediavideoanalyzers) |   | |
  | [Azure Spatial Anchors](../spatial-anchors/index.yml)   | Microsoft.MixedReality/remoteRenderingAccounts | [**Yes**](./essentials/metrics-supported.md#microsoftmixedrealityremoterenderingaccounts) | No |   | |
  | [Azure Spatial Anchors](../spatial-anchors/index.yml)   | Microsoft.MixedReality/spatialAnchorsAccounts | [**Yes**](./essentials/metrics-supported.md#microsoftmixedrealityspatialanchorsaccounts) | No |   | |
  | [Azure NetApp Files](../azure-netapp-files/index.yml)   | Microsoft.NetApp/netAppAccounts/capacityPools | [**Yes**](./essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) | No |   | |
