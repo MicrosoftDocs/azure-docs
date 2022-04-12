@@ -28,7 +28,7 @@ This article addresses the following cross-cutting themes:
 * Governance 
 
 ## Visibility
-It's important to monitor your Azure AD tenant. You must adopt an "assume breach" mindset and meet compliance standards set forth in [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) and [Memorandum M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/M-21-31). There are three primary log types used for security analysis and ingestion:
+It's important to monitor your Azure AD tenant. You must adopt an "assume breach" mindset and meet compliance standards set forth in [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) and [Memorandum M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf). There are three primary log types used for security analysis and ingestion:
 
 * [Azure Audit Log.](../reports-monitoring/concept-audit-logs.md) Used to monitor operational activities of the directory itself such as creating, deleting, updating objects like users or groups, as well as making changes to configurations of Azure AD like modifications to a conditional access policy.
 
