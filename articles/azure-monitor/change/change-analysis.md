@@ -140,9 +140,13 @@ The Change Analysis service:
     - Easily navigate through all resource changes.
     - Identify relevant changes in the troubleshooting or monitoring context.
 
+### Enable Change Analysis
+
 You'll need to register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
 - Enter the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
+
+### Enable Change Analysis for web app in-guest changes
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) section.
 

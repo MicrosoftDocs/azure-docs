@@ -161,7 +161,18 @@ sections:
           Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
         answer: |
           [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
-          
+
+  - name: Change Analysis
+    questions:
+      - question: |
+          Does using Change Analysis incur cost?
+        answer: |
+          You can use Change Analysis at no extra cost. Simply enable `Microsoft.ChangeAnalysis` resource provider and anything supported by Change Analysis will be open to you.
+      - question: |
+          How can I enable for a web application?
+        answer: |
+          Enable Change Analysis for web application in-guest changes using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app).
+
   - name: Alerts
     questions:
       - question: |
