@@ -57,18 +57,17 @@ Just download and run the PowerShell script. After you provide a few details of 
 
 To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
 
-### New alert flavor for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
+### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
-Microsoft Defender for Storage's alerts for successful and failed attempts made by threat actors to expose and exfiltrate sensitive information from misconfigured storage containers that are publicly accessible. 
+Microsoft Defender for Storage's alerts for successful and failed attempts made by threat actors to expose and retrieve sensitive information from misconfigured storage containers that are publicly accessible, has received a new variant.
 
-A new flavor has been added to the `Publicly accessible storage containers have been exposed` alert, that allows for a faster triage and response time to a scenario that involves potential sensitive data exfiltration.
+The new variant has been added to the `Publicly accessible storage containers have been exposed` alert. This addition allows for a faster triage and response time in a situation where sensitive data was potentially exposed.
 
-The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, when a publicly available storage container, has been found to contain names or information that is rarely exposed publicly. The discovery of this type of information suggests that the container(s) may hold sensitive information.
+The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, when a publicly available storage container has a name that is rarely used on a publicly exposed container. The names of containers are scanned using statistics to determine if the container should not be publicly accessible. A discovery of this type suggests that the container(s) may hold sensitive information. At no point in time is the information within the container(s) accessed or scanned.
 
 | Alert (alert type) | Description | MITRE tactic | Severity |
 |--|--|--|--|
-|PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed 
-(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
+|**PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed** <br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
 
 ### Container scan alert title augmented with IP address reputation 
 
