@@ -34,7 +34,7 @@ In this article, you'll learn the various ways you can:
       git clone https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore.git
       ```
 
-1. Navigate to the Container App example:
+1. Navigate to the Container App example: 
 
    ```bash
    cd examples/EnableServiceProfilerForContainerAppNet6
