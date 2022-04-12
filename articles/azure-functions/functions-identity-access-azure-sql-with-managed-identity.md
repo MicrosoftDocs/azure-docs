@@ -31,7 +31,7 @@ An overview of the steps you'll take:
 
 First enable Azure AD authentication to SQL database by assigning an Azure AD user as the Active Directory admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
-Enabling Azure AD authentication can be completed via the Azure portal, PowerShell, or Azure CLI.  Directions for Azure CLI are below and information completing this via Azure portal and PowerShell is available in the [Azure SQL documentation on Azure AD authentication](../azure-sql/database/authentication-aad-configure.md).
+Enabling Azure AD authentication can be completed via the Azure portal, PowerShell, or Azure CLI.  Directions for Azure CLI are below and information completing this via Azure portal and PowerShell is available in the [Azure SQL documentation on Azure AD authentication](/azure/azure-sql/database/authentication-aad-configure).
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 

@@ -11,7 +11,7 @@ ms.topic: tutorial
 
 Learn how to use Azure SQL Database extensions to import a [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) file with Azure Resource Manager templates (ARM templates). Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
-In this tutorial, you create a template to deploy a [logical SQL server](../../azure-sql/database/logical-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
+In this tutorial, you create a template to deploy a [logical SQL server](/azure/azure-sql/database/logical-servers) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -42,7 +42,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export a database from Azure SQL Database to a BACPAC file](../../azure-sql/database/database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export a database from Azure SQL Database to a BACPAC file](/azure/azure-sql/database/database-export). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 The BACPAC file must be stored in an Azure Storage account before it can be imported with an ARM template. The following PowerShell script prepares the BACPAC file with these steps:
 

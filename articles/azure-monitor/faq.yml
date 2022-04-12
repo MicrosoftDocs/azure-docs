@@ -1136,8 +1136,8 @@ sections:
         answer: |
           - Azure SQL Database
           - Azure SQL Managed Instance
-          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
-          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
+          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
           See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
           

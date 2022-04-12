@@ -8,7 +8,7 @@ ms.date: 11/10/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
-SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
+SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
 
 SQL insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md) to enable easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data by using [log queries](../logs/get-started-queries.md).
 
@@ -36,13 +36,13 @@ SQL insights supports the following versions of SQL Server:
 SQL insights supports SQL Server running in the following environments:
 - Azure SQL Database
 - Azure SQL Managed Instance
-- SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
-- Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+- SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
+- Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
 
 SQL insights has no support or has limited support for the following:
 - **Non-Azure instances**: SQL Server running on virtual machines outside Azure is not supported.
 - **Azure SQL Database elastic pools**: Metrics can't be gathered for elastic pools or for databases within elastic pools.
-- **Azure SQL Database low service tiers**: Metrics can't be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md).
+- **Azure SQL Database low service tiers**: Metrics can't be gathered for databases on Basic, S0, S1, and S2 [service tiers](/azure/azure-sql/database/resource-limits-dtu-single-databases).
 - **Azure SQL Database serverless tier**: Metrics can be gathered for databases through the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
 - **Secondary replicas**: Metrics can be gathered for only a single secondary replica per database. If a database has more than one secondary replica, only one can be monitored.
 - **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure Virtual Machines, authentication through Active Directory on a custom domain controller is not supported.  

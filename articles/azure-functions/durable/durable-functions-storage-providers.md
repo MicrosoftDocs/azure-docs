@@ -55,7 +55,7 @@ You can learn more about the technical details of the Netherite storage provider
 
 ## <a name="mssql"></a>Microsoft SQL Server (MSSQL) (preview)
 
-The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
+The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 The key benefits of the MSSQL storage provider include:
 
