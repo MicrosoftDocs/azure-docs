@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 03/31/2022
+ms.date: 04/08/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---

@@ -11,6 +11,20 @@ This article covers on-premises management console options like backup and resto
 
 You onboard the on-premises management console from the Azure portal.
 
+## Download software for the on-premises management console
+
+This procedure describes how to use the Azure portal to download software for you to install on your own appliances for an on-premises management console.
+
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
+
+1. Make sure that you have a supported appliance available. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+
+1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+
+1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+
+1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.

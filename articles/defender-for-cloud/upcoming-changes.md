@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/20/2022
+ms.date: 04/11/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,13 +21,13 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
+| [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** March 2022
+**Estimated date for change:** May 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -44,16 +44,6 @@ When the recommendations are released to general availability, they will replace
 Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
-
-### Relocation of custom recommendations
-
-**Estimated date for change:** March 2022
-
-Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
-
-When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
-
-Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
 
 ### Multiple changes to identity recommendations
 
@@ -100,6 +90,17 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
 
+### Changes to vulnerability assessment
+
+**Estimated date for change:** May 2022
+
+Currently, Defender for Containers doesn't show vulnerabilities that have medium and low level severities that are not patchable.
+
+As part of this update, vulnerabilities that have medium and low severities, that don't have patches will be shown. This update will provide maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
+
+:::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
 ## Next steps
 

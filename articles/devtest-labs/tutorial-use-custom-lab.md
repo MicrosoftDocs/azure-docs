@@ -63,7 +63,7 @@ To connect to a Windows machine through Remote Desktop Protocol (RDP), follow th
 
    :::image type="content" source="./media/tutorial-use-custom-lab/remote-computer-verification.png" alt-text="Screenshot of remote computer verification.":::
 
-Once you connect to the VM, you can use it to do your work. You have [Owner](/azure/role-based-access-control/built-in-roles.md#owner) role on all lab VMs you claim or create, unless you unclaim them. 
+Once you connect to the VM, you can use it to do your work. You have [Owner](/azure/role-based-access-control/built-in-roles#owner) role on all lab VMs you claim or create, unless you unclaim them. 
 
 ## Unclaim a lab VM
 
