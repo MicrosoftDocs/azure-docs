@@ -82,8 +82,6 @@ items:
     href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
-  - name: Plan for disaster recovery
-    href: disaster-recovery.md
 - name: How-to guides
   items:
   - name: Develop
@@ -220,6 +218,10 @@ items:
       href: how-to-github-actions.md
     - name: Auth with Key Vault in GitHub Actions
       href: github-actions-key-vault.md
+  - name: Disaster recovery
+    items:
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
