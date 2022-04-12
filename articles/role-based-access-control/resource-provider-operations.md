@@ -5458,7 +5458,7 @@ Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 
 ### Microsoft.SqlVirtualMachine
 
-Azure service: [SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

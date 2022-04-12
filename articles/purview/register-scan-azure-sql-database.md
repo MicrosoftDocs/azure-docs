@@ -172,7 +172,7 @@ Select your method of authentication from the tabs below for steps to authentica
 
 The managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
-- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 - Create Azure AD user in Azure SQL Database with the exact Azure Purview's managed identity by following tutorial on [create the user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
@@ -216,7 +216,7 @@ If you don't have a service principal, you can [follow the service principal gui
 
 The service principal needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
-- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 - Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql

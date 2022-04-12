@@ -57,7 +57,7 @@ More details for accessing data in a SQL managed instance are outlined [here](se
 
 ## Azure SQL Database serverless indexing (error code 40613)
 
-If your SQL database is on a [serverless compute tier](../azure-sql/database/serverless-tier-overview.md), make sure that the database is running (and not paused) when the indexer connects to it.
+If your SQL database is on a [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview), make sure that the database is running (and not paused) when the indexer connects to it.
 
 If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 

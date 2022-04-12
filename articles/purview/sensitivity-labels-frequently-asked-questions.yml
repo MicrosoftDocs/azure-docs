@@ -182,7 +182,7 @@ sections:
         answer: |
           Azure Purview provides a classification and labeling experience for all your Azure assets including SQL databases. Azure Purview is intended for organizations that want to manage their entire data estate in a single place with the power of classification, labeling, alerting, and more. Azure Purview uses sensitivity labels, which have a global scope and travel with your data no matter where it moves to or what it transforms into. 
           
-          In contrast, [SQL data discovery and classification](../azure-sql/database/data-discovery-and-classification-overview.md) is built into SQL. SQL data discovery and classification existed before Azure Purview as a way to provide basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in your SQL databases. SQL data discovery and classification use local labels that do not have a global scope and do not support sensitivity labels. 
+          In contrast, [SQL data discovery and classification](/azure/azure-sql/database/data-discovery-and-classification-overview) is built into SQL. SQL data discovery and classification existed before Azure Purview as a way to provide basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in your SQL databases. SQL data discovery and classification use local labels that do not have a global scope and do not support sensitivity labels. 
           
       - question: I applied labels in SQL data discovery and classification. Why are these labels not showing up on my asset in Azure Purview?
         answer: |

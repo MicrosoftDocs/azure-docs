@@ -54,7 +54,7 @@ There are three ways to set up authentication:
 
 #### System or user assigned managed identity to register
 
-You can use either your Azure Purview system-assigned managed identity (SAMI), or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Azure Purview, like you would for any other user, group, or service principal. The Azure Purview SAMI is created automatically when the account is created. A UAMI is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+You can use either your Azure Purview system-assigned managed identity (SAMI), or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Azure Purview, like you would for any other user, group, or service principal. The Azure Purview SAMI is created automatically when the account is created. A UAMI is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Example SQL syntax to create user and grant permission:
 
@@ -95,7 +95,7 @@ It is required to get the Service Principal's application ID and secret:
 
 ##### Granting the Service Principal access
 
-In addition, you must also create an Azure AD user in the dedicated pool by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Example SQL syntax to create user and grant permission:
+In addition, you must also create an Azure AD user in the dedicated pool by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER

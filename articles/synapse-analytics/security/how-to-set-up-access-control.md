@@ -268,7 +268,7 @@ As a final step to secure your workspace, you should secure network access, usin
 
 - With and without a [managed virtual network](./synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
 - Access from public networks can be controlled by enabling the [public network access feature](connectivity-settings.md#public-network-access) or the [workspace firewall](./synapse-workspace-ip-firewall.md).
-- Alternatively, you can connect to your workspace using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](../../azure-sql/database/private-endpoint-overview.md). Azure Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
+- Alternatively, you can connect to your workspace using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](/azure/azure-sql/database/private-endpoint-overview). Azure Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
 
 ## STEP 10: Completion
 

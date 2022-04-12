@@ -30,7 +30,7 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
+* [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
 
     > [!Note]
     > We now support scanning Azure SQL Database Managed Instances over the private connection using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM.
@@ -42,7 +42,7 @@ This section describes how to register an Azure SQL Database Managed Instance in
 
 ### Authentication for registration
 
-If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Azure Purview supports today:
+If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Azure Purview supports today:
 
 - [System or user assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
@@ -90,7 +90,7 @@ If you have to create a new Service Principal, follow these steps:
 #### Configure Azure AD authentication in the database account
 
 The service principal must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
-- [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
