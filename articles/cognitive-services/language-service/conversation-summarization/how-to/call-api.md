@@ -1,7 +1,7 @@
 ---
-title: Summarize text with the extractive summarization API
+title: Summarize text with the conversation summarization API
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to summarize text with the extractive summarization API.
+description: This article will show you how to summarize chat logs with the conversation summarization API.
 services: cognitive-services
 author: aahill
 manager: nitinme

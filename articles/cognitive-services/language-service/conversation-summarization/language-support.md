@@ -1,7 +1,7 @@
 ---
-title: Text summarization language support
+title: Conversation summarization language support
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by text summarization.
+description: Learn about which languages are supported by conversation summarization.
 services: cognitive-services
 author: aahill
 manager: nitinme

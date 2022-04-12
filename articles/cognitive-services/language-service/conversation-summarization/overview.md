@@ -24,7 +24,7 @@ This documentation contains the following article types:
 
 ## Conversation summarization feature
 
-Conversation summarization uses extractive text summarization to produce a summary of issues and resolutions in within text-based web chats between your customer-service agents, and your customers. 
+Conversation summarization uses abstractive text summarization to produce a summary of issues and resolutions in within text-based web chats between your customer-service agents, and your customers. 
 
 As an example, consider the following example conversation:
 
