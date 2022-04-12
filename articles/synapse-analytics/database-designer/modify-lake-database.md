@@ -22,7 +22,7 @@ In this article, you'll learn how to modify an existing [lake database](./concep
 
 ## Modify database properties
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open you'll see the list of databases that already exist in your workspace.
-2. Hover over the **Databases** section and select the ellipsis **...** next to the database you want to modify, then choose **Open (preview)**.
+2. Hover over the **Databases** section and select the ellipsis **...** next to the database you want to modify, then choose **Open**.
 
     ![Screenshot showing how to open an existing database](./media/modify-lake-database/open-designer.png)
 
@@ -78,7 +78,7 @@ The **General** tab contains information specific to the table itself.
    - For a **Data format** of Delimited text, there are further settings:
         - **Row headers** check this box if the data has row headers.
         - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
-        - **Enable multiline in data** check this box if the data has multiple lines.
+        - **Enable multiline in data** check this box if the data has multiple lines in a string column.
         - **Quote Character** specify the custom quote character for a delimited text file.
         - **Escape Character** specify the custom escape character for a delimited text file.
         - **Data compression** the compression type used on the data.
