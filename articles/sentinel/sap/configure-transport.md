@@ -14,7 +14,7 @@ SAP's Transport Management System is normally already configured on production s
 
 If you get this error running the **STMS_IMPORT** transaction while [preparing your SAP environment](preparing-sap.md), you'll need to configure the Transport Management System.
 
-![Error while running STMS_IMPORT transaction](./media/preparing_sap/stms_import_error.png "Error while running STMS_IMPORT transaction")
+![Error while running STMS_IMPORT transaction](./media/preparing-sap/stms_import_error.png "Error while running STMS_IMPORT transaction")
 
 The following steps are a sample on how to configure a transport management system.
 
@@ -23,7 +23,7 @@ The following steps are a sample on how to configure a transport management syst
 
 1. Run a new instance of **SAP Logon** and sign in to **Client number** `000` as **user** `DDIC`.
 
-    ![Logon to client 000 as DDIC account](./media/preparing_sap/ddic_logon.png "Logon to client 000 as DDIC account")
+    ![Logon to client 000 as DDIC account](./media/preparing-sap/ddic_logon.png "Logon to client 000 as DDIC account")
 
 1. Run the **STMS** transaction:
 
@@ -33,7 +33,7 @@ The following steps are a sample on how to configure a transport management syst
 
     In the **Transport Management System** screen, select **More > Extras > Delete TMS Configuration**, and select **Yes** to confirm.
 
-    ![Delete TMS configuration](./media/preparing_sap/remove_TMS_configuration.png "Delete TMS configuration")
+    ![Delete TMS configuration](./media/preparing-sap/remove_TMS_configuration.png "Delete TMS configuration")
 
 
     After deletion of the configuration, TMS transport domain needs to be configured.
@@ -46,15 +46,15 @@ The following steps are a sample on how to configure a transport management syst
 
     In the **Transport Management System** screen, select **Transport Routes**.
 
-    ![Configure Transport Routes](./media/preparing_sap/tms_transport_routes.png "Configure Transport Routes")
+    ![Configure Transport Routes](./media/preparing-sap/tms_transport_routes.png "Configure Transport Routes")
 
     In the **Change Transport Routes (Active)** screen, select **Display <-> Change**.
 
-    ![Display/Change Transport Routes](./media/preparing_sap/transport_routes_display_change.png "Display/Change Transport Routes")
+    ![Display/Change Transport Routes](./media/preparing-sap/transport_routes_display_change.png "Display/Change Transport Routes")
 
     Select **More > Configuration > Standard Configuration > Single System**.
 
-    ![Change Transport Routes->More-Configuration->Standard Configuration->Single System](./media/preparing_sap/transport_routes_display_singlesystem.png "Change Transport Routes->More-Configuration->Standard Configuration->Single System")
+    ![Change Transport Routes->More-Configuration->Standard Configuration->Single System](./media/preparing-sap/transport_routes_display_singlesystem.png "Change Transport Routes->More-Configuration->Standard Configuration->Single System")
 
     In the **Change Transport Routes (Revised)** screen, select **Save**.
 

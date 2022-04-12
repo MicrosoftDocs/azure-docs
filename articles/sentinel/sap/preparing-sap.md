@@ -62,15 +62,47 @@ To deploy the CRs, follow the steps outlined below:
 
 #### Set up the files
 
-1. Transfer the CR files to the SAP system.
+1. Sign in to the SAP system using SSH.
 
-1. Sign in to the SAP system via *ssh* or *telnet*.
+1. Transfer the CR files to the SAP system.  
+    Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:  
+    - Download NLPK900202
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
+        ```
 
-1. Change the ownership of the files to user *\<sid\>adm* and group *sapsys*
+    - Download NLPK900201
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
+        ```
+
+    - Download NLPK900206
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900206.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900206.NPL
+        ```
+
+    Note that each CR consists of two files, one beginning with K and one with R.
+
+1. Change the ownership of the files to user *\<sid\>adm* and group *sapsys*.
+
+    ```bash
+    chown <sid>adm:sapsys *.NPL
+    ```
 
 1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
 
+    ```bash
+    cp -p K*.NPL /usr/sap/trans/cofiles/
+    ```
+
 1. Copy the data files (those beginning with R) to the `/usr/sap/trans/data` folder.  Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+
+    ```bash
+    cp -p R*.NPL /usr/sap/trans/data/
+    ```
 
 #### Set up the applications
 
@@ -80,69 +112,30 @@ To deploy the CRs, follow the steps outlined below:
 
     Type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
-    ![Running STMS_IMPORT transaction](./media/preparing_sap/stms_import.png "Running STMS_IMPORT transaction")
+    ![Running STMS_IMPORT transaction](./media/preparing-sap/stms_import.png "Running STMS_IMPORT transaction")
 
-    > [!NOTE]
-    > If an error occurs at this step, SAP transport management system has to be configured. Expand section below to review the details, else proceed with next steps
+    > [!CAUTION]
+    > If an error occurs at this step, then you need to configure the SAP transport management system before proceeding any further. [**See this article for instructions**](configure-transport.md).
 
-<!-->
-<details>
-<summary>Steps to configure transport management system</summary>
-Transport management system is normally already configured on production systems, however in a lab environment, where CRs haven't been previously installed, configuration may be required.<br>
-If an error similar to the below appears, transport management system has to be configured
+1. In **Import Queue** window, click **More**, select **Extras**->**Other Requests**->**Add**
 
-![Error while running STMS_IMPORT transaction](./media/preparing_sap/stms_import_error.png "Error while running STMS_IMPORT transaction")<br>
-The following steps are a sample on how to configure a transport management system.
-> [!IMPORTANT] 
-> In production systems always consult with SAP administrator on the steps to configure a transport management system
->
-1. Run a new instance of SAP Logon and logon to Client number `000` as `DDIC` user<br>
-![Logon to client 000 as DDIC account](./media/preparing_sap/ddic_logon.png "Logon to client 000 as DDIC account")
-1. Run the **STMS** transaction<br>
-<br>To run the transaction, type the name of the transaction **STMS** in the field in the top-left corner of the screen and press **Enter**
-1. Delete existing TMS configuration
-<br>In **Transport Management System** Delete the existing TMS Configuration
-<br>To delete the TMS configuration, click on **More**, select **Extras** and select **Delete TMS Configuration**
-<br>![Delete TMS configuration](./media/preparing_sap/remove_TMS_configuration.png "Delete TMS configuration")
-<br>Confirm deletion of configuration by pressing **Yes**
-<br>After deletion of the configuration, TMS transport domain needs to be configured.
-<br>In the **TMS: Configure Transport Domain** press **Save**
-<br>In the **Set Password for User TMSADM**, define a password complex password, make a note of the password in a secure location and click the green checkbox.
-1. Configure Transport routes
-<br>In **Transport Management System** click **Transport Routes**
-<br>![Configure Transport Routes](./media/preparing_sap/tms_transport_routes.png "Configure Transport Routes")
-<br>In **Change Transport Routes (Active)** click **Display <-> Change**
-<br>![Display/Change Transport Routes](./media/preparing_sap/transport_routes_display_change.png "Display/Change Transport Routes")
-<br>In **Change Transport Routes (Active)** click **More**, select **Configuration**, select **Standard Configuration**, select **Single System**
-<br>![Change Transport Routes->More-Configuration->Standard Configuration->Single System](./media/preparing_sap/transport_routes_display_singlesystem.png "Change Transport <br>Routes->More-Configuration->Standard Configuration->Single System")
-<br>In **Change Transport Routes (Revised)** click **Save**
-<br>In **Configuration Short Text** window click **Save**
-<br>In **Distribute and Activate** window click **Yes**
-<br><br>
-After steps above have been carried out, Transport management system will be configured and `STMS_IMPORT` transaction will work.
-Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged on to client `001`
-</details>
--->
-
-
-5. In **Import Queue** window, click **More**, select **Extras**->**Other Requests**->**Add**<br>
-![Import Queue - More - Extras - Other Requests - Add](./media/preparing_sap/import_queue_add.png "Import Queue - More - Extras - Other Requests - Add")
+![Import Queue - More - Extras - Other Requests - Add](./media/preparing-sap/import_queue_add.png "Import Queue - More - Extras - Other Requests - Add")
 1. In **Add Transport Requests to Import Queue** click on the boxes next to *Transp. Request* field
 1. **Transport requests** window should display a list of CRs available to be deployed. Select a CR and click the green checkbox
 1. In **Add Transport Request to Import Queue** click **Continue**
 1. In **Add Transport Request** click **Yes**
 1. Repeat the procedure in steps 5-9 to add all additional Change Requests that need to be deployed
 1. In **Import Queue** window, click **Import All Requests**<br>
-![Import all requests](./media/preparing_sap/import_all_requests.png "Import all requests")
+![Import all requests](./media/preparing-sap/import_all_requests.png "Import all requests")
 1. In **Start Import** window, click on boxes next to **Target Client** field and select client to deploy the CRs to, then click green checkbox in **Input Help..** window, then select **Options** tab and select **Ignore Invalid Component Version** checkbox, then click the green checkbox at the bottom<br>
-![Start Import](./media/preparing_sap/start_import.png "Start Import")
+![Start Import](./media/preparing-sap/start_import.png "Start Import")
 1. In the **Start Import** window click **Yes** to confirm the import
 1. In the **Import Queue** window click **Refresh** button, wait until the import operation completes and import queue becomes empty
 1. To review import status, in the **Import History** window click **More**, select **Go To**, select **Import History**<br>
-![Import History](./media/preparing_sap/import_history.png "Import History")
+![Import History](./media/preparing-sap/import_history.png "Import History")
 1. NPLK900180 Change request is expected to end with a Warning, click on the entry to verify that the warning is associated with Table \<tablename\> was activated<br>
-![Import Status](./media/preparing_sap/import_status.png "Import Status")<br>
-![Import Warning](./media/preparing_sap/import_warning.png "Import Warning")
+![Import Status](./media/preparing-sap/import_status.png "Import Status")<br>
+![Import Warning](./media/preparing-sap/import_warning.png "Import Warning")
 
 
 ### Role configuration step-by-step guide
@@ -158,14 +151,14 @@ To run the transaction, in main SAP GUI window type **PFCG** in the top-left cor
 1. In **Role Maintenance** window in the **Role** textbox type the role name `/MSFTSEN/SENTINEL_CONNECTOR` and click  **Change** button
 1. In **Change Roles** window select the **Authorizations** tab
 1. In the **Change Roles** **Authorizations** window select **Change Authorization Data**<br>
-![Role Change - Authorizations - Change Authorization Data](./media/preparing_sap/change_role_change_auth_data.png "Role Change - Authorizations - Change Authorization Data")
+![Role Change - Authorizations - Change Authorization Data](./media/preparing-sap/change_role_change_auth_data.png "Role Change - Authorizations - Change Authorization Data")
 1. In the **Information** window click the green checkbox
 1. In the **Change Role: Authorizations** window click **Generate**
-<br>![Change Role - Authorizations - Generate](./media/preparing_sap/change_role_authorizations.png "Change Role - Authorizations - Generate")
+<br>![Change Role - Authorizations - Generate](./media/preparing-sap/change_role_authorizations.png "Change Role - Authorizations - Generate")
 <br>Notice that after clicking, **Status** field changes from **Unchanged** to **generated**
 1. In the **Change Role: Authorizations** window click **Back**
 8. In the **Change Roles** window validate **Authorizations** tab displays a green box, then click **Save** button
-<br>![Change Roles - Save](./media/preparing_sap/change_role_save.png "Change Roles - Save")
+<br>![Change Roles - Save](./media/preparing-sap/change_role_save.png "Change Roles - Save")
 
 ### User creation step-by-step guide
 
