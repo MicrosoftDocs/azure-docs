@@ -7,7 +7,16 @@ ms.topic: reference
 
 # YS-techsystems YS-FIT2
 
-This article describes the **YS-techsystems YS-FIT2** when used in SMB deployments for OT monitoring.
+This article describes the **YS-techsystems YS-FIT2** appliance for OT monitoring.
+
+|Summary  | |
+|---------|---------|
+|**Architecture** | [Office] |
+|**Performance** | 	Max bandwidth: 10Mbp/s<Br>Max devices: 100|
+|**Physical Specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
+|**Status** | Supported, Available |
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Ruggedized Micro Appliance":::
 
 ## Specifications
 
@@ -29,6 +38,113 @@ This article describes the **YS-techsystems YS-FIT2** when used in SMB deploymen
 | Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz, 3 axis)|
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15 g , 6 directions)|
 |EMC |CE/FCC Class B|
+  
+### Fitlet2 mini sensor Installation
+
+This section provides the Fitlet2 installation procedure. Before installing the software on the Fitlet appliance, you need to adjust the appliance's BIOS configuration.
+
+#### Fitlet2 front panel
+
+:::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="A view of the front panel of the Fitlet 2.":::
+
+#### Fitlet2 back panel
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A view of the back panel of the Fitlet 2.":::
+
+#### Configure the Fitlet2 BIOS
+
+**To configure the Fitlet2 BIOS**:
+
+1. Power on the appliance.
+
+1. Navigate to **Main** > **OS Selection**.
+
+1. Press **+/-** to select **Linux**.
+
+    :::image type="content" source="media/tutorial-install-components/fitlet-linux.png" alt-text="Set the OS to Linux on your Fitlet2.":::
+
+1. Verify that the system date, and time are updated with the installation date, and time.
+
+1. Navigate to **Advanced**, and select **ACPI Settings**.
+
+1. Select **Enable Hibernation**, and press **+/-** to select **Disabled**.
+
+    :::image type="content" source="media/tutorial-install-components/disable-hibernation.png" alt-text="Diable the hibernation mode on your Fitlet2.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Advanced** > **TPM Configuration**.
+
+1. Select **fTPM**, and press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **CPU Configuration** > **VT-d**.
+
+1. Press **+/-** to select **Enabled**.
+
+1. Navigate to **CSM Configuration** > **CSM Support**.
+
+1. Press **+/-** to select **Enabled**.
+
+1. Navigate to **Advanced** > **Boot option filter [Legacy only]** and change setting in the following fields to **Legacy**:
+
+    - Network
+    - Storage
+    - Video
+    - Other PCI
+
+    :::image type="content" source="media/tutorial-install-components/legacy-only.png" alt-text="Set all fields to Legacy.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Security** > **Secure Boot Customization**.
+
+1. Press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **Boot** > **Boot mode** select, and select **Legacy**.
+
+1. Select **Boot Option #1 – [USB CD/DVD]**.
+
+1. Select **Save & Exit**.
+
+#### Software installation (Fitlet2)
+
+The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+1. Connect the external CD, or disk on key with the ISO image.
+
+1. Boot the appliance.
+
+1. Select **English**.
+
+1. Select **XSENSE-RELEASE-\<version> Office...**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
+
+    > [!Note]
+    > Do not select Ruggedized.
+
+1. Define the appliance architecture, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+
+    | Parameter | Configuration |
+    | ----------| ------------- |
+    | **Hardware profile** | Select **office**. |
+    | **Management interface** | **em1** |
+    | **Management network IP address** | **IP address provided by the customer** |
+    | **Management subnet mask** | **IP address provided by the customer** |
+    | **DNS** | **IP address provided by the customer** |
+    | **Default gateway IP address** | **0.0.0.0** |
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Bridge interface** | - |
+
+1. Accept the settings and continue by entering `Y`.
+
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.  
 
 ## Next steps
 
