@@ -89,6 +89,8 @@
       href: rbac.md
     - name: Delegated access
       href: delegated-access-virtual-desktop.md
+  - name: Session host management
+    href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
