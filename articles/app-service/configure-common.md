@@ -213,7 +213,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
-For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
+For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)

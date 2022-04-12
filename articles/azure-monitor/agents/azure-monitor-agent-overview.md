@@ -122,11 +122,18 @@ The Azure Monitor agent doesn't require any keys but instead requires a [system-
 The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
 
 ### Firewall requirements
-|Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
-|------|------|---------|--------|--------|
-|global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |  
-|`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
-|`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
+| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|------|---------|--------|--------|
+| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |  
+| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
+| Azure Government |global.handler.control.monitor.azure.us |Access control service|Port 443 |Outbound|Yes |  
+| Azure Government |`<virtual-machine-region-name>`.handler.control.monitor.azure.us |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+| Azure Government |`<log-analytics-workspace-id>`.ods.opinsights.azure.us |Ingest logs data |Port 443 |Outbound|Yes |  
+| Azure China |global.handler.control.monitor.azure.cn |Access control service|Port 443 |Outbound|Yes |  
+| Azure China |`<virtual-machine-region-name>`.handler.control.monitor.azure.cn |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+| Azure China |`<log-analytics-workspace-id>`.ods.opinsights.azure.cn |Ingest logs data |Port 443 |Outbound|Yes |  
+
 
 If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
 
