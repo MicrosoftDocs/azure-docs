@@ -45,7 +45,7 @@ If you're using a service principal from a different Azure AD tenant, there are 
 For more information on user roles and permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
 > [!NOTE]
-> Service principals expire in one year unless configured for longer periods. For information on extending your service principal expiration period, see [What are the default user permissions in Azure Active Directory?](/cli/azure/ad/sp/credential.md?view=azure-cli-latest#az-ad-sp-credential-reset).
+> Service principals expire in one year unless configured for longer periods. For information on extending your service principal expiration period, see [Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster](howto-service-principal-credential-rotation.md).
 
 ::: zone pivot="aro-azurecli"
 
