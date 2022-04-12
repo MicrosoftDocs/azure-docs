@@ -73,7 +73,7 @@ Since you're charged for any data collected in a Log Analytics workspace, you sh
 To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath would be `Application!*[System[EventID=1035]]`
 
 ### Extracting XPath queries from Windows Event Viewer
-One of the ways to create XPath quries is to use Windows Event Viewer to extract XPath queries as shown below.  
+One of the ways to create XPath queries is to use Windows Event Viewer to extract XPath queries as shown below.  
 *In step 5 when pasting over the 'Select Path' parameter value, you must append the log type category followed by '!' and then paste the copied value.
 
 [![Extract XPath](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)

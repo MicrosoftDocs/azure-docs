@@ -133,7 +133,7 @@ The Azure Monitor agent supports Azure service tags (both AzureMonitor and Azure
 | Azure China |`<log-analytics-workspace-id>`.ods.opinsights.azure.cn |Ingest logs data |Port 443 |Outbound|Yes |  
 
 
-If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
+If using private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
 
 ### Proxy configuration
 If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
@@ -147,7 +147,7 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 
     ![Flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-2. After the values for the *settings* and *protectedSettings* parameters are determined, **provide these additional parameters** when you deploy the Azure Monitor agent by using PowerShell commands. Refer the following examples.
+2. After the values for the *settings* and *protectedSettings* parameters are determined, **provide these additional parameters** when you deploy the Azure Monitor agent by using PowerShell commands. Refer to the following examples.
 
 # [Windows VM](#tab/PowerShellWindows)
 

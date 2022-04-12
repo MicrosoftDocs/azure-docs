@@ -319,7 +319,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 ## Assign permissions to DCR
 Once the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
-1. From the DCR in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
+1. From the DCR in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
     :::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
