@@ -259,7 +259,7 @@ For more information on the REST endpoint, see [REST endpoint reference](#rest-e
 You can show the system-assigned and user-assigned managed identities using the following Azure CLI command.  The output will show the managed identity type, tenant IDs and principal IDs of all managed identities assigned to your container app.
 
 ```azurecli
-az containerapps identity show
+az containerapps identity show --name <APP_NAME> --resource-group <GROUP_NAME>
 ```
 
 ## Remove a managed identity
