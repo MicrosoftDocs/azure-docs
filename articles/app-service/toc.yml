@@ -193,7 +193,7 @@
           href: configure-language-ruby.md
         - name: Configure custom container
           href: configure-custom-container.md
-        - name: Configure Azure Storage (container)
+        - name: Configure Azure Storage
           href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
