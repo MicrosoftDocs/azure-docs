@@ -8,8 +8,6 @@
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
-    - name: Azure WAF engine
-      href: ./ag/azure-waf-engine.md
     - name: What's new
       href: ./ag/ag-overview.md#whats-new
   - name: Front Door
@@ -67,6 +65,8 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: Azure WAF engine
+      href: ./ag/azure-waf-engine.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
