@@ -56,16 +56,18 @@ Make sure that packages of the same platform (x64 or x86) are installed. For exa
 1. Download the [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi).
 1. Copy the installer to c:\gstreamer.
 1. Open PowerShell as an administrator.
-1. Run the following command in PowerShell:
+1. Run the following in PowerShell:
 
     ```powershell
     cd c:\gstreamer
     msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
+    $strPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine) + "C:\gstreamer\1.0\msvc_x86_64\bin"
+    [System.Environment]::SetEnvironmentVariable("PATH", $strPath, [System.EnvironmentVariableTarget]::Machine)
+    [System.Environment]::SetEnvironmentVariable("GST_PLUGIN_PATH", "C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0", [System.EnvironmentVariableTarget]::Machine)
+    [System.Environment]::SetEnvironmentVariable("GSTREAMER_ROOT_X86_64", "C:\gstreamer\1.0\msvc_x86_64", [System.EnvironmentVariableTarget]::Machine)
+
     ```
 
-1. Add the system variables GST_PLUGIN_PATH with the value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.
-1. Add the system variables GSTREAMER_ROOT_X86_64 with the value C:\gstreamer\1.0\msvc_x86_64.
-1. Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin.
 1. Reboot the machine.
 
 For more information about GStreamer, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c).
