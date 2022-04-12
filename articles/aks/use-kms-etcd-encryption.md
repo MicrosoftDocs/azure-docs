@@ -62,7 +62,7 @@ az provider register --namespace Microsoft.ContainerService
 > [!WARNING]
 > Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
 > 
-> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery?tabs=azure-cli) documentation.
+> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
