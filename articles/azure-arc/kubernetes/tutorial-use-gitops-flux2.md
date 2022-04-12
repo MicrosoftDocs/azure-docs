@@ -15,10 +15,13 @@ GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clu
 
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 >[!IMPORTANT]
 >GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One recently-released feature, multi-tenancy, could affect some users.  To understand how to work with multi-tenancy, [please review these details](#multi-tenancy).
+>
+>The `microsoft.flux` extension released major version 1.0.0. This includes the multi-tenancy feature. If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
+
 
 ## Prerequisites
 
@@ -74,7 +77,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### Supported regions
 
-GitOps is currently supported in the regions that Azure Arc-enabled Kubernetes supports. These regions are a subset of the regions that AKS supports. GitOps is currently not supported in all AKS regions.  [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
+GitOps is currently supported in all regions that Azure Arc-enabled Kubernetes supports. [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps (preview) is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
 
 ### Network requirements
 
