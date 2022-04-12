@@ -3,7 +3,6 @@ title: Azure IoT Edge for Linux on Windows security | Microsoft Docs
 description: Security framework - Azure IoT Edge for Linux on Windows 
 keywords: 
 author: PatAltimore
-
 ms.author: fcabrera
 ms.date: 03/14/2022
 ms.topic: conceptual
@@ -15,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the extra components keep the same security premises.
+Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the extra components keep the same security premises. This article provides information about the different security premises that are enabled by default, and some of the optional premises the user may enable.
 
 ## Virtual machine security
 
@@ -108,7 +107,7 @@ By default, the EFLOW virtual machine uses [*iptables*](https://git.netfilter.or
 :::moniker range=">=iotedge-2020-11"
 ### Verified boot
 
-The EFLOW virtual machine supports **Verified boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
+The EFLOW virtual machine supports **Verified boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine base fotware image it's the same and it wasn't altered. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
 
 By default, this feature is enabled in the virtual machine, and can't be turned off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
 
@@ -118,7 +117,7 @@ By default, this feature is enabled in the virtual machine, and can't be turned 
 ## Trusted platform module (TPM)
 [Trusted platform module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
 
-By providing a TPM passthrough feature, the EFLOW virtual machine uses the Windows host OS TPM. This enables two main scenarios:
+The EFLOW virtual machine doesn't support vTPM. However the user can enable/disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. This enables two main scenarios:
 * Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, see [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 * Read-only access to cryptographic keys stored inside the TPM. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 
