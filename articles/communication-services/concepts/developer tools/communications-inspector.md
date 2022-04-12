@@ -15,10 +15,10 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Communications Inspector enables Azure Communication Services developers to inspect the state of the call client to debug or monitor their solution. Many times, when building a solution developers might need visibility into general information like the call id or advanced state like did a user facing diagnostic fire. The communication inspector provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
+The Communications Inspector enables Azure Communication Services developers to inspect the state of the `Call` to debug or monitor their solution. When building a solution, developers might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The Communication Inspector provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
 
 >[!NOTE]
->Find the open-soure repository for the tool [here](ADD LINK).
+>Find the open-source repository for the tool [here](ADD LINK).
 
 ## Capabilities
 
@@ -36,7 +36,7 @@ Communications Inspector is compatible with the same browsers as the Calling SDK
 
 ## Get Started with Communications Inspector
 
-The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`.
+The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
@@ -46,7 +46,7 @@ const callClient = new callClient();
 const callAgent = await callClient.createCallAgent({INSERT TOKEN CREDENTIAL});
 const call = callAgent.startCall({INSERT CALL INFORMATION});
 
-const communicationsInspector =  new CommunicationsInspector(call);
+const communicationsInspector =  new CommunicationsInspector(call, {HTMLDivElement});
 
 ```
 ## Usage
