@@ -144,7 +144,7 @@ If you get the above helm timeout issue, you can troubleshoot as follows:
       ```console
       kubectl get pods -n azure-arc
       ```
-  2. Check if the `clusterconnect-agent` or the `config-agent` pods are showing crashloopbackoff:
+  2. Check if the `clusterconnect-agent` or the `config-agent` pods are showing crashloopbackoff, or not all instances are running:
     
       ```output
       NAME                                        READY   STATUS             RESTARTS   AGE
@@ -153,7 +153,7 @@ If you get the above helm timeout issue, you can troubleshoot as follows:
       clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
       config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
       ```
-  3. If the below certificate isn't present, the system assigned managed identity didn't get installed. Delete the Arc deployment by running the `az connectedk8s delete` command and reinstall it:
+  3. If the below certificate isn't present, the system assigned managed identity didn't get installed.
     
       ```console
       kubectl get secret -n azure-arc -o yaml | grep name:
@@ -162,7 +162,8 @@ If you get the above helm timeout issue, you can troubleshoot as follows:
       ```output
       name: azure-identity-certificate
       ```
-  4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod requires hostpath mount but doesn't have admin permissions.
+      This could be a transient issue. You can try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If you're consistently facing this, it could be an issue with your proxy settings. Please follow [these steps](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
+  4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod requires hostpath mount but doesn't have admin permissions. This pod uses the `azure-arc-kube-aad-proxy-sa` service account.
   
 
 ### Helm validation error
