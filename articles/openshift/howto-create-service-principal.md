@@ -127,6 +127,6 @@ If you deploy an AKS cluster using the Azure portal, on the **Authentication** p
 - **Service principal client ID** is your appId. 
 - **Service principal client secret** is the decrypted Secret value. 
 
-[ ![Use the Azure Red Hat service principal with Azure portal.png](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png/#lightbox)
+[ ![Use the Azure Red Hat service principal with Azure portal.](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png/#lightbox)
 
 ::: zone-end
