@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -295,6 +295,7 @@ See "man sudo_root" for details.
 azureuser@mylinuxvm5:~$ 
 
 ```
+---
 
 ## Remove the extension
 
