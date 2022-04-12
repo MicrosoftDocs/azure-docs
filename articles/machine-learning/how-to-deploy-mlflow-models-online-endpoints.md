@@ -46,6 +46,8 @@ Provides a MLflow base image/curated environment that contains,
 
 * You must have a MLflow model. The examples in this article are based on the models from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow).
 
+    * If you don't have an MLflow formatted model, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).  
+
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
 In this code snippets used in this article, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI. Replace `<YOUR_ENDPOINT_NAME>` with the name of your endpoint:

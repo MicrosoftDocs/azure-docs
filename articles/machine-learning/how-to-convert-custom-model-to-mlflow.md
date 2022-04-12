@@ -1,7 +1,7 @@
 ---
-title: MLflow Tracking for models
+title: Convert custom models to MLflow
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models.
+description:  Convert custom models to MLflow model format for no code deployment with endpoints.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
@@ -14,13 +14,15 @@ ms.custom: devx-track-python, mlflow
 
 # Convert custom ML models to MLflow formatted models
 
-In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. With Azure Machine Learning, MLflow models get the added benefits of, 
+In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. 
+
+With Azure Machine Learning, MLflow models get the added benefits of, 
 
 * no code deployment
 * easy of use
 * Automatic tracking
 
-MLflow provides convenient functions for creating models with the pyfunc flavor in a variety of machine learning frameworks (scikit-learn, Keras, Pytorch, and more); however, they do not cover every use case. For example, you may want to create an MLflow model with the pyfunc flavor using a framework that MLflow does not natively support or you may want to change a pre-trained model trained out of MLFlow into an MLFlow formatted model.
+MLflow provides convenient functions for creating models with the `pyfunc` flavor in a variety of machine learning frameworks (scikit-learn, Keras, Pytorch, and more); however, they do not cover every use case. For example, you may want to create an MLflow model with the `pyfunc` flavor with a framework that MLflow does not natively support or you may want to change a pre-trained model trained out of MLFlow into an MLFlow formatted model.
 
 If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
 
