@@ -6,6 +6,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 03/07/2022
 ms.topic: overview
+ms.custom: references_regions
 ---
 
 # About Update management center (preview)
