@@ -30,7 +30,7 @@ To check the updates on a single VM, follow these steps:
 
 1. In **Select resources and check for updates**, choose the machine on which you want to check the updates and select **Check for updates**.
 
-    :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example on checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
+    :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example of checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
 
     An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
@@ -42,7 +42,7 @@ To check the updates on a single VM, follow these steps:
 
 1. Select your machine and select **Check for updates**.
 
-    An assessment is performed and a notification appears first that *Assessment is in progress* and after a successfull assessment, you will see *Assessment succesful*.
+    An assessment is performed and a notification appears first that *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
 
 
 ## Check updates at scale
@@ -52,7 +52,7 @@ To check the updates on your machines at scale, follow these steps:
 >[!NOTE]
 > You can check the updates from **Overview** or **Machines** blade.
 
-**From Overview**
+**From Overview blade**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,7 +62,7 @@ To check the updates on your machines at scale, follow these steps:
 
     An assessment is performed and a notification appears as a confirmation. The **Update status by machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
-**From Machines**
+**From Machines blade**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ To check the updates on your machines at scale, follow these steps:
 
 1. Select **Assess now** to perform the assessment.
 
-   A notification appears when the operation is initiated and completed. After a successful scan,  the **Update management center (Preview) | Machines** page is refereshed to display the updates.
+   A notification appears when the operation is initiated and completed. After a successful scan,  the **Update management center (Preview) | Machines** page is refreshed to display the updates.
 
 > [!NOTE]
 > In update management center (Preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
