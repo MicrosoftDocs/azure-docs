@@ -112,30 +112,46 @@ To deploy the CRs, follow the steps outlined below:
 
     Type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
-    ![Running STMS_IMPORT transaction](./media/preparing-sap/stms_import.png "Running STMS_IMPORT transaction")
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::
 
     > [!CAUTION]
     > If an error occurs at this step, then you need to configure the SAP transport management system before proceeding any further. [**See this article for instructions**](configure-transport.md).
 
-1. In **Import Queue** window, click **More**, select **Extras**->**Other Requests**->**Add**
+1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
 
-![Import Queue - More - Extras - Other Requests - Add](./media/preparing-sap/import_queue_add.png "Import Queue - More - Extras - Other Requests - Add")
-1. In **Add Transport Requests to Import Queue** click on the boxes next to *Transp. Request* field
-1. **Transport requests** window should display a list of CRs available to be deployed. Select a CR and click the green checkbox
-1. In **Add Transport Request to Import Queue** click **Continue**
-1. In **Add Transport Request** click **Yes**
-1. Repeat the procedure in steps 5-9 to add all additional Change Requests that need to be deployed
-1. In **Import Queue** window, click **Import All Requests**<br>
-![Import all requests](./media/preparing-sap/import_all_requests.png "Import all requests")
+    :::image type="content" source="media/preparing-sap/import-queue-add.png" alt-text="Screenshot of adding an import queue.":::
+
+1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the boxes next to the **Transp. Request** field.
+
+1. The **Transport requests** window will appear and display a list of CRs available to be deployed. Select a CR and select the green checkmark button.
+
+1. Back in the **Add Transport Request to Import Queue** window, select **Continue** (the green checkmark) or press the Enter key.
+
+1. In the **Add Transport Request** confirmation dialog, select **Yes**.
+
+1. Repeat the procedure in the preceding 5 steps to add the remaining Change Requests to be deployed.
+
+1. In the **Import Queue** window, select the **Import All Requests** icon:
+
+    :::image type="content" source="media/preparing-sap/import-all-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-all-requests-lightbox.png":::
+
 1. In **Start Import** window, click on boxes next to **Target Client** field and select client to deploy the CRs to, then click green checkbox in **Input Help..** window, then select **Options** tab and select **Ignore Invalid Component Version** checkbox, then click the green checkbox at the bottom<br>
-![Start Import](./media/preparing-sap/start_import.png "Start Import")
+
+    ![Start Import](./media/preparing-sap/start_import.png "Start Import")
+
 1. In the **Start Import** window click **Yes** to confirm the import
+
 1. In the **Import Queue** window click **Refresh** button, wait until the import operation completes and import queue becomes empty
-1. To review import status, in the **Import History** window click **More**, select **Go To**, select **Import History**<br>
-![Import History](./media/preparing-sap/import_history.png "Import History")
-1. NPLK900180 Change request is expected to end with a Warning, click on the entry to verify that the warning is associated with Table \<tablename\> was activated<br>
-![Import Status](./media/preparing-sap/import_status.png "Import Status")<br>
-![Import Warning](./media/preparing-sap/import_warning.png "Import Warning")
+
+1. To review import status, in the **Import History** window click **More**, select **Go To**, select **Import History**
+
+    ![Import History](./media/preparing-sap/import_history.png "Import History")
+
+1. NPLK900180 Change request is expected to end with a Warning, click on the entry to verify that the warning is associated with Table \<tablename\> was activated
+
+    ![Import Status](./media/preparing-sap/import_status.png "Import Status")
+
+    ![Import Warning](./media/preparing-sap/import_warning.png "Import Warning")
 
 
 ### Role configuration step-by-step guide
