@@ -59,11 +59,6 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-> [!WARNING]
-> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
-> 
-> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
-
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Disabling of the KMS etcd encryption feature.
@@ -77,6 +72,11 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 
 ## Create a KeyVault and key
+
+> [!WARNING]
+> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
+> 
+> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
 Use `az keyvault create` to create a KeyVault.
 
@@ -152,5 +152,9 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azur
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az extension add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
