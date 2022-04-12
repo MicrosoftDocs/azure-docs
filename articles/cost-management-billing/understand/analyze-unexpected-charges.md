@@ -108,4 +108,4 @@ If you've used the preceding strategies and you still don't understand why you r
 
 ## Next steps
 
-- Learn about how to [Optimize your cloud investment with Cost Management](../cost-mgt-best-practices.md).
+- Learn about how to [Optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).
