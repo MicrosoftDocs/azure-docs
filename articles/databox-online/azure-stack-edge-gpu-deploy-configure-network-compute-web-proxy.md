@@ -242,7 +242,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 1. In the **Advanced networking** page, choose the topology for cluster and the storage traffic between nodes from the following options: 
 
     - **Switchless**. Use this option when high-speed switches aren't available for storage and clustering traffic.
-    - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/technologies/nic-teaming/nic-teaming).
+    - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
 
     ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
