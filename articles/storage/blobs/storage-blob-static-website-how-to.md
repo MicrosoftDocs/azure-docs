@@ -22,11 +22,11 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 ### [Portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
+1. Sign-in to the [Azure portal](https://portal.azure.com/) to get started.
 
-2. Locate your storage account and display the account overview.
+2. Locate your storage account and select it to display the account's **Overview** pane.
 
-3. In the **Overview** pane, select the **Capabilities** tab. Next, select **Static website** to display the configuration page for static website.
+3. In the **Overview** pane, select the **Capabilities** tab. Next, select **Static website** to display the configuration page for the static website.
 
     :::image type="content" source="media/storage-blob-static-website-how-to/select-website-configuration-sml.png" alt-text="Image showing how to access the Static website configuration page within the Azure portal" lightbox="media/storage-blob-static-website-how-to/select-website-configuration-lrg.png":::
 
@@ -130,7 +130,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-These instructions show you how to upload files by using [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), the free tool that runs on your Windows, macOS, or Linux machine. You could also use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
+These following instructions show you how to upload files by using [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), the free tool that runs on your Windows, macOS, or Linux machine. You could also use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
 
 1. Launch **Azure Storage Explorer**. If you're not yet familiar with Storage Explorer, see the [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) article.
 
