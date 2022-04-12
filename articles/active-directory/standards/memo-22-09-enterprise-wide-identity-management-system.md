@@ -68,7 +68,7 @@ Microsoft makes available several tools to help with your discovery of applicati
 | Tool| Usage |
 | - | - |
 | [Usage Analytics for AD FS](../hybrid/how-to-connect-health-adfs.md)| Analyzes the authentication traffic of your federated servers. |
-| [Microsoft Defender for Cloud Apps](%20/defender-cloud-apps/what-is-defender-for-cloud-apps) (MDCA)| Previously known as Microsoft Cloud App Security (MCAS), Defender for Cloud Apps scans firewall logs to detect cloud apps, IaaS and PaaS services used by your organization. Integrating MDCA with Defender for Endpoint allows discovery to happen from data analyzed from window client devices. |
+| [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps) (MDCA)| Previously known as Microsoft Cloud App Security (MCAS), Defender for Cloud Apps scans firewall logs to detect cloud apps, IaaS and PaaS services used by your organization. Integrating MDCA with Defender for Endpoint allows discovery to happen from data analyzed from window client devices. |
 | [Application Documentation worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)| Helps you document the current states of your applications |
 
 We recognize that your apps may be in systems other than Microsoft, and that our tools may not discover those apps. Ensure you do a complete inventory. All providers should have mechanisms for discovering applications using their services. 
