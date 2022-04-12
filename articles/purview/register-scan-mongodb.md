@@ -94,7 +94,7 @@ To create and run a new scan, do the following:
 
     1. **Name**: The name of the scan
 
-    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
+    1. **Connect via integration runtime**: Select the self-hosted integration runtime used to perform scan.
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select **Basic Authentication** while creating a credential.
