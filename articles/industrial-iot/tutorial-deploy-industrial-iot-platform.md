@@ -29,7 +29,7 @@ Administrator, or Cloud Application Administrator rights to provide tenant-wide 
 ## Main Components
 
 The Azure Industrial IoT Platform is a Microsoft suite of modules (OPC Publisher, OPC Twin, Discovery) and services that are deployed on Azure. The cloud microservices (Registry, OPC Twin, OPC Publisher, Edge Telemetry Processor, Registry Onboarding Processor, Edge Event Processor, Registry Synchronization) are implemented as ASP.NET microservices with a REST interface and run on managed Azure Kubernetes Services or stand-alone on Azure App Service. The deployment can deploy the platform, an entire simulation environment and a Web UI (Industrial IoT Engineering Tool).
-The deployment script allows to select which set of components deploy.
+The deployment script allows to select which set of components to deploy.
 - Minimum dependencies: 
     - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) to communicate with the edge and ingress raw OPC UA telemetry data
     - [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
