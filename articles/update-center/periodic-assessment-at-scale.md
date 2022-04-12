@@ -1,9 +1,9 @@
 ---
-title: Enable Periodic Sssessment using policy
+title: Enable periodic assessment using policy
 description: This article describes how to manage the update settings for your Windows and Linux machines managed by update management center (private preview).
 ms.service: update-management-center
-author: riyadav
-ms.author: riyadav
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.date: 08/25/2021
 ms.topic: conceptual
 ---
@@ -17,24 +17,24 @@ This article describes how to enable Periodic Assessment for your machines at sc
 1.	Go to **Policy** from Azure portal and under **Authoring**, go to **Definitions**. 
 2.	From the Category dropdown above, select **Update management center**. Select **[Preview]: Configure periodic checking for missing system updates on azure virtual machines** for Azure machines.
 3.	When the Policy Definition opens, click on Assign.
-4.	On Basics tab, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click on Next.
-5.	On Parameters tab, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In Assessment mode, select **AutomaticByPlatform**, select Operating system and click on next. You need to create separate policy for Windows and Linux.
-6.	On Remediation tab, check “Create a remediation task”, so that periodic assessment is enabled on your machines and click on Next.
-7.	On Non-compliance message tab, provide the message that you would like to see in case of non-compliance. For example: “Your machine does not have periodic assessment enabled.” Click on Review+Create.
-8.	On the Review+Create tab, click on Create. This will trigger Assignment and Remediation Task creation which can take a minute or so. 
+4.	In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click on Next.
+5.	In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In Assessment mode, select **AutomaticByPlatform**, select Operating system and click on next. You need to create separate policy for Windows and Linux.
+6.	In **Remediation**, check **Create a remediation task**, so that periodic assessment is enabled on your machines and click **Next**.
+7.	In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine does not have periodic assessment enabled.* Select **Review+Create.**
+8.	On the **Review+Create** tab, click on Create. This will trigger Assignment and Remediation Task creation which can take a minute or so. 
 
 You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
 
 ## Enable Periodic assessment for your Arc machines using Policy
 
-1.	Go to **Policy** from Azure portal and under **Authoring**, go to **Definitions**. 
-2.	From the Category dropdown above, select **Update management center**. Select **[Preview]: Configure periodic checking for missing system updates on azure Arc-enabled servers** for Arc-enabled machines. 
+1.	Go to **Policy** from Azure portal and under **Authoring**, **Definitions**. 
+2.	From the **Category** dropdown above, select **Update management center**. Select **[Preview]: Configure periodic checking for missing system updates on azure Arc-enabled servers** for Arc-enabled machines. 
 3.	When the Policy Definition opens, click on Assign.
-4.	On Basics tab, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click on Next.
-5.	On Parameters tab, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In Assessment mode, select **AutomaticByPlatform**, select Operating system and click on next. You need to create separate policy for Windows and Linux.
-6.	On Remediation tab, check “Create a remediation task”, so that periodic assessment is enabled on your machines and click on Next.
-7.	On Non-compliance message tab, provide the message that you would like to see in case of non-compliance. For example: “Your machine does not have periodic assessment enabled.” Click on Review+Create.
-8.	On the Review+Create tab, click on Create. This will trigger Assignment and Remediation Task creation which can take a minute or so. 
+4.	In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click on Next.
+5.	In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In Assessment mode, select **AutomaticByPlatform**, select Operating system and click **next**. You need to create separate policy for Windows and Linux.
+6.	In **Remediation**, check *Create a remediation task*, so that periodic assessment is enabled on your machines and click on Next.
+7.	In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine does not have periodic assessment enabled.* Click **Review+Create.**
+8.	In **Review+Create**, click **Create** to trigger Assignment and Remediation Task creation which can take a minute or so. 
 
 You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
 
@@ -43,10 +43,10 @@ You can monitor compliance of resources under **Compliance** and remediation sta
 1.	Go to **Policy** from Azure portal and under **Authoring**, go to **Definitions**. 
 2.	From the Category dropdown above, select **Update management center**. Select **[Preview]: Machines should be configured to periodically check for missing system updates**. 
 3.	When the Policy Definition opens, click on Assign.
-4.	On Basics tab, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click on Next.
-5.	On Parameters tab and Remediation tabs, you don't need to do anything. Click on next.
-7.	On Non-compliance message tab, provide the message that you would like to see in case of non-compliance. For example: “Your machine does not have periodic assessment enabled.” Click on Review+Create.
-8.	On the Review+Create tab, click on Create. This will trigger Assignment and Remediation Task creation which can take a minute or so. 
+4.	In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Click **Next.**
+5.	In **Parameters** and **Remediation**, click **next.**
+7.	In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine does not have periodic assessment enabled.* Click **Review+Create.**
+8.	In **Review+Create**, click **Create** to trigger Assignment and Remediation Task creation which can take a minute or so. 
 
 You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
 
