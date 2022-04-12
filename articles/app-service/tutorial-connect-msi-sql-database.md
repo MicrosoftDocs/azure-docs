@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access data with managed identity'
-description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
+description: Secure Azure SQL Database connectivity with managed identity from a sample .NET web app, and also how to apply it to other Azure services.
 
 ms.devlang: csharp
 ms.topic: tutorial

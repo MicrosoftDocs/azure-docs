@@ -78,7 +78,6 @@
             items: 
               - name: .NET with SQL DB
                 href: tutorial-connect-msi-sql-database.md
-            items: 
               - name: Azure databases
                 href: tutorial-connect-msi-azure-database.md
           - name: Connect to services

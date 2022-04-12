@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access Azure databases with managed identity'
-description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
+description: Secure database connectivity (Azure SQL Database, Database for MySQL, and Database for PostgreSQL) with managed identity from .NET, Node.js, Python, and Java apps.
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
 
 ms.devlang: csharp,java,javascript,python
@@ -142,12 +142,12 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     > [!NOTE]
     > To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in *\<slot-name>*.
     
-1. The identity needs to be granted permissions to access the database. In the Cloud Shell, sign in to your database with the following command. Replace _\<server-name>_ with your server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials from [1. Grant database access to Azure AD user]().
+1. The identity needs to be granted permissions to access the database. In the Cloud Shell, sign in to your database with the following command. Replace _\<server-name>_ with your server name, _\<database-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials from [1. Grant database access to Azure AD user]().
 
     # [Azure SQL Database](#tab/sqldatabase)
 
     ```azurecli-interactive
-    sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
+    sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
     ```
 
     # [Azure Database for MySQL](#tab/mysql)
@@ -161,7 +161,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     mysql -h <server-name>.mysql.database.azure.com --user <aad-user-name>@<server-name> --enable-cleartext-plugin --password=<token-output-from-last-command> --ssl
     ```
 
-    The full username *<aad-user-name>@<server-name>* looks like `admin1@contoso.onmicrosoft.com@mydbserver1`.
+    The full username *\<aad-user-name>@\<server-name>* looks like `admin1@contoso.onmicrosoft.com@mydbserver1`.
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -174,7 +174,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     psql "host=<server-name>.postgres.database.azure.com port=5432 dbname=<database-name> user=<aad-user-name>@<server-name> password=<token-output-from-last-command>"
     ```
 
-    The full username *<aad-user-name>@<server-name>* looks like `admin1@contoso.onmicrosoft.com@mydbserver1`.
+    The full username *\<aad-user-name>@\<server-name>* looks like `admin1@contoso.onmicrosoft.com@mydbserver1`.
 
     -----
 
@@ -415,7 +415,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     connection.Open();
     ```
 
-    [Microsoft.Data.SqlClient](https://docs.microsoft.com/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current) provides integrated support of Azure AD authentication. In this case, the [Active Directory Default](https://docs.microsoft.com/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current#using-active-directory-default-authentication) uses `DefaultAzureCredential` to retrieve the required token for you and adds it to the database connection directly.
+    [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true) provides integrated support of Azure AD authentication. In this case, the [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true#using-active-directory-default-authentication) uses `DefaultAzureCredential` to retrieve the required token for you and adds it to the database connection directly.
 
     For a more detailed tutorial, see [Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md).
 
@@ -663,7 +663,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     pip install pyodbc
     ```
 
-    The required [ODBC Driver 17 for SQL Server](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server) is already installed in App Service. To run the same code locally, install it in your local environment too.
+    The required [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server) is already installed in App Service. To run the same code locally, install it in your local environment too.
 
     # [Azure Database for MySQL](#tab/mysql)
 
@@ -699,13 +699,13 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     
     # Connect with the token
     SQL_COPT_SS_ACCESS_TOKEN = 1256
-    connString = f"Driver={{ODBC Driver 17 for SQL Server}};SERVER=<database-server-name>.database.windows.net;DATABASE=<database-name>"
+    connString = f"Driver={{ODBC Driver 17 for SQL Server}};SERVER=<server-name>.database.windows.net;DATABASE=<database-name>"
     conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
     ```
     
-    The ODBC Driver 17 for SQL Server also supports an authentication type `ActiveDirectoryMsi`. You can connect from App Service without getting the token yourself, simply with the connection string `Driver={{ODBC Driver 17 for SQL Server}};SERVER=<database-server-name>.database.windows.net;DATABASE=<database-name>;Authentication=ActiveDirectoryMsi`. The difference with the above code is that it gets the token with `DefaultAzureCredential`, which works both in App Service and in your local development environment.
+    The ODBC Driver 17 for SQL Server also supports an authentication type `ActiveDirectoryMsi`. You can connect from App Service without getting the token yourself, simply with the connection string `Driver={{ODBC Driver 17 for SQL Server}};SERVER=<server-name>.database.windows.net;DATABASE=<database-name>;Authentication=ActiveDirectoryMsi`. The difference with the above code is that it gets the token with `DefaultAzureCredential`, which works both in App Service and in your local development environment.
 
-    For more information about PyODBC, see [PyODBC SQL Driver](https://docs.microsoft.com/sql/connect/python/pyodbc/python-sql-driver-pyodbc).
+    For more information about PyODBC, see [PyODBC SQL Driver](/sql/connect/python/pyodbc/python-sql-driver-pyodbc).
 
     # [Azure Database for MySQL](#tab/mysql)
 
@@ -730,7 +730,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     # Connect with the token
     os.environ['LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN'] = '1'
     config = {
-      'host': '<database-server-name>.mysql.database.azure.com',
+      'host': '<server-name>.mysql.database.azure.com',
       'database': '<database-name>',
       'user': mysqlUser,
       'password': token.token
@@ -763,7 +763,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
         postgresUser = '<aad-user-name>@<server-name>'
 
     # Connect with the token
-    host = "<database-server-name>.postgres.database.azure.com"
+    host = "<server-name>.postgres.database.azure.com"
     dbname = "<database-name>"
     conn_string = "host={0} user={1} dbname={2} password={3}".format(host, postgresUser, dbname, token.token)
     conn = psycopg2.connect(conn_string)
@@ -849,7 +849,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Set token in your SQL connection
     SQLServerDataSource ds = new SQLServerDataSource();
-    ds.setServerName("<database-server-name>.database.windows.net");
+    ds.setServerName("<server-name>.database.windows.net");
     ds.setDatabaseName("<database-name>");
     ds.setAccessToken(token.getToken());
 
@@ -867,7 +867,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     }
     ```
 
-    The [JDBC Driver for SQL Server] also has an authentication type [ActiveDirectoryMsi](https://docs.microsoft.com/sql/connect/jdbc/connecting-using-azure-active-directory-authentication#connect-using-activedirectorymsi-authentication-mode), which is easier to use for App Service. The above code gets the token with `DefaultAzureCredential`, which works both in App Service and in your local development environment.
+    The [JDBC Driver for SQL Server] also has an authentication type [ActiveDirectoryMsi](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication#connect-using-activedirectorymsi-authentication-mode), which is easier to use for App Service. The above code gets the token with `DefaultAzureCredential`, which works both in App Service and in your local development environment.
 
     # [Azure Database for MySQL](#tab/mysql)
 
@@ -899,7 +899,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     // Set token in your SQL connection
     try {
         Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://<database-server-name>.mysql.database.azure.com/<database-name>",
+                "jdbc:mysql://<server-name>.mysql.database.azure.com/<database-name>",
                 mysqlUser,
                 token.getToken());
         Statement stmt = connection.createStatement();
@@ -945,7 +945,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     // Set token in your SQL connection
     try {
         Connection connection = DriverManager.getConnection(
-                "jdbc:postgresql://<database-server-name>.postgres.database.azure.com:5432/<database-name>",
+                "jdbc:postgresql://<server-name>.postgres.database.azure.com:5432/<database-name>",
                 postgresUser,
                 token.getToken());
         Statement stmt = connection.createStatement();
@@ -961,9 +961,9 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the PostgreSQL username based on which identity the token applies to. The token is then passed in to the [standard PostgreSQL connection](../postgresql/connect-nodejs.md) as the password of the identity. To see how you can do it similarly with specific frameworks, see: 
 
-    - [Spring Data JDBC](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql)
-    - [Spring Data JPA](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql)
-    - [Spring Data R2DBC](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql)
+    - [Spring Data JDBC](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql)
+    - [Spring Data JPA](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql)
+    - [Spring Data R2DBC](/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql)
     -----
 
 -----
