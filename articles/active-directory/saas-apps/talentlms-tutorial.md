@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `http://<tenant-name>.talentlms.com`
+    `<tenant-name>.talentlms.com`
 
     b. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<tenant-name>.TalentLMSapp.com`
