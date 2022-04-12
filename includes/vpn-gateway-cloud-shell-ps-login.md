@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 10/29/2020
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.date: 04/11/2022
+ms.service: vpn-gateway
+ms.topic: include
 ---
 
 If you are running PowerShell locally, open the PowerShell console with elevated privileges and connect to your Azure account. The *Connect-AzAccount* cmdlet prompts you for credentials. After authenticating, it downloads your account settings so that they are available to Azure PowerShell.
