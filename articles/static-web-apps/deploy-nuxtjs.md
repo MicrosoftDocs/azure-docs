@@ -127,7 +127,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
 1. Once the deployment completes click, **Go to resource**.
 
