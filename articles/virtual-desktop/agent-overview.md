@@ -46,4 +46,4 @@ Now that you have a better understanding of the Azure Virtual Desktop agent, her
 - If you're experiencing agent or connectivity-related issues, check out the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
 -  To schedule agent updates, see the [Scheduled Agent Updates (preview) document](scheduled-agent-updates.md).
 - To set up diagnostics for this feature, see the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
-- To find information about the latest and previous agent versions, see the [Agent Updates version notes](whats-new.md#azure-virtual-desktop-agent-updates).
+- To find information about the latest and previous agent versions, see the [Agent Updates version notes](whats-new-agent.md).
