@@ -33,6 +33,14 @@ This article provides an overview and details of the Certificate Authorities (CA
 
 ### Microsoft Operated Root Certificate Authorities
 
+| Certificate Authority | Issue Date<br>Expiry Date | Serial Number<br>Thumbprint | URIs |
+|---- |--------- |-- |---- |
+| DigiCert Global Root G2 | Aug 1, 2013<br>Jan 15, 2038 | 033af1e6a711a9a0bb2864b11d09fae5<br>df3c24f9bfd666761b268073fe06d1cc8d4f82a4 | [AIA](http://cacerts.digicert.com/DigiCertGlobalRootG3.crt)<br>[CDP](http://crl3.digicert.com/DigiCertGlobalRootG3.crl)<br>[CDP](http://crl4.digicert.com/DigiCertGlobalRootG3.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| ameroot (413e) | Aug 1, 2013<br>May 24, 2026 | 0x25dacb55c9c67781409e569482de4dfe | [AIA](http://crl.microsoft.com/pkiinfra/certs/AMEROOT_ameroot.crt)<br>[AIA 2](http://crl1.ame.gbl/aia/AMEROOT_ameroot.crt) |
+- - -
+
+### Microsoft Operated Root Certificate Authorities
+
 **ameroot (413e)**
 - - -
 Valid until: May 24 2026 | Serial: 0x25dacb55c9c67781409e569482de4dfe
