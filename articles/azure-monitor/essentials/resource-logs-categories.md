@@ -36,78 +36,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AccountLogon|AccountLogon|No|
-
-
-## Microsoft.AAD/domainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|AccountLogon|AccountLogon|No|
-|AccountManagement|AccountManagement|No|
-
-
-## Microsoft.AAD/DomainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
 |AccountManagement|AccountManagement|No|
 |DetailTracking|DetailTracking|No|
-
-
-## Microsoft.AAD/domainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DetailTracking|DetailTracking|No|
-|DirectoryServiceAccess|DirectoryServiceAccess|No|
-
-
-## Microsoft.AAD/DomainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
 |DirectoryServiceAccess|DirectoryServiceAccess|No|
 |LogonLogoff|LogonLogoff|No|
-
-
-## Microsoft.AAD/domainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|LogonLogoff|LogonLogoff|No|
-|ObjectAccess|ObjectAccess|No|
-
-
-## Microsoft.AAD/DomainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
 |ObjectAccess|ObjectAccess|No|
 |PolicyChange|PolicyChange|No|
-
-
-## Microsoft.AAD/domainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|PolicyChange|PolicyChange|No|
-|PrivilegeUse|PrivilegeUse|No|
-
-
-## Microsoft.AAD/DomainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
 |PrivilegeUse|PrivilegeUse|No|
 |SystemSecurity|SystemSecurity|No|
-
-
-## Microsoft.AAD/domainServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|SystemSecurity|SystemSecurity|No|
-
 
 ## microsoft.aadiam/tenants
 
@@ -242,6 +178,22 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |BaiClusterNodeEvent|BaiClusterNodeEvent|No| 
 |BaiJobEvent|BaiJobEvent|No| 
 
+
+## Microsoft.Blockchain/blockchainMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+|FabricOrderer|Fabric Orderer|No|
+|FabricPeer|Fabric Peer|No|
+|Proxy|Proxy|No|
+
+
+## Microsoft.Blockchain/cordaMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
 
 ## microsoft.botservice/botservices
 
