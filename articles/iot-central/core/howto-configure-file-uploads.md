@@ -26,7 +26,7 @@ To configure device file uploads:
 
 1. Navigate to the **Application** section in your application.
 
-1. Select **Device file upload**.
+1. Select **Device file storage**.
 
 1. Select the storage account and container to use. If the storage account is in a different Azure subscription from your application, enter a storage account  connection string.
 
@@ -40,9 +40,9 @@ To configure device file uploads:
 
 If you want to disable device file uploads to your IoT Central application:
 
-1. Navigate to the **Administration** section in your application.
+1. Navigate to the **Application** section in your application.
 
-1. Select **Device file upload**.
+1. Select **Device file storage**.
 
 1. Select **Delete**.
 
