@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 03/04/2020
+ms.date: 04/12/2022
 ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
@@ -28,7 +28,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 3. In the **Overview** pane, select the **Capabilities** tab. Next, select **Static website** to display the configuration page for static website.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-configuration-sml.png" alt-text="Image showing how to access the Static website configuration page within the Azure portal" lightbox="storage-blob-static-website-how-to/select-website-configuration-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-configuration-sml.png" alt-text="Image showing how to access the Static website configuration page within the Azure portal" lightbox="media/storage-blob-static-website-how-to/select-website-configuration-lrg.png":::
 
 4. Select **Enabled** to enable static website hosting for the storage account.
 
@@ -42,7 +42,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 7. Click **Save**. The Azure portal now displays your static website endpoint.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-properties-sml.png" alt-text="Image showing how to set the Static website properties within the Azure portal" lightbox="storage-blob-static-website-how-to/select-website-properties-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/select-website-properties-sml.png" alt-text="Image showing how to set the Static website properties within the Azure portal" lightbox="media/storage-blob-static-website-how-to/select-website-properties-lrg.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -138,11 +138,11 @@ These instructions show you how to upload files by using [Azure Storage Explorer
 
 3. In the **$web** pane, choose the **Upload** button to upload files.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to upload files to the static website storage container" lightbox="storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to upload files to the static website storage container" lightbox="media/storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
 
 4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to verify blob content types" lightbox="storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to verify blob content types" lightbox="media/storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
 
    > [!NOTE]
    > Storage Explorer automatically sets this property to `text/html` for commonly recognized extensions such as `.html`. However, in some cases, you'll have to set this yourself. If you don't set this property to `text/html`, the browser will prompt users to download the file instead of rendering the contents. To set this property, right-click the file, and then click **Properties**.
