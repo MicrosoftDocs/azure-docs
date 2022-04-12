@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 04/11/2022
 ms.author: alkohli
 ---
 
@@ -91,13 +91,13 @@ During a [data copy service file transfer](data-box-deploy-copy-data-via-copy-se
 
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box.
 
-To copy SACLs from your files, you must provide credentials for a user with **SeBackupPrivilege**. **SeBackupPrivilege** is required to read SACLs. If you are an Administrator or a Backup Operator, you'll have this privilege by default.
+To copy SACLs from your files, you must provide credentials for a user with **SeBackupPrivilege**. Users in the Administrators or Backup Operators group will have this privilege by default
 
-If you do not have the **SeBackupPrivilege** credential:
+If you do not have **SeBackupPrivilege**:
 - You will not be able to copy SACLs for Azure Files copy service jobs.
 - You may experience access issues and receive this error in the error log: *Could not read SACLs from share due to insufficient privileges*.
 
- For more information, see how to obtain the [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants). 
+ For more information, learn more about [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants). 
 
 ### ACLs transfer over NFS
  
