@@ -49,7 +49,7 @@ export declare type CallDiagnosticsResult = {
 
 ```
 
-Individual result objects can be accessed as such using the `preCallTest` constant above.
+Individual result objects can be accessed as such using the `preCallTest` constant above. Results for individual tests will be returned as they are completed with many of the test results being available immediately. In the case of the `inCallDiagnostics` test, the results might take up to 1 minute as the test validates quality of the video and audio.
 
 ### Browser support
 Browser compatibility check. Checks for `Browser` and `OS` compatibility and provides a `Supported` or `NotSupported` value back. 
@@ -67,7 +67,7 @@ const browserSupport =  await preCallTest.browserSupport;
 In the case that the test fails and the browser being used by the user is `NotSupported`, the easiest way to fix that is by asking the user to switch to a supported browser. Refer to the supported browsers in our [documentation](./calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
 
 >[!NOTE]
->Known issue related to browser support test returning `Unknown` in case where it should be returning a correct valuel.
+>Known issue: `browser support` test returning `Unknown` in cases where it should be returning a correct value.
 
 ### Device access
 Permission check. Checks whether video and audio devices are available from a permissions perspective. Provides `boolean` value for `audio` and `video` devices. 
