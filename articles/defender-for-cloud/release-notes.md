@@ -26,7 +26,7 @@ Updates in April include:
 - [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
 - [New alert flavor for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-flavor-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
-- Container scan alert title augmented with IP address reputation 
+- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation) 
 
 ### New Defender for Servers plans
 
@@ -69,6 +69,28 @@ The new alert, `Publicly accessible storage containers with potentially sensitiv
 |--|--|--|--|
 |PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed 
 (Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
+
+### Container scan alert title augmented with IP address reputation 
+
+An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there is malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). 
+
+The addition of the IP address's reputation to the alert title provides a way to quickly evaluate the intent of the actor, and thus the severity of the threat.  
+
+The following alerts will include this information: 
+
+- `Publicly accessible storage containers have been exposed` 
+
+- `Publicly accessible storage containers with potentially sensitive data have been exposed`
+
+- `Publicly accessible storage containers have been scanned. No publicly accessible data was discovered`
+
+For example, the added information to the title of the `Publicly accessible storage containers have been exposed` alert will look like this: 
+
+- `Publicly accessible storage containers have been exposed`**`by a suspicious IP address`**
+
+- `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
+
+All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
 
 ## March 2022
 
