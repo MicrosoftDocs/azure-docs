@@ -100,7 +100,6 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 ---
 
-
 ## Delete an Azure NetApp Files-based datastore from your private cloud
 
 You can delete an Azure NetApp Files-based datastore, which is used in Azure VMware Solution private cloud. Use the **Delete an ANF-based private cloud datastore** command, provided below, to perform this operation. There's no maintenance window required for this operation. After the deletion, the actual Azure NetApp Files (ANF) volume will still exist. 
