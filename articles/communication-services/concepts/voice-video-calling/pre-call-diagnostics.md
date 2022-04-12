@@ -20,14 +20,14 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 
 ## Accessing Pre-Call APIs
 
-To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `Diganostics` feature and the `preCallTest` method.
+To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 const tokenCredential = new AzureCommunicationTokenCredential(); 
-const preCallTest = await callClient.feature(Features.Diganostics).preCallTest(tokenCredential);
+const preCallTest = await callClient.feature(Features.PreCallDiagnostics).startTest(tokenCredential);
 
 ```
 
@@ -65,6 +65,9 @@ const browserSupport =  await preCallTest.browserSupport;
 ```
 
 In the case that the test fails and the browser being used by the user is `NotSupported`, the easiest way to fix that is by asking the user to switch to a supported browser. Refer to the supported browsers in our [documentation](./calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
+
+>[!NOTE]
+>Known issue related to browser support test returning `Unknown` in case where it should be returning a correct valuel.
 
 ### Device access
 Permission check. Checks whether video and audio devices are available from a permissions perspective. Provides `boolean` value for `audio` and `video` devices. 
