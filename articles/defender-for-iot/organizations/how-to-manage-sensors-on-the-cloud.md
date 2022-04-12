@@ -200,7 +200,7 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - Sensor is overloaded and is dropping packets
 - No traffic detected by the sensor
 - Sensor software version is out of date and cannot connect
-- A [remote sensor upgrade](how-to-manage-individual-sensors&tabs=portal#update-a-standalone-sensor-version) fails, for software versions starting from version 22.2.0 and higher
+- A [remote sensor upgrade from the Azure portal](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) fails, for software versions starting from version 22.2.0 and higher
 
 ## Upload a diagnostics log for support (Public preview)
 
