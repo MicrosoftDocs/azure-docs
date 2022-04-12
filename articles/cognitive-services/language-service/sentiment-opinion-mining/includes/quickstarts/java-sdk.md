@@ -48,7 +48,7 @@ import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 
-public class Test {
+public class Example {
 
     private static String KEY = "replace-with-your-key-here";
     private static String ENDPOINT = "replace-with-your-endpoint-here";
