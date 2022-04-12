@@ -326,7 +326,7 @@ And run it:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_iris":::
 
-To register a model, you can upload the model artifacts from the run to the model registry:
+To register a model, you can upload the model files from the run to the model registry:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
 
