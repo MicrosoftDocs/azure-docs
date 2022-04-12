@@ -5,40 +5,45 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 04/12/2022
 ms.reviewer: mbullwin
 ---
 
 # Configure Application Insights Profiler
 
-## Updated Profiler Agent
-The trigger features only work with version 2.6 or newer of the profiler agent. If you are running the profiler an Azure App Service, your agent will be updated automatically. See which profiler agent version you're running via the Kudu URL for your website and append `/DiagnosticServices` to the end. For example:  
-> `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`
+To open the Azure Application Insights Profiler settings pane, select **Performance** from the left menu within your Application Insights page.
 
-The Application Insights Profiler Webjob should be version 2.6 or newer. You can force an upgrade by restarting your web app. 
+:::image type="content" source="./media/profiler-settings/performance-blade.png" alt-text="Link to open performance blade":::
 
-If you are running the profiler on a VM or Cloud Service, verify you have Windows Azure Diagnostics (WAD) extension version 16.0.4 or newer installed. Check the WAD version by logging onto your VM and looking this directory:  
-> `C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4`
+View profiler traces across your Azure resources via two methods: 
 
-The directory name shows the installed version of WAD. The Azure VM agent will update WAD automatically once new versions are available.
+**Profiler button**
 
-## Profiler settings page
+Select the **Profiler** button from the top menu.
 
-To open the Azure Application Insights Profiler settings pane, go to the Application Insights Performance pane, and then select the **Configure Profiler** button.
+  :::image type="content" source="./media/profiler-settings/profiler-button.png" alt-text="Profiler button option for viewing profiler traces":::
 
-![Link to open Profiler settings page][configure-profiler-entry]
+**By operation**
 
-That opens a page that looks like this:
+1. Select an operation from the **Operation name** list ("Overall" is highlighted by default).
+1. Select the **Profiler traces** button.
+   
+   :::image type="content" source="./media/profiler-settings/operation-entry.png" alt-text="Select operation and Profiler traces to view all profiler traces":::
 
-![Profiler settings page][configure-profiler-page]
+1. Select one of the examples from the list to the left.
+1. Select **Configure Profiler**.
 
-The **Configure Application Insights Profiler** page has these features:
+   :::image type="content" source="./media/profiler-settings/configure-profiler.png" alt-text="Overall selection and clicking Profiler traces to view all profiler traces":::
+
+Once within the Profiler, you can configure and view the Profiler. The **Application Insights Profiler** page has these features:
+
+:::image type="content" source="./media/profiler-settings/configureBlade.png" alt-text="Profiler page features and settings":::
 
 | Feature | Description |
 |-|-|
 Profile Now | Starts profiling sessions for all apps that are linked to this instance of Application Insights.
 Triggers | Allows you to configure triggers that cause the profiler to run. 
-Recent profiling sessions | Displays information about past profiling sessions.
+Recent profiling sessions | Displays information about past profiling sessions, which you can sort using the filters at the top of the page.
 
 ## Profile Now
 Select **Profile Now** to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
@@ -87,49 +92,11 @@ Tracee | Number of traces that were attached to individual requests.
 CPU % | Percentage of CPU that was being used while the profiler was running.
 Memory % | Percentage of memory that was being used while the profiler was running.
 
-## <a id="profileondemand"></a> Use web performance tests to generate traffic to your application
-
-You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. Controlling when traces are captured is crucial, because you know when the load test will be running, while the random sampling interval might miss it.
-
-The next sections illustrate to manually trigger the profiler:
-
-### Step 1: Generate traffic to your web app by starting a web performance test
-
-> [!NOTE]
-> If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
-
-1. In the Application Insights portal, select **Configure** > **Performance Testing**. 
-
-1. To start a new performance test, select the **New** button.
-
-   ![create new performance test][create-performance-test]
-
-1. In the **New performance test** pane, configure the test target URL. Accept all default settings, and then select **Run test** to start running the load test.
-
-    ![Configure load test][configure-performance-test]
-
-    The new test is queued first, followed by a status of *in progress*.
-
-    ![Load test is submitted and queued][load-test-queued]
-
-    ![Load test is running in progress][load-test-in-progress]
-
-### Step 2: Start a Profiler on-demand session
-
-1. When the load test is running, start Profiler to capture traces on the web app while it's receiving load.
-
-1. Go to the **Configure Profiler** pane.
-
-
-### Step 3: View traces
-
-After Profiler finishes running, follow the instructions on notification to go to Performance pane and view traces.
-
 ## Next steps
 [Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png
+[performance-blade]: ./media/profiler-settings/performance-blade.png
 [configure-profiler-page]: ./media/profiler-settings/configureBlade.png
 [trigger-settings-flyout]: ./media/profiler-settings/CPUTrigger.png
 [create-performance-test]: ./media/profiler-settings/new-performance-test.png
