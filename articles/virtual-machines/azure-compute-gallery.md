@@ -152,10 +152,19 @@ https://msrc.microsoft.com/report/infringement
 
 **A**: Azure is not responsible for any issues encountered with Community Gallery images. The support is provided by the image publisher. Please look up the publisher contact information on the gallery and reach out to them for any support regarding the image.  
 
+**Q**: I have concerns about an image, who do I contact?
+
+**A**: For issues with the community gallery:
+- To report malicious images in the community gallery, contact [Abuse Report](mailto:Abuse%20Report%20(microsoft.com)). 
+- To report images that potentially violate intellectual property rights, contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+ 
+
 
 **Q**: How do I request a Community Gallery image to be replicated to a specific region?  
 
 **A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
+
+
 ## Explicit access using RBAC
 
 As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:

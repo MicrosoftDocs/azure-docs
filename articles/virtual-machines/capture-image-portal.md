@@ -48,7 +48,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 1. Select an **End of life** date. This date can be used to track when older images need to be retired.
 
-1. Under [Replication](shared-image-galleries.md#replication), select a default replica count and then select any additional regions where you would like your image replicated.
+1. Under [Replication](azure-compute-gallery.md#replication), select a default replica count and then select any additional regions where you would like your image replicated.
 
 8. When you are done, select **Review + create**.
 

@@ -17,9 +17,9 @@ ms.reviewer: cynthn
 
 Create a scale set from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) using the Azure CLI. If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+## Create a scale set from an image in your gallery
 
-Replace resource names as needed in this example. 
+Replace resource names as needed in this example.
 
 List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
 
@@ -50,6 +50,48 @@ az vmss create \
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
+
+## Create a scale set from an image in a community gallery
+
+You can create scale sets from images in the community gallery, but if the image is removed at a later time, you won't be able to scale up. To ensure you have long-term access to the image, you should consider creating an image in your own gallery from a VM created using the community gallery image that you want to use for your scale set. For more information, see [Create an image definition and an image version](../virtual-machines/image-version.md).
+
+If you choose to install and use the CLI locally, the community gallery requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+
+Replace resource names as needed in this example.
+
+> [!NOTE]
+> As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+
+To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
+
+```
+/CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
+```
+
+To list all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+
+```azurecli-interactive 
+ az sig image-definition list-community \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --location westus \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
+```
+
+Create the scale set by setting the `--image` parameter to the unique ID of the image in the community gallery. In this example, we are creating a `Flexible` scale set.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+
+imgDef="/CommunityGalleries/ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/myLinuxImage/Versions/latest"
+
+az vmss create \
+   --resource-group myResourceGroup \
+   --name myScaleSet \
+   --image $imgDef \
+  --orchestration-mode Flexible
+   --admin-username azureuser \
+   --generate-ssh-keys
+```
 
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
