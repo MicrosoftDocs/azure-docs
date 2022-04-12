@@ -17,7 +17,7 @@ To open the Azure Application Insights Profiler settings pane, select **Performa
 
 View profiler traces across your Azure resources via two methods: 
 
-**Profiler button**
+**Profiler button** 
 
 Select the **Profiler** button from the top menu.
 
