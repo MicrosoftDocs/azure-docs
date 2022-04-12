@@ -209,9 +209,9 @@ In order to successfully deploy this solution, you need the following:
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free).
 
 1. Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository.
-  ```sh
-    git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
-  ```  
+
+   ```sh
+   git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
 1. Open a PowerShell console and run the `deploy-e2e-tutorial.ps1` script.
 
 
