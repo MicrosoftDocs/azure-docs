@@ -184,7 +184,7 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
    ```
 
-### CloudShell
+### Cloud Shell
 
 1.  Replace the `<USERNAME>` with the username displayed in the prompt, then run the command to generate the Letter of Authorization. Use the exact path define in the command.
 
@@ -194,7 +194,7 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
 
 1. Select the **Upload/Download** button and then select **Download**. Select the `loa.pdf` file and select Download.
 
-    :::image type="content" source="./media/expressroute-howto-erdirect/download.png" alt-text="Screenshot of download button from Azure CloudShell.":::
+    :::image type="content" source="./media/expressroute-howto-erdirect/download.png" alt-text="Screenshot of download button from Azure Cloud Shell.":::
 
 ## <a name="state"></a>Change Admin State of links
    
