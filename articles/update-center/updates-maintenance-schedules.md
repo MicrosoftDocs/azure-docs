@@ -20,7 +20,7 @@ Update management center (preview) provides you the flexibility to take an immed
 
 ## Update Now/One time update
 
-Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates).
+Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
 
 ## Scheduled patching
 You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates to be installed. The schedule will then automatically install the updates as per the specifications.
@@ -33,7 +33,7 @@ Start using [scheduled patching](scheduled-patching.md) to create and save recur
 
 This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines keeping in mind the availability-first principles. For more information, see [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).
 
-This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. For more information, see [Patch orchestration](manage-update-settings.md#configure-settings).
+This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. For more information, see [Patch orchestration](manage-update-settings.md#configure-updates-on-single-vm).
 
 
 ## Windows automatic updates
@@ -47,7 +47,7 @@ In your **Update management center (preview)**, hotpatching property is availabl
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot showing the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
-For more information, see [configure update settings on your machines.](manage-update-settings.md#configure-settings).
+For more information, see [configure update settings on your machines.](manage-update-settings.md#configure-updates-at-scale).
 
 
 ## Assessment options in update management center (preview)
