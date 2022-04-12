@@ -119,7 +119,7 @@ The template consists of multiple files. The following table describes what each
 
 # [Bicep](#tab/bicep)
 
-To run the Terraform template, use the following commands from the `machine-learning-end-to-end-secure` where the `main.bicep` file is:
+To run the Bicep template, use the following commands from the `machine-learning-end-to-end-secure` where the `main.bicep` file is:
 
 1. To create a new Azure Resource Group, use the following command. Replace `exampleRG` with your resource group name, and `eastus` with the Azure region you want to use:
 

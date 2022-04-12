@@ -1,15 +1,15 @@
 ---
 title: Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance
-description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
+description: Automate tasks for SQL databases on premises or in the cloud using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/24/2021
 tags: connectors
 ---
 
-# Automate workflows for a SQL database by using Azure Logic Apps
+# Connect to a SQL database from Azure Logic Apps
 
 This article shows how you can access data in your SQL database from inside a logic app with the SQL Server connector. That way, you can automate tasks, processes, or workflows that manage your SQL data and resources by creating logic apps. The SQL Server connector works for [SQL Server](/sql/sql-server/sql-server-technical-documentation) as well as [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
@@ -19,7 +19,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
@@ -183,9 +183,11 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 <a name="trigger-recurrence-shift-drift"></a>
 
-### Trigger recurrence shift and drift
+## Trigger recurrence shift and drift (daylight saving time)
 
-Connection-based triggers where you need to create a connection first, such as the SQL trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not maintaining the specified schedule when daylight saving time (DST) starts and ends. To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
+Recurring connection-based triggers where you need to create a connection first, such as the managed SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
+
+To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="add-sql-action"></a>
 

@@ -55,7 +55,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    - Give a **Sampling Rate** with in the range of 0-100, or use the default value 10.
 
    > [!NOTE]
-   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Manage usage and costs for Application Insights](../azure-monitor/app/pricing.md).
+   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
 
     :::image type="content" source="media/enterprise/getting-started-enterprise/application-insights.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with Application Insights section showing." lightbox="media/enterprise/getting-started-enterprise/application-insights.png":::
 
@@ -108,7 +108,18 @@ It takes about 5 minutes to finish the resource provisioning.
 
 ---
 
+## Clean up resources
+
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Application Configuration Service](quickstart-setup-application-configuration-service-enterprise.md)
+> [Quickstart: Set up Application Configuration Service for Tanzu](quickstart-setup-application-configuration-service-enterprise.md)

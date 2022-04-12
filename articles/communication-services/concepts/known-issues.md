@@ -22,10 +22,14 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
-### Some Android devices failing to join calls and meetings.
+### Chrome M98 - regression 
 
-A number of specific Android devices fail to join calls and meetings. The devices that run into this issue, wont recover and will fail on every attemp. These are mostly Samsung phones with biggest contributors A326U, A125U and A215U models.
+Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
 
+### Some Android devices failing call scenarios except for group calls.
+
+A number of specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
 
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.
@@ -48,9 +52,9 @@ Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is u
 
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
-ACS Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+Azure Communication Services Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
 
-This issue is fixed in ACS Calling SDK version 1.3.1-beta.1 +
+This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-beta.1 +
 
 * iOS Safari version: 15.1
 
@@ -162,6 +166,6 @@ The following are known issues in the Communication Services Call Automation API
 
 Up to 100 users can join a group call using the JS web calling SDK. 
 
-##Android API emulators
-When utilizing Android API emulators some crashes are expected.  
+## Android API emulators
+When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
 

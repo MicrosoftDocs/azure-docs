@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Prerequisites for Cognitive Services in Azure Synapse Analytics'
 description: Learn how to configure the prerequisites for using Cognitive Services in Azure Synapse.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart

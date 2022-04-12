@@ -1,32 +1,32 @@
 ---
 title: Create and manage users
-description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 11/09/2021
+description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of Administrator, Security Analyst, or Read-only user.
+ms.date: 01/26/2022
 ms.topic: article
 ---
 
 # About Defender for IoT console users
 
-This article describes how to create and manage users of sensors and the on-premises management console. User roles include administrator, security analyst, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Microsoft Defender for IoT.
+This article describes how to create and manage users of sensors and the on-premises management console. User roles include Administrator, Security Analyst, or Read-only users. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Microsoft Defender for IoT.
 
-Features are also available to track user activity and enable Active Directory sign-in.
+Features are also available to track user activity and enable Active Directory sign in.
 
-By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
+By default, each sensor and on-premises management console is installed with a *cyberx, support* and *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
 
 ## Role-based permissions
 The following user roles are available:
 
 - **Read only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed under **Navigation**.
 
-- **Security analyst**: Security analysts have read-only user permissions. They can also perform actions on devices, acknowledge alerts, and use investigation tools. These users have access to options displayed under **Navigation** and **Analysis**.
+- **Security analyst**: Security Analysts have Read-only user permissions. They can also perform actions on devices, acknowledge alerts, and use investigation tools. These users have access to options displayed under **Navigation** and **Analysis**.
 
-- **Administrator**: Administrators have access to all tools, including defining system configurations, creating and managing users, and more. These users have access to options displayed under **Navigation**, **Analysis**, and **Administration**.
+- **Administrator**: Administrators have access to all tools, including system configurations, creating and managing users, and more. These users have access to options displayed under **Discover**, **Analyze**, and **Manage** sections of the console main screen.
 
 ### Role-based permissions to on-premises management console tools
 
-This section describes permissions available to administrators, security analysts, and read-only users for the on-premises management console.  
+This section describes permissions available to Administrators, Security Analysts, and Read-only users for the on-premises management console.  
 
-| Permission | Read only | Security analyst | Administrator |
+| Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
 | View and filter the enterprise map | ✓ | ✓ | ✓ |
 | Build a site |  |  | ✓ |
@@ -41,19 +41,19 @@ This section describes permissions available to administrators, security analyst
 | Manage users |  |  | ✓ |
 | Send alert data to partners |  |  | ✓ |
 | Manage certificates |  |  | ✓ |
-| Session timeout when users are not active | 30 minutes | 30 minutes  | 30 minutes  |
+| Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
 
 #### Assign users to access groups
 
-Administrators can enhance user access control in Defender for IoT by assigning users to specific *access groups*. Access groups are assigned to zones, sites, regions, and business units where a sensor is located. By assigning users to access groups, administrators gain specific control over where users manage and analyze device detections. 
+Administrators can enhance user access control in Defender for IoT by assigning users to specific *access groups*. Access groups are assigned to zones, sites, regions, and business units where a sensor is located. By assigning users to access groups, administrators gain specific control over where users manage and analyze device detections.
 
 Working this way accommodates large organizations where user permissions can be complex or determined by a global organizational security policy. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
 
 ### Role-based permissions to sensor tools
 
-This section describes permissions available to sensor administrators, security analysts, and read-only users.  
+This section describes permissions available to sensor Administrators, Security Analysts, and Read-only users.  
 
-| Permission | Read only | Security analyst | Administrator |
+| Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
 | View the dashboard | ✓ | ✓ | ✓ |
 | Control map zoom views |  |  | ✓ |
@@ -80,26 +80,28 @@ This section describes how to define users. Cyberx, support, and administrator u
 **To define a user**:
 
 1. From the left pane for the sensor or the on-premises management console, select **Users**.
+
+     :::image type="content" source="media/how-to-create-and-manage-users/users-pane.png" alt-text="Screenshot of the Users pane for creating users.":::
 1. In the **Users** window, select **Create User**.
-1. On the **Create User** pane, define the following parameters:
+    
+1. In the **Create User** pane, define the following parameters:
 
    - **Username**: Enter a username.
    - **Email**: Enter the user's email address.
    - **First Name**: Enter the user's first name.
    - **Last Name**: Enter the user's last name.
-   - **Role**: Define the user's role. See [Role-based permissions](#role-based-permissions).
-   - **Access Group**: If you're creating a user for the on-premises management console, define the user's access group. See [Define global access control](how-to-define-global-user-access-control.md).
+   - **Role**: Define the user's role. For more information, see [Role-based permissions](#role-based-permissions).
+   - **Access Group**: If you're creating a user for the on-premises management console, define the user's access group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
    - **Password**: Select the user type as follows:
-     - **Local User**: Define a password for the user of a sensor or an on-premises management console. The password must include at least six characters and must include letters and numbers.
-     - **Active Directory User**: You can allow users to sign in to the sensor or management console by using Active Directory credentials. Defined Active Directory groups can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group to the read-only user type.
+     - **Local User**: Define a password for the user of a sensor or an on-premises management console. Password must have at least eight characters and contain lowercase and uppercase- alphabetic characters, numbers, and symbols.
+     - **Active Directory User**: You can allow users to sign in to the sensor or management console by using Azure Active Directory credentials. Defined Azure Active Directory groups can be associated with specific permission levels. For example, configure a specific Azure Active Directory group and assign all users in the group to the Read-only user type.
 
-:::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/manage-user-views.png" alt-text="Manage your users.":::
 
 ## User session timeout
 
-If users are not active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
+If users aren't active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
 
-When users have not worked with their console mouse or keyboard for 30 minutes, a session sign-out is forced.
+When users haven't worked with their console mouse or keyboard for 30 minutes, a session sign out is forced.
 
 This feature is enabled by default and on upgrade but can be disabled. In addition, session counting times can be updated. Session times are defined in seconds. Definitions are applied per sensor and on-premises management console.
 
@@ -136,11 +138,13 @@ You can track user activity in the event timeline on each sensor. The timeline d
 
 **To view user activity**:
 
-1. Sign in to the sensor.
+1. Select **Event Timeline** from the sensor side menu.
 
-1. In the event timeline, enable the **User Operations** option.
+1. Verify that  **User Operations** filter is set to **Show**.  
 
-    :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
+   :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
+
+1. Use the filters or Ctrl F option to find the information of interest to you.
 
 ## Integrate with Active Directory servers
 
@@ -155,28 +159,23 @@ Two types of LDAP-based authentication are supported:
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
-### Active Directory and Defender for IoT permissions
+### Azure Active Directory and Defender for IoT permissions
 
-You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign Read Only permissions to all users in the group.
+You can associate Azure Active Directory groups defined here with specific permission levels. For example, configure a specific Azure Active Directory group and assign Read-only permissions to all users in the group.
 
-**To configure Active Directory**:
+### Azure Active Directory configuration guidelines
+
+- You must define the LDAP parameters here exactly as they appear in Azure Active Directory.
+- For all the Azure Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Azure Active Directory use uppercase.
+- You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+
+**To configure Azure Active Directory**:
 
 1. From the left pane, select **System Settings**.
+1. Select **Integrations** and then select **Active Directory**.
+:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Screenshot of the Azure Active Directory configuration dialog box.":::
 
-    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="View your Active Directory system settings.":::
-
-1. On the **System Settings** pane, select **Active Directory**.
-
-    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
-
-1. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
-
-    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
-
-> [!NOTE]
-> - You must define the LDAP parameters here exactly as they appear in Active Directory.
-> - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
-> - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+1. Enable the **Active Directory Integration Enabled** toggle.
 
 1. Set the Active Directory server parameters, as follows:
 
@@ -185,12 +184,12 @@ You can associate Active Directory groups defined here with specific permission 
    | Domain controller FQDN | Set the fully qualified domain name (FQDN) exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. |
    | Domain controller port | Define the port on which your LDAP is configured. |
    | Primary domain | Set the domain name (for example, `subdomain.domain.com`) and the connection type according to your LDAP configuration. |
-   | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. |
+   | Azure Active Directory groups | Enter the group names that are defined in your Azure Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
-#### ActiveDirectory Groups for the On-premises management console
+#### Azure Active Directory groups for the On-premises management console
 
-If you are creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials will not work if an Access Group rule does not exists for the Active Directory user group. See [Define global access control](how-to-define-global-user-access-control.md).
+If you're creating Azure Active Directory groups for on-premises management console users, you must create an Access Group rule for each Azure Active Directory group. On-premises management console Azure Active Directory credentials won't work if an Access Group rule doesn't exist for the Azure Active Directory user group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
 
 1. Select **Save**.
 
@@ -198,21 +197,33 @@ If you are creating Active Directory groups for on-premises management console u
 
 ## Change a user's password
 
-The Administrator can change the password for the Security Analyst, and Read Only role. The Administrator role user can't change their own password and must contact a higher-level role. The Security Analyst, and Read Only roles can‘t reset their, or any other role's passwords. The Security Analyst, and Read Only roles need to contact a user with a higher role level to have their passwords reset. The CyberX role can change the password for all user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role.  
+User passwords can be changed for users created with a local password.
+
+**Administrator users**
+
+The Administrator can change the password for the Security Analyst, and Read-only role. The Administrator role user can't change their own password and must contact a higher-level role. 
+
+**Security Analyst and Read-only users**
+
+The Security Analyst and Read-only roles can't reset their or any other role's passwords. The Security Analyst and Read-only roles need to contact a user with a higher role level to have their passwords reset.
+
+**CyberX and Support users**
+
+CyberX role can change the password for all user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read-only user roles.  
 
 **To reset a user's password on the sensor**:
 
-1. Log in to the sensor using a user with the role Administrator, Support, or CyberX.
+1. Sign in to the sensor using a user with the role Administrator, Support, or CyberX.
 
 1. Select **Users** from the left-hand panel.
 
-   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Select the user option from the left side pane.":::
+1. Locate the local user whose password needs to be changed.
+    
+1. On this row, select three dots (...) and then select **Edit**.
 
-1. Locate the user and select **Edit** from the **Actions** dropdown menu.
+   :::image type="content" source="media/how-to-create-and-manage-users/change-password.png" alt-text="Screenshot of the Change password dialog for local sensor users.":::
 
-   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="select edit from the actions dropdown menu.":::
-
-1. Enter the new password in the **New Password**, and **Confirm New Password** fields.
+1. Enter and confirm the new password in **Change Password** section.
 
     > [!NOTE]
     > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the following symbols: #%*+,-./:=?@[]^_{}~
@@ -221,13 +232,11 @@ The Administrator can change the password for the Security Analyst, and Read Onl
 
 **To reset a user's password on the on-premises management console**:
 
-1. Log in to the on-premises management console using a user with the role Administrator, Support, or CyberX.
+1. Sign in to the on-premises management console using a user with the role Administrator, Support, or CyberX.
 
 1. Select **Users** from the left-hand panel.
 
-   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="On the left panel select the user's option.":::
-
-1. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
+1. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
 
 1. Enter the new password in the **New Password**, and **Confirm New Password** fields.
 
@@ -242,13 +251,13 @@ You can recover the password for the on-premises management console, or the sens
 
 **To recover the password for the on-premises management console, or the sensor**:
 
-1. On the sign in screen of either the on-premises management console, or the sensor select **Password recovery**. The **Password recovery** screen opens.
+1. On the sign in screen of either the on-premises management console, or the sensor, select **Password recovery**. The **Password recovery** screen opens.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Screenshot of the Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
 
 1. Select either **CyberX**, or **Support** from the drop-down menu, and copy the unique identifier code.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Select either the CyberX user or the Support user from the drop-down menu.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Screenshot of selecting either the Defender for IoT user or the support user.":::
 
 1. Navigate to the Azure portal, and select **Sites and Sensors**.  
 
@@ -256,14 +265,11 @@ You can recover the password for the on-premises management console, or the sens
 
 1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::   
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Screenshot of the recover on-premises management console password option.":::   
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
-
-    > [!NOTE]
-    > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
 
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
@@ -276,6 +282,8 @@ You can recover the password for the on-premises management console, or the sens
 
 ## Next steps
 
-[Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
-[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
-[Track sensor activity](how-to-track-sensor-activity.md)
+- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+
+- [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+
+- [Track sensor activity](how-to-track-sensor-activity.md)

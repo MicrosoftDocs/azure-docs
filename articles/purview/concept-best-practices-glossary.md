@@ -1,7 +1,7 @@
 ---
 title: Azure Purview glossary best practices
 description: This article provides examples of Azure Purview glossary best practices.
-author: zeinam
+author: zeinab-mk
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -30,7 +30,7 @@ The adoption by your organization of the business glossary will depend on you pr
 
 ## Why is a common business glossary needed?
 Without a common business glossary an organization's performance, culture, operations, and strategy often will adversely hinder the business. You will observe, in this hindrance, a condition in which cultural differences arise grounded in an inconsistent business language. These inconsistencies about the business language are communicated between team members and prevents them from leveraging their relevant data assets as a competitive advantage.
-You will also observe when there are language barriers, in which, most organizations will spend more time pursuing non-productive and non-collaborative activates as they need to rely on more detailed interactions to reach the same meaning and understanding for their data assets. 
+You will also observe when there are language barriers, in which, most organizations will spend more time pursuing non-productive and non-collaborative activities as they need to rely on more detailed interactions to reach the same meaning and understanding for their data assets. 
 
 ## Recommendations for implementing new glossary terms
 
@@ -71,7 +71,7 @@ When building new term templates in Azure Purview, review the following consider
 - When importing terms from a .CSV file, be sure that terms already existing in Azure Purview are intended to be updated. When using the import feature, Azure Purview will overwrite existing terms.
 - Before importing terms, test the import in a lab environment to ensure that no unexpected results occur, such as duplicate terms. 
 - The email address for Stewards and Experts should be the primary address of the user from the Azure Active Directory group. Alternate email, user principal name and non-Azure Active Directory emails are not yet supported.
-- Glossary terms provide fours status: draft, approved, expire, alert. Draft is not officially implemented, approved is official/stand/approved for production, expired means should no longer be used, alert need to pay more attention.
+- Glossary terms provide fours status: Draft, Approved, Expired, Alert. Draft is not officially implemented, Approved is official/stand/approved for production, Expired means should no longer be used, Alert need to pay more attention.
 For more information, see [Create, import, and export glossary terms](./how-to-create-import-export-glossary.md)
 
 ## Recommendations for exporting glossary terms 
@@ -88,8 +88,8 @@ Exporting terms may be useful in Azure Purview account to account, Backup, or Di
   - Manually, using Azure Purview Studio.
   - Using Bulk Edit mode to update up to 25 assets, using Azure Purview Studio.
   - Curated Code using the Atlas API.
-- Use Bulk Edit Mode when assigning terms manually. This feature allows a curator to assign glossary terms, stewards, experts, and classifications in bulk based on selected items from a search result. Multiple searches can be chained by selecting objects in the results. The Bulk Edit will apply to all selected objects. Be sure to clear the selections after the bulk edit has been performed. 
-- Other bulk edit operations can be performed by using the Atlas API. An example would be using the API to add descriptions or other custom properties to assets in bulk programmatically
+- Use Bulk Edit Mode when assigning terms manually. This feature allows a curator to assign glossary terms, owners, experts, classifications and certified in bulk based on selected items from a search result. Multiple searches can be chained by selecting objects in the results. The Bulk Edit will apply to all selected objects. Be sure to clear the selections after the bulk edit has been performed. 
+- Other bulk edit operations can be performed by using the Atlas API. An example would be using the API to add descriptions or other custom properties to assets in bulk programmatically.
 
 ## Next steps
 -  [Create, import, and export glossary terms](./how-to-create-import-export-glossary.md)

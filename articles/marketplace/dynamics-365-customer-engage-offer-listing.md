@@ -36,7 +36,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change it. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 Provide a short description of your offer for the **Search results summary** (up to 100 characters). This description may be used in marketplace search results.

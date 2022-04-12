@@ -176,7 +176,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     - `az` version 2.28.0 or higher
 
-    - `terraform` version 1.0.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
+    - `terraform` version 1.1.4 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
 
 
 ## Create service principal
@@ -226,7 +226,8 @@ The SAP automation deployment framework uses service principals for deployment. 
     export appId="<appId>"
 
     az role assignment create --assignee ${appId} \
-      --role "User Access Administrator"
+      --role "User Access Administrator" \
+      --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
     ```
 
 
@@ -435,7 +436,7 @@ A sample extract of a BOM file looks like:
 ```yaml
 
 ---
-name:    'S41909SPS03_v0007ms'
+name:    'S41909SPS03_v0010'
 target:  'S/4 HANA 1909 SPS 03'
 version: 7
 
@@ -519,7 +520,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010ms
 
     ```
     
@@ -529,7 +530,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010ms
     kv_name:                       <Deployer KeyVault Name> 
 
     ```
@@ -540,7 +541,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010
     kv_name:                       <Deployer KeyVault Name> 
     check_storage_account:         false
 

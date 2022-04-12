@@ -67,6 +67,9 @@ The following table lists what identities should be used for specific scenarios:
 | Access from Job | Yes/No | Compute MSI |
 | Access from Notebook | Yes/No | User's identity |
 
+> [!TIP]
+> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, _user_ identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
+
 ## Azure Storage Account
 
 When using an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to the following Azure RBAC roles for the storage account:

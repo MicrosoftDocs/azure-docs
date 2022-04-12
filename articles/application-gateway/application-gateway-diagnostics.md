@@ -3,11 +3,11 @@ title: Back-end health and diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/18/2021
-ms.author: victorh 
+ms.date: 02/25/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -111,11 +111,12 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-    ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics2.png" alt-text="Screenshot of storage account endpoints" lightbox="media/application-gateway-diagnostics/diagnostics2.png":::
 
 2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
-    ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics1.png" alt-text="Screenshot of app gateway properties" lightbox="media/application-gateway-diagnostics/diagnostics1.png":::
+
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 

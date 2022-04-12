@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps

@@ -1,7 +1,7 @@
 ---
-title: How to Use Service Registry with Azure Spring Cloud Enterprise Tier
+title: How to Use Tanzu Service Registry with Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use Service Registry with Azure Spring Cloud Enterprise Tier.
+description: How to use Tanzu Service Registry with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -10,24 +10,24 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java
 ---
 
-# Use Service Registry
+# Use Tanzu Service Registry
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Service Registry with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use VMware Tanzu® Service Registry with Azure Spring Cloud Enterprise Tier.
 
-[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, your apps can use the Service Registry to dynamically discover and call registered services.
+[Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, your apps can use Tanzu Service Registry to dynamically discover and call registered services.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier instance with Service Registry enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Cloud Enterprise tier instance with Tanzu Service Registry enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
   > [!NOTE]
-  > To use Service Registry, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+  > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
 ## Use Service Registry with apps
 
-Before your application can manage service registration and discovery using Service Registry, you must include the following dependency in your application's *pom.xml* file:
+Before your application can manage service registration and discovery using Tanzu Service Registry, you must include the following dependency in your application's *pom.xml* file:
 
 ```xml
 <dependency>
@@ -48,7 +48,7 @@ public class DemoApplication {
 }
 ```
 
-Use the following steps to bind an application to the Service Registry.
+Use the following steps to bind an application to Tanzu Service Registry.
 
 1. Open the **App binding** tab.
 

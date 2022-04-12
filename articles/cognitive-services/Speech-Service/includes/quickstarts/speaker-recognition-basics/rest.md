@@ -1,17 +1,19 @@
 ---
-author: v-jaswel
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/08/2022
-ms.author: v-jawe
+author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
+
+[!INCLUDE [Header](../../common/rest.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Text-dependent verification
 

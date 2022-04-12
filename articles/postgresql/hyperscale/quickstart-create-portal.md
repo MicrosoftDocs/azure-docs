@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: create a server group - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
@@ -46,23 +46,27 @@ To follow this quickstart, you'll first need to:
    | Admin username    | Currently required to be the value `citus`, and can't be changed. |
    | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
    | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
-   | Compute + storage | The compute, storage, and Tier configurations for your new server. Select **Configure server group**. |
+
+5. Select **Configure server group**.
 
    ![compute and storage](../media/quickstart-hyperscale-create-portal/compute.png)
 
-5. For this quickstart, you can accept the default value of **Basic** for
+   For this quickstart, you can accept the default value of **Basic** for
    **Tiers**. The other option, standard tier, creates worker nodes for
    greater total data capacity and query parallelism. See
    [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
-6. Select **Next : Networking >** at the bottom of the screen.
-7. In the **Networking** tab, select **Allow public access from Azure services
+
+6. Select **Save**.
+
+7. Select **Next : Networking >** at the bottom of the screen.
+8. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**.
 
    ![networking configuration](../media/quickstart-hyperscale-create-portal/networking.png)
 
-8. Select **Review + create** and then **Create** to create the server.
+9. Select **Review + create** and then **Create** to create the server.
    Provisioning takes a few minutes.
-9. The page will redirect to monitor deployment. When the live status changes
+10. The page will redirect to monitor deployment. When the live status changes
    from **Deployment is in progress** to **Your deployment is complete**.
    After this transition, select **Go to resource**.
 

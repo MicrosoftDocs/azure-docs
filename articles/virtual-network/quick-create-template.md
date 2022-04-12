@@ -3,12 +3,12 @@ title: 'Quickstart: Create a virtual network using a Resource Manager template'
 titleSuffix: Azure Virtual Network
 description: Learn how to use a Resource Manager template to create an Azure virtual network.
 services: virtual-network
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.author: kumud
-ms.custom: devx-track-azurepowershell, mode-other
+ms.author: mbender
+ms.custom: devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Create a virtual network - Resource Manager template

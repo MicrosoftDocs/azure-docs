@@ -11,7 +11,7 @@ ms.subservice: spark
 ms.date: 09/03/2020
 ---
 
-# Tutorial: Create an Apache Spark applications with VSCode using a Synapse workspace
+# Tutorial: Create an Apache Spark application with VSCode using a Synapse workspace
 
 Learn how to use Apache Spark & Hive Tools for Visual Studio Code. Use the tools to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code. Then we'll walk through how to submit jobs to Spark & Hive Tools.
 
@@ -29,6 +29,7 @@ The following items are required for completing the steps in this article:
 
 ## Install Spark & Hive Tools
 
+
 After you meet the prerequisites, you can install Spark & Hive Tools for Visual Studio Code by following these steps:
 
 1. Open Visual Studio Code.
@@ -42,6 +43,10 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
      ![Spark & Hive for Visual Studio Code Python install](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
 5. Select **Reload** when necessary.
+
+> [!Note]
+>
+> **Synapse PySpark installation error** is an [known issue](#known-issues).
 
 ## Open a work folder
 
@@ -85,7 +90,12 @@ Follow these steps to connect to Azure:
 
      ![Set default cluster configuration](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 
-## Submit interactive Synapse PySpark queries to Spark pool
+## Submit interactive Synapse PySpark queries to Spark pool (Not supported anymore)
+
+> [!NOTE]
+>
+>For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
+> 
 
 Users can perform Synapse PySpark interactive on Spark pool in the following ways:
 
@@ -139,7 +149,7 @@ for (word, count) in sortedCollection:
 
      ![select interpreter to start jupyter server](./media/vscode-tool-synapse/select-interpreter-to-start-jupyter-server.png)
 
-8. Select the python option below.
+8. Select the Python option below.
 
      ![choose the below option](./media/vscode-tool-synapse/choose-the-below-option.png)
     
@@ -291,12 +301,13 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
 
 ## Known issues
 
-### ms-python >=2020.5.78807 version is not supported on this extention 
-
-"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
+### Synapse PySpark installation error.
 
 ![known issues](./media/vscode-tool-synapse/known-issue.png)
 
+### Not supported submit interactive Synapse PySpark queries to Spark pool anymore
+
+For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
 
 ## Next steps
 

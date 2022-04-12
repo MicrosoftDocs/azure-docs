@@ -50,14 +50,18 @@ items:
     href:  generate-sas-tokens.md
   - name: Custom models
     items:
-    - name: Assemble a training data set
-      href: build-training-data-set.md
-    - name:   Deploy the sample-labeling tool
-      href: deploy-label-tool.md
-    - name: Train a custom model with the sample-labeling tool
-      href: label-tool.md
-    - name: Use table tags to train your custom model
-      href: supervised-table-tags.md
+    - name: Build a custom model (v2.1)
+      items:
+      - name: Assemble a training data set
+        href: build-training-data-set.md
+      - name: Deploy the sample-labeling tool
+        href: deploy-label-tool.md
+      - name: Train a custom model with the sample-labeling tool
+        href: label-tool.md
+      - name: Use table tags to train your custom model
+        href: supervised-table-tags.md
+    - name: Build a custom model (v3.0)
+      href: how-to-guides/build-custom-model-v3.md
   - name: Composed models
     items:
      - name: Compose models v3.0 (preview)
@@ -118,7 +122,7 @@ items:
     href: concept-form-recognizer-studio.md
   - name: General document model | preview
     href: concept-general-document.md
-  - name:  W-2 tax model | preview
+  - name: W-2 form model | preview
     href: concept-w2.md
   - name: Read model | preview
     href: concept-read.md
@@ -148,6 +152,8 @@ items:
   items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
+  - name: Use managed identities to access Azure storage
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:
@@ -172,17 +178,17 @@ items:
   - name: Azure Form Recognizer REST API v3.0 (preview)
     items:
     - name: REST API v3.0 reference
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument
     - name: Client libraries and SDKs
       items:
       - name: .NET
-        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html
       - name: Python
-        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html
       - name: Java
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html
       - name: JavaScript
-        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

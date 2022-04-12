@@ -1,21 +1,21 @@
 ---
-title: IT Service Management Connector - Secure Export in Azure Monitor - Azure Configurations 
-description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
+title: IT Service Management Connector - Secure Webhook in Azure Monitor - Azure Configurations 
+description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 03/30/2022
 
 ---
 
-# Configure Azure to connect ITSM tools using Secure Export
+# Configure Azure to connect ITSM tools using Secure Webhook
 
-This article provides information about how to configure the Azure in order to use "Secure Export".
-In order to use "Secure Export", follow these steps:
+This article provides information about how to configure the Azure in order to use "Secure Webhook".
+In order to use "Secure Webhook", follow these steps:
 
 1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
 1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
 1. [Create a Secure Webhook action group.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
 1. Configure your partner environment.
-    Secure Export supports connections with the following ITSM tools:
+    Secure Webhook supports connections with the following ITSM tools:
     * [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
     * [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
@@ -64,10 +64,10 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 
 The configuration contains two steps:
 
-1. Get the URI for the secure export definition.
+1. Get the URI for the secure Webhook definition.
 2. Definitions according to the flow of the ITSM tool.
 
 ## Next steps
 
-* [ServiceNow Secure Export Configuration](./itsmc-secure-webhook-connections-servicenow.md)
-* [BMC Secure Export Configuration](./itsmc-secure-webhook-connections-bmc.md)
+* [ServiceNow Secure Webhook Configuration](./itsmc-secure-webhook-connections-servicenow.md)
+* [BMC Secure Webhook Configuration](./itsmc-secure-webhook-connections-bmc.md)

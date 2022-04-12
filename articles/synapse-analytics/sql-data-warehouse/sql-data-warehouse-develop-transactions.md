@@ -1,7 +1,6 @@
 ---
 title: Use transactions in Azure Synapse Analytics SQL pool
 description: This article includes tips for implementing transactions and developing solutions in Synapse SQL pool.
-services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics

@@ -9,22 +9,20 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 03/21/2022
 ms.custom: devx-track-csharp
 ---
 
 # Upgrade to Azure Cognitive Search .NET SDK version 10
 
+> [!IMPORTANT]
+> Version 10 is the last version of the Microsoft.Azure.Search package and it's now deprecated. It's succeeded by Azure.Search.Documents. If you're using older versions of Microsoft.Azure.Search, we recommend a sequential migration path. For example, if you're using version 8.0-preview or older, you should upgrade to version 9 first, and then to version 10, and finally to version 11.
+
 If you're using version 9.0 or older of the [.NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 10.
 
-Azure Search is renamed to Azure Cognitive Search in version 10, but namespaces and package names are unchanged. Previous versions of the SDK (9.0 and earlier) continue to use the former name. For more information about using the SDK, including examples, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
+"Azure Search" is renamed to "Azure Cognitive Search" in version 10, but namespaces and package names are unchanged. Previous versions of the SDK (9.0 and earlier) continue to use the "Microsoft.Search" prefix. For more information about using the SDK, including examples, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
 
 Version 10 adds several features and bug fixes, bringing it to the same functional level as the REST API version `2019-05-06`. In cases where a change breaks existing code, we'll walk you through the [steps required to resolve the issue](#UpgradeSteps).
-
-> [!NOTE]
-> If you're using version 8.0-preview or older, you should upgrade to version 9 first, and then upgrade to version 10. See [Upgrading to the Azure Search .NET SDK version 9](search-dotnet-sdk-migration-version-9.md) for instructions.
->
-> Your search service instance supports several REST API versions, including the latest one. You can continue to use a version when it is no longer the latest one, but we recommend that you migrate your code to use the newest version. When using the REST API, you must specify the API version in every request via the api-version parameter. When using the .NET SDK, the version of the SDK you're using determines the corresponding version of the REST API. If you are using an older SDK, you can continue to run that code with no changes even if the service is upgraded to support a newer API version.
 
 <a name="WhatsNew"></a>
 

@@ -5,8 +5,9 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/08/2022
-
+ms.date: 03/24/2022
+ms.custom: cosmos-db-video
+ms.reviewer: wiassaf
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
@@ -18,7 +19,11 @@ For example, a container holds items. Each item has a unique value for the `User
 
 In addition to a partition key that determines the item's logical partition, each item in a container has an *item ID* (unique within a logical partition). Combining the partition key and the *item ID* creates the item's *index*, which uniquely identifies the item. [Choosing a partition key](#choose-partitionkey) is an important decision that will affect your application's performance.
 
+>
+> [!VIDEO https://aka.ms/docs.partitioning-overview]
+
 This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we have covered them so you have clarity on how Azure Cosmos DB works.
+
 
 ## Logical partitions
 
@@ -36,7 +41,7 @@ A container is scaled by distributing data and throughput across physical partit
 
 The number of physical partitions in your container depends on the following:
 
-* The number of throughput provisioned (each individual physical partition can provide a throughput of up to 10,000 request units per second). The 10,000 RU/s limit for physical partitions implies that logical partitions also have a 10,000 RU/s limit, as each logical partition is only mapped to one physical partition.
+* The amount of throughput provisioned (each individual physical partition can provide a throughput of up to 10,000 request units per second). The 10,000 RU/s limit for physical partitions implies that logical partitions also have a 10,000 RU/s limit, as each logical partition is only mapped to one physical partition.
 
 * The total data storage (each individual physical partition can store up to 50GB data).
 
@@ -53,7 +58,7 @@ You can see your container's physical partitions in the **Storage** section of t
 
 In the above screenshot, a container has `/foodGroup` as the partition key. Each of the three bars in the graph represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains the top 3 most significant size logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
-If you provision a throughput of 18,000 request units per second (RU/s), then each of the three physical partition can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption by [choosing the right logical partition key](#choose-partitionkey). 
+If you provision a throughput of 18,000 request units per second (RU/s), then each of the three physical partitions can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption by [choosing the right logical partition key](#choose-partitionkey). 
 
 ## Managing logical partitions
 
@@ -65,7 +70,7 @@ Transactions (in stored procedures or triggers) are allowed only against items i
 
 ## Replica sets
 
-Each physical partition consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. Azure Cosmos DB automatically manages replica sets.
+Each physical partition consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica hosts an instance of the database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. Azure Cosmos DB automatically manages replica sets.
 
 Typically, smaller containers only require a single physical partition, but they will still have at least 4 replicas.
 
@@ -73,11 +78,11 @@ The following image shows how logical partitions are mapped to physical partitio
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="An image that demonstrates Azure Cosmos DB partitioning" border="false":::
 
-## <a id="choose-partitionkey"></a>Choosing a partition key
+## <a id="choose-partitionkey"></a>Choose a partition key
 
-A partition key has two components: **partition key path** and the **partition key value**. For example, consider an item { "userId" : "Andrew", "worksFor": "Microsoft" } if you choose "userId" as the partition key, the following are the two partition key components:
+A partition key has two components: **partition key path** and the **partition key value**. For example, consider an item `{ "userId" : "Andrew", "worksFor": "Microsoft" }` if you choose "userId" as the partition key, the following are the two partition key components:
 
-* The partition key path (For example: "/userId"). The partition key path accepts alphanumeric and underscore(_) characters. You can also use nested objects by using the standard path notation(/).
+* The partition key path (For example: "/userId"). The partition key path accepts alphanumeric and underscore (_) characters. You can also use nested objects by using the standard path notation(/).
 
 * The partition key value (For example: "Andrew"). The partition key value can be of string or numeric types.
 
@@ -109,7 +114,7 @@ If your container could grow to more than a few physical partitions, then you sh
 
 * Your container will store over 100 GB of data
 
-## Using item ID as the partition key
+## Use item ID as the partition key
 
 If your container has a property that has a wide range of possible values, it is likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
 
@@ -135,5 +140,5 @@ Some things to consider when selecting the *item ID* as the partition key includ
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 * See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

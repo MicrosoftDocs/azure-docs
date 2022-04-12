@@ -1,13 +1,27 @@
 ---
 title: Control what traffic is monitored
 description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-ms.date: 11/09/2021
+ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
 # Control what traffic is monitored
 
 Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and behavior. Several tools are available to control the type of traffic that each sensor detects.
+
+## Analytics and self-learning engines
+
+Engines identify security issues via continuous monitoring and five analytics engines that incorporate self-learning to eliminate the need for updating signatures or defining rules. The engines use ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies. The five engines are:
+
+- **Protocol violation detection**: Identifies the use of packet structures and field values that violate ICS protocol specifications.
+
+- **Policy violation detection**: Identifies policy violations such as unauthorized use of function codes, access to specific objects, or changes to device configuration.
+
+- **Industrial malware detection**: Identifies behaviors that indicate the presence of known malware such as Conficker, Black Energy, Havex, WannaCry, and NotPetya.
+
+- **Anomaly detection**: Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the engine uses a patented technique called Industrial Finite State Modeling (IFSM). The solution requires a shorter learning period than generic mathematical approaches or analytics, which were originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives.
+
+- **Operational incident detection**: Identifies operational issues such as intermittent connectivity that can indicate early signs of equipment failure.
 
 ## Learning and Smart IT Learning modes
 
@@ -19,7 +33,7 @@ After the learning period is complete and the Learning mode is disabled, the sen
 
 When Smart IT Learning is enabled, the sensor tracks network traffic that generates nondeterministic IT behavior based on specific alert scenarios.
 
-The sensor monitors this traffic for seven days. If it detects the same nondeterministic IT traffic within the seven days, it continues to monitor the traffic for another seven days. When the traffic is not detected for a full seven days, Smart IT Learning is disabled for that scenario. New traffic detected for that scenario will only then generate alerts and notifications.
+The sensor monitors this traffic for seven days. If it detects the same nondeterministic IT traffic within the seven days, it continues to monitor the traffic for another seven days. When the traffic isn't detected for a full seven days, Smart IT Learning is disabled for that scenario. New traffic detected for that scenario will only then generate alerts and notifications.
 
 Working with Smart IT Learning helps you reduce the number of unnecessary alerts and notifications caused by noisy IT scenarios.
 
@@ -27,11 +41,11 @@ If your sensor is controlled by the on-premises management console, you can't di
 
 The learning capabilities (Learning and Smart IT Learning) are enabled by default.
 
-To enable or disable learning:
+**To enable or disable learning:**
 
-- Select **System Settings** and toggle the **Learning** and **Smart IT Learning** options.
+1. Select **System settings** > **Network monitoring** > **Detection Engines and Network Modeling**.
+1. Enable or disable the **Learning** and **Smart IT Learning** options.
 
-:::image type="content" source="media/concept-learning-modes/toggle-options-for-learning-and-smart-it-learning.png" alt-text="System settings toggle screen.":::
 
 ## Configure subnets
 
@@ -53,19 +67,17 @@ In some cases, such as environments that use public ranges as internal ranges, y
 
 - No alerts will be sent about unauthorized internet activity, which reduces notifications and alerts received on external addresses.
 
-To configure subnets:
+**To configure subnets:**
 
 1. On the side menu, select **System Settings**.
 
-2. In the **System Setting** window, select **Subnets**.
+1. Select **Basic**, and then select **Subnets**.
 
-   :::image type="content" source="media/how-to-control-what-traffic-is-monitored/edit-subnets-configuration-screen.png" alt-text="Screenshot that shows the subnet configuration screen."::: 
+3. To add subnets automatically when new devices are discovered, keep the **Auto Subnets Learning** checkbox selected.
 
-3. To add subnets automatically when new devices are discovered, keep **Auto Subnets Learning** selected.
+4. To resolve all subnets as internal subnets, select **Resolve all internet traffic as internal/private**. Public IPs will be treated as private local addresses. No alerts will be sent about unauthorized internet activity.
 
-4. To resolve all subnets as internal subnets, select **Don't Detect Internet Activity**.
-
-5. Select **Add network** and define the following parameters for each subnet:
+5. Select **Add subnet** and define the following parameters for each subnet:
 
     - The subnet IP address.
     - The subnet mask address.
@@ -75,17 +87,15 @@ To configure subnets:
 
 7. To present the subnet separately when you're arranging the map according to the Purdue level, select **Segregated**.
 
-8. To delete a subnet, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/delete-icon.png" border="false":::.
-
 9. To delete all subnets, select **Clear All**.
 
 10. To export configured subnets, select **Export**. The subnet table is downloaded to your workstation.
 
 11. Select **Save**.
 
-### Importing information 
+### Importing information
 
-To import subnet information, select **Import** and select a CSV file to import. The subnet information is updated with the information that you imported. If you important an empty field, you'll lose your data.
+To import subnet information, select **Import** and select a CSV file to import. The subnet information is updated with the information that you imported. If you import an empty field, you'll lose your data.
 
 ## Detection engines
 
@@ -96,8 +106,6 @@ Self-learning analytics engines eliminate the need for updating signatures or de
 
 When an engine detects a deviation, an alert is triggered. You can view and manage alerts from the alert screen or from a partner system.
 
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deviation-alert-screen.png" alt-text="Screenshot that shows detection of deviation.":::
-
 The name of the engine that triggered the alert appears under the alert title.
 
 ### Protocol violation engine 
@@ -105,14 +113,14 @@ The name of the engine that triggered the alert appears under the alert title.
 A protocol violation occurs when the packet structure or field values don't comply with the protocol specification.
 
 Example scenario:
-*"Illegal MODBUS Operation (Function Code Zero)"* alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This action is not allowed according to the protocol specification, and the secondary device might not handle the input correctly.
+*"Illegal MODBUS Operation (Function Code Zero)"* alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This action isn't allowed according to the protocol specification, and the secondary device might not handle the input correctly.
 
 ### Policy violation engine
 
 A policy violation occurs with a deviation from baseline behavior defined in learned or configured settings.
 
 Example scenario:
-*"Unauthorized HTTP User Agent"* alert. This alert indicates that an application that was not learned or approved by policy is used as an HTTP client on a device. This might be a new web browser or application on that device.
+*"Unauthorized HTTP User Agent"* alert. This alert indicates that an application that wasn't learned or approved by policy is used as an HTTP client on a device. This might be a new web browser or application on that device.
 
 ### Malware engine
 
@@ -133,15 +141,12 @@ Example scenario:
 The Operational engine detects operational incidents or malfunctioning entities.
 
 Example scenario: 
-*"Device is Suspected to be Disconnected (Unresponsive)"* alert. This alert is raised when a device is not responding to any kind of request for a predefined period. This alert might indicate a device shutdown, disconnection, or malfunction.
+*"Device is Suspected to be Disconnected (Unresponsive)"* alert. This alert is raised when a device isn't responding to any kind of request for a predefined period. This alert might indicate a device shutdown, disconnection, or malfunction.
 
 ### Enable and disable engines
 
 When you disable a policy engine, information that the engine generates won't be available to the sensor. For example, if you disable the Anomaly engine, you won't receive alerts on network anomalies. If you created a forwarding rule, anomalies that the engine learns won't be sent. To enable or disable a policy engine, select **Enabled** or **Disabled** for the specific engine.
 
-The overall score is displayed in the lower-right corner of the **System Settings** screen. The score indicates the percentage of available protection enabled through the threat protection engines. Each engine is 20 percent of available protection.
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/protection-score-screen.png" alt-text="Screenshot that shows a score.":::
 
 ## Configure DHCP address ranges
 
@@ -161,11 +166,9 @@ The sensor console presents the most current IP address associated with the devi
 
 - The **Device Properties** window indicates if the device was defined as a DHCP device.
 
-To set a DHCP address range:
+**To set a DHCP address range:**
 
-1.  On the side menu, select **DHCP Ranges** from the **System Settings** window.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/dhcp-address-range-screen.png" alt-text="Screenshot that shows the selection of DHCP Ranges.":::
+1.  On the side menu, select **System Settings** > **Network monitoring** > **DHCP Ranges**.
 
 2.  Define a new range by setting **From** and **To** values.
 
@@ -190,29 +193,29 @@ The host name appears in the device inventory, and device map, and in reports.
 
 You can schedule reverse lookup resolution schedules for specific hourly intervals, such as every 12 hours. Or you can schedule a specific time.
 
-To define DNS servers:
+**To define DNS servers:**
 
-1. Select **System Settings** and then select **DNS Settings**.
+1. Select **System settings**> **Network monitoring**, then select **Reverse DNS Lookup**.
 
 2. Select **Add DNS Server**.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-configuration-screen.png" alt-text="Screenshot that shows the selection of Add DNS Server.":::
-
-3. In the **Schedule reverse DNS lookup** field, choose either:
+3. In the **Schedule Reverse lookup** field, choose either:
 
     - Intervals (per hour).
   
     - A specific time. Use European formatting. For example, use **14:30** and not **2:30 PM**.
 
-4. In the **DNS Server Address** field, enter the DNS IP address.
+4. In the **DNS server address** field, enter the DNS IP address.
 
-5. In the **DNS Server Port** field, enter the DNS port.
+5. In the **DNS server port** field, enter the DNS port.
 
-6. Resolve the network IP addresses to device FQDNs. In the **Number of Labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
+6. Resolve the network IP addresses to device FQDNs. In the **Number of labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
 
 7. In the **Subnets** field, enter the subnets that you want the DNS server to query.
 
 8. Select the **Enable** toggle if you want to initiate the reverse lookup.
+
+1. Select **Save**.
 
 ### Test the DNS configuration 
 
@@ -223,8 +226,6 @@ By using a test device, verify that the settings you defined work properly:
 2. Select **Test**.
 
 3. Enter an address in **Lookup Address** for the **DNS reverse lookup test for server** dialog box.
-
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Screenshot that shows the Lookup Address area.":::
 
 4. Select **Test**.
 
@@ -247,51 +248,33 @@ You can perform scheduled scans or manual scans. When a scan is finished, you ca
 
 Configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
 
-To configure an automatic scan:
+**To configure an automatic scan:**
 
-1. On the side menu, select **System Settings**.
+1. Select **System settings**> **Network monitoring**, then select **Windows Endpoint Monitoring (WMI)**.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
+1. In the **Edit scan ranges configuration** section, enter the ranges you want to scan and add your username and password.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the selection of Windows Endpoint Monitoring.":::
-
-3. On the **Scan Schedule** pane, configure options as follows:
+3. Define how you want to run the scan:
 
       - **By fixed intervals (in hours)**: Set the scan schedule according to intervals in hours.
 
       - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/schedule-a-scan-screen-v2.png" alt-text="Screenshot that shows the Save Scan button.":::
+8. Select **Save**. The dialog box closes.
 
-4. To define the scan range, select **Set scan ranges**.
+**To perform a manual scan:**
 
-5. Set the IP address range and add your user and password.
+1. Define the scan ranges.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/edit-scan-range-screen.png" alt-text="Screenshot that shows adding a user and password.":::
+3. Select **Save** and **Apply changes** and then select **Manually scan**.
 
-6. To exclude an IP range from a scan, select **Disable** next to the range.
+**To view scan results:**
 
-7. To remove a range, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: next to the range.
+1. When the scan is finished, select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
-8. Select **Save**. The **Edit Scan Ranges Configuration** dialog box closes, and the number of ranges appears in the **Scan Ranges** pane.
+## Next steps
 
-To perform a manual scan:
+For more information, see:
 
-1. On the side menu, select **System Settings**.
-
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
-
-3. In the **Actions** pane, select **Start scan**. A status bar appears on the **Actions** pane and shows the progress of the scanning process.
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/started-scan-screen-v2.png" alt-text="Screenshot that shows the Start scan button.":::
-
-To view scan results:
-
-1. When the scan is finished, on the **Actions** pane, select **View Scan Results**. The CSV file with the scan results is downloaded to your computer.
-
-## See also
-
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-[Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

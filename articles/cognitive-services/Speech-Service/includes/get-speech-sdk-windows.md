@@ -31,18 +31,6 @@ The Speech SDK on Windows requires the <a href="https://support.microsoft.com/he
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
-The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (x86/x64) that matches your application.
-
-| Name                                            | Function                                             |
-|-------------------------------------------------|------------------------------------------------------|
-| *Microsoft.CognitiveServices.Speech.core.dll*   | Core SDK, required for native and managed deployment |
-| *Microsoft.CognitiveServices.Speech.csharp.dll* | Required for managed deployment                      |
-
-Starting with the release 1.3.0, the *Microsoft.CognitiveServices.Speech.csharp.bindings.dll* file that shipped in previous releases isn't needed anymore. The functionality is now integrated in the core SDK.
-
-> [!IMPORTANT]
-> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under **Properties** > **Publish Section**. Select the **Application Files** button and find corresponding libraries from the dropdown list. Make sure the value is set to **Included**. Visual Studio includes the file when the project is published or deployed.
-
 ### C++
 
 [!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]

@@ -3,45 +3,46 @@ title: Route traffic via network virtual appliance - Azure CLI script sample
 description: Route traffic through a firewall network virtual appliance - Azure CLI script sample.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: twooley
 editor: ''
 tags:
-
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: kumud 
+ms.date: 02/03/2022
+ms.author: mbender 
 ms.custom: devx-track-azurecli
-
 ---
 
 # Route traffic through a network virtual appliance - Azure CLI script sample
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/bash), or from a local Azure CLI installation. If you use the CLI locally, this script requires that you are running version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to create a connection with Azure.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment 
+### Run the script
 
-Run the following command to remove the resource group, VM, and all related resources:
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh" id="FullScript":::
+
+## Clean up deployment
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name MyResourceGroup --yes
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the following table links to command-specific documentation:
 
@@ -55,8 +56,8 @@ This script uses the following commands to create a resource group, virtual netw
 | [az network nsg create](/cli/azure/network/nsg) | Creates a network security group (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Creates NSG rules that allow HTTP and HTTPS ports inbound to the VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Associates the NSGs and route tables to subnets. |
-| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Creates a route table for all routes. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Creates routes to route traffic between subnets and the internet through the VM. |
+| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Creates a route table for all routes. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Creates routes to route traffic between subnets and the internet through the VM. |
 | [az vm create](/cli/azure/vm) | Creates a virtual machine and attaches the NIC to it. This command also specifies the virtual machine image to use and administrative credentials. |
 | [az group delete](/cli/azure/group) | Deletes a resource group and all resources it contains. |
 

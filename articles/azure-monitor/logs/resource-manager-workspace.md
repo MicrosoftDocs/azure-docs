@@ -22,7 +22,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 - [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## Create a Log Analytics workspace
-The following sample creates a new empty Log Analytics workspace.
+The following sample creates a new empty Log Analytics workspace. A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
 
 ### Notes
 

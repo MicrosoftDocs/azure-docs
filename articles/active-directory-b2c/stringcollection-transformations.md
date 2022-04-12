@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using the string collection claims transforma
 
 ## AddItemToStringCollection
 
-Adds a string claim to a new unique values stringCollection claim.
+Adds a string claim to a new unique values stringCollection claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/stringCollection#additemtostringcollection) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -54,7 +54,7 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 
 ## AddParameterToStringCollection
 
-Adds a string parameter to a new unique values stringCollection claim.
+Adds a string parameter to a new unique values stringCollection claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/stringCollection#addparametertostringcollection) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -89,7 +89,7 @@ The following example adds a constant email address (admin@contoso.com) to the *
 
 ## GetSingleItemFromStringCollection
 
-Gets the first item from the provided string collection.
+Gets the first item from the provided string collection. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/stringCollection#getsingleitemfromstringcollection) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -119,7 +119,7 @@ The following example reads the **otherMails** claim and returns the first item 
 
 ## StringCollectionContains
 
-Checks if a StringCollection claim type contains an element.
+Checks if a StringCollection claim type contains an element. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/stringCollection#stringcollectioncontains) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -157,7 +157,7 @@ Following example checks whether the `roles` stringCollection claim type contain
 
 ## StringCollectionContainsClaim
 
-Checks if a StringCollection claim type contains a claim value.
+Checks if a StringCollection claim type contains a claim value. Check out the [Live demo]() of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -195,4 +195,4 @@ Following example checks whether the `roles` stringCollection claim type contain
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/stringCollection) on the Azure AD B2C community GitHub repo

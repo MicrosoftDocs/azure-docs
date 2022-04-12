@@ -2,10 +2,7 @@
 title: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 ms.topic: conceptual
-author: renatosalas
-ms.author: regutier
 ms.date: 01/14/2021
-
 ms.reviewer: mbullwin
 ---
 

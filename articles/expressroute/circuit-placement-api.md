@@ -15,6 +15,25 @@ The ExpressRoute partner circuit placement API allows ExpressRoute partners to p
 
 This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
 
+## Register provider subscription to the expressRouteProviderPort resource type
+To use the circuit placement API, you first need to enroll your subscription to access the port resource type.
+
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+1. Register your subscription.
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+
 ## Workflow
 
 1. ExpressRoute customers share the service key of the target ExpressRoute circuit.
@@ -33,14 +52,11 @@ The ExpressRoute partner can list all port pairs within the target provider subs
 
 ### To get a list of all port pairs for a provider
 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts 
-
-#### Get Operation
-
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?api-version={api-version}
 {
     "parameters": {
-      "api-version": "2020-03-01",
+      "api-version": "2021-12-01",
       "subscriptionId": "subid"
     },
     "responses": {
@@ -95,18 +111,13 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK)  The request is success. It will fetch list of ports.
 * 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
 
-### List of all port for a provider for a particular peering location
-
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
-
-#### GET Operation
+### To get a list of all port pairs by location
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}&api-version={api-version}
 {
   "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "locationName": "SiliconValley",
     "subscriptionId": "subid"
   },
@@ -143,18 +154,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK) The request is success. It will fetch list of ports.
 * 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
 
-To get port details of a particular port using port pair descriptor ID.
-
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
-
-#### GET Operation
+### To get a specific port pair using the port pair descriptor ID.
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}?api-version={api-version}
+
 {
   "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "portPairDescriptor": " bvtazureixpportpair1",
     "subscriptionId": "subid"
   },
@@ -192,7 +199,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 204 The port pair with the mentioned descriptor ID isn't available.
 * 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
 
-### PUT expressRouteCrossConnection API to move a circuit to a specific port pair
+### Move a target ExpressRoute Circuit to a specific port pair
 
 Once the portPairDescriptor of the target port pair is identified, the ExpressRoute partner can use the [ExpressRouteCrossConnection API](/rest/api/expressroute/express-route-cross-connections/create-or-update) to move the ExpressRoute circuit to a specific port pair.
 
@@ -200,16 +207,11 @@ Currently this API is used by providers to update provisioning state of circuit.
 
 Currently the primaryAzurePort and secondaryAzurePort are read-only properties. Now we've disabled the read-only properties for these ports.
 
-#### PUT
-
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version=2021-02-01
-
-#### PUT Operation
-
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version={api-version}
 {
 "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "crossConnectionName": "The name of the cross connection",
     "subscriptionId": "subid"
   }

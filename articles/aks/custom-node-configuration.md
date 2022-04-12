@@ -1,5 +1,5 @@
 ---
-title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools (preview)
+title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
 ms.service: container-service
 ms.topic: article
@@ -8,45 +8,9 @@ ms.author: jpalma
 author: palma21
 ---
 
-# Customize node configuration for Azure Kubernetes Service (AKS) node pools (preview)
+# Customize node configuration for Azure Kubernetes Service (AKS) node pools
 
 Customizing your node configuration allows you to configure or tune your operating system (OS) settings or the kubelet parameters to match the needs of the workloads. When you create an AKS cluster or add a node pool to your cluster, you can customize a subset of commonly used OS and kubelet settings. To configure settings beyond this subset, [use a daemon set to customize your needed configurations without losing AKS support for your nodes](support-policies.md#shared-responsibility).
-
-## Register the `CustomNodeConfigPreview` preview feature
-
-To create an AKS cluster or node pool that can customize the kubelet parameters or OS settings, you must enable the `CustomNodeConfigPreview` feature flag on your subscription.
-
-Register the `CustomNodeConfigPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "CustomNodeConfigPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomNodeConfigPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## Install aks-preview CLI extension
-
-To create an AKS cluster or a node pool that can customize the kubelet parameters or OS settings, you need the latest *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
 
 ## Use custom node configuration
 
@@ -105,7 +69,7 @@ For agent nodes, which are expected to handle very large numbers of concurrent s
 | `net.ipv4.neigh.default.gc_thresh1`| 	128 - 80000 | 4096 | Minimum number of entries that may be in the ARP cache. Garbage collection won't be triggered if the number of entries is below this setting. | 
 | `net.ipv4.neigh.default.gc_thresh2`| 	512 - 90000 | 8192 | Soft maximum number of entries that may be in the ARP cache. This setting is arguably the most important, as ARP garbage collection will be triggered about 5 seconds after reaching this soft maximum. |
 | `net.ipv4.neigh.default.gc_thresh3`| 	1024 - 100000 | 16384 | Hard maximum number of entries in the ARP cache. |
-| `net.netfilter.nf_conntrack_max` | 131072 - 589824 | 131072 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_max` is the maximum number of nodes in the hash table, that is, the maximum number of connections supported by the `nf_conntrack` module or the size of connection tracking table. | 
+| `net.netfilter.nf_conntrack_max` | 131072 - 1048576 | 131072 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_max` is the maximum number of nodes in the hash table, that is, the maximum number of connections supported by the `nf_conntrack` module or the size of connection tracking table. | 
 | `net.netfilter.nf_conntrack_buckets` | 65536 - 147456 | 65536 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_buckets` is the size of hash table. | 
 
 #### Worker limits
@@ -128,6 +92,8 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | `swapFileSizeMB` | 1 MB - Size of the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | None | SwapFileSizeMB specifies size in MB of a swap file will be created on the agent nodes from this node pool. | 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. | 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. | 
+
+
 
 > [!IMPORTANT]
 > For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
@@ -182,6 +148,28 @@ Add a new node pool specifying the Kubelet parameters using the JSON file you cr
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
+
+## Other configuration
+
+The settings below can be used to modify other Operating System settings.
+
+### Message of the Day
+
+Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster  creation or node pool creation.
+
+
+#### Cluster creation
+```azurecli
+az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
+```
+
+#### Nodepool creation
+```azurecli
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
+```
+
+
+
 ## Next steps
 
 - Learn [how to configure your AKS cluster](cluster-configuration.md).
@@ -199,15 +187,15 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 [aks-view-master-logs]: ../azure-monitor/containers/container-insights-log-query.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
-[az-aks-scale]: /cli/azure/aks#az_aks_scale
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [upgrade-cluster]: upgrade-cluster.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade

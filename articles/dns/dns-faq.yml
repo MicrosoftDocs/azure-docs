@@ -5,10 +5,9 @@ metadata:
   services: dns
   author: rohinkoul
   ms.service: dns
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/11/2021
   ms.author: rohink
-    
 title: Azure DNS FAQ
 summary: |
 

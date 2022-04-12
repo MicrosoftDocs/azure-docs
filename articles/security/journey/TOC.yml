@@ -80,6 +80,11 @@
   - name: Governance or compliance strategy
     href: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
+- name: Security posture management
+  items:
+  - name: Zero Trust
+    href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
 - name: Secure and protect
   items:
   - name: Security best practices

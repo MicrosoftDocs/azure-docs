@@ -92,7 +92,7 @@ The following image shows a sample data connector page, highlighted with numbers
 |**permissions**     | [RequiredConnectorPermissions[]](#requiredconnectorpermissions)        | Lists the permissions required to enable or disable the connector.        |
 |**instructionsSteps**     | [InstructionStep[]](#instructionstep)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
 |**metadata**     |   [Metadata](#metadata)      |  ARM template metadata, for deploying the connector as an ARM template.       |
-|     |         |         |
+
 
 ### GraphQuery
 
@@ -105,7 +105,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |**metricName**     |   String      |  A meaningful name for your graph. <br><br>Example: `Total data received`       |
 |**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
 |**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName | where ProviderName == “myprovider”` or `{{graphQueriesTableName}}`     |
-|     |         |         |
+
 
 
 ### SampleQuery
@@ -114,7 +114,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **Description** | String | A meaningful description for the sample query.<br><br>Example: `Top 10 vulnerabilities detected` |
 | **Query** | String | Sample query used to fetch the data type's data. <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
-| | | |
+
 
 ### DataTypes
 
@@ -122,7 +122,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **dataTypeName** | String | A meaningful description for the`lastDataReceivedQuery` query, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
 | **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)`
-| | | |
+
 
 
 ### ConnectivityCriteria
@@ -131,7 +131,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **type** | ENUM | Always define this value as `SentinelKindsV2`. |
 | **value** | deprecated |N/A |
-| | | |
+
 
 ### Availability
 
@@ -139,7 +139,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **status** | Boolean | Determines whether or not the data connector is available in your workspace. <br><br>Example: `1`|
 | **isPreview** | Boolean |Determines whether the data connector is supported as Preview or not. <br><br>Example: `false` |
-| | | |
+
 
 ### RequiredConnectorPermissions
 
@@ -149,7 +149,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
 | **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
 | **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
-| | | |
+
 
 #### ResourceProviderPermissions
 
@@ -160,7 +160,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions. |
 | **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector as one of the following values: `read`, `write`, `delete`, `action` |
 | **Scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `Subscription`, `ResourceGroup`, `Workspace` |
-| | | |
+
 
 ### RequiredPermissionSet
 
@@ -170,7 +170,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **write** | boolean | Determines whether *write* permissions are required. |
 | **delete** | boolean | Determines whether *delete* permissions are required. |
 | **action** | 	boolean	| Determines whether *action* permissions are required. |
-| | | |
+
 
 ### Metadata
 
@@ -183,7 +183,7 @@ This section provides metadata used when you're [deploying your data connector a
 | **source** | 	String |Describes your data source, using the following syntax: <br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
 | **author** |	String | Describes the data connector author, using the following syntax: <br>`{`<br>`  name:string`<br>`}`|
 | **support** |	String | Describe the support provided for the data connector using the following syntax: <br>	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`|
-| | | |
+
 
 ### Instructions
 
@@ -197,7 +197,7 @@ This section provides parameters that define the set of instructions that appear
 | **innerSteps**	| [InstructionStep](#instructionstep) | Optional. Defines an array of inner instruction steps. |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Microsoft Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Microsoft Sentinel |
-| | | |
+
 
 
 #### CopyableLabel
@@ -231,7 +231,7 @@ instructions: [
 |**value**     |  String       |  Defines the value to present in the text box, supports placeholders.       |
 |**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
 |**wideLabel**     |Boolean         | Optional. Determines a wide label for long strings. By default, set to `false`.        |
-|    |         |         |
+
 
 
 #### InfoMessage
@@ -269,7 +269,7 @@ instructions: [
 |**text**     |    String     |   Define the text to display in the message.      |
 |**visible**     |   Boolean      |    Determines whether the message is displayed.     |
 |**inline**     |   Boolean      |   Determines how the information message is displayed. <br><br>- `true`: (Recommended) Shows the information message embedded in the instructions. <br>- `false`: Adds a blue background.     |
-|     |         |         |
+
 
 
 
@@ -297,7 +297,7 @@ new LinkInstructionModel({ linkType: LinkType.OpenAzureActivityLog } )
 |**policyDefinitionGuid**     | String        |  Optional. For policy-based connectors, defines the GUID of the built-in policy definition.        |
 |**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
 |**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as one of the following: `SecurityEvent`,  `ForwardEvent`       |
-|     |         |         |
+
 
 To define an inline link using markdown, use the following example as a guide:
 
@@ -337,7 +337,7 @@ For example:
 |**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
 |**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
 |**expanded**     |   Boolean      |   Optional. If `true`, shows as expanded by default.      |
-|     |         |         |
+
 
 
 
@@ -372,7 +372,7 @@ The `pollingConfig` section includes the following properties:
 |**request**     |  Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration).         |
 |**response**     | Nested JSON |  Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration).     |
 |**paging**     | Nested JSON. |  Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration).         |
-|     |         |         |
+
 
 For more information, see [Sample pollingConfig code](#sample-pollingconfig-code).
 
@@ -387,7 +387,7 @@ The `auth` section of the [pollingConfig](#configure-your-connectors-polling-set
 |**APIKeyName**     |String | Optional. Defines the name of your API key, as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        |
 |**IsAPIKeyInPostPayload**     |Boolean | Determines where your API key is defined. <br><br>True: API key is defined in the POST request payload <br>False: API key is defined in the header     |
 |**APIKeyIdentifier**     |  String | Optional. Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |
-| | | |
+
 
 #### Session authType parameters
 
@@ -399,7 +399,7 @@ The `auth` section of the [pollingConfig](#configure-your-connectors-polling-set
 |**SessionTimeoutInMinutes**     |   String | Optional. Defines a session timeout, in minutes.       |
 |**SessionIdName**     |    String | Optional. Defines an ID name for the session.  |
 |**SessionLoginRequestUri**     |  String | Optional. Defines a session login request URI. |
-| | | |
+
 
 
 
@@ -425,7 +425,7 @@ The `request` section of the [pollingConfig](#configure-your-connectors-polling-
 |**timeoutInSeconds**     |  Integer | Optional. Defines the request timeout, in seconds. |
 |**retryCount**     |   Integer | Optional. Defines the number of request retries to try if needed. |
 |**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`         |
-|     |         |         |
+
 
 
 ### response configuration
@@ -438,7 +438,7 @@ The `response` section of the [pollingConfig](#configure-your-connectors-polling
 | **successStatusJsonPath**    |  String | Optional. Defines the path to the success message in the response JSON. |
 |  **successStatusValue**   | String | Optional. Defines the path to the success message value in the response JSON    |
 |  **isGzipCompressed**   |   Boolean | Optional. Determines whether the response is compressed in a gzip file.      |
-|     |         |         |
+
 
 The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
 
@@ -467,7 +467,7 @@ The `paging` section of the [pollingConfig](#configure-your-connectors-polling-s
 |  **offsetParaName**   |    String | Optional. Defines the name of the offset parameter. |
 |  **pageSizeParaName**   |   String | Optional. Defines the name of the page size parameter. |
 | **PageSize**    |     Integer | Defines the paging size. |
-|     |         |         |
+
 
 
 ### Sample pollingConfig code
@@ -541,7 +541,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 |**RequestObjectKey** |String | Defines the ID used to identify where in the request section of the API call to replace the placeholder value with a user value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
 |**PollingKeyPaths** |String |Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
 |**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file. This can be any unique value, such as `{{placeHolder}}`. |
-| | |
+
 
 
 ## Deploy your connector in Microsoft Sentinel and start ingesting data
@@ -561,7 +561,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
     1. Prepare an [ARM template JSON file](/azure/templates/microsoft.securityinsights/dataconnectors) for your connector. For example, see the following ARM template JSON files:
 
         - Data connector in the [Slack solution](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SlackAudit/Data%20Connectors/SlackNativePollerConnector/azuredeploy_Slack_native_poller_connector.json)
-        - [Atlassian Jira Audit data connector](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AtlassianJiraAudit/JiraNativePollerConnector/azuredeploy_Jira_native_poller_connector.json)
+        - [Atlassian Jira Audit data connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraNativePollerConnector/azuredeploy_Jira_native_poller_connector.json)
 
     1. In the Azure portal, search for **Deploy a custom template**.
 
@@ -605,7 +605,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
     |---------|---------|
     |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
     |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
-    |     |         |
+
 
     If you're using a [template configuration file with placeholder data](#add-placeholders-to-your-connectors-json-configuration-file), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 

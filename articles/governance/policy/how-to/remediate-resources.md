@@ -17,8 +17,8 @@ understand and accomplish remediation with Azure Policy.
 
 When Azure Policy starts a template deployment when evaluating **deployIfNotExists** policies or modifies a resource  when evaluating **modify** policies, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that is associated with the policy assignment.
-Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user.  The managed identity needs to be granted the appropriate roles required for remediating resources
-to grant the managed identity. If the managed identity is missing roles, an error is displayed
+Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user. The managed identity needs to be assigned the minimum role(s) required to remediate resources.
+If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
@@ -35,6 +35,8 @@ doesn't impact its operation with Azure Policy.
 > - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
 >   assignment
 > - If the template accesses properties on resources outside the scope of the policy assignment
+>
+> Also, changing a a policy definition does not update the assignment or the associated managed identity.
 
 ## Configure policy definition
 
@@ -60,8 +62,14 @@ The **roleDefinitionIds** property uses the full resource identifier and doesn't
 following code:
 
 ```azurecli-interactive
-az role definition list --name 'Contributor'
+az role definition list --name "Contributor"
 ```
+
+> [!IMPORTANT]
+> Permissions should be restricted to the smallest possible set when defining **roleDefinitionIds**
+> within a policy definition or assigning permissions to a managed identity manually. See
+> [managed identity best practice recommendations](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md)
+> for more best practices.
 
 ## Manually configure the managed identity
 
@@ -228,7 +236,7 @@ To create a **remediation task**, follow these steps:
 
 1. On the **New remediation task** page, optional remediation settings are shown: 
 
-    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
     - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
     - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 

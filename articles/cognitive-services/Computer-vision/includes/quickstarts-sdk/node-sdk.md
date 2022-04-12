@@ -14,7 +14,11 @@ ms.custom: devx-track-js
 
 <a name="HOLTop"></a>
 
-Use the Optical character recognition client library to read printed and handwritten text with the Read API.
+Use the Optical character recognition client library to read printed and handwritten text with the Read API.  The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview.
+
+
+> [!TIP]
+> You can also read text from a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **readInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-computervision/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -58,100 +62,36 @@ npm install async
 
 Your app's `package.json` file will be updated with the dependencies.
 
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js), which contains the code examples in this quickstart.
-
 Create a new file, *index.js*, and open it in a text editor.
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
-
-Create variables for your Computer Vision subscription key and endpoint. Paste your subscription key and endpoint into the following code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports_and_vars)]
-
-> [!IMPORTANT]
-> Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
-
-
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the OCR Node.js SDK.
-
-|Name|Description|
-|---|---|
-| [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to do most image operations.|
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the OCR client library for Node.js:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Read printed and handwritten text](#read-printed-and-handwritten-text)
-
-## Authenticate the client
-
-
-Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](/python/api/msrest/msrest.authentication.apikeycredentials) object with your key and endpoint, and use it to create a [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) object.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
-
-Then, define a function `computerVision` and declare an async series with primary function and callback function. At the end of the script, you'll complete this function definition and call it.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
-
-
-
-
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 ## Read printed and handwritten text
 
-The OCR service can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
+1. Paste the following code into your *index.js* file.
 
-### Set up test images
-
-Save a reference of the URL of the images you want to extract text from.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
-
-> [!NOTE]
-> You can also read text from a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **readInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
-
-### Call the Read API
-
-Define the following fields in your function to denote the Read call status values.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
-
-Add the code below, which calls the `readTextFromURL` function for the given images.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
-
-Define the `readTextFromURL` function. This calls the **read** method  on the client object, which returns an operation ID and starts an asynchronous process to read the content of the image. Then it uses the operation ID to check the operation status until the results are returned. They it returns the extracted results.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
-
-Then, define the helper function `printRecText`, which prints the results of the Read operations to the console.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
+   [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart-single.js?name=snippet_single)]
 
 
-## Close the function
+1. Paste your subscription key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
-Close out the `computerVision` function and call it.
+   > [!IMPORTANT]
+   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
-## Run the application
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
 
-Run the application with the `node` command on your quickstart file.
+   ```JS
+     let result = await client.read(url,{modelVersion:"2022-01-30-preview"});
+   ```
 
-```console
-node index.js
-```
+1. Run the application with the `node` command on your quickstart file.
 
+   ```console
+   node index.js
+   ```
 
 ## Clean up resources
 

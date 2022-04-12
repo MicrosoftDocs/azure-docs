@@ -4,8 +4,8 @@ description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 08/02/2017
 
@@ -251,7 +251,7 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/AutoUpdate.Enabled=n.*/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 Restart the waagent service
@@ -322,14 +322,14 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/AutoUpdate.Enabled=n.*/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 Restart the waagent service
 sudo systemctl restart walinuxagent.service
 ```
 
 ## Oracle Linux 6 and Oracle Linux 7
 
-For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
+For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/oracle-linux-o17.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 Then, to install the latest version of the Azure Linux Agent, type:
 

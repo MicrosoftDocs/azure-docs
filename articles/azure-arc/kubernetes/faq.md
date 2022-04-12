@@ -2,17 +2,16 @@
 title: "Azure Arc-enabled Kubernetes and GitOps frequently asked questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2022
+ms.date: 04/06/2022
 ms.topic: conceptual
-author: csand-msft
-ms.author: csand
 description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes and Azure GitOps"
-keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, Flux, faq"
+keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
+ms.custom: references_regions
 ---
 
-# Frequently Asked Questions - Azure Arc-enabled Kubernetes
+# Frequently Asked Questions - Azure Arc-enabled Kubernetes and GitOps
 
-This article addresses frequently asked questions about Azure Arc-enabled Kubernetes.
+This article addresses frequently asked questions about Azure Arc-enabled Kubernetes and GitOps.
 
 ## What is the difference between Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS)?
 
@@ -25,20 +24,20 @@ Azure Arc-enabled Kubernetes allows you to extend Azure’s management capabilit
 Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only required for running Azure Arc-enabled services like App Services and Data Services on top of the cluster. This can be done using the [custom locations](custom-locations.md) feature of Azure Arc-enabled Kubernetes. This is a point in time limitation for now till cluster extensions and custom locations are introduced natively on top of AKS clusters.
 
 If you don't want to use custom locations and just want to use management features like Azure Monitor and Azure Policy (Gatekeeper), they are available natively on AKS and connection to Azure Arc is not required in such cases.
-    
+
 ## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Edge to Azure Arc?
 
 Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
 
 If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 
-## How to address expired Azure Arc-enabled Kubernetes resources?
+## How do I address expired Azure Arc-enabled Kubernetes resources?
 
-The system assigned managed identity associated with your Azure Arc-enabled Kubernetes cluster is only used by the Azure Arc agents to communicate with the Azure Arc services. The certificate associated with this system assigned managed identity has an expiration window of 90 days and the agents keep attempting to renew this certificate between Day 46 to Day 90. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster and you'll then need to delete and connect the cluster to Azure Arc once again. It is thus advisable to have the cluster come online at least once between Day 46 to Day 90 time window to ensure renewal of the managed identity certificate.
+The system assigned managed identity associated with your Azure Arc-enabled Kubernetes cluster is only used by the Azure Arc agents to communicate with the Azure Arc services. The certificate associated with this system assigned managed identity has an expiration window of 90 days, and the agents will attempt to renew this certificate between Day 46 to Day 90. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster and you'll then need to delete and connect the cluster to Azure Arc once again. It is thus advisable to have the cluster come online at least once between Day 46 to Day 90 time window to ensure renewal of the managed identity certificate.
 
 To check when the certificate is about to expire for any given cluster, run the following command:
 
-```console
+```azurecli
 az connectedk8s show -n <name> -g <resource-group>
 ```
 
@@ -48,13 +47,13 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
 
 1. Delete Azure Arc-enabled Kubernetes resource and agents on the cluster. 
 
-    ```console
+    ```azurecli
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
 1. Recreate the Azure Arc-enabled Kubernetes resource by deploying agents on the cluster.
-    
-    ```console
+
+    ```azurecli
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 
@@ -65,51 +64,25 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
 
 Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, GitOps configurations feature some extra benefits:
 
-**Drift reconciliation**
+### Drift reconciliation
 
 The CI/CD pipeline applies changes only once during pipeline run. However, the GitOps operator on the cluster continuously polls the Git repository to fetch the desired state of Kubernetes resources on the cluster. If the GitOps operator finds the desired state of resources to be different from the actual state of resources on the cluster, this drift is reconciled.
 
-**Apply GitOps at scale**
+### Apply GitOps at scale
 
-CI/CD pipelines are useful for event-driven deployments to your Kubernetes cluster (for example, a push to a Git repository). However, if you want to deploy the same configuration to all of your Kubernetes clusters, you would need to manually configure each Kubernetes cluster's credentials to the CI/CD pipeline. 
+CI/CD pipelines are useful for event-driven deployments to your Kubernetes cluster (for example, a push to a Git repository). However, if you want to deploy the same configuration to all of your Kubernetes clusters, you would need to manually configure each Kubernetes cluster's credentials to the CI/CD pipeline.
 
 For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your GitOps configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes and AKS resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes and AKS resources created after the policy assignment.
 
 This feature applies baseline configurations (like network policies, role bindings, and pod security policies) across the entire Kubernetes cluster inventory to meet compliance and governance requirements.
 
-**Cluster compliance**
+### Cluster compliance
 
 The compliance state of each GitOps configuration is reported back to Azure. This lets you keep track of any failed deployments.
 
-## Error installing the microsoft.flux extension (Flux v2)
-
-The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or AKS clusters. If you experience an error during installation below are some troubleshooting actions.
-
-* Error message
-
-    ```console
-    {'code':'DeploymentFailed','message':'At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.','details':[{'code':'ExtensionCreationFailed','message':' Request failed to https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedclusters/<CLUSTER_NAME>/extensionaddons/flux?api-version=2021-03-01. Error code: BadRequest. Reason: Bad Request'}]}
-    ```
-    
-* For AKS cluster, assure that the subscription has the following feature flag enabled: `Microsoft.ContainerService/AKS-ExtensionManager`.
-
-     ```console
-     az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-    ```
-    
-* Force delete the extension.
-
-    ```console
-    az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
-    ```
-
-* Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
-    
-After you have verified the above, you can re-install the extension.
-
 ## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. This is applicable for Azure Arc-enabled Open Service Mesh and Azure Key Vault Secrets Provider extensions supported in Azure Arc-enabled Kubernetes. For other cluster extensions, please see their documentation to learn how they store customer data. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
-title: How to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier
+title: How to use Spring Cloud Gateway for Tanzu with Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
+description: How to use Spring Cloud Gateway for Tanzu with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -10,47 +10,47 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use Spring Cloud Gateway
+# Use Spring Cloud Gateway for Tanzu
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use Spring Cloud Gateway for VMware Tanzu® with Azure Spring Cloud Enterprise Tier.
 
-[Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
+Spring Cloud Gateway for Tanzu also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Tanzu automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
   > [!NOTE]
-  > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+  > To use Spring Cloud Gateway for Tanzu, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
-## How Spring Cloud Gateway works
+## How Spring Cloud Gateway for Tanzu works
 
-Spring Cloud Gateway has two components: Spring Cloud Gateway operator and Spring Cloud Gateway instance. The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Cloud will manage it.
+Spring Cloud Gateway for Tanzu has two components: Spring Cloud Gateway for Tanzu operator and Spring Cloud Gateway for Tanzu instance. The operator is responsible for the lifecycle of Spring Cloud Gateway for Tanzu instances and routing rules. It's transparent to the developer and Azure Spring Cloud will manage it.
 
-Spring Cloud Gateway instance routes traffic according to rules. It supports rich features, and you can customize it using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
+Spring Cloud Gateway for Tanzu instance routes traffic according to rules. It supports rich features, and you can customize it using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
 
 Default resource usage:
 
-| Component name                | Instance count | vCPU per instance | Memory per instance |
-|-------------------------------|----------------|-------------------|---------------------|
-| Spring Cloud Gateway          | 2              | 1 core            | 2Gi                 |
-| Spring Cloud Gateway operator | 2              | 1 core            | 2Gi                 |
+| Component name                          | Instance count | vCPU per instance | Memory per instance |
+|-----------------------------------------|----------------|-------------------|---------------------|
+| Spring Cloud Gateway for Tanzu          | 2              | 1 core            | 2Gi                 |
+| Spring Cloud Gateway for Tanzu operator | 2              | 1 core            | 2Gi                 |
 
-## Configure Spring Cloud Gateway
+## Configure Spring Cloud Gateway for Tanzu
 
-Spring Cloud Gateway is configured using the following sections and steps.
+Spring Cloud Gateway for Tanzu is configured using the following sections and steps.
 
-### Configure Spring Cloud Gateway metadata
+### Configure Spring Cloud Gateway for Tanzu metadata
 
-Spring Cloud Gateway metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups.
+Spring Cloud Gateway for Tanzu metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups.
 
 | Property | Description |
 | - | - |
@@ -81,7 +81,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 
 ### Configure single sign-on (SSO)
 
-Spring Cloud Gateway supports authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+Spring Cloud Gateway for Tanzu supports authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -97,14 +97,14 @@ Spring Cloud Gateway supports authentication and authorization using Single Sign
 
 ### Requested resource
 
-Customization of the resource usage for Spring Cloud Gateway instances is supported, including vCpu, memory, and instance count.
+Customization of the resource usage for Spring Cloud Gateway for Tanzu instances is supported, including vCpu, memory, and instance count.
 
 > [!NOTE]
 > For high available consideration, single replica is not recommended.
 
 ## Configure routes
 
-This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway.
+This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway for Tanzu.
 
 ### Define route config
 
@@ -124,7 +124,7 @@ The following tables list the route definitions. All the properties are optional
 | tokenRelay | Pass currently authenticated user's identity token to application service |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|
 | filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html)|
-| order | Route processing order, same as Spring Cloud Gateway |
+| order | Route processing order, same as Spring Cloud Gateway for Tanzu |
 | tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
 
 Not all the filters/predicates are supported in Azure Spring Cloud because of security/compatible reasons. The following are not supported:
@@ -134,9 +134,9 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 ## Create an example application
 
-Use the following steps to create an example application using Spring Cloud Gateway.
+Use the following steps to create an example application using Spring Cloud Gateway for Tanzu.
 
-1. To create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
+1. To create an app in Azure Spring Cloud which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -152,7 +152,7 @@ Use the following steps to create an example application using Spring Cloud Gate
    az spring-cloud gateway update --assign-endpoint
    ```
 
-1. Use the following command to configure Spring Cloud Gateway properties:
+1. Use the following command to configure Spring Cloud Gateway for Tanzu properties:
 
    ```azurecli
    az spring-cloud gateway update \
@@ -169,7 +169,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
 1. Configure routing rules to apps.
 
-   Create rules to access apps deployed in the above step through Spring Cloud Gateway.
+   Create rules to access apps deployed in the above step through Spring Cloud Gateway for Tanzu.
 
    Save the following content to the *customers-service.json* file.
 

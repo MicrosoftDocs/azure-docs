@@ -58,7 +58,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Min DTU per database choices | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Max DTU per database choices | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
-||||||||
+
 
 <sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
@@ -77,7 +77,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Min DTU per database choices | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max DTU per database choices | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 1024 |
-||||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -98,7 +98,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Min DTU per database choices | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max DTU per database choices | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max storage per database (GB) | 1024 | 1536 | 1792 | 2304 | 2816 |
-|||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -119,7 +119,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
-|||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -140,7 +140,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Min DTU per database choices | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Max DTU per database choices | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Max storage per database (GB) | 2048 | 2560 | 3072 | 3584 | 4096 |
-|||||||
+
 
 <sup>1</sup> See [SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/elastic/) for details on additional cost incurred due to any extra storage provisioned.
 
@@ -169,7 +169,7 @@ The following table describes per database properties for pooled databases.
 | Max DTUs per database |The maximum number of DTUs that any database in the pool may use, if available based on utilization by other databases in the pool. Max DTUs per database is not a resource guarantee for a database. If the workload in each database does not need all available pool resources to perform adequately, consider setting max DTUs per database to prevent a single database from monopolizing pool resources. Some degree of over-committing is expected since the pool generally assumes hot and cold usage patterns for databases, where all databases are not simultaneously peaking. |
 | Min DTUs per database |The minimum number of DTUs reserved for any database in the pool. Consider setting a min DTUs per database when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. The min DTUs per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average DTUs utilization per database.|
 | Max storage per database |The maximum database size set by the user for a database in a pool. Pooled databases share allocated pool storage, so the size a database can reach is limited to the smaller of remaining pool storage and maximum database size. Maximum database size refers to the maximum size of the data files and does not include the space used by the log file. |
-|||
+
 
 > [!IMPORTANT]
 > Because resources in an elastic pool are finite, setting min DTUs per database to a value greater than 0 implicitly limits resource utilization by each database. If, at a point in time, most databases in a pool are idle, resources reserved to satisfy the min DTUs guarantee are not available to databases active at that point in time.
@@ -197,7 +197,7 @@ The following table lists tempdb sizes for single databases in Azure SQL Databas
 |Standard Elastic Pools (1200 eDTU)|32|10|320|
 |Standard Elastic Pools (1600-3000 eDTU)|32|12|384|
 |Premium Elastic Pools (all DTU configurations)|13.9|12|166.7|
-||||
+
 
 ## Next steps
 

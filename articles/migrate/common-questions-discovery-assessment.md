@@ -20,7 +20,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 
@@ -215,7 +215,7 @@ IOPS to be provisioned =  (Throughput discovered) *1024/256
 
 ### Does the Ultra disk recommendation consider latency?
 
-No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
+No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
 ### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
 

@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/15/2022
 ms.author: rabhaiya
 ---
 
@@ -54,7 +54,7 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 
 ## Next steps
 
-Click below next step to learn how to create device and FHIR mapping templates.
+For more information about how to create device and FHIR mapping templates, see
 
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)

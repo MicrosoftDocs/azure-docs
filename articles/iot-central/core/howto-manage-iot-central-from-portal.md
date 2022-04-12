@@ -28,17 +28,19 @@ To create an application, navigate to the [IoT Central Application](https://port
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
 * **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-    
-    * Australia
-    * East Central US
-    * East US
-    * East US 2
-    * Japan East
-    * North Europe
-    * Southeast Asia
-    * UK South
-    * West Europe
-    * West US
+
+  * Australia East
+  * Canada Central
+  * Central US
+  * East US
+  * East US 2
+  * Japan East
+  * North Europe
+  * South Central US
+  * Southeast Asia
+  * UK South
+  * West Europe
+  * West US
 
   Once you choose a location, you can't later move your application to a different location.
 
@@ -96,9 +98,6 @@ You can configure role assignments in the Azure portal or use the Azure CLI:
 * To learn more about how to configure role assignments using the Azure CLI, see [Manage IoT Central from Azure CLI or PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## Monitor application health
-
-> [!NOTE]
-> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [How do I get information about my application?](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 

@@ -5,13 +5,14 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-
 ---
 
 # Application Insights for Azure cloud services
 [Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../agents/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Prerequisites
 Before you begin, you need:

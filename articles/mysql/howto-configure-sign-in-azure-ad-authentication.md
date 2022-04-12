@@ -47,7 +47,7 @@ We’ve designed the Azure AD integration to work with common MySQL tools like t
 We currently have tested the following clients:
 
 - MySQLWorkbench 
-- Mysql CLI
+- MySQL CLI
 
 We have also tested most common application drivers, you can see details at the end of this page.
 
@@ -109,7 +109,7 @@ After authentication is successful, Azure AD will return an access token:
 
 The token is a Base 64 string that encodes all the information about the authenticated user, and which is targeted to the Azure Database for MySQL service.
 
-The access token validity is anywhere between ***5 minutes to 60 minutes***. We recommend you get the access token just before initiating the login to Azure Database for MySQL. You can use the following Powershell command to see the token validity. 
+The access token validity is anywhere between ***5 minutes to 60 minutes***. We recommend you get the access token just before initiating the login to Azure Database for MySQL. You can use the following PowerShell command to see the token validity. 
 
 ```azurepowershell-interactive
 $accessToken.ExpiresOn.DateTime

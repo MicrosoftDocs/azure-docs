@@ -13,6 +13,9 @@
     items: 
     - name: Portal
       href: quickstart-create-data-migration-service-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: create-dms-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: create-dms-resource-manager-template.md
@@ -22,7 +25,11 @@
 - name: Concepts
   items:
   - name: Migration using Azure Data Studio
-    href: migration-using-azure-data-studio.md  
+    href: migration-using-azure-data-studio.md
+  - name: Get Azure recommendation for migration using Azure Data Studio
+    href: ads-sku-recommend.md  
+  - name: Migrate databases at scale using automation
+    href: migration-dms-powershell-cli.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status

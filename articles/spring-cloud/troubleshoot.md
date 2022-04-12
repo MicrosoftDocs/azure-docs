@@ -259,13 +259,13 @@ Creating an Azure Spring Cloud Enterprise tier instance fails with error code "1
 
 ### No plans are available for market '\<Location>'
 
-When you visit the SaaS offer [Azure Spring Cloud Enterprise Tier w/VMware Tanzu](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+When you visit the SaaS offer [Azure Spring Cloud Enterprise Tier](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
 
 ![No plans available error image](./media/enterprise/how-to-enterprise-marketplace-offer/no-enterprise-plans-available.png)
 
 Azure Spring Cloud Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Cloud Enterprise Tier w/VMware Tanzu](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Cloud Enterprise Tier](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 

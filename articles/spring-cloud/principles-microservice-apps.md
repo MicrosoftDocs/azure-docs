@@ -20,7 +20,7 @@ The following are principles for maintaining healthy Java and base operating sys
 * Shall be the same base operating system across tiers - Basic | Standard | Premium.
 
   * Currently, apps on Azure Spring Cloud use a mix of Debian 10 and Ubuntu 18.04.
-  * VMware build service uses Ubuntu 18.04.
+  * VMware Tanzu® Build Service™ uses Ubuntu 18.04.
 
 * Shall be the same base operating system regardless of deployment starting points - source | JAR
 

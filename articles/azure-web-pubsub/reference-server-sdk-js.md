@@ -31,11 +31,9 @@ You can use this library in your app server side to manage the WebSocket client 
 - Close connections
 - Grant, revoke, and check permissions for an existing connection
 
-Details about the terms used here are described in [Key concepts](#key-concepts) section.
-
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
-[API reference documentation]() |
+[API reference documentation](/javascript/api/overview/azure/webpubsub) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
@@ -81,7 +79,7 @@ Or authenticate the `WebPubSubServiceClient` using [Azure Active Directory][aad_
 npm install @azure/identity
 ```
 
-2. Update the source code to use `DefaultAzureCredential`:
+1. Update the source code to use `DefaultAzureCredential`:
 
 ```js
 const { WebPubSubServiceClient, AzureKeyCredential } = require("@azure/web-pubsub");
@@ -89,28 +87,6 @@ const { WebPubSubServiceClient, AzureKeyCredential } = require("@azure/web-pubsu
 const key = new DefaultAzureCredential();
 const serviceClient = new WebPubSubServiceClient("<Endpoint>", key, "<hubName>");
 ```
-
-### Key concepts
-
-#### Connection
-
-A connection, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. When successfully connected, a unique connection ID is assigned to this connection by the Web PubSub service.
-
-#### Hub
-
-A hub is a logical concept for a set of client connections. Usually you use one hub for one purpose, for example, a chat hub, or a notification hub. When a client connection is created, it connects to a hub, and during its lifetime, it belongs to that hub. Different applications can share one Azure Web PubSub service by using different hub names.
-
-#### Group
-
-A group is a subset of connections to the hub. You can add a client connection to a group, or remove the client connection from the group, anytime you want. For example, when a client joins a chat room, or when a client leaves the chat room, this chat room can be considered to be a group. A client can join multiple groups, and a group can contain multiple clients.
-
-#### User
-
-Connections to Web PubSub can belong to one user. A user might have multiple connections, for example when a single user is connected across multiple devices or multiple browser tabs.
-
-#### Message
-
-When the client is connected, it can send messages to the upstream application, or receive messages from the upstream application, through the WebSocket connection.
 
 ### Examples
 
@@ -218,7 +194,7 @@ const serviceClient = new WebPubSubServiceClient("<ConnectionString>", "<hubName
 await serviceClient.sendToAll({ message: "Hello world!" }, { onResponse });
 ```
 
-### Troubleshooting
+### Service client troubleshooting
 
 #### Enable logs
 
@@ -238,17 +214,15 @@ Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
 <a name="express"></a>
 
-## Azure Web PubSub CloudEvents handlers for express
+## Azure Web PubSub CloudEvents handlers for Express
 
 When a WebSocket connection connects, the Web PubSub service transforms the connection lifecycle and messages into [events in CloudEvents format](concept-service-internals.md#workflow). This library provides an express middleware to handle events representing the WebSocket connection's lifecycle and messages, as shown in below diagram:
 
 ![The overflow diagram shows the overflow of using the event handler middleware.](media/sdk-reference/event-handler-middleware.png)
 
-Details about the terms used here are described in [Key concepts](#key-concepts) section.
-
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub-express) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
-[API reference documentation]() |
+[API reference documentation](/javascript/api/overview/azure/web-pubsub-express-readme?view=azure-node-latest) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
@@ -287,33 +261,7 @@ app.listen(3000, () =>
 );
 ```
 
-### Key concepts
-
-#### Connection
-
-A connection, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. When successfully connected, a unique connection ID is assigned to this connection by the Web PubSub service.
-
-#### Hub
-
-A hub is a logical concept for a set of client connections. Usually you use one hub for one purpose, for example, a chat hub, or a notification hub. When a client connection is created, it connects to a hub, and during its lifetime, it belongs to that hub. Different applications can share one Azure Web PubSub service by using different hub names.
-
-#### Group
-
-A group is a subset of connections to the hub. You can add a client connection to a group, or remove the client connection from the group, anytime you want. For example, when a client joins a chat room, or when a client leaves the chat room, this chat room can be considered to be a group. A client can join multiple groups, and a group can contain multiple clients.
-
-#### User
-
-Connections to Web PubSub can belong to one user. A user might have multiple connections, for example when a single user is connected across multiple devices or multiple browser tabs.
-
-#### Client Events
-
-Events are created during the lifecycle of a client connection. For example, a simple WebSocket client connection creates a `connect` event when it tries to connect to the service, a `connected` event when it successfully connected to the service, a `message` event when it sends messages to the service and a `disconnected` event when it disconnects from the service.
-
-#### Event Handler
-
-Event handler contains the logic to handle the client events. Event handler needs to be registered and configured in the service through the portal or Azure CLI beforehand. The place to host the event handler logic is generally considered as the server-side.
-
-### Examples
+### Express examples
 
 #### Handle the `connect` request and assign `<userId>`
 
@@ -425,7 +373,7 @@ You can set the following environment variable to get the debug logs when using 
 export AZURE_LOG_LEVEL=verbose
 ```
 
-For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/logger).
+For more detailed instructions on how to enable logs, see [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/logger).
 
 #### Live Trace
 

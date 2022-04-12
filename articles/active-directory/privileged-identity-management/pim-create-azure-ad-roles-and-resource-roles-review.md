@@ -111,7 +111,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/advanced-settings.png" alt-text="Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders screenshot.":::
 
-1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
+1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information. Recommendations are based on a 30-day interval period where users who have logged in the past 30 days are recommended access, while users who have not are recommended denial of access. These sign-ins are irrespective of whether they were interactive. The last sign-in of the user is also displayed along with the recommendation. 
 
 1. Set **Require reason on approval** to **Enable** to require the reviewer to supply a reason for approval.
 
@@ -134,8 +134,14 @@ To manage a series of access reviews, navigate to the access review, and you wil
 
 Based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Applied**. You should expect to see denied users, if any, being removed from roles in a few minutes.
 
-> [!IMPORTANT]
-> If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the indirect users with access assigned through a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully for the role because the user will not be removed from the nested group. For **Azure AD roles**, [role-assignable groups](../roles/groups-concept.md) will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny access to the entire group.
+## Impact of groups assigned to Azure AD roles and Azure resource roles in access reviews
+
+•	For **Azure AD roles**, role-assignable groups can be assigned to the role using [role-assignable groups](../roles/groups-concept.md). When a review is created on an Azure AD role with role-assignable groups assigned, the group name shows up in the review without expanding the group membership. The reviewer can approve or deny access of the entire group to the role. Denied groups will lose their assignment to the role when review results are applied.
+
+•	For **Azure resource roles**, any security group can be assigned to the role. When a review is created on an Azure resource role with a security group assigned, the users assigned to that security group will be fully expanded and shown to the reviewer of the role. When a reviewer denies a user that was assigned to the role via the security group, the user will not be removed from the group, and therefore the apply of the deny result will be unsuccessful.
+
+> [!NOTE]
+> It is possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
 
 ## Update the access review
 

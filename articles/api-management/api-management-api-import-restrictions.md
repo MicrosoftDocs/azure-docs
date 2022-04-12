@@ -5,15 +5,10 @@ description: Details of known issues and restrictions on Open API, WSDL, and WAD
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: vlvinogr
-editor: ''
 
-ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 10/26/2021
+ms.topic: conceptual
+ms.date: 03/02/2022
 ms.author: danlep
 ---
 
@@ -21,8 +16,8 @@ ms.author: danlep
 
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
 * API Management's behavior during OpenAPI import. 
-* Import limitations, organized by the import format of the API. 
-* How OpenAPI export works.
+* OpenAPI import limitations and how OpenAPI export works.
+* Requirements and limitations for WSDL and WADL import.
 
 ## API Management during OpenAPI import
 
@@ -181,14 +176,16 @@ For each operation, its:
 
 ## <a name="wsdl"> </a>WSDL
 
-You can create SOAP pass-through and SOAP-to-REST APIs with WSDL files.
+You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restify-soap-api.md) APIs with WSDL files.
 
 ### SOAP bindings 
 - Only SOAP bindings of "document" and “literal” encoding style are supported.
 - No support for “rpc” style or SOAP-Encoding.
 
-### WSDL:Import
-Not supported. Instead, merge the imports into one document.
+### Imports and includes
+* The `wsdl:import`, `xsd:import`, and `xsd:include` directives aren't supported. Instead, merge the dependencies into one document. 
+
+* For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Messages with multiple parts 
 This message type is not supported.

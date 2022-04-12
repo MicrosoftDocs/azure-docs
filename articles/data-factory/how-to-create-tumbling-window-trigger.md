@@ -7,7 +7,7 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
-ms.custom: synapse
+ms.custom: synapse, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/09/2021
 ---

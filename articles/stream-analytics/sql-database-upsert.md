@@ -355,7 +355,7 @@ Update the `sqltext` command building section to match your own schema (notice h
 
 ```C#
     var sqltext =
-    $"MERGE INTO [device03] AS old " +
+    $"MERGE INTO [device_updated] AS old " +
     $"USING (VALUES ({DeviceId},{Value},'{Timestamp}')) AS new (DeviceId, Value, Timestamp) " +
     $"ON new.DeviceId = old.DeviceId " +
     $"WHEN MATCHED THEN UPDATE SET old.Value += new.Value, old.Timestamp = new.Timestamp " +
@@ -380,7 +380,28 @@ Outside of Azure Functions, there are multiple ways to achieve the expected resu
 
 A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
 
-For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
+For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA:
+
+```SQL
+CREATE TRIGGER tr_devices_updated_upsert ON device_updated INSTEAD OF INSERT
+AS
+BEGIN
+	MERGE device_updated AS old
+	
+	-- In case of duplicates on the key below, use a subquery to make the key unique via aggregation or ranking functions
+	USING inserted AS new
+		ON new.DeviceId = old.DeviceId
+
+	WHEN MATCHED THEN 
+		UPDATE SET
+			old.Value += new.Value, 
+			old.Timestamp = new.Timestamp
+
+	WHEN NOT MATCHED THEN
+		INSERT (DeviceId, Value, Timestamp)
+		VALUES (new.DeviceId, new.Value, new.Timestamp);  
+END;
+```
 
 For Synapse SQL, ASA can insert into a [staging table](../synapse-analytics/sql/data-loading-best-practices.md#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md#partition-switching) to the production table.
 

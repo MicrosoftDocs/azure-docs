@@ -54,7 +54,7 @@ The following diagram illustrates the sample app architecture:
 :::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Sample app diagram":::
 
 > [!NOTE]
-> When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service assumes the role of Spring Cloud Config Server and the managed Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md) and [Use Service Registry](how-to-enterprise-service-registry.md).
+> When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md) and [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).
 
 ## Code repository
 
@@ -75,7 +75,7 @@ The following diagram shows the architecture of the PetClinic application.
 ![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
 > [!NOTE]
-> When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service assumes the role of Spring Cloud Config Server and the managed Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Cloud](#infrastructure-services-hosted-by-azure-spring-cloud) section later in this article.
+> When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Cloud](#infrastructure-services-hosted-by-azure-spring-cloud) section later in this article.
 
 ## Functional services to be deployed
 
@@ -97,14 +97,14 @@ There are several common patterns in distributed systems that support core servi
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
-* **Application Configuration Service**: Application Configuration Service is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
-* **Service Registry**: Service Registry is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
+* **Application Configuration Service for Tanzu**: Application Configuration Service for Tanzu is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+* **Tanzu Service Registry**: Tanzu Service Registry is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
 
 ---
 
 ## Database configuration
 
-In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
+In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySQL if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
 
 ## Sample usage of PetClinic
 
@@ -114,5 +114,14 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 
 ## Next steps
 
+### [Basic/Standard tier](#tab/basic-standard-tier)
+
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance](./quickstart-provision-service-instance.md)
+
+### [Enterprise tier](#tab/enterprise-tier)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+
+---

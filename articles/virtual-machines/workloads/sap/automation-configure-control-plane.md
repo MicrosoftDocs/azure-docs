@@ -132,7 +132,8 @@ The table below defines the parameters used for defining the Key Vault informati
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                           | Type        | 
 > | ------------------------------------ | ------------------------------------- | ----------- | 
-> | `firewall_deployment`	             | Boolean flag controlling if an Azure firewall is to be deployed | Mandatory   | 
+> | `firewall_deployment`	               | Boolean flag controlling if an Azure firewall is to be deployed | Mandatory   | 
+> | `bastion_deployment`	               | Boolean flag controlling if Azure bastion host is to be deployed | Mandatory   | 
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | Optional    | 
 > | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used. | Optional    | 
 

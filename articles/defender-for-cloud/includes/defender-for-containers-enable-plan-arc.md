@@ -1,5 +1,5 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 01/24/2022
@@ -16,16 +16,14 @@ ms.date: 01/24/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. To optionally modify the configuration, select *configure** from the configuration column.
-
-    :::image type="content" source="../media/defender-for-containers/defender-for-containers-provisioning-configuration.gif" alt-text="Viewing the configuration for Defender for Containers.":::
+1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. You can optionally [Configure the Containers plan](../quickstart-onboard-gcp.md#configure-the-containers-plan).
 
     You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
     > [!NOTE]
-    > If you choose to **disable the plan** at any time after enabling if through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
+    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
 
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
@@ -33,7 +31,7 @@ ms.date: 01/24/2022
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 
-## Additional Prerequisites
+## Prerequisites
 
 Before deploying the extension, ensure you:
 - [Connect the Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
@@ -94,7 +92,7 @@ A dedicated Defender for Cloud recommendation provides:
 
     | Property | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces) |
+    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
     | auditLogPath |**Optional**. The full path to the audit log files.<br>When not provided, the default path ``/var/log/kube-apiserver/audit.log`` will be used.<br>For AKS Engine, the standard path is ``/var/log/kubeaudit/audit.log`` |
 
     The below command shows an example usage of all optional fields:
@@ -107,7 +105,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### Use Azure Resource Manager to deploy the Defender extension
 
-To use Azure Resource Manager to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
@@ -118,7 +116,7 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### Use REST API to deploy the Defender extension 
 
-To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > The simplest way to use the API to deploy the Defender extension is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
@@ -135,7 +133,7 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
     | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID                     |
     |Resource Group   | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
     | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource                               |
-    |                 |      |          |        |                                                                                  |
+
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:

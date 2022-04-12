@@ -60,10 +60,10 @@ The following table indicates the features supported for each language.
 | Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
 | Scaling - manual scaling (in/out, up/down)                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
 | Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| API portal                                                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Spring Cloud Gateway                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Application Configuration Service                               | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| Service Registry                                                | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Application Configuration Service for VMware Tanzu®             | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ |
 | VNET                                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
 | Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
 | E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |

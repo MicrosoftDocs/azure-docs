@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 ## Set up a continuous data export to Azure Event Hubs
 
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central application template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
 
 
 ## Create a Power BI streaming dataset
@@ -171,9 +171,9 @@ Before you can do this, you will need to understand the JSON payload that is bei
 
 1. For the **True** case of the Condition, add an action that calls the **Add rows to a dataset** Power BI functionality. You will have to sign into Power BI for this. Your **False** case can again use the **Terminate** control.
 
-1. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Your filled-out actions should look like this:
- 
-   :::image type="content" source="media/add-rows-yesenia.png" alt-text="Add rows to Power BI":::
+1. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Select **Add new parameter** > **Payload**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Then, enter valid JSON contents into the Payload field. Your filled-out actions should look like this:
+
+   ![Screenshot that shows how Logic Apps connects to Power BI.](media/add-rows-yesenia-json.png)
 
 1. For the **Smart Knee Brace** switch case, add a **Parse JSON** action to parse the content, similar to Step 7. Then **Add rows to a dataset** to update your Teddy Silvers dataset in Power BI.
 
@@ -199,5 +199,4 @@ If you're not going to continue to use this application, delete your resources w
 
 1. From the Azure portal, you can delete the Event Hub and Logic Apps resources that you created.
 
-1. For your IoT Central application, go to the Administration tab and select **Delete**.
-
+1. For your IoT Central application, go to the **Application > Management** tab and select **Delete**.

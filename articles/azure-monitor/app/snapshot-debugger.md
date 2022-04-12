@@ -4,9 +4,6 @@ description: Debug snapshots are automatically collected when exceptions are thr
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/12/2021
-author: cweining
-ms.author: cweining
-
 ms.reviewer: cweining
 ---
 
@@ -48,12 +45,9 @@ Access to snapshots is protected by Azure role-based access control (Azure RBAC)
 
 Subscription owners should assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. Navigate to the Application Insights resource in the Azure portal.
-1. Click **Access control (IAM)**.
-1. Click the **+Add role assignment** button.
-1. Select **Application Insights Snapshot Debugger** from the **Roles** drop-down list.
-1. Search for and enter a name for the user to add.
-1. Click the **Save** button to add the user to the role.
+1. Assign the Debugger role to the **Application Insights Snapshot**.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
 
 
 > [!IMPORTANT]

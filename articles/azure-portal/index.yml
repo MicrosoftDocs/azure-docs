@@ -8,7 +8,7 @@ metadata:
   description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
   services: Azure portal
   ms.topic: landing-page
-  ms.service: azure
+  ms.service: azure-portal
   ms.collection: collection
   ms.date: 02/15/2022
 

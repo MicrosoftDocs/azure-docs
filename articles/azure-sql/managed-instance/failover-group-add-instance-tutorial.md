@@ -16,18 +16,32 @@ ms.date: 08/27/2019
 # Tutorial: Add SQL Managed Instance to a failover group
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Add managed instances of Azure SQL Managed Instance to a failover group. In this article, you will learn how to:
+> [!div class="op_single_selector"]
+> * [Azure SQL Database (single database)](../database/failover-group-add-single-database-tutorial.md)
+> * [Azure SQL Database (elastic pool)](../database/failover-group-add-elastic-pool-tutorial.md)
+> * [Azure SQL Managed Instance](failover-group-add-instance-tutorial.md)
+
+Add managed instances of Azure SQL Managed Instance to an [auto-failover group](auto-failover-group-sql-mi.md). 
+
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > - Create a primary managed instance.
-> - Create a secondary managed instance as part of a [failover group](../database/auto-failover-group-overview.md). 
+> - Create a secondary managed instance as part of a failover group. 
 > - Test failover.
+
+ There are multiple ways to establish connectivity between managed instances in different virtual networks, including:
+ * [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)
+ * [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
+ * VPN gateways
+
+This tutorial provides steps for creating and connecting VPN gateways. If you prefer to use ExpressRoute or VNet peering, replace the gateway steps accordingly, or 
+skip ahead to [Step 7](#create-a-failover-group) if you already have ExpressRoute or global VNet peering configured. 
+
 
   > [!NOTE]
   > - When going through this tutorial, ensure you are configuring your resources with the [prerequisites for setting up failover groups for SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Managed instances participating in a failover group require [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), global VNet peering, or two connected VPN gateways. This tutorial provides steps for creating and connecting the VPN gateways. Skip these steps if you already have ExpressRoute configured. 
-
+  > - Creating a managed instance can take a significant amount of time. As a result, this tutorial may take several hours to complete. For more information on provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations). 
 
 ## Prerequisites
 
@@ -430,7 +444,7 @@ To create a virtual network, follow these steps:
     | **Region** | The location where you will deploy your secondary managed instance. |
     | **Subnet** | The name for your subnet. `default` is provided for you by default. |
     | **Address range**| The address range for your subnet. This must be different than the subnet address range used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
-    | &nbsp; | &nbsp; |
+
 
     ![Secondary virtual network values](./media/failover-group-add-instance-tutorial/secondary-virtual-network.png)
 
@@ -469,7 +483,7 @@ Create the secondary managed instance using the Azure portal.
     | **Region**| The location for your secondary managed instance.  |
     | **SQL Managed Instance admin login** | The login you want to use for your new secondary managed instance, such as `azureuser`. |
     | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
-    | &nbsp; | &nbsp; |
+
 
 1. Under the **Networking** tab, for the **Virtual Network**, select the virtual network you created for the secondary managed instance from the drop-down.
 
@@ -732,10 +746,6 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ## Create a primary gateway 
 
-For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#create-a-failover-group).  
-
-This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
-
 > [!NOTE]
 > The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
@@ -768,7 +778,7 @@ Create the gateway for the virtual network of your primary managed instance usin
     | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-primary`. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address, such as `primary-gateway-IP`. |
-    | &nbsp; | &nbsp; |
+
 
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
@@ -849,7 +859,7 @@ Using the Azure portal, repeat the steps in the previous section to create the v
    | **Virtual network**| Select the virtual network for the secondary managed instance, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
-   | &nbsp; | &nbsp; |
+
 
    ![Secondary gateway settings](./media/failover-group-add-instance-tutorial/settings-for-secondary-gateway.png)
 

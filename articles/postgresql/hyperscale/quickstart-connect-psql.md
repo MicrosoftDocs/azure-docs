@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: connect to a server group with psql - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to connect psql to Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
@@ -58,6 +58,23 @@ When you create your Hyperscale (Citus) server group, a default database named *
    Type "help" for help.
    
    citus=>
+   ```
+
+4. Run a test query. Copy the following command and paste it into the psql
+   prompt, then press enter to run:
+
+   ```sql
+   SHOW server_version;
+   ```
+
+   You should see a result matching the PostgreSQL version you selected
+   during server group creation. For instance:
+
+   ```
+    server_version
+   ----------------
+    13.5
+   (1 row)
    ```
 
 ## Next steps
