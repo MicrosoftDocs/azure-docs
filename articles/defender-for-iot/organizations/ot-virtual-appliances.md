@@ -14,8 +14,8 @@ This article lists the specifications required if you want to install Microsoft 
 The virtualized hardware used to run guest operating systems is supplied by virtual machine hosts, also known as *hypervisors*.
 Defender for IoT supports the following hypervisor software:
 
-- VMware ESXi (version 5.0 and later)
-- Microsoft Hyper-V (VM configuration version 8.0 and later)
+- **VMware ESXi** (version 5.0 and later)
+- **Microsoft Hyper-V** (VM configuration version 8.0 and later)
 
 Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
 
@@ -25,10 +25,10 @@ This section outlines considerations for virtual appliance components, for both 
 
 |Specification  |Considerations  |
 |---------|---------|
-|**CPU**     |   Recommended to assign dedicated CPU cores (also known as pinning) with at least 2.4 GHz, which are not dynamically allocated. <br><br>CPU usage will be high since the appliance continuously records and analyzes network traffic. CPU performance is critical to capturing and analyzing network traffic, and any slowdown could lead to packet drops and performance degradation.   |
-|**Memory**     | RAM should be allocated statically for the required capacity, not dynamically. <br><br>Due to its constant network traffic recording and analytics, expect high RAM utilization.       |
+|**CPU**     |   Assign dedicated CPU cores (also known as pinning) with at least 2.4 GHz, which are not dynamically allocated. <br><br>CPU usage will be high since the appliance continuously records and analyzes network traffic.<br> CPU performance is critical to capturing and analyzing network traffic, and any slowdown could lead to packet drops and performance degradation.   |
+|**Memory**     | RAM should be allocated statically for the required capacity, not dynamically. <br><br>Expect high RAM utilization due to the sensor's constant network traffic recording and analytics,        |
 |**Network interfaces**     |  Physical mapping provides best performance, lowest latency and efficient CPU usage. Our recommendation is to physically map NICs to the virtual machines with SR-IOV or a dedicated NIC. <br><br>  As a result of high traffic monitoring levels, expect high network utilization. <br><br> Set the promiscuous mode on your vSwitch to **Accept**, which allows all traffic to reach the VM. Some vSwitch implementations may block certain protocols if it isn't configured correctly.|
-|**Storage**     | Make sure to allocate enough read and write IOPs and throughput to match the performance of the appliances listed in this article. You should expect high storage usage due to the large traffic monitoring volumes.      |
+|**Storage**     | Make sure to allocate enough read and write IOPs and throughput to match the performance of the appliances listed in this article. <br><br>You should expect high storage usage due to the large traffic monitoring volumes.      |
 
 
 ## OT network sensor requirements
