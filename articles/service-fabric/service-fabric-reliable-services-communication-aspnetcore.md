@@ -345,10 +345,10 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         .ConfigureWebHostDefaults(webBuilder =>
                         {
                             webBuilder.UseKestrel()
-                            .UseStartup<Startup>()
-                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-                            .UseContentRoot(Directory.GetCurrentDirectory())
-                            .UseUrls(url);
+                                .UseStartup<Startup>()
+                                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls(url);
                         })
                         .ConfigureServices(services => services.AddSingleton<StatelessServiceContext>(serviceContext))
                         .Build();
