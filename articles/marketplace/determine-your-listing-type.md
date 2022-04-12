@@ -143,7 +143,7 @@ The following table shows the options that are available for different offer typ
 | SaaS  | Both online stores | Both online stores | Both online stores |   | Both online stores <sup>1</sup>|
 | Microsoft 365 App | AppSource | AppSource |   |   | AppSource <sup>2</sup> |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource <sup>3</sup> |   |   |   |
+| Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   | AppSource <sup>3</sup>  |
 | Dynamics 365 Operations Apps | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
 |||||||
