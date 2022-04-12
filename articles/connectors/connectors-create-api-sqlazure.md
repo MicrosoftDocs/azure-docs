@@ -34,7 +34,12 @@ If you're new to Azure Logic Apps, review the following documentation:
 
   The SQL connector requires that your tables contain data so that SQL connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL connector operations.
 
-* The information required to create a SQL database connection, such as your SQL server and database names. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string, for example:
+* The information required to create a SQL database connection, such as your SQL server and database names. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
+
+  > [!NOTE]
+  >
+  > If you use a SQL Server connection string that you copied directly from the Azure portal, 
+  > you have to manually add your password to the connection string.
 
   * For a SQL database in Azure, the connection string has the following format: 
 
@@ -64,13 +69,19 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 ## Connector technical reference
 
-For the managed SQL Server connector technical information, such as trigger and action operations, limits, and known issues, review the [SQL Server connector's reference page](/connectors/sql/), which is generated from the Swagger description. This connector is available for logic app workflows in multi-tenant Azure Logic Apps, ISEs, and single-tenant Azure Logic Apps.
+This connector is available for logic app workflows in multi-tenant Azure Logic Apps, ISEs, and single-tenant Azure Logic Apps.
 
-> [!NOTE]
->
-> In an ISE, this connector is also available in an ISE version that's designed to run in an ISE. 
-> In single-tenant Azure Logic Apps, this connector is also available as a built-in version that's 
-> designed to run in the same process as the single-tenant Azure Logic Apps runtime.
+* For Consumption logic app workflows in multi-tenant Azure Logic Apps, this connector is available only as a managed connector.
+
+* For Consumption logic app workflows in an ISE, this connector is available as a managed connector and as an ISE connector that's designed to run in an ISE.
+
+* For Standard logic app workflows in single-tenant Azure Logic Apps, this connector is available as a managed connector and as a built-in connector that's designed to run in the same process as the single-tenant Azure Logic Apps runtime. However, the built-in version differs in the following ways:
+
+  * The built-in SQL Server connector has no triggers.
+
+  * The built-in SQL Server connector has only one operation: **Execute Query**
+
+For the managed SQL Server connector technical information, such as trigger and action operations, limits, and known issues, review the [SQL Server connector's reference page](/connectors/sql/), which is generated from the Swagger description.
 
 <a name="create-connection"></a>
 
@@ -91,43 +102,57 @@ To access an Azure SQL Managed Instance without using the on-premises data gatew
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For **Authentication Type**, select the authentication that's required and enabled on your database in Azure SQL Database or Azure SQL Managed Instance:
+1. For **Connection name**, provide a name to use for your connection.
+
+1. For **Authentication type**, select the authentication that's required and enabled on your database in Azure SQL Database or Azure SQL Managed Instance:
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
-   | **Logic Apps Managed Identity** | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid managed identity that has [access to your database](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), **SQL DB Contributor** role access to the SQL Server resource, and **Contributor** access to the resource group that includes the SQL Server resource. <p>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles).
-   |||
+   | **Service principal (Azure AD application)** | - Available only for the managed SQL Server connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
+   | **Logic Apps Managed Identity** | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A valid managed identity that has [access to your database](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles). |
+   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your database. <br><br>For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
 
-   This example continues with **Azure AD Integrated**:
+   This connection and authentication information box looks similar to the following example, which selects **Azure AD Integrated**:
 
-   ![Screenshot that shows the "SQL Server" connection window with the opened "Authentication Type" list and "Azure AD Integrated" selected.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   * Consumption logic app workflows
 
-1. After you select **Azure AD Integrated**, select **Sign In**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" connection box with connection information and selected authentication type for Consumption.](./media/connectors-create-api-sqlazure/select-authentication-sql-cloud-consumption.png)
+
+   * Standard logic app workflows
+
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" connection box with connection information and selected authentication type for Standard.](./media/connectors-create-api-sqlazure/select-authentication-sql-cloud-standard.png)
+
+1. After you select **Azure AD Integrated**, select **Sign in**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 
 1. Select these values for your database:
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Server name** | Yes | The address for your SQL server, for example, `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Database name** | Yes | The name for your SQL database, for example, `Fabrikam-Azure-SQL-DB` |
-   | **Table name** | Yes | The table that you want to use, for example, `SalesLT.Customer` |
+   | **Server name** | Yes | The address for your SQL server, for example, **Fabrikam-Azure-SQL.database.windows.net** |
+   | **Database name** | Yes | The name for your SQL database, for example, **Fabrikam-Azure-SQL-DB** |
+   | **Table name** | Yes | The table that you want to use, for example, **SalesLT.Customer** |
    ||||
 
    > [!TIP]
    > To provide your database and table information, you have these options:
    > 
-   > * Find this information in your database's connection string. For example, in the Azure portal, find and open your database. On the database menu, select either **Connection strings** or **Properties**, where you can find this string:
+   > * Find this information in your database's connection string. For example, in the Azure portal, find and open your database. On the database menu, select either **Connection strings** or **Properties**, where you can find the following string:
    >
    >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
    >
    > * By default, tables in system databases are filtered out, so they might not automatically appear when you select a system database. As an alternative, you can manually enter the table name after you select **Enter custom value** from the database list.
    >
 
-   This example shows how these values might look:
+   This database information box looks similar to the following example:
 
-   ![Create connection to SQL database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   * Consumption logic app workflows
+
+     ![Screenshot showing the database information box with sample values for Consumption.](./media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png)
+
+   * Standard logic app workflows
+
+     ![Screenshot showing the database information box with sample values for Standard.](./media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png)
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 
@@ -145,8 +170,8 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supports only the non-ISE SQL Server connector, which requires a data gateway resource that's previously created in Azure for your connection, regardless whether you use multi-tenant Azure or an ISE. <p><p>- Requires a valid Windows user name and password to confirm your identity through your Windows account. <p>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your SQL Server. <p>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Available only for the managed SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
    |||
 
    This example continues with **Windows Authentication**:
@@ -162,7 +187,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | **Username** | Yes | Your user name for the SQL server and database |
    | **Password** | Yes | Your password for the SQL server and database |
    | **Subscription** |  Yes, for Windows authentication | The Azure subscription for the data gateway resource that you previously created in Azure |
-   | **Connection Gateway** | Yes, for Windows authentication | The name for the data gateway resource that you previously created in Azure <p><p>**Tip**: If your gateway doesn't appear in the list, check that you correctly [set up your gateway](../logic-apps/logic-apps-gateway-connection.md). |
+   | **Connection Gateway** | Yes, for Windows authentication | The name for the data gateway resource that you previously created in Azure <br><br><br><br>**Tip**: If your gateway doesn't appear in the list, check that you correctly [set up your gateway](../logic-apps/logic-apps-gateway-connection.md). |
    |||
 
    > [!TIP]
