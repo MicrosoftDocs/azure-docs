@@ -87,7 +87,7 @@ If you want to update to the most recent version of IoT Edge, use the following 
    ```bash
    sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
-To see more information about updating the micro agent for Edge [click here](../articles/defender-for-iot/device-builders/upgrade-micro-agent.md).  
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](/azure/defender-for-iot/device-builders/overview).
 <!-- end 1.2 -->
 :::moniker-end
 
