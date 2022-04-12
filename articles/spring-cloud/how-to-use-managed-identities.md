@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/13/2022
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
