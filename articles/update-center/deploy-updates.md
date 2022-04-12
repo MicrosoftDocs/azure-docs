@@ -15,11 +15,9 @@ ms.custom: references_regions
 
 The article describes how to perform an on-demand update on a single VM or multiple VMs using update management center (preview).
 
-After deployment, you can view the results in
-
 See the following sections for detailed information:
 - Install updates on a single VM
-- Install updates at scale.
+- Install updates at scale
 
 ## Supported regions
 
@@ -106,7 +104,7 @@ To create a new update deployment for multiple machines, follow these steps:
    
 1. In **Install one-time updates**, you can select the resources and machines to install the updates.
 
-1. In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add upto 20 machines. Choose the **Select all** and select **Add**.
+1. In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
 
 The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
 
@@ -117,12 +115,10 @@ The **Machines** displays a list of machines for which you want to deploy one-ti
 1. Go to **Machines**, select your subscription and choose your machines. You can choose **Select all** to select  all the machines. 
 
 1. Select **One-time update**, **Install now** to deploy one-time updates.
-
-   :::image type="content" source="./media/deploy-updates/one-time-updates-machines-tab-inline.png" alt-text="Example on installing one-time updates from Machines tab." lightbox="./media/deploy-updates/one-time-updates-machines-tab-expanded.png":::
-
+  
 1.  In **Install one-time updates**, you can select the resources and machines to install the updates.
 
-1.  In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add upto 20 machines. Choose the **Select all** and select **Add**.
+1.  In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
 
 The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
 
