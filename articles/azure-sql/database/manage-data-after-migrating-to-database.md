@@ -85,11 +85,11 @@ To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recover
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
 
 - Identity & authentication ([SQL authentication and Azure Active Directory [Azure AD] authentication](logins-create-manage.md)).
-- Monitoring activity ([Auditing](../../azure-sql/database/auditing-overview.md) and [threat detection](threat-detection-configure.md)).
+- Monitoring activity ([Auditing](/azure/azure-sql/database/auditing-overview) and [threat detection](threat-detection-configure.md)).
 - Protecting actual data ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) and [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlling Access to sensitive and privileged data ([Row Level security](/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) offers centralized security management across workloads running in Azure, on-premises, and in other clouds. You can view whether essential SQL Database protection such as [Auditing](../../azure-sql/database/auditing-overview.md) and [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) are configured on all resources, and create policies based on your own requirements.
+[Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) offers centralized security management across workloads running in Azure, on-premises, and in other clouds. You can view whether essential SQL Database protection such as [Auditing](/azure/azure-sql/database/auditing-overview) and [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) are configured on all resources, and create policies based on your own requirements.
 
 ### What user authentication methods are offered in SQL Database
 
@@ -147,7 +147,7 @@ Port 1433. SQL Database communicates over this port. To connect from within a co
 
 #### SQL Database Auditing
 
-With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](../../azure-sql/database/auditing-overview.md) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](secure-database-tutorial.md#enable-security-features).
+With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](/azure/azure-sql/database/auditing-overview) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](secure-database-tutorial.md#enable-security-features).
 
 #### Threat detection
 

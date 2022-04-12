@@ -137,7 +137,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](/azure/azure-sql/managed-instance/connection-types-overview).
 
 ## Considerations for Azure SQL Managed Instance
 

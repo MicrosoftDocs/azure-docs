@@ -57,7 +57,7 @@ This article provides a general workflow for moving resources to a different reg
 1. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require the cross-region traffic, which isn't desired or possible after the move.
 1. For server-level audits, ensure that:
    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
-   - Auditing is configured on the target server. For more information, see [Get started with SQL Database auditing](../../azure-sql/database/auditing-overview.md).
+   - Auditing is configured on the target server. For more information, see [Get started with SQL Database auditing](/azure/azure-sql/database/auditing-overview).
 1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you'll be able to access the older LTR backups in the source region by using the source server, even if the server is deleted.
 
       > [!NOTE]
@@ -108,7 +108,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 1. If a database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require cross-region traffic, which is not desired, or possible after the move.
 1. For server-level audits, ensure that:
     - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
-    - Audit configuration is configured at the target server. For more information, see [SQL Database auditing](../../azure-sql/database/auditing-overview.md).
+    - Audit configuration is configured at the target server. For more information, see [SQL Database auditing](/azure/azure-sql/database/auditing-overview).
 1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you'll be able to access the older LTR backups in the source region using the source server, even if the server is deleted.
 
       > [!NOTE]
