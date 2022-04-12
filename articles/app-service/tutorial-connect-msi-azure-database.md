@@ -256,7 +256,7 @@ In this section, connectivity to the Azure database in your code follows the `De
 1. Add the token to your connection string.
 1. Open the connection.
 
-For Azure Database for MySQL and Azure Database for PostgreSQL, the database username that you created in [2. Configure managed identity for app](2-configure-managed-identity-for-app) is also required in the connection string.
+For Azure Database for MySQL and Azure Database for PostgreSQL, the database username that you created in [2. Configure managed identity for app](#2-configure-managed-identity-for-app) is also required in the connection string.
 
 # [.NET Framework](#tab/netfx)
 
@@ -1026,7 +1026,7 @@ You're now ready to develop and debug your app with the SQL Database as the back
 
 ## 5. Test and publish
 
-1. Run your code in your dev environment. Your code uses the [signed-in Azure AD user]((#1-grant-database-access-to-azure-ad-user)) in your environment to connect to the back-end database. The user can access the database because it's configured as an Azure AD administrator for the database.
+1. Run your code in your dev environment. Your code uses the [signed-in Azure AD user](#1-grant-database-access-to-azure-ad-user)) in your environment to connect to the back-end database. The user can access the database because it's configured as an Azure AD administrator for the database.
 
 1. Publish your code to Azure using the preferred publishing method. In App Service, your code uses the app's managed identity to connect to the back-end database.
 
