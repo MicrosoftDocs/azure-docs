@@ -130,14 +130,14 @@ There are some limitations on community galleries:
 
 ### Community gallery FAQ
 
-**Q: Do Community Gallery images support auto-update?**
-**A**:Currently, we don’t support auto-update on any Community Gallery images.  
-
 **Q: What are the charges for using Community Galleries?**
    **A**: There are no charges for using the service itself. However, content publishers would be charged for the following: 
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
 - Network egress charges for replication across regions. 
 
+**Q: Is it safe to use Community Gallery images?**
+
+Users should exercise caution while using Community Gallery images from non-verified sources, since these images are not subject to Azure certification.  
 
 **Q: If a Community Gallery image doesn’t work, whom do I contact for support?**
 
