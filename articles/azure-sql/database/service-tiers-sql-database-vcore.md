@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, sashan, moslake, mathoma
-ms.date: 03/02/2022
+ms.date: 04/13/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
 # vCore purchasing model - Azure SQL Database 

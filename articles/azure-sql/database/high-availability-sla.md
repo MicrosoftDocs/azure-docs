@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
-ms.date: 03/02/2022
+ms.date: 04/13/2022
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance

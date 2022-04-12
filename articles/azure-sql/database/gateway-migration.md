@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 07/01/2019
+ms.date: 04/13/2022
 ---
 # Azure SQL Database traffic migration to newer Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

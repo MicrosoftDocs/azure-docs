@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 1/19/2022
+ms.date: 4/13/2022
 ---
 
 # Active geo-replication
