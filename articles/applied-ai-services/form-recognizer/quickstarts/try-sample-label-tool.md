@@ -138,7 +138,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     1. Start by creating a new CORS entry in the Blob service.
 
-    1. Set the **Allowed origins** to **https://fott-2-1.azurewebsites.net**.
+    1. Set the **Allowed origins** to *.
 
     1. Select all the available 8 options for **Allowed methods**.
 
