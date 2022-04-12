@@ -1,6 +1,6 @@
 ---
 title: Mount Azure Storage as a local share
-description: Learn how to attach custom network share in a containerized app in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
+description: Learn how to attach custom network share  in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
 
 ms.topic: article
