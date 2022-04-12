@@ -71,7 +71,8 @@ Four Azure resources are defined in the template.
     | **User Plane Data Interface Ip Address** | Enter the IP address for the packet core instance's N6 interface. |
     | **User Plane Data Interface Subnet** | Enter the network address of the data subnet in CIDR notation. |
     | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
-    | **Ue Ip Pool Prefix** | Enter the network address of the subnet from which IP addresses must be allocated to User Equipment (UEs) in CIDR notation. |
+    |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
+    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     | **Core Network Technology** | Leave this field unchanged. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
@@ -96,7 +97,7 @@ Four Azure resources are defined in the template.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
 
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png":::
 
 ## Next steps
 

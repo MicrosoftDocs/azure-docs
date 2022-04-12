@@ -87,7 +87,8 @@ The following Azure resources are defined in the template.
     |**User Plane Data Interface Ip Address**  | Enter the IP address for the packet core instance's N6 interface.  |
     |**User Plane Data Interface Subnet**  | Enter the network address of the data subnet in CIDR notation. |
     |**User Plane Data Interface Gateway**  | Enter the data subnet default gateway. |
-    |**Ue Ip Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. Note that the template does not include configuration for static IP addresses. |
+    |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
+    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     |**Core Network Technology**  | Leave this field unchanged. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
