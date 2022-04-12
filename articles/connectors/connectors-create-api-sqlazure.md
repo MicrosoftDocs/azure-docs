@@ -117,11 +117,11 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    * Consumption logic app workflows
 
-     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" connection box with connection information and selected authentication type for Consumption.](./media/connectors-create-api-sqlazure/select-authentication-sql-cloud-consumption.png)
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" cloud connection information with selected authentication type for Consumption.](./media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-consumption.png)
 
    * Standard logic app workflows
 
-     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" connection box with connection information and selected authentication type for Standard.](./media/connectors-create-api-sqlazure/select-authentication-sql-cloud-standard.png)
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" cloud connection information with selected authentication type for Standard.](./media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-standard.png)
 
 1. After you select **Azure AD Integrated**, select **Sign in**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 
@@ -148,11 +148,11 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    * Consumption logic app workflows
 
-     ![Screenshot showing the database information box with sample values for Consumption.](./media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png)
+     ![Screenshot showing SQL cloud database cloud information with sample values for Consumption.](./media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png)
 
    * Standard logic app workflows
 
-     ![Screenshot showing the database information box with sample values for Standard.](./media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png)
+     ![Screenshot showing SQL cloud database information with sample values for Standard.](./media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png)
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 
@@ -174,10 +174,6 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Available only for the managed SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
    |||
 
-   This example continues with **Windows Authentication**:
-
-   ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
-
 1. Select or provide the following values for your SQL database:
 
    | Property | Required | Description |
@@ -198,9 +194,15 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    > * `User ID={your-user-name}`
    > * `Password={your-password}`
 
-   This example shows how these values might look:
+   This connection and authentication information box looks similar to the following example, which selects **Windows Authentication**:
 
-   ![Create SQL Server connection completed](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+   * Consumption logic app workflows
+
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" on-premises connection information with selected authentication for Consumption.](./media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png)
+
+   * Consumption logic app workflows
+
+     ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" on-premises connection information with selected authentication for Standard.](./media/connectors-create-api-sqlazure/select-windows-authentication-standard.png)
 
 1. When you're ready, select **Create**.
 
