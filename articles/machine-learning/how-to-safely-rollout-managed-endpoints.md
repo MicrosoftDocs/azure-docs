@@ -121,8 +121,7 @@ TBD - what is the branch on azureml-examples that contains this?
 > * You can only mirror traffic to one deployment.
 > * A deployment can only be set to live or mirror traffic, not both.
 > * Mirrored traffic is not currently supported with K8s.
->
-> We also recommend limiting the maximum mirrored traffic to 50% to reduce the impact on your endpoint bandwidth quota.
+> * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
 
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
