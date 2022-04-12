@@ -30,19 +30,11 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 To follow along with this tutorial, [Download the Sample Project](https://github.com/azure-samples/containerapps-albumapi-javascript/archive/refs/heads/master.zip) from [the repository](https://github.com/azure-samples/containerapps-albumapi-javascript) or clone it using the Git command below:
 
 ```bash
-git clone https://github.com/azure-samples/containerapps-albumapi-javascript
+git clone https://github.com/Azure-Samples/containerapps-albumapi-javascript.git
 cd containerapps-albumapi-javascript
 ```
 
-This tutorial uses a JavaScript project, but the steps are language agnostic.  If you would prefer to follow along using a different language, the same sample project is also available in the tools below.
-
-- [C# sample](https://github.com/azure-samples/containerapps-albumapi-csharp)
-- [Python sample](https://github.com/azure-samples/containerapps-albumapi-python)
-- [Go sample](https://github.com/azure-samples/containerapps-albumapi-go)
-
-To open the project after cloning on Windows, navigate to the project's folder, and right click and choose **Open in VS Code**.
-
-For Mac or Linux, you can use the Visual Studio Code user interface to open the sample project. Select **File -> Open Folder** and then navigate to the folder of the cloned project.
+This tutorial uses a JavaScript project, but the steps are language agnostic. To open the project after cloning on Windows, navigate to the project's folder, and right click and choose **Open in VS Code**. For Mac or Linux, you can also use the Visual Studio Code user interface to open the sample project. Select **File -> Open Folder** and then navigate to the folder of the cloned project.
 
 ## Sign in to Azure
 
