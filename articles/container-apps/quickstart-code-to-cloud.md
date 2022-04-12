@@ -200,7 +200,7 @@ az acr create \
 Now store your ACR credentials in an environment variable.
 
 ```azurecli
-ACR_PASSWORD_ACA=(az acr credential show -n $ACR_NAME_ACA)
+ACR_PASSWORD_ACA=$(az acr credential show -n $ACR_NAME_ACA --query passwords[0].value)
 ```
 
 # [PowerShell](#tab/powershell)
@@ -217,7 +217,7 @@ Now store your ACR credentials in an environment variable.
 
 ```powershell
 $ACR_PASSWORD_ACA=Get-AzContainerRegistryCredential `
-    -Registry=$ACA_REGISTRY  `
+    -Registry=$ACA_REGISTRY`
 ```
 
 ---
@@ -296,13 +296,13 @@ The following command builds the image using the Dockerfile for the album API. T
 # [Bash](#tab/bash)
 
 ```azurecli
-docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
+docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA .
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
+docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA .
 ```
 
 ---
@@ -330,13 +330,13 @@ First, sign in to your Azure Container Registry.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr login --name $ACR_NAME_ACA --password $ACR_PASSWORD_ACA
+az acr login --name $ACR_NAME_ACA
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az acr login --name $ACR_NAME_ACA --password $ACR_PASSWORD_ACA
+az acr login --name $ACR_NAME_ACA
 ```
 
 ---
@@ -403,6 +403,9 @@ az containerapp create \
   --image $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA \
   --target-port $API_PORT_ACA \
   --ingress 'external' \
+  --registry-password $ACR_PASSWORD_ACA \
+  --registry-username $ACR_NAME_ACA \
+  --registry-server $ACR_NAME_ACA.azurecr.io \
   --query configuration.ingress.fqdn
 ```
 
