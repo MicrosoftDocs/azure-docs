@@ -18,7 +18,7 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 ## Storage settings in the Backup vault
 
-A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected virtual machines.
+A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected resources.
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 

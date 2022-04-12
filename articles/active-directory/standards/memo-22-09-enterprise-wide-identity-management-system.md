@@ -72,7 +72,7 @@ Microsoft offers the following tools to help with your discovery of applications
 | Tool| Usage |
 | - | - |
 | [Usage Analytics for Active Directory Federation Services (AD FS)](../hybrid/how-to-connect-health-adfs.md)| Analyzes the authentication traffic of your federated servers. |
-| [Microsoft Defender for Cloud Apps](%20/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously called Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
+| [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously called Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
 | [Application Discovery worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)| Helps you document the current states of your applications. |
 
 We recognize that your apps might be in systems other than Microsoft's, and that Microsoft tools might not discover those apps. Ensure that you do a complete inventory. All providers should have mechanisms for discovering applications that use their services. 
