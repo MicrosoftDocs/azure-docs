@@ -214,9 +214,9 @@ In order to successfully deploy this solution, you need the following:
   ```  
 1. Open a PowerShell console and run the `deploy-e2e-tutorial.ps1` script.
 
-  ```powershell
-    ./Scripts/deploy-e2e-tutorial.ps1
-  ```
+
+   ```powershell
+   ./Scripts/deploy-e2e-tutorial.ps1
 
 ## Next steps
 
