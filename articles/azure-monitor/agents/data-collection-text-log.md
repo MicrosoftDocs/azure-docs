@@ -42,15 +42,6 @@ The steps to configure log collection are as follows. The detailed steps for eac
 3. Create a data collection rule to define the structure of the log file and destination of the collected data.
 4. Create association between the data collection rule and the agent collecting the log file.
 
-
-## Collect workspace details
-Start by gathering information that you'll need from your workspace.
-
-1. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
-
-    :::image type="content" source="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
-
-
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. When you create the table, you provide its name and a definition for each of its columns. 
 
@@ -91,7 +82,7 @@ Use the **Tables - Update** API to create the table with the PowerShell code bel
 
 
 ## Create data collection endpoint
-A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required for the agent to connect to send the data to Azure Monitor. The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent. 
+A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required for the agent to connect to send the data to Azure Monitor. The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent. If you already have a data collection endpoint for the agent, then you can use the existing one.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -169,6 +160,10 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 ## Create data collection rule
 The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) defines the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+
+1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
+
+    :::image type="content" source="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -323,20 +318,21 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
     }
     ```
 
-5. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
+5. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** and **Endpoint Resource ID**. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="../logs/media/data-collection-text-log/custom-deployment-values.png" lightbox="../logs/media/data-collection-text-log/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
 6. Click **Review + create** and then **Create** when you review the details.
 
 7. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="../logs/media/data-collection-text-log/data-collection-rule-details.png" lightbox="../logs/media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
-8. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
+8. Change the API version to **2021-09-01-preview**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="../logs/media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="../logs/media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
+9. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
 ## Create association with agent
 The final step is to create a data collection association that associates the data collection rule to the agents with the log file to be collected. A single data collection rule can be used with multiple agents.
