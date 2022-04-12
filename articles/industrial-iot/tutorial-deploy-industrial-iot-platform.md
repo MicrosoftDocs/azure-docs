@@ -28,15 +28,28 @@ Administrator, or Cloud Application Administrator rights to provide tenant-wide 
 
 ## Main Components
 
-This section lists the different components of the Azure IIoT Platform. The deployment script allows to select which set of components deploy.
-- Minimum dependencies: [IoT Hub](https://azure.microsoft.com/services/iot-hub/), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Service Bus](https://azure.microsoft.com/services/service-bus/), [Event Hub](https://azure.microsoft.com/services/event-hubs/), [Key Vault](https://azure.microsoft.com/services/key-vault/), [Storage](https://azure.microsoft.com/product-categories/storage/)
-- Standard dependencies: Minimum + [SignalR Service](https://azure.microsoft.com/services/signalr-service/), AAD app
-registrations, [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/), [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/), Workbook, Log Analytics,
-[Application Insights](https://azure.microsoft.com/services/monitor/)
-- Microservices: App Service Plan, [App Service](https://azure.microsoft.com/services/app-service/)
-- UI (Web app): App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/services/app-service/)
-- Simulation: [Virtual machine](https://azure.microsoft.com/services/virtual-machines/), Virtual network, IoT Edge
-- [Azure Kubernetes Service](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
+The Azure Industrial IoT Platform is a Microsoft suite of modules (OPC Publisher, OPC Twin, Discovery) and services that are deployed on Azure. The cloud microservices (Registry, OPC Twin, OPC Publisher, Edge Telemetry Processor, Registry Onboarding Processor, Edge Event Processor, Registry Synchronization) are implemented as ASP.NET microservices with a REST interface and run on managed Azure Kubernetes Services or stand-alone on Azure App Service. The deployment can deploy the platform, an entire simulation environment and a Web UI (Industrial IoT Engineering Tool).
+The deployment script allows to select which set of components deploy.
+- Minimum dependencies: 
+    - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) to communicate with the edge and ingress raw OPC UA telemetry data
+    - [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
+    - [Service Bus](https://azure.microsoft.com/services/service-bus/) as integration event bus
+    - [Event Hub](https://azure.microsoft.com/services/event-hubs/) contains processed and contextualized OPC UA telemetry data
+    - [Key Vault](https://azure.microsoft.com/services/key-vault/) to manage secrets and certificates
+    - [Storage](https://azure.microsoft.com/product-categories/storage/) for event hub checkpointing
+- Standard dependencies: Minimum +
+    - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, AAD app
+registrations, 
+    - [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) used for deploying and provisioning the simulation gateways
+    - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
+    - Workbook, Log Analytics, [Application Insights](https://azure.microsoft.com/services/monitor/) for operations monitoring
+- Microservices:
+    - App Service Plan, [App Service](https://azure.microsoft.com/services/app-service/) for hosting the cloud microservices
+- UI (Web app):
+    - App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/services/app-service/) for hosting the Industrial IoT Engineering Tool cloud application
+- Simulation:
+    - [Virtual machine](https://azure.microsoft.com/services/virtual-machines/), Virtual network, IoT Edge used for a factory simulation to show the capabilities of the platform and to generate sample telemetry
+- [Azure Kubernetes Service](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md) should be used to host the cloud microservices
 
 ## Deploy Azure IIoT Platform using the deployment script
 
@@ -63,12 +76,12 @@ registrations, [Device Provisioning Service](https://docs.microsoft.com/azure/io
 
     The types of deployments are the followings:
 
-    - Minimum: Minimum dependencies
-    - Local: Minimum and standard dependencies
-    - Services: Local and microservices
-    - Simulation: Minimum dependencies and simulation components
-    - App: Services and UI
-    - All (default): App and simulation
+    - `minimum`: Minimum dependencies
+    - `local`: Minimum and standard dependencies
+    - `services`: Local and microservices
+    - `simulation`: Minimum dependencies and simulation components
+    - `app`: Services and UI
+    - `all` (default): App and simulation
 
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
