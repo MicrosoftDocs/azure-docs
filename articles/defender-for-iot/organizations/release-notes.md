@@ -51,9 +51,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
-- [Device detection enhancements](#device-detection-enhancements)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
+- [Device detection enhancements](#device-detection-enhancements)
 
 ### Active discovery scans (Public preview)
 
@@ -97,14 +97,6 @@ For more information, see:
 - [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
 - [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version)
 
-### Device detection enhancements
-
-- Active asset support
-
-- Support and detection policies for hybrid networks
-
-- Support for Windows 11 and Server 2019 devices
-
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
 For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
@@ -119,6 +111,12 @@ For more information, see:
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+### Detection support for Windows 11 and Windows Server 2019
+
+Defender for IoT sensors can now discover Windows devices running Windows 11 and Windows Server 2019, in addition to previously supported operating systems.
+
+For more information, see [Learn Windows registry details](how-to-investigate-sensor-detections-in-a-device-inventory.md#learn-windows-registry-details).
 
 ### Automatic certificate updates  (Public preview)
 

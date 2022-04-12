@@ -173,7 +173,9 @@ You can survey the following Windows operating systems:
 
 - Windows 10
 
-- Windows Server 2003/2008/2012/2016
+- Windows 11
+
+- Windows Server 2003/2008/2012/2016/2019
 
 ### Before you begin
 
