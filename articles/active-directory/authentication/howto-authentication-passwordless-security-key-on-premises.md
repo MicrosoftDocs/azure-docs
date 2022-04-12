@@ -33,7 +33,7 @@ An Azure AD Kerberos Server object is created in your on-premises Active Directo
    Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
 
 1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises Azure AD DC and trades the partial TGT for a fully formed TGT.
+1. The client machine contacts an on-premises Active Directory Domain Controller and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Prerequisites
