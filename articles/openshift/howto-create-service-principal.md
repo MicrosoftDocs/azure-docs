@@ -14,7 +14,7 @@ zone_pivot_groups: azure-red-hat-openshift-service-principal
 
 # Create and use a service principal with an Azure Red Hat OpenShift cluster 
 
-To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create and manage other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals).
+To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create and manage other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 This article explains how to create and use a service principal for your Azure Red Hat OpenShift clusters using the Azure command-line interface (Azure CLI) or the Azure portal.
 
@@ -45,7 +45,7 @@ If you're using a service principal from a different Azure AD tenant, there are 
 For more information on user roles and permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
 > [!NOTE]
-> Service principals expire in one year unless configured for longer periods. For information on extending your service principal expiration period, see [What are the default user permissions in Azure Active Directory?](../cli/azure/ad/sp/credential.md?view=azure-cli-latest#az-ad-sp-credential-reset).
+> Service principals expire in one year unless configured for longer periods. For information on extending your service principal expiration period, see [What are the default user permissions in Azure Active Directory?](/cli/azure/ad/sp/credential.md?view=azure-cli-latest#az-ad-sp-credential-reset).
 
 ::: zone pivot="aro-azurecli"
 
@@ -55,7 +55,7 @@ The following sections explain how to use the Azure CLI to create a service prin
 
 ## Prerequisite
 
-If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../cli/azure/install-azure-cli).
+If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
  
 
 ## Create a service principal - Azure CLI
@@ -127,6 +127,6 @@ If you deploy an AKS cluster using the Azure portal, on the **Authentication** p
 - **Service principal client ID** is your appId. 
 - **Service principal client secret** is the decrypted Secret value. 
 
-[ ![Use the Azure Red Hat service principal with Azure portal.](media/openshift-service-principal-portal.png)](media/openshift-service-principal-portal.png/#lightbox)
+[ ![Use the Azure Red Hat service principal with Azure portal.](/media/openshift-service-principal-portal.png)](media/openshift-service-principal-portal.png/#lightbox)
 
 ::: zone-end
