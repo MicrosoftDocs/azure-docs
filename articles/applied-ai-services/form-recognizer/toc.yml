@@ -44,6 +44,8 @@ items:
     href:  create-a-form-recognizer-resource.md
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
+  - name: Use the prebuilt-read model
+    href: how-to-guides/use-read.md
   - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
   - name: Generate SAS tokens for Azure Blob containers
