@@ -25,7 +25,7 @@ Updates in April include:
 - [New Defender for Servers plans](#new-defender-for-servers-plans)
 - [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
-- [New alert flavor for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-flavor-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
+- [New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-variant-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
 - [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation) 
 
 ### New Defender for Servers plans
