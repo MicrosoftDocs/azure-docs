@@ -330,7 +330,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the **Automation Accounts** page.
 
-1. Select **Access control (IAM)**. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined. Assign the role to a user to which you want to give permissions.
+1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
