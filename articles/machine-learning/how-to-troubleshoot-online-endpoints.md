@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 04/12/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -132,9 +132,11 @@ Below is a list of common deployment errors that are reported as part of the dep
 
 ### ERROR: ImageBuildFailure
 
-- Check the build log to diagnose common image build failure problems. The build log path is included in the failure message: 'The build log is available in the workspace blob store "your-blob-storage" under the path "/azureml/ImageLogs/your-image-id/build.log"'.
-- No obvious error was found in the build log and the last line is 'Installing pip dependencies: ...working...'. Pinning version dependencies in your conda file could fix this issue.
-- Use [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location is returned as part of the error. For example, 'The build log is available in the workspace blob store "storage-account-name" under the path "/azureml/ImageLogs/your-image-id/build.log"'. In this case, "azureml" is the name of the blob container in the storage account.
+
+If no obvious error is found in the build log, and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file could fix this problem.
+
+We also recommend using a [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
 
 ### ERROR: OutOfQuota
 
