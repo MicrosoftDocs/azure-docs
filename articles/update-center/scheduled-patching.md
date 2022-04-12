@@ -78,7 +78,6 @@ A notification appears that the deployment is created.
 A notification appears that the deployment is created.
 
 
-
  ## Attach a maintenance configuration
  A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you've created one.
 
@@ -93,7 +92,9 @@ A notification appears that the deployment is created.
  
 ## Schedule recurring updates from maintenance configuration
 
-You can browse and manage all your maintenance configurations from a single place. Search **Maintenance configurations** in Azure portal. It shows a list of all maintenance configurations along with the maintenance scope, resource group, location, subscription to which it belongs. You can filter maintenance configurations using filters at the top. Maintenance configurations related to Guest OS updates are the ones that have Maintenance scope as **InGuestPatch**.
+You can browse and manage all your maintenance configurations from a single place. 
+1. Search **Maintenance configurations** in Azure portal. It shows a list of all maintenance configurations along with the maintenance scope, resource group, location, subscription to which it belongs. 
+1. You can filter maintenance configurations using filters at the top. Maintenance configurations related to Guest OS updates are the ones that have Maintenance scope as **InGuestPatch**.
 
 You can create new Guest OS update maintenance configuration or modify an existing configuration:
 
@@ -103,7 +104,7 @@ You can create new Guest OS update maintenance configuration or modify an existi
 
 1. Go to **Machines** and select machines from the list.
 1. In the **Updates (Preview)**, select **Scheduled updates**.
-1. In **Create a maintenance configuration**, create a configuration to schedule recurring updates.
+1. In **Create a maintenance configuration**, Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to createa a maintenance configuration
 
 	![Create Maintenance configuration](./media/scheduled-updates/create-maintenance-configuration.png)
 
