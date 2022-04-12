@@ -24,11 +24,11 @@ These are the available licensing options for Dynamics 365 offer types:
 | Offer type | Listing option |
 | --- | --- |
 | Dynamics 365 Operations Apps | Contact me |
-| Dynamics 365 apps on Dataverse and Power Apps | Get it now<sup>1<sup><br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
+| Dynamics 365 apps on Dataverse and Power Apps | Get it now<sup>1</sup><br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
 | Dynamics 365 Business Central | Get it now (Free)<br>Free trial (listing)<br>Contact me |
 |||
 
-<sup>1<sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
+<sup>1</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
 
 The following table describes the transaction process of each listing option.
 
