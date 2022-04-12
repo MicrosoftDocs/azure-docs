@@ -1,5 +1,5 @@
 ---
-title: HPE Edgeline EL300 (legacy) - Microsoft Defender for IoT
+title: HPE Edgeline EL300 (SMB) - Microsoft Defender for IoT
 description: Learn about the HPE Edgeline EL300 appliance for IoT in SMB rugged deployments.
 ms.date: 04/04/2022
 ms.topic: reference
@@ -15,6 +15,7 @@ This article describes the HPE Edgeline EL300 appliance for use in OT.
 |**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical Specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-installed|
+
 ## Specifications
 
 
