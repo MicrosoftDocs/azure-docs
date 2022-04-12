@@ -62,7 +62,7 @@ Here are the least privileged roles required for this deployment:
 
 | Azure AD Role| Description |
 | - | -|
-| Global Administrator| To implement combined registration experience. |
+| User Administrator or Global Administrator| To implement combined registration experience. |
 | Authentication Administrator| To implement and manage authentication methods. |
 | User| To configure Authenticator app on device, or to enroll security key device for web or Windows 10 sign-in. |
 
