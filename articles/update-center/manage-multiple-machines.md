@@ -4,11 +4,11 @@ description: The article details how to use Update management center (preview) i
 ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ---
 
-# Manage multiple machines with update management center (Preview)
+# Manage multiple machines with update management center (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -71,9 +71,9 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 ## Summary of machine status
 
-Update management center (Preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (Preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
+Update management center (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
 
- In update management center (Preview) page, select **Machines** from the left menu.
+ In update management center (preview) page, select **Machines** from the left menu.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Update management center Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
@@ -113,7 +113,7 @@ For machines that haven't had a compliance assessment scan for the first time, y
    :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Assessment banner on Manage Machines page example." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::   
 
 
-Select a machine from the list to open update management center (Preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
+Select a machine from the list to open update management center (preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
 
 ### Deploy the updates
 
@@ -149,7 +149,7 @@ You can create a recurring update deployment for your machines. Select your mach
 
 ## Update deployment history
 
-Update management center (Preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (Preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (Preview), select **History** from the left menu.
+Update management center (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (preview), select **History** from the left menu.
 
 
 ## Update deployment history by machines
@@ -187,7 +187,7 @@ When you select any one maintenance run ID records, you can view an expanded sta
 
 The update assessment and deployment data are available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Select **Go to resource graph** to go to Azure Resource Graph Explorer. It enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-When Resource Graph Explorer opens, it automatically populates with the same query used to generate the results presented in the table on the **History** page in Update management center (Preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When Resource Graph Explorer opens, it automatically populates with the same query used to generate the results presented in the table on the **History** page in Update management center (preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 
