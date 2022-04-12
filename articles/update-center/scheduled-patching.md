@@ -75,7 +75,7 @@ A notification appears that the deployment is created.
 
  1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machine and select **Schedule updates**.
-1. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to createa a maintenance configuration and assign a schedule.
+1. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
 A notification appears that the deployment is created.
 
@@ -107,7 +107,7 @@ You can create new Guest OS update maintenance configuration or modify an existi
 
 1. Go to **Machines** and select machines from the list.
 1. In the **Updates (Preview)**, select **Scheduled updates**.
-1. In **Create a maintenance configuration**, Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to createa a maintenance configuration
+1. In **Create a maintenance configuration**, Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration
 
 	:::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Create Maintenance configuration.":::
 	
@@ -139,7 +139,7 @@ You can check the deployment status and history of your maintenance configuratio
 The known issues and limitations of scheduled patching are:
 
 1. For concurrent/conflicting schedule, only one schedule will be triggered. Other schedule will be triggered once a schedule is finished.
-1. If a machines is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
+1. If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
 
 ## Next steps
 
