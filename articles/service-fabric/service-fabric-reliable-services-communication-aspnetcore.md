@@ -333,6 +333,7 @@ In addition to IWebHost/IWebHostBuilder, `KestrelCommunicationListener` and `Htt
 This is available starting v5.2.1363 of `Microsoft.ServiceFabric.AspNetCore.Kestrel` and `Microsoft.ServiceFabric.AspNetCore.HttpSys` packages.
 
 ```csharp
+// Stateless Service
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     return new ServiceInstanceListener[]
@@ -358,6 +359,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ```csharp
+// Stateful Service
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new ServiceReplicaListener[]
@@ -393,6 +395,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ASP.NET 6 introduced the Minimal Hosting model which is a more simplified and streamlined way of creating web applications. Minimal hosting model can also be used with KestrelCommunicationListener and HttpSysCommunicationListener.
 
 ```csharp
+// Stateless Service
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     return new ServiceInstanceListener[]
@@ -433,6 +436,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ```csharp
+// Stateful Service
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new ServiceReplicaListener[]
