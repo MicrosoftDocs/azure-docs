@@ -89,17 +89,16 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 - If you use a private Marketplace, it must contain the Redis Labs Enterprise offer.
 
 > [!IMPORTANT]
-> Azure Cache for Redis Enterprise requires standard network Load Balancers that are charged
-> separately from cache instances themselves. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
-> If an Enterprise cache is configured for multiple Availability Zones, data
-> transfer will be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
+> Azure Cache for Redis Enterprise requires standard network Load Balancers that are charged separately from cache instances themselves. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+>
+> If an Enterprise cache is configured for multiple Availability Zones, data transfer is billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
 > starting from July 1, 2022.
 >
-> In addition, data persistence adds Managed Disks. The use of these resources will be free during
-> the public preview of Enterprise data persistence. This may change when the feature becomes
-> generally available.
->
->
+> In addition, data persistence adds Managed Disks. The use of these resources is free during the public preview of Enterprise data persistence. This might change when the feature becomes generally available.
+
+## Availability by region
+
+The ability to use different Azure Cache for Redis tiers in different regions is continually changing. To check the availability by region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Next steps
 
