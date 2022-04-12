@@ -21,12 +21,12 @@ In this tutorial, you learn:
 
 - An Azure subscription must be created
 - Download [Git](https://git-scm.com/downloads)
-- The Azure Active Directory (AAD) app registrations used for authentication require Global Administrator, Application
+- The Microsoft Azure Active Directory (Azure AD) app registrations used for authentication require Global Administrator, Application
 Administrator, or Cloud Application Administrator rights to provide tenant-wide admin consent (see below for further options)
 - The supported operating systems for deployment are Windows, Linux and Mac
 - IoT Edge supports Windows 10 IoT Enterprise LTSC and Ubuntu Linux 16.08/18.04 LTS Linux
 
-## Main Components
+## Main components
 
 The Azure Industrial IoT Platform is a Microsoft suite of modules (OPC Publisher, OPC Twin, Discovery) and services that are deployed on Azure. The cloud microservices (Registry, OPC Twin, OPC Publisher, Edge Telemetry Processor, Registry Onboarding Processor, Edge Event Processor, Registry Synchronization) are implemented as ASP.NET microservices with a REST interface and run on managed Azure Kubernetes Services or stand-alone on Azure App Service. The deployment can deploy the platform, an entire simulation environment and a Web UI (Industrial IoT Engineering Tool).
 The deployment script allows to select which set of components to deploy.
@@ -34,12 +34,11 @@ The deployment script allows to select which set of components to deploy.
     - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) to communicate with the edge and ingress raw OPC UA telemetry data
     - [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
     - [Service Bus](https://azure.microsoft.com/services/service-bus/) as integration event bus
-    - [Event Hub](https://azure.microsoft.com/services/event-hubs/) contains processed and contextualized OPC UA telemetry data
+    - [Event Hubs](https://azure.microsoft.com/services/event-hubs/) contains processed and contextualized OPC UA telemetry data
     - [Key Vault](https://azure.microsoft.com/services/key-vault/) to manage secrets and certificates
-    - [Storage](https://azure.microsoft.com/product-categories/storage/) for event hub checkpointing
+    - [Storage](https://azure.microsoft.com/product-categories/storage/) for Event Hubs checkpointing
 - Standard dependencies: Minimum +
-    - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, AAD app
-registrations, 
+    - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, Azure AD app registrations,
     - [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) used for deploying and provisioning the simulation gateways
     - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
     - Workbook, Log Analytics, [Application Insights](https://azure.microsoft.com/services/monitor/) for operations monitoring
@@ -83,10 +82,10 @@ registrations,
     - `app`: Services and UI
     - `all` (default): App and simulation
 
-3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
+3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the Azure AD. If the required rights are missing, there are two possible solutions:
 
-    - Ask the AAD admin to grant tenant-wide admin consent for the application
-    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the `-aadConfig` argument.
+    - Ask the Azure AD admin to grant tenant-wide admin consent for the application
+    - An Azure AD admin can create the Azure AD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the Azure AD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the `-aadConfig` argument.
         ```bash
         cd deploy/scripts
         ./aad-register.ps1 -Name <application-name> -Output aad.json
