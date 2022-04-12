@@ -130,19 +130,19 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
+These instructions show you how to upload files by using [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), the free tool that runs on your Windows, macOS, or Linux machine. You could also use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
 
-1. Select **Storage Explorer (preview)**.
+1. Launch **Azure Storage Explorer**. If you're not yet familiar with Storage Explorer, see the [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) article.
 
-2. Expand the **BLOB CONTAINERS** node, and then select the **$web** container.
+2. In the **Explorer** pane, expand the **Storage Accounts** node, and then expand the storage account in which your static website is contained. Finally, expand **Blob Containers** and then select the **$web** container.
 
-3. Choose the **Upload** button to upload files.
+3. In the **$web** pane, choose the **Upload** button to upload files.
 
-   ![Upload files](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to upload files to the static website storage container" lightbox="storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
 
 4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`.
 
-   ![Check content types](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+    :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to verify blob content types" lightbox="storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
 
    > [!NOTE]
    > Storage Explorer automatically sets this property to `text/html` for commonly recognized extensions such as `.html`. However, in some cases, you'll have to set this yourself. If you don't set this property to `text/html`, the browser will prompt users to download the file instead of rendering the contents. To set this property, right-click the file, and then click **Properties**.
