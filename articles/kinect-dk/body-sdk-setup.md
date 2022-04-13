@@ -25,9 +25,9 @@ The Body Tracking SDK requires a NVIDIA GPU installed in the host PC. The recomm
 
 Download and install the latest NVIDIA driver for your graphics card. Older drivers may not be compatible with the CUDA binaries redistributed with the body tracking SDK.
 
-### [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+### [Visual C++ Redistributable for Visual Studio 2015-2022](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
-Download and install Visual C++ Redistributable for Visual Studio 2015. 
+Download and install Visual C++ Redistributable for Visual Studio 2015-2022 (or latest). 
 
 ## Set up hardware
 
