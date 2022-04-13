@@ -33,15 +33,15 @@ Start using [scheduled patching](scheduled-patching.md) to create and save recur
 
 This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines keeping in mind the availability-first principles. For more information, see [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).
 
-This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. For more information, see [Patch orchestration](manage-update-settings.md#configure-updates-on-single-vm).
+This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. 
 
 
 ## Windows automatic updates
-This mode of patching allows opertating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS). 
+This mode of patching allows operating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS). 
 
 ## Hotpatching
 
-Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](/azure/automanage/automanage-hotpatch?).
+Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. 
 
 In your **Update management center (preview)**, hotpatching property is available as an option that you can select from **Machines** >> **Update Settings** 
 
