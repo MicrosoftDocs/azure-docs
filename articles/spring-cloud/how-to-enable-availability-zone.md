@@ -19,9 +19,9 @@ ms.custom: devx-track-java
 
 This article explains availability zones in Azure Spring Cloud, and how to enable them.
 
-In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking, which protects your applications and data from data center failures.
+In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers that are equipped with independent power, cooling, and networking. Availability zones protect your applications and data from data center failures.
 
-When a service in Azure Spring Cloud is configured with availability zone enabled, Azure automatically spreads the applications deployment instance across all three zones in the selected region. If the application's deployment instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, the extra instance counts are spread across the remaining zones.
+When a service in Azure Spring Cloud has availability zone enabled, Azure automatically spreads the application's deployment instance across all three zones in the selected region. If the application's deployment instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, the extra instance counts are spread across the remaining zones.
 
 ## How to create an instance in Azure Spring Cloud with availability zone enabled
 
@@ -41,7 +41,7 @@ az spring-cloud create -name <MyService> \
     --zone-redundant true
 ```
 
-#[Portal](#tab/azure-portal)
+#[Azure portal](#tab/portal)
 
 To create a service in Azure Spring Cloud with availability zone enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
 
@@ -66,7 +66,7 @@ Azure Spring Cloud currently supports availability zones in the following region
 
 ## Pricing
 
-There's is no additional cost for enabling the availability zone.
+There's no extra cost for enabling the availability zone.
 
 ## Next Steps
 
