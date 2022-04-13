@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/12/2022
+ms.date: 04/13/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -59,11 +59,11 @@ To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream
 
 ### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
-Microsoft Defender for Storage's alerts for successful and failed attempts made by threat actors to expose and retrieve sensitive information from misconfigured storage containers that are publicly accessible, has received a new variant.
+Microsoft Defender for Storage uses alerts to handle scenarios where attempts from threat actors, successful or not, try to expose and exfiltrate sensitive information from misconfigured storage containers that are publicly accessible.
 
-The new variant has been added to the `Publicly accessible storage containers have been exposed` alert. This addition allows for a faster triage and response time in a situation where sensitive data was potentially exposed.
+To allow for faster triaging and response time, when exfiltration of potentially sensitive data may have occurred, we've released a new variation to the existing `Publicly accessible storage containers have been exposed` alert.
 
-The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, when a publicly available storage container has a name that is rarely used on a publicly exposed container. The names of containers are scanned using statistics to determine if the container should not be publicly accessible. A discovery of this type suggests that the container(s) may hold sensitive information. At no point in time is the information within the container(s) accessed or scanned.
+The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, after there has been a successful discovery of a publicly open storage container(s) with names that statistically have been found to rarely be exposed publicly, suggesting they might hold sensitive information.
 
 | Alert (alert type) | Description | MITRE tactic | Severity |
 |--|--|--|--|
@@ -71,7 +71,7 @@ The new alert, `Publicly accessible storage containers with potentially sensitiv
 
 ### Container scan alert title augmented with IP address reputation 
 
-An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there is malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). 
+An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there's malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). 
 
 The addition of the IP address's reputation to the alert title provides a way to quickly evaluate the intent of the actor, and thus the severity of the threat.  
 
