@@ -21,7 +21,8 @@ You can discover all the resources for which Autoscale is applicable in Azure Mo
   ![Open Azure Monitor][2]
 1. Click **Autoscale** to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
   ![Discover Autoscale in Azure Monitor][3]
-
+  
+  
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
 
 ![View resource status][4]
@@ -31,6 +32,16 @@ For each resource, you will find the current instance count and the Autoscale st
 - **Not configured**: You have not enabled Autoscale yet for this resource.
 - **Enabled**: You have enabled Autoscale for this resource.
 - **Disabled**: You have disabled Autoscale for this resource.
+
+
+Additionally, you can reach the scaling page by clicking on **All Resources** on the home page and filter to the resource you're interested in scaling.
+
+[add image]
+
+
+Once you've selected the resource that you're interested in, select the **Scaling** tab to configure autoscaling rules.
+
+[add image]
 
 ## Create your first Autoscale setting
 
