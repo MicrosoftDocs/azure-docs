@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 04/07/2022
 ms.author: banders
 ms.custom:
 ---
@@ -83,7 +83,7 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MCA - Enterprise | MOSP | <ul><li> Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Reservations don't automatically transfer and transferring them isn't supported. |
 | MCA - Enterprise | MCA - individual | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
 | MCA - Enterprise | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported.  |
-| MCA - Enterprise | MPA | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported.  |
+| MCA - Enterprise | MPA | <ul><li> Only CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure products for their customers that have a Microsoft Customer Agreement with a Microsoft representative. For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program. <li> Self-service reservation transfers are supported. <li> There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner).  |
 | Previous Azure offer in CSP | Previous Azure offer in CSP | <ul><li> Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Reservations don't automatically transfer and transferring them isn't supported. |
 | Previous Azure offer in CSP | MPA | For details, see [Transfer a customer's Azure subscriptions to a different CSP (under an Azure plan)](/partner-center/transfer-azure-subscriptions-under-azure-plan). |
 | MPA | EA | <ul><li> Automatic transfer isn't supported. Any transfer requires resources to move from the existing MPA product manually to a newly created or an existing EA product. <li> Use the information in the [Perform resource transfers](#perform-resource-transfers) section. <li> Reservations don't automatically transfer and transferring them isn't supported. |

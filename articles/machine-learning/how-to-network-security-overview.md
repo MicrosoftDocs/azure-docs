@@ -155,17 +155,16 @@ You have two options for AKS clusters in a virtual network:
 
 **Default AKS clusters** have a control plane with public IP addresses. You can add a default AKS cluster to your VNet during the deployment or attach a cluster after it's created.
 
-**Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created.
+**Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created. 
 
 For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](how-to-secure-inferencing-vnet.md). 
+
+Regardless default AKS cluster or private AKS cluster used, if your AKS cluster is behind of VNET, your workspace and its associate resources (storage, key vault, and ACR) must have private endpoints or service endpoints in the same VNET as the AKS cluster.
 
 The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
 
 :::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
 
-### Limitations
-
-- The workspace must have a private endpoint in the same VNet as the AKS cluster. For example, when using multiple private endpoints with the workspace, one private endpoint can be in the AKS VNet and another in the VNet that contains dependency services for the workspace.
 
 ## Optional: Enable public access
 

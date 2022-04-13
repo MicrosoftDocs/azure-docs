@@ -1,8 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Data Catalog'
 description: This quickstart describes how to create an Azure Data Catalog using the Azure portal.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 02/25/2022
