@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/13/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -16,6 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Offers | ISVs can now sell private offers to [customers](isv-customer.md); see also [this FAQ](isv-customer-faq.md). | 2022-04-06 |
 | Offers | An ISV can now specify time-bound margins for CSP partners to incentivize them to sell it to their customers. When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price. See [ISV to CSP Partner private offers](./isv-csp-reseller.md) and [the FAQs](./isv-csp-faq.yml). | 2022-02-15 |
 | Analytics | We added a new [Customer Retention Dashboard](./customer-retention-dashboard.md) that provides vital insights into customer retention and engagement. See the [FAQ article](./analytics-faq.yml). | 2022-02-15 |
 | Analytics | We added a Quality of Service (QoS) report query to the [List of system queries](./analytics-system-queries.md) used in the Create Report API. | 2022-01-27 |
