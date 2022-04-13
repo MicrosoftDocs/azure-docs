@@ -21219,6 +21219,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-profile-model.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-profile-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
       "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
       "redirect_document_id": false

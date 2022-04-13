@@ -70,7 +70,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
-| [Model profiling](how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
+| [Model profiling](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
 | [The Azure ML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models](how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |

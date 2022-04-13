@@ -15,6 +15,9 @@
     - name: Azure Container Instances
       displayName: aci
       href: how-to-deploy-azure-container-instance.md
+  - name: Profile models
+    displayName: profile resource requirement
+    href: how-to-deploy-profile-model.md
 - name: Reference
   items: 
   - name: Machine learning CLI pipeline YAML reference

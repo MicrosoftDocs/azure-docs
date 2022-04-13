@@ -649,9 +649,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Profile models
-        displayName: profile resource requirement
-        href: how-to-deploy-profile-model.md
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
