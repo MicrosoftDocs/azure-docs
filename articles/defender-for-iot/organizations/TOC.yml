@@ -175,8 +175,6 @@
     href: references-work-with-defender-for-iot-apis.md
   - name: Work with Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Manage proprietary protocols (Horizon)
-    href: resources-manage-proprietary-protocols.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
     href: resources-frequently-asked-questions.md
