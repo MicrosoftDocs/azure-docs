@@ -122,7 +122,7 @@ For the following example, create the Resource Guard in a tenant different from 
    You can also [select the operations to be protected after creating the resource guard](#select-operations-to-protect-using-resource-guard).
 
 1. Optionally, add any tags to the Resource Guard as per the requirements
-1. Click **Review + Create**
+1. Click **Review + Create**.
 1. Follow notifications for status and successful creation of the Resource Guard.
 
 ### Select operations to protect using Resource Guard
