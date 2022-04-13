@@ -188,6 +188,5 @@ To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Health probes in Azure Container Apps](health-probes.md)
-> [Monitor an App in Azure Container Apps](monitor.md)
+- [Health probes in Azure Container Apps](health-probes.md)
+- [Monitor an App in Azure Container Apps](monitor.md)

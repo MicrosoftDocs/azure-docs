@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 04/11/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -25,7 +25,7 @@ Scoping filters can be used differently depending on the type of provisioning co
 * **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
-    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. 
+    > The more users and groups in scope for provisioning, the longer the synchronization process can take. Setting the scope to sync assigned users and groups,  limiting the number of groups assigned to the app, and limiting the size of the groups will reduce the time it takes to synchronize everyone that is in scope.  
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
