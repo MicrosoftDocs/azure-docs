@@ -491,6 +491,11 @@ items:
       - name: Install and manage
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-manage.md
+        items:
+        - name: Extension versions
+          href: agents/azure-monitor-agent-extension-versions.md
+        - name: Windows client setup (preview)
+          href: agents/azure-monitor-agent-windows-client.md
       - name: Configure data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
