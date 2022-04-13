@@ -12,8 +12,9 @@ ms.custom: mode-other
 
 # Get started with UI Library Design Kit (Figma)
 
->[!IMPORTANT]
->Get the [UI Library Design Kit](https://www.figma.com/community/file/1095841357293210472)
+This article describes how to get started with the UI Library Design Kit (Figma).
+
+Start by getting the [UI Library Design Kit](https://www.figma.com/community/file/1095841357293210472) from Figma.
 
 ## Design faster 
 
