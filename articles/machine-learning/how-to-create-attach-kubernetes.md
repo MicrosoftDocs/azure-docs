@@ -59,7 +59,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
-- __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and and __cpu and memory__.
+- __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and __cpu and memory__.
 
 - Creating an AKS cluster using the Azure Machine Learning studio UI, SDK, or CLI extension is __not__ idempotent. Attempting to create the resource again will result in an error that a cluster with the same name already exists.
     
@@ -285,7 +285,7 @@ For information on attaching an AKS cluster in the portal, see [Create compute t
 ---
 
 ## Create or attach an AKS cluster with TLS termination
-When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md), you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both method return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
+When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md), you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 Following example shows how to enable TLS termination with automatic TLS certificate generation and configuration by using Microsoft certificate under the hood.
 ```python
@@ -333,7 +333,7 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
 
 # [Create](#tab/akscreate)
 
-To create an AKS cluster that uses an Internal Load Balancer, use the the `load_balancer_type` and `load_balancer_subnet` parameters:
+To create an AKS cluster that uses an Internal Load Balancer, use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
 ```python
 from azureml.core.compute.aks import AksUpdateConfiguration
