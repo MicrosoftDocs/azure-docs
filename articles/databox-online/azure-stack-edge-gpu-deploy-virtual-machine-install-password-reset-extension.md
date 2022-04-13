@@ -105,7 +105,8 @@ PS C:\WINDOWS\system32> $RGName = "myasepro2rg"
 PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "windowsvmdeploy" -AsJob
 ```
 
-Here's sample output:
+Here's a sample output:
+
 ```powershell
   
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command 
@@ -126,7 +127,8 @@ PS C:\WINDOWS\system32> $RGName = "myasepro2rg"
 PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "myvmdeployext" -AsJob
 ```
  
-Here's sample output:
+Here's a sample output:
+
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command 
 --     ----            -------------   -----         -----------     --------             ------- 
@@ -142,31 +144,13 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 To check the deployment status of extensions for a given VM, run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyWindowsVM> -Name <MyWindowsMAccessExt>
+Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyWindowsVM> -Name <Name of the extension>
+```
+Here's a sample output:
 
-ResourceGroupName       : myasepro2rg 
-VMName                  : mywindowsvm 
-Name                    : windowsVMAccessExt 
-Location                : dbelocal 
-Etag                    : null 
-Publisher               : Microsoft.Compute 
-ExtensionType           : VMAccessAgent 
-TypeHandlerVersion      : 2.4 
-Id                      : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups/myasepro2rg/provi 
-                          ders/Microsoft.Compute/virtualMachines/mywindowsvm/extensions/windowsVMAccessExt 
-PublicSettings          : { 
-                            "username": "azureuser" 
-                          } 
-ProtectedSettings       : 
-ProvisioningState       : Creating 
-Statuses                : 
-SubStatuses             : 
-AutoUpgradeMinorVersion : True 
-ForceUpdateTag          : 
-  
+```powershell
 PS C:\WINDOWS\system32> 
-  
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mywindowsvm -Name windowsVMAccessExt 
+Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mywindowsvm -Name windowsVMAccessExt 
  
 ResourceGroupName       : myasepro2rg 
 VMName                  : mywindowsvm 
@@ -190,34 +174,22 @@ ForceUpdateTag          :
   
 PS C:\WINDOWS\system32>
 ```
+You can see below that the extension has been installed successfully.
+
+   ![Screenshot of the VM details pane with call-outs for the network interface and installed extensions on Windows.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/installed-extension-windows-vm.png)
 
 ### [Linux](#tab/linux)
 
 To check the deployment status of extensions for a given VM, run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyLinuxVM> -Name <MyLinuxVMAccessExt> 
+Get-AzVMExtension -ResourceGroupName <MyResourceGroup> -VMName <MyLinuxVM> -Name <Name of the extension>
+```
+Here's a sample output:
 
-ResourceGroupName       : myasepro2rg 
-VMName                  : mylinuxvm5 
-Name                    : linuxVMAccessExt 
-Location                : dbelocal 
-Etag                    : null 
-Publisher               : Microsoft.OSTCExtensions 
-ExtensionType           : VMAccessForLinux 
-TypeHandlerVersion      : 1.5 
-Id                      : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups 
-                          /myasepro2rg/providers/Microsoft.Compute/virtualMachines/mylinuxvm 
-                          5/extensions/linuxVMAccessExt 
-PublicSettings          : {} 
-ProtectedSettings       : 
-ProvisioningState       : Creating 
-Statuses                : 
-SubStatuses             : 
-AutoUpgradeMinorVersion : True 
-ForceUpdateTag          : 
-  
-PS C:\WINDOWS\system32> Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mylinuxvm5 -Name linuxVMAccessExt 
+```powershell
+PS C:\WINDOWS\system32>
+Get-AzVMExtension -ResourceGroupName myasepro2rg -VMName mylinuxvm5 -Name linuxVMAccessExt 
 
 ResourceGroupName       : myasepro2rg 
 VMName                  : mylinuxvm5 
@@ -237,10 +209,12 @@ Statuses                :
 SubStatuses             : 
 AutoUpgradeMinorVersion : True 
 ForceUpdateTag          : 
-
-  
+ 
 PS C:\WINDOWS\system32> 
 ```
+You can see below that the extension has been installed successfully.
+
+   ![Screenshot of the VM details pane with call-outs for the network interface and installed extensions on Linux.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/installed-extension-linux-vm.png)
 
 ---
 
@@ -250,11 +224,15 @@ PS C:\WINDOWS\system32>
 
 To verify the VM password update, connect to the VM using the new password.
 
+   ![Screenshot of the Remote Desktop Connection dialog to connect to a VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/connect-to-vm.png)
+
 ### [Linux](#tab/linux)
 
 To verify the VM password update, connect to the VM using the new password.
 
-You should be able to connect to the VM with the new password. Open a cmd window and connect to the Linux VM. Here's sample output:
+   ![Screenshot of the Remote Desktop Connection dialog to connect to a VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/connect-to-vm.png)
+
+Open a cmd window and connect to the Linux VM. Here's a sample output:
 
 ```powershell
   
@@ -304,7 +282,7 @@ azureuser@mylinuxvm5:~$
 To remove the password reset extension, run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name windowsVMAccessExt 
+Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name <Name of the extension> 
   
 Virtual machine extension removal operation 
 This cmdlet will remove the specified virtual machine extension. Do you want to continue? 
@@ -323,7 +301,7 @@ PS C:\WINDOWS\system32>
 To remove the password reset extension, run the following command:
 
 ```powershell  
-Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name> 
+Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Name of the extension> 
   
   
 PS C:\WINDOWS\system32> Remove-AzVMExtension -ResourceGroupName myasepro2rg -VMName mylinuxvm5 -Name linuxVMAccessExt 
