@@ -37,11 +37,7 @@ This VM property can be enabled by setting the value of Patch orchestration upda
 
 
 ## Windows automatic updates
-<<<<<<< HEAD
-This mode of patching allows operating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS). 
-=======
 This mode of patching allows operating system to automatically install updates as soon as they are available. It is using the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS. 
->>>>>>> 23f9c378022423316bdaad42fc148a34b1826763
 
 ## Hotpatching
 
