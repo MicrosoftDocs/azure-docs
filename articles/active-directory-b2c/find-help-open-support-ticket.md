@@ -43,7 +43,7 @@ If you're unable to find answers by using self-help resources, you can open an o
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
      
-1. In the Azure portal, search for and select **New support request**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
 
 1. In the left menu, under **Troubleshooting + Support**, select **New support request**.
    
@@ -65,9 +65,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Under **3. Additional details** tab, fill out the required details accurately. For example:
 
-    1. Your tenant ID or domain name. See how to find your [tenant ID](tenant-management.md#get-your-tenant-id) or [tenant name](tenant-management.md#get-your-tenant-name). 
-    
-    1. If you're using a user-flow or custom policy. 
+    1. Your tenant ID or domain name. See how to find your [tenant ID](tenant-management.md#get-your-tenant-id) or [tenant name](tenant-management.md#get-your-tenant-name).  
 
     1. The time and date when the problem occurred.
  
@@ -78,7 +76,9 @@ If you're unable to find answers by using self-help resources, you can open an o
     1. Select a **[Severity](https://azure.microsoft.com/support/plans/response)**, and your preferred contact method.
     
 
-    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket.png" alt-text="Screenshot of how to find help and submit support ticket.":::
+    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket-1.png" alt-text="Screenshot of how to find help and submit support ticket.":::
+
+    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket-2.png" alt-text="Screenshot of how to find help and submit support ticket.":::
  
 1. Select **Next**. Under **4. Review + create**, you'll see a summary of your support ticket. 
 
