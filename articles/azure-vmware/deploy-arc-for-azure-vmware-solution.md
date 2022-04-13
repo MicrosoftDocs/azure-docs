@@ -404,9 +404,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**How do you onboard a customer?**
+**Region support for AVS**
  
-Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+Arc for Azure VMware Solution is supported in all the regions where Arc for VMware vSphere On-prem is supported. Follow the link to check details. https://docs.microsoft.com/en-us/azure/azure-arc/vmware-vsphere/overview
 
 **How does support work?**
 
