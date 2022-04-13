@@ -25,6 +25,8 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Baseline collector updates**: The baseline collector now sends *pass* and *skip* checks to the cloud in addition to *failed* results. For more information, see [Micro agent event collection](concept-event-aggregation.md#baseline-trigger-based).
 
+- **Login collector via UTMP**: The Login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
+
 ## February 2022
 
 **Version 4.1.2**:
