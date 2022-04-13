@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021
 # Set up Azure Active Directory for client authentication
 
 > [!WARNING]
-> “At this time, AAD client authentication and the Managed Identity Token Service are mutually incompatible on Linux.”
+> At this time, AAD client authentication and the Managed Identity Token Service are mutually incompatible on Linux.
 
 For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints. This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster.
 
