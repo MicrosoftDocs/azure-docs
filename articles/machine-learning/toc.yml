@@ -612,12 +612,6 @@
         items:
         - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Kubernetes Service
-          displayName: aks, aad, authentication, azure active directory
-          href: how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
@@ -655,9 +649,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Profile models
-        displayName: profile resource requirement
-        href: how-to-deploy-profile-model.md
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md

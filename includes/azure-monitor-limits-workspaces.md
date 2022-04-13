@@ -82,4 +82,4 @@ When data sent to your workspace is at a volume rate higher than 80% of the thre
 See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) to create alert rules to be proactively notified when you reach any ingestion limits.
 
 >[!NOTE]
->Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).
+>Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/cost-logs.md#legacy-pricing-tiers).

@@ -619,6 +619,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-iot-edge-workloads.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
@@ -21206,6 +21211,21 @@
     {
       "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
       "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-profile-model.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-profile-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
@@ -44212,6 +44232,12 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/pci-dss-3.2.1/index.md",
       "redirect_url": "/azure/governance/policy/samples",
       "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
+      "redirect_url": "/azure/openshift/howto-secure-openshift-with-front-door",
+      "redirect_document_id": false
     }
   ]
 }
+ 

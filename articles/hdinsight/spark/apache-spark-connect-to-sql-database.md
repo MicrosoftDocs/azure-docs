@@ -4,7 +4,7 @@ description: Learn how to set up a connection between HDInsight Spark cluster an
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
+ms.date: 04/08/2022
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL Database
