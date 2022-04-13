@@ -30,7 +30,7 @@ Select the **Profiler** button from the top menu.
    
    :::image type="content" source="./media/profiler-settings/operation-entry.png" alt-text="Select operation and Profiler traces to view all profiler traces":::
 
-1. Select one of the examples from the list to the left.
+1. Select one of the requests from the list to the left.
 1. Select **Configure Profiler**.
 
    :::image type="content" source="./media/profiler-settings/configure-profiler.png" alt-text="Overall selection and clicking Profiler traces to view all profiler traces":::
