@@ -236,6 +236,20 @@ and
 [ConfigurationSetting](/rest/api/guestconfiguration/guestconfigurationassignments/createorupdate#configurationsetting)
 properties are each managed per-configuration rather than on the VM extension.
 
+## Guest Configuration resource provider error codes
+
+See below for a list of the possible error messages when enabling the extension
+
+|Error Code|Description|
+|-|-|
+|NoComplianceReport|VM has not reported the compliance data.|
+|GCExtensionMissing|Guest Configuration extension is missing.|
+|ManagedIdentityMissing|Managed identity is missing.|
+|UserIdentityMissing|User assigned identity is missing.|
+|GCExtensionManagedIdentityMissing|Guest Configuration extension and managed identity is missing.|
+|GCExtensionUserIdentityMissing|Guest Configuration extension and user identity is missing.|
+|GCExtensionIdentityMissing|Guest Configuration extension, managed identity and user identity are missing.|
+
 ## Next steps
 
 * For more information about Azure Policy's guest configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
