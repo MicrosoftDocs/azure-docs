@@ -304,7 +304,7 @@ You can add an existing VM to a dedicated host, but the VM must first be Stop\De
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
-### [Portal](#tab/portal2)
+### [Portal](#tab/portal)
 
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
@@ -317,7 +317,26 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. At the top of the page, select **Start** to restart the VM.
 
 
-### [PowerShell](#tab/powershell2)
+## [CLI](#tab/cli)
+
+Move the existing VM to a dedicated host using the [CLI](). The VM must be Stop/Deallocated in order to assign it to a dedicated host.
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --host-group myHostGroup \
+  --generate-ssh-keys \
+  --size Standard_D4s_v3 \
+  -g myDHResourceGroup \
+  --zone 1
+```
+
+
+### [PowerShell](#tab/powershell)
 
 Replace the values of the variables with your own information.
 
