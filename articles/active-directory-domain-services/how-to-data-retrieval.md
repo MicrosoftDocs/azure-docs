@@ -17,7 +17,7 @@ ms.author: justinha
 
 This document describes how to retrieve data from Azure Active Directory Domain Services (Azure AD DS).
 
-[!INCLUDE [active-directory-app-provisioning.md](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [active-directory-app-provisioning.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Use Azure Active Directory to create, read, update, and delete user objects
 
@@ -34,7 +34,7 @@ To add a new user, follow these steps:
 
 1. Select **Users**, and then select **New user**.
 
-    ![Add a user through Users - All users in Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
+    ![Add a user through Users - All users in Azure AD](./media/tutorial-create-management-vm/add-user-in-users-all-users.png)
 
 1. On the **User** page, enter information for this user:
 
@@ -64,7 +64,8 @@ To delete a user, follow these steps:
 
 1. Select **Delete user**.
 
-    ![Users - All users page with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+   ![Users - All users page with Delete user highlighted](./media/tutorial-create-management-vm/delete-user-all-users-blade.png)
+
 
 The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. 
 
