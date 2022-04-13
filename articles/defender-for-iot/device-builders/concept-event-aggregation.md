@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 11/09/2021
+ms.date: 04/13/2022
 ms.topic: conceptual
 ---
 
@@ -82,7 +82,7 @@ The Login collector, collects user sign-ins, sign-outs, and failed sign-in attem
 
 The Login collector supports the following types of collection methods:
 
-- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events via the syslog file named **auth.log**.
+- **UTMP and SYSLOG**. UTMP catches SSH interactive events, telnet events, and terminal logins, as well as all failed login events from SSH, telnet, and terminal. If SYSLOG is enabled on the device, the Login collector also collects SSH sign-in events via the SYSLOG file named **auth.log**.
 
 - **Pluggable Authentication Modules (PAM)**. Collects SSH, telnet, and local sign-in events. For more information, see [Configure Pluggable Authentication Modules (PAM) to audit sign-in events](configure-pam-to-audit-sign-in-events.md).
 
@@ -95,6 +95,7 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
+| **Login_UsePAM** | Boolean: <br>- **True**: Only the PAM Login collector is used <br>- **False**: The UTMP Login collector is used, with SYSLOG if SYSLOG is enabled |
 
 
 ## System information (trigger based collector)
