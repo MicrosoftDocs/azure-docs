@@ -47,9 +47,6 @@ In your **Update management center (preview)**, hotpatching property is availabl
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
-For more information, see [configure update settings on your machines](manage-update-settings.md#configure-updates-at-scale).
-
-
 ## Assessment options in update management center (preview)
 
 ### Periodic assessment
