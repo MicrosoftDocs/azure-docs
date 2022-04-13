@@ -56,7 +56,7 @@ To download all active role assignments across all roles, including built-in and
 
     A CSV file that lists assignments at all scopes for all roles is downloaded.
 
-    :::image type="content" source="./media/view-assignments/download-role-assignments-all.png" alt-text="Screenshot showing download all role assignments.":::
+    :::image type="content" source="./media/view-assignments/download-role-assignments-all.png" alt-text="Screenshot showing download all role assignments." lightbox="./media/view-assignments/download-role-assignments-all.png":::
 
 To download all assignments for a specific role, follow these steps.
 
@@ -66,7 +66,7 @@ To download all assignments for a specific role, follow these steps.
 
     A CSV file that lists assignments at all scopes for that role is downloaded.
 
-    :::image type="content" source="./media/view-assignments/download-role-assignments.png" alt-text="Screenshot showing download all assignments for a specific role.":::
+    :::image type="content" source="./media/view-assignments/download-role-assignments.png" alt-text="Screenshot showing download all assignments for a specific role." lightbox="./media/view-assignments/download-role-assignments.png":::
 
 ### List role assignments with single-application scope
 
