@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/13/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -53,7 +53,7 @@ For more information, see [Decompiling ARM template JSON to Bicep](./decompile.m
 
 The visualizer shows the resources defined in the Bicep file with the resource dependency information. The diagram is the visualization of a [Linux virtual machine Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/main.bicep).
 
-![Visual Studio Code Bicep visualizer](./media/visual-studio-code/visual-studio-code-bicep-visualizer.png).
+[![Visual Studio Code Bicep visualizer](./media/visual-studio-code/visual-studio-code-bicep-visualizer.png)](./media/visual-studio-code/visual-studio-code-bicep-visualizer.expanded.png)
 
 ## Next steps
 
