@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 04/18/2022
 tags: connectors
 ---
 
@@ -53,7 +53,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-* The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL trigger, you have to start with a blank workflow.
+* The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL Server trigger operation, you have to start with a blank workflow.
 
 * To connect to an on-premises SQL server, the following extra requirements apply based on whether you have a Consumption logic app workflow, either in multi-tenant Azure Logic Apps or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), or if you have a Standard logic app workflow in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
@@ -220,7 +220,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the Azure portal, open your logic app workflow in the designer.
+1. In the Azure portal, open your blank logic app workflow in the designer.
 
 1. Find and select the SQL Server trigger that you want to use.
 
@@ -248,16 +248,33 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-1. In the Azure portal, open your logic app workflow in the designer.
+In Standard logic app workflows, only the managed SQL Server connector has trigger operations. The built-in SQL Server connector doesn't have any trigger operations.
+
+1. In the Azure portal, open your blank logic app workflow in the designer.
 
 1. Find and select the SQL Server trigger that you want to use.
 
-   1. Under the designer search box, select **All**.
+   1. Under the designer search box, select **Azure**.
 
    1. In the designer search box, enter **sql server**.
 
    1. From the triggers list, select the SQL trigger that you want. This example continues with the trigger named **When an item is created**.
 
+      ![Screenshot showing the Azure portal, workflow designer for Standard logic app, search box with "sql server", and the "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-standard.png)
+
+1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+
+1. In the trigger, specify the interval and frequency for how often the trigger checks the table.
+
+1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
+
+   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+
+   For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+
+1. On the designer toolbar, select **Save**.
+
+   Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
 
 ---
 
