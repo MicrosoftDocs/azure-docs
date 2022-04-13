@@ -176,9 +176,15 @@ Log alerts allow you to set a location for alert rules. You can select any of th
 
 Location affects which region the alert rule is evaluated in. Queries are executed on the log data in the selected region, that said, the alert service end to end is global. Meaning alert rule definition, fired alerts, notifications, and actions aren't bound to the location in the alert rule. Data is transfer from the set region since the Azure Monitor alerts service is a [non-regional service](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=non-regional).
 
-## Pricing and billing of log alerts
+## Pricing model
 
-Pricing information is located in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
+Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost).  Additionally, for Log Alerts configured for [at scale monitoring](#split-by-alert-dimensions), the cost will also depend on the number of time series created by the dimensions resulting from your query.
+
+Prices for Log Alert rules are availalble on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
+
+## View log alerts usage on your Azure bill
+
+Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
 - Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules).
