@@ -109,7 +109,7 @@ Here are some additional tips:
 
 #### Credit card declined or not accepted
 
-Virtual or pre-paid credit or debit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
+Virtual or pre-paid credit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
 
 #### Credit card form doesn't support my billing address
 

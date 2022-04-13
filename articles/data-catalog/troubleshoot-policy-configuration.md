@@ -1,8 +1,6 @@
 ---
 title: How to troubleshoot Azure Data Catalog
 description: This article describes common troubleshooting concerns for Azure Data Catalog resources. 
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 02/10/2022
