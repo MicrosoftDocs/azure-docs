@@ -65,9 +65,6 @@ Conversation summarization feature would simplify the text into the following:
 |  Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the security setting on their router. It is WPA2. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
-note: Insert image from language studio here:
-<!--:::image type="content" source="media/feature-example.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example.png":::-->
-
 ## Get started with conversation summarization
 
 To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
