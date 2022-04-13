@@ -94,7 +94,7 @@ Similarly, Service Fabric needs the Secondary replica that's promoted to start l
   - `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
   > [!NOTE]
-  > `CreateServiceReplicaListeners` is called only once. The same ServiceReplicaListener instances are used.
+  > `CreateServiceReplicaListeners` is called only once and is not called again during the replica promotion or demotion process; the same `ServiceReplicaListener` instances are used but new `ICommunicationListener` instances are created (by calling the `ServiceReplicaListener.CreateCommunicationListener` method) after the previous instances are closed.
 
 ### Common issues during stateful service shutdown and Primary demotion
 Service Fabric changes the Primary of a stateful service for a variety of reasons. The most common are [cluster rebalancing](service-fabric-cluster-resource-manager-balancing.md) and [application upgrade](service-fabric-application-upgrade.md). During these operations (as well as during normal service shutdown, like you'd see if the service was deleted), it is important that the service respect the `CancellationToken`. 
