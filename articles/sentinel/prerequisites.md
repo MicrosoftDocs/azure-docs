@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Pre-deployment activities and prerequisites for deploying Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article introduces the pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
 
 ## Pre-deployment activities
