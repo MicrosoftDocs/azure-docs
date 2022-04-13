@@ -128,7 +128,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   ![Gateway overview](media/enterprise/getting-started-enterprise/gateway-overview.png)
+   ![Gateway overview](./media/enterprise/getting-started-enterprise/gateway-overview.png)
 
    You can also use CLI to do it, as shown in the following command:
 
