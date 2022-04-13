@@ -18,7 +18,7 @@ In this article, you'll learn how to modify an existing [lake database](./concep
 ## Prerequisites
 
 - Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
-- Storage Blob Data Contributor permissions are required on data lake.
+- Storage Blob Data Contributor permissions are required on data lake when using the create table **From data lake** option.
 
 ## Modify database properties
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open you'll see the list of databases that already exist in your workspace.
@@ -77,7 +77,6 @@ The **General** tab contains information specific to the table itself.
       - **Data format** the data format of the data in the **Input folder** Lake databases in Azure Synapse support parquet and delimited text as the storage formats for data. If the data format doesn't match the data in the folder, queries to the table will fail.
    - For a **Data format** of Delimited text, there are further settings:
         - **Row headers** check this box if the data has row headers.
-        - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
         - **Enable multiline in data** check this box if the data has multiple lines in a string column.
         - **Quote Character** specify the custom quote character for a delimited text file.
         - **Escape Character** specify the custom escape character for a delimited text file.

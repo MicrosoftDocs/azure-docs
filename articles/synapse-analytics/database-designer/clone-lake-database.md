@@ -18,7 +18,6 @@ In this article, you'll learn how to clone an existing [lake database](./concept
 ## Prerequisites
 
 - Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
-- Storage Blob Data Contributor permissions are required on data lake.
 
 ## Clone database 
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open you'll see the list of databases that already exist in your workspace.
