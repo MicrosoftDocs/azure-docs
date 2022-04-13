@@ -53,6 +53,10 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
 1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
+    > [!NOTE]
+    > The Global Reach configuration is bidirectional. Once you create the connection from one circuit the other circuit will also have the configuration.
+    > 
+
 ### ExpressRoute circuits in different Azure subscriptions
 
 If the two circuits aren't in the same Azure subscription, you'll need authorization. In the following configuration, authorization is generated from circuit 2's subscription. The authorization key is then passed to circuit 1.
