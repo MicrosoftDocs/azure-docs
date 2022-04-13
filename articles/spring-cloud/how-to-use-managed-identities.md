@@ -59,9 +59,9 @@ We highly recommend that you use system-assigned and user-assigned managed ident
 
 For the maximum number of user-assigned managed identities per application, see [Quotas and Service Plans for Azure Spring Cloud](./quotas.md).
 
-### Not supported Azure services
+### Azure services that aren't supported
 
-The reason is there are multiple versions of tokens, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md), applications in Azure Spring Cloud don't support services which only accept tokens for v2.0 or higher. We're working on the adding support for such services.
+Some Azure services aren't currently supported because there are multiple versions of tokens. For more information, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md). Applications in Azure Spring Cloud don't support services which only accept tokens for v2.0 or higher. We're working on the adding support for such services.
 
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 
