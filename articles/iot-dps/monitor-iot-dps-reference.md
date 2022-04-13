@@ -65,32 +65,14 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 This section lists the types of resource logs you can collect for DPS.
 
-Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftdevicesprovisioningservices)
+Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftdevicesprovisioningservices).
 
-| Category | Display Name | Description  |
-|:---------|:-------------|------------------|
-| DeviceOperations   | Device Operations  | Logs related to device connection events. See device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
-| ServiceOperations   | Service Operations | Logs related to using service APIs. See DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+| Category |  Description  |
+|:---------|------------------|
+| DeviceOperations   | Logs related to device attestation events. See device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+| ServiceOperations   | Logs related to DPS service events. See DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-## Azure Monitor Logs tables
-<!-- REQUIRED. Please keep heading in this order -->
-
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics. For a list of these tables and links to more information for the DPS resource type, see [Device Provisioning Services](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) in the Azure Monitor Logs table reference.
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-<!-- Add extra information if required -->
-
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
-### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
 DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
@@ -101,7 +83,7 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | Category | String | Type of operation, either **ServiceOperations** or **DeviceOperations**. |
 | CorrelationId | GUID | Customer provided unique identifier for the event. |
 | DurationMs | String | How long it took to perform the event in milliseconds. |
-| Level | Int | The logging severity of the event: Information or Error. |
+| Level | Int | The logging severity of the event. For example, Information or Error. |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
 | OperationVersion | String | The API Version used during the event. |
 | Resource | String | The name forOF the resource where the event took place. For example, "MYEXAMPLEDPS". |
@@ -118,53 +100,9 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | location_s | String | The Azure region where the event took place. |
 | properties_s | JSON | Additional information details for the event. |
 
-## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
-
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
-
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by DPS.
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
-
-### ServiceOperations
-
-The following JSON is an example of a successful add (`Upsert`) individual enrollment operation. The registration ID for the enrollment and the type of enrollment are identified in the `properties_s` property. For more information about the properties returned, see [Diagnostics tables](#diagnostics-tables).
-
-```json
-  {
-    "CallerIPAddress": "13.91.244.XXX",
-    "Category": "ServiceOperations",
-    "CorrelationId": "23bd419d-d294-452b-9b1b-520afef5ef52",
-    "DurationMs": "98",
-    "Level": "Information",
-    "OperationName": "Upsert",
-    "OperationVersion": "October2021",
-    "Resource": "MYEXAMPLEDPS",
-    "ResourceGroup": "MYRESOURCEGROUP",
-    "ResourceId": "/SUBSCRIPTIONS/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
-    "ResourceProvider": "MICROSOFT.DEVICES",
-    "ResourceType": "PROVISIONINGSERVICES",
-    "ResultDescription": "",
-    "ResultSignature": "",
-    "ResultType": "Success",
-    "SourceSystem": "Azure",
-    "SubscriptionId": "747f1067-xxxx-xxxx-xxxx-9deaa894152f",
-    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
-    "TimeGenerated": "2022-04-01T00:52:00Z",
-    "Type": "AzureDiagnostics",
-    "_ResourceId": "/subscriptions/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
-    "location_s": "centralus",
-    "properties_s": "{\"id\":\"my-device-1\",\"type\":\"IndividualEnrollment\",\"protocol\":\"Http\"}",
-  }
-```
-
 ### DeviceOperations
 
-The following JSON is an example of a successful attestation attempt from a device. The registration ID for the device is identified in the `properties_s` property. For more information about the properties returned, see [Diagnostics tables](#diagnostics-tables).
+The following JSON is an example of a successful attestation attempt from a device. The registration ID for the device is identified in the `properties_s` property.
 
 ```json
   {
@@ -194,6 +132,50 @@ The following JSON is an example of a successful attestation attempt from a devi
   }
 
 ```
+
+### ServiceOperations
+
+The following JSON is an example of a successful add (`Upsert`) individual enrollment operation. The registration ID for the enrollment and the type of enrollment are identified in the `properties_s` property.
+
+```json
+  {
+    "CallerIPAddress": "13.91.244.XXX",
+    "Category": "ServiceOperations",
+    "CorrelationId": "23bd419d-d294-452b-9b1b-520afef5ef52",
+    "DurationMs": "98",
+    "Level": "Information",
+    "OperationName": "Upsert",
+    "OperationVersion": "October2021",
+    "Resource": "MYEXAMPLEDPS",
+    "ResourceGroup": "MYRESOURCEGROUP",
+    "ResourceId": "/SUBSCRIPTIONS/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
+    "ResourceProvider": "MICROSOFT.DEVICES",
+    "ResourceType": "PROVISIONINGSERVICES",
+    "ResultDescription": "",
+    "ResultSignature": "",
+    "ResultType": "Success",
+    "SourceSystem": "Azure",
+    "SubscriptionId": "747f1067-xxxx-xxxx-xxxx-9deaa894152f",
+    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
+    "TimeGenerated": "2022-04-01T00:52:00Z",
+    "Type": "AzureDiagnostics",
+    "_ResourceId": "/subscriptions/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
+    "location_s": "centralus",
+    "properties_s": "{\"id\":\"my-device-1\",\"type\":\"IndividualEnrollment\",\"protocol\":\"Http\"}",
+  }
+```
+
+## Azure Monitor Logs tables
+<!-- REQUIRED. Please keep heading in this order -->
+
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics. For a list of these tables and links to more information for the DPS resource type, see [Device Provisioning Services](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) in the Azure Monitor Logs table reference.
+
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+
+## Activity log
+<!-- REQUIRED. Please keep heading in this order -->
+
+For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## See Also
 
