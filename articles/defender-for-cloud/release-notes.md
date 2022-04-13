@@ -64,7 +64,7 @@ The recommendation `Azure Cache for Redis should reside within a virtual network
 
 ### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
-Microsoft Defender for Storage uses alerts to handle scenarios where attempts from threat actors, successful or not, try to expose and exfiltrate sensitive information from misconfigured storage containers that are publicly accessible.
+Microsoft Defender for Storage's alerts notify you when threat actors attempt to scan and expose, successfully or not, misconfigured, publicly open storage containers to try to exfiltrate sensitive information.
 
 To allow for faster triaging and response time, when exfiltration of potentially sensitive data may have occurred, we've released a new variation to the existing `Publicly accessible storage containers have been exposed` alert.
 
