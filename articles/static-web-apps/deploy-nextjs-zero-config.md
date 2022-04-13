@@ -20,21 +20,24 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. [Create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
+- [Next.js CLI](https://nextjs.org/docs/getting-started) installed. Refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details.
 
 ## Set up a Next.js app
 
-This tutorial will be using the Next.js CLI to create your app. For full information on getting started, refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started).
+Begin by initializing a new Next.js application.
 
-1. Create a Next.js app using `create-next-app` and follow the prompts:
+1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
     npm init next-app@latest -- --typescript
     ```
 
+1. When prompted for an app name, enter **nextjs-app**.
+
 1. Navigate to the folder containing the new app:
 
     ```bash
-    cd <application-folder>
+    cd nexjs-app
     ```
 
 1. Start Next.js app in development:
@@ -43,15 +46,17 @@ This tutorial will be using the Next.js CLI to create your app. For full informa
     npm run dev
     ```
 
-Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
+Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
 
 :::image type="content" source="media/deploy-nextjs/nextjs-zero-config-starter.png" alt-text="Start Next.js app":::
+
+1. Stop the development server by pressing **CMD/CTRL + C**.
 
 ## Deploy your static website
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
-## Create a GitHub repo
+### Create a GitHub repo
 
 Before deploying to Azure, you'll need to create a GitHub repo and push the application up.
 
@@ -67,6 +72,8 @@ Before deploying to Azure, you'll need to create a GitHub repo and push the appl
     ```bash
     git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-app && git push -u origin main
     ```
+
+    As you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub user name.
 
 ### Create a static app
 
