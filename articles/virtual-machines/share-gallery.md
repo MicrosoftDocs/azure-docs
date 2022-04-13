@@ -16,7 +16,10 @@ ms.devlang: azurecli
 
 # Share gallery resources
 
-There are several ways to share resources created in your Azure Compute Gallery. Role-based access control lets you share on a granular level, and community galleries let's you share your entire gallery publicly to all Azure users.
+There are two main ways to share images in an Azure Compute Gallery:
+
+- Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level.
+- Community Gallery let's you share your entire gallery publicly, to all Azure users.
 
 ## RBAC
 
@@ -80,7 +83,7 @@ New-AzRoleAssignment `
 ---
 
 <a name=community></a>
-## Community galleries (preview)
+## Community Gallery (preview)
 
 To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community). Community Galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 

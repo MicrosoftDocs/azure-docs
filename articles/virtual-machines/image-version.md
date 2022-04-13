@@ -126,12 +126,12 @@ The syntax for creating the image will change, depending on what you are using a
 
 | Source  | Parameter set |
 |---|---|
-| **OS Disk**| |
+|     **OS Disk:**| |
 | VM using the VM ID| `--managed-image <Resource ID of the VM>` |
 | Managed image or another image version | `--managed-image <Resource ID of the managed image or image version` |
 | Snapshot or managed disk | `--os-snapshot <Resource ID of the snapshot or managed disk>` |
 | VHD in a storage account | `--os-vhd-uri <URI> --os-vhd-storage-account <storage account name>`.  | 
-| **Data disk** |
+|     **Data disk:** |
 | Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
 | VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 

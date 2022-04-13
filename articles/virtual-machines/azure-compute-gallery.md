@@ -65,7 +65,7 @@ We always recommend that to over-provision the number of replicas due to factors
 
 ![Graphic showing how you can scale images](./media/shared-image-galleries/scaling.png)
 
-## Make your resources highly available
+## High availability
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Azure Compute Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones.
 
@@ -81,7 +81,7 @@ The regions that a resource is replicated to can be updated after creation time.
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
 <a name=community></a>
-## Community Galleries (preview)
+## Community Gallery (preview)
 
 
 > [!IMPORTANT]
@@ -116,6 +116,8 @@ As a content publisher, you might want to use Community Galleries:
 
 > [!WARNING]
 > If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
+>
+> If you stop sharing your gallery during the preview, you won't be able to re-share it.
 
 
 ### Limitations for community galleries
@@ -124,6 +126,7 @@ There are some limitations on community galleries:
 - Encrypted images are not supported
 - For the preview, image resources that aren't created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - For the preview, you can't share [VM Applications](vm-applications.md) in a community gallery.
+- The gallery must be created as a community gallery. For the preview, there is no way to migrate an existing gallery to be a community shared gallery.
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images in the Community Gallery.
@@ -146,8 +149,8 @@ Users should exercise caution while using Community Gallery images from non-veri
 
 **Q: I have concerns about an image, who do I contact?**
 
-**A**: For issues with the community gallery:
-- To report malicious images in the community gallery, contact [Abuse Report](mailto:Abuse%20Report%20(microsoft.com)). 
+**A**: For issues with images hosted in the community gallery:
+- To report malicious images in the community gallery, contact [Abuse Report](https://msrc.microsoft.com/report/abuse). 
 - To report images that potentially violate intellectual property rights, contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
 
@@ -156,7 +159,7 @@ Users should exercise caution while using Community Gallery images from non-veri
 **A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
 
 
-## Explicit access using RBAC
+## Explicit sharing using RBAC
 
 As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
 
