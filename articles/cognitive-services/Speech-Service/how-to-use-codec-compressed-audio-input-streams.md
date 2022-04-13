@@ -1,7 +1,7 @@
 ---
 title: How to use compressed audio files with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to the Speech service with the Speech SDK. 
+description: Learn how to use compressed audio files to the Speech service with the Speech SDK. 
 services: cognitive-services
 author: eric-urban
 ms.author: eur
