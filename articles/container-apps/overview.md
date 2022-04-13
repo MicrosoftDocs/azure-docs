@@ -58,14 +58,6 @@ With Azure Container Apps, you can:
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 
-## Billing
-
-Azure Container Apps is free for the first 180,000 vCPU-seconds, 360,000 GiB-seconds, and 2 million requests each month. Once you reach your maximum allocation. you will be billed for your consumption on per second basis based on the number of vCPU-s and GiB-s that your services consume.
-
-Azure Container Apps also support scale to zero pricing so you can configure your application to scale down to zero replicas when there are no requests or events to process. No charges will be aquired when your application is scaled to zero.
-
-See [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/) and the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=container-apps) to learn more about the pricing options.
-
 ## Introductory video
 
 > [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
