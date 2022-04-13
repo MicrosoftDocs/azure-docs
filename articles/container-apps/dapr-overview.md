@@ -58,15 +58,193 @@ With components, Dapr communicates with your container apps. Based on your needs
 
 # [YAML](#tab/yaml)
 
-yaml
+When using a YAML component, you create a separate `<component>.yml` file and point Dapr and your application to it.
+
+```yaml
+# components.yaml for Azure Blob storage component
+- name: statestore
+  type: state.azure.blobstorage
+  version: v1
+  metadata:
+  # Note that in a production scenario, account keys and secrets 
+  # should be securely stored. For more information, see
+  # https://docs.dapr.io/operations/components/component-secrets
+  - name: accountName
+    secretRef: storage-account-name
+  - name: accountKey
+    secretRef: storage-account-key
+  - name: containerName
+    value: mycontainer
+```
 
 # [Bicep](#tab/bicep)
 
-bicep
+```bicep
+param location string = 'canadacentral'
+param environment_name string
+param storage_account_name string
+param storage_account_key string
+param storage_container_name string
+
+resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
+  name: 'nodeapp'
+  kind: 'containerapp'
+  location: location
+  properties: {
+    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 3000
+      }
+      secrets: [
+        {
+          name: 'storage-key'
+          value: storage_account_key
+        }
+      ]
+    }
+    template: {
+      containers: [
+        {
+          image: 'dapriosamples/hello-k8s-node:latest'
+          name: 'hello-k8s-node'
+          resources: {
+            cpu: '0.5'
+            memory: '1Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+      dapr: {
+        enabled: true
+        appPort: 3000
+        appId: 'nodeapp'
+        components: [
+          {
+            name: 'statestore'
+            type: 'state.azure.blobstorage'
+            version: 'v1'
+            metadata: [
+              {
+                name: 'accountName'
+                value: storage_account_name
+              }
+              {
+                name: 'accountKey'
+                secretRef: 'storage-key'
+              }
+              {
+                name: 'containerName'
+                value: storage_container_name
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+```
 
 # [ARM](#tab/arm)
 
-ARM
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "canadacentral",
+            "type": "String"
+        },
+        "environment_name": {
+            "type": "String"
+        },
+        "storage_account_name": {
+            "type": "String"
+        },
+        "storage_account_key": {
+            "type": "String"
+        },
+        "storage_container_name": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "name": "nodeapp",
+            "type": "Microsoft.Web/containerApps",
+            "apiVersion": "2021-03-01",
+            "kind": "containerapp",
+            "location": "[parameters('location')]",
+            "properties": {
+                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "configuration": {
+                    "ingress": {
+                        "external": true,
+                        "targetPort": 3000
+                    },
+                    "secrets": [
+                        {
+                            "name": "storage-key",
+                            "value": "[parameters('storage_account_key')]"
+                        }
+                    ]
+                },
+                "template": {
+                    "containers": [
+                        {
+                            "image": "dapriosamples/hello-k8s-node:latest",
+                            "name": "hello-k8s-node",
+                            "resources": {
+                                "cpu": 0.5,
+                                "memory": "1Gi"
+                            }
+                        }
+                    ],
+                    "scale": {
+                        "minReplicas": 1,
+                        "maxReplicas": 1
+                    },
+                    "dapr": {
+                        "enabled": true,
+                        "appPort": 3000,
+                        "appId": "nodeapp",
+                        "components": [
+                            {
+                                "name": "statestore",
+                                "type": "state.azure.blobstorage",
+                                "version": "v1",
+                                "metadata": [
+                                    {
+                                        "name": "accountName",
+                                        "value": "[parameters('storage_account_name')]"
+                                    },
+                                    {
+                                        "name": "accountKey",
+                                        "secretRef": "storage-key"
+                                    },
+                                    {
+                                        "name": "containerName",
+                                        "value": "[parameters('storage_container_name')]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
 
 ---
 
@@ -86,13 +264,21 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 | Field | Description |
 | ----- | ----------- |
 | `enabled` | Enable Dapr at the container app level. |
-| `appPort` |  |
+| `appPort` | The endpoint to which you'd like to point the container app. |
 | `appProtocol` | Enter either `http` or `grpc`. |
 | `appId` | Your container app's unique identifier. |
 
 # [YAML](#tab/yaml)
 
-yaml
+When using a YAML component, you deploy Dapr settings while pointing to the YAML file within the Azure CLI command. For example:
+
+```azurecli
+--enable-dapr \
+--dapr-app-port 3000 \
+--dapr-app-protocol http \
+--dapr-app-id nodeapp \
+--dapr-components ./components.yaml
+```
 
 # [Bicep](#tab/bicep)
 
@@ -107,7 +293,14 @@ dapr: {
 
 # [ARM](#tab/arm)
 
-ARM
+```json
+"dapr": {
+    "enabled": true,
+    "appPort": 3000,
+    "appProtocol": "http",
+    "appId": "nodeapp",
+}
+```
 
 ---
 
