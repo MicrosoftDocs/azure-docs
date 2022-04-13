@@ -12,7 +12,7 @@ ms.custom: mvc, references_regions
 
 # Azure Maps service geographic scope
 
-Azure Maps has several geographically scoped services. Creator offers a resource provider API that, given an Azure region, creates an instance of Creator data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the table below. For more information on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
+Azure Maps has several geographically scoped services and offers a resource provider API that, given an Azure region, creates an instance of Azure Maps data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the table below. For more information on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
 
 ## Data locations
 
@@ -26,3 +26,21 @@ The following table describes the mapping between geography and supported Azure 
 |-------------------------------|-----------------------------|---------------------------|
 | Europe                        | West Europe, North Europe   | `eu.atlas.microsoft.com`  |
 | United States                 | West US 2, East US 2        | `us.atlas.microsoft.com`  |
+
+### URL example for geographic and regional mapping
+
+The following is the [Data V2 - List](/rest/api/maps/data-v2/list) command:
+
+```http
+GET https://{geography}.atlas.microsoft.com/mapData?api-version=2.0
+```
+
+In the previous URl, for an Azure Maps account provisioned in the West US replace {geography} with `us`:
+
+```http
+GET https://us.atlas.microsoft.com/mapData?api-version=2.0
+```
+
+## Additional information
+
+- [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies)
