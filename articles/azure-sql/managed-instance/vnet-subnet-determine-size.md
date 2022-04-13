@@ -11,7 +11,7 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, srbozovi, wiassaf
-ms.date: 01/21/2022
+ms.date: 04/06/2022
 ---
 # Determine required subnet size and range for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,9 +25,9 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 - Number of managed instances, including the following instance parameters:
   - Service tier
   - Number of vCores
-  - [Hardware generation](resource-limits.md#hardware-generation-characteristics)
+  - [Hardware configuration](resource-limits.md#hardware-configuration-characteristics)
   - [Maintenance window](../database/maintenance-window.md)
-- Plans to scale up/down or change the service tier, hardware generation, or maintenance window
+- Plans to scale up/down or change the service tier, hardware configuration, or maintenance window
 
 > [!IMPORTANT]
 > A subnet size of 16 IP addresses (subnet mask /28) allows the deployment of a single managed instance inside it. It should be used only for evaluation or for dev/test scenarios where scaling operations won't be performed. 
@@ -38,7 +38,7 @@ Size your subnet according to your future needs for instance deployment and scal
 
 - Azure uses five IP addresses in the subnet for its own needs.
 - Each virtual cluster allocates an additional number of addresses. 
-- Each managed instance uses a number of addresses that depend on pricing tier and hardware generation.
+- Each managed instance uses a number of addresses that depend on pricing tier and hardware configuration.
 - Each scaling request temporarily allocates an additional number of addresses.
 
 > [!IMPORTANT]
@@ -62,7 +62,7 @@ In the preceding table:
 
 Also consider the [maintenance window feature](../database/maintenance-window.md) when you're determining the subnet size, especially when multiple instances will be deployed inside the same subnet. Specifying a maintenance window for a managed instance during its creation or afterward means that it must be placed in a virtual cluster with the corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
-The same scenario as for the maintenance window applies for changing the [hardware generation](resource-limits.md#hardware-generation-characteristics) as virtual cluster is built per hardware generation. In case of new instance creation or changing the hardware generation of the existing instance, if there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+The same scenario as for the maintenance window applies for changing the [hardware configuration](resource-limits.md#hardware-configuration-characteristics) as a virtual cluster always uses the same hardware. In case of new instance creation or changing the hardware of the existing instance, if there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 An update operation typically requires [resizing the virtual cluster](management-operations-overview.md). When a new create or update request comes, the SQL Managed Instance service communicates with the compute platform with a request for new nodes that need to be added. Based on the compute response, the deployment system either expands the existing virtual cluster or creates a new one. Even if in most cases the operation will be completed within same virtual cluster, a new one might be created on the compute side. 
 
@@ -82,13 +82,13 @@ During a scaling operation, instances temporarily require additional IP capacity
 
 ## Calculate the number of IP addresses
 
-We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window and hardware generation requirements of virtual clusters.
+We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window and hardware requirements of virtual clusters.
 
 **Formula: 5 + (a * 12) + (b * 16) + (c * 16)**
 
 - a = number of GP instances
 - b = number of BC instances
-- c = number of different maintenance window configurations and hardware generations
+- c = number of different maintenance window configurations and hardware configurations
 
 Explanation:
 - 5 = number of IP addresses reserved by Azure

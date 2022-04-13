@@ -58,6 +58,8 @@ items:
 
 - name: Reference
   items:
+  - name: Secure key release policy grammar 
+    href: policy-grammar.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI

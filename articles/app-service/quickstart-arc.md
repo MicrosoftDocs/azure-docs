@@ -78,7 +78,7 @@ You can learn more about log queries in [getting started with Kusto](../azure-mo
 
 ## (Optional) Deploy a custom container
 
-To create a custom containerized app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
+To create a custom containerized app, run [az webapp create](/cli/azure/webapp#az-webapp-create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
 
 For example, try:
 

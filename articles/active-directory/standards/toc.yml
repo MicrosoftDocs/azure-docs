@@ -43,7 +43,7 @@
     href: memo-22-09-enterprise-wide-identity-management-system.md
   - name: Multi-factor authentication
     href: memo-22-09-multi-factor-authentication.md
-  - name: Authentication
+  - name: Authorization
     href: memo-22-09-authorization.md
   - name: Other areas of Zero Trust
     href: memo-22-09-other-areas-zero-trust.md

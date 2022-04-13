@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 03/07/2022
 ---
 
 # Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations
@@ -14,16 +14,18 @@ This article provides details on creating and configuring diagnostic settings to
 
 [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
 
-[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on its own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
+[Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. 
+   - **Resource logs** are not collected until they are routed to a destination. 
+   - The **Activity Log** exists on its own but can be routed to other locations. 
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-- Sources - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
-- Destinations - One or more destinations to send to.
+- **Sources** - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
+- **Destinations** - One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following video walks you through routing platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
+The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
  - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
  - A new feature called category groups was introduced in Nov 2021. 
 
@@ -39,7 +41,7 @@ Here are the source options.
 
 The **AllMetrics** setting routes a resource's platform metrics to additional destinations. This option may not be present for all resource providers.  
 
-### Logs
+### Resource Logs
 
 With logs, you can select the log categories you want to route individually or choose a category group.
 
@@ -56,6 +58,9 @@ Currently, there are two category groups:
 - **All** - Every resource log offered by the resource.
 - **Audit** - All resource logs that record customer interactions with data or the settings of the service.
 
+### Activity Log
+See [Activity Log settings](#activity-log-settings) section below. 
+
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
 
@@ -66,6 +71,10 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
 | [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
 
+## Activity Log settings
+
+The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Activity Log](activity-log.md). 
+
 ## Requirements and limitations
 
 ### Metrics as a source
@@ -75,12 +84,6 @@ There are certain limitations with exporting metrics.
 - **Not all metrics are exportable with diagnostic settings** -  Due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the exportable column in the [list of supported metrics](./metrics-supported.md)
 
 To get around these limitations for specific metrics, you can manually extract them using the [Metrics REST API](/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](../logs/data-collector-api.md).
-
-### Activity log as a source
-
-> [!IMPORTANT]
-> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](../essentials/activity-log.md#legacy-collection-methods) for details.
-
 
 ### Destination limitations
 

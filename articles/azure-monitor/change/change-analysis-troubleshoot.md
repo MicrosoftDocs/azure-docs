@@ -1,20 +1,20 @@
 ---
-title: Troubleshoot Application Change Analysis - Azure Monitor
-description: Learn how to troubleshoot problems in Application Change Analysis.
+title: Troubleshoot Azure Monitor's Change Analysis
+description: Learn how to troubleshoot problems in Azure Monitor's Change Analysis.
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 03/11/2022 
+ms.date: 03/21/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
 
-# Troubleshoot Application Change Analysis (preview)
+# Troubleshoot Azure Monitor's Change Analysis (preview)
 
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 
-If you're viewing Change history after its first integration with Application Change Analysis, you will see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
+If you're viewing Change history after its first integration with Azure Monitor's Change Analysis, you will see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
 
 ### You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider.  
 You're receiving this error message because your role in the current subscription is not associated with the **Microsoft.Support/register/action** scope. For example, you are not the owner of your subscription and instead received shared access permissions through a coworker (like view access to a resource group). 
@@ -54,7 +54,7 @@ If this is a blocking issue for you, we can provide a workaround that involves c
 
 ## An error occurred while getting changes. Please refresh this page or come back later to view changes.
 
-When changes can't be loaded, Application Change Analysis service presents this general error message. A few known causes are:
+When changes can't be loaded, Azure Monitor's Change Analysis service presents this general error message. A few known causes are:
 
 - Internet connectivity error from the client device.
 - Change Analysis service being temporarily unavailable.

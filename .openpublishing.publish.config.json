@@ -442,6 +442,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-march-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "march-cli-preview",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
@@ -528,7 +534,7 @@
     {
       "path_to_root": "azure-sdk-for-go-samples",
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -842,7 +848,26 @@
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azuresignalr-samples",
+      "url": "https://github.com/aspnet/AzureSignalR-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-webpubsub",
+      "url": "https://github.com/Azure/azure-webpubsub",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-sql-todo-sample",
+      "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
+      "branch": "docs-snippets",
+      "branch_mapping": {}
     }
+
   ],
   "branch_target_mapping": {
     "live": [
@@ -866,6 +891,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-blob.json",
     ".openpublishing.redirection.azure-sql.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",

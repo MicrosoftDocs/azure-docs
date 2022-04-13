@@ -19,4 +19,4 @@ Add a rule to allow your web app to access the PostgreSQL Flexible server.
 1. Select **Save** to save the change.
 
 To further secure communication between production web apps and database servers, you should use an
-[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+[Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).

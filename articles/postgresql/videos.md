@@ -1,10 +1,11 @@
 ---
 title: Azure Database for PostgreSQL Videos
 description: This page lists video content relevant for learning Azure Database for PostgreSQL.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 07/30/2020
 ---
 # Azure Database for PostgreSQL videos

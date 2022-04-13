@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit, references_regions
 # Using Private Endpoints for Azure Web App
 
 > [!IMPORTANT]
-> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
+> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
