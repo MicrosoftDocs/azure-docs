@@ -105,14 +105,8 @@
       href: tutorial-splunk.md
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
-  - name: System deployment
+  - name: Deploy and maintain your system
     items:
-    - name: Manage an Azure subscription
-      href: how-to-manage-subscriptions.md
-    - name: Manage sensors from the Azure portal
-      href: how-to-manage-sensors-on-the-cloud.md
-    - name: Activate and set up your sensor
-      href: how-to-activate-and-set-up-your-sensor.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -129,8 +123,12 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
-  - name: System maintenance
-    items:
+    - name: Manage an Azure subscription
+      href: how-to-manage-subscriptions.md
+    - name: Onboard and manage sensors from the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
     - name: Maintain threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
@@ -163,6 +161,8 @@
         href: how-to-track-sensor-activity.md
       - name: Set up SNMP MIB monitoring
         href: how-to-set-up-snmp-mib-monitoring.md
+      - name: Manage proprietary protocols (Horizon)
+        href: resources-manage-proprietary-protocols.md
       - name: Manage an OT on-premises management console
         items:
         - name: Set up high availability
@@ -179,8 +179,6 @@
     href: references-work-with-defender-for-iot-apis.md
   - name: Work with Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Manage proprietary protocols (Horizon)
-    href: resources-manage-proprietary-protocols.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
     href: resources-frequently-asked-questions.md
