@@ -13,19 +13,17 @@ manager: femila
 
 # Azure Virtual Desktop disaster recovery
 
-Azure Virtual Desktop has experienced tremendous growth as a remote and hybrid work solution. Today, when customers deploy Azure Virtual Desktop, resources are usually deployed to a single region to address immediate requirements. The urgency to adapt to remote work needs are forcing many organizations to focus on speed of deployment and reduced costs. As the global pandemic continues, customers continue to leverage and expand Azure Virtual Desktop for their remote work force placing a greater need on availability and resiliency. Customers want to minimize disruptions and ensure their users can access Azure Virtual Desktop in the event of a disaster. Business continuity and disaster recovery are critical elements required by many customers to ensure business productivity and meet compliance regulations. This document will provide recommendations, best practices, and deployment steps to prepare for BC/DR.
-
-<!--Why are we changing the intro? We don't need to advertise Virtual Desktop if the people coming here have already bought it. Also, we're going to need to immediately update this thing as soon as the pandemic ends-->
+Azure Virtual Desktop has grown tremendously as a remote and hybrid work solution in recent years. Because so many users now work remotely, organizations require solutions with high deployment speed and reduced costs. Users also need to have a remote work environment with guaranteed availability and resiliency, with minimal disruptions and the ability to access their virtual machines even during disasters. This document describes recommendations for business continuity and disaster recovery.
 
 ## Disaster recovery basics
 
-To prevent system outages or downtime, every system and component in your Azure Virtual Desktop deployment must be fault-tolerant. Fault tolerance is when you have a duplicate configuration or system in another geographic region that takes over for the primary system, object, or configuration in the event of an outage. There are many different methods you can use to set up fault tolerance, but this article will focus on disaster recovery methods currently available in Azure.
+To prevent system outages or downtime, every system and component in your Azure Virtual Desktop deployment must be fault-tolerant. Fault tolerance is when you have a duplicate configuration or system in another geographic region that takes over for the primary system, object, or configuration in the event of an outage, or is running in an active-active configuration, which reduces the impact of a localized outage. There are many different methods you can use to set up fault tolerance, but this article will focus on disaster recovery methods currently available in Azure.
 
 ## Azure Virtual Desktop infrastructure
 
-In order to figure out which areas need to be made fault-tolerant, we need to know who's responsible for maintaining those areas. You can divide responsibility in the Azure Virtual Desktop service into two areas: Microsoft-managed and customer-managed. Metadata like the host pools, app groups, and workspaces is controlled by Microsoft. The metadata is always available, and doesn't require extra setup by the customer to replicate host pool data or configurations. Meanwhile, customer-managed areas involve settings and configurations that are only available in the customer's deployment. The following table gives a clearer idea of which areas are managed by which party.
+In order to figure out which areas need to be made fault-tolerant, we need to know who's responsible for maintaining those areas. You can divide responsibility in the Azure Virtual Desktop service into two areas: Microsoft-managed and customer-managed. Metadata like the host pools, app groups, and workspaces is controlled by Microsoft. The metadata is always available and doesn't require extra setup by the customer to replicate host pool data or configurations. We've designed the gateway infrastructure that connects people to their session hosts to be a global, high-resilience service managed by Microsoft. Meanwhile, customer-managed areas involve the virtual machines (VMs) used in Azure Virtual Desktop and the settings and configurations unique to the customer's deployment. The following table gives a clearer idea of which areas are managed by which party.
 
-| Managed by Microsoft       | Managed by customer  |
+| Managed by Microsoft    | Managed by customer |
 |-------------------------|-------------------|
 | Load balancer           | Network           |
 | Session broker          | Session hosts     |
@@ -37,7 +35,17 @@ In this article, we're going to focus on customer-managed components, as these a
 
 ## Recommended disaster recovery strategy
 
-The Azure Virtual Desktop disaster recovery strategy we recommend is providing geographic resiliency by deploying resources across multiple paired Azure regions. Spreading resources across [Azure region pairs](../best-practices-availability-paired-regions.md) ensures that even if more than one area goes down, your important data will remain safe in another region. [Availability sets](../virtual-machines/availability-set-overview.md) and [availability zones](../availability-zones/az-region.md) can also increase the overall fault tolerance of your Azure Virtual Desktop deployment, but this article will focus more on Azure region resiliency.
+In this section, we'll discuss actions and design principles you should consider to protect your Azure Virtual Desktop workloads and avoid undertaking huge recovery efforts in the event outages or full-blown disasters. For smaller outages, following certain smaller steps can help prevent them from becoming bigger disasters. Understanding the various terminology can help before moving to the implementation.
+
+When you design a disaster recovery strategy, you should keep the following three things in mind:
+
+- High Availability (HA): distributing infrastructure so smaller, more localized outages don't interrupt your entire deployment. Designing with HA in mind can minimize outage impact and avoid the need for disaster recovery.
+- Business continuity: how an organization can keep operating during outages of any size.
+- Disaster recovery: the process of getting back to operation in the event of a full outage.
+
+Azure has many built-in, free-of-charge features that can deliver HA at a number of levels. The first feature is [availability sets](../virtual-machines/availability-set-overview.md), which distribute VMs across different fault and update domains within Azure. Next are [availability zones](../availability-zones/az-region.md), which are physically isolated and geographically distributed collections of data centers that can significantly reduce the impact of an outage. Finally, distributing session hosts across multiple Azure regions provides even more geographical distribution, which further reduces outage impact. All three features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
+
+In summary, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple [paired Azure regions](../best-practices-availability-paired-regions.md).
 
 ## Recommended diaster recovery methods
 
