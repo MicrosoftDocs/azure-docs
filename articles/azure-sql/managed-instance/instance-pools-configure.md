@@ -143,7 +143,7 @@ az sql instance-pool create
     --capacity 8
     --tier GeneralPurpose
     --family Gen5 
-    --resrouce-group myResourceGroup
+    --resource-group myResourceGroup
     --subnet miPoolSubnet
     --vnet-name miPoolVirtualNetwork
 ```
