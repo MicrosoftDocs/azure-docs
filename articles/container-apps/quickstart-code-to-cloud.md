@@ -24,7 +24,7 @@ To complete this project, you'll need the following items:
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -130,7 +130,9 @@ Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, 
 
 ## Prepare the GitHub repository
 
-Navigate to the repository for your preferred language and fork the repository. Select the **Fork** button at the top of the page to fork the repo to your account.
+Navigate to the repository for your preferred language and fork the repository.
+
+Select the **Fork** button at the top of the page to fork the repo to your account.
 
 - [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
 - [Go](https://github.com/azure-samples/containerapps-albumapi-go)
@@ -144,16 +146,19 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 # [Bash](#tab/bash)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.git code-to-cloud
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.git code-to-cloud
 ```
 
 ---
+
+> [!NOTE]
+> If the `clone` command fails, then you probably forgot to first fork the repository.
 
 Next, change the directory into the root of the cloned repo.
 
@@ -197,15 +202,13 @@ az acr create \
   --admin-enabled true
 ```
 
-Now store your ACR credentials in an environment variable.
+Now store your ACR password in an environment variable.
 
 ```azurecli
 ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
 ```
 
 # [PowerShell](#tab/powershell)
-
-<!-- https://docs.microsoft.com/en-us/powershell/azure/queries-azureps?view=azps-7.4.0 -->
 
 ```powershell
 $ACA_REGISTRY = New-AzContainerRegistry `
@@ -215,7 +218,7 @@ $ACA_REGISTRY = New-AzContainerRegistry `
     -Sku Basic
 ```
 
-Now store your ACR credentials in an environment variable.
+Now store your ACR password in an environment variable.
 
 ```powershell
 $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
