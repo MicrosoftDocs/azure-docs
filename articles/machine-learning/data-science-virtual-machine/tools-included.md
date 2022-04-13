@@ -76,18 +76,18 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; Julia |  |  |  | [Julia Jupyter Samples](./dsvm-samples-and-walkthroughs.md#julia-language) |
 | &nbsp;&nbsp;&nbsp;&nbsp; PySpark |  |  |  | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml) |
 
-**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
-* Python3.8-default</br>  
-* Python3.8-Tensorflow-Pytorch</br>  
-* Python3.8-AzureML</br>   
-* R</br>  
-* Python 3.7 - Spark (local)</br>  
-* Julia 1.6.0</br>  
-* R Spark – HDInsight</br>  
-* Scala Spark – HDInsight</br>  
-* Python 3 Spark – HDInsight</br>  
+**Ubuntu 18.04 DSVM, 20.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
+* Python3.8-default</br>
+* Python3.8-Tensorflow-Pytorch</br>
+* Python3.8-AzureML</br>
+* R</br>
+* Python 3.7 - Spark (local)</br>
+* Julia 1.6.0</br>
+* R Spark – HDInsight</br>
+* Scala Spark – HDInsight</br>
+* Python 3 Spark – HDInsight</br>
 
-**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
+**Ubuntu 18.04 DSVM, 20.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
 * Python3.8-default  </br>
 * Python3.8-Tensorflow-Pytorch </br> 
 * Python3.8-AzureML  </br>
