@@ -63,7 +63,7 @@ For agent nodes, which are expected to handle very large numbers of concurrent s
 | `net.ipv4.tcp_fin_timeout` | 5 - 120 | 60 | The length of time an orphaned (no longer referenced by any application) connection will remain in the FIN_WAIT_2 state before it's aborted at the local end. |
 | `net.ipv4.tcp_keepalive_time` | 30 - 432000 | 7200 | How often TCP sends out `keepalive` messages when `keepalive` is enabled. |
 | `net.ipv4.tcp_keepalive_probes` | 1 - 15 | 9 | How many `keepalive` probes TCP sends out, until it decides that the connection is broken. |
-| `net.ipv4.tcp_keepalive_intvl` | 1 - 75 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. | 
+| `net.ipv4.tcp_keepalive_intvl` | 10 - 75 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. | 
 | `net.ipv4.tcp_tw_reuse` | 0 or 1 | 0 | Allow to reuse `TIME-WAIT` sockets for new connections when it's safe from protocol viewpoint. | 
 | `net.ipv4.ip_local_port_range` | First: 1024 - 60999 and Last: 32768 - 65000] | First: 32768 and Last: 60999 | The local port range that is used by TCP and UDP traffic to choose the local port. Comprised of two numbers: The first number is the first local port allowed for TCP and UDP traffic on the agent node, the second is the last local port number. | 
 | `net.ipv4.neigh.default.gc_thresh1`| 	128 - 80000 | 4096 | Minimum number of entries that may be in the ARP cache. Garbage collection won't be triggered if the number of entries is below this setting. | 
