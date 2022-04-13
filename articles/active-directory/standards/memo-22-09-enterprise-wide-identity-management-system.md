@@ -1,6 +1,6 @@
 ---
-title: Memo M-22-09 enterprise-wide identity management systems
-description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum M-22-09.
+title: Memo 22-09 enterprise-wide identity management system
+description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Enterprise-wide identity management systems
+# Enterprise-wide identity management system
 
-Memorandum M-22-09 requires agencies to develop a plan to consolidate their identity platforms to as few agency-managed identity systems as possible within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating your identity platform:
+Memorandum 22-09 requires agencies to develop a plan to consolidate their identity platforms to as few agency-managed identity systems as possible within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating your identity platform:
 
 * Centralized management of identity lifecycle, policy enforcement, and auditable controls
 
@@ -31,9 +31,9 @@ Memorandum M-22-09 requires agencies to develop a plan to consolidate their iden
 
 * Use of shared authentication services and trust relationships to facilitate integration among agencies 
 
-## Azure AD for implementation and management
+## Why Azure Active Directory?
 
-Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from M-22-09. It also provides broad identity controls that support Zero Trust initiatives. If your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
+Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from memorandum 22-09. It also provides broad identity controls that support Zero Trust initiatives. If your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
 
 ## Single sign-on requirements
 
@@ -50,7 +50,7 @@ The memo requires that users sign in once and then directly access applications.
 
 To consolidate your enterprise to using Azure AD as the enterprise-wide identity system, you must first understand the assets that will be in scope. 
 
-### Classify applications and services
+### Document applications and services
 
 You must inventory the applications and services that users will access. An identity management system can protect only what it knows. 
 
@@ -72,7 +72,7 @@ Microsoft offers the following tools to help with your discovery of applications
 | Tool| Usage |
 | - | - |
 | [Usage Analytics for Active Directory Federation Services (AD FS)](../hybrid/how-to-connect-health-adfs.md)| Analyzes the authentication traffic of your federated servers. |
-| [Microsoft Defender for Cloud Apps](%20/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously called Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
+| [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services that your organization uses. It was previously called Microsoft Cloud App Security. Integrating Defender for Cloud Apps with Defender for Endpoint allows discovery to happen from data analyzed from Windows client devices. |
 | [Application Discovery worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)| Helps you document the current states of your applications. |
 
 We recognize that your apps might be in systems other than Microsoft's, and that Microsoft tools might not discover those apps. Ensure that you do a complete inventory. All providers should have mechanisms for discovering applications that use their services. 
@@ -125,7 +125,7 @@ Devices integrated with Azure AD can be either [hybrid joined devices](../device
 
 The following articles are part of this documentation set:
 
-[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum 22-09](memo-22-09-meet-identity-requirements.md)
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 

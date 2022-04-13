@@ -1,6 +1,6 @@
 ---
-title: Memo M-22-09 multifactor authentication requirements overview
-description: Get guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum M-22-09.
+title: Memo 22-09 multifactor authentication requirements overview
+description: Get guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Meet multifactor authentication requirements of memorandum M-22-09
+# Meet multifactor authentication requirements of memorandum 22-09
 
-This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
+This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum 22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
 
 The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. Phishing is the attempt to obtain and compromise credentials, such as by sending a spoofed email that leads to an inauthentic site.
 
@@ -37,7 +37,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports. 
 
-Consider the following approach to evaluating phishing-resistant MFA methods:
+Consider the following approaches to evaluating phishing-resistant MFA methods:
 
 * Device types and capabilities that you want to support. Examples include kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices.
 
@@ -83,6 +83,8 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 
 Conditional access enables you to enforce MFA for users in your tenant. With the addition of [cross-tenant access policies](../external-identities/cross-tenant-access-overview.md), you can enforce it on external users. 
 
+#### Enforcement across agencies
+
 [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
 
 - Limiting what other Microsoft tenants your users can access.
@@ -108,9 +110,9 @@ Although the memo isn't specific on which policies to use with passwords, consid
 
 The following articles are part of this documentation set:
 
-[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum 22-09](memo-22-09-meet-identity-requirements.md)
 
-[Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
+[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
 
 [Authorization](memo-22-09-authorization.md)
 

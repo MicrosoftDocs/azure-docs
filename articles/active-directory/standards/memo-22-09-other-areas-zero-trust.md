@@ -1,6 +1,6 @@
 ---
-title: Memo M-22-09 other areas of Zero Trust
-description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum M-22-09.
+title: Memo 22-09 other areas of Zero Trust
+description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Other areas of Zero Trust addressed in memorandum M-22-09
+# Other areas of Zero Trust addressed in memorandum 22-09
 
-This article addresses the identity pillar of Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Some areas of the Zero Trust maturity model cover topics beyond the identity pillar. 
+The other articles in this guidance set address the identity pillar of Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum 22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). This article covers areas of the Zero Trust maturity model that are beyond the identity pillar. 
 
 This article addresses the following cross-cutting themes:
 
@@ -28,19 +28,20 @@ This article addresses the following cross-cutting themes:
 * Governance 
 
 ## Visibility
-It's important to monitor your Azure Active Directory (Azure AD) tenant. You must adopt an "assume breach" mindset and meet compliance standards in memorandum M-22-09 and [memorandum M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/M-21-31). Three primary log types are used for security analysis and ingestion:
+
+It's important to monitor your Azure Active Directory (Azure AD) tenant. You must adopt an "assume breach" mindset and meet compliance standards in memorandum 22-09 and [memorandum 21-31](https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf). Three primary log types are used for security analysis and ingestion:
 
 * [Azure audit logs](../reports-monitoring/concept-audit-logs.md). Used for monitoring operational activities of the directory itself, such as creating, deleting, updating objects like users or groups. Also used for making changes to configurations of Azure AD, like modifications to a conditional access policy.
 
 * [Azure AD sign-in logs](../reports-monitoring/concept-all-sign-ins.md). Used for monitoring all sign-in activities associated with users, applications, and service principals. The sign-in logs contain specific categories of sign-ins for easy differentiation:
 
-   * Interactive sign-ins: Shows user successful and failed sign-ins for failures, the policies that might have been applied, and other relevant metadata.
+  * Interactive sign-ins: Shows user successful and failed sign-ins for failures, the policies that might have been applied, and other relevant metadata.
 
-   * Non-interactive user sign-ins: Shows sign-ins where a user did not perform an interaction during sign-in. These sign-ins are typically clients signing in on behalf of the user, such as mobile applications or email clients.
+  * Non-interactive user sign-ins: Shows sign-ins where a user did not perform an interaction during sign-in. These sign-ins are typically clients signing in on behalf of the user, such as mobile applications or email clients.
 
   * Service principal sign-ins: Shows sign-ins by service principals or applications. Typically, these are headless and done by services or applications that are accessing other services, applications, or the Azure AD directory itself through the REST API.
 
-   * Managed identities for Azure resource sign-ins: Shows sign-ins from resources with Azure managed identities. Typically, these are Azure resources or applications that are accessing other Azure resources, such as a web application service authenticating to an Azure SQL back end. 
+  * Managed identities for Azure resource sign-ins: Shows sign-ins from resources with Azure managed identities. Typically, these are Azure resources or applications that are accessing other Azure resources, such as a web application service authenticating to an Azure SQL back end. 
 
 * [Provisioning logs](../reports-monitoring/concept-provisioning-logs.md). Shows information about objects synchronized from Azure AD to applications like Service Now by using Microsoft Identity Manager. 
 
@@ -60,11 +61,11 @@ You can use analytics in the following tools to aggregate information from Azure
 
 * [Microsoft Sentinel](../../sentinel/get-visibility.md) offers the following ways to analyze information from Azure AD: 
 
-   * Microsoft Sentinel has [User and Entity Behavior Analytics (UEBA)](../../sentinel/identify-threats-with-entity-behavior-analytics.md). UEBA delivers high-fidelity, actionable intelligence on potential threats that involve user, host, IP address, and application entities. This intelligence enhances events across the enterprise to help detect anomalous behavior in users and systems. 
+  * Microsoft Sentinel has [User and Entity Behavior Analytics (UEBA)](../../sentinel/identify-threats-with-entity-behavior-analytics.md). UEBA delivers high-fidelity, actionable intelligence on potential threats that involve user, host, IP address, and application entities. This intelligence enhances events across the enterprise to help detect anomalous behavior in users and systems. 
 
-   * You can use specific analytics rule templates that hunt for threats and alerts found in your Azure AD logs. Your security or operation analyst can then triage and remediate threats.
+  * You can use specific analytics rule templates that hunt for threats and alerts found in your Azure AD logs. Your security or operation analyst can then triage and remediate threats.
 
-   * Microsoft Sentinel has [workbooks](../../sentinel/top-workbooks.md) that help you visualize multiple Azure AD data sources. These sources include workbooks that show aggregate sign-ins by country, or applications that have the most sign-ins. You can also create or modify existing workbooks to view information or threats in a dashboard to gain insights. 
+  * Microsoft Sentinel has [workbooks](../../sentinel/top-workbooks.md) that help you visualize multiple Azure AD data sources. These workbooks can show aggregate sign-ins by country, or applications that have the most sign-ins. You can also create or modify existing workbooks to view information or threats in a dashboard to gain insights. 
 
 * [Azure AD usage and insights reports](../reports-monitoring/concept-usage-insights-report.md) show information similar to Azure Sentinel workbooks, including which applications have the highest usage or sign-in trends over a time period. The reports are useful for understanding aggregate trends in your enterprise that might indicate an attack or other events. 
 
@@ -85,16 +86,16 @@ It's important that you understand and document clear processes for how you inte
 * [Azure Active Directory governance operations reference guide](../fundamentals/active-directory-ops-guide-govern.md). 
 * [Azure Active Directory security operations guide](../fundamentals/security-operations-introduction.md). It can help you secure your operations and understand how security and governance overlap.
 
-After you understand operational governance, you can use [governance features](../governance/identity-governance-overview.md) to implement portions of your governance controls. These include features mentioned in [Meet authorization requirements of memorandum M-22-09](memo-22-09-authorization.md). 
+After you understand operational governance, you can use [governance features](../governance/identity-governance-overview.md) to implement portions of your governance controls. These include features mentioned in [Meet authorization requirements of memorandum 22-09](memo-22-09-authorization.md). 
 
  
 ## Next steps
 
 The following articles are part of this documentation set:
 
-[Meet identity requirements of memorandum M-22-09](memo-22-09-meet-identity-requirements.md)
+[Meet identity requirements of memorandum 22-09](memo-22-09-meet-identity-requirements.md)
 
-[Enterprise-wide identity management systems](memo-22-09-enterprise-wide-identity-management-system.md)
+[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
 
 [Multifactor authentication](memo-22-09-multi-factor-authentication.md)
 

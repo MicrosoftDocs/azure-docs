@@ -3,12 +3,12 @@ title: 'Scenario: Connect to Microsoft 365 using ExpressRoute private peering'
 titleSuffix: Azure Virtual WAN
 description: Learn about how to connect to Microsoft 365 through Virtual WAN using ExpressRoute private peering.
 services: virtual-wan
-author: cherylmc
+author: floklaffenbach
 
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/08/2022
-ms.author: cherylmc
+ms.author: flofox
 
 ---
 # Scenario: Connect to Microsoft 365 via Virtual WAN using ExpressRoute private peering
