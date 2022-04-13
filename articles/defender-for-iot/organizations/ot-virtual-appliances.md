@@ -31,7 +31,7 @@ This section outlines considerations for virtual appliance components, for both 
 |**Storage**     | Make sure to allocate enough read and write IOPs and throughput to match the performance of the appliances listed in this article. <br><br>You should expect high storage usage due to the large traffic monitoring volumes.      |
 
 
-## OT network sensor requirements
+## OT network sensor VM requirements
 
 The following tables list system requirements for OT network sensors on virtual appliances.
 
@@ -90,7 +90,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 
 ---
 
-## On-premises management console requirements
+## On-premises management console VM requirements
 
 An on-premises management console on a virtual appliance is supported for enterprise deployments with the following requirements:
 
@@ -107,7 +107,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 - [Which appliances do I need?](ot-appliance-sizing.md)
 - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-- [OT system physical appliance requirements](ot-physical-appliances.md)
 
 Then, use any of the following procedures to continue:
 
