@@ -210,8 +210,8 @@ items:
       href: how-to-permissions.md
     - name: Use TLS/SSL certificates
       href: how-to-use-tls-certificate.md
-    - name: Enable end-to-end Transport Layer Security
-      href: how-to-enable-end-to-end-tls.md
+    - name: Enable ingress-to-app Transport Layer Security
+      href: how-to-enable-ingress-to-app-tls.md
     - name: Access Config Server and Service Registry
       href: how-to-access-data-plane-azure-ad-rbac.md
   - name: Automate
