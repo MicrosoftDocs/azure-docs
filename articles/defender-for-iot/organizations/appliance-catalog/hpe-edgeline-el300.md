@@ -5,16 +5,16 @@ ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# HPE Edgeline EL300 
+# HPE Edgeline EL300
 
-This article describes the HPE Edgeline EL300 appliance for use in OT.
+This article describes the HPE Edgeline EL300 appliance for OT sensors.
 
-|Summary  | |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [SMB] |
 |**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
-|**Physical Specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported, Not available pre-installed|
+|**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
+|**Status** | Supported, Not available pre-configured|
 
 ## Specifications
 

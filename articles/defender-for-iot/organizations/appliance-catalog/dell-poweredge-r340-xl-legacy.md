@@ -7,14 +7,17 @@ ms.topic: reference
 
 # Dell PowerEdge R340 XL (enterprise)
 
-This article describes the Dell PowerEdge R340 XL appliance for use in OT monitoring.
+This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
 
-|Summary  | |
+Legacy appliances that certified but aren't currently offered as pre-configured appliances.
+
+
+|Appliance characteristic  | Description|
 |---------|---------|
 |**Architecture** | [Enterprise] |
 |**Performance** | 	Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, Not available pre-installed|
+|**Status** | Supported, not available as a pre-installed appliance|
 
 ## Specifications
 
@@ -192,7 +195,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
 
 
 ## Next steps

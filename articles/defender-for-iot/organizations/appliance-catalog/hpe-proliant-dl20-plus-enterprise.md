@@ -8,14 +8,14 @@ ms.topic: reference
 
 # HPE ProLiant DL20/DL20 Plus
 
-This article describes the **HPE ProLiant DL20 Plus** appliance for OT monitoring.
+This article describes the **HPE ProLiant DL20 Plus** appliance for OT sensors and on-premises management consoles.
 
-|Summary  | |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [Enterprise] |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
-|**Physical Specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, Available |
+|**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
+|**Status** | Supported; Available as pre-configured |
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus.png" alt-text="Photo of the DL20 Plus panel." border="false":::
 

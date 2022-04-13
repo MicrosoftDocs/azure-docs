@@ -7,14 +7,14 @@ ms.topic: reference
 
 # HPE ProLiant DL360
 
-This article describes the **HPE ProLiant DL360** appliance for OT monitoring.
+This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
-|Summary  | |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [Corporate] |
 |**Performance** | 	Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
-|**Physical Specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, Available |
+|**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
+|**Status** | Supported; Available as pre-configured |
 
 
 

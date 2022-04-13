@@ -7,7 +7,7 @@ ms.topic: reference
 
 # HPE ProLiant DL20
 
-This article describes the **HPE ProLiant DL20** when used in enterprise deployments for OT monitoring.
+This article describes the **HPE ProLiant DL20** appliance for OT sensors and on-premises management consoles.
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360." border="false":::
 

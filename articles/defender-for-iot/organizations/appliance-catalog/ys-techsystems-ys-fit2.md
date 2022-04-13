@@ -7,14 +7,14 @@ ms.topic: reference
 
 # YS-techsystems YS-FIT2
 
-This article describes the **YS-techsystems YS-FIT2** appliance for OT monitoring.
+This article describes the **YS-techsystems YS-FIT2** appliance for OT sensors.
 
-|Summary  | |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [Office] |
 |**Performance** | 	Max bandwidth: 10Mbp/s<Br>Max devices: 100|
-|**Physical Specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
-|**Status** | Supported, Available |
+|**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
+|**Status** | Supported; Available as pre-configured |
 
 :::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Ruggedized Micro Appliance":::
 

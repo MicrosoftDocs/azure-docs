@@ -7,14 +7,14 @@ ms.topic: reference
 
 # Dell Edge 5200
 
-This article describes the Dell Edge 5200 appliance for use in OT monitoring.
+This article describes the Dell Edge 5200 appliance for OT sensors.
 
-|  |Details |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [SMB] |
 |**Performance** | 	Max bandwidth: 60 Mbp/s<br>Max devices: 1,000 |
-|**Physical Specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
-|**Status** | Supported, Not available pre-installed|
+|**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
+|**Status** | Supported, Not available pre-configured|
 
 ## Specifications
 

@@ -5,16 +5,16 @@ ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# Neousys Nuvo-5006LP 
+# Neousys Nuvo-5006LP
 
-This article describes the Neousys Nuvo-5006LP appliance for use in OT monitoring.
+This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
-|Summary  | |
+| Appliance characteristic |Details |
 |---------|---------|
 |**Architecture** | [SMB] |
 |**Performance** | 	Max bandwidth: 30 Mbp/s<br>Max devices: 400 |
-|**Physical Specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported, Not available pre-installed|
+|**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
+|**Status** | Supported, Not available pre-configured|
 
 :::image type="content" source="media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP.":::
 
@@ -41,11 +41,11 @@ This article describes the Neousys Nuvo-5006LP appliance for use in OT monitorin
 |EMC|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
 
 
-### Nuvo 5006LP installation
+## Nuvo 5006LP installation
 
 This section provides the Nuvo 5006LP installation procedure. Before installing the software on the Nuvo 5006LP appliance, you need to adjust the appliance BIOS configuration.
 
-#### Nuvo 5006LP front panel
+### Nuvo 5006LP front panel
 
 :::image type="content" source="media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="A view of the front panel of the Nuvo 5006LP device.":::
 
@@ -58,7 +58,7 @@ This section provides the Nuvo 5006LP installation procedure. Before installing 
 1. Management network adapter
 1. Ports to receive mirrored data
 
-#### Nuvo back panel
+### Nuvo back panel
 
 :::image type="content" source="media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="A view of the back panel of the Nuvo 5006lp.":::
 
@@ -68,7 +68,7 @@ This section provides the Nuvo 5006LP installation procedure. Before installing 
 1. USB connectors
 1. DC power port (DC IN)
 
-#### Configure the Nuvo 5006LP BIOS
+### Configure the Nuvo 5006LP BIOS
 
 The following procedure describes how to configure the Nuvo 5006LP BIOS. Make sure the operating system was previously installed on the appliance.
 
@@ -86,7 +86,7 @@ The following procedure describes how to configure the Nuvo 5006LP BIOS. Make su
 
 1. Press **F10** to save, and then select **Exit**.
 
-#### Software installation (Nuvo 5006LP)
+### Software installation (Nuvo 5006LP)
 
 The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
 

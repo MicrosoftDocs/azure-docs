@@ -280,7 +280,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-the-software).
 
 ## HPE ProLiant DL20 installation
 
@@ -393,7 +393,7 @@ To install the software:
 
 1. Start the appliance.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-the-software).
 
 ## HPE ProLiant DL360 installation
 
@@ -454,7 +454,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-the-software).
 
 ## HP EdgeLine 300 installation
 
@@ -525,7 +525,7 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 1. Select the device with the sensor image. Either **DVD** or **USB**.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-the-software).
 
 ## Sensor installation for the virtual appliance
 
@@ -637,7 +637,7 @@ To install:
 
 1. The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-the-software).
 
 ## Install the software
 
