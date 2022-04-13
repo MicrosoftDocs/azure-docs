@@ -125,7 +125,7 @@ Now, for locally-managed sensors, you can upload that diagnostic log directly on
 
 For more information, see:
 
-- [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support)
+- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
 ## April 2022

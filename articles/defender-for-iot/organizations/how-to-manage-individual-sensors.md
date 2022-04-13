@@ -417,7 +417,7 @@ To access system properties:
 
 3. Select **System Properties** from the **General** section.
 
-## Download a support diagnostics for support
+## Download a diagnostics log for support
 
 This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket. 
 
