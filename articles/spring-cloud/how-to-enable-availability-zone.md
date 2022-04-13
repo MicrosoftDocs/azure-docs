@@ -41,7 +41,7 @@ az spring-cloud create -name <MyService> \
     --zone-redundant true
 ```
 
-#[Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To create a service in Azure Spring Cloud with availability zone enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
 
