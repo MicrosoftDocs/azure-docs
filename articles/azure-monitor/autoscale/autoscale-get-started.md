@@ -36,12 +36,12 @@ For each resource, you will find the current instance count and the Autoscale st
 
 Additionally, you can reach the scaling page by clicking on **All Resources** on the home page and filter to the resource you're interested in scaling.
 
-[add image]
+![Click on all resources][./media/autoscale-get-started/choose-all-resources.png]
 
 
 Once you've selected the resource that you're interested in, select the **Scaling** tab to configure autoscaling rules.
 
-[add image]
+![Click on Scaling][./media/autoscale-get-started/scaling-page.png]
 
 ## Create your first Autoscale setting
 
