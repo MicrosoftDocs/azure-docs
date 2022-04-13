@@ -65,12 +65,12 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 This section lists the types of resource logs you can collect for DPS.
 
-Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories?branch=pr-en-us-193324#microsoftdevicesprovisioningservices)
+Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftdevicesprovisioningservices)
 
-| Category | Display Name | *TODO replace this label with other information*  |
+| Category | Display Name | Description  |
 |:---------|:-------------|------------------|
-| DeviceOperations   | Device Operations  | *TODO other important information about this type* |
-| ServiceOperations   | Service Operations | *TODO other important information about this type* |
+| DeviceOperations   | Device Operations  | Collects events emitted for device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+| ServiceOperations   | Service Operations | Collects events emitted for DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
@@ -126,13 +126,13 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following schemas are in use by DPS:
+The following schemas are in use by DPS.
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
 ### ServiceOperations
 
-The following JSON is an example of a successful add (`Upsert`) individual enrollment operation. The registration ID for the enrollment and the type of enrollment are identified in the `properties_s` property.
+The following JSON is an example of a successful add (`Upsert`) individual enrollment operation. The registration ID for the enrollment and the type of enrollment are identified in the `properties_s` property. For more information about the properties returned, see [Diagnostics tables](#diagnostics-tables).
 
 ```json
   {
@@ -164,7 +164,7 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
 
 ### DeviceOperations
 
-The following JSON is an example of a successful attestation attempt from a device. The registration ID for the device is identified in the `properties_s` property.
+The following JSON is an example of a successful attestation attempt from a device. The registration ID for the device is identified in the `properties_s` property. For more information about the properties returned, see [Diagnostics tables](#diagnostics-tables).
 
 ```json
   {
