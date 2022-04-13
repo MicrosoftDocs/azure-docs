@@ -3,7 +3,7 @@ title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release not
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/07/2022
+ms.date: 04/27/2022
 ms.author: juliako
 ---
 
@@ -42,7 +42,17 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## March 2022 release updates
+## April 2022 release updates
+
+## Renamed **Azure Video Analyzer for Media** back to **Azure Video Indexer**
+
+As of today, Azure Video analyzer for Media product name is **Azure Video Indexer** and all product related assets (web portal, marketing materials). It is a backward compatible change that has no implication on APIs and links.
+
+**Azure Video Indexer** has a new logo. 
+
+:::image type="content" source="..applied-ai-services/media/video-indexer.svg" alt-text="New logo":::
+
+## March 2022
 
 ### Closed Captioning files now support including speakers’ attributes
 
