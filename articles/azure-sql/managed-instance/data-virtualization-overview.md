@@ -374,7 +374,7 @@ ON tbl_TaxiRides (vendor_id)
 WITH FULLSCAN, NORECOMPUTE
 ```
 
-The `WITH` options are mandatory, and for the sample size, the allowed options are `FULLSCAN` and `SAMPLE n` percent. To create single-column statistics for multiple columns, execute the stored procedure for each of the columns. Multi-column statistics are not supported.
+The `WITH` options are mandatory, and for the sample size, the allowed options are `FULLSCAN` and `SAMPLE n` percent. To create single-column statistics for multiple columns, execute the above statement for each of the columns. Multi-column statistics are not supported.
 
 ## Troubleshooting
 
