@@ -15274,6 +15274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure/spring-cloud/how-to-enable-end-to-end-tls.md",
+      "redirect_url": "/azure/spring-cloud/how-to-enable-ingress-to-app-tls",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/jenkins/tutorial-build-deploy-jenkins.md",
       "redirect_url": "/azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services",
       "redirect_document_id": false

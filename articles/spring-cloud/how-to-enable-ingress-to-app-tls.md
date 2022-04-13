@@ -13,13 +13,14 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-> Note: This feature is not available in Basic tier.
+> [!NOTE]
+> This feature is not available in Basic tier.
 
 This article describes secure communications in Azure Spring Cloud. The article also explains how to enable ingress-to-app SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS.
 
 The following picture shows the overall secure communication support in Azure Spring Cloud.
 
-![Secured TLS in Azure Spring Cloud diagram.](media/enable-end-to-end-tls/secured-tls.png)
+:::image type="content" source="media/enable-end-to-end-tls/secured-tls.png" alt-text="Screenshot of secured T L S flow in Azure Spring Cloud.":::
 
 ## Secure communication model within Azure Spring Cloud
 
@@ -74,7 +75,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 3. Select **Ingress-to-app TLS**.
 4. Switch **Ingress-to-app TLS** to *Yes*.
 
-![Enable Ingress-to-app TLS in portal](./media/enable-end-to-end-tls/enable-i2a-tls.png)
+![Screenshot showing where to enable Ingress-to-app TLS in portal.](./media/enable-end-to-end-tls/enable-i2a-tls.png)
 
 ### Verify ingress-to-app TLS status
 
