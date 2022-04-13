@@ -58,6 +58,10 @@ Just download and run the PowerShell script. After you provide a few details of 
 
 To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
 
+### Deprecated the Azure Cache for Redis recommendation
+
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
+
 ### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
 Microsoft Defender for Storage uses alerts to handle scenarios where attempts from threat actors, successful or not, try to expose and exfiltrate sensitive information from misconfigured storage containers that are publicly accessible.
@@ -91,18 +95,6 @@ For example, the added information to the title of the `Publicly accessible stor
 - `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
 
 All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
-
-### PowerShell script to stream alerts to Splunk and IBM QRadar
-
-We recommend that you use Event Hubs and a built-in connector to export security alerts to Splunk and IBM QRadar. Now you can use a PowerShell script to set up the Azure resources needed to export security alerts for your subscription or tenant.
-
-Just download and run the PowerShell script. After you provide a few details of your environment, the script configures the resources for you. The script then produces output that you use in the SIEM platform to complete the integration.
-
-To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
-
-### Deprecated the Azure Cache for Redis recommendation
-
-The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
 
 ## March 2022
 
