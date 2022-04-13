@@ -16,15 +16,15 @@ Activity log alert rules are Azure resources, so they can be created by using an
 
 ## Alerting on activity log event categories
 
-You can create activity log alert rules to receive notifications on one of the following activity log event categories  :
+You can create activity log alert rules to receive notifications on one of the following activity log event categories:
 
 | Event Category | Category Description | Example |
 |----------------|-------------|---------|
 | Administrative | ARM operation (e.g. create, update, delete, or action) was performed on resources in your subscription, resource group, or on a specific Azure resource.| A virtual machine in your resource group is deleted |
 | Service health | Service incidents (e.g. an outage or a maintenance event) occurred that may impact services in your subscription on a specific region.|  An outage impacting VMs in your subscription in East US. |
 | Resource health | The health of a specific resource is degraded, or the resource becomes unavailable. | A VM in your subscription transitions to a degraded or unavailable state. |
-| Autoscale | An Azure Autoscale operation has occured, resulting in success or failure | An autoscale action on VMSS in your subscription failed. |
-| Recommendation | A new Azure Advisor recommendation is available for your subscription | An high-impact recommendation for your subscription was received. |
+| Autoscale | An Azure Autoscale operation has occurred, resulting in success or failure | An autoscale action on a virtual machine scale set in your subscription failed. |
+| Recommendation | A new Azure Advisor recommendation is available for your subscription | A high-impact recommendation for your subscription was received. |
 | Security | Events detected by Microsoft Defender for Cloud | A suspicious double extension file executed was detected in your subscription |
 | Policy | Operations performed by Azure Policy | Policy Deny event occurred in your subscription. |
 
@@ -41,7 +41,7 @@ An alternative simple way for creating conditions for activity log alert rules i
 > [!NOTE]
 > An activity log alert rule monitors only for events in the subscription in which the alert rule is created.
 
-Activity log events have a few common properties which can be used to define a the activity log alert rule condition:
+Activity log events have a few common properties which can be used to define an activity log alert rule condition:
 
 - **Category**: Administrative, Service Health, Resource Health, Autoscale, Security, Policy, or Recommendation. 
 - **Scope**: The individual resource or set of resource(s) for which the alert on activity log is defined. Scope for an activity log alert can be defined at various levels:
@@ -50,7 +50,7 @@ Activity log events have a few common properties which can be used to define a t
     - Subscription Level: For example, all virtual machines in a subscription (or) all resources in a subscription
 - **Resource group**: By default, the alert rule is saved in the same resource group as that of the target defined in Scope. The user can also define the Resource Group where the alert rule should be stored.
 - **Resource type**: Resource Manager defined namespace for the target of the alert rule.
-- **Operation name**: The [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md) name utilized for Azure role-based access control . Operations not registered with Azure Resource Manager can not be used in an activity log alert rule.
+- **Operation name**: The [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md) name utilized for Azure role-based access control. Operations not registered with Azure Resource Manager cannot be used in an activity log alert rule.
 - **Level**: The severity level of the event (Informational, Warning, Error, or Critical).
 - **Status**: The status of the event, typically Started, Failed, or Succeeded.
 - **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user (or application) who performed the operation.
@@ -67,7 +67,7 @@ When an activity log alert is fired, it uses an action group to trigger actions 
 To learn more about action groups, see [Create and manage action groups in the Azure portal](./action-groups.md).
 
 ## Activity log alert rules limit
-You can create up to 100 active activity log alert rules per subscription (including rules for all activity log event categories, such as resource health or service health ). This limit can't be increased.
+You can create up to 100 active activity log alert rules per subscription (including rules for all activity log event categories, such as resource health or service health). This limit can't be increased.
 If you are reaching near this limit, there are several guidelines you can follow to optimize the use of activity log alerts rules, so that you can cover more resources and events with the same number of rules:
 * A single activity log alert rule can be configured to cover the scope of a single resource, a resource group, or an entire subscription. To reduce the number of rules you're using, consider to replace multiple rules covering a narrow scope with a single rule covering a broad scope. For example, if you have multiple VMs in a subscription, and you want an alert to be triggered whenever one of them is restarted, you can use a single activity log alert rule to cover all the VMs in your subscription. The alert will be triggered whenever any VM in the subscription is restarted.  
 * A single service health alert rule can cover all the services and Azure regions used by your subscription. If you're using multiple service health alert rules per subscription, you can replace them with a single rule (or with a small number of rules, if you prefer). 
