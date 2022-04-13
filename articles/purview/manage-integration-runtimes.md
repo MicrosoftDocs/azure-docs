@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 04/13/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -146,6 +146,9 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Queue storage account. |
 | `download.microsoft.com` | 443           | Required to download the self-hosted integration runtime updates. If you have disabled auto-update, you can skip configuring this domain. |
 | `login.windows.net`<br>`login.microsoftonline.com` | 443 | Required to sign in to the Azure Active Directory. |
+
+> [!NOTE]
+>  As currently Azure Relay doesn't support service tag, you have to use service tag AzureCloud or Internet in NSG rules for the communication to Azure Relay. For the communication to Azure Purview.
 
 Depending on the sources you want to scan, you also need to allow other domains and outbound ports for other Azure or external sources. A few examples are provided here:
 
