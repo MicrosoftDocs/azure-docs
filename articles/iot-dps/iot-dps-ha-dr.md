@@ -41,6 +41,9 @@ DPS leverages [paired regions](../availability-zones/cross-region-replication-az
 
 The only users who are able to opt-out of this feature are those deploying to the Brazil South and Southeast Asia (Singapore) regions.
 
+>[!NOTE]
+>Azure IoT Hub Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+
 ## Disable disaster recovery
 
 By default, DPS provides automatic failover by replicating data to the [paired region](../availability-zones/cross-region-replication-azure.md) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
