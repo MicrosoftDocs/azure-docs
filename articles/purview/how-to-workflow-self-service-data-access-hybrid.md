@@ -14,7 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [Region Notice](./includes/workflow-regions.md)]
 
-[Workflows](concept-workflows.md) allow you to automate some business processes through Azure Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Azure Purview!
+[Workflows](concept-workflow.md) allow you to automate some business processes through Azure Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Azure Purview!
 
 For example: let's say your team has a new data analyst who will be doing some business reporting. You add them to your department's collection in Azure Purview. From there they can browse the data assets and read descriptions about the data your department has available. They notice that one of the Azure Data Lake Storage Gen2 accounts seems to have the exact data they need to get started. Since a self-service access workflow has been set up for that resource, they can [request access](how-to-request-access.md) to that Azure Data Lake Storage account from within Azure Purview!
 
