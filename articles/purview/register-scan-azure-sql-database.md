@@ -114,7 +114,7 @@ Enabling Azure connections will allow Azure Purview to reach and connect the ser
 A self-hosted integration runtime (SHIR) can be installed on a machine to connect with a resource in a private network.
 
 1. [Create and install a self-hosted integration runtime](./manage-integration-runtimes.md) on a personal machine, or a machine inside the same VNet as your database server.
-1. Check your database server firewall to confirm that the SHIR machine has access through the firewall. Add the IP of the machine if it doesn't already have access.
+1. Check your database server networking configuration to confirm that there is a private endpoint accessible to the SHIR machine. Add the IP of the machine if it doesn't already have access.
 1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) to ensure end-to-end network isolation.
 
 ### Authentication for a scan
@@ -309,7 +309,7 @@ Select your method of authentication from the tabs below for scanning steps.
 
 ### Scoping and running the scan
 
-1. You can scope your scan to specific folders and subfolders by choosing the appropriate items in the list.
+1. You can scope your scan to specific database objects by choosing the appropriate items in the list.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scope-scan.png" alt-text="Scope your scan.":::
 
