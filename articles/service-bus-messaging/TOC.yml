@@ -112,6 +112,8 @@
       href: service-bus-outages-disasters.md
     - name: Throttling
       href: service-bus-throttling.md
+    - name: Enforce minimum required TLS version
+      href: transport-layer-security-configure-minimum-version.md
   - name: Federation 
     items:
       - name: Message replication and cross-region federation
