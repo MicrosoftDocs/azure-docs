@@ -166,7 +166,7 @@ ml_client.jobs.create_or_update(pipeline, experiment_name="train_mnist_component
 
 
 ### UI
-Assume you already have defined a command component. You can enable sweep easily in designer, the pipeline authoring GUI experience. 
+Assuming you already defined a command component. You can enable sweep easily in the designer, the pipeline authoring experience in the studio UI. 
 
 Similarly to CLI and SDK, the prerequest to enable sweep in UI is to have a command component already defined. And the command component need to take sweepable parameter as input. 
 
