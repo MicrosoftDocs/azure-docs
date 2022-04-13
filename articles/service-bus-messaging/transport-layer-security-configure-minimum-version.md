@@ -31,12 +31,10 @@ If you are using a service that connects to Azure Service Bus, make sure that th
 
 To configure the minimum TLS version for a Service Bus namespace, set the  **MinimumTlsVersion**  version property. This property is available for Service Bus namespaces that are created with the Azure Resource Manager deployment model.
 
-When you create a Service Bus namespace with an Azure Resource Manager template, the  **MinimumTlsVersion**  property is not set by default and does not return a value until you explicitly set it.
-
-When the  **MinimumTlsVersion**  property is not set, its value may be displayed as either  **null**  or an empty string, depending on the context. The Service Bus namespace will permit requests sent with TLS version 1.2 or greater if the property is not set.
+When you create a Service Bus namespace with an Azure Resource Manager template, the **MinimumTlsVersion** property is set to 1.2, unless explicitly set to another version.
 
 > [!NOTE]
-Existing namespaces, using old api versions, will be treated with a default setting of TLS 1.0.
+Existing namespaces using an old api-version, from before 2022-01-01-preview, will be treated with a default setting of 1.0. 
 
 To configure the minimum TLS version for a Service Bus namespace with a template, create a template with the  **MinimumTLSVersion**  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
 
@@ -226,4 +224,4 @@ The classic subscription administrator roles Service Administrator and Co-Admini
 When a client sends a request to Service Bus namespace, the client establishes a connection with the public endpoint of the Service Bus namespace first, before processing any requests. The minimum TLS version setting is checked after the connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail.
 
 > [!NOTE]
-Due to backwards compatibility, for legacy namespaces that do not have the minimum TLS version setting specified, we do not do any TLS checks when connecting via the SBMP protocol.
+Due to backwards compatibility, or namespaces that do not have the **MinimumTlsVersion** setting specified or have specified this as 1.0, we do not do any TLS checks when connecting via the SBMP protocol.
