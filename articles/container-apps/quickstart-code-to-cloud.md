@@ -205,6 +205,8 @@ ACR_PASSWORD_ACA=$(az acr credential show -n $ACR_NAME_ACA --query passwords[0].
 
 # [PowerShell](#tab/powershell)
 
+<!-- https://docs.microsoft.com/en-us/powershell/azure/queries-azureps?view=azps-7.4.0 -->
+
 ```powershell
 $ACA_REGISTRY = New-AzContainerRegistry `
     -ResourceGroupName $RESOURCE_GROUP_ACA `
