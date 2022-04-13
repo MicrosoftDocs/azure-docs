@@ -43,7 +43,7 @@ subnet=$(az network vnet subnet show \
 
 To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
 
-```bash
+```azurecli
 # Disable private endpoint network policies
 az network vnet subnet update \
         --ids $subnet \
@@ -136,7 +136,7 @@ fi
 
 Now that you have a reference to the private DNS zone, you must create an A record for your storage account.
 
-```bash
+```azurecli
 privateEndpointNIC=$(az network private-endpoint show \
         --ids $privateEndpoint \
         --query "networkInterfaces[0].id" | \
