@@ -217,6 +217,8 @@
         href: ev4-esv4-series.md
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
+      - name: Ebdsv5 and Ebsv5 series
+        href: ebdsv5-ebsv5-series.md
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -686,7 +688,7 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Capacity reservation (preview)
+  - name: Capacity reservation
     items:
     - name: Overview
       displayName: on-demand capacity reservation
@@ -1256,6 +1258,8 @@
     items:
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Copy incremental snapshots across regions
+      href: disks-copy-incremental-snapshot-across-regions.md
     - name: Azure Disk Backup
       items:
       - name: Overview

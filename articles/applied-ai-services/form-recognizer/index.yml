@@ -43,10 +43,10 @@ landingContent:
      linkLists:
       - linkListType: overview
         links:
-          - text: 🆕General document model (preview)
-            url: concept-general-document.md
           - text: 🆕Read model (preview)
             url: concept-read.md
+          - text: 🆕General document model (preview)
+            url: concept-general-document.md
           - text: Layout model
             url: concept-layout.md
           - text: Custom model
@@ -73,14 +73,14 @@ landingContent:
         links:
           - text: 🆕Read model (preview)
             url: https://formrecognizer.appliedai.azure.com/studio/read
-          - text: 🆕W2 model (preview)
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
           - text: 🆕General document model (preview)
             url: https://formrecognizer.appliedai.azure.com/studio/document
           - text:  Layout model
             url: https://formrecognizer.appliedai.azure.com/studio/layout
           - text:  Custom model
             url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
+          - text: 🆕W2 model (preview)
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
           - text:  Invoice model
             url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
           - text:  Receipt model

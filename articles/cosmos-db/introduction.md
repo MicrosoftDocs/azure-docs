@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 08/26/2021
 ms.reviewer: wiassaf
 ms.custom: cosmos-db-video
+adobe-target: true
 ---
 
 # Welcome to Azure Cosmos DB
