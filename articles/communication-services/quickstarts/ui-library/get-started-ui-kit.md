@@ -12,6 +12,9 @@ ms.custom: mode-other
 
 # Get started with UI Library Design Kit (Figma)
 
+>[!IMPORTANT]
+>Get the [UI Library Design Kit](https://www.figma.com/community/file/1095841357293210472)
+
 ## Design faster 
 
 A resource to help design user interfaces built on Azure Communication Services, the UI Library Design Kit includes components, composites, and UX guidance purpose-built to help bring your video calling and chat experiences to life faster.  
@@ -27,4 +30,4 @@ The UI Library Design Kit's components are based on Microsoft’s Fluent UI; so,
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Get the ACS UI Kit (Figma)](ADD LINK)
+>[Get the ACS UI Kit (Figma)](https://www.figma.com/community/file/1095841357293210472)
