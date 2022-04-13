@@ -64,7 +64,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of where to select the application to bind.":::
+   ![Bind Application Configuration Service](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png)
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -79,7 +79,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-      :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
+      ![Bind Application Configuration Service in deployment](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png)
 
    e. Select **Save**
 
@@ -107,7 +107,7 @@ Use the following steps to bind an application to Tanzu Service Registry.
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal showing Azure Spring Cloud Service Registry page and 'App binding' section with 'Bind app' dropdown showing.":::
+   ![Bind Service Registry](./media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png)
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
@@ -128,7 +128,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud overview page with 'Assign endpoint' highlighted.":::
+   ![Gateway overview](media/enterprise/getting-started-enterprise/gateway-overview.png)
 
    You can also use CLI to do it, as shown in the following command:
 
@@ -149,7 +149,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    You can also view those properties in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Spring Cloud Gateway page with Configuration pane showing.":::
+   ![Gateway configuration](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png./)
 
 1. Configure routing rules to apps.
 
@@ -186,7 +186,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    You can also view the routes in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Azure portal screenshot of Azure Spring Cloud Spring Cloud Gateway page showing 'Routing rules' pane.":::
+   ![Gateway route config](media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
 
 1. Use the following command to access the `customers service` and `owners` APIs through the gateway endpoint:
 
