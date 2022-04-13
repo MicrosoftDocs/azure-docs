@@ -2,6 +2,7 @@
 title: What is Basic Azure Load Balancer?
 description: Overview of Basic Azure Load Balancer.
 author: asudbring
+ms.service: load-balancer
 ms.author: allensu
 ms.topic: overview
 ms.date: 04/14/2022
@@ -16,6 +17,6 @@ Basic Azure Load Balancer is a SKU of Azure Load Balancer. A basic load balancer
 
 For more information on creating a basic load balancer, see:
 
-- [Quickstart: Create a basic internal load balancer - Azure portal](quickstart-basic-internal-load-balancer.md)
-- [Quickstart: Create a basic public load balancer - Azure portal](quickstart-basic-public-load-balancer.md)
+- [Quickstart: Create a basic internal load balancer - Azure portal](./quickstart-basic-internal-load-balancer-portal.md)
+- [Quickstart: Create a basic public load balancer - Azure portal](./quickstart-basic-public-load-balancer-portal.md)
 
