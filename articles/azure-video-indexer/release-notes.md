@@ -44,11 +44,9 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## April 2022 release updates
 
-## Renamed **Azure Video Analyzer for Media** back to **Azure Video Indexer**
+### Renamed **Azure Video Analyzer for Media** back to **Azure Video Indexer**
 
-As of today, Azure Video analyzer for Media product name is **Azure Video Indexer** and all product related assets (web portal, marketing materials). It is a backward compatible change that has no implication on APIs and links.
-
-**Azure Video Indexer** has a new logo. 
+As of today, Azure Video analyzer for Media product name is **Azure Video Indexer** and all product related assets (web portal, marketing materials). It is a backward compatible change that has no implication on APIs and links. **Azure Video Indexer**'s new logo: 
 
 :::image type="content" source="../applied-ai-services/media/video-indexer.svg" alt-text="New logo":::
 
