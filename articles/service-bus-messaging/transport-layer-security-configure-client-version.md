@@ -29,19 +29,19 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
 
 ```csharp
 {
-// Enable TLS 1.2 before connecting to Service Bus
-System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-// connection string to your Service Bus namespace
-string connectionString = "<NAMESPACE CONNECTION STRING>";
-
-// name of your Service Bus queue
-string queueName = "<QUEUE NAME>";
-
-// the sender used to publish messages to the queue
-ServiceBusSender sender = client.CreateSender(queueName);
-
-Use the producer client to send a message to the Service Bus queue
-await sender.SendMessagesAsync(new ServiceBusMessage($"Message for TLS check")));
+    // Enable TLS 1.2 before connecting to Service Bus
+    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+    // connection string to your Service Bus namespace
+    string connectionString = "<NAMESPACE CONNECTION STRING>";
+    
+    // name of your Service Bus queue
+    string queueName = "<QUEUE NAME>";
+    
+    // the sender used to publish messages to the queue
+    ServiceBusSender sender = client.CreateSender(queueName);
+    
+    Use the producer client to send a message to the Service Bus queue
+    await sender.SendMessagesAsync(new ServiceBusMessage($"Message for TLS check")));
 }
 ```
 
