@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 04/11/2022
+ms.date: 04/13/2022
 ms.author: alkohli
 ---
 
-Get the storage account key for the local storage account that you have created. You'll need to provide the resource group name and the storage account name.
+To get the storage account key for an existing local storage account that you have created, provide the associated resource group name and the local storage account name.
 
 ### [Az](#tab/az)
 

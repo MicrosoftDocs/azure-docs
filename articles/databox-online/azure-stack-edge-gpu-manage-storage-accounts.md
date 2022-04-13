@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 04/13/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
