@@ -94,7 +94,7 @@ The below table lists the properties supported by data.world source. You can edi
 | Query | Enter a SQL query to fetch data from data.world. An example is `select * from MyTable`.| No (if `tableId` is specified)| String | query |
 | Owner | The owner of the dataset in data.world. | Yes | String | owner |
 
-#### data.world source script examples
+#### data.world source script example
 
 When you use data.world as source type, the associated data flow script is:
 

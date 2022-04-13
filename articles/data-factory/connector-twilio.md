@@ -94,7 +94,7 @@ The below table lists the properties supported by Twilio source. You can edit th
 | From | The phone number with country code, for example `+17755425856`. | No | String | from |
 | To | The phone number with country code, for example `+17755425856`. | No  | String | to |
 
-#### Twilio source script examples 
+#### Twilio source script example
 
 When you use Twilio as source type, the associated data flow script is:
 
