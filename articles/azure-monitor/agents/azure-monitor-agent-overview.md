@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # Azure Monitor agent overview
 The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
-Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure Portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
 Eventually, the Azure Monitor agent will replace the following legacy monitoring agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
@@ -106,8 +106,8 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Solution | Current support | More information |
 |:---|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud private preview.  | [Sign-up link](https://aka.ms/AMAgent) |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (Private Preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 ## Costs
 There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For details on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -117,7 +117,7 @@ There's no cost for the Azure Monitor agent, but you might incur charges for the
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
+The Azure Monitor agent supports Azure service tags (both *AzureMonitor* and *AzureResourceManager* tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
 
 ### Firewall requirements
 | Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
@@ -186,11 +186,11 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ### Log Analytics gateway configuration
 1. Follow the instructions above to configure proxy settings on the agent and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
-2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
    (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
-3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+3. Add the **data ingestion endpoint URL** to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
    `Stop-Service -Name <gateway-name>`  
