@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 04/15/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -62,7 +62,7 @@ To download all assignments for a specific role, follow these steps.
 
 1. On the **Roles and administrators** page, select a role.
 
-1. Select **Download role assignments**.
+1. Select **Download assignments**.
 
     A CSV file that lists assignments at all scopes for that role is downloaded.
 
