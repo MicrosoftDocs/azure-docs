@@ -36589,6 +36589,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Tutorials/CSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-image-analysis",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
