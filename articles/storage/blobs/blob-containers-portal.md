@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Manage blob containers using the Azure portal
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Azure Blob Storage allows you to store large amounts of unstructured object data. You can use Blob Storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about Blob Storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 In this how-to article, you learn how to work with container objects within the Azure portal.
 
@@ -26,7 +26,7 @@ All access to Azure Storage takes place through a storage account. For this how-
 
 ## Create a container
 
-There are no limits to the number of blobs or containers that can be created within a storage account. Containers cannot be nested within other containers.
+A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
 To create a container in the [Azure portal](https://portal.azure.com), follow these steps:
 
@@ -37,16 +37,16 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
 1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
 1. Within the **New Container** pane, provide a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-1. Set the **Public access level** for the container. The default level is **Private (no anonymous access)**.
+1. Set the **Public access level** for the container. The default level is **Private (no anonymous access)**. Read the article to learn how to [configure anonymous public read access for containers and blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure?tabs=portal).
 1. Select **Create** to create the container.
 
     :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container within the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
 
 ## Read container properties and metadata
 
-A container exposes both system properties and user-defined metadata. System properties exist on each blob storage resource. Some properties are read-only, while others can be read or set.
+A container exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set.
 
-User-defined metadata consists of one or more name-value pairs that you specify for a blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
 ### Container properties
 
@@ -60,7 +60,7 @@ To display the properties of a container within the [Azure portal](https://porta
 
 ### Read and write container metadata
 
-Users that have large numbers of objects within their storage account can locate containers based on their metadata.
+Users that have large numbers of objects within their storage account can organize their data logically within containers using metadata.
 
 To manage a container's metadata within the [Azure portal](https://portal.azure.com), follow these steps:
 
@@ -82,7 +82,7 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
-You can read about the assignment of roles at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+You can read about the assignment of roles at [Assign Azure roles using the Azure portal](assign-azure-role-data-access.md?tabs=portal).
 
 ### Enable anonymous public read access
 
@@ -94,7 +94,7 @@ Read about enabling public access level in the [Configure anonymous public read 
 
 A shared access signature (SAS) provides temporary, secure, delegated access to a client who wouldn't normally have permissions. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the duration.
 
-Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with blob storage service.
+Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with Blob Storage service.
 
 When you create a SAS, you may set access limitations based on permission level, IP address or range, or start and expiry date and time. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md).
 
@@ -121,7 +121,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 
     :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container within the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
 
-1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and can't be retrieved after the window is closed. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
+1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and can't be retrieved after the window is closed.
 
 ### Create a stored access or immutability policy
 
