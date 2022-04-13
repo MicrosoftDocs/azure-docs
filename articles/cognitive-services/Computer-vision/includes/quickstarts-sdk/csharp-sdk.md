@@ -31,7 +31,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
 ## Read printed and handwritten text
 
-1. Create a new C# application
+1. Create a new C# application.
 
     #### [Visual Studio IDE](#tab/visual-studio)
 
