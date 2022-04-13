@@ -291,8 +291,12 @@ azureuser@mylinuxvm5:~$
 To remove the password reset extension, run the following command:
 
 ```powershell
-Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name <Name of the extension> 
-  
+Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name <Name of the extension>
+```
+
+Here's a sample output:
+
+```powershell
 Virtual machine extension removal operation 
 This cmdlet will remove the specified virtual machine extension. Do you want to continue? 
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y 
@@ -310,9 +314,12 @@ PS C:\WINDOWS\system32>
 To remove the password reset extension, run the following command:
 
 ```powershell  
-Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Name of the extension> 
-  
-  
+Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Name of the extension>
+```
+
+Here's a sample output:
+
+```powershell
 PS C:\WINDOWS\system32> Remove-AzVMExtension -ResourceGroupName myasepro2rg -VMName mylinuxvm5 -Name linuxVMAccessExt 
   
 Virtual machine extension removal operation 
