@@ -34,6 +34,7 @@ You can order any of the following appliances pre-installed for monitoring your 
 |[Corporate]     | [HPE ProLiant DL360](hpe-proliant-dl360.md)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**: 1U <br>**Ports**: 15x RJ45 or 8x SFP (OPT)     |
 |[Enterprise]     | [HPE ProLiant DL20/DL20 Plus](hpe-proliant-dl20-plus-enterprise.md)  <br> (4SFF)     |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 |[SMB]     |  [HPE ProLiant DL20/DL20 Plus](hpe-proliant-dl20-plus-smb.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: 200Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: 1U<br>**Ports**: 4x RJ45         |
+|[SMB]     |  [Dell Edge 5200](dell-edge-5200.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: 60Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: Wall Mount<br>**Ports**: 3x RJ45         |
 |[Office]     |  [YS-Techsystems YS-FIT2](ys-techsystems-ys-fit2.md)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: 2x RJ45          |
 
 
