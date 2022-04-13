@@ -12,7 +12,13 @@ ms.author: banders
 
 # Get billing ownership of Azure subscriptions to your MPA account
 
-To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA). CSPs can also take over subscription billing ownership from customers a Microsoft Customer Agreement with a Microsoft representative (MCA-Enterprise).
+An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions and reservations to the Microsoft Partner Agreement (MPA) that they manage. Supported billing ownership transfer options for subscriptions and reservations include:
+
+- A direct Enterprise Agreement transfer to MPA
+- An enterprise Microsoft Customer Agreement transfer to MPA
+
+> [NOTE]
+> Indirect Enterprise Agreement transfer to to a Microsoft Customer Agreement isn't supported.
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
