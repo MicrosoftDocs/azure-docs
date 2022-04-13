@@ -90,11 +90,11 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to to build template in the editor.":::
+    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to build template in the editor.":::
 
 3. Paste the Resource Manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to to edit Resource Manager template.":::
+    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
 
 
     ```json
@@ -145,7 +145,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows portal blade to to edit custom deployment values for data collection endpoint.":::
+    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows portal blade to edit custom deployment values for data collection endpoint.":::
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
@@ -339,7 +339,7 @@ The final step is to create a data collection association that associates the da
 
 1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you just created.
 
-    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows portal blade with data collection rules mene item.":::
+    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows portal blade with data collection rules menu item.":::
 
 2. Select **Resources** and then click **Add** to view the available resources.
 
