@@ -49,8 +49,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
     For more information, see [Network Connection events (event-based collector)](concept-event-aggregation.md#network-connection-events-event-based-collector).
 
-- **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
-
+- **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
 ## November 2021
 
