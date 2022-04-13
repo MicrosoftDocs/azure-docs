@@ -83,6 +83,12 @@ Scope the Dapr component to a particular container app by adding the `scope` arr
 
 Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
 
+| Field | Description |
+| ----- | ----------- |
+| `enabled` | Enable Dapr at the container app level. |
+| `appPort` |  |
+| `appProtocol` | Enter either `http` or `grpc`. |
+| `appId` | Your container app's unique identifier. |
 
 # [YAML](#tab/yaml)
 
@@ -98,14 +104,6 @@ dapr: {
       appId: 'nodeapp'
     }
 ```
-
-| Field | Description |
-| ----- | ----------- |
-| `enabled` | Enable Dapr at the container app level. |
-| `appPort` |  |
-| `appProtocol` | Enter either `http` or `grpc`. |
-| `appId` | Your container app's unique identifier. |
-
 
 # [ARM](#tab/arm)
 
