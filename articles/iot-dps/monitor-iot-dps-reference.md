@@ -31,9 +31,13 @@ See [Monitoring Iot Hub Device Provisioning Service](monitor-iot-dps.md) for det
 
 This section lists all the automatically collected platform metrics collected for DPS.  
 
-|Metric Type | Resource Provider / Type Namespace |
-|-------|-----|
-| Device Provisioning Service | [Microsoft.Devices/provisioningServices](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesprovisioningservices) |
+Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesprovisioningservices).
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|AttestationAttempts|Yes|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName, Status, Protocol|
+|DeviceAssignments|Yes|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
+|RegistrationAttempts|Yes|Registration attempts|Count|Total|Number of device registrations attempted|ProvisioningServiceName, IotHubName, Status|
 
 <!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
 
@@ -49,10 +53,10 @@ DPS has the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **IotHubName** | The name of the target IoT Hub for **DeviceAssignments** and **RegistrationAttempts**. |
-| **Protocol** | The device or service protocol for **AttestationAttempts** and **RegistrationAttempts**. Supported values are: |
+| **IotHubName** | The name of the target IoT hub for **DeviceAssignments** and **RegistrationAttempts**. |
+| **Protocol** | The device or service protocol for **AttestationAttempts** and **RegistrationAttempts**. |
 | **ProvisioningServiceName** | The name of the DPS instance. |
-| **Status** | The status of **AttestationAttempts** or **RegistrationAttempts**. Supported values are: . |
+| **Status** | The status of **AttestationAttempts** or **RegistrationAttempts**. |
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -73,16 +77,12 @@ For reference, see a list of [all resource logs category types supported in Azur
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics. For a list of these tables and links to more information for the DPS resource type, see [Device Provisioning Services](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) in the Azure Monitor Logs table reference.
 
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-|Resource Type | Notes |
-|-------|-----|
-| [Device Provisioning Service](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) | |
 
 <!-- Add extra information if required -->
 
@@ -120,16 +120,6 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
-
-The following table lists the operations related to DPS that may be created in the Activity log.
-
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
-| Operation | Description |
-|:---|:---|
-| | |
-| | |
-
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
