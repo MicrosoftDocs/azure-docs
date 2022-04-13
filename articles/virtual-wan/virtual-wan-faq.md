@@ -359,6 +359,12 @@ Note that you’ll only be able to update your virtual hub router if all the res
 
 The route limit for OpenVPN clients is 1000. 
 
+### How is Virtual WAN SLA calculated?
+
+Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However, Virtual WAN combines many different components such as Azure Firewall, Site-to-site VPN, ExpressRoute, Point-to-site VPN, and Virtual WAN Hub/Integrated Network Virtual Appliances. 
+
+The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100. 
+
 ## Next steps
 
 * For more information about Virtual WAN, see [About Virtual WAN](virtual-wan-about.md).
