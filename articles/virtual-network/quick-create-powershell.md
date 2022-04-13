@@ -2,10 +2,10 @@
 title: Create a virtual network - quickstart - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
-author: mbender-ms
+author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2021
+ms.date: 04/13/2022
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
@@ -165,7 +165,7 @@ mstsc /v:<publicIpAddress>
 
 1. Enter `ping myVm2`.
 
-    You'll get something like this back:
+    You'll get a reply message like this:
 
     ```powershell
     PS C:\Users\myVm1> ping myVm2
@@ -196,7 +196,7 @@ mstsc /v:<publicIpAddress>
 
 1. From a command prompt on the **myVm2** VM, enter `ping myvm1`.
 
-    You'll get something like this back:
+    You'll get a reply message like this:
 
     ```cmd
     C:\windows\system32>ping myVm1
