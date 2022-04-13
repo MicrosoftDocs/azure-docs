@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Create simpler, more efficient rules for dynamic groups In Azure Active Directory
+# Create simpler, more efficient rules for dynamic groups in Azure Active Directory
 
 The team for Azure Active Directory (Azure AD) sees numerous incidents related to dynamic groups and the processing time for their membership rules. This article contains the methods by which our engineering team helps customers to simplify their membership rules. Simpler and more efficient rules result in better dynamic group processing times. When writing membership rules for dynamic groups, these are steps you can take to ensure the rules are as efficient as possible. 
 
