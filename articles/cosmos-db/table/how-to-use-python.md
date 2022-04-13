@@ -218,7 +218,7 @@ project_root_path = "Project abs path"
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Cosmos DB Table API. An application will typically have a single `TableServiceClient` overall, and it will have a `TableClient` per table.
 
 ```python
-self.conn_str = conn_str if conn_str else os.getenv("AZURE_CONNECTION_STRING")
+self.conn_str = os.getenv("AZURE_CONNECTION_STRING")
 self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 ```
 
