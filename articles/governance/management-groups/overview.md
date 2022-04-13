@@ -68,8 +68,7 @@ you can assign your own account as owner of the root management group.
 
 ### Important facts about the root management group
 
-- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Azure
-  Active Directory (AzureAD) tenant ID.
+- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Azure Active Directory (Azure AD) tenant ID.
 - To change the display name, your account must be assigned the **Owner** or **Contributor** role on the
   root management group. See
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
