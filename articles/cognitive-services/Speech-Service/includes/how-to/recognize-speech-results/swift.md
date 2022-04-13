@@ -17,7 +17,7 @@ You might want to synchronize transcriptions with an audio track, whether it's d
 
 The Speech service returns the offset and duration of the recognized speech. 
 
-[!INCLUDE [Example offset and duration](example-offset-duration.md)]
+[!INCLUDE [Define offset and duration](define-offset-duration.md)]
 
 The end of a single utterance is determined by listening for silence at the end. You won't get the final recognition result until an utterance has completed. Recognizing events will provide intermediate results that are subject to change while an audio stream is being processed. Recognized events will provide the final transcribed text once processing of an utterance is completed.
 

@@ -17,7 +17,7 @@ You might want to synchronize transcriptions with an audio track, whether it's d
 
 The Speech service returns the offset and duration of the recognized speech. 
 
-[!INCLUDE [Example offset and duration](example-offset-duration.md)]
+[!INCLUDE [Define offset and duration](define-offset-duration.md)]
 
 Here's an example where the offset starts incrementing in ticks from `0` (zero):
 
