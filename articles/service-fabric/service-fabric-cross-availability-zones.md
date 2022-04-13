@@ -16,7 +16,7 @@ To support clusters that span across Availability Zones, Azure Service Fabric pr
 
 Sample templates are available at [Service Fabric cross-Availability Zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Topology for spanning a primary node type across Availability Zones
+## Recommended topology for spanning a primary node type across Availability Zones
 
 >[!NOTE]
 >The benefit of spanning the primary node type across availability zones is really only seen for three zones and not just two.
