@@ -16,8 +16,8 @@ ms.custom: "mvc, devx-track-azurecli"
 - [Azure Database for MySQL](/azure/mysql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 
-    > [!NOTE]
-    > This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> [!NOTE]
+> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -47,7 +47,7 @@ Prepare your environment for the Azure CLI.
 
 ## 1. Grant database access to Azure AD user
 
-First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the admin of the server. For the scenario in the tutorial, you'll use this admin user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
+First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the administrator of the server. For the scenario in the tutorial, you'll use this user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
 
 > [!NOTE]
 > This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
@@ -62,17 +62,17 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure SQL Database](#tab/sqldatabase)
 
-3. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
     ```
 
-For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
+    For more information on adding an Active Directory administrator, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
 
 # [Azure Database for MySQL](#tab/mysql)
 
-3. Add this Azure AD user as an Active Directory admin using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az_mysql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az_mysql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az mysql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -83,7 +83,7 @@ For more information on adding an Active Directory admin, see [Provision an Azur
 
 # [Azure Database for PostgreSQL](#tab/postgresql)
 
-3. Add this Azure AD user as an Active Directory admin using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az_postgres_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az_postgres_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az postgres server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -250,9 +250,9 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity. 
 1. Get an access token for the resource URI respective to the database type.
-    - For SQL Database: `https://database.windows.net/.default`
-    - For MySQL: `https://ossrdbms-aad.database.windows.net`
-    - For PostgreSQL: `https://ossrdbms-aad.database.windows.net`
+    - For Azure SQL Database: `https://database.windows.net/.default`
+    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net`
+    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net`
 1. Add the token to your connection string.
 1. Open the connection.
 
@@ -292,7 +292,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     ```csharp
     // Uncomment one of the two lines depending on the identity type
     //var credential = new Azure.Identity.DefaultAzureCredential(); // system-assigned identity
-    //var credential = new Azure.Identity.DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = <client-id-of-user-assigned-identity> }); // user-assigned identity
+    //var credential = new Azure.Identity.DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure SQL Database
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://database.windows.net/.default" }));
@@ -316,7 +316,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //var credential = new DefaultAzureCredential(); // system-assigned identity
-    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
@@ -348,7 +348,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //var credential = new DefaultAzureCredential(); // system-assigned identity
-    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
@@ -428,7 +428,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //var credential = new DefaultAzureCredential(); // system-assigned identity
-    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
@@ -462,7 +462,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //var credential = new DefaultAzureCredential(); // system-assigned identity
-    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
@@ -525,7 +525,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     
     // Uncomment one of the two lines depending on the identity type
     //const credential = new DefaultAzureCredential(); // system-assigned identity
-    //const credential = new DefaultAzureCredential({ managedIdentityClientId: "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure SQL Database
     const accessToken = await credential.getToken("https://database.windows.net/.default");
@@ -560,7 +560,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     
     // Uncomment one of the two lines depending on the identity type
     //const credential = new DefaultAzureCredential(); // system-assigned identity
-    //const credential = new DefaultAzureCredential({ managedIdentityClientId: "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for MySQL
     const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
@@ -614,7 +614,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     
     // Uncomment one of the two lines depending on the identity type
     //const credential = new DefaultAzureCredential(); // system-assigned identity
-    //const credential = new DefaultAzureCredential({ managedIdentityClientId: "<client-id-of-user-assigned-identity>" }); // user-assigned identity
+    //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for PostgreSQL
     const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
@@ -840,7 +840,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().build(); // system-assigned identity
-    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId("<client-id-of-user-assigned-identity>").build(); // user-assigned identity
+    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId('<client-id-of-user-assigned-identity>")'build(); // user-assigned identity
 
     // Get the token  
     TokenRequestContext request = new TokenRequestContext();
@@ -880,7 +880,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().build(); // system-assigned identity
-    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId("<client-id-of-user-assigned-identity>").build(); // user-assigned identity
+    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId('<client-id-of-user-assigned-identity>")'build(); // user-assigned identity
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
@@ -926,7 +926,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Uncomment one of the two lines depending on the identity type
     //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().build(); // system-assigned identity
-    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId("<client-id-of-user-assigned-identity>").build(); // user-assigned identity
+    //DefaultAzureCredential creds = new DefaultAzureCredentialBuilder().managedIdentityClientId('<client-id-of-user-assigned-identity>")'build(); // user-assigned identity
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
