@@ -131,6 +131,7 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 * If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket.
 * Azure Network Policy is not supported.
 * Kube-proxy is designed for a single contiguous CIDR and optimizes rules based on that value. When using multiple non-contiguous ranges, these optimizations cannot occur. See this [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) and the documentation for the [`--cluster-cidr` `kube-proxy` argument](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for more details. In clusters configured with Azure CNI, `kube-proxy` will be configured with the subnet of the first node pool at cluster creation. 
+* Internal load balancers default to one of the node pool subnets (usually the first subnet of the node pool at cluster creation). To override this behavior, you can [specify the load balancer's subnet explicitly using an annotation][internal-lb-different-subnet].
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
 
@@ -877,3 +878,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
+[internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
