@@ -597,6 +597,8 @@
         href: datasite-tutorial.md
       - name: Datava Enterprise Service Platform
         href: datava-enterprise-service-platform-tutorial.md
+      - name: Datto File Protection Single Sign On
+        href: datto-file-protection-tutorial.md
       - name: Datto Workplace Single Sign On
         href: datto-workplace-tutorial.md
       - name: Dealpath
