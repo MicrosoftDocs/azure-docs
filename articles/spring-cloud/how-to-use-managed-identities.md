@@ -61,9 +61,15 @@ For the maximum number of user-assigned managed identities per application, see 
 
 ### Azure services that aren't supported
 
-Some Azure services aren't currently supported because there are multiple versions of tokens. For more information, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md). Applications in Azure Spring Cloud don't support services which only accept tokens for v2.0 or higher. We're working on the adding support for such services.
+The following services do not support managed identity-based access at this time, but they will at a future date:
 
-- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
+- Azure Redis Cache
+- Azure Flexible MySQL
+- Azure Flexible PostgreSQL
+- Azure Database for MariaDB
+- Azure Cosmos DB - Mongo DB
+- Azure Cosmos DB - Cassandra
+- Azure Databricks
 
 ---
 
