@@ -208,6 +208,8 @@ items:
         href: troubleshoot/reading-utf8-text.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
+    - name: Move workspace to another tenant
+      href: how-to-recover-workspace-after-tenant-move.md
 - name: Database templates
   items:
   - name: Overview
@@ -471,6 +473,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Restore a SQL pool from a deleted workspace
+        href: ./backuprestore/restore-sql-pool-from-deleted-workspace.md
       - name: Pause and resume using Synapse Pipelines
         href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor

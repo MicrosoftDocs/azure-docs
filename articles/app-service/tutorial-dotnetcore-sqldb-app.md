@@ -70,7 +70,7 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.  
 
 * The App Service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table` for Linux and `az webapp list-runtimes --os windows --output table` for Windows.
 
 ```azurecli-interactive
 
@@ -226,7 +226,7 @@ In the Azure portal:
 Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command to add a firewall rule to your SQL Server instance.
 
 ```azurecli-interactive
-az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
+az sql server firewall-rule create --resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
 ```
 
 ---
