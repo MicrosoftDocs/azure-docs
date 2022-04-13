@@ -200,7 +200,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
      ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" on-premises connection information with selected authentication for Consumption.](./media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png)
 
-   * Consumption logic app workflows
+   * Standard logic app workflows
 
      ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" on-premises connection information with selected authentication for Standard.](./media/connectors-create-api-sqlazure/select-windows-authentication-standard.png)
 
@@ -212,17 +212,31 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 ## Add a SQL trigger
 
-1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, create a blank logic app, which opens the workflow designer. This example continues with the Azure portal.
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
-1. On the designer, in the search box, enter `sql server`. From the triggers list, select the SQL trigger that you want. This example uses the **When an item is created** trigger.
+* Visual Studio to [create Consumption logic app workflows](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 
-   ![Select "When an item is created" trigger](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
+* Visual Studio Code to create [Consumption logic app workflows](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md) or [Standard logic app workflows](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
+### [Consumption](#tab/consumption)
+
+1. In the Azure portal, open your logic app workflow in the designer.
+
+1. Find and select the SQL Server trigger that you want to use.
+
+   1. Under the designer search box, select **All**.
+
+   1. In the designer search box, enter **sql server**.
+
+   1. From the triggers list, select the SQL trigger that you want. This example continues with the trigger named **When an item is created**.
+
+      ![Screenshot showing the Azure portal, workflow designer for Consumption logic app, search box with "sql server", and the "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-consumption.png)
 
 1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
 1. In the trigger, specify the interval and frequency for how often the trigger checks the table.
 
-1. To add other available properties for this trigger, open the **Add new parameter** list.
+1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
 
    This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
 
@@ -231,6 +245,21 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 1. On the designer toolbar, select **Save**.
 
    Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
+
+### [Standard](#tab/standard)
+
+1. In the Azure portal, open your logic app workflow in the designer.
+
+1. Find and select the SQL Server trigger that you want to use.
+
+   1. Under the designer search box, select **All**.
+
+   1. In the designer search box, enter **sql server**.
+
+   1. From the triggers list, select the SQL trigger that you want. This example continues with the trigger named **When an item is created**.
+
+
+---
 
 <a name="trigger-recurrence-shift-drift"></a>
 
