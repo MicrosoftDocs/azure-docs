@@ -991,7 +991,7 @@ The Mathematical Markup Language (MathML) is an XML-compliant markup language th
 
 This SSML snippet demonstrates how the MathML elements are used to output synthesized speech.
 
-```MathML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural">This is test: <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math> end!</voice></speak> 
 ```
 
