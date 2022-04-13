@@ -1,6 +1,6 @@
 ---
 title: Control what traffic is monitored
-description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
+description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects.
 ms.date: 02/03/2022
 ms.topic: how-to
 ---
@@ -276,5 +276,6 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 For more information, see:
 
+- [Run active discovery scans from your OT sensor](active-discovery.md)
 - [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

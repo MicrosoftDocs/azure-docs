@@ -1,7 +1,7 @@
 ---
 title: Run active discovery scans from your OT sensor - Microsoft Defender for IoT
 description: Learn how to run active discovery scans from your OT sensor interface to detect more device data and new devices in your network.
-ms.date: 04/06/2022
+ms.date: 04/13/2022
 ms.topic: how-to
 ---
 
@@ -57,6 +57,14 @@ When planning an active discovery scan:
 - **Identify maintenance windows** where you can schedule active query intervals safely.
 
 - **Identify active discovery scan owners**, which are personnel who can supervise the active scans and stop the scanning process if needed.
+
+## Configure network access
+
+Before you can configure active scans, you must also configure your network to allow the sensor's management port IP address access to the OT network where your devices reside.
+
+For example, the following image highlights in grey the extra network access you must configure from the management interface to the OT network.
+
+:::image type="content" source="media/active-discovery/architecture.png" alt-text="Diagram highlighting the extra management network configuration required for active discovery scans.":::
 
 ## Configure an active discovery scan
 

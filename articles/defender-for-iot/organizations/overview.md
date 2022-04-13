@@ -44,7 +44,9 @@ A centralized user experience lets the security team visualize and secure all th
 
 Defender for IoT's default agentless, passive monitoring provides data about real device interactions, with efficient deployment options and minimal impact on production environments.
 
-However, sometimes your organization may need more options to scan OT devices that are inaccessible by passive monitoring. In such cases use active discovery options to gain device insights from more devices and dive deeper into each device detected. Active discovery options include configuring an [active discovery scan](active-discovery.md), [Windows endpoint monitoring (WMI)](how-to-configure-windows-endpoint-monitoring.md), or [reverse DNS lookup resolutions](how-to-control-what-traffic-is-monitored.md#configure-dns-servers-for-reverse-lookup-resolution).
+However, sometimes your organization may need more options to scan OT devices that are inaccessible by passive monitoring. In such cases use active discovery options to gain device insights from more devices and dive deeper into each device detected. 
+
+For example, configure an active discovery scan, Windows endpoint monitoring, or reverse DNS lookup resolutions. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md) and [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
 
 
 ## Support for cloud, on-premises, and hybrid networks
