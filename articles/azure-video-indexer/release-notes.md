@@ -50,7 +50,7 @@ As of today, Azure Video analyzer for Media product name is **Azure Video Indexe
 
 **Azure Video Indexer** has a new logo. 
 
-:::image type="content" source="..applied-ai-services/media/video-indexer.svg" alt-text="New logo":::
+:::image type="content" source="../applied-ai-services/media/video-indexer.svg" alt-text="New logo":::
 
 ## March 2022
 
