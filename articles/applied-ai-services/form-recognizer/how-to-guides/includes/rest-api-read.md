@@ -1,3 +1,16 @@
+---
+title: "How to use the Read model with the Form Recognizer REST API"
+description: Use the Form Recognizer prebuilt-read model and REST API to extract printed and handwritten text from documents.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 04/13/2022
+ms.author: lajanuar
+recommendations: false
+---
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -78,15 +91,15 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
                     {
                         "content": "While",
                         "boundingBox": [
-							260,
-							56,
-							307,
-							56,
-							306,
-							76,
-							260,
-							76
-						],
+                            260,
+                            56,
+                            307,
+                            56,
+                            306,
+                            76,
+                            260,
+                            76
+                        ],
                         "confidence": 0.999,
                         "span": {
                             "offset": 0,

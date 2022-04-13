@@ -1,3 +1,16 @@
+---
+title: "How to use the Read model with C#/.NET programming language"
+description: Use the Form Recognizer prebuilt-read model and C# to extract printed and handwritten text from documents.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 04/13/2022
+ms.author: lajanuar
+recommendations: false
+---
+
 [Reference documentation](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## Prerequisites
@@ -135,8 +148,7 @@ foreach (DocumentLanguage language in result.Languages)
 
 3. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
-
+    :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Read Model Output
 

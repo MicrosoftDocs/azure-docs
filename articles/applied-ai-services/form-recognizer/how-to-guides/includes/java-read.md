@@ -1,3 +1,16 @@
+---
+title: "How to use the Read model with Java programming language"
+description: Use the Form Recognizer prebuilt-read model and Java to extract printed and handwritten text from documents.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 04/13/2022
+ms.author: lajanuar
+recommendations: false
+---
+
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## Prerequisites

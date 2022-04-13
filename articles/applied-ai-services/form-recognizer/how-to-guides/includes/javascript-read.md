@@ -1,3 +1,16 @@
+---
+title: "How to use the Read model with JavaScript programming language"
+description: Use the Form Recognizer prebuilt-read model and JavaScript to extract printed and handwritten text from documents.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 04/13/2022
+ms.author: lajanuar
+recommendations: false
+---
+
 [Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
 
 ## Prerequisites
