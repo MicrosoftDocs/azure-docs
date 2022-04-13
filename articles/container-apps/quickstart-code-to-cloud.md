@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 This article demonstrates how to deploy to Azure Container Apps from a repository on your machine in the language of your choice.
 
-This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API for application that returns a static collection of music albums.
+This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API for an application that returns a static collection of music albums.
 
 ## Prerequisites
 
@@ -218,8 +218,9 @@ $ACA_REGISTRY = New-AzContainerRegistry `
 Now store your ACR credentials in an environment variable.
 
 ```powershell
-$ACR_PASSWORD=Get-AzContainerRegistryCredential `
-    -Registry=$ACA_REGISTRY`
+$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
+ -ResourceGroupName $RESOURCE_GROUP `
+ -Name $ACR_NAME | Select -Property Password).Password
 ```
 
 ---
