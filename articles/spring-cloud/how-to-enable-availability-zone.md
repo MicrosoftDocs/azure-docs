@@ -1,36 +1,57 @@
 ---
-title: Create Azure Spring Cloud with availability zone enabled
+title: Create an Azure Spring Cloud instance with availability zone enabled
 titleSuffix: Azure Spring Cloud
-description: How to create an azure spring cloud instance with availability zone enabled.
+description: How to create an Azure Spring Cloud instance with availability zone enabled.
 author: karlerickson
 ms.author: wenhaozhang
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 04/14/2022
 ms.custom: devx-track-java
 ---
-# Create Azure Spring Cloud with availability zone enabled
+# Create Azure Spring Cloud instance with availability zone enabled
 
-In Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking, which could protects your applications and data from datacenter failures.
 
-When an azure spring cloud service instance is configured as availability zone enabled, the platform would automatically spread the applications deployment instance across all three zones in the selected region. If the applications deployment's instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones.
+**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-## How to create Azure Spring Cloud with availability zone enabled
+> [!NOTE]
+> This feature is not available in Basic tier.
 
-You can create a availability zone enabled Azure Spring Cloud service using the [Azure CLI](/cli/azure/install-azure-cli), [Azure portal](https://portal.azure.com).
+This article explains availability zones in Azure Spring Cloud, and how to enable them.
 
-To create Azure Spring Cloud service instance with availability zone enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your Azure Spring Cloud.
+In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking, which protects your applications and data from data center failures.
+
+When a service in Azure Spring Cloud is configured with availability zone enabled, Azure automatically spreads the applications deployment instance across all three zones in the selected region. If the application's deployment instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, the extra instance counts are spread across the remaining zones.
+
+## How to create an instance in Azure Spring Cloud with availability zone enabled
+
+>[!NOTE]
+> You can only enable availability zone when creating your instance. You can't enable or disable availability zone after creation of the service instance.
+
+You can enable availability zone in Azure Spring Cloud using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a service in Azure Spring Cloud with availability zone enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring Cloud.
 
 ```azurecli
-az spring-cloud create -n MyService -g MyResourceGroup -l MyLocation --zone-redundant true
+az spring-cloud create -name <MyService> \
+    -group <MyResourceGroup> \
+    -location <MyLocation> \
+    --zone-redundant true
 ```
 
-To create Azure Spring Cloud service instance with availability zone enabled using the Azure portal, enable the Zone Redundant option during the "Create Azure Spring Cloud" experiences.
+#[Portal](#tab/azure-portal)
 
-![Image of zone redundant enablement using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
+To create a service in Azure Spring Cloud with availability zone enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
+
+![Image of where to enable availability zone using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
+
+---
+
 ## Region availability
 
-Azure Spring Cloud currently can be created with availability zone enabled in the following regions:
+Azure Spring Cloud currently supports availability zones in the following regions:
 - Central US
 - West US 2
 - East US
@@ -43,12 +64,10 @@ Azure Spring Cloud currently can be created with availability zone enabled in th
 - Brazil South
 - France Central
 
-## Limitions
-
-- Availability zone is not supported in basic tier.
-- You can only enable availability zone at azure spring cloud creating time. You can't update an existing availability zone disabled azure spring cloud service instance into an availability zone enabled one and vice versa.
-
-
 ## Pricing
 
-There's no additional cost associated with enabling the availability zone.
+There's is no additional cost for enabling the availability zone.
+
+## Next Steps
+
+* [Plan for disaster recovery](disaster-recovery.md)
