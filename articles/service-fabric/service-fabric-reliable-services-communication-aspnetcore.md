@@ -389,7 +389,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 
 >[!NOTE]
-> As KestrelCommunicationListener and HttpSysCommunicationListener are meant for web services, it is required to register/configure a web server (using [ConfigureWebHostDefaults](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.generichostbuilderextensions.configurewebhostdefaults) or [ConfigureWebHost](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.generichostwebhostbuilderextensions.configurewebhost) method) over the IHost
+> As KestrelCommunicationListener and HttpSysCommunicationListener are meant for web services, it is required to register/configure a web server (using [ConfigureWebHostDefaults](/dotnet/api/microsoft.extensions.hosting.generichostbuilderextensions.configurewebhostdefaults) or [ConfigureWebHost](/dotnet/api/microsoft.extensions.hosting.generichostwebhostbuilderextensions.configurewebhost) method) over the IHost
 
 
 ASP.NET 6 introduced the Minimal Hosting model which is a more simplified and streamlined way of creating web applications. Minimal hosting model can also be used with KestrelCommunicationListener and HttpSysCommunicationListener.
