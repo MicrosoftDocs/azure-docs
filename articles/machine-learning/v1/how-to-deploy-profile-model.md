@@ -1,7 +1,7 @@
 ---
 title: Profile model memory and CPU usage (v1)
 titleSuffix: Azure Machine Learning
-description: Learn to profile your model before deploymentwith the CLI (v1) or SDK (v1). Profiling determines the memory and CPU usage of your model.
+description: Use CLI (v1) or SDK (v1) to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
