@@ -63,11 +63,13 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 
 
 1. Select **Next: IP Addresses** and enter the following values.
+
     | Setting         | Value                                           |
     | ---------       | ---------                                       |
-    | IPv4 address space | Enter **10.1.0.0/16.**|
+    | IPv4 address space | Enter **10.1.0.0/16.**                       |
     | Subnet name | Under **Subnet name**, select the **Add subnet** link and enter **mySubnet.** |
-    | Subnet address range | **Enter 10.1.0.0/24.** |
+    | Subnet address range | Enter **10.1.0.0/24.**                     |
+
 1. Select **Add**.
 1. Select **Next: Security**.
 1. Select **Enable** on the **DDoS Protection Standard** radio.
