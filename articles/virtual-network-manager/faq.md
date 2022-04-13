@@ -122,7 +122,7 @@ Azure SQL Managed Instance has some network requirements. If your security admin
     * A virtual network can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
     * A virtual network can be part of two network groups with direct connectivity enabled in the same or different hub-and-spoke configuration.
 
-* The subnets in a virtual network can't talk to each other if they have the same address space in a mesh configuration. 
+* You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address will be dropped.
 
 * The maximum number of IP prefixes in all admin rules combined is 1000. 
 
