@@ -18,7 +18,7 @@ This article explains how to use Azure Front Door Premium to secure access to Az
 
 The following prerequisites are required: 
 
-- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to to [create a private Azure Red Hat OpenShift cluster](../openshift/howto-create-private-cluster-4x.md).
+- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to to [create a private Azure Red Hat OpenShift cluster](./howto-create-private-cluster-4x.md).
 
 - The cluster is configured with private ingress visibility.
 
