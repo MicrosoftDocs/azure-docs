@@ -66,7 +66,7 @@ Azure includes [ABAC for Storage](../../role-based-access-control/conditions-ove
 
 ## Privileged access management 
 
-The memo specifically calls out the use of privileged access management tools that use single-factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA sign-in for an admin and produce a generated password for an alternate account that's used to access the system. The system is still accessed with a single factor. 
+The memo specifically calls out the use of privileged access management tools that use single-factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA sign-in for an admin and produce a generated password for an alternate account that's used to access the system. The system is still accessed with a single factor.
 
 Microsoft has tools for implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. You can enforce MFA for most privileged systems directly, whether these systems are applications, infrastructure elements, or devices. 
 
