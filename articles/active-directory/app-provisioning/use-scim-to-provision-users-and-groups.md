@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 04/13/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -187,7 +187,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
 |Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
-|Support listing users and paginating|[section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4). Support listing users and paginating.|
+|Support listing users and paginating|[section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
