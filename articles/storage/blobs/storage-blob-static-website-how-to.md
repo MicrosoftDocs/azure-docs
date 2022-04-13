@@ -136,7 +136,7 @@ These following instructions show you how to upload files by using [Azure Storag
 
 2. In the **Explorer** pane, expand the **Storage Accounts** node, and then expand the storage account in which your static website is contained. Finally, expand **Blob Containers** and then select the **$web** container.
 
-3. In the **$web** pane, choose the **Upload** button to upload files.
+3. In the **$web** pane, select **Upload** to upload files.
 
     :::image type="content" source="media/storage-blob-static-website-how-to/storage-explorer-upload-sml.png" alt-text="Image showing how to upload files to the static website storage container" lightbox="media/storage-blob-static-website-how-to/storage-explorer-upload-lrg.png":::
 
