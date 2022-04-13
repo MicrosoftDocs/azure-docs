@@ -214,9 +214,9 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
-* Visual Studio to [create Consumption logic app workflows](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
-* Visual Studio Code to create [Consumption logic app workflows](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md) or [Standard logic app workflows](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
 ### [Consumption](#tab/consumption)
 
@@ -290,31 +290,49 @@ To make sure that the recurrence time doesn't shift when DST takes effect, manua
 
 ## Add a SQL action
 
-In this example, the logic app starts with the [Recurrence trigger](../connectors/connectors-native-recurrence.md), and calls an action that gets a row from a SQL database.
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use Visual Studio to edit Consumption logic app workflows or Visual Studio Code to the following tools to edit logic app workflows:
 
-1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, open your logic app in the workflow designer. This example continues the Azure portal.
+* Consumption logic app workflow: Visual Studio or Visual Studio Code
 
-1. Under the trigger or action where you want to add the SQL action, select **New step**.
+* Standard logic app workflows: Visual Studio Code
 
-   ![Add an action to your logic app](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+In this example, the logic app workflow starts with the [Recurrence trigger](../connectors/connectors-native-recurrence.md), and calls an action that gets a row from a SQL database.
 
-   Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+### [Consumption](#tab/consumption)
 
-1. Under **Choose an action**, in the search box, enter `sql server`. From the actions list, select the SQL action that you want. This example uses the **Get row** action, which gets a single record.
+1. In the Azure portal, open your logic app workflow in the designer.
 
-   ![Select SQL "Get row" action](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
+1. Find and select the SQL Server action that you want to use. This example continues with the action named **Get row**.
+
+   1. Under the trigger or action where you want to add the SQL action, select **New step**.
+
+      Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+   1. In the **Choose an operation** box, under the designer search box, select **All**.
+
+   1. In the designer search box, enter **sql server**.
+
+   1. From the actions list, select the SQL action that you want. This example uses the **Get row** action, which gets a single record.
+
+      ![Screenshot showing the Azure portal, workflow designer for Standard logic app, search box with "sql server", and the "Get row" action selected.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
 
 1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
-1. Select the **Table name**, which is `SalesLT.Customer` in this example. Enter the **Row ID** for the record that you want.
+1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
 
-   ![Select table name and specify row ID](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
+   In this example, the table name is **SalesLT.Customer**.
 
-   This action returns only one row from the selected table, nothing else. So, to view the data in this row, you might add other actions that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   ![Screenshot showing the "Get row" action with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-consumption.png)
+
+   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions, for example, those that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-   This step automatically enables and publishes your logic app live in Azure.
+### [Standard](#tab/standard)
+
+
+
+---
 
 <a name="handle-bulk-data"></a>
 
