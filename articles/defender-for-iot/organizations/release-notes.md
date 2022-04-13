@@ -96,6 +96,9 @@ For more information, see:
 - [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
 - [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version)
 
+> [!NOTE]
+> When updating to version 22.2.x, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
 For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.

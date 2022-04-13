@@ -290,6 +290,9 @@ However, if you're upgrading from a version earlier than 22.1.x, make sure to [p
 
 Updates from legacy versions may require a series of upgrades. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
 
+> [!TIP]
+> Regardless of your update versions, we recommend comparing your existing firewall rules against [listed requirements](how-to-set-up-your-network.md#networking-requirements) to make sure that you're fully up to date for the new version.
+>
 ### Prepare for an update to version 22.1.x or higher
 
 Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
