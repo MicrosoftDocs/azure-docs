@@ -79,6 +79,8 @@
         href: proxy-server-support.md
       - name: Determine user connection quality
         href: connection-latency.md
+      - name: Use Azure Firewall to protect Azure Virtual Desktop
+        href: /firewall/protect-azure-virtual-desktop.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Identity and access management
