@@ -164,7 +164,7 @@ The policy JSON should resemble the following example. Replace `bucketname` with
 Use the following information to create an AWS connector and start monitoring your AWS costs.
 
 > [!NOTE]
-> The Connector for AWS remains active after the trial period ends if you set the auto-renew configuration to **On** during the initial setup. Otherwise, the connector is disabled following its trial. It may remain disabled for three months before it's permanently deleted. After the connector is deleted, the same connection can't be reactivated. For assistance with a disabled connector or to create a new connection after it's deleted, create a [support request in the Azure portal(https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> The Connector for AWS remains active after the trial period ends if you set the auto-renew configuration to **On** during the initial setup. Otherwise, the connector is disabled following its trial. It may remain disabled for three months before it's permanently deleted. After the connector is deleted, the same connection can't be reactivated. For assistance with a disabled connector or to create a new connection after it's deleted, create a [support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Prerequisites
 
