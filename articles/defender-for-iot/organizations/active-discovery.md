@@ -7,21 +7,29 @@ ms.topic: how-to
 
 # Run active discovery scans from your OT sensor
 
-Run active discovery scans from your OT sensors to dive deeper into your device data and detect more devices on your network. For example, OT engineers might want to enrich existing device visibility, and SOC teams might want to collect more data, identifying more CVEs and assist in investigations for alerts and possible penetration paths.
+Defender for IoT's default agentless, passive monitoring provides data about real device interactions, with efficient deployment options and minimal impact on production environments.
 
-> [!IMPORTANT]
-> Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
+However, sometimes your organization may need more options to scan devices that are inaccessible by passive monitoring. In such cases, configure an active discovery scan from your OT sensor to gain device insights from more devices and dive deeper into each device detected. Active discovery scans enrich existing data and help SOC teams to identify more CVEs and assist in alert investigations and identifying possible penetration paths.
 
+> [!TIP]
+> Other active scanning options include running a Windows (WMI) scan or configuring a reverse DNS lookup. For more information, see [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
+>
 ## Recommended scenarios
 
 We recommend running active discovery scans in the following scenarios:
 
-- **Non-optimal port monitoring locations**, such as in remote locations with only one or two PLCs and legacy network wiring
-- **Data that doesn't pass over the wire**, such as patches installed on Windows machines, USB-enabled or disabled properties, MAC address tables in routers, and more
-- **Lower-level traffic** that can't otherwise be captured
-- **Switches that don't support SPAN/mirror ports**, where you'll need other methods to capture device data
-- **Highly segmented networks**, where costs would be prohibitive to put sensors on each segment
-- **Local programs that prevent ping access**, such as dormant assets that don't communicate over the network
+- **Scanning non-transmitting devices**. For example, scanning local programs that prevent ping access and dormant assets that don't communicate over the network. Active scans can also cover data like patches installed on Windows machines, USB-based properties, MAC address tables in routers, and more.
+
+- **Scanning network infrastructure and devices without engineering workstations**
+
+- **Scanning highly segmented networks**, where costs would be prohibitive to put sensors on each segment
+
+- **Scanning non-optimal port monitoring locations**, such as in remote locations with only one or two PLCs and legacy network wiring
+
+- **Enriching attributes for *quiet* devices**
+
+- **Efficient deployment on networks where you can't configure SPAN or mirror ports**
+
 
 ## Supported protocols
 
@@ -32,6 +40,23 @@ Active discovery scans are supported for the following protocols:
 |**Switch discovery scans**     |  - SNMPv1<br>- SNMPv2<br>- SNMPv3<br>- HTTP       |
 |**PLC discovery and enrichment scans**     | - S7 (Siemens) <br>- CIP (Rockwell)        |
 
+## Plan your active discovery scans
+
+> [!IMPORTANT]
+> Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
+
+When planning an active discovery scan:
+
+- **Verify the following questions**:
+
+    - Can the devices you want to scan be discovered by the default Defender for IoT monitoring? If so, active discovery scans may be unnecessary.
+    - Are you able to run active queries on your network and on the devices you want to scan? To make sure, try running an active query on a staging environment.
+
+    Use the answers to these questions to determine exactly which sites and address ranges you want to scan.
+
+- **Identify maintenance windows** where you can schedule active query intervals safely.
+
+- **Identify active discovery scan owners**, which are personnel who can supervise the active scans and stop the scanning process if needed.
 
 ## Configure an active discovery scan
 
