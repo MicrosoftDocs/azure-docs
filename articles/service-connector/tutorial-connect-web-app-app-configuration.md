@@ -10,7 +10,7 @@ ms.date: 03/31/2022
 
 # Tutorial: Connect a web app to Azure App Configuration with Service Connector
 
-Learn how to connect an ASP.NET Core app running on Azure App Service, to Azure App Configuration, using the following methods:
+Learn how to connect an ASP.NET Core app running on Azure App Service, to Azure App Configuration, using one of the following methods:
 
 - System-assigned managed identity (SMI)
 - User-assigned managed identity (UMI)
@@ -28,8 +28,8 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 
 - An Azure account with an active subscription. Your access role within the subscription must be "Contributor" or "Owner". [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
-- Git
-- A code editor. For example, [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download).
+- [.NET SDK](https://dotnet.microsoft.com/download)
+- [Git](/devops/develop/git/install-and-set-up-git)
 
 ## Sign in to Azure
 
@@ -38,6 +38,12 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 ## Set up Azure resources
 
 Start by creating your Azure resources using a system-assigned managed identity (SMI), a user-assigned managed identity (UMI), a service principal or a connection string.
+
+1. Clone the following sample repo:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet.git
+    ```
 
 1. Create an ASP.NET Core application.
 
@@ -82,7 +88,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
     # Create a web app
     az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
 
-    # [Optional]: skip this step if you already have a managed identity. Create a user-assigned managed identity.
+    # [Optional]: Create a user-assigned managed identity, and save the output for a later use.  Skip this step if you have a user-assigned managed identity.
     az identity create -g <myResourceGroupName> -n <myIdentityName>
     ```
 
@@ -106,7 +112,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
     # Create a web app
     az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
 
-    # [Optional] create service principal, save output for later use. skip this if you have one aleady
+    # [Optional]: Create a service principal, and save the output for a later use. Skip this step if you have a service principal.
     az ad sp create-for-rbac --name <mySPName> --role Contributor
     ```
 
@@ -136,13 +142,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
 1. Create an Azure App Configuration store
 
    ```azurecli
-    az appconfig create -g <myResourceGroupName> -n <myAppConfigStoreName> --sku Free -l eastus
-    ```
-
-1. Clone the following sample repo:
-
-    ```bash
-    git clone https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet.git
+   az appconfig create -g <myResourceGroupName> -n <myAppConfigStoreName> --sku Free -l eastus
     ```
 
 1. Import the test configuration file to Azure App Configuration.
