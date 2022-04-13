@@ -140,7 +140,7 @@ On each alert details page, the **Take Action** tab lists recommended remediatio
 
 You can update alert status or severity for a single alert or for a group of alerts.
 
-*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network.
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
 
 - **To manage a single alert**:
 
@@ -150,9 +150,12 @@ You can update alert status or severity for a single alert or for a group of ale
 - **To manage multiple alerts in bulk**:
 
     1. Select the alerts in the grid that you want to modify.
-    1. Use the **Change status** and/or **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
+    1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
 
-- **To learn an alert**: On an alert details page, in the **Take Action** tab, select **Learn**.
+- **To learn one or more alerts**:
+
+    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - On an alert details page, in the **Take Action** tab, select **Learn**.
 
 ### Managing alerts in a hybrid deployment
 
