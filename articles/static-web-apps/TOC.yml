@@ -48,10 +48,14 @@
           href: user-information.md
         - name: Custom authentication
           href: authentication-custom.md
-    - name: Review pull requests in pre-production environments
-      href: review-publish-pull-requests.md
     - name: Preview environments
-      href: preview-environments.md
+      items:
+        - name: About preview environments
+          href: preview-environments.md
+        - name: Pull request environments
+          href: review-publish-pull-requests.md
+        - name: Branch environments
+          href: branch-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
