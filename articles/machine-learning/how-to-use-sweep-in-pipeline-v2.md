@@ -15,54 +15,7 @@ This sections explains how to use sweep to do hyperparameter tuning in Azure Mac
 
 Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below. 
 
-```YAML
-$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
-type: pipeline
-display_name: pipeline_with_hyperparameter_sweep
-description: Tune hyperparameters using TF component
-settings:
-    default_compute: azureml:cpu-cluster
-jobs:
-  sweep_step:
-    type: sweep
-    inputs:
-      data: 
-        type: uri_file
-        path: wasbs://datasets@azuremlexamples.blob.core.windows.net/iris.csv
-    outputs:
-      model_output:
-      test_data:
-    sampling_algorithm: random
-    trial: file:./train.yml
-    search_space:
-      c_value:
-        type: uniform
-        min_value: 0.5
-        max_value: 0.9
-      kernel:
-        type: choice
-        values: ["rbf", "linear", "poly"]
-      coef0:
-        type: uniform
-        min_value: 0.1
-        max_value: 1
-    objective:
-      goal: minimize
-      primary_metric: training_f1_score
-    limits:
-      max_total_trials: 5
-      max_concurrent_trials: 3
-      timeout: 7200
-
-  predict_step:
-    type: command
-    inputs:
-      model: ${{parent.jobs.sweep_step.outputs.model_output}}
-      test_data: ${{parent.jobs.sweep_step.outputs.test_data}}
-    outputs:
-      predict_result:
-    component: file:./predict.yml
-```
+:::code language="yaml" source"~/azureml-examples-april-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml":::
 
 The `sweep_step` is the step for hyperparameter sweep. Step type needs to be `sweep`.  And `trial` refers to the `train.yaml`. After submit this pipeline job, Azure Machine Learning will run the trial componenet multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep) for full schema of sweep job. 
 
