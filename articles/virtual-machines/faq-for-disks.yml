@@ -488,7 +488,7 @@ sections:
       - question: |
           Can I deploy a VM with an unmanaged disk in the Azure portal?
         answer: |
-          Deploying a Windows VM with unmanaged disks isn’t supported in the portal. We recommend that you use managed disks for new workloads and [convert](windows/convert-unmanaged-to-managed-disks.md) your existing disk to a managed disk. If you’re unable to use managed disks, you can deploy a VM using unmanaged disks with either the Azure PowerShell module or the Azure CLI.
+          Not all OS images support unmanaged disks. If your chosen image doesn't support unmanaged disks, we recommend that you use managed disks for new workloads and [convert](windows/convert-unmanaged-to-managed-disks.md) your existing disk to a managed disk. If you’re unable to use managed disks, you can deploy a VM using unmanaged disks with either the Azure PowerShell module or the Azure CLI.
 
       - question: |
           Can I attach both premium and standard data disks to a size series that doesn't support Premium SSD disks, such as D, Dv2, G, or F series?
