@@ -22,201 +22,70 @@ ms.reviewer: person
 
 This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure, including Public Key Infrastructure (PKI) and SSL/TSL information.
 
-## Certificate Authority details
-
 **How to read the certificate details:**
-- The Header contains the Common Name (CN) of the certificate plus the first four characters of the SHA-1 Thumbprint. This construction gives each entry a unique anchor when there are multiple versions of a particular cert.
+- The CA name includes the Common Name (CN) of the certificate plus the first four characters of the SHA-1 Thumbprint. This construction gives each entry a unique anchor when there are multiple versions of a particular cert.
 - The Serial Number contains the hexadecimal value of the certificate serial number.
-- The Subject Name Hash is used by OpenSSL when referencing certificates.
-- The Authority Information Access (AIA) URL is the link to download the certificate of this CA.
-- The CRL Distribution Point (CDP) URL is the CRL file containing certificates revoked by this CA.
+- The Thumbprint is the SHA-1 thumbprint.
+
+## Root Certificate Authorities
+
+| Certificate Authority | Expiry Date | Serial Number<br>Thumbprint | Downloads |
+|---- |---- |---- |---- |
+| DigiCert Global Root CA (a898) | Nov 10, 2031 | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10pem.crt) |
+| DigiCert Global Root G2 (df3c) | Nov 10 2031 | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10pem.crt) |
+| DigiCert Global Root G3 (7e04) | Jan 15, 2038 | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootg32038-01-15der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootg32038-01-15pem.crt) |
+| Baltimore CyberTrust Root (d4de) | May 12, 2025 | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/baltimorecybertrustroot2025-05-12der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/baltimorecybertrustroot2025-05-12pem.crt) |
+| Microsoft ECC Root Certificate Authority 2017 (999a) | Jul 18, 2042 | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsofteccrootcertificateauthority20172042-07-18der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsofteccrootcertificateauthority20172042-07-18pem.crt) |
+| Microsoft RSA Root Certificate Authority 2017 (73a5) | Jul 18, 2042 | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftrsarootcertificateauthority20172042-07-18der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftrsarootcertificateauthority20172042-07-18pem.crt) |
+
+## Intermediate Certificate Authorities
+
+| Certificate Authority | Expiry Date | Serial Number<br>Thumbprint | Downloads |
+|---- |---- |---- |---- |
+| DigiCert SHA2 Secure Server CA (626d) | Sep 22, 2030 | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertsha2secureserverca2030-09-22der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertsha2secureserverca2030-09-22pem.crt) |
+| DigiCert TLS Hybrid ECC SHA384 2020 CA1 (51e3) | Sep 22, 2030 | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicerttlshybrideccsha3842020ca12030-09-22der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicerttlshybrideccsha3842020ca12030-09-22pem.crt) |
+| DigiCert Cloud Services CA-1 (81b6) | Aug 4, 2030 | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertcloudservicesca-12030-08-04der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertcloudservicesca-12030-08-04pem.crt) |
+| DigiCert Basic RSA CN CA G2 (4d1f) | Mar 4, 2030 | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertbasicrsacncag22030-03-04der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertbasicrsacncag22030-03-04pem.crt) |
+| DigiCert TLS RSA SHA256 2020 CA1 (1c58) | Apr 13, 2031 | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicerttlsrsasha2562020ca12031-04-13der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicerttlsrsasha2562020ca12031-04-13pem.crt) |
+| GeoTrust RSA CA 2018 (7ccc) | Nov 6, 2027 | 0x0546fe1823f7e1941da39fce14c46173<br>7CCC2A87E3949F20572B18482980505FA90CAC3B | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/geotrustrsaca20182027-11-06der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/geotrustrsaca20182027-11-06pem.crt) |
+| Microsoft Azure TLS Issuing CA 01 (2f28) | Jun 27, 2024 | 0x0aafa6c5ca63c45141ea3be1f7c75317<br>2F2877C5D778C31E0F29C7E371DF5471BD673173 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca012024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca012024-06-27-xsignpem.crt) |
+| Microsoft Azure TLS Issuing CA 01 (b9ed) | Jun 27, 2024 | 0x1dbe9496f3db8b8de700000000001d<br>B9ED88EB05C15C79639493016200FDAB08137AF3 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca012024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca012024-06-27pem.crt) |
+| Microsoft Azure TLS Issuing CA 02 (e7ee) | Jun 27, 2024 | 0x0c6ae97cced599838690a00a9ea53214<br>E7EEA674CA718E3BEFD90858E09F8372AD0AE2AA | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca022024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca022024-06-27-xsignpem.crt) |
+| Microsoft Azure TLS Issuing CA 02 (c5fb) | Jun 27, 2024 | 0x330000001ec6749f058517b4d000000000001e<br>C5FB956A0E7672E9857B402008E7CCAD031F9B08 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca022024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca022024-06-27pem.crt) |
+| Microsoft Azure TLS Issuing CA 05 (56f1) | Jun 27, 2024 | 0x330000001f9f1fa2043bc28db900000000001f<br>56F1CA470BB94E274B516A330494C792C419CF87 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca052024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca052024-06-27pem.crt) |
+| Microsoft Azure TLS Issuing CA 06 (30e0) | Jun 27, 2024 | 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca062024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca062024-06-27-xsignpem.crt) |
+| Microsoft Azure TLS Issuing CA 06 (8f1f) | Jun 27, 2024 | 0x3300000020a2f1491a37fbd31f000000000020<br>8F1FD57F27C828D7BE29743B4D02CD7E6E5F43E6 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca062024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazuretlsissuingca062024-06-27pem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 01 (9250) | Jun 27, 2024 | 0x09dc42a5f574ff3a389ee06d5d4de440<br>92503D0D74A7D3708197B6EE13082D52117A6AB0 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca012024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca012024-06-27-xsignpem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 01 (cda5) | Jun 27, 2024 | 0x330000001aa9564f44321c54b900000000001a<br>CDA57423EC5E7192901CA1BF6169DBE48E8D1268 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca012024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca012024-06-27pem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 02 (1e98) | Jun 27, 2024 | 0x0e8dbe5ea610e6cbb569c736f6d7004b<br>1E981CCDDC69102A45C6693EE84389C3CF2329F1 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca022024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca022024-06-27-xsignpem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 02 (489f) | Jun 27, 2024 | 0x330000001b498d6736ed5612c200000000001b<br>489FF5765030EB28342477693EB183A4DED4D2A6 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca022024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca022024-06-27pem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 05 (c636) | Jun 27, 2024 | 0x0ce59c30fd7a83532e2d0146b332f965<br>C6363570AF8303CDF31C1D5AD81E19DBFE172531 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca052024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca052024-06-27-xsignpem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 05 (4c15) | Jun 27, 2024 | 0x330000001cc0d2a3cd78cf2c1000000000001c<br>4C15BC8D7AA5089A84F2AC4750F040D064040CD4 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca052024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca052024-06-27pem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 06 (7365) | Jun 27, 2024 | 0x066e79cd7624c63130c77abeb6a8bb94<br>7365ADAEDFEA4909C1BAADBAB68719AD0C381163 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca062024-06-27-xsignder.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca062024-06-27-xsignpem.crt) |
+| Microsoft Azure ECC TLS Issuing CA 06 (dfeb) | Jun 27, 2024 | 0x330000001d0913c309da3f05a600000000001d<br>DFEB65E575D03D0CC59FD60066C6D39421E65483 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca062024-06-27der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/mspki/microsoftazureecctlsissuingca062024-06-27pem.crt) |
+| Microsoft RSA TLS CA 01 (703d) | Oct 8, 2024 | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca012024-10-08der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca012024-10-08pem.crt) |
+| Microsoft RSA TLS CA 02 (7deb) | Oct 8, 2024 | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08pem.crt) |
 
 ### Microsoft Operated Root Certificate Authorities
 
-| Certificate Authority | Issue Date<br>Expiry Date | Serial Number<br>Thumbprint | URIs |
-|---- |--------- |-- |---- |
-| DigiCert Global Root G2 | Aug 1, 2013<br>Jan 15, 2038 | 033af1e6a711a9a0bb2864b11d09fae5<br>df3c24f9bfd666761b268073fe06d1cc8d4f82a4 | [AIA](http://cacerts.digicert.com/DigiCertGlobalRootG3.crt)<br>[CDP](http://crl3.digicert.com/DigiCertGlobalRootG3.crl)<br>[CDP](http://crl4.digicert.com/DigiCertGlobalRootG3.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| Certificate Authority | Issue Date<br>Expiry Date | Serial Number<br>Thumbprint | Downloads |
+|---- |---- |---- |---- |
+| DigiCert Global Root G2 | Aug 1, 2013<br>Jan 15, 2038 | 033af1e6a711a9a0bb2864b11d09fae5<br>df3c24f9bfd666761b268073fe06d1cc8d4f82a4 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220315T2117452458Z/media/cafiles/ame/ameroot2026-05-24der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220315T2117452458Z/media/cafiles/ame/ameroot2026-05-24pem.crt) |
 | ameroot (413e) | Aug 1, 2013<br>May 24, 2026 | 0x25dacb55c9c67781409e569482de4dfe | [AIA](http://crl.microsoft.com/pkiinfra/certs/AMEROOT_ameroot.crt)<br>[AIA 2](http://crl1.ame.gbl/aia/AMEROOT_ameroot.crt) |
 - - -
 
-### Microsoft Operated Root Certificate Authorities
 
-**ameroot (413e)**
-- - -
-Valid until: May 24 2026 | Serial: 0x25dacb55c9c67781409e569482de4dfe
+## Additional CA details
+The following URLs need to be included in your ____. The Authority Information Access (AIA) URL is the link to download the certificate of a particular CA. The URL provided is the domain only, so you will need to ____. The CRL Distribution Point (CDP) URL is the CRL file containing certificates revoked by this CA.
 
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220315T2117452458Z/media/cafiles/ame/ameroot2026-05-24der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220315T2117452458Z/media/cafiles/ame/ameroot2026-05-24pem.crt)
+- AIA: http://crl.microsoft.com
+    - http://cacerts.digicert.com/DigiCertGlobalRootG2.crt
+    - http://cacerts.digicert.com/DigiCertGlobalRootG3.crt
+    - http://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt
+- CRL: http://crl.microsoft.com
+- OCSP: http://oneocsp.microsoft.com
 
-- SHA-1 Thumbprint: 413E8AAC6049924B178BA636CBAF3963CCB963CD
-- SHA-256 Thumbprint: EA76599D86897382AA519FF2BC0FA6B9C15D60DA2EBE53E72139CD317B0797ED
-- Subject Name Hash: 7957940c
-
-AIA URLs
-- http://crl.microsoft.com/pkiinfra/certs/AMEROOT_ameroot.crt
-- http://crl1.ame.gbl/aia/AMEROOT_ameroot.crt
-- http://crl2.ame.gbl/aia/AMEROOT_ameroot.crt
-- http://crl3.ame.gbl/aia/AMEROOT_ameroot.crt
-- [ldap:///CN=ameroot,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=AME,DC=GBL?cACertificate?base?objectClass=certificationAuthority](ldap:///CN=ameroot,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=AME,DC=GBL?cACertificate?base?objectClass=certificationAuthority)
-
-
-CRL Distribution Points
-- http://crl.microsoft.com/pkiinfra/crl/ameroot.crl
-- http://crl1.ame.gbl/crl/ameroot.crl
-- http://crl2.ame.gbl/crl/ameroot.crl
-- http://crl3.ame.gbl/crl/ameroot.crl
-- [LDAP](ldap:///CN=ameroot,CN=AMEROOT,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=AME,DC=GBL?certificateRevocationList?base?objectClass=cRLDistributionPoint)
-
-- - -
-**Microsoft Assurance Designation Root 2011 (ad34)**
-- - -
-Valid until: March 23 2036 | Serial: 0x0b1c041c9c7434af413a3cbf39f556bf
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/esrp/microsoftassurancedesignationroot20112036-03-23der.crt?cdntoken=LBQBCsn34lip730UkmVhT-R1M_jHXtqh6DkhwreTFZuJ4oWTQiOI-lHhUffkKPGhFL5hx5ze8deLN0UaGjfs) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220315T2117452458Z/media/cafiles/ame/ameroot2026-05-24pem.crt)
-
-- SHA-1 Thumbprint: AD34FF084A8E0ACB42D83365A3F2EB686BC191C4
-- SHA-256 Thumbprint: BD6FF27EA305D884768AE41E9B24976FB891488320675D8ED43C05A701FB0DFC
-- Subject Name Hash: aeaad467
-- AIA URL: http://www.microsoft.com/pkiops/certs/MicAssDesRoo_2011_03_23.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiops/crl/MicAssDesRoo_2011_03_23.crl
-
-- - -
-**Microsoft Internal Corporate Root (d176)**
-- - -
-Valid until: April 5 2037 | Serial: 0x0b1f0111e9b90a9d4ad8d66d359f7000
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ssladmin/microsoftinternalcorporateroot2037-04-05der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ssladmin/microsoftinternalcorporateroot2037-04-05pem.crt)
-
-- SHA-1 Thumbprint: D17697CC206ED26E1A51F5BB96E9356D6D610B74
-- SHA-256 Thumbprint: 841F033B49E2BFA246E96860A53A3B12F8130EA0503803285268D0A8F8E4E5EC841F033B49E2BFA246E96860A53A3B12F8130EA0503803285268D0A8F8E4E5EC
-- Subject Name Hash: d3be1282
-- AIA URL: http://www.microsoft.com/pki/mscorp/msintcrca.crt
-- CRL Distribution Point: http://mscrl.microsoft.com/pki/mscorp/crl/msintcrca.crl
-- CRL Distribution Point: http://crl.microsoft.com/pki/mscorp/crl/msintcrca.crl
-
-- - -
-**Microsoft ECC Root Certificate Authority 2017 (999a)**
-- - -
-Valid until: July 18 2042 | Serial: 0x66f23daf87de8bb14aea0c573101c2ec
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/mspki/microsofteccrootcertificateauthority20172042-07-18der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/mspki/microsofteccrootcertificateauthority20172042-07-18pem.crt)
-
-- SHA-1 Thumbprint: 999A64C37FF47D9FAB95F14769891460EEC4C3C5
-- SHA-256 Thumbprint: 358DF39D764AF9E1B766E9C972DF352EE15CFAC227AF6AD1D70E8E4A6EDCBA02
-- Subject Name Hash: aeaad467
-- AIA URL: http://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
-- CRL Distribution Point: http://www.microsoft.com/pkiops/crl/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crl
-- OCSP Responder URL: http://oneocsp.microsoft.com/ocsp
-
-- - -
-**Microsoft ECC Root Certificate Authority 2017 (73a5)**
-- - -
-Valid until: July 18 2042 | Serial: 0x66f23daf87de8bb14aea0c573101c2ec
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/mspki/microsoftrsarootcertificateauthority20172042-07-18der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/mspki/microsoftrsarootcertificateauthority20172042-07-18pem.crt)
-
-- SHA-1 Thumbprint: 73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74
-- SHA-256 Thumbprint: C741F70F4B2A8D88BF2E71C14122EF53EF10EBA0CFA5E64CFA20F418853073E0
-- Subject Name Hash: bf53fb88
-- AIA URL: http://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt
-- CRL Distribution Point: http://www.microsoft.com/pkiops/crl/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crl
-- OCSP Responder URL: http://oneocsp.microsoft.com/ocsp
-
-### Microsoft Operated Intermediate Certificate Authorities
-
-**AME CS CA 01 (e398)**
-- - -
-Issuer: [ameroot](https://eng.ms/docs/products/onecert-certificates-key-vault-and-dsms/key-vault-dsms/autorotationandecr/cadetails#ameroot-413e)
-
-Valid until: May 21 2026 | Serial: 0x1f00000051ea8ff69c730ca83b000000000051
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca012026-05-21der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca012026-05-21pem.crt)
-
-- SHA-1 Thumbprint: E3981E455AAFF0C851FF1D3C4EF41EE6A4C087F5
-- SHA-256 Thumbprint: F6E1EA13F594A93DC5546ED3EEF703591D539ACFFEC5EAFE5159F4BBB67200A0
-- Subject Name Hash: 4abedc67
-- AIA URL: http://crl.microsoft.com/pkiinfra/Certs/BY2PKICSCA01.AME.GBL_AME%20CS%20CA%2001%282%29.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiinfra/CRL/AME%20CS%20CA%2001%282%29.crl
-- OCSP Responder URL: http://oneocsp.microsoft.com/ocsp
-- - -
-
-**AME CS CA 02 (d69c)**
-- - - 
-Issuer: [ameroot](https://eng.ms/docs/products/onecert-certificates-key-vault-and-dsms/key-vault-dsms/autorotationandecr/cadetails#ameroot-413e)
-
-Valid until: May 21 2026 | Serial: 0x1f000000508f622032a5d83e53000000000050
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca022026-05-21der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca022026-05-21pem.crt)
-
-- SHA-1 Thumbprint: D69C8D3C833A00316FF1C341F95497458A2A6594
-- SHA-256 Thumbprint: EAAF0CA0A4DA4F838C18FC4241760A4F16620306ADFA7064FE6AE4CA9EDC6205
-- Subject Name Hash: 7c771a4e
-- AIA URL: http://crl.microsoft.com/pkiinfra/Certs/BL2PKICSCA01.AME.GBL_AME%20CS%20CA%2002%282%29.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiinfra/CRL/AME%20CS%20CA%2002%282%29.crl
-- - -
-
-**AME CS CA 03 (7519)**
-- - -
-Issuer: [ameroot](https://eng.ms/docs/products/onecert-certificates-key-vault-and-dsms/key-vault-dsms/autorotationandecr/cadetails#ameroot-413e)
-
-Valid until: March 19 2023 | Serial: 0x1f000000246b1e390f6582e391000000000024
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/keyvaultdocs/media/cafiles/ame/amecsca032023-03-19der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca032023-03-19pem.crt)
-
-- SHA-1 Thumbprint: 7519DF7D08B690C216FD14A937DE379777EE4CED
-- SHA-256 Thumbprint: EFAB3997ED92A828E25721C5E7F21DD5E8F4290725DD880230E4DE3E6CADC98C
-- Subject Name Hash: d49ef963
-- AIA URL: http://crl.microsoft.com/pkiinfra/Certs/AM3PKICSCA01.AME.GBL_AME%20CS%20CA%2003.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiinfra/CRL/AME%20CS%20CA%2003.crl
-- - -
-
-**AME CS CA 03 (f4e4)**
-- - -
-Issuer: [ameroot](https://eng.ms/docs/products/onecert-certificates-key-vault-and-dsms/key-vault-dsms/autorotationandecr/cadetails#ameroot-413e)
-
-Valid until: May 21 2026 | Serial: 0x1f0000004ff76b623024cf720c00000000004f
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/keyvaultdocs/media/cafiles/ame/amecsca032026-05-21der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca032026-05-21pem.crt)
-
-- SHA-1 Thumbprint: F4E4475DD7C94A3844AAD14D67B7A44299D52777
-- SHA-256 Thumbprint: EFAB3997ED92A828E25721C5E7F21DD5E8F4290725DD880230E4DE3E6CADC98C
-- Subject Name Hash: d49ef963
-- AIA URL: http://crl.microsoft.com/pkiinfra/Certs/AM3PKICSCA01.AME.GBL_AME%20CS%20CA%2003%281%29.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiinfra/CRL/AME%20CS%20CA%2003%281%29.crl
-- - -
-
-**AME CS CA 04 (48ec)**
-- - -
-Issuer: [ameroot](https://eng.ms/docs/products/onecert-certificates-key-vault-and-dsms/key-vault-dsms/autorotationandecr/cadetails#ameroot-413e)
-
-Valid until: March 19 2023 | Serial: 0x1f00000025df1fac4e89e964fa000000000025
-
-[Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca042023-03-19der.crt) | [Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220331T2145112553Z/media/cafiles/ame/amecsca042023-03-19pem.crt)
-
-- SHA-1 Thumbprint: 48EC3CB115C2C6C47876308095DFFDF9F3C7D553
-- SHA-256 Thumbprint: 4715E35083F436DF0131F80CCD3E8A3B9294058AB97566D61DB946E15C176285
-- Subject Name Hash: ebaa690e
-- AIA URL: http://crl.microsoft.com/pkiinfra/Certs/mel01pkicsca01.AME.GBL_AME%20CS%20CA%2004.crt
-- CRL Distribution Point: http://crl.microsoft.com/pkiinfra/CRL/AME%20CS%20CA%2004.crl
-- - -
-
-### DigiCert Operated Root Certificates
-
-**Baltimore CyberTrust Root (d4de)**
-
----
-Valid until: May 12 2025 | Serial: 0x20000b9
-
-[Download PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220330T2323062212Z/media/cafiles/digicert/baltimorecybertrustroot2025-05-12pem.crt) | [Download DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220330T2323062212Z/media/cafiles/digicert/baltimorecybertrustroot2025-05-12der.crt) |
-
-- SHA-1 Thumbprint: D4DE20D05E66FC53FE1A50882C78DB2852CAE474
-- SHA-256 Thumbprint: 16AF57A9F676B0AB126095AA5EBADEF22AB31119D644AC95CD4B93DBF3F26AEB
-- Subject Name Hash: 653b494a
-- AIA URL: http://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt
-- CRL distribution point: http://crl3.digicert.com/Omniroot2025.crl
-- OCSP Responder URL: http://ocsp.digicert.com
----
-
-### Client compatibility for public PKIs
+## Client compatibility for public PKIs
 
 | PKI | Windows | Firefox | iOS | MacOS | Android | Java |
 |--|--| -- | -- | --  | -- | -- |
