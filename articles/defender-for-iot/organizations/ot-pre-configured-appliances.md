@@ -27,7 +27,7 @@ For more information, see [Purchase sensors or download software for sensors](ho
 
 ## Appliances for OT network sensors
 
-You can purchase any of the following appliances for your OT network sensors:
+You can order any of the following appliances pre-installed for monitoring your OT networks:
 
 |Capacity  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|
@@ -38,7 +38,7 @@ You can purchase any of the following appliances for your OT network sensors:
 
 
 > [!NOTE]
-> Bandwidth capacity may vary depending on protocol distribution.
+> Bandwidth performance may vary depending on protocol distribution.
 
 ## Appliances for on-premises management consoles
 
