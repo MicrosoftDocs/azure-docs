@@ -36,7 +36,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 Add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the FHIR service, and then select **Save**.
 
-[![Screen shot showing user interface of Add role assignment page.](media/bulk-import/add-role-assignment-page.png) ](media/add-role-assignment-page.png#lightbox)
+[![Screen shot of the Add role assignment page.](media/bulk-import/add-role-assignment-page.png) ](media/add-role-assignment-page.png#lightbox)
 
 Now you're ready to select the storage account in the FHIR service as a default storage account for import.
 
@@ -47,7 +47,7 @@ The final step is to set the import configuration of the FHIR service, which con
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [Rest API](https://docs.microsoft.com/en-us/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+To specify the Azure Storage account, you need to use [Rest API](https://docs.microsoft.com/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
 
@@ -59,7 +59,7 @@ Copy the URL as request URL and do following changes of the JSON as body:
 - Set initialImportMode in importConfiguration to **true**
 - Drop off provisioningState.
 
-[ ![Screenshot of Get JSON View](media/bulk-import/importer-url-and-body.png) ](media/bulk-import/importer-url-and-body.png#lightbox)
+[ ![Screenshot of the importer configuration code example](media/bulk-import/importer-url-and-body.png) ](media/bulk-import/importer-url-and-body.png#lightbox)
 
 After you've completed this final step, you're ready to import data using $import.
 
