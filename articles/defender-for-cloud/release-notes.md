@@ -25,14 +25,7 @@ Updates in April include:
 - [New Defender for Servers plans](#new-defender-for-servers-plans)
 - [Relocation of custom recommendations](#relocation-of-custom-recommendations)
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
-
-### PowerShell script to stream alerts to Splunk and IBM QRadar
-
-We recommend that you use Event Hubs and a built-in connector to export security alerts to Splunk and IBM QRadar. Now you can use a PowerShell script to set up the Azure resources needed to export security alerts for your subscription or tenant.
-
-Just download and run the PowerShell script. After you provide a few details of your environment, the script configures the resources for you. The script then produces output that you use in the SIEM platform to complete the integration.
-
-To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
+- [Deprecated the Azure Cache for Redis recommendation](#deprecated-the-azure-cache-for-redis-recommendation)
 
 ### New Defender for Servers plans
 
@@ -47,6 +40,7 @@ If you have been using Defender for Servers until now – no action is required.
  
 In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
 
+Learn more about [Azure Private Link](../private-link/private-link-overview.md).
 ### Relocation of custom recommendations
 
 Custom recommendations are those created by users and have no impact on the secure score. The custom recommendations can now be found under the All recommendations tab.
@@ -54,6 +48,18 @@ Custom recommendations are those created by users and have no impact on the secu
 Use the new "recommendation type" filter, to locate custom recommendations.
 
 Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+
+### PowerShell script to stream alerts to Splunk and IBM QRadar
+
+We recommend that you use Event Hubs and a built-in connector to export security alerts to Splunk and IBM QRadar. Now you can use a PowerShell script to set up the Azure resources needed to export security alerts for your subscription or tenant.
+
+Just download and run the PowerShell script. After you provide a few details of your environment, the script configures the resources for you. The script then produces output that you use in the SIEM platform to complete the integration.
+
+To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
+
+### Deprecated the Azure Cache for Redis recommendation
+
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
 
 ## March 2022
 
