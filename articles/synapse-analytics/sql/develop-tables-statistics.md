@@ -1,12 +1,12 @@
 ---
 title: Create and update statistics using Azure Synapse SQL resources
-description: Recommendations and examples for creating and updating query-optimization statistics in Synapse SQL.
+description: Recommendations and examples for creating and updating query-optimization statistics in Azure Synapse SQL.
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 03/18/2022
+ms.date: 04/13/2022
 ms.author: fipopovi
 ms.reviewer: sngun, wiassaf
 ms.custom: 
@@ -578,7 +578,7 @@ Automatic creation of statistics is done synchronously so you may incur slightly
 
 ### Manual creation of statistics
 
-Serverless SQL pool lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
+Serverless SQL pool lets you create statistics manually. For CSV files, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -615,9 +615,9 @@ The following guiding principles are provided for updating your statistics:
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-### Examples: Create statistics for column in OPENROWSET path
+### Examples: Create statistics for column in OPENROWSET path 
 
-The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries. For more information on the stored procedures used in these examples, review [sys.sp_create_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-create-openrowset-statistics) and [sys.sp_drop_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-drop-openrowset-statistics).
+The following examples show you how to use various options for creating statistics in Azure Synapse serverless SQL pools. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries. For more information on the stored procedures used in these examples, review [sys.sp_create_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-create-openrowset-statistics) and [sys.sp_drop_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-drop-openrowset-statistics), which apply to serverless SQL pools only.
 
 > [!NOTE]
 > You can create single-column statistics only at this moment.
@@ -889,4 +889,4 @@ WHERE   st.[user_created] = 1
 
 To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-To further improve query performance for serverless SQL pool, see [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md)
+To further improve query performance for serverless SQL pool, see [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md).
