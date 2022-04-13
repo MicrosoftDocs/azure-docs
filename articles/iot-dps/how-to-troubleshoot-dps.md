@@ -6,7 +6,7 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 04/13/2022
 ms.author: xujing
 #Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
@@ -17,7 +17,7 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 ## Using Azure Monitor to view metrics and set up alerts
 
-The following procedure describes how to view and set up alert on IoT Hub Device Provisioning Service metric. 
+To view and set up alerts on IoT Hub Device Provisioning Service metrics.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -25,14 +25,7 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 
 3. Select **Metrics**.
 
-4. Select the desired metric. 
-   <br />Currently there are three metrics for DPS:
-
-    | Metric Name | Description |
-    |-------|------------|
-    | Attestation attempts | Number of devices that attempted to authenticate with Device Provisioning Service|
-    | Registration attempts | Number of devices that attempted to register to IoT Hub after successful authentication|
-    | Device assigned | Number of devices that successfully assigned to IoT Hub|
+4. Select the desired metric. For supported metrics, see [Metrics](monitor-iot-dps-reference.md#metrics).
 
 5. Select desired aggregation method to create a visual view of the metric. 
 
@@ -42,7 +35,7 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 
 To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
-## Using Log Analytic to view and resolve errors
+## Using Log Analytics to view and resolve errors
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -52,12 +45,7 @@ To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-over
 
 4. Select **Turn on diagnostics**.
 
-5. Enable the desired logs to be collected.
-
-    | Log Name | Description |
-    |-------|------------|
-    | DeviceOperations | Logs related to device connection events |
-    | ServiceOperations | Event logs related to using service SDK (e.g. Creating or updating enrollment groups)|
+5. Enable the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
 
 6. Turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). 
 
@@ -67,8 +55,8 @@ To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-over
 
 9. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
-
 ## Common error codes
+
 Use this table to understand and resolve common errors.
 
 | Error Code| Description | HTTP Status Code |
@@ -79,3 +67,9 @@ Use this table to understand and resolve common errors.
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
+
+## Next Steps
+
+- To learn more about using Azure Monitor with DPS, see [Monitor Device Provisioning Service](monitor-iot-dps.md).
+
+- To learn about metrics, logs, and schemas emitted for DPS in Azure Monitor, see [Monitoring Device Provisioning Service data reference](monitor-iot-dps-reference.md).

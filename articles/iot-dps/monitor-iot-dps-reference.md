@@ -53,10 +53,10 @@ DPS has the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **IotHubName** | The name of the target IoT hub for **DeviceAssignments** and **RegistrationAttempts**. |
-| **Protocol** | The device or service protocol for **AttestationAttempts** and **RegistrationAttempts**. |
-| **ProvisioningServiceName** | The name of the DPS instance. |
-| **Status** | The status of **AttestationAttempts** or **RegistrationAttempts**. |
+| IotHubName | The name of the target IoT hub. |
+| Protocol | The device or service protocol used. |
+| ProvisioningServiceName | The name of the DPS instance. |
+| Status | The status of the operation. |
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -69,8 +69,8 @@ Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azur
 
 | Category | Display Name | Description  |
 |:---------|:-------------|------------------|
-| DeviceOperations   | Device Operations  | Collects events emitted for device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
-| ServiceOperations   | Service Operations | Collects events emitted for DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+| DeviceOperations   | Device Operations  | Logs related to device connection events. See device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+| ServiceOperations   | Service Operations | Logs related to using service APIs. See DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
