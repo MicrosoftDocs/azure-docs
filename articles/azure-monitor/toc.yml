@@ -496,9 +496,14 @@ items:
           href: agents/azure-monitor-agent-extension-versions.md
         - name: Windows client setup (preview)
           href: agents/azure-monitor-agent-windows-client.md
-      - name: Configure data collection
-        displayName: data collection rule,Azure Monitor agent
-        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Data collection
+        items:
+        - name: Collect events and performance
+          displayName: data collection rule,Azure Monitor agent
+          href: agents/data-collection-rule-azure-monitor-agent.md
+        - name: Collect text Logs
+          displayName: data collection rule,Azure Monitor agent
+          href: agents/data-collection-text-log.md
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
@@ -545,7 +550,7 @@ items:
           href: agents/data-sources-iis-logs.md
         - name: Event Tracing for Windows data
           href: agents/data-sources-event-tracing-windows.md
-        - name: Custom logs
+        - name: Text logs
           href: agents/data-sources-custom-logs.md
         - name: Custom fields
           href: logs/custom-fields.md
