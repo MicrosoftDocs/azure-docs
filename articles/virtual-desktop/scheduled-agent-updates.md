@@ -18,7 +18,7 @@ The Scheduled Agent Updates feature (preview) lets you create up to two maintena
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
 
 >[!NOTE]
-Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature. 
+> Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature. 
 
 >[!IMPORTANT]
 >The preview version of this feature currently has the following limitations:
