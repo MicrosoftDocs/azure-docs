@@ -494,7 +494,7 @@ items:
           href: agents/azure-monitor-agent-manage.md
         - name: Extension versions
           href: agents/azure-monitor-agent-extension-versions.md
-        - name: Using client installer (preview)
+        - name: Using Windows client installer (preview)
           href: agents/azure-monitor-agent-windows-client.md
       - name: Data collection
         items:
