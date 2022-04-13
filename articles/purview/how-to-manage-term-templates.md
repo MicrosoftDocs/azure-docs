@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 4/12/2022
 ---
 # How to manage term templates for business glossary
 
