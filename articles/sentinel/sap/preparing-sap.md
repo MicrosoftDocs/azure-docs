@@ -25,7 +25,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Prepare SAP environment (*You are here*)**
 
-1. [Deploy data connector agent](deploy_data_connector_agent_container.md)
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
 1. [Deploy SAP security content](deploy_sap_security_content.md)
 
@@ -297,4 +297,4 @@ You have now fully prepared your SAP environment. The required CRs have been dep
 Now you are ready to deploy the data connector agent container.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
+> [Deploy and configure the data connector agent container](deploy-data-connector-agent-container.md)

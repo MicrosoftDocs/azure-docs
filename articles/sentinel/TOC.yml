@@ -337,7 +337,7 @@
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
       - name: Deploy and configure the data connector agent container
-        href: sap/deploy_data_connector_agent_container.md
+        href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy_sap_security_content.md
     - name: Optional deployment steps

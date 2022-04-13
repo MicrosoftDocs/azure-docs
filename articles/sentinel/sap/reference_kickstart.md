@@ -145,7 +145,7 @@ Parameter values: `<guid>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy_data_connector_agent_container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
 
 #### Enterprise Application secret
 Parameter name: `--appsecret`
@@ -154,7 +154,7 @@ Parameter values: `<secret>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application secret. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy_data_connector_agent_container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application secret. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
 
 #### Tenant ID
 Parameter name: `--tenantid`
@@ -163,7 +163,7 @@ Parameter values: `<guid>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the Azure Active Directory Tenant ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy_data_connector_agent_container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the Azure Active Directory Tenant ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
  
 #### Key Vault Name
 Parameter name: `--kvaultname`
