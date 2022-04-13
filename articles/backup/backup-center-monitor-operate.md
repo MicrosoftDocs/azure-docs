@@ -2,7 +2,10 @@
 title: Monitor and operate backups using Backup Center
 description: This article explains how to monitor and operate backups at scale using Backup Center
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 03/21/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Monitor and operate backups using Backup center
@@ -102,6 +105,9 @@ The following classes of alerts are displayed:
 
 * **Datasource Alerts**: Alerts that are tied to a specific datasource being backed up (such as, backup or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section. For metric alerts, if the fired alert has a datasource ID dimension associated with it, the fired alert appears under **Datasource Alerts**.
 * **Global Alerts**: Alerts that aren't tied to a specific datasource (such as, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section. For metric alerts, if the fired alert doesn't have a datasource ID associated with it, the fired alert appears under **Global Alerts**.
+
+>[!Note]
+>Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ## Vaults
 
