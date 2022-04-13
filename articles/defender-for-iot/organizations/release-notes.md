@@ -52,7 +52,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
-- [Detection support for Windows 11 and Windows Server 2019](#detection-support-for-windows-11-and-windows-server-2019)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 
 ### Active discovery scans (Public preview)
@@ -111,12 +110,6 @@ For more information, see:
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
-
-### Detection support for Windows 11 and Windows Server 2019
-
-Defender for IoT sensors can now discover Windows devices running Windows 11 and Windows Server 2019, in addition to previously supported operating systems.
-
-For more information, see [Learn Windows registry details](how-to-investigate-sensor-detections-in-a-device-inventory.md#learn-windows-registry-details).
 
 ### Support diagnostic log enhancements (Public preview)
 
