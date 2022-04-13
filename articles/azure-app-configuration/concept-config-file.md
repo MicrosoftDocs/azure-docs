@@ -101,7 +101,7 @@ The following example is a file based upon the KVSet file content profile, named
 ```
 
 > [!TIP]
-> If you followed the example in the previous section and have the data in your App Configuration store, you can export them to a file using the CLI command:
+> If you followed the example in the previous section and have the data in your App Configuration store, you can export it to a file using the CLI command:
 > ```azurecli-interactive
 > az appconfig kv export --profile appconfig/kvset --label * --name <your store name> --destination file --path appconfigdata.json --format json 
 > ```
