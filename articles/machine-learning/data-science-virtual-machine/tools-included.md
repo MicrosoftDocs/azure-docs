@@ -6,8 +6,8 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: v-jeevkumar
+ms.author: v-jeevkumar
 ms.topic: reference
 ms.date: 05/12/2021
 ms.custom: contperf-fy20q4
@@ -41,7 +41,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | Dlib | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
 | Docker | <span class='green-check'>&#9989;</span> <br/> (Windows containers only) | <span class='green-check'>&#9989;</span> |  |
 | Nccl | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
-| Rattle | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
+| Rattle | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> |  |
 | ONNX Runtime | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
 
 
@@ -55,7 +55,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> |  |
 | [Azure CLI](/cli/azure) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> |  |
 | [AzCopy](../../storage/common/storage-use-azcopy-v10.md) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | [AzCopy on the DSVM](./dsvm-tools-ingestion.md#azcopy) |
-| [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
+| [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
 | [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
 | Unix/Linux command-line tools | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
 | Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> |  |
@@ -77,27 +77,20 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; PySpark |  |  | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml) |
 
 **Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
-* Python 3.8 - default</br>  
-* Python 3.8 - PyTorch</br>  
-* Python 3.8 - TensorFlow</br>  
-* Python 3.6 - AzureML - TensorFlow</br>  
-* Python 3.6 - AzureML - PyTorch</br>  
-* Python 3.6 - AzureML – AutoML</br>  
+* Python3.8-default</br>  
+* Python3.8-Tensorflow-Pytorch</br>  
+* Python3.8-AzureML</br>   
 * R</br>  
 * Python 3.7 - Spark (local)</br>  
-* Julia 1.2.0</br>  
+* Julia 1.6.0</br>  
 * R Spark – HDInsight</br>  
 * Scala Spark – HDInsight</br>  
 * Python 3 Spark – HDInsight</br>  
 
 **Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
-* py38_default  </br>
-* py38_tensorflow </br> 
-* py38_pytorch  </br>
-* azureml_py36_tensorflow  </br>
-* azureml_py36_pytorch  </br>
-* azureml_py36_automl  </br>
-
+* Python3.8-default  </br>
+* Python3.8-Tensorflow-Pytorch </br> 
+* Python3.8-AzureML  </br>
 
 ## Use your preferred editor or IDE
 

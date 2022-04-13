@@ -22,6 +22,20 @@ This article outlines the process to register an Azure SQL data source in Azure 
 
 * Data lineage extraction is currently supported only for Stored procedure runs
 
+When scanning Azure SQL Database, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+	- Server
+	- Database
+	- Schemas
+	- Tables including the columns
+	- Views including the columns
+	- Store procedures (with lineage extraction enabled)
+	- Store procedure runs (with lineage extraction enabled)
+
+When setting up scan, you can further scope the scan after providing the database name by selecting tables and views as needed. 
+
 ### Known limitations
 
 * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
@@ -81,8 +95,8 @@ It's important to register the data source in Azure Purview before setting up a 
 
 If your database server has a firewall enabled, you'll need to update the firewall to allow access in one of two ways:
 
-1. Allow Azure connections through the firewall.
-1. Install a Self-Hosted Integration Runtime and give it access through the firewall.
+1. [Allow Azure connections through the firewall](#allow-azure-connections).
+1. [Install a Self-Hosted Integration Runtime and give it access through the firewall](#self-hosted-integration-runtime).
 
 #### Allow Azure Connections
 
@@ -99,7 +113,7 @@ Enabling Azure connections will allow Azure Purview to reach and connect the ser
 A self-hosted integration runtime (SHIR) can be installed on a machine to connect with a resource in a private network.
 
 1. [Create and install a self-hosted integration runtime](./manage-integration-runtimes.md) on a personal machine, or a machine inside the same VNet as your database server.
-1. Check your database server firewall to confirm that the SHIR machine has access through the firewall. Add the IP of the machine if it doesn't already have access.
+1. Check your database server networking configuration to confirm that there is a private endpoint accessible to the SHIR machine. Add the IP of the machine if it doesn't already have access.
 1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) to ensure end-to-end network isolation.
 
 ### Authentication for a scan
@@ -125,7 +139,7 @@ Select your method of authentication from the tabs below for steps to authentica
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Azure Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
+1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign-in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal.
 
@@ -220,7 +234,7 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Navigate to your key vault in the Azure portal
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for for Service Principal.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for Service Principal.":::
 
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
@@ -244,7 +258,7 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Then, [create a new credential](manage-credentials.md#create-a-new-credential).
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="Screenshot that shows the key vault option to add a credentials for Service Principal.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="Screenshot that shows the key vault option to add a credential for Service Principal.":::
 
 1. The **Service Principal ID** will be the **Application ID** of your service principal. The **Secret name** will be the name of the secret you created in the previous steps.
 
@@ -294,7 +308,7 @@ Select your method of authentication from the tabs below for scanning steps.
 
 ### Scoping and running the scan
 
-1. You can scope your scan to specific folders and subfolders by choosing the appropriate items in the list.
+1. You can scope your scan to specific database objects by choosing the appropriate items in the list.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scope-scan.png" alt-text="Scope your scan.":::
 

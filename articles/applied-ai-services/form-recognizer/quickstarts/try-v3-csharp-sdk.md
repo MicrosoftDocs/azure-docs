@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer C# SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer C# SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)'
 author: laujan
@@ -7,18 +7,19 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD029 -->
 
-# Get started: Form Recognizer C# SDK v3.0 | Preview
+# Get started: Form Recognizer C# SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -119,9 +120,10 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
  1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.3*** from the dropdown menu and install the package in your project.
 <!-- --- -->
+
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 > [!NOTE]
 >
@@ -143,6 +145,17 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > [!IMPORTANT]
 >
 > * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
+
+
+<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
+
+Open your command prompt and go to the directory that contains your project and type the following:
+
+```console
+dotnet run formrecognizer-quickstart.dll
+```
+
+### [Visual Studio](#tab/vs) -->
 
 ## General document model
 
@@ -268,10 +281,28 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
 ### General document model output
 
-Visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
-___
+Here's a snippet of the expected output:
+
+```console
+  Detected key-value pairs:
+  Found key with no value: '?'
+  Found key-value pair: 'QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934' and ':selected:'
+  Found key-value pair: 'For the Quarterly Period Ended March 31, 2020' and 'OR'
+  Found key with no value: '?'
+  Found key-value pair: 'TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934' and ':unselected:'
+  Found key with no value: 'For the Transition Period From'
+  Found key-value pair: 'to Commission File Number' and '001-37845'
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
 
 ## Layout model
 
@@ -367,9 +398,33 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
+Here's a snippet of the expected output:
+
+```console
+  Document Page 1 has 69 line(s), 425 word(s), and 15 selection mark(s).
+  Line 0 has content: 'UNITED STATES'.
+    Its bounding box is:
+      Upper left => X: 3.4915, Y= 0.6828
+      Upper right => X: 5.0116, Y= 0.6828
+      Lower right => X: 5.0116, Y= 0.8265
+      Lower left => X: 3.4915, Y= 0.8265
+  Line 1 has content: 'SECURITIES AND EXCHANGE COMMISSION'.
+    Its bounding box is:
+      Upper left => X: 2.1937, Y= 0.9061
+      Upper right => X: 6.297, Y= 0.9061
+      Lower right => X: 6.297, Y= 1.0498
+      Lower left => X: 2.1937, Y= 1.0498
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
 
 ## Prebuilt model
 
@@ -499,28 +554,27 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 ```
 
-### Prebuilt model output
+**Run your application**
 
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
-
-
-## Run your application
-
-<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
-
-Open your command prompt and go to the directory that contains your project and type the following:
-
-```console
-dotnet run formrecognizer-quickstart.dll
-```
-
-### [Visual Studio](#tab/vs) -->
-
-Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-<!-- --- -->
+### Prebuilt model output
+
+Here's a snippet of the expected output:
+
+```console
+  Document 0:
+  Vendor Name: 'CONTOSO LTD.', with confidence 0.962
+  Customer Name: 'MICROSOFT CORPORATION', with confidence 0.951
+  Item:
+    Description: 'Test for 23 fields', with confidence 0.899
+    Amount: '100', with confidence 0.902
+  Sub Total: '100', with confidence 0.979
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
 
 That's it, congratulations!
 

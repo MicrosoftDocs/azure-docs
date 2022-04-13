@@ -51,7 +51,7 @@ You can also install the [Windows Subsystem for Linux](/windows/wsl/about) to co
 
 The easiest way to create and manage your SSH keys is to [use the portal to create and store them](../ssh-keys-portal.md) for reuse.
 
-You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
+You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
 To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following: 
 

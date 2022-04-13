@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/15/2022
+ms.date: 04/12/2022
 ms.author: anfdocs
 ---
 
@@ -20,11 +20,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## April 2022
+
+* The [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users) feature is now generally available (GA).    
+
+    You no longer need to register this feature before using it.
+
 ## March 2022
-
-* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#encrypted-smb-connection)
-
-    You can now enable SMB encryption for communication between the Azure NetApp Files service and the Active Directory Domain Services domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections.
 
 * Features that are now generally available (GA)   
 

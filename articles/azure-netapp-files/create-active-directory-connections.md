@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 04/12/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -194,13 +194,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
   
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
-
-    * <a name="encrypted-smb-connection"></a>**Encrypted SMB connection to domain controller** 
-
-        Select this checkbox to enable SMB encryption for communication between the Azure NetApp Files service and the domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections, because encryption is supported only by SMB3. SMB, Kerberos, and LDAP enabled volume creation will fail if the DC doesn't support the SMB3 protocol. 
-
-        ![Snapshot that shows the option for encrypted SMB connection to domain controller.](../media/azure-netapp-files/encrypted-smb-domain-controller.png) 
-
     * **LDAP Signing**   
         Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 
@@ -264,7 +257,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png) 
 
-    * **Administrators privilege users** 
+    * <a name="administrators-privilege-users"></a>**Administrators privilege users** 
 
         You can grant additional security privileges to AD users or groups that require even more elevated privileges to access the Azure NetApp Files volumes. The specified accounts will have further elevated permissions at the file or folder level.
 
@@ -280,23 +273,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
 
         ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
-        
-        The **Administrators** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * Credentials, including your **username** and **password**
 

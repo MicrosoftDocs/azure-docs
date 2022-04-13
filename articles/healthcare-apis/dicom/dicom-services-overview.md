@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 03/22/2022
 ms.author: aersoy
 ---
 
@@ -24,7 +24,7 @@ The DICOM service is a managed service within [Azure Health Data Services](../he
 - **PHI Compliant**: Protect your PHI with unparalleled security intelligence. Your data is isolated to a unique database per API instance and protected with multi-region failover. The DICOM service implements a layered, in-depth defense and advanced threat protection for your data.
 - **Extended Query Tags**: Additionally index DICOM studies, series, and instances on both standard and private DICOM tags by expanding list of tags that are already specified within [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 - **Change Feed**: Access ordered, guaranteed, immutable, read-only logs of all the changes that occur in DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
-- **DICOM cast**: Via DICOM cast, DICOM service can inject DICOM metadata into a FHIR service, or FHIR server, as an imaging study resource allowing a single source of truth for both clinical data and imaging metadata. This feature is available on demand. To enable DICOM cast for your Azure subscription, please request access for DICOM cast via opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket.
+- **DICOMcast**: Via DICOMcast, DICOM service can inject DICOM metadata into a FHIR service, or FHIR server, as an imaging study resource allowing a single source of truth for both clinical data and imaging metadata. This feature is available on demand. To enable DICOMcast for your Azure subscription, please request access for DICOMcast via opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket.
 - **Region availability**: DICOM service has wide-range of [availability across many regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=all) with multi-region failover protection and continuously expanding.
 - **Scalability**: DICOM service is designed out-of-the-box to support different workload levels at a hospital, region, country and global scale without sacrificing any performance spec by using autoscaling features. 
 - **Role-based access**: You control your data. Role-based access control (RBAC) enables you to manage how your data is stored and accessed. Providing increased security and reducing administrative workload, you determine who has access to the datasets you create, based on role definitions you create for your environment.

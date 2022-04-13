@@ -166,9 +166,9 @@ You'll find the following errors in the copy logs for import jobs and/or export 
 | Error category                      | Error message     | Imports | Exports |
 |-------------------------------------|-------------------|---------|---------|
 | `UploadErrorWin32`                  |File system error. | Yes     | Yes     |
-| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|Yes |Yes |
+| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors).|Yes |Yes |
 | `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
-| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |Yes |Yes |
+| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors). |Yes |Yes |
 | `UploadErrorUnknownType`            |Unknown error. |Yes |Yes |
 | `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>. |No |Yes |
 | `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |No |Yes |

@@ -115,18 +115,18 @@ If you selected a multi-stage approval, you'll need to add an approver for each 
 
 1. Set the Require approver justification toggle to **Yes** or **No**.
 
-    You also have the option to add an additional stage for a three-stage approval process. For example, you might want an employee’s manager to be the first stage approver for an access package. But, one of the resources in the access package contains confidential information. In this case, you could designate the resource owner as a second approver and a security reviewer as the third approver (Preview). 
+    You also have the option to add an additional stage for a three-stage approval process. For example, you might want an employee’s manager to be the first stage approver for an access package. But, one of the resources in the access package contains confidential information. In this case, you could designate the resource owner as a second approver and a security reviewer as the third approver. That allows a security team to have oversight into the process and the ability to, for example, reject a request based on risk criteria not known to the resource owner.
 
-1. Add the **Third Approver (Preview)**: 
+1. Add the **Third Approver**:
     
     If the users are in your directory, add a specific user as the third approver by clicking **Add approvers** under Choose specific approvers.
 
-    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the third approver. After selecting the approver, add the fallback approvers.
+    If the users aren't in your directory, you also have the option to select **Internal sponsor** or **External sponsor** as the third approver. After selecting the approver, add the fallback approvers.
 
     > [!NOTE]
     > <ul>Like the second stage, if the users are in your directory and **Manager as approver** is selected in either the first or second stage of approval, you will only see an option to select specific approvers for the third stage of approval.</ul><ul>If you want to designate the manager as a third approver, you can adjust your selections in the previous approval stages to ensure that **Manager as approver** isn’t selected. Then, you should see **Manager as approver** as an option in the dropdown.</ul><ul>If the users aren’t in your directory and you have not selected **Internal sponsor** or **External sponsor** as approvers in previous stages, you will see them as options for **Third Approver**. Otherwise, you will only be able to select **Choose specific approvers**.</ul>
 
-1. Specify the number of days the third approver (Preview) has to approve the request in the box under **Decision must be made in how many days?**.
+1. Specify the number of days the third approver has to approve the request in the box under **Decision must be made in how many days?**.
 
 1. Set the Require approver justification toggle to **Yes** or **No**.
 

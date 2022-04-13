@@ -176,7 +176,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     - `az` version 2.28.0 or higher
 
-    - `terraform` version 1.0.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
+    - `terraform` version 1.1.4 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
 
 
 ## Create service principal
