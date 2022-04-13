@@ -27,7 +27,7 @@ Azure SignalR Service autoscaling is based on [Azure Monitor autoscale](../azure
 
 The [Next steps](#next-steps) section at the end of this article has a list of Azure Monitor autoscale articles to help you better understand how autoscaling works with Azure SignalR.
 
-All of the following examples can also be done from Azure Monitor **Settings > Autoscale** page.
+This article uses the Azure portal, but all of these examples can be completed using [Azure CLI SignalR](https://docs.microsoft.com/cli/azure/signalr?view=azure-cli-latest) (`az signalr`). All of the following examples can also be done from Azure Monitor **Settings > Autoscale** page in the Azure portal.
 
 ## Custom autoscale settings
 
@@ -36,29 +36,29 @@ Open the autoscale settings page:
 1. Go to the [Azure portal](https://portal.azure.com)
 
 1. Open the **SignalR** service page
-1. From the menu on the left, under **Settings**choose **Scale out**.
-1. Select the **Configure** tab. If you have a Premium tier SignalR instance, you will see two options for **Choose how to scale your resource**:
-   - **Manual scale**, which lets you to manually change the number of units
-   - **Custom autoscale**, which lets you to create autoscale conditions based on metrics/time
+1. From the menu on the left, under **Settings** choose **Scale out**.
+1. Select the **Configure** tab. If you have a Premium tier SignalR instance, you'll see two options for **Choose how to scale your resource**:
+   - **Manual scale**, which lets you manually change the number of units
+   - **Custom autoscale**, which lets you create autoscale conditions based on metrics/time
 
 1. Choose **Custom autoscale**. Use this page to manage the autoscale conditions for your Azure SignalR service.
 
 ### Default scale condition
 
-When you open custom autoscale settings for the first time, you'll see the **Default** scale condition already created for you. This scale condition is executed when none of the other scale conditions match the criteria set for them. You can't delete the **Default** condition, but you can rename it, change the rules, and change the action taken by autoscale. 
+When you open custom autoscale settings for the first time, you'll see the **Default** scale condition already created for you. This scale condition is executed when none of the other scale conditions match the criteria set for them. You can't delete the **Default** condition, but you can rename it, change the rules, and change the action taken by autoscale.
 
 You can't set the default condition to autoscale on a specific days or date range. The default condition only supports scaling to a unit range. To scale according to a schedule, you'll need to add a new scale condition.
 
-Autoscale does not take effect until you save the default condition for the first time after selecting **Custom autoscale**. 
+Autoscale doesn't take effect until you save the default condition for the first time after selecting **Custom autoscale**. 
 
 
 
 ## Add or change a scale condition
 
-There are two options for how to scale your Auzre SignalR resource:
+There are two options for how to scale your Azure SignalR resource:
 
 - **Scale based on a metric** - Scale within unit limits based on a dynamic metric. One or more scale rules are defined to set the criteria used to evaluate the metric. 
-- **Scale to specfic units** - Scale to a specific number of units based on a date range or recurring schedule
+- **Scale to specific units** - Scale to a specific number of units based on a date range or recurring schedule.
 
 
 ### Scale based on a metric
@@ -90,8 +90,8 @@ The following procedure shows you how to add a condition to automatically increa
 
 1. Select **Save** on the toolbar to save the autoscale setting. 
 
-### Scale to units
-Follow these steps to configure the rule to scale to a specific units. Again, the default condition is applied when none of the other scale conditions match. 
+### Scale to specific units
+Follow these steps to configure the rule to scale to a specific unit range. 
 
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option. 
 1. Select **Scale to a specific units** for **Scale mode**. 
@@ -100,7 +100,7 @@ Follow these steps to configure the rule to scale to a specific units. Again, th
     :::image type="content" source="./media/signalr-howto-scale-autoscale/default-specific-units.png" alt-text="Default - scale to specific units":::       
 
 ## Custom autoscale - Additional conditions
-The previous section shows you how to add a default condition for the autoscale setting. This section shows you how to add more conditions to the autoscale setting. For these additional non-default conditions, you can set a schedule based on specific days of a week or a date range. 
+The previous section shows you how to add a default condition for the autoscale setting. This section shows you how to add more conditions to the autoscale setting. 
 
 ### Scale based on a metric
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option. 
