@@ -46,8 +46,7 @@ You'll want to synchronize captions with the audio track, whether it's done in r
 
 The Speech service returns the offset and duration of the recognized speech. 
 
-- **Offset**: Used to measure the relative position of the speech that is currently being recognized. Offset is measured in ticks, where a single tick represents one hundred nanoseconds or one ten-millionth of a second.
-- **Duration**: Duration of the utterance that is being recognized. The duration in ticks doesn't include trailing or leading silence. 
+[!INCLUDE [Define offset and duration](includes/how-to/recognize-speech-results/define-offset-duration.md)]
 
 For more information, see [Get speech recognition results](get-speech-recognition-results.md).
 
