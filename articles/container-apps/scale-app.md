@@ -35,10 +35,10 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 Azure container Apps supports the following scale triggers:
 
-- HTTP traffic: the number of concurrent HTTP requests to your microservices
-- Event-based triggers such as messages in an Azure Service Bus
-- CPU or Memory usage
-- (Kubernetes Event-driven Autoscaling) [KEDA Scalers](https://keda.sh/docs/scalers/)
+- [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your microservices.
+- [Event-driven](#event-driven): Event-based triggers such as messages in an Azure Service Bus.
+- **CPU or Memory usage**: Scaling based on the amount of CPU or memory consumed by a container.
+- [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/docs/scalers/) scalers
 
 > [!NOTE]
 > KEDA templates are in YAML, while Azure Container Apps ARM templates are in JSON. Make sure to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing when you convert KEDA rules.
@@ -80,9 +80,9 @@ In the following example, the container app scales out up to five replicas and c
 }
 ```
 
-## Add a HTTP scale trigger
+### Add a HTTP scale trigger
 
-1. In Azure Portal, select **Revision management** and then select your revision.
+1. In Azure portal, select **Revision management** and then select your revision.
 
     :::image type="content" source="media/scalers/revisions.png" alt-text="A screenshot showing container apps revisions.":::
 
@@ -150,11 +150,11 @@ The container app scales according to the following behavior:
 }
 ```
 
-## Add a custom scale trigger
+### Add a custom scale trigger
 
 To set up a custom scale trigger, we must create a connection string to authenticate with the different KEDA scalers. Jump to the [next section](#set-up-authentication) to set up authentication if you haven't done so already.
 
-1. In Azure Portal, select **Revision management** and then select your revision.
+1. In Azure portal, select **Revision management** and then select your revision.
 
     :::image type="content" source="media/scalers/revisions.png" alt-text="A screenshot showing container apps revisions.":::
 
@@ -172,7 +172,7 @@ To set up a custom scale trigger, we must create a connection string to authenti
 
 1. Select **Create** when you are done.
 
-## Set up authentication
+### Set up authentication
 
 Follow these steps to create a connection string to authenticate with KEDA scalers
 
@@ -286,11 +286,11 @@ Azure container apps supports all the available [scalers](https://keda.sh/docs/s
             "name": "<YOUR_TRIGGER_NAME>",
             "custom": {
               "type": "<TRIGGER_TYPE>",
-              "metadata": {    #Add the metadata parameters here
+              "metadata": {
               },
               "auth": [{
                 "secretRef": "<YOUR_CONNECTION_STRING_NAME>",
-                "triggerParameter": "<TRIGGER_PARAMETER>" #E.G connection
+                "triggerParameter": "<TRIGGER_PARAMETER>"
               }]
         }
     }]
