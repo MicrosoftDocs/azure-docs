@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/21/2022
+ms.date: 4/13/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -61,6 +61,19 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation.
 
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
+
+## Snapshots
+Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. Snapshots are always differential from the live share and from each other, meaning that you are always paying only for what's different in each snapshot. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
+
+Snapshots do not count against file share size limits, although you are limited to a specific number of snapshots. To see the current snapshot limits, see the [Azure file share scale targets](storage-files-scale-targets.md#azure-file-share-scale-targets).
+
+Snapshots are always billed based on the differential storage utilization of each snapshot, however this looks slightly different between premium file shares and standard file shares:
+
+- In premium file shares, snapshots are billed against their own snapshot meter, which has a reduced price over the provisioned storage price. This means that you will see a separate line item on your bill representing snapshots for premium file shares for each FileStorage storage account on your bill.
+
+- In standard file shares, snapshots are billed as part of the normal used storage meter, although you are still only billed for the differential cost of the snapshot. This means that you will not see a separate line item on your bill representing snapshots for each standard storage account containing Azure file shares. This also means that differential snapshot usage counts against capacity reservations that are purchased for standard file shares.
+
+Value-added services for Azure Files may use snapshots as part of adding additional value to the Azure file share. See [value-add services for Azure Files](#value-add-services) for more information on how snapshots are used.
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
@@ -127,6 +140,22 @@ Similarly, if you put a highly accessed workload in the cool tier, you will pay 
 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
+### Choosing a tier
+Regardless of how you migrating existing data into Azure Files, we recommend initial creating the file share in transaction optimized tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days/weeks with regular usage, you can plug in your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+
+Because standard file shares only show transaction information at the storage account level, using the storage metrics to estimate which tier is cheaper at the file share level is an imperfect science. If possible, we recommend deploying only one file share in each storage account to ensure full visibility into billing.
+
+To see previous transactions:
+
+1. Go to your storage account and select **Metrics** in the left navigation bar.
+2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+3. Select **Apply Splitting**.
+4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+5. Select your desired time period.
+
+> [!Note]  
+> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
+
 ### Logical size versus physical size
 The data at-rest capacity charge for Azure Files is billed based on the logical size, often colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
 
@@ -147,52 +176,74 @@ There are five basic transaction categories: write, list, read, other, and delet
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
 
 ## Value-add services
+Like on-premises storage solutions which offer first and third party features/product integrations to bring additional value to the hosted file shares, Azure Files provides integration points for first and third party products to integrate with customer-owned file shares. Although these solutions may provide considerable extra value to Azure Files, you should consider the additional costs that these services add to the cost of ownership for your file shares. 
+
+Costs are generally broken down into three buckets:
+
+- **Licensing costs for the value-added service.** These may come in the form of a fixed cost per customer, end-user (sometimes referred to as a "head cost"), Azure file share or storage account, or in units of storage utilization, such as a fixed cost for every 500 GiB chunk of data in the file share.
+
+- **Transaction costs for the value-added service.** Some value-added services, have their own concept of transactions distinct from what Azure Files views as a transaction. These transactions will show up on your bill under the value-added service's charges, however, relate directly to how you use the value-added service with your file share.
+
+- **Azure Files costs for using a value-added service.** Azure Files does not directly charge customers costs for adding value-added services, but as part of adding value to the Azure file share, the value-added service might increase the costs that you see on your Azure file share. This is really easy to see with standard file shares, because standard file shares have a pay-as-you-go model with transaction charges. If the value-added service does transactions against the file share on your behalf, they will show up in your Azure Files transaction bill even though you didn't directly do those transaction yourself. This same effect is present on premium file shares as well, although it may be less noticeable. Additional transactions against premium file shares from value-added services count against your provisioned IOPS numbers, meaning that value-added services might cause you to need to provision additional storage to have enough IOPS or throughput available for your workload.
+
+When computing the total cost of ownership for your file share, you should consider the costs of Azure Files and of all value-added services that you would like to use with Azure Files.
+
+There are multiple value-added first and third party services. This document covers a subset of the common first party services customers use with Azure file shares. You can learn more about services not listed here by reading the pricing page for that service.
 
 ### Azure File Sync
-If you are thinking about using Azure File Sync, consider the following when evaluating cost:
+Azure File Sync is a value-added service for Azure Files that synchronizes one or more on-premises Windows file shares with an Azure file share. Because the cloud Azure file share has a complete copy of the data in a synchronized file share that is available on-premises, you can transform your on-premises Windows File Server into a cache of the Azure file share, enabling you to reduce your on-premises footprint. You can learn more about Azure File Sync's capabilities from the [Introduction to Azure File Sync](../file-sync/file-sync-introduction.md) article.
 
-#### Server fee
-For each server that you have connected to a sync group, there is an additional $5 fee. This is independent of the number of server endpoints. For example, if you had one server that contained three different server endpoints, you would only have one $5 charge. One sync server is free per Storage Sync Service. 
+When considering the total cost of ownership for a solution deployed using Azure File Sync, you should consider the following cost aspects:
 
-#### Data cost
-The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
+- **Capital and operational costs of Windows File Servers with one or more server endpoints.** Azure File Sync as a replication solution is agnostic of where the Windows File Servers that are synchronized with Azure Files are; they could be hosted on-premises, in an Azure VM, or even in another cloud. Unless you are using Azure File Sync with Windows File Server that is hosted in an Azure VM, the capital (i.e. the upfront hardware costs of your solution) and operating (i.e. cost of labor, electricity, etc.) costs will not be part of your Azure bill, but will still be very much a part of your total cost of ownership. You should consider the amount of data you need cache on-premises, the number of CPUs and amount of memory your Windows File Servers need to host Azure File Sync workloads (see [recommended system resources for more information](../file-sync/file-sync-planning.md#recommended-system-resources)), and other organization-specific costs you might have when estimating these costs.
 
-#### Cloud enumeration scans cost
-Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of one LIST transaction per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+- **Per server licensing cost for servers registered with Azure File Sync.** To use Azure File Sync with a specific Windows File Server, you must first register it with Azure File Sync's Azure resource, the Storage Sync Service. Each server that you register after the first server has a flat per month fee. Although this fee is very small, it is one component of your bill to consider. To see the current price of the server registration fee for your desired region, see [the File Sync section on Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
-> [!Tip]  
-> If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.
+- **Azure Files costs.** Because Azure File Sync is a synchronization solution for Azure Files, it will cause you to consume Azure Files resources. Some of these resources, like storage consumption, are relatively obvious, while transaction and snapshot utilization may not be. For most customers, we recommend using standard file shares with Azure File Sync, although Azure File Sync is fully supported with premium file shares if desired.
+    - **Storage utilization.** Azure File Sync will replicate any changes you have made to the path on your Windows File Server specified on your server endpoint to your Azure file share, thus causing storage to be consumed. On standard file shares, this means that adding or increasing the size of existing files on server endpoints will cause storage costs to grow, since the changes will be replicated. On premium file shares, changes will be consume provisioned space - it is your responsibility to ensure that you are periodically increasing provisioning as needed to account for file share growth.
 
-#### Churn and tiering costs
-As files change on server endpoints, the changes are uploaded to the cloud share, which generates transactions. When cloud tiering is enabled, additional transactions are generated for managing tiered files, including I/O happening on tiered files, in addition to egress costs. The quantity and type of transactions is difficult to predict due to churn rates and cache efficiency, but you can use your previous transaction patterns to predict future costs if you only have one file share in your storage account. See [Choosing a billing tier](#choosing-a-billing-tier) for details on how to view previous transactions.  
+    - **Snapshot utilization.** Azure File Sync takes share and file-level snapshots as part of regular usage. Although snapshot utilization is always differential, this can contribute in a noticeable way to the total Azure Files bill.
 
-#### Choosing a billing tier
-For Azure File Sync customers, we recommend choosing standard file shares over premium file shares. This is because with Azure File Sync, customers get that low latency on-premises that they always had, so the higher performance provided by premium file shares isn’t necessary. When first migrating to Azure Files via Azure File Sync, we recommend the Transaction Optimized tier due to the large number of transactions incurred during migration. Once migration is complete, you can plug in your previous transactions into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+    - **Transactions from churn.** As files change on server endpoints, the changes are uploaded to the cloud share, which generates transactions. When cloud tiering is enabled, additional transactions are generated for managing tiered files, including I/O happening on tiered files, in addition to egress costs. Although the quantity and type of transactions is difficult to predict due to churn rates and cache efficiency, you can use your previous transaction patterns to estimate future costs if you believe your future usage will be similar to your current usage. 
+    
+    - **Transactions from cloud enumeration.** Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of one `ListFiles` transaction per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
 
-To see previous transactions:
-1. Go to your storage account and select **Metrics** in the left navigation bar.
-2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
-3. Select **Apply Splitting**.
-4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
-5. Select your desired time period.
+    > [!Tip]  
+    > If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.
 
-> [!Note]  
-> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
+To optimize costs for Azure Files with Azure File Sync, you should consider the tier of your file share. For more information on how to pick the tier for each file share, see [choosing a file share tier](#choosing-a-tier).  
+
+### Azure Backup
+Azure Backup provides a serverless backup solution for Azure Files that seamlessly integrates with your file shares, as well as other value-added services such as Azure File Sync. Azure Backup for Azure Files is a snapshot-based backup solution, meaning that Azure Backup provides a scheduling mechanism for automatically taking snapshots on an administrator defined schedule and an user-friendly interface for restoring deleted files/folders or the entire share to a particular point in time. To learn more about the capabilities of Azure Backup for Azure Files, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json).
+
+When considering the costs of using Azure Backup to backup your Azure file shares, you should consider the following:
+
+- **Protected instance licensing cost for Azure file share data.** Azure Backup charges a protected instanced licensing cost per storage account containing backed up Azure file shares. A protected instance is defined as 250 GiB of Azure file share storage. Storage accounts containing less than 250 GiB of Azure file share storage, are subject to a fractional protected instance cost. See [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for more information (note that you must select *Azure Files* from the list of services Azure Backup can protect).
+
+- **Azure Files costs.** Azure Backup increases the costs of Azure Files in the following ways:
+    - **Differential costs from Azure file share snapshots.** Azure Backup automates taking Azure file snapshots on an administrator defined schedule. Snapshots are always differential, however, the additional cost added to the total bill depends on length of time snapshots are kept for and the amount of churn on the file share on that time, since that dictates how different the snapshot is from the live file share and therefore how much additional data is stored by Azure Files.
+
+    - **Transaction costs from restore operations.** Restore operations from the snapshot to the live share will cause transactions. For standard file shares, this means that reads from snapshots/writes from restores will be billed as normal file share transactions. For premium file shares, these operations are counted against the provisioned IOPS for the file share.
+
+### Microsoft Defender for Storage
+Microsoft Defender provides support for Azure Files as part of it's Microsoft Defender for Storage product offering. Microsoft Defender for Storage detects unusual and potentially harmful attempts to access or exploit your Azure file shares over SMB or FileREST. Microsoft Defender for Storage is enabled on the subscription level, for all file shares in storage accounts in that subscription.
+
+Microsoft Defender for Storage does not support antivirus capabilities for Azure file shares.
+
+The main cost from Microsoft Defender for Storage is an additional set of transaction costs that the Microsoft Defender for Storage product levies on top of the transactions that are done against the Azure file share. Although these costs are based on the transactions incurred in Azure Files, they are not part of the billing for Azure Files, but rather are part of the Microsoft Defender pricing. Microsoft Defender for Storage charges a transaction rate even on premium file shares, where Azure Files includes transactions as part of IOPS provisioning. The current transaction rate can be found on [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) under the *Microsoft Defender for Storage* table row.
+
+Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you may wish to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](../../defender-for-cloud/defender-for-storage-exclude.md).
 
 ## File storage comparison checklist
 To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:
 
-- **How do you pay for storage, IOPS, and bandwidth?**  
-    With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for you actually use). Of particular interest for provisioned models is minimum provisioned share size, the provisioning unit, and the ability to increase and decrease the provisioning. 
+- **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for you actually use). Of particular interest for provisioned models is minimum provisioned share size, the provisioning unit, and the ability to increase and decrease the provisioning. 
 
-- **How do you achieve storage resiliency and redundancy?**  
-    With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built-in or something you must assemble yourself. 
+- **How do you achieve storage resiliency and redundancy?** With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built-in or something you must assemble yourself. 
 
-- **What do you need to manage?**  
-    With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
+- **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
 
-- **What are the backup costs?**  
-    With Azure Files, Azure Backup integration is easily enabled and is backup storage is billed as part of the cost share (backups are stored as differential snapshots). Other solutions may require backup software licensing and additional backup storage costs.
+- **What are the backup costs?** With Azure Files, Azure Backup integration is easily enabled and is backup storage is billed as part of the cost share (backups are stored as differential snapshots). Other solutions may require backup software licensing and additional backup storage costs.
 
 ## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
