@@ -130,9 +130,61 @@ You can create new Guest OS update maintenance configuration or modify an existi
 
    :::image type="content" source="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-inline.png" alt-text="Change update selection criteria of Maintenance configuration." lightbox="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-expanded.png":::
 
+## Dynamic scoping
+
+Update mangement center allows you to target a dynamic group of Azure or non Azure VMs for update deployment. Using a dynamic group keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use dynamic scoping by using built-in policies which you can customize as per your use-case.
+
+> [!NOTE]
+> This policy also ensures that the patch orchestration property for Azure machines is set to **Automatic by OS (Windows Automatic Updates)** or **Azure-orchestrated (preview)** as it is a prequisite for scheduled patching.
+
+### Assign a policy
+
+Policy allows you to assign standards and assess compliance at scale. [Learn more](/azure/governance/policy/overview). To assign a policy to scope, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Policy**.
+1. In **Assignments**, select **Assign policy**.
+1. Under Basics, in **Assign policy** page:
+	- In scope, choose your subscription, resource group, and click **Select**.
+	- Select **Policy definition** to view a list of policies.
+	- In **Available Definitions**, select **Built in** for Type and in search, enter - *[Preview] Schedule recurring updates using Update Management Center* and click **Select**.
+
+	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows on how to select the definition.":::
+	
+	- Ensure that **Policy enforcement** is set to **Enabled** and select **Next**.
+1. In **Parameters**, by default, only the Maintenance configuration ARM ID is visible. 
+
+	>[!NOTE]
+	> If you do not specify any other parameters, all machines in the subscription and resource group that you selected in **Basics** will be covered under scope. However, if you want to scope further based on resource group, location, OS, tags and so on. Deselect **Only show parameters that need input or review** to view all parameters.
+
+	- Maintenance Configuration ARM ID: A mandatory parameter to provide. It denotes ARM ID of the schedule that you want to assign to the machines.
+	- Resource groups: You can specify resource group optionally if you want to scope it down to a resource group. By default, all resource groups within the subscription are selected.
+	- Operating System types: You can select Windows or Linux. By default, both are preselected.
+	- Machine locations: You can optionally specify the regions that you want to select. By default, all are selected.
+	- Tags on machines: You can use tags to scope down further. By default, all are selected.
+	- Tags operator: In case you have selected multiple tags, you can specify if you want the scope to be machines that have all the tags or machines which have any of those tags.
+
+	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-assign-policy.png" alt-text="Screenshot that shows on how to assign a policy.":::
+
+1. In **Remediation**, select System assigned managed identity and **permissions** is set to *Contributor* as per the policy definition.
+
+	>[!NOTE]
+	> If you select Remediation, the policy would be effective on all the existing machines in the scope else, it is assigned to any new machine which is added to scope.
+
+1. In **Review + Create**, verify your selections, and select **Create** to identify non-compliant resources to understand the compliance state of your environment.
+
+### View Compliance
+
+To view the current compliance state of your existing resources:
+
+1. In **Policy Assignments**, select **Scope** to select your subscription and resource group.
+1. In **Definition type**, select policy and in the list, select the assignment name.
+1. Select **View compliance**, the resource compliance lists the machines and reasons for failure.
+
+	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-policy-compliance.png" alt-text="Screenshot that shows on policy compliance.":::
 
 ## Check your scheduled patching run
 You can check the deployment status and history of your maintenance configuration runs from the Update management center portal. Follow [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
+
 
 ## Limitations and known issues
 
