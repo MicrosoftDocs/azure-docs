@@ -102,7 +102,4 @@ Learn more about Azure Purview insight reports
 > [Glossary insights](glossary-insights.md)
 
 > [!div class="nextstepaction"]
-> [Scan insights](scan-insights.md)
-
-> [!div class="nextstepaction"]
 > [Sensitivity labeling insights](./sensitivity-insights.md)

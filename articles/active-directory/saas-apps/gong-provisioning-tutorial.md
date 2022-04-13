@@ -128,7 +128,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|| 
     |active|Boolean||
     |title|String|| 
-    |emails[type eq "work"].value|String||  
+    |emails[type eq "work"].value|String||&check; 
     |name.givenName|String||&check;
     |name.familyName|String||&check;
     |phoneNumbers[type eq "work"].value|String||
@@ -172,6 +172,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change Log
 03/23/2022 - Added support for **Group Provisioning**.
+04/06/2022 - **emails[type eq "work"].value** is made a required attribute.
 
 ## More resources
 

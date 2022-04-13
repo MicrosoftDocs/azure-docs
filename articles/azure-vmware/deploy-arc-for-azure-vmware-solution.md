@@ -347,7 +347,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
-1. Delete the appliance ARM resource.
+1. Delete the resource bridge ARM resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.

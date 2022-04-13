@@ -1,9 +1,9 @@
-# How to use sweep(hyperparameter tuning) in pipeline (V2)
+# How to do hyperparameter sweep in pipeline (V2)
 
-In this artilce, you will learn how to do hyperparameter tuning in Azure Machine Learning pipeline.
+In this artilce, you will learn how to do hyperparameter sweep in Azure Machine Learning pipeline.
 
 ## Prerequisite
-1. Understand what is sweep, and how to do sweep in Azure Machine Learning start form a single step sweep job. **[to-do](link to single step sweep doc)** It's highly suggested to go through the single step sweep example to understand how sweep works in Azure Machine Learning, before using it in a pipeline. 
+1. Understand what is hyperparameter sweep, and how to do sweep in Azure Machine Learning start form a single step job. **[to-do](link to single step sweep doc)** It's highly suggested to go through the single step sweep example to understand how sweep works in Azure Machine Learning, before using it in a pipeline. 
 2. Understand what is Azure Machine Learning pipeline and how to build your first pipeline. [to-do](link to pipeline value prop article.) 
 3. Build a command commponent following [this atcile] (add a link to Blanca's article). 
 
