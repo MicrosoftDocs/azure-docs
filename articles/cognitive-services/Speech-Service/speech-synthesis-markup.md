@@ -256,7 +256,7 @@ The following table has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-All neural voices are multilingual. By default, they are fluent in their own language and English without using `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
+By default, all neural voices are fluent in their own language and English without using `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
 You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. 
 
@@ -979,6 +979,26 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cognitive-services/speech/spxspeechsynthesizer).
 
 ---
+
+## Supported MathML elements
+
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. Some special MathML entities are not supported, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities. 
+
+> [!NOTE]
+> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales. 
+
+**Example**
+
+This SSML snippet demonstrates how the MathML elements are used to output synthesized speech.
+
+```MathML
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural">This is test: <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math> end!</voice></speak> 
+```
+
+The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional. All elements from the MathML 2.0 specification are supported. And the `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored. For MathML 3.0, all elements except ones in [elementary math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) are also supported. 
+
+> [!NOTE]
+> If the element is not recognized due to typos or unsupported tags, it will be ignored, and the child elements within it will still be processed.
 
 ## Next steps
 
