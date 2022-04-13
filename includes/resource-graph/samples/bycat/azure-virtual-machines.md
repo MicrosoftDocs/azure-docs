@@ -385,7 +385,7 @@ Search-AzGraph -Query "Resources | where type == "microsoft.compute/disks" | whe
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.us</a>
 - Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.cn</a>
-```
+
 
 ---
 
