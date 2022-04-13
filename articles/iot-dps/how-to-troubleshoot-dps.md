@@ -39,19 +39,19 @@ To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-over
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Browse to your IoT hub.
+2. Browse to your Device Provisioning Service.
 
 3. Select **Diagnostics settings**.
 
-4. Select **Turn on diagnostics**.
+4. Select **Add diagnostic setting**.
 
-5. Enable the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
+5. Configure the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
 
-6. Turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). 
+6. Tick the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
 
 7. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
 
-8. Click **Run** to view recent events.
+8. Write **AzureDiagnostics** as a query and click **Run** to view recent events.
 
 9. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
