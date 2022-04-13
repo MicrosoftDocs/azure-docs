@@ -50,11 +50,11 @@ Now Azure CLI setup is validated, define the initial environment variables used 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP_ACA="album-containerapps"
-LOCATION_ACA="canadacentral"
-ENVIRONMENT_ACA="env-album-containerapps"
-API_NAME_ACA="album-api"
-GITHUB_USERNAME_ACA="<YOUR_GITHUB_USERNAME>"
+RESOURCE_GROUP="album-containerapps"
+LOCATION="canadacentral"
+ENVIRONMENT="env-album-containerapps"
+API_NAME="album-api"
+GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
@@ -62,17 +62,17 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Now create a unique container registry name.
 
 ```azurecli
-ACR_NAME_ACA=$GITHUB_USERNAME_ACA"acaalbums"
+ACR_NAME=$GITHUB_USERNAME"acaalbums"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP_ACA="album-containerapps"
-$LOCATION_ACA="canadacentral"
-$ENVIRONMENT_ACA="env-album-containerapps"
-$API_NAME_ACA="album-api"
-$GITHUB_USERNAME_ACA="<YOUR_GITHUB_USERNAME>"
+$RESOURCE_GROUP="album-containerapps"
+$LOCATION="canadacentral"
+$ENVIRONMENT="env-album-containerapps"
+$API_NAME="album-api"
+$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
@@ -80,7 +80,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Now create a unique container registry name.
 
 ```powershell
-$ACR_NAME_ACA=$GITHUB_USERNAME_ACA"acaalbums"
+$ACR_NAME=$GITHUB_USERNAME + "acaalbums"
 ```
 
 ---
@@ -115,13 +115,13 @@ Next, set an environment variable for the target port of your application.  If y
 # [Bash](#tab/bash)
 
 ```bash
-API_PORT_ACA="<TARGET_PORT>"
+API_PORT="<TARGET_PORT>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$API_PORT_ACA="<TARGET_PORT>"
+$API_PORT="<TARGET_PORT>"
 ```
 
 ---
@@ -144,13 +144,13 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 # [Bash](#tab/bash)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME_ACA/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-${LANGUAGE}.git code-to-cloud
 ```
 
 ---
@@ -171,14 +171,14 @@ Create a resource group to organize the services related to your container app d
 
 ```azurecli
 az group create \
-  --name $RESOURCE_GROUP_ACA \
-  --location "$LOCATION_ACA"
+  --name $RESOURCE_GROUP \
+  --location "$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroup -Name $RESOURCE_GROUP_ACA -Location $LOCATION_ACA
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
@@ -191,8 +191,8 @@ Next, create an Azure Container Registry (ACR) registry instance in your new res
 
 ```azurecli
 az acr create \
-  --resource-group $RESOURCE_GROUP_ACA \
-  --name $ACR_NAME_ACA \
+  --resource-group $RESOURCE_GROUP \
+  --name $ACR_NAME \
   --sku Basic \
   --admin-enabled true
 ```
@@ -200,7 +200,7 @@ az acr create \
 Now store your ACR credentials in an environment variable.
 
 ```azurecli
-ACR_PASSWORD_ACA=$(az acr credential show -n $ACR_NAME_ACA --query passwords[0].value)
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
 ```
 
 # [PowerShell](#tab/powershell)
@@ -209,8 +209,8 @@ ACR_PASSWORD_ACA=$(az acr credential show -n $ACR_NAME_ACA --query passwords[0].
 
 ```powershell
 $ACA_REGISTRY = New-AzContainerRegistry `
-    -ResourceGroupName $RESOURCE_GROUP_ACA `
-    -Name $ACR_NAME_ACA `
+    -ResourceGroupName $RESOURCE_GROUP `
+    -Name $ACR_NAME `
     -EnableAdminUser `
     -Sku Basic
 ```
@@ -218,7 +218,7 @@ $ACA_REGISTRY = New-AzContainerRegistry `
 Now store your ACR credentials in an environment variable.
 
 ```powershell
-$ACR_PASSWORD_ACA=Get-AzContainerRegistryCredential `
+$ACR_PASSWORD=Get-AzContainerRegistryCredential `
     -Registry=$ACA_REGISTRY`
 ```
 
@@ -229,13 +229,13 @@ Sign in to your container registry.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr login --name $ACR_NAME_ACA
+az acr login --name $ACR_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Connect-AzContainerRegistry -Name $ACR_NAME_ACA
+Connect-AzContainerRegistry -Name $ACR_NAME
 ```
 
 ---
@@ -253,13 +253,13 @@ The following command uses ACR to remotely build the Dockerfile for the album AP
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr build --registry $ACR_NAME_ACA --image $API_NAME_ACA .
+az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az acr build --registry $ACR_NAME_ACA --image $API_NAME_ACA .
+az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
 ---
@@ -271,14 +271,14 @@ To verify that your image is now available in ACR, run the command below.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr manifest list-metadata --registry $ACR_NAME_ACA --name $API_NAME_ACA
+az acr manifest list-metadata --registry $ACR_NAME --name $API_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Get-AzContainerRegistryManifest -RegistryName $ACR_NAME_ACA `
-  -Repository $API_NAME_ACA
+Get-AzContainerRegistryManifest -RegistryName $ACR_NAME `
+  -Repository $API_NAME
 ```
 
 ---
@@ -298,13 +298,13 @@ The following command builds the image using the Dockerfile for the album API. T
 # [Bash](#tab/bash)
 
 ```azurecli
-docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA .
+docker build -t $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker build -t $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA .
+docker build -t $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
 ---
@@ -332,13 +332,13 @@ First, sign in to your Azure Container Registry.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr login --name $ACR_NAME_ACA
+az acr login --name $ACR_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az acr login --name $ACR_NAME_ACA
+az acr login --name $ACR_NAME
 ```
 
 ---
@@ -348,13 +348,13 @@ Now, push the image to your registry.
 # [Bash](#tab/bash)
 
 ```azurecli
-docker push $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
+docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker push $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA
+docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
 ---
@@ -371,18 +371,18 @@ Create the Container Apps environment using the following command.
 
 ```azurecli
 az containerapp env create \
-  --name $ENVIRONMENT_ACA \
-  --resource-group $RESOURCE_GROUP_ACA \
-  --location "$LOCATION_ACA"
+  --name $ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --location "$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az containerapp env create `
-  --name $ENVIRONMENT_ACA `
-  --resource-group $RESOURCE_GROUP_ACA `
-  --location $LOCATION_ACA
+  --name $ENVIRONMENT `
+  --resource-group $RESOURCE_GROUP `
+  --location $LOCATION
 ```
 
 ---
@@ -399,15 +399,15 @@ Create and deploy your container app with the following command.
 
 ```azurecli
 az containerapp create \
-  --name $API_NAME_ACA \
-  --resource-group $RESOURCE_GROUP_ACA \
-  --environment $ENVIRONMENT_ACA \
-  --image $ACR_NAME_ACA.azurecr.io/$API_NAME_ACA \
-  --target-port $API_PORT_ACA \
+  --name $API_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --environment $ENVIRONMENT \
+  --image $ACR_NAME.azurecr.io/$API_NAME \
+  --target-port $API_PORT \
   --ingress 'external' \
-  --registry-password $ACR_PASSWORD_ACA \
-  --registry-username $ACR_NAME_ACA \
-  --registry-server $ACR_NAME_ACA.azurecr.io \
+  --registry-password $ACR_PASSWORD \
+  --registry-username $ACR_NAME \
+  --registry-server $ACR_NAME.azurecr.io \
   --query configuration.ingress.fqdn
 ```
 
@@ -415,11 +415,11 @@ az containerapp create \
 
 ```azurecli
 az containerapp create `
-  --name $API_NAME_ACA `
-  --resource-group $RESOURCE_GROUP_ACA `
-  --environment $ENVIRONMENT_ACA `
-  --image $API_NAME_ACA `
-  --target-port $API_PORT_ACA `
+  --name $API_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --environment $ENVIRONMENT `
+  --image $API_NAME `
+  --target-port $API_PORT `
   --ingress 'external' `
   --query configuration.ingress.fqdn
 ```
@@ -432,26 +432,6 @@ The `az containerapp create` command returns the fully qualified domain name for
 
 From your web browser, navigate to the FQDN on the `/albums` endpoint.
 
-## Save environment variables
-
-If you plan to continue with further tutorials in this series, consider saving the environment variables defined in this article.
-
-Change directory to the root of your repository and run the following script to save your variables to the file, *aca_variables.env*. As you continue on in the series, you can restore the variables as needed in new bash or PowerShell sessions.
-
-# [Bash](#tab/bash)
-
-```azurecli
-./save-env.sh
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-save-env.ps1
-```
-
----
-
 ## Clean up resources
 
 If you're not going to continue to the next tutorial, run the following command to delete the resource group along with all the resources created in this quickstart.
@@ -459,13 +439,13 @@ If you're not going to continue to the next tutorial, run the following command 
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete --name $RESOURCE_GROUP_ACA
+az group delete --name $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP_ACA -Force
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---
