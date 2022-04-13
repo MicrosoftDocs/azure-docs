@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 04/13/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to install the password reset extension on a VM that is running on your Azure Stack Edge device. This article covers steps to install the password reset extension using Azure Resource Manager templates on both Windows and Linux VMs. This article also details how to deploy, verify, and then remove the extension.
+This article covers steps to install, verify, and remove the password reset extension using Azure Resource Manager templates on both Windows and Linux VMs.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Before you install the password reset extension on the VMs running on your devic
 
 ## Edit parameters file
 
-Depending on the operating system for your VM, you can install the extension for Windows or for Linux.
+Depending on the operating system for your VM, you can install the extension for Windows or for Linux. You'll find the parameter and template files in the *PasswordResetExtension* folder.
 
 ### [Windows](#tab/windows)
 
@@ -96,37 +96,46 @@ The file `addPasswordResetExtensionTemplate.parameters.json` takes the following
 
 ### [Windows](#tab/windows)
 
-Deploy the template `addPasswordResetExtensionTemplate.json`. This template deploys the extension to an existing VM. Run the following command:
+Set some parameters. Run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> $templateFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.json" 
-PS C:\WINDOWS\system32> $templateParameterFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.parameters.json" 
-PS C:\WINDOWS\system32> $RGName = "myasepro2rg" 
-PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "windowsvmdeploy" -AsJob
+$templateFile = "<Path to addPasswordResetExtensionTemplate.json file>" 
+$templateParameterFile = "<Path to addPasswordResetExtensionTemplate.parameters.json file>" 
+$RGName = "<Name of resource group>" 
+New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Deployment name>" -AsJob
 ```
+
+The extension deployment is a long running job and takes about 10 minutes to complete.
 
 Here's a sample output:
 
 ```powershell
   
+PS C:\WINDOWS\system32> $templateFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.json" 
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.parameters.json" 
+PS C:\WINDOWS\system32> $RGName = "myasepro2rg" 
+PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "windowsvmdeploy" -AsJob
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command 
 --     ----            -------------   -----         -----------     --------             ------- 
 9      Long Running... AzureLongRun... Running       True            localhost            New-AzResourceGro... 
-
+ 
 PS C:\WINDOWS\system32>
+
 ```
 
 ### [Linux](#tab/linux)
 
-Deploy the template `addPasswordResetExtensionTemplate.json`. This template deploys extension to an existing VM. Run the following command:
+Set some parameters. Run the following command:
 
 ```powershell
-PS C:\WINDOWS\system32> $templateFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.json" 
-PS C:\WINDOWS\system32> $templateParameterFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.parameters.json" 
-PS C:\WINDOWS\system32> $RGName = "myasepro2rg" 
-PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "myvmdeployext" -AsJob
+$templateFile = "<Path to addPasswordResetExtensionTemplate.json file>" 
+$templateParameterFile = "<Path to addPasswordResetExtensionTemplate.parameters.json file>" 
+$RGName = "<Name of resource group>" 
+New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Deployment name>" -AsJob
 ```
- 
+
+The extension deployment is a long running job and takes about 10 minutes to complete.
+
 Here's a sample output:
 
 ```powershell
@@ -230,7 +239,7 @@ To verify the VM password update, connect to the VM using the new password.
 
 To verify the VM password update, connect to the VM using the new password.
 
-   ![Screenshot of the Remote Desktop Connection dialog to connect to a VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/connect-to-vm.png)
+For detailed instructions, see [Connect to a Linux VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-linux-vm)
 
 Open a cmd window and connect to the Linux VM. Here's a sample output:
 
