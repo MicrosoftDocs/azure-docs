@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 03/17/2022
+  ms.date: 04/13/2022
   featureFlags:
   - clicktale
 
@@ -20,9 +20,9 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
   items:
     # Card
-    - title: Get started guide for Azure developers
+    - title: Get started for Azure developers
       itemType: get-started
-      url: guides/developer/azure-developer-guide.md
+      url: /azure/developer/
     # Card
     - title: Design your app using the Azure Architecture Center
       itemType: architecture
