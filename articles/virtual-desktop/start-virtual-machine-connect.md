@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/17/2021
+ms.date: 04/13/2022
 ms.author: helohr
 manager: femila
 ---
@@ -30,7 +30,10 @@ The following Remote Desktop clients support the Start VM on Connect feature:
 
 ## Create a custom role for Start VM on Connect
 
-Before you can configure the Start VM on Connect feature, you'll need to assign a subscription-level custom RBAC (role-based access control) role to the Azure Virtual Desktop service principal . This role will let Azure Virtual Desktop manage the VMs in your subscription. This role grants Azure Virtual Desktop the permissions to turn on VMs, check their status, and report diagnostic info. If you want to know more about Azure custom RBAC roles, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
+Before you can configure the Start VM on Connect feature, you'll need to assign a subscription-level custom RBAC (role-based access control) role to the Azure Virtual Desktop service principal. This role will let Azure Virtual Desktop manage the VMs in your subscription. This role grants Azure Virtual Desktop the permissions to turn on VMs, check their status, and report diagnostic info. If you want to know more about Azure custom RBAC roles, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+>[!IMPORTANT]
+>You must have global admin permissions in order to assign the RBAC role to the service principal.
 
 >[!NOTE]
 >If your VMs and host pool are in different subscriptions, the RBAC role needs to be created in the subscription that the VMs are in.
