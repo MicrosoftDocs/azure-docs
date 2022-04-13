@@ -23,6 +23,7 @@ The Virtual WAN architecture is a hub and spoke architecture with scale and perf
 
 Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration and establish connectivity to the Azure Virtual WAN hub. For Point-to-site/User VPN connectivity, we support [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN, or IKEv2 client.
 
+
 ### Can you disable fully meshed hubs in a Virtual WAN?
 
 Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs are not meshed. In a Standard Virtual WAN, hubs are meshed and automatically connected when the virtual WAN is first set up. The user does not need to do anything specific. The user also does not have to disable or enable the functionality to obtain meshed hubs. Virtual WAN provides you many routing options to steer traffic between any spoke (VNet, VPN, or ExpressRoute). It provides the ease of fully meshed hubs, and also the flexibility of routing traffic per your needs.
@@ -358,6 +359,12 @@ Note that you’ll only be able to update your virtual hub router if all the res
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
 The route limit for OpenVPN clients is 1000. 
+
+### How is Virtual WAN SLA calculated?
+
+Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However, Virtual WAN combines many different components such as Azure Firewall, Site-to-site VPN, ExpressRoute, Point-to-site VPN, and Virtual WAN Hub/Integrated Network Virtual Appliances. 
+
+The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute outage, the availability would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100. Uptime would be calculated separately for eachcomponent. 
 
 ## Next steps
 
