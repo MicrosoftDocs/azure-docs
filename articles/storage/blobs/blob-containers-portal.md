@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Manage blob containers using the Azure portal
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Azure Blob Storage allows you to store large amounts of unstructured object data. You can use Blob Storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about Blob Storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 In this how-to article, you learn how to work with container objects within the Azure portal.
 
@@ -80,7 +80,7 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 ### Manage Azure RBAC role assignments for the container
 
-Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
+Azure Active Directory (Azure AD) offers optimum security for Blob Storage resources. Azure role-based access control (Azure RBAC) determines what permissions a security principal has to a given resource. To grant access to a container, you'll assign an RBAC role at the container scope or above to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
 You can read about the assignment of roles at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
 
@@ -125,7 +125,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 
 ### Create a stored access or immutability policy
 
-A **stored access policy** gives you additional server-side control over one or more shared access signatures. When you associate an SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These extra restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke it after it has been issued.
+A **stored access policy** gives you additional server-side control over one or more shared access signatures (SAS), of type service SAS only. When you associate a service SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These extra restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke a SAS after it has been issued.
 
 **Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a specific duration. Azure supports two types of SAS. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but must be explicitly cleared before those operations can resume.
 
