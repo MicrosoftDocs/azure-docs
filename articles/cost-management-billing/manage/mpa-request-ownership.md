@@ -18,7 +18,7 @@ An Azure Expert MSP can request to transfer their customer's Enterprise subscrip
 - An enterprise Microsoft Customer Agreement transfer to MPA
 
 > [!NOTE]
-> Indirect Enterprise Agreement transfer to to a Microsoft Customer Agreement isn't supported.
+> Indirect Enterprise Agreement transfer to a Microsoft Customer Agreement isn't supported.
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
