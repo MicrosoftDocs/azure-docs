@@ -53,7 +53,7 @@ Log in to the [Azure portal](https://portal.azure.com/) and follow these steps t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Cosmos DB accounts are created using the [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB. As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the Cosmos DB account.
+Cosmos DB accounts are created using the [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB. As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Cosmos DB account.
 
 Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character. Cosmos DB account names must also be unique across Azure.
 
@@ -79,7 +79,7 @@ az cosmosdb create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](https://docs.microsoft.com/en-us/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
+Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](https://docs.microsoft.com/en-us/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
@@ -164,10 +164,10 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary table storage connection string using Azure CLI, use the [az cosmosdb keys list](https://docs.microsoft.com/en-us/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary connection string using Azure CLI, use the [az cosmosdb keys list](https://docs.microsoft.com/en-us/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`. This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
 
 ```azurecli
-# This gets the primary Table connection string
+# This gets the primary connection string
 az cosmosdb keys list \
     --type connection-strings \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -178,10 +178,10 @@ az cosmosdb keys list \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To get the primary table storage connection string using Azure PowerShell, use the [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/en-us/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
+To get the primary connection string using Azure PowerShell, use the [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/en-us/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
 
 ```azurepowershell
-# This gets the primary Table connection string
+# This gets the primary connection string
 $(Get-AzCosmosDBAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $cosmosAccountName `
@@ -206,21 +206,20 @@ pip install azure-data-tables
 
 ## 5 - Configure the Table client in .env file
 
-Copy your Cosmos DB or Storage account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-strater-app` or `2-completed-app`. Then, add the value of the corresponding environment variables in `.env` file.
+Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-strater-app` or `2-completed-app`. Then, add the value of the corresponding environment variables in `.env` file.
 
 ```python
 # Configuration Parameters
-conn_str = "A connection string to an Azure Storage or Cosmos account."
+conn_str = "A connection string to an Azure Cosmos account."
 table_name = "WeatherData"
 project_root_path = "Project abs path"
 ```
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Cosmos DB Table API. An application will typically create a single `TableServiceClient` object per table to be used throughout the application.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Cosmos DB Table API. An application will typically have a single `TableServiceClient` overall, and it will have a `TableClient` per table.
 
 ```python
-def __init__(self, table_name=None, conn_str=None):
-    self.conn_str = conn_str if conn_str else os.getenv("conn_str")
-    self.table_service = TableServiceClient.from_connection_string(self.conn_str)
+self.conn_str = conn_str if conn_str else os.getenv("AZURE_CONNECTION_STRING")
+self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 ```
 
 ---
@@ -251,7 +250,7 @@ To filter the rows returned from a table, you can pass an OData style filter str
 PartitionKey eq 'Chicago' and RowKey ge '2021-07-01 12:00 AM' and RowKey le '2021-07-02 12:00 AM'
 ```
 
-You can view all OData filter operators on the OData website in the section Filter [System Query Option](https://www.odata.org/documentation/odata-version-2-0/uri-conventions/).
+You can view related OData filter operators on the azure-data-tables website in the section [Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
 
 When request.args parameter is passed to the `query_entity` method in the `TableServiceHelper` class, it creates a filter string for each non-null property value. It then creates a combined filter string by joining all of the values together with an "and" clause. This combined filter string is passed to the `query_entities` method on the `TableClient` object and only rows matching the filter string will be returned. You can use a similar method in your code to construct suitable filter strings as required by your application.
 
