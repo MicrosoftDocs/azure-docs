@@ -393,7 +393,7 @@ The response to this request looks like the following example:
 }
 ```
 
-## Device Groups
+## Device groups
 
 ### Add a device group
 
