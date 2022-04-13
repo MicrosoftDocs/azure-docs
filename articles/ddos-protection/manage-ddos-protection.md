@@ -48,6 +48,7 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 1. Select **Review + create** then **Create**
 
 ## Enable DDoS protection for a virtual network
+### Enable DDoS protection for a new virtual network
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
 1. Select **Networking**, and then select **Virtual network**.
@@ -75,7 +76,7 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 
 [!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
-## Enable DDoS protection for an existing virtual network
+### Enable DDoS protection for an existing virtual network
 
 1. Create a DDoS protection plan by completing the steps in [Create a DDoS protection plan](#create-a-ddos-protection-plan), if you don't have an existing DDoS protection plan.
 1. Enter the name of the virtual network that you want to enable DDoS Protection Standard for in the **Search resources, services, and docs box** at the top of the Azure portal. When the name of the virtual network appears in the search results, select it.
