@@ -101,7 +101,7 @@ Run queries against the **AzureDiagnostics** table to see the resource logs coll
 AzureDiagnostics
 ```
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for DPS resource logs is found in [Schemas in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for DPS resource logs is found in [Resource logs in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#sresource-logs).
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
