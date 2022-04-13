@@ -187,7 +187,7 @@
       items:
       - name: Dell Edge 5200
         href: /appliance-catalog/dell-edge-5200.md
-      - name: HPE ProLiant DL20 Plus
+      - name: HPE ProLiant DL20/DL20 Plus
         href: /appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: HPE ProLiant DL20
         href: /appliance-catalog/hpe-proliant-dl20.md
