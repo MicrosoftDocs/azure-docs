@@ -61,14 +61,13 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
     | Name            | Enter **MyVnet**.                                 |
     | Region          | Enter **East US**.                                                   |
 
-
 1. Select **Next: IP Addresses** and enter the following values.
 
-    | Setting         | Value                                           |
-    | ---------       | ---------                                       |
-    | IPv4 address space | Enter **10.1.0.0/16.**                       |
-    | Subnet name | Under **Subnet name**, select the **Add subnet** link and enter **mySubnet.** |
-    | Subnet address range | Enter **10.1.0.0/24.**                     |
+    | Setting              | Value                                                                         |
+    | ---------            | ---------                                                                     |
+    | IPv4 address space   | Enter **10.1.0.0/16.**                                                        |
+    | Subnet name          | Under **Subnet name**, select the **Add subnet** link and enter **mySubnet.** |
+    | Subnet address range | Enter **10.1.0.0/24.**                                                        |
 
 1. Select **Add**.
 1. Select **Next: Security**.
