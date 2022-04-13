@@ -307,3 +307,18 @@ The **Candidate** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | SubJourneyReferenceId | Yes | The identifier of the [sub journey](subjourneys.md) that is to be executed. |
+
+The following example shows an `OrchestrationStep` invoking a `SubJourney` to preform [conditional access](conditional-access-technical-profile.md) logic:
+
+```xml
+<UserJourney Id="SignUpOrSignIn">
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+      ...
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="ConditionalAccessEvaluationAndRemediation" />
+      </JourneyList>
+    </OrchestrationStep>
+    ...
+```
