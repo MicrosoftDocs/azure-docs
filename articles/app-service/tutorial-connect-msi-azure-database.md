@@ -190,7 +190,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     GO
     ```
 
-    For a [deployment slot](deploy-staging-slots.md), use *\<app-name>/slots/\<slot-name>* instead of *\<app-name>.
+    For a [deployment slot](deploy-staging-slots.md), use *\<app-name>/slots/\<slot-name>* instead of *\<app-name>*.
 
     # [User-assigned identity](#tab/userassigned/sqldatabase)
 
