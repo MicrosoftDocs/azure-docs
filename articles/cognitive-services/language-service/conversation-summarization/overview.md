@@ -24,16 +24,17 @@ This documentation contains the following article types:
 
 ## Conversation summarization feature
 
-Conversation summarization uses abstractive text summarization to produce a summary of issues and resolutions in within text-based web chats between your customer-service agents, and your customers. 
+Conversation summarization uses abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service calls between your customer-service agents, and your customers. 
+
+## When to use conversation summarization
+
+* When there are predefined aspects of an “issue” and “resolution”, such as:
+    * The reason for a service chat/call (the issue).
+    * That resolution for the issue. 
+* You only want a summary that focuses on related information about issues and resolutions.
+* When there are two participants in the conversation, and you want to summarize what each had said.
 
 As an example, consider the following example conversation:
-
-**Agent**: "*Hello, how can I help you*?"
-
-**Customer**: "*How can I upgrade Office? I've been trying the entire day.*"
-
-**Agent**: "*Press the upgrade button please. Then sign in and follow the instructions.*"
-
 
 **Agent**: "*Hello, you’re chatting with Rene. How may I help you?*" 
 
@@ -57,23 +58,15 @@ As an example, consider the following example conversation:
 
 **Agent**: "*I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.*"
 
-The conversation summarization feature would simplify the text into the following summaries:
+Conversation summarization feature would simplify the text into the following:
 
-|Summarized text  | Aspect |
-|---------|----|
-|  "Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app."       | issue  |
-| Checked if the power light is blinking slowly. Checked the security setting on their router. It is WPA2. Tried to do a factory reset.     | resolution |
+|Example summary  | Format | Example aspect |
+|---------|----|----|
+|  Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app. |  One or two sentences     | issue  |
+| Checked if the power light is blinking slowly. Checked the security setting on their router. It is WPA2. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
 note: Insert image from language studio here:
 <!--:::image type="content" source="media/feature-example.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example.png":::-->
-
-## Key features
-
-Conversation summarization supports the following features:
-
-* Find issues and resolutions in text-based chat logs between customers and customer-service agents.
-* Summaries of key topics present within the text.
-* Send multiple conversations at a time, as a batch.
 
 ## Get started with conversation summarization
 

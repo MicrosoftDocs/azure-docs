@@ -793,7 +793,7 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Call the Text Summarization API
+    - name: Call the conversation summarization API
       href: conversation-summarization/how-to/call-api.md
 - name: Text summarization (preview)
   items:
