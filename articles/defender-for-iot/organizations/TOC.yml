@@ -155,8 +155,6 @@
           href: how-to-enhance-port-and-vlan-name-resolution.md
         - name: Import device information
           href: how-to-import-device-information.md
-        - name: Define Windows endpoint monitoring (WMI)
-          href: how-to-configure-windows-endpoint-monitoring.md
       - name: Track sensor activity
         href: how-to-track-sensor-activity.md
       - name: Set up SNMP MIB monitoring
