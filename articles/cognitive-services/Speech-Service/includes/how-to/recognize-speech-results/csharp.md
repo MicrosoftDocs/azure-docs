@@ -19,12 +19,6 @@ The Speech service returns the offset and duration of the recognized speech.
 
 [!INCLUDE [Define offset and duration](define-offset-duration.md)]
 
-Here's an example where the offset starts incrementing in ticks from `0` (zero):
-
-```csharp
-await speechRecognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-```
-
 The end of a single utterance is determined by listening for silence at the end. You won't get the final recognition result until an utterance has completed. Recognizing events will provide intermediate results that are subject to change while an audio stream is being processed. Recognized events will provide the final transcribed text once processing of an utterance is completed.
 
 ### Recognizing offset and duration
