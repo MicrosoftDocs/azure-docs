@@ -64,7 +64,7 @@ az vm image list --all --publisher "Canonical"
 
 Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
 
-```output
+```azurecli
 PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuServer" --sku "12.04.4-LTS"
 [
   {
@@ -176,7 +176,7 @@ Create an Azure Managed Disk from your chosen Marketplace image.
 
 Here is an example output:
 
-```output
+```azurecli
 PS /home/user> $urn = “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
 PS /home/user> $diskName = "newmanageddisk1"
 PS /home/user> $diskRG = "newrgmd1"
