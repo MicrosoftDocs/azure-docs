@@ -97,10 +97,6 @@ You can define one or more matching attribute(s) and prioritize them based on th
 ## Provisioning agent questions
 Some common questions are answered here.
 
-### What is the GA version of the provisioning agent?
-
-For the latest GA version of the provisioning agent, see [Azure AD connect provisioning agent: Version release history](provisioning-agent-release-version-history.md).
-
 ### How do I know the version of my provisioning agent?
 
  1. Sign in to the Windows server where the provisioning agent is installed.
