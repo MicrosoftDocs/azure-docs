@@ -18,75 +18,80 @@ summary: |
   * [Common monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
 
 sections:
-  - name: Ignored
+  - name: Deprecated Services
     questions:
-      - question: Deprecated cache services
+      - question: Which Azure Cache for Redis services were deprecated?
         answer: |
           ### Managed Cache service
 
-          [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+          [Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
           
           To view archived documentation, see [Archived Managed Cache Service Documentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
           ### In-Role Cache
 
-          [In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+          [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
           
           To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
           
           ["minIoThreads" configuration setting]: /previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)
-      - question: What should I do with any instances of Azure Cache for Redis are dependent on Cloud Services (classic)S
+
+  - name: Migrate caches with a dependency on **Cloud Services** 
+    questions:
+      - question: What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)?
         answer: |
           ### Migrate caches with a dependency on Cloud Services (classic)
 
           In August 2021, we announced Cloud Services (classic) will be retired on 31 August 2024. As some instances of Azure Cache for Redis are dependent on Cloud Services (classic), we need to retire these instances by the same date. 
 
-          ### How many caches are affected? 
-
+      - question: How many caches are affected? 
+        answer: |
           We’ve worked hard to migrate as many caches behind the scenes as possible. Because of this, very few caches and customers are affected.  
 
-          ### How do I know if a cache is affected? 
-
+      - question: How do I know if a cache is affected? 
+        answer: |
           Affected caches fit into one of three groups: 
 
-          #### Caches using Classic VNet injection
-          Any cache injected into a Classic VNET defaults to being built on Cloud Services 
+          1. Caches using Classic VNet injection
+            Any cache injected into a Classic VNET defaults to being built on Cloud Services 
 
-          #### Caches in an ARM VNet subnet that once contained a Cloud Services-based cache. 
-          Once a Cloud Services-based cache is contained in a VNET subnet, all other caches in that subnet must also rely on Cloud Services 
+          1. Caches in an ARM VNet subnet that once contained a Cloud Services-based cache. 
+            Once a Cloud Services-based cache is contained in a VNET subnet, all other caches in that subnet must also rely on Cloud Services 
 
-          #### Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
-          This is very rare, but there are a handful of caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
-
-          ### Notification if you have a an affected cache
-          Emails will go out to customers listing which specific subscriptions and cache names are affected. If you’d like to confirm whether your cache is affected, please email azurecachemigration@microsoft.com 
-       
-          ### What is the solution? 
-
+          1. Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
+            This is very rare, but there are a handful of caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
+        
+          Emails will go out to customers listing which specific subscriptions and cache names are affected. If you’d like to confirm whether your cache is affected, please email azurecachemigration@microsoft.com. 
+     
+      - question: What is the solution? 
+        answer: |
           We have migrated most caches from using Cloud Services (classic) to using Virtual Machine State Sets (VMSS) under the hood. This removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
-            1. Migrate to a new cache using Private Links (recommended). 
-            	Create a new cache that uses Private Link for network isolation rather than VNet injection and migrate your data to this cache. This option will give you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
+            1. Migrate to a new cache using **Private Links** (_recommended_). 
+            	Create a new cache that uses Private Link for network isolation rather than VNet injection and migrate your data to this cache. This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
             
-            1. Migrate to a new cache in a new ARM VNET subnet.  
+            1. Migrate to a new cache in a new ARM VNet subnet.  
               This option will fix the underlying dependancy on Cloud Services while maintaining a similar VNet experience. To migrate, tear down and re-create the cache in a new ARM VNet subnet. Recommended options for migrating the data in the cache are listed here.  
 
-            #### My cache is not using VNET injection, but I received notice that I needed to migrate. What should I do? 
-
-            Check to see if your cache is using geo-replication. If so, you’ll need migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. For example: 
+      - question: My cache is not using VNet injection, but I received notice that I needed to migrate. What should I do? 
+        answer: |
+          Check to see if your cache is using geo-replication. If so, you’ll need migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. 
+          
+          For example: 
 
             1. Create a new geo-replicated pair of Premium caches that match the same configuration as your current pair of caches. 
             1. Unlink your original pair of geo-replicated caches and export an RDB file from the primary cache.  
             1. Import the RDB file into the primary cache in your new geo-replicated pair.  
 
-            # The new pair of geo-replicated caches should not have the dependency on Cloud Services (classic).  
+          The new pair of geo-replicated caches should not have the dependency on Cloud Services (classic).  
 
-            ### What happens if caches are not upgraded/migrated by August 31st 2024? 
-
+      - question: What happens if caches are not upgraded/migrated by August 31st 2024? 
+        answer: |
             These caches will be shut down, and you'll lose any data in your caches.  
 
-            ### What is the timeline for support? 
+      - question: What is the timeline for support? 
 
+        answer: |
             Retirement will occur in three phases so that you have the maximum amount of time to migrate: 
 
             01. Active Stage (now to April 30, 2023) 
@@ -98,10 +103,13 @@ sections:
 
             A picture containing Gantt chart
 
-            ### I have additional questions about this retirement. Where can I get more information? 
-            Please feel free to post any questions to the Q&A page for this retirement. You are also welcome to reach out to azurecachemigration@microsoft.com for more information.  
+      - question: I have additional questions about this retirement. Where can I get more information? 
+        answer: |
+          Please feel free to post any questions to the Q&A page for **Cloud Services (classic)** retirement. You are also welcome to reach out to azurecachemigration@microsoft.com for more information.  
 
-      - question: What if my question isn't answered here?
+  - name: General questions
+    questions:
+      - question: What if my Azure Cache for Redis question isn't answered here?
         answer: |
           If your question isn't listed here, let us know and we'll help you find an answer.
           
