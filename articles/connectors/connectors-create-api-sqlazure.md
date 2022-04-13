@@ -314,7 +314,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. From the actions list, select the SQL action that you want. This example uses the **Get row** action, which gets a single record.
 
-      ![Screenshot showing the Azure portal, workflow designer for Standard logic app, search box with "sql server", and the "Get row" action selected.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
+      ![Screenshot showing the Azure portal, workflow designer for Consumption logic app, search box with "sql server", and the "Get row" action selected.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
 
 1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
@@ -330,7 +330,33 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 ### [Standard](#tab/standard)
 
+1. In the Azure portal, open your logic app workflow in the designer.
 
+1. Find and select the SQL Server action that you want to use. This example continues with the action named **Get row**.
+
+   1. Under the trigger or action where you want to add the SQL action, select **New step**.
+
+      Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+   1. In the **Choose an operation** box, under the designer search box, select **Azure**.
+
+   1. In the designer search box, enter **sql server**.
+
+   1. From the actions list, select the SQL action that you want. This example uses the **Get row** action, which gets a single record.
+
+      ![Screenshot showing the Azure portal, workflow designer for Standard logic app, search box with "sql server", and the "Get row" action selected.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
+
+1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+
+1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
+
+   In this example, the table name is **SalesLT.Customer**.
+
+   ![Screenshot showing the "Get row" action with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-consumption.png)
+
+   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions, for example, those that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+
+1. When you're done, on the designer toolbar, select **Save**.
 
 ---
 
