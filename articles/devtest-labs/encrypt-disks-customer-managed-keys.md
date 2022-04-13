@@ -34,7 +34,7 @@ The following section shows how a lab owner can set up encryption using a custom
 
     1. On the **Disk Encryption Set** page, assign at least the Reader role to the lab name for which the disk encryption set will be used.
 
-       For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+       For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
     1. Navigate to the **Subscription** page in the Azure portal.
 
