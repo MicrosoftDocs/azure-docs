@@ -36,7 +36,6 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### On-premises Active Directory
 * The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met.
-* If you plan to use the feature *password writeback*, the domain controllers must be on Windows Server 2016 or later.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
@@ -52,7 +51,7 @@ For more information on setting the PowerShell execution policy, see [Set-Execut
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
-The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 
+The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). We recommend hardening the Azure AD Connect server as a Control Plane asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) 
 
 To read more about securing your Active Directory environment, see [Best practices for securing Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
@@ -74,7 +73,7 @@ To read more about securing your Active Directory environment, see [Best practic
 ### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
 
-- Treat Azure AD Connect the same as a domain controller and other Tier 0 resources. For more information, see [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- We recommend hardening the Azure AD Connect server as a Control Plane (formerly Tier 0) asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) and [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Restrict administrative access to the Azure AD Connect server to only domain administrators or other tightly controlled security groups.
 - Create a [dedicated account for all personnel with privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administrators shouldn't be browsing the web, checking their email, and doing day-to-day productivity tasks with highly privileged accounts.
 - Follow the guidance provided in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 

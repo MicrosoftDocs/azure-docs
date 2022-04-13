@@ -10,7 +10,7 @@ ms.custom: [seo-lt-2019, references_regions]
 ms.date: 08/10/2021
 ---
 
-# Push Data Factory lineage data to Azure Purview (Preview)
+# Push Data Factory lineage data to Azure Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

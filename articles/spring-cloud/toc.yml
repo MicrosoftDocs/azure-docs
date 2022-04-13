@@ -50,16 +50,18 @@ items:
       href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutorials
   items:
-  - name: Alerts and action groups
-    href: tutorial-alerts-action-groups.md
-  - name: Circuit Breaker Dashboard
-    href: tutorial-circuit-breaker.md
-  - name: Custom DNS name
-    href: tutorial-custom-domain.md
-  - name: Managed identity to connect Key Vault
-    href: tutorial-managed-identities-key-vault.md
-  - name: Managed identity to invoke Azure Functions
-    href: tutorial-managed-identities-functions.md
+    - name: Alerts and action groups
+      href: tutorial-alerts-action-groups.md
+    - name: Circuit Breaker Dashboard
+      href: tutorial-circuit-breaker.md
+    - name: Custom DNS name
+      href: tutorial-custom-domain.md
+    - name: Managed identity to connect MySQL
+      href: tutorial-managed-identities-mysql.md
+    - name: Managed identity to connect Key Vault
+      href: tutorial-managed-identities-key-vault.md
+    - name: Managed identity to invoke Azure Functions
+      href: tutorial-managed-identities-functions.md
 - name: Concepts
   items:
   - name: App and deployment
@@ -82,8 +84,6 @@ items:
     href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
-  - name: Plan for disaster recovery
-    href: disaster-recovery.md
 - name: How-to guides
   items:
   - name: Develop
@@ -190,8 +190,10 @@ items:
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
       href: access-app-virtual-network.md
-    - name: Expose applications to the internet
-      href: expose-apps-gateway.md
+    - name: Expose applications to the internet with TLS Termination at gateway
+      href: expose-apps-gateway-tls-termination.md
+    - name: Expose applications to the internet with end-to-end TLS/SSL
+      href: expose-apps-gateway-end-to-end-tls.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
     - name: Customer responsibilities running Azure Spring Cloud in VNET
@@ -202,12 +204,14 @@ items:
     items:
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
+    - name: Manage user-assigned managed identities
+      href: how-to-manage-user-assigned-managed-identities.md
     - name: Create roles and permissions
       href: how-to-permissions.md
     - name: Use TLS/SSL certificates
       href: how-to-use-tls-certificate.md
-    - name: Enable end-to-end Transport Layer Security
-      href: how-to-enable-end-to-end-tls.md
+    - name: Enable ingress-to-app Transport Layer Security
+      href: how-to-enable-ingress-to-app-tls.md
     - name: Access Config Server and Service Registry
       href: how-to-access-data-plane-azure-ad-rbac.md
   - name: Automate
@@ -218,6 +222,10 @@ items:
       href: how-to-github-actions.md
     - name: Auth with Key Vault in GitHub Actions
       href: github-actions-key-vault.md
+  - name: Disaster recovery
+    items:
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
@@ -242,14 +250,6 @@ items:
   items:
   - name: Reference architecture
     href: reference-architecture.md
-- name: DevOps deployment
-  items:
-  - name: CI/CD with Azure DevOps
-    href: how-to-cicd.md
-  - name: CI/CD with GitHub Actions
-    href: how-to-github-actions.md
-  - name: Auth with Key Vault in GitHub Actions
-    href: github-actions-key-vault.md
 - name: Reference
   items:
   - name: Azure CLI plugin

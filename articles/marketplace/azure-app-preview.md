@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 03/08/2022
 ---
 
 # Add a preview audience for an Azure Application offer
@@ -18,10 +18,13 @@ This article describes how to configure a preview audience for an Azure Applicat
 
 On the **Preview audience** page, you can define a limited audience who can review your Azure Application offer before you publish it live to the broader marketplace audience. You define the preview audience using Azure subscription IDs, along with an optional description for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **Subscriptions** page in the Azure portal.
 
+> [!NOTE]
+> A preview audience differs from a private audience. A preview audience is allowed access to your offer before it's published live in the online stores. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. You can make a plan available only to a private audience. A private audience (defined in a plan’s **Availability** tab) has exclusive access to a particular plan.
+
 Add a minimum of one and up to 10 Azure subscription IDs, either individually (up to 10) or by uploading a CSV file (up to 100) to define who can preview your offer before it is published live. If your offer is already live, you may still define a preview audience for testing offer changes or updates to your offer.
 
 > [!NOTE]
-> A preview audience differs from a private audience. A preview audience is allowed access to your offer before it's published live in the online stores. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. You can make a plan available only to a private audience. A private audience (defined in a plan’s **Availability** tab) has exclusive access to a particular plan.
+> Previews are not supported by offers configured to be available to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md).
 
 ### Add subscription IDs manually
 

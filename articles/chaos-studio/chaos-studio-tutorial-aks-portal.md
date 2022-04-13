@@ -29,8 +29,11 @@ Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos 
 
 1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
 
-```bash
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+```
+
+```bash
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
 kubectl create ns chaos-testing

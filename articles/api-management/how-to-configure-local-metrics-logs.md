@@ -236,5 +236,6 @@ Here is a sample configuration of local logging:
 
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md)

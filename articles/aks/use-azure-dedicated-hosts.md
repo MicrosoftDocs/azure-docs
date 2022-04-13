@@ -62,7 +62,7 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It is not supported to update agent pool from host group A to host group B.
-* Fault domain count can only be 1.
+* Using ADH across subscriptions.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
@@ -71,14 +71,14 @@ A host group is a resource that represents a collection of dedicated hosts. You 
 * Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 * Span across multiple fault domains, which are mapped to physical racks.
 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
+In either case, you need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
 Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
 
 ```azurecli-interactive
-az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
+az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 ```
 
 ## Create a Host Group
@@ -96,7 +96,8 @@ az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 1
+--platform-fault-domain-count 5
+--automatic-placement true
 ```
 
 ## Create a Dedicated Host
@@ -110,7 +111,7 @@ az vm host create \
 --host-group myHostGroup \
 --name myHost \
 --sku DSv3-Type1 \
---platform-fault-domain 1 \
+--platform-fault-domain 0 \
 -g myDHResourceGroup
 ```
 
@@ -137,7 +138,7 @@ az role assignment create --assignee <id> --role "Contributor" --scope <Resource
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --location westus2 --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+az aks create -g MyResourceGroup -n MyManagedCluster --location eastus --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
 ## Add a Dedicated Host Node Pool to an existing AKS cluster
@@ -165,5 +166,5 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dedicated-hosts]: /azure/virtual-machines/dedicated-hosts.md
+[dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create

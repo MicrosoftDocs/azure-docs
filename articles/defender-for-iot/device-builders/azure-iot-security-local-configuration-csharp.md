@@ -3,10 +3,14 @@ title: Defender for IoT security agent local configuration (C#)
 description: Learn more about the Defender for IoT security service, security agent local configuration file for C#.
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Understanding the local configuration file (C# agent)
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
 
 The Defender for IoT security agent uses configurations from a local configuration file.
 

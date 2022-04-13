@@ -48,7 +48,7 @@ To export a policy definition from Azure portal, follow these steps:
    Policies** button at the bottom of the page.
 
    - **Repository filter**: Set to _My repositories_ to see only repositories you own or _All
-     repositories_ to see all you granted the GitHub Action access to.
+     repositories_ to see all you granted the GitHub Actions access to.
    - **Repository**: Set to the repository that you want to export the Azure Policy resources to.
    - **Branch**: Set the branch in the repository. Using a branch other than the default is a good
      way to validate your updates before merging further into your source code.
@@ -137,7 +137,7 @@ you can trigger an on-demand compliance evaluation scan from your
 on one or multiple resources, resource groups, or subscriptions, and alter the workflow path based
 on the compliance state of those resources. You can also configure the workflow to run at a
 scheduled time to get the latest compliance status at a convenient time. Optionally, this
-GitHub action can also generate a report on the compliance state of scanned resources for further
+GitHub Actions can also generate a report on the compliance state of scanned resources for further
 analysis or for archiving.
 
 The following example runs a compliance scan for a subscription.

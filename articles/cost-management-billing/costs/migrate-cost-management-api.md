@@ -3,7 +3,7 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 03/22/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -34,6 +34,7 @@ The following items help you transition to MCA APIs.
 - Determine which APIs you use and see which ones are replaced in the following section.
 - Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- Grant the application that was created during Azure AD app registration read access to the billing account using Access control (IAM).
 - Update any programming code to [use Azure AD authentication](/rest/api/azure/#create-the-request).
 - Update any programming code to replace EA API calls with MCA API calls.
 - Update error handling to use new error codes.

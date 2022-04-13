@@ -65,7 +65,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. Go to **Disks** of the affected replicated machine and copy the replica disk name.
   1. Go to this replica of the managed disk.
   1. You might see a banner in **Overview** that says an SAS URL has been generated. Select this banner and cancel the export. Ignore this step if you don't see the banner.
-  1. As soon as the SAS URL is revoked, go to **Configuration** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
+  1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
 
 ## Network connectivity problems
 

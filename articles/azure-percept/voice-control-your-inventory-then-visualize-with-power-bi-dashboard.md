@@ -102,7 +102,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         ![the directory location](./media/voice-control-your-inventory-images/select-airlift-folder.png) 
    4. <strong>Provide the following information at the prompts</strong>: Select a language for your function project: Choose <strong>Python</strong>.
         ![following information at the prompts](./media/voice-control-your-inventory-images/language-python.png) 
-   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have python installed.
+   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have Python installed.
         ![create a virtual environment](./media/voice-control-your-inventory-images/skip-virtual-env.png) 
    6. <strong>Select a template for your project's first function</strong>: Choose <strong>HTTP trigger</strong>.
         ![Select a template](./media/voice-control-your-inventory-images/http-trigger.png) 
@@ -353,8 +353,7 @@ customer can do.
 
 ## Next steps
 
-Check out the other tutorial under Advanced prototyping with Azure Percept section for your Azure Percept DK.
-
+Check out the tutorial [Create a people counting solution with Azure Percept Vision](./create-people-counting-solution-with-azure-percept-devkit-vision.md).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

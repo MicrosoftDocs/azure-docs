@@ -1,4 +1,4 @@
-- name: Microsoft Azure Attestation 
+- name: Microsoft Azure Attestation
   href: index.yml
 - name: Overview
   items:
@@ -7,6 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Bicep
+    displayName: Resource Manager, ARM
+    href: quickstart-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-template.md
@@ -21,7 +24,7 @@
   - name: Authoring an attestation policy
     href: author-sign-policy.md
   - name: Create a Private Endpoint - PowerShell
-    href: private-endpoint-powershell.md 
+    href: private-endpoint-powershell.md
   - name: Azure Diagnostic Monitoring
     href: azure-diagnostic-monitoring.md
   - name: SGX attestation code samples

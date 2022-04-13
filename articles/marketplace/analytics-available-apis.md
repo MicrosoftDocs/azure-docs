@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # APIs for accessing commercial marketplace analytics data
@@ -21,7 +21,7 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 
 ## Dataset pull APIs
 
-***Table 1: Dataset pull APIs***
+**Table 1: Dataset pull APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
@@ -30,7 +30,7 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 
 ## Query management APIs
 
-***Table 2: Query management APIs***
+**Table 2: Query management APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
@@ -41,7 +41,7 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 
 ## Report management APIs
 
-***Table 3: Report management APIs***
+**Table 3: Report management APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
@@ -56,7 +56,7 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 
 ## Report execution pull APIs
 
-***Table 4: Report execution pull APIs***
+**Table 4: Report execution pull APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
