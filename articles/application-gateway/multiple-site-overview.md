@@ -86,7 +86,6 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * You cannot use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
 * For backend health check, you cannot associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use "127.0.0.1" to probe the localhost of the backend server. However, when you are using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
 * The properties "hostname" takes one string as input, where you can mention only one non-wildcard domain name and "hostnames" takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
-* You cannot create a [redirection](redirect-overview.md) rule with a target listener, which uses wildcard or multiple host names.
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
