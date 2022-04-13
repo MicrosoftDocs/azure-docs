@@ -1,5 +1,5 @@
 ---
-title: "How to use the Read model with C#/.NET programming language"
+title: "How to use the read model with C#/.NET programming language"
 description: Use the Form Recognizer prebuilt-read model and C# to extract printed and handwritten text from documents.
 author: laujan
 manager: nitinme

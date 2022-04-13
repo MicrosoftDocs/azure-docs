@@ -1,5 +1,5 @@
 ---
-title: "How to use the Read model with Python programming language"
+title: "How to use the read model with Python programming language"
 description: Use the Form Recognizer prebuilt-read model and Python to extract printed and handwritten text from documents.
 author: laujan
 manager: nitinme

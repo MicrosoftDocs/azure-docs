@@ -85,7 +85,7 @@ landingContent:
             url: create-a-form-recognizer-resource.md
           - text: Migrate to Form Recognizer v3.0
             url: v3-migration-guide.md
-          - text: Use the Read model
+          - text: Use the read model
             url: how-to-guides/use-prebuilt-read.md
           - text: Generate SAS tokens for Azure Blob containers
             url: generate-sas-tokens.md

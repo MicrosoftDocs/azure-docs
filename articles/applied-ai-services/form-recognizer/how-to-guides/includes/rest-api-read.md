@@ -1,5 +1,5 @@
 ---
-title: "How to use the Read model with the Form Recognizer REST API"
+title: "How to use the read model with the Form Recognizer REST API"
 description: Use the Form Recognizer prebuilt-read model and REST API to extract printed and handwritten text from documents.
 author: laujan
 manager: nitinme

@@ -1,5 +1,5 @@
 ---
-title: "How to use the Read model with JavaScript programming language"
+title: "How to use the read model with JavaScript programming language"
 description: Use the Form Recognizer prebuilt-read model and JavaScript to extract printed and handwritten text from documents.
 author: laujan
 manager: nitinme

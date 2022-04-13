@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts printed and handwritten from documents. The Read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
+The Form Recognizer v3.0 preview includes the new Read API. Read extracts printed and handwritten from documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
 ## Development options
 

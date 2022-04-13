@@ -1,5 +1,5 @@
 ---
-title: "How to use the Read model with Java programming language"
+title: "How to use the read model with Java programming language"
 description: Use the Form Recognizer prebuilt-read model and Java to extract printed and handwritten text from documents.
 author: laujan
 manager: nitinme
