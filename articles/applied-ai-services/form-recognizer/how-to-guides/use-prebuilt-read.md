@@ -1,5 +1,5 @@
 ---
-title: "Use SDKs and REST API for Read Model"
+title: "Use SDKs and REST API for read Model"
 titleSuffix: Azure Applied AI Services
 description: Learn how to use read model using SDKs and REST API.
 author: laujan
