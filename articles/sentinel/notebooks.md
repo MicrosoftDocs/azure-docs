@@ -327,7 +327,7 @@ By default, user accounts and credentials are not cached between notebook runs, 
 
 1. Authenticate using Azure CLI. In an empty notebook cell, enter and run the following code:
 
-    ```python
+    ```azurecli
     !az login
     ```
 
