@@ -87,7 +87,6 @@ When transforming data in mapping data flow, you can read resources from Twilio.
 
 ### Source transformation
 
-
 The below table lists the properties supported by Twilio source. You can edit these properties in the **Source options** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
