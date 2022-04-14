@@ -492,6 +492,10 @@ For example:
 mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 ```
 
+After running successfully, you can get a link named '**View notebook run: *Notebook Name***' that points directly to the monitor page of the called function.
+
+![Screenshot of a snap link python](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample-python.png)
+
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
 
@@ -577,7 +581,7 @@ mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
 
 After running successfully, you can get a link named '**View notebook run: *Notebook Name***' that points directly to the monitor page of the called function.
 
-![Screenshot of a snap link](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample.png)
+![Screenshot of a snap link scala](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample.png)
 
 
 ### Exit a notebook
