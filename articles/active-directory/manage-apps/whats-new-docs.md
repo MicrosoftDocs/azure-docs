@@ -6,7 +6,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: jamondi
+ms.author: jomondi
 author: omondiatieno
 manager: CelesteDG
 ---
