@@ -154,7 +154,7 @@ You can add alert splitting to the condition so you can receive individual alert
 
 Example of setting a dimension for a condition:
 
-:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor.  It shows the Split by dimensions options in the Configure signal logic pane.":::
+:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor.  This example shows the Split by dimensions options in the Configure signal logic pane.":::
 
 Once you create the alert rule, it's a resource in your resource group.  To manage your alert rules, navigate to **Monitor>Alerts**. 
 
