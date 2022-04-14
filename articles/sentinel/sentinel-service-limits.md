@@ -15,7 +15,7 @@ This article lists the service limits for several features in Microsoft Sentinel
 
 The following limit applies to Analytics rules in Microsoft Sentinel.
 
-|Name  |Limit  |
+|Description |Limit  |
 |---------|---------|
 |Number of rules     | 512 rules       |
 
@@ -23,7 +23,7 @@ The following limit applies to Analytics rules in Microsoft Sentinel.
 
 The following limits apply to incidents in Microsoft Sentinel.
 
-|Name  |Limit  |
+|Description  |Limit  |
 |---------|---------|
 |Investigation     | The investigation experience is available for 90 days from the incident last update time       |
 |Number of automation rules     | 512        |
@@ -36,7 +36,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 
 The following limits apply to Machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.
 
-| Name                                                          | Limit                                           | 
+| Description                                                         | Limit                                           | 
 |---------------------------------------------------------------|-------------------------------------------------|
 | Number of anomalies published per anomaly type                | Top 3000 ranked by anomaly score                |
 | Number of alerts and/or anomalies in a single Fusion incident | 100  |
