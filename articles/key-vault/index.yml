@@ -113,7 +113,7 @@ conceptualContent:
         - url: /dotnet/api/overview/azure/key-vault
           itemType: reference
           text:  .NET Client library
-        - url: /python/api/overview/azure/key-vault-index
+        - url: /python/api/overview/azure/keyvault-keys-readme
           itemType: reference
           text:  Python Client library
         - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
