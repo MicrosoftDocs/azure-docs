@@ -80,7 +80,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Set the **Allowed origins** to **<https://formrecognizer.appliedai.azure.com>**.
 
-   :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+   :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
     > [!TIP]
     > You can use the wildcard character '*' rather than a specified domain to allow all origin domains to make requests via CORS.
