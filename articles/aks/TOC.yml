@@ -169,7 +169,7 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
           href: planned-maintenance.md
-        - name: Cloud Controller Manager (preview)
+        - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
@@ -256,6 +256,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Use KMS etcd encryption
+              href: use-kms-etcd-encryption.md
             - name: Update cluster credentials
               href: update-credentials.md
             - name: Enable Azure Active Directory integration

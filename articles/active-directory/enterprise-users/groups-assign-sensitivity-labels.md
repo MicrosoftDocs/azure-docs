@@ -66,7 +66,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Save the changes and apply the settings:
 
     ```powershell
-    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $setting
+    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $Setting
     ```
 
 If you’re receiving a Request_BadRequest error, it's because the settings already exist in the tenant, so when you try to create a new property:value pair, the result is an error. In this case, take the following steps:
