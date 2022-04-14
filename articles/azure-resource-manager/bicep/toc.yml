@@ -73,6 +73,8 @@
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
+    - name: Application Gateway
+      href: ../../application-gateway/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Content Delivery Network
       href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DDoS Protection
@@ -89,6 +91,8 @@
     items:
     - name: Attestation
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Key Vault - secret
+      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -192,6 +196,8 @@
     items:
     - name: Best practices
       href: best-practices.md
+    - name: Visual Studio Code
+      href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry

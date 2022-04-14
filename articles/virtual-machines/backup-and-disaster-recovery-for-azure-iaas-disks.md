@@ -130,7 +130,7 @@ Another option to create consistent backups is to shut down the VM and take snap
 
 ### Copy the snapshots to another region
 
-Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. See [Cross-region snapshot copy](disks-incremental-snapshots.md#cross-region-snapshot-copy).
+Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md).
 
 ## Other options
 
