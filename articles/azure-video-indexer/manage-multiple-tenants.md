@@ -22,12 +22,12 @@ When using this architecture, an Azure Video Indexer account is created for each
 
 ### Considerations
 
-* Customers do not share storage accounts (unless manually configured by the customer).
-* Customers do not share compute (reserved units) and don't impact processing jobs times of one another.
+* Customers don't share storage accounts (unless manually configured by the customer).
+* Customers don't share compute (reserved units) and don't impact processing jobs times of one another.
 * You can easily remove a tenant from the system by deleting the Azure Video Indexer account.
-* There is no ability to share custom models between tenants.
+* There's no ability to share custom models between tenants.
 
-    Make sure there is no business requirement to share custom models.
+    Make sure there's no business requirement to share custom models.
 * Harder to manage due to multiple Azure Video Indexer (and associated Media Services) accounts per tenant.
 
 > [!TIP]
@@ -41,7 +41,7 @@ When using this architecture, the customer is responsible for tenants isolation.
 
 With this option, customization models (Person, Language, and Brands) can be shared or isolated between tenants by filtering the models by tenant.
 
-When [uploading videos](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can specify a different partition attribute per tenant. This will allow isolation in the [search API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). By specifying the partition attribute in the search API you will only get results of the specified partition. 
+When [uploading videos](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can specify a different partition attribute per tenant. This will allow isolation in the [search API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). By specifying the partition attribute in the search API you'll only get results of the specified partition. 
 
 ### Considerations
 
@@ -54,14 +54,14 @@ When [uploading videos](https://api-portal.videoindexer.ai/api-details#api=Opera
 
 ## Azure subscription per tenant 
 
-When using this architecture, each tenant will have their own Azure subscription. For each user, you will create a new Azure Video Indexer account in the tenant subscription.
+When using this architecture, each tenant will have their own Azure subscription. For each user, you'll create a new Azure Video Indexer account in the tenant subscription.
 
 ![Azure subscription per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
 ### Considerations
 
 * This is the only option that enables billing separation.
-* This integration has more management overhead than Azure Video Indexer account per tenant. If billing is not a requirement, it is recommended to use one of the other options described in this article.
+* This integration has more management overhead than Azure Video Indexer account per tenant. If billing isn't a requirement, it's recommended to use one of the other options described in this article.
 
 ## Next steps
 

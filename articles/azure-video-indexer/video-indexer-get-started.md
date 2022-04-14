@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 This getting started quickstart shows how to sign in to the Azure Video Indexer (formerly Azure Video Analyzer for Media) website and how to upload your first video.
 
-When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you aren't limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
 ## Sign up for Azure Video Indexer
 
@@ -42,8 +42,8 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
-1. Once Azure Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
-1. You can later find your video in the library list and perform different operations. For example: search, re-index, edit.
+1. Once Azure Video Indexer is done analyzing, you'll get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
+1. You can later find your video in the library list and perform different operations. For example: search, reindex, edit.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Uploaded the upload":::
@@ -64,4 +64,4 @@ After you upload and index a video, you can start using [Azure Video Indexer web
 
 For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
 
-At the end of the workshop you will have a good understanding of the kind of information that can be extracted from video and audio content, you will be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Azure Video Indexer.
+At the end of the workshop, you'll have a good understanding of the kind of information that can be extracted from video and audio content, you'll be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Azure Video Indexer.
