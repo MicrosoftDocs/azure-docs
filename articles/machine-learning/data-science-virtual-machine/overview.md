@@ -6,8 +6,8 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: jeff-shepherd
+ms.author: jeffshep
 ms.topic: overview
 ms.date: 04/02/2020
 
