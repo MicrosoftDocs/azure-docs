@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: ML model management'
+title: 'MLOps: ML model management v1'
 titleSuffix: Azure Machine Learning
-description: 'Learn about model management (MLOps) with Azure Machine Learning . Deploy, manage, track lineage and monitor your models to continuously improve them. '  
+description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -12,7 +12,7 @@ ms.custom: seodec18, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
 
-# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
 
 In this article, learn about how do Machine Learning Operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
 
