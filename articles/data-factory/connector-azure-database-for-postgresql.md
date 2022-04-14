@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/20/2021
+ms.date: 04/14/2022
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -27,7 +27,11 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
+The three activities work on all Azure Database for PostgreSQL deployment options:
+
+* [Single Server](../postgresql/single-server/index.yml)
+* [Flexible Server](../postgresql/flexible-server/index.yml)
+* [Hyperscale (Citus)](../postgresql/hyperscale/index.yml)
 
 ## Getting started
 
