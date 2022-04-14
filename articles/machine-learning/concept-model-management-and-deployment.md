@@ -6,13 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: jpe316
-ms.author:  jordane
+author: rsethur
+ms.author:  seramasu
+ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](./v1/concept-model-management-and-deployment.md)
+> * [v2 (current version)](concept-model-management-and-deployment.md)
 
 In this article, learn about how do Machine Learning Operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
 
@@ -89,31 +94,30 @@ For more information on ONNX with Azure Machine Learning, see the [Create and ac
 
 ### Use models
 
-Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
+Trained machine learning models are deployed as [endpoints](concept-endpoints.md) in the cloud or locally. Deployments use CPU, GPU for inferencing.
 
-When using a model as a web service, you provide the following items:
+When deploying a model as an endpoint, you provide the following items:
 
 * The model(s) that are used to score data submitted to the service/device.
 * An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
 * An Azure Machine Learning environment that describes the pip and Conda dependencies required by the model(s) and entry script.
 * Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
 
-You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
-
-When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
 
 #### Batch scoring
-Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](./tutorial-pipeline-batch-scoring-classification.md).
 
-#### Real-time web services
+Batch scoring is supported through batch endpoints. For more information, see [endpoints](concept-endpoints.md).
 
-You can use your models in **web services** with the following compute targets:
+#### Online endpoints
 
-* Azure Container Instance
+You can use your models with an online endpoint. Online endpoints can use the following compute targets:
+
+* Managed online endpoints
 * Azure Kubernetes Service
 * Local development environment
 
-To deploy the model as a web service, you must provide the following items:
+To deploy the model to an endpoint, you must provide the following items:
 
 * The model or ensemble of models.
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
@@ -123,11 +127,11 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 #### Controlled rollout
 
-When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
+When deploying to an online endpoint, you can use controlled rollout to enable the following scenarios:
 
 * Create multiple versions of an endpoint for a deployment
-* Perform A/B testing by routing traffic to different versions of the endpoint.
-* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
+* Perform A/B testing by routing traffic to different deployments within the endpoint.
+* Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
 
 For more information, see [Controlled rollout of ML models](./how-to-safely-rollout-managed-endpoints.md).
 
