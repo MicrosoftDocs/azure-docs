@@ -1,6 +1,6 @@
 ---
 title: Azure Video Indexer (formerly Azure Video Analyzer for Media) failover and disaster recovery
-description: Learn how to failover to a secondary Azure Video Indexer (formerly Azure Video Analyzer for Media) account if a regional datacenter failure or disaster occurs.
+description: Learn how to fail over to a secondary Azure Video Indexer (formerly Azure Video Analyzer for Media) account if a regional datacenter failure or disaster occurs.
 author: juliako
 manager: femila
 editor: ''
@@ -20,11 +20,11 @@ We recommend that you configure business continuity disaster recovery (BCDR) acr
 
 An Azure subscription. If you don't have an Azure subscription yet, sign up for [Azure free trial](https://azure.microsoft.com/free/).
 
-## Failover to a secondary account
+## Fail over to a secondary account
 
 To implement BCDR, you need to have two Azure Video Indexer accounts to handle redundancy.
 
-1. Create two Azure Video Indexer accounts connected to Azure (see [Create an Azure Video Indexer account](connect-to-azure.md)). Create one account for your primary region and the other to the paired azure region.
+1. Create two Azure Video Indexer accounts connected to Azure (see [Create an Azure Video Indexer account](connect-to-azure.md)). Create one account for your primary region and the other to the paired Azure region.
 1. If there's a failure in your primary region, switch to indexing using the secondary account.
 
 > [!TIP]

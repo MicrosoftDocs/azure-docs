@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021
 
 # Create an Azure Video Indexer account
 
-When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts is built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
+When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
 * You can create an Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
 * You can create an Azure Video Indexer **ARM-based** account through one of the following:
@@ -192,9 +192,9 @@ To create a paid account via the Azure Video Indexer portal:
 1. Log in with your Azure Government Azure AD account.
 1.	If you do not have any Azure Video Indexer accounts in Azure Government that you are an owner or a contributor to, you will get an empty experience from which you can start creating your account.
 
-    The rest of the flow is as described in above , only the regions to select from will be Government regions in which Azure Video Indexer is available
+    The rest of the flow is as described in above, only the regions to select from will be Government regions in which Azure Video Indexer is available
 
-    If you already are a contributor or an admin of an existing one or more Azure Video Indexer account in Azure Government, you will be taken to that account and from there you can start a follow steps for creating an additional account if needed, as described above.
+    If you already are a contributor or an admin of an existing one or more Azure Video Indexer accounts in Azure Government, you will be taken to that account and from there you can start a following steps for creating an additional account if needed, as described above.
 
 ### Create new account via the API on Azure Government
 
