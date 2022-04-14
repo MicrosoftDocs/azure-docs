@@ -17,6 +17,9 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quick-create-bicep.md
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md
