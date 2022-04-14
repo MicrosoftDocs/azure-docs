@@ -5,9 +5,9 @@ metadata:
   author: kanshiG
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 07/29/2021
+  ms.date: 04/14/2022
   ms.author: govindk
-  ms.reviewer: sngun
+  ms.reviewer: wiassaf
 title: Frequently asked questions about the Azure Cosmos DB continuous backup
 summary: |
   [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
@@ -78,7 +78,7 @@ sections:
           Is continuous backup mode supported for Table API and Gremlin API?
         answer: |
 
-          Yes, currently it is in preview and restore is supported from powershell and cli.
+          Yes, currently it is in preview and restore is supported from PowerShell and the Azure CLI.
 additionalContent: |
 
   ## Next steps
