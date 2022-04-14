@@ -109,8 +109,7 @@ The extension deployment is a long running job and takes about 10 minutes to com
 
 Here's a sample output:
 
-```powershell
-  
+```powershell 
 PS C:\WINDOWS\system32> $templateFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.json" 
 PS C:\WINDOWS\system32> $templateParameterFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.parameters.json" 
 PS C:\WINDOWS\system32> $RGName = "myasepro2rg" 
@@ -235,7 +234,7 @@ You can see below that the extension has been installed successfully.
 
 ### [Windows](#tab/windows)
 
-To verify the VM password update, connect to the VM using the new password. For detailed instructions, see [Connect to a WIndows VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-windows-vm)
+To verify the VM password update, connect to the VM using the new password. For detailed instructions, see [Connect to a Windows VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-windows-vm)
 
    ![Screenshot of the Remote Desktop Connection dialog to connect to a VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/connect-to-vm.png)
 
@@ -293,7 +292,7 @@ azureuser@mylinuxvm5:~$
 To remove the password reset extension, run the following command:
 
 ```powershell
-Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name <Name of the extension>
+Remove-AzVMExtension -Resource group name <ResourceGroupName> -VMName <VM name> -Name <Name of the extension>
 ```
 
 Here's a sample output:
