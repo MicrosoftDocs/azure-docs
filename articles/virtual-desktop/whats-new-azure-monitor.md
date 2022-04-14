@@ -45,7 +45,7 @@ This update was released in November 2021 and has the following changes:
 
 This update was released in November 2021 and has the following changes:
 
-- We increased the session host limit to **1000** for the **Check Configuration** workbook to allow for larger deployments.
+- We increased the session host limit to 1000 for the configuration workbook to allow for larger deployments.
 
 ## Version 1.1.6
 
@@ -57,7 +57,7 @@ This update was released in October 2021 and has the following changes:
 
 This update was released in October 2021 and has the following changes:
 
-- We updated data usage reporting in the **Check Configuration** workbook to include the agent health table.
+- We updated data usage reporting in the configuration workbook to include the agent health table.
 
 ## Version 1.1.3
 
