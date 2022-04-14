@@ -82,6 +82,11 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
     1. If you're creating a **Consumption** playbook (the orignial, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
+        > [!NOTE]
+        > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
+        > 
+        > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
+
 # [Logic Apps Consumption](#tab/LAC)
 ### Prepare the playbook and Logic App
 
@@ -113,7 +118,7 @@ Regardless of which trigger you chose to create your playbook with in the previo
 
 1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger.":::
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png":::
 
 # [Logic Apps Standard](#tab/LAS)
 
@@ -179,7 +184,7 @@ Since you selected **Blank playbook**, a new browser tab will open and take you 
 1. Under **State type**, select **Stateful**.
 
     > [!NOTE]
-    > Microsoft Sentinel does not currently support Stateless workflows to be used as playbooks.
+    > Microsoft Sentinel does not currently support the use of *Stateless* workflows as playbooks.
 
 1. Select **Create**. Your workflow will be saved and will appear in the list of workflows in your Logic App. Select the workflow to proceed.
 
@@ -200,7 +205,7 @@ Since you selected **Blank playbook**, a new browser tab will open and take you 
    Select the trigger that matches the type of playbook you are creating.
 
     > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
+    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
     > 
     > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
@@ -290,13 +295,13 @@ You use a playbook to respond to an **alert** by creating an **analytics rule**,
 
 1. From the **Analytics** blade in the Microsoft Sentinel navigation menu, select the analytics rule for which you want to automate the response, and click **Edit** in the details pane.
 
-1. In the **Analytics rule wizard - Edit existing rule** page, select the **Automated response** tab.
+1. In the **Analytics rule wizard - Edit existing scheduled rule** page, select the **Automated response** tab.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Automated response tab":::
 
 1. Choose your playbook from the drop-down list. You can choose more than one playbook, but only playbooks using the **alert trigger** will be available.
 
-1. In the **Review and create** tab, select **Save**.
+1. In the **Review and update** tab, select **Save**.
 
 ## Run a playbook on demand
 

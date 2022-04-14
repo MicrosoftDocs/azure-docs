@@ -83,7 +83,7 @@ Microsoft Sentinel now supports two Logic Apps resource types:
 
 **Logic Apps Standard** features a single-tenant, containerized environment that provides higher performance, fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
 
-You can leverage this powerful new version of Logic Apps by creating new Standard workflows in the Logic Apps environment. These workflows will then be available to you as playbooks in Microsoft Sentinel, where you can use them the same ways you use legacy Logic App Consumption playbooks:
+You can leverage this powerful new version of Logic Apps by creating new Standard playbooks in Microsoft Sentinel, and you can use them the same ways you use the classic Logic App Consumption playbooks:
 - Attach them to automation rules and/or analytics rules.
 - Run them on demand, from both incidents and alerts.
 - Manage them in the Active Playbooks tab.
@@ -98,8 +98,6 @@ See [Resource type and host environment differences](../logic-apps/logic-apps-ov
 > [!NOTE]
 > - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 > - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.
-
-***(ANYTHING ELSE TO MENTION HERE? -YL)***
 
 ### Permissions required
 
@@ -216,9 +214,10 @@ Two examples:
 
 Playbooks can be run either **manually** or **automatically**.
 
-Running them manually means that when you get an alert, you can choose to run a playbook on-demand as a response to the selected alert. Currently this feature is generally available for alerts, and in preview for incidents.
+They are designed to be run automatically, and ideally that is how they should be run in the normal course of operations. You [run a playbook automatically](tutorial-respond-threats-playbook.md#automate-threat-responses) by defining it as an [automated response in an analytics rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule) (for alerts), or as an [action in an automation rule](automate-incident-handling-with-automation-rules.md) (for incidents).
 
-Running them automatically means to set them as an automated response in an analytics rule (for alerts), or as an action in an automation rule (for incidents). [Learn more about automation rules](automate-incident-handling-with-automation-rules.md).
+There are circumstances, though, that call for running playbooks manually. For example, when creating a new playbook, you'll want to test it before putting it in production. Or, there may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident or alert and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents.
+
 
 ### Set an automated response
 
