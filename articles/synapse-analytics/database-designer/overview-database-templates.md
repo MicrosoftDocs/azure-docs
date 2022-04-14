@@ -40,7 +40,7 @@ Currently, you can choose from the following database templates in Azure Synapse
 
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
-* **Banking** - For companies that analyze banking data.
+* **Banking** - For companies providing a wide range of banking and related financial services.
 * **Consumer Goods** - For manufacturers or producers of goods bought and used by consumers.
 * **Energy & Commodity Trading** - For traders of energy, commodities, or carbon credits.
 * **Freight & Logistics** - For companies that provide freight and logistics services.

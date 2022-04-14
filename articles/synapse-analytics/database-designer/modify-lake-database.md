@@ -33,7 +33,7 @@ In this article, you'll learn how to modify an existing [lake database](./concep
     - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
     - **Storage settings for database** is a section containing the default storage information for tables in the database. The default settings are applied to each table in the database unless it's overridden on the table itself.
     - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. The default linked service associated with the Synapse workspace will be shown, but you can change the **Linked Service** to any ADLS storage account you like.  
-    - **Input folder** used to set the default container and folder path within that linked service using the file browser.
+    - **Input folder** used to set the default container and folder path within that linked service using the file browser or manually editing the path with the pencil icon.
     - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 5. To add a table to the database, select the **+ Table** button. 
     - **Custom** will add a new table to the canvas.
