@@ -7,35 +7,35 @@ ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Manage certificates in Service Fabric clusters
 
-This article addresses the management aspects of certificates that are used to secure communication in Azure Service Fabric clusters. It also complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md) as well as the explainer on [X.509 certificate-based authentication in Service Fabric](cluster-security-certificates.md). 
+This article addresses the management aspects of certificates that are used to secure communication in Azure Service Fabric clusters. It complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md) and the explainer on [X.509 certificate-based authentication in Service Fabric](cluster-security-certificates.md). 
 
 ## Prerequisites
-The article assumes that you're familiar with fundamental security concepts and with the controls that Service Fabric exposes to configure the security of a cluster. 
+Before you begin, you should be familiar with fundamental security concepts and the controls that Service Fabric exposes to configure the security of a cluster. 
 
 ## Disclaimer
 
-This article pairs theoretical aspects of certificate management with hands-on examples, which discuss specifics of services, technologies, and so on. Because much of its reading audience is Microsoft-internal, the article refers to services, technologies, and products that are specific to Azure. If certain Microsoft-specific details don't apply in your case, feel free to ask for clarification or guidance in the comments section at the end.
+This article pairs theoretical aspects of certificate management with hands-on examples that cover the specifics of services, technologies, and so on. Because much of the audience here is Microsoft-internal, the article refers to services, technologies, and products that are specific to Azure. If certain Microsoft-specific details don't apply to you, feel free to ask for clarification or guidance in the comments section at the end.
 
 ## Defining certificate management
 
-As you can learn in companion article [X.509 Certificate-based authentication in Service Fabric clusters](cluster-security-certificates.md), a certificate is a cryptographic object that essentially binds an asymmetric key pair with attributes that describe the entity it represents. 
+As you learn in companion article [X.509 Certificate-based authentication in Service Fabric clusters](cluster-security-certificates.md), a certificate is a cryptographic object that essentially binds an asymmetric key pair with attributes that describe the entity it represents. 
 
-However, a certificate is also a *perishable* object, because its lifetime is finite and it's susceptible to compromise. Accidental disclosure or a successful exploit can render a certificate useless from a security standpoint. This drawback implies the need to change certificates, either routinely or in response to a security incident. 
+However, a certificate is also a *perishable* object, because its lifetime is finite and it's susceptible to compromise. Accidental disclosure or a successful exploit can render a certificate useless from a security standpoint. This drawback implies the need to change certificates either routinely or in response to a security incident. 
 
-Another aspect of certificate management, and an entirely separate topic, is the safeguarding of certificate private keys or of secrets that protect the identities of the entities involved in procuring and provisioning certificates. 
+Another aspect of certificate management, and an entirely separate topic, is the safeguarding of certificate private keys or secrets that protect the identities of the entities involved in procuring and provisioning certificates. 
 
 We describe *certificate management* as the processes and procedures that are used to obtain certificates and to transport them safely and securely to where they're needed. 
 
-Some management operations, such as enrollment, policy setting, and authorization controls, are beyond the scope of this article. Other operations, such as provisioning, renewal, re-keying, or revocation, are relate only incidentally to Service Fabric. Nonetheless, the article addresses them to some degree, because understanding these operations can help you secure your cluster properly. 
+Some management operations, such as enrollment, policy setting, and authorization controls, are beyond the scope of this article. Other operations, such as provisioning, renewal, re-keying, or revocation, are related only incidentally to Service Fabric. Nonetheless, the article addresses them somewhat, because understanding these operations can help you secure your cluster properly. 
 
-Your immediate goal is likely to automate certificate management as much as possible to ensure uninterrupted availability of the cluster. Because the process is user-touch-free, you'll also want to offer security assurances. This goal is attainable currently in Azure Service Fabric clusters. 
+Your immediate goal is likely to automate certificate management as much as possible to ensure uninterrupted availability of the cluster. Because the process is user-touch-free, you'll also want to offer security assurances. You can attain this goal by using Service Fabric clusters. 
 
-The remainder of the article first deconstructs certificate management, and later focuses on enabling autorollover.
+The rest of the article first deconstructs certificate management, and later focuses on enabling autorollover.
 
 Specifically, it covers the following topics:
 
 - Assumptions about the separation of attributions between owner and platform
-- The long pipeline of certificates from issuance to consumption
+- The long pipeline from certificate issuance to consumption
 - Certificate rotation: Why, how, and when
 - What could possibly go wrong?
 
@@ -45,11 +45,11 @@ The article does not cover these topics:
 - Enrolling into certificates
 - Setting up authorization controls to enforce certificate issuance. 
 
-For information about these topics, refer to the registration authority (RA) of your favorite public key infrastructure (PKI) service. Microsoft-internal consumers should reach out to Azure Security.
+For information about these topics, refer to the registration authority (RA) of your favorite public key infrastructure (PKI) service. If you're a Microsoft-internal reader, you can reach out to Azure Security.
 
 ## Roles and entities involved in certificate management
 
-The security approach in a Service Fabric cluster is a case of "cluster owner declares it, Service Fabric runtime enforces it." This means that almost none of the certificates, keys, or other credentials of identities that participate in a cluster's functioning come from the service itself. They're all declared by the cluster owner. The cluster owner is also responsible for provisioning the certificates into the cluster, renewing them as needed, and ensuring the security of the certificates at all times. 
+The security approach in a Service Fabric cluster is a case of "cluster owner declares it, Service Fabric runtime enforces it." This means that almost none of the certificates, keys, or other credentials of identities that participate in a cluster's functioning come from the service itself. They're all declared by the cluster owner. The cluster owner is also responsible for provisioning the certificates into the cluster, renewing them as needed, and helping ensure their security at all times. 
 
 More specifically, the cluster owner must ensure that:
   - Certificates that are declared in the NodeType section of the cluster manifest can be found on each node of that type, according to the [presentation rules](cluster-security-certificates.md#presentation-rules).
@@ -67,13 +67,13 @@ It follows that the certificate management burden (as active operations) falls s
 
 ## The journey of a certificate
 
-Let's quickly review the progression of a certificate from issuance to consumption in the context of a Service Fabric cluster:
+Let's quickly outline the progression of a certificate from issuance to consumption in the context of a Service Fabric cluster:
 
 1. A domain owner registers with the RA of a PKI a domain or subject that they want to associate with ensuing certificates. The certificates, in turn, constitute proof of ownership of the domain or subject.
 
 1. The domain owner also designates in the RA the identities of authorized requesters, entities that are entitled to request the enrollment of certificates with the specified domain or subject. In Azure, the default identity provider is Azure Active Directory (Azure AD), and authorized requesters are designated by their corresponding Azure AD identity (or via security groups).
 
-1. An authorized requester then enrolls into a certificate via a secret management service. In Azure, the secret management service of choice is Azure Key Vault, which securely stores and allows the retrieval of secrets and certificates by authorized entities. Key Vault also renews and re-keys the certificate as configured in the associated certificate policy. Key Vault uses Azure AD as the identity provider.
+1. An authorized requester then enrolls into a certificate via a secret-management service. In Azure, the secret-management service of choice is Azure Key Vault, which securely stores and allows the retrieval of secrets and certificates by authorized entities. Key Vault also renews and re-keys the certificate as configured in the associated certificate policy. Key Vault uses Azure AD as the identity provider.
 
 1. An authorized retriever, or *provisioning agent*, retrieves the certificate from the key vault, including its private key, and installs it on the machines that host the cluster.
 
@@ -101,7 +101,7 @@ Certificate issuance and provisioning flow is illustrated in the following diagr
 
 The topic of certificate enrollment is covered in detail in the [Key Vault documentation](../key-vault/certificates/create-certificate.md). A synopsis is included here for continuity and easier reference. 
 
-Continuing with Azure as the context, and using Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the key vault, granted by the key vault owner. The requester then enrolls into a certificate as follows:
+Continuing with Azure as the context, and using Key Vault as the secret-management service, an authorized certificate requester must have at least certificate management permissions on the key vault, granted by the key vault owner. The requester then enrolls into a certificate as follows:
 
 - The requester creates a certificate policy in Key Vault, which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage, and more. For more information, see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md). 
 
@@ -145,7 +145,7 @@ As mentioned earlier, the Service Fabric runtime is responsible for locating and
 
 Recall that certificates in Service Fabric are used for a multitude of purposes, from mutual authentication in the federation layer to Transport Layer Security (TLS) authentication for the management endpoints. This requires various components or system services to have access to the certificate's private key. The Service Fabric runtime regularly scans the certificate store, looking for matches for each of the known presentation rules. 
 
-For each matching certificate, the corresponding private key is located, and its discretionary access control list is updated to include permissions (ordinarily Read and Execute) that are granted to the identity that requires them. 
+For each matching certificate, the corresponding private key is located, and its discretionary access control list is updated to include permissions (Read and Execute, ordinarily) that are granted to the identity that requires them. 
 
 This process is informally referred to as *ACLing*. The process runs on a one-minute cadence and also covers *application* certificates, such as those used to encrypt settings or as endpoint certificates. ACLing follows the presentation rules, so it's important to keep in mind that certificates declared by thumbprint and which are autorefreshed without the ensuing cluster configuration update will be inaccessible.   
 
@@ -160,7 +160,7 @@ Service Fabric assists in this process by raising health warnings when the expir
 
 The rotated certificate is now provisioned to all nodes. Now, assuming that the rotation applied to the cluster certificate was declared by subject common name, let's examine what happens next: 
 
-  - For new connections within, as well as into, the cluster, the Service Fabric runtime finds and selects the most recently issued matching certificate (the greatest value of the *NotBefore* property). Note that this is a change from earlier versions of the Service Fabric runtime.
+  - For new connections within, as well as into, the cluster, the Service Fabric runtime finds and selects the most recently issued matching certificate (the greatest value of the *NotBefore* property). This is a change from earlier versions of the Service Fabric runtime.
 
   - Existing connections are kept alive or allowed to naturally expire or otherwise terminate, and an internal handler will have been notified that a new match exists.
 
@@ -195,13 +195,13 @@ So far, this article has described mechanisms and restrictions, outlined intrica
 - Access to the key vault is granted via user-assigned managed identities, which are created and assigned to the virtual machine scale set during deployment.
 - After deployment, the agent (the Key Vault VM extension) polls and refreshes observed certificates on each node of the virtual machine scale set. Certificate rotation is thus fully automated, because Service Fabric automatically picks up the latest valid certificate.
 
-The sequence is fully scriptable and automated and allows a user-touch-free initial deployment of a cluster that's configured for certificate autorollover. The next sections provide detailed steps, which contain a mix of PowerShell cmdlets and fragments of JSON templates. The same functionality is achievable with all supported means of interacting with Azure.
+The sequence is fully scriptable and automated, and it allows a user-touch-free initial deployment of a cluster that's configured for certificate autorollover. The next sections provide detailed steps, which contain a mix of PowerShell cmdlets and fragments of JSON templates. The same functionality is achievable with all supported means of interacting with Azure.
 
 > [!NOTE]
 > This example assumes that a certificate exists already in your key vault. Enrolling and renewing a Key Vault-managed certificate requires prerequisite manual steps, as described earlier in this article. For production environments, use Key Vault-managed certificates. We've included a sample script that's specific to a Microsoft-internal PKI.
 
 > [!NOTE]
-> Certificate autorollover makes sense only for CA-issued certificates. Using self-signed certificates, including those generated during deployment of a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local/developer-hosted deployments if you declare the issuer thumbprint to be the same as that of the leaf certificate.
+> Certificate autorollover makes sense only for CA-issued certificates. Using self-signed certificates, including those generated during deployment of a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local or developer-hosted deployments if you declare the issuer thumbprint to be the same as that of the leaf certificate.
 
 ### Starting point
 
@@ -211,7 +211,7 @@ For brevity, let's assume the following starting state:
 - The certificate is stored in a key vault and provisioned as a virtual machine scale set secret.
 - The same certificate will be used to convert the cluster to common name-based certificate declarations, and so it can be validated by subject and issuer. If this isn't the case, obtain the CA-issued certificate that's intended for this purpose, and add it to the cluster definition by thumbprint. This process is explained in [Add or remove certificates for a Service Fabric cluster in Azure](service-fabric-cluster-security-update-certs-azure.md).
 
-Here is a JSON excerpt from a template corresponding to such a state. The excerpt omits many required settings and illustrates only the certificate-related aspects:
+Here's a JSON excerpt from a template that corresponds to such a state. The excerpt omits many required settings and illustrates only the certificate-related aspects.
 
 ```json
   "resources": [
@@ -274,13 +274,13 @@ Here is a JSON excerpt from a template corresponding to such a state. The excerp
 
 The preceding code essentially says that the certificate with thumbprint ```json [parameters('primaryClusterCertificateTP')] ``` and found at Key Vault URI ```json [parameters('clusterCertificateUrlValue')] ``` is declared as the cluster's sole certificate, by thumbprint. 
 
-Next let's set up the additional resources that are needed to ensure the autorollover of the certificate.
+Next, let's set up the additional resources that are needed to ensure the autorollover of the certificate.
 
 ### Set up the prerequisite resources
 
-As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft.Compute Resource Provider service, using its first-party identity and on behalf of the deployment operator. For autorollover, that will change. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that's granted permissions to the key vault secrets.
+As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft.Compute Resource Provider service, using its first-party identity and on behalf of the deployment operator. For autorollover, that will change. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that has been granted permissions to the key vault secrets.
 
-You should deploy all the subsequent excerpts concomitantly. They're listed individually only for play-by-play analysis and explanation.
+You should deploy the next excerpts at the same time. They're listed individually only for play-by-play analysis and explanation.
 
 First, define a user-assigned identity (default values are included as examples). For more information, see the [official documentation](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
@@ -314,7 +314,7 @@ First, define a user-assigned identity (default values are included as examples)
   ]}
 ```
 
-Next, grant this identity access to the key vault secrets - refer to the [official documentation](/rest/api/keyvault/keyvault/vaults/update-access-policy) for current information:
+Next, grant this identity access to the key vault secrets. For the most current information, see the [official documentation](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 ```json
   "resources":
   [{
@@ -340,11 +340,11 @@ In the next step, you'll do the following:
 
 - Assign the user-assigned identity to the virtual machine scale set.
 - Declare the virtual machine scale set dependency on the creation of the managed identity, and on the result of granting it access to the key vault.
-- Declare the Key Vault VM extension, requiring it to retrieve observed certificates on startup. For more information, see the [Key Vault VM extension for Windows](../virtual-machines/extensions/key-vault-windows.md) official documentation.
+- Declare the Key Vault VM extension and require it to retrieve observed certificates on startup. For more information, see the [Key Vault VM extension for Windows](../virtual-machines/extensions/key-vault-windows.md) official documentation.
 - Update the definition of the Service Fabric VM extension to depend on the Key Vault VM extension, and to convert the cluster certificate declaration from thumbprint to common name.
 
 > [!NOTE]
-> These changes are being made as a single step because they fall under the scope of the same resource.
+> These changes are being made as a single step because they fall within the scope of the same resource.
 
 ```json
   "parameters": {
@@ -450,7 +450,7 @@ In the next step, you'll do the following:
   ]
 ```
 
-Although it's not explicitly listed in the preceding code, note that we've removed the key vault certificate URL from the `OsProfile` section of the virtual machine scale set.
+Although it's not explicitly listed in the preceding code, note that the key vault certificate URL has been removed from the `OsProfile` section of the virtual machine scale set.
 
 The final step is to update the cluster definition to change the certificate declaration from thumbprint to common name. We're also pinning the issuer thumbprints:
 
@@ -492,13 +492,13 @@ At this point, you can run the previously mentioned updates in a single deployme
 
 ### Analysis and observations
 
-This section is a catch-all for explaining concepts and processes that have been presented throughout this article, as well as drawing attention to certain important aspects.
+This section is a catch-all for explaining concepts and processes that have been presented throughout this article, as well as drawing attention to certain other important aspects.
 
 #### About certificate provisioning
 
 The Key Vault VM extension, as a provisioning agent, runs continuously on a predetermined frequency. If it fails to retrieve an observed certificate, it continues to the next in line, and then hibernates until the next cycle. The Service Fabric VM extension, as the cluster bootstrapping agent, requires the declared certificates before the cluster can form. This, in turn, means that the Service Fabric VM extension can run only after the successful retrieval of the cluster certificates, denoted here by the ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` clause, and by the Key Vault VM extension's ```json "requireInitialSync": true``` setting. 
 
-This indicates to the Key Vault VM extension that, on the first run (after deployment or a reboot), it must cycle through its observed certificates until all are downloaded successfully. Setting this parameter to false, coupled with a failure to retrieve the cluster certificates, would result in a failure of the cluster deployment. Conversely, requiring an initial sync with an incorrect or invalid list of observed certificates would result in a failure of the Key Vault VM extension, and again, a failure to deploy the cluster. 
+This indicates to the Key Vault VM extension that, on the first run (after deployment or a reboot), it must cycle through its observed certificates until all are downloaded successfully. Setting this parameter to false, coupled with a failure to retrieve the cluster certificates, would result in a failure of the cluster deployment. Conversely, requiring an initial sync with an incorrect or invalid list of observed certificates would result in a failure of the Key Vault VM extension and, again, a failure to deploy the cluster. 
 
 #### About certificate linking
 
@@ -512,7 +512,7 @@ According to its [definition](../virtual-machines/extensions/key-vault-windows.m
 
 Certificates used to establish a TLS connection are ordinarily [acquired as a handle](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) via the S-channel Security Support Provider. That is, the client doesn't directly access the private key of the certificate itself. S-channel supports redirection, or linking, of credentials in the form of a certificate extension, [CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id). 
 
-If this property is set, its value represents the thumbprint of the *renewal* certificate, and so S-channel will instead attempt to load the linked certificate. In fact, the S-channel will traverse this linked (and hopefully acyclic) list until it ends up with the *final* certificate, one without a renewal mark. This feature, when used judiciously, is a great mitigation against a loss of availability that's caused by, for example, expired certificates. 
+If this property is set, its value represents the thumbprint of the *renewal* certificate, and so S-channel will instead attempt to load the linked certificate. In fact, the S-channel will traverse this linked and, hopefully, acyclic list until it ends up with the *final* certificate, one without a renewal mark. This feature, when used judiciously, is a great mitigation against a loss of availability that's caused by, for example, expired certificates. 
 
 In other cases, it can be the cause of outages that are difficult to diagnose and mitigate. S-channel executes the traversal of certificates on their renewal properties unconditionally, irrespective of subject, issuers, or any other specific attributes that participate in the validation of the resulting certificate by the client. It's possible that the resulting certificate has no associated private key, or that the key hasn't been ACLed to its prospective consumer. 
  
@@ -549,7 +549,7 @@ To dispose the creation of a managed identity, or to assign it to another resour
 
 From a security standpoint, recall that the virtual machine scale set is considered a security boundary with regard to its Azure identity. That means that any application that's hosted on the VM could, in principle, obtain an access token representing the VM. Managed identity access tokens are obtained from the unauthenticated Instance Metadata Service endpoint. If you consider the VM to be a shared, or multi-tenant environment, this method of retrieving cluster certificates might not be indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
 
-## Troubleshooting and FAQ
+## Troubleshooting and frequently asked questions
 
 **Q: How can I programmatically enroll into a Key Vault-managed certificate?**
 
