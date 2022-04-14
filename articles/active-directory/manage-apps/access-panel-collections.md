@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: davidmu
+ms.author: lenalepa
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
 
