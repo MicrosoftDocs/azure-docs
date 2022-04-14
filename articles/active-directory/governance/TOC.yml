@@ -36,7 +36,7 @@
         href: /graph/tutorial-accessreviews-securitygroup
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments
-      - name: Automate identity governance tasks
+      - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
 - name: Concepts
   expanded: true
