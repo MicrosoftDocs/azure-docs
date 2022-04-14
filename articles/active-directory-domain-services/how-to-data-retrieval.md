@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2022
+ms.date: 04/14/2022
 ms.author: justinha
 ---
 
@@ -21,7 +21,7 @@ This document describes how to retrieve data from Azure Active Directory Domain 
 
 ## Use Azure Active Directory to create, read, update, and delete user objects
 
-You can create, read, update, and delete user objects in the Azure AD portal, as shown in then following steps, or by using Graph PowerShell or Graph API. 
+You can create a user in the Azure AD portal or by using Graph PowerShell or Graph API. You can also read, update, and delete users. The next sections show how to do these operations in the Azure AD portal. 
 
 ### Create, read, or update a user
 
@@ -73,7 +73,7 @@ When a user is deleted, any licenses consumed by the user are made available for
 
 ## Use RSAT tools to connect to an Azure AD DS managed domain and view users
 
-Sign in to the an administrative workstation with a user account that's a member of the *AAD DC Administrators* group. The following steps require installation of [Remote Server Administration Tools (RSAT)](tutorial-create-management-vm.md#install-active-directory-administrative-tools).
+Sign in to an administrative workstation with a user account that's a member of the *AAD DC Administrators* group. The following steps require installation of [Remote Server Administration Tools (RSAT)](tutorial-create-management-vm.md#install-active-directory-administrative-tools).
 
 1. From the **Start** menu, select **Windows Administrative Tools**. The Active Directory Administration Tools are listed.
 
@@ -94,5 +94,5 @@ Sign in to the an administrative workstation with a user account that's a member
 
 You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your managed domain.
 
-## Next Steps
+## Next steps
 * [Azure AD DS Overview](overview.md)
