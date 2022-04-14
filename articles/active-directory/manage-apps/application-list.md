@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: davidmu
+ms.author: alamaral
 ms.reviewer: alamaral
 ---
 
