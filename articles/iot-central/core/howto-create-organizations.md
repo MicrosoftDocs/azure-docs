@@ -31,13 +31,13 @@ When you give users access to your application, the higher in the hierarchy you 
 
 The following screenshot shows an organization hierarchy definition in IoT Central:
 
-:::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition.":::
+:::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition." lightbox="media/howto-create-organization/organizations-definition.png":::
 
 ## Create a hierarchy
 
 To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Permissions** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
 
-:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy.":::
+:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy." lightbox="media/howto-create-organization/create-organizations-hierarchy.png":::
 
 > [!TIP]
 > The initial setup of organizations must be done by a member of the **App Administrator** role.
@@ -59,7 +59,7 @@ When you create a new device in your application, assign it to an organization i
 
 To assign or reassign an existing device to an organization, select the device in the device list and then select **Organization**:
 
-:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with.":::
+:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png:::
 
 > [!TIP]
 > You can see which organization a device belongs to in the device list. Use the filter tool in the device list to show devices in a particular organization.
@@ -135,7 +135,7 @@ You can set an organization as the default organization to use in your applicati
 
 To set the default organization, select **Settings** on the top menu bar:
 
-:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization.":::
+:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png:::
 
 
 ## Add organizations to an existing application
