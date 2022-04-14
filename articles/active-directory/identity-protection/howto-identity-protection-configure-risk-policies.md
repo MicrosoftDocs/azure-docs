@@ -61,7 +61,7 @@ There are two locations where these policies may be configured, Conditional Acce
    - Graph API support
    - Use more Conditional Access attributes in policy
 
-Organizations can choose to deploy policies using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview).
+Organizations can choose to deploy policies using the steps outlined below or using the [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates-preview).
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
