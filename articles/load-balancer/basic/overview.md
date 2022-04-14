@@ -15,7 +15,7 @@ Basic Azure Load Balancer is a SKU of Azure Load Balancer. A basic load balancer
 
 ## Load balancer types
 
-An Azure load balancer is available with two types:
+An Azure load balancer is available in two types:
 
 A **[public load balancer](../components.md#frontend-ip-configurations)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
 
