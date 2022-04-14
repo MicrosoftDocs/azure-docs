@@ -270,7 +270,6 @@ The following sample code shows the configurations required to enable correlatio
 // between client-side AJAX and server requests enabled.
 cfg: { // Application Insights Configuration
     instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    disableFetchTracking: false,
     enableCorsCorrelation: true,
     enableRequestHeaderTracking: true,
     enableResponseHeaderTracking: true,
@@ -287,7 +286,6 @@ cfg: { // Application Insights Configuration
 // between client-side AJAX and server requests enabled.
 const appInsights = new ApplicationInsights({ config: { // Application Insights Configuration
   instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
-  disableFetchTracking: false,
   enableCorsCorrelation: true,
   enableRequestHeaderTracking: true,
   enableResponseHeaderTracking: true,
@@ -300,21 +298,6 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
 
 > [!NOTE]
 > There are two distributed tracing modes/protocols - AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt-in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
-
-> [!WARNING] 
-> Older Application Insights JS SDK versions and npm based implementations will report correlation recursively because of a product update for connection strings.
-
-### Correlation header excluded domains
-
-The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
-An example would be `*.queue.core.windows.net`, as seen in the code sample above.
-Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
-
-### Access control allow headers
-
-The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
-
-Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
 
 ### Route tracking
 
@@ -336,6 +319,8 @@ For Single Page Applications, please reference plugin documentation for plugin s
 When a page is first loading and the SDK has not fully initialized, we are unable to generate the Operation ID for the first request. As a result, distributed tracing is incomplete until the SDK fully initializes.
 To remedy this problem, you can include dynamic JavaScript on the returned HTML page and the SDK will use a callback function during initialization to retroactively pull the Operation ID from the serverside and populate the clientside with it.
 
+# [Snippet](#tab/snippet)
+
 Here's a sample of how to create a dynamic JS using Razor:
 
 ```C#
@@ -351,9 +336,21 @@ Here's a sample of how to create a dynamic JS using Razor:
     }});
 </script>
 ```
+# [NPM](#tab/npm)
 
-> [!NOTE]
-> When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.context.telemetryContext.parentID = serverId;
+appInsights.loadAppInsights();
+```
+
+When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+
+--- 
 
 > [!CAUTION]
 >The application UX is not yet optimized to show these "first hop" advanced distributed tracing scenarios. However, the data will be available in the requests table for query and diagnostics.
@@ -492,6 +489,24 @@ This does NOT mean that we'll only support the lowest common set of features, ju
 The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS). 
 
 For the latest updates and bug fixes [consult the release notes](./release-notes.md).
+
+## FAQ
+
+### Correlation header excluded domains
+
+The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
+An example would be `*.queue.core.windows.net`, as seen in the code sample above.
+Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
+
+### Access control allow headers
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+
+### Correlation recursion
+
+If the SDK reports correlation recursively enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data, this can occur when using connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)
