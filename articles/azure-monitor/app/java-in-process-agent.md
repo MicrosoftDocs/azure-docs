@@ -367,7 +367,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ### Send custom telemetry by using the 2.x SDK
 
-1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice. it's worth using the latest version:
+1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice, it's worth using the latest version:
 
     ```xml
     <dependency>
