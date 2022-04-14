@@ -50,7 +50,7 @@ sections:
 
       - question: What media formats does Azure Video Indexer support?
         answer: |
-          Azure Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](/media-services/latest/encode-media-encoder-standard-formats-reference) list for more details.
+          Azure Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) list for more details.
 
       - question: How do I upload a media file into Azure Video Indexer and what are the limitations?
         answer: |
@@ -60,7 +60,7 @@ sections:
 
       - question: How long does it take Azure Video Indexer to extract insights from media?
         answer: |
-          The amount of time it takes to index a video or audio file, both using the Azure Video Indexer API and the Azure Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
+          The amount of time it takes to index a video or audio file, both using the Azure Video Indexer API and the Azure Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
       - question: Can I create customized workflows to automate processes with Azure Video Indexer?
         answer: |
@@ -95,7 +95,7 @@ sections:
 
       - question: What is the SLA for Azure Video Indexer?
         answer: |
-          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
+          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/azure/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
 
   - name: Privacy Questions
     questions:

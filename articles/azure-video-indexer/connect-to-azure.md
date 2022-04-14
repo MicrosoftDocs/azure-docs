@@ -1,18 +1,18 @@
 ---
 title: Create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure
-description: Learn how to create a Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
+description: Learn how to create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
 ms.topic: tutorial
 ms.date: 10/19/2021
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
 
-# Create a Azure Video Indexer account
+# Create an Azure Video Indexer account
 
-When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts is built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
+When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
-* You can create a Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
-* You can create a Azure Video Indexer **ARM-based** account through one of the following:
+* You can create an Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
+* You can create an Azure Video Indexer **ARM-based** account through one of the following:
 
   1. [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
   2. [Azure portal](https://portal.azure.com/#home)
@@ -21,11 +21,11 @@ When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) a
 To read more on how to create a **new ARM-Based** Azure Video Indexer account, read this [article](create-video-analyzer-for-media-account.md)
 
 ## How to create classic accounts
-This article shows how to create a Azure Video Indexer classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
+This article shows how to create an Azure Video Indexer classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
 If you are moving from a *trial* to *paid ARM-Based* Azure Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Azure Video Indexer account to Azure Government](#azure-video-indexer-in-azure-government).
+The article also covers [Linking an Azure Video Indexer account to Azure Government](#azure-video-indexer-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 
@@ -53,7 +53,7 @@ The article also covers [Linking a Azure Video Indexer account to Azure Governme
 
 ### Additional prerequisites for manual flow
 
-* Register the EventGrid resource provider using the Azure portal.
+* Register the Event Grid resource provider using the Azure portal.
 
     In the [Azure portal](https://portal.azure.com/), go to **Subscriptions**->[subscription]->**ResourceProviders**.
 
@@ -70,7 +70,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Create and configure a Media Services account
 
-1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/media-services/previous/media-services-portal-create-account).
+1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/azure/media-services/previous/media-services-portal-create-account).
 
      Make sure the Media Services account was created with the classic APIs.
 
@@ -89,10 +89,10 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
-4. For Video Analyzer for Media to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
+4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
-    2. Select [Service principal authentication method](/azure/media-services/previous/media-services-portal-get-started-with-aad).
+    2. Select [Service principal authentication method](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad).
     3. Get the client ID and client secret
 
         After you select **Settings**->**Keys**, add **Description**, press **Save**, and the key value gets populated.
@@ -192,9 +192,9 @@ To create a paid account via the Azure Video Indexer portal:
 1. Log in with your Azure Government Azure AD account.
 1.	If you do not have any Azure Video Indexer accounts in Azure Government that you are an owner or a contributor to, you will get an empty experience from which you can start creating your account.
 
-    The rest of the flow is as described in above , only the regions to select from will be Government regions in which Azure Video Indexer is available
+    The rest of the flow is as described in above, only the regions to select from will be Government regions in which Azure Video Indexer is available
 
-    If you already are a contributor or an admin of an existing one or more Azure Video Indexer account in Azure Government, you will be taken to that account and from there you can start a follow steps for creating an additional account if needed, as described above.
+    If you already are a contributor or an admin of an existing one or more Azure Video Indexer accounts in Azure Government, you will be taken to that account and from there you can start a following steps for creating an additional account if needed, as described above.
 
 ### Create new account via the API on Azure Government
 
@@ -212,9 +212,9 @@ To create a paid account in Azure Government, follow the instructions in [Create
 
 After you are done with this tutorial, delete resources that you are not planning to use.
 
-### Delete a Azure Video Indexer account
+### Delete an Azure Video Indexer account
 
-If you want to delete a Azure Video Indexer account, you can delete the account from the Azure Video Indexer website. To delete the account, you must be the owner.
+If you want to delete an Azure Video Indexer account, you can delete the account from the Azure Video Indexer website. To delete the account, you must be the owner.
 
 Select the account -> **Settings** -> **Delete this account**.
 

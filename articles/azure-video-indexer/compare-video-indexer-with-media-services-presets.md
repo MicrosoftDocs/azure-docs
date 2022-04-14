@@ -17,9 +17,9 @@ Currently, there is an overlap between features offered by the [Azure Video Inde
 
 |Feature|Azure Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Media Insights|[Enhanced](video-indexer-output-json-v2.md) |[Fundamentals](/media-services/latest/analyze-video-audio-files-concept)|
+|Media Insights|[Enhanced](video-indexer-output-json-v2.md) |[Fundamentals](/azure/media-services/latest/analyze-video-audio-files-concept)|
 |Experiences|See the full list of supported features: <br/> [Overview](video-indexer-overview.md)|Returns video insights only|
-|Billing|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
+|Billing|[Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/#analytics)|[Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/#analytics)|
 |Compliance|For the most current compliance updates, visit [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) and search for "Azure Video Indexer" to see if it complies with a certificate of interest.|For the most current compliance updates, visit [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) and search for "Media Services" to see if it complies with a certificate of interest.|
 |Free Trial|East US|Not available|
 |Region availability|See [Cognitive Services availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)|See [Media Services availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
@@ -28,4 +28,4 @@ Currently, there is an overlap between features offered by the [Azure Video Inde
 
 [Azure Video Indexer overview](video-indexer-overview.md)
 
-[Media Services v3 overview](/media-services/latest/media-services-overview)
+[Media Services v3 overview](/azure/media-services/latest/media-services-overview)

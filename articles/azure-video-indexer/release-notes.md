@@ -118,7 +118,7 @@ Azure Video Indexer introduces a public preview of Azure Resource Manager (ARM) 
 >
 > There is currently no support from the Azure Video Indexer [website](https://www.videoindexer.ai).
 
-For more information go to [create a Azure Video Indexer account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
+For more information go to [create an Azure Video Indexer account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
 ### People’s clothing detection
 
@@ -155,13 +155,13 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 
 ### Azure Video Indexer deployed in six new regions
 
-You can now create a Azure Video Indexer paid account in France Central, Central US, Brazil South, West Central US, Korea Central, and Japan West regions.
+You can now create an Azure Video Indexer paid account in France Central, Central US, Brazil South, West Central US, Korea Central, and Japan West regions.
 
 ## May 2021
 
@@ -222,7 +222,7 @@ You can now see the detected acoustic events in the closed captions file. The fi
 
 ### Audio analysis
 
-Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/) page.
 
 The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
 
@@ -236,7 +236,7 @@ SDK is now available to embed Azure Video Indexer's insights widget in your own 
 
 ### Azure Video Indexer deployed in the US North Central , US West and Canada Central
 
-You can now create a Azure Video Indexer paid account in the US North Central, US West and Canada Central regions
+You can now create an Azure Video Indexer paid account in the US North Central, US West and Canada Central regions
 
 ### New source languages support for speech-to-text (STT), translation and search
 
@@ -277,12 +277,12 @@ In addition, the model now includes people and locations in-context which are no
 
 ### Azure Video Indexer is deployed on US Government cloud
 
-You can now create a Azure Video Indexer paid account on US government cloud in Virginia and Arizona regions.
+You can now create an Azure Video Indexer paid account on US government cloud in Virginia and Arizona regions.
 Azure Video Indexer free trial offering isn't available in the mentioned region. For more information go to Azure Video Indexer Documentation.
 
 ### Azure Video Indexer deployed in the India Central region
 
-You can now create a Azure Video Indexer paid account in the India Central region.
+You can now create an Azure Video Indexer paid account in the India Central region.
 
 ### New Dark Mode for the Azure Video Indexer website experience
 
@@ -295,7 +295,7 @@ To enable the dark mode open the settings panel and toggle on the **Dark Mode** 
 
 ### Azure Video Indexer deployed in the Switzerland West and Switzerland North
 
-You can now create a Azure Video Indexer paid account in the Switzerland West and Switzerland North regions.
+You can now create an Azure Video Indexer paid account in the Switzerland West and Switzerland North regions.
 
 ## October 2020
 
@@ -363,7 +363,7 @@ The label tagger was upgraded and now includes more visual labels that can be id
 
 ### Azure Video Indexer deployed in the East US
 
-You can now create a Azure Video Indexer paid account in the East US region.
+You can now create an Azure Video Indexer paid account in the East US region.
 
 ### Azure Video Indexer URL
 
@@ -508,7 +508,7 @@ Multiple advancements announced at IBC 2019:
 
 ### Azure Video Indexer deployed in UK South
 
-You can now create a Azure Video Indexer paid account in the UK south region.
+You can now create an Azure Video Indexer paid account in the UK south region.
 
 ### New Editorial Shot Type insights available
 
@@ -555,7 +555,7 @@ Customers can provide VTT, SRT, and TTML file formats as input for language mode
 
 ### Azure Video Indexer deployed to Japan East
 
-You can now create a Azure Video Indexer paid account in the Japan East region.
+You can now create an Azure Video Indexer paid account in the Japan East region.
 
 ### Create and repair account API (Preview)
 

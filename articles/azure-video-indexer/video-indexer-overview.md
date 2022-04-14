@@ -14,7 +14,7 @@ Azure Video Indexer (formerly Azure Video Analyzer for Media) is a cloud applica
 
 To start extracting insights with Azure Video Indexer, you need to create an account and upload videos. When you upload your videos to Azure Video Indexer, it analyses both visuals and audio by running different AI models. As Azure Video Indexer analyzes your video, the insights that are extracted by the AI models.
 
-When you create a Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. For more information, see [Create a Azure Video Indexer account connected to Azure](connect-to-azure.md).
+When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. For more information, see [Create an Azure Video Indexer account connected to Azure](connect-to-azure.md).
 
 The following diagram is an illustration and not a technical explanation of how Azure Video Indexer works in the backend.
 

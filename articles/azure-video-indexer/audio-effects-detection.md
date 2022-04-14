@@ -1,6 +1,6 @@
 ---
 title: Audio effects detection  
-description: Audio Effects Detection is one of Azure Video Indexer AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
+description: Audio Effects Detection is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Audio effects detection (preview)
 
-**Audio effects detection** is one of Azure Video Indexer AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
+**Audio effects detection** is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 
 Some scenarios where this feature is useful:
 
@@ -18,7 +18,7 @@ Some scenarios where this feature is useful:
 
 ## Supported audio categories  
 
-**Audio effect detection** can detect and classify 7 different categories. In the next table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+**Audio effect detection** can detect and classify 7 different categories. In the next table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
@@ -119,7 +119,7 @@ Audio effects can be added to the closed captions files supported by Azure Video
 
 * The audio effects are detected when present in non-speech segments only. 
 * The model is optimized for cases where there is no loud background music. 
-* Low quality audio may impact the detection results .
+* Low quality audio may impact the detection results.
 * Minimal non-speech section duration is 2 seconds. 
 * Music that is characterized with repetitive and/or linearly scanned frequency can be mistakenly classified as Alarm or siren. 
 * The model is currently optimized for natural and non-synthetic gunshot and explosions sounds. 
