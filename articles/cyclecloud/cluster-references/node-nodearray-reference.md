@@ -238,6 +238,8 @@ MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would
 InitialCoreCount | Integer | Number of cores to start when cluster starts.
 MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 ShutdownPolicy | String | Indicates what to do with the VM when a node shuts down. If 'terminate' the VM is deleted when the node shuts down. If 'deallocate', the node is stopped instead. (Default: terminate)
+ThrottleCapacity | Boolean | Whether to suspend requests to Azure upon receiving Insufficient Capacity signal. (Defalt: false)
+ThrottleCapacityTime | Relative Time | Backoff time after receiving Insufficient Capacity signal from Azure. AvailableCount will be reported as zero during this time. (Default=\`5m\`) 
 
 > [!NOTE]
 > All VMSSs will be assigned `FaultDomainCount = 1`
