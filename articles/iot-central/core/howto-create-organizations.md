@@ -59,7 +59,7 @@ When you create a new device in your application, assign it to an organization i
 
 To assign or reassign an existing device to an organization, select the device in the device list and then select **Organization**:
 
-:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png:::
+:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png":::
 
 > [!TIP]
 > You can see which organization a device belongs to in the device list. Use the filter tool in the device list to show devices in a particular organization.
@@ -135,7 +135,7 @@ You can set an organization as the default organization to use in your applicati
 
 To set the default organization, select **Settings** on the top menu bar:
 
-:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png:::
+:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png":::
 
 
 ## Add organizations to an existing application
