@@ -21,7 +21,7 @@ You can also deploy other Java applications or non-Java (polyglot) applications 
   
 
 ## Limitations
-The web application must listen to port 1025. The way of change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot application or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core application.
+The web application must listen to port `1025` for the standard tier and `8080` for the enterprise tier. The way of change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot application or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core application.
 
 For the applications not listening on any port. You can disable the probe by CLI. See the details [below](#cli) 
 
