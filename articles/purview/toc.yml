@@ -297,14 +297,14 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
+    - name: Register data sources for Data use governance
+      href: how-to-enable-data-use-governance.md
     - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
     - name: Data owner policies for Azure Storage
       href: how-to-data-owner-policies-storage.md
     - name: Data owner policies on resource groups or subscriptions
       href: how-to-data-owner-policies-resource-group.md
-    - name: Register data sources for Data use governance
-      href: how-to-enable-data-use-governance.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
     - name: View self-service data access policy
