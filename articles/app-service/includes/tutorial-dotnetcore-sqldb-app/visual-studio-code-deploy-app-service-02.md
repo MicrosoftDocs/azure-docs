@@ -7,9 +7,9 @@ ms.date: 02/03/2022
 
 1. In the Visual Studio Code  terminal, run the .NET CLI command below. This command generates a deployable `publish` folder for the app in the `bin/release/publish` directory.
 
-```dotnetcli
+    ```dotnetcli
     dotnet publish -c Release
-```
+    ```
 
 1. Right-click on the generated `publish` folder in the Visual Studio Code explorer and select **Deploy to Web App**.
 
