@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF and TIFF) and images (JPG, PNG, and BMP).
+The Form Recognizer v3.0 preview includes the new Read API. Read extracts printed and handwritten from documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
 ## Development options
 
@@ -23,7 +23,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Data extraction
 
@@ -77,7 +77,7 @@ Form Recognizer preview version supports several languages for the read model. *
 
 ### Text lines and words
 
-Read API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided on lines, words, bounding boxes, confidence scores, and style (handwritten or other).
+Read API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted from data provided in lines, words, bounding boxes, confidence scores, and style.
 
 ### Language detection (v3.0 preview)
 
@@ -93,12 +93,17 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
+Complete a Form Recognizer quickstart:
 
-  > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+> [!div class="checklist"]
+>
+> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
+> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
 
-* Explore our REST API:
+Explore our REST API:
 
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [!div class="nextstepaction"]
+> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

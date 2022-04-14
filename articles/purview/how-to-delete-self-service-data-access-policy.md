@@ -26,7 +26,6 @@ Self-service policies must exist to be deleted. To enable and create self-servic
 1. [Create a self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md) - this will enable [users to request access to data sources from within Azure Purview](how-to-request-access.md).
 1. [Approve a self-service data access request](how-to-workflow-manage-requests-approvals.md#approvals) - after approving a request, if your workflow from the previous step includes the ability to create a self-service data policy, your policy will be created and will be viewable.
 
-
 ## Permission
 
 Only users with **Policy Admin** privilege can delete self-service data access policies.
