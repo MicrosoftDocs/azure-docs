@@ -92,7 +92,7 @@ The following table outlines the Docker orchestration and operating system monit
 
 Use the following information to install and configure the solution.
 
-1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
+1. Add the Container Monitoring solution to your Log Analytics workspace from Azure Marketplace or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
    - For standalone hosts:
