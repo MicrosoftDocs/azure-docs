@@ -9,4 +9,4 @@ ms.custom:
 ---
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Create a new, or use an existing Azure Purview account. You can [follow our quick-start guide to create one](../create-catalog-portal.md).
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md)
+- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md).

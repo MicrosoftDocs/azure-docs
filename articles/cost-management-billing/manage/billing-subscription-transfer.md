@@ -8,14 +8,14 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 04/07/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an Azure subscription to another account
 
-This article shows the steps needed to transfer billing ownership of an Azure subscription to another account. Before you transfer billing ownership for a subscription, read [About transferring billing ownership for an Azure subscription](subscription-transfer.md).
+This article shows the steps needed to transfer billing ownership of an Azure subscription to another account. Before you transfer billing ownership for a subscription, read [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -107,7 +107,7 @@ Additionally, Azure shows a banner in the subscription's details window in the A
 
 <a name="no-button"></a> 
 
-The self-service subscription transfer isn't available for your billing account. Currently, we don't support transferring the billing ownership of subscriptions in Enterprise Agreement (EA) accounts in the Azure portal. Also, Microsoft Customer Agreement accounts that are created while working with a Microsoft representative don't support transferring billing ownership.
+The self-service subscription transfer isn't available for your billing account. For more information, see [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
 
 ###  Not all subscription types can transfer
 
