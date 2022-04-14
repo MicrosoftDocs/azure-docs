@@ -429,6 +429,28 @@ The Application Insights JavaScript SDK is open-source to view the source code o
 
 For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 
+## FAQ
+
+### Should I use the JS SDK or SPA Plugins?
+
+Single Page Application (SPA) plugins are based on the Applications Insights JS SDK but provide customization and [additional features](#extensions) for the specifc platform being used. 
+
+### Application Map Correlation
+
+Follow the guidance for correlation for the [SDK](#enable-correlation) and [SPAs](#single-page-applications).
+
+### PageView for SPA
+
+### Adjust load for additional HTTP requests for SPA
+
+### Track time spent on page
+
+### Dependencies included or excluded
+
+### enable collection of ip addresses and geolocation for browser by default we don't collect
+
+### Authenticated user ID versus anonymous user IDs collecting from spa
+
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
