@@ -1,5 +1,5 @@
 ---
-title: Authorize data operations
+title: Authorize operations for data access
 titleSuffix: Azure Storage
 description: Learn about the different ways to authorize access to data in Azure Storage. Azure Storage supports authorization with Azure Active Directory, Shared Key authorization, or shared access signatures (SAS), and also supports anonymous access to blobs.
 services: storage
@@ -15,7 +15,9 @@ ms.subservice: common
 
 # Authorize access to data in Azure Storage
 
-Each time you access data in your storage account, your client application makes a request over HTTP/HTTPS to Azure Storage. By default, every resource in Azure Storage is secured, and every request to a secure resource must be authorized. Authorization ensures that the client application has the appropriate permissions to access data in your storage account.
+Each time you access data in your storage account, your client application makes a request over HTTP/HTTPS to Azure Storage. By default, every resource in Azure Storage is secured, and every request to a secure resource must be authorized. Authorization ensures that the client application has the appropriate permissions to access a particular resource in your storage account.
+
+## Understand authorization for data operations
 
 The following table describes the options that Azure Storage offers for authorizing access to data:
 
@@ -56,4 +58,3 @@ Each authorization option is briefly described below:
 - Authorize access with Azure Active Directory to either [blob](../blobs/authorize-access-azure-active-directory.md), [queue](../queues/authorize-access-azure-active-directory.md), or [table](../tables/authorize-access-azure-active-directory.md) resources.
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
-        
