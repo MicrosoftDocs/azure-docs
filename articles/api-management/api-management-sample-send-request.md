@@ -208,9 +208,10 @@ Once you have this information, you can make requests to all the backend systems
 </send-request>
 ```
 
-These requests execute in sequence, which is not ideal. 
+API Management will send these requests sequentially.
 
 ### Responding
+
 To construct the composite response, you can use the [return-response](./api-management-advanced-policies.md#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
 
 ```xml
@@ -233,55 +234,52 @@ The complete policy looks as follows:
 
 ```xml
 <policies>
-    <inbound>
+  <inbound>
+      <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+      <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 
-  <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-  <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+      <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
+        <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+        <set-method>GET</set-method>
+      </send-request>
 
-    <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
-      <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-      <set-method>GET</set-method>
-    </send-request>
+      <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
+        <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+        <set-method>GET</set-method>
+      </send-request>
 
-    <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
-      <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-      <set-method>GET</set-method>
-    </send-request>
+      <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
+        <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+        <set-method>GET</set-method>
+      </send-request>
 
-    <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-      <set-method>GET</set-method>
-    </send-request>
+      <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
+        <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+        <set-method>GET</set-method>
+      </send-request>
 
-    <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-      <set-method>GET</set-method>
-    </send-request>
-
-    <return-response response-variable-name="existing response variable">
-      <set-status code="200" reason="OK" />
-      <set-header name="Content-Type" exists-action="override">
-        <value>application/json</value>
-      </set-header>
-      <set-body>
-        @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
-                      new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
-                      new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
-                      new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
-                      ).ToString())
-      </set-body>
-    </return-response>
+      <return-response response-variable-name="existing response variable">
+        <set-status code="200" reason="OK" />
+        <set-header name="Content-Type" exists-action="override">
+          <value>application/json</value>
+        </set-header>
+        <set-body>
+          @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
+                        new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
+                        new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
+                        new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
+          ).ToString())
+        </set-body>
+      </return-response>
     </inbound>
     <backend>
-        <base />
+      <base />
     </backend>
     <outbound>
-        <base />
+      <base />
     </outbound>
 </policies>
 ```
-
-In the configuration of the placeholder operation, you can configure the dashboard resource to be cached for at least an hour. 
 
 ## Summary
 Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.
