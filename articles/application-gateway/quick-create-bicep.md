@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Bicep to create an Azure A
 services: application-gateway
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 04/08/2022
+ms.date: 04/14/2022
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
@@ -23,7 +23,7 @@ In this quickstart, you use Bicep to create an Azure Application Gateway. Then y
 
 ## Review the Bicep file
 
-This Bicep file creates a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+This Bicep file creates a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
@@ -47,15 +47,15 @@ Multiple Azure resources are defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-username>
+    az group create --name myResourceGroupAG --location eastus
+    az deployment group create --resource-group myResourceGroupAG --template-file main.bicep --parameters adminUsername=<admin-username>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-username>"
+    New-AzResourceGroup -Name myResourceGroupAG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroupAG -TemplateFile ./main.bicep -adminUsername "<admin-username>"
     ```
 
     ---
@@ -72,13 +72,13 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az resource list --resource-group myResourceGroupAG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzResource -ResourceGroupName myResourceGroupAG
 ```
 
 ---
@@ -90,13 +90,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name myResourceGroupAG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
 ---
