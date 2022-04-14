@@ -100,6 +100,8 @@
               href: continuous-backup-restore-resource-model.md
             - name: Latest restorable timestamp
               href: latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: audit-restore-continuous.md              
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
