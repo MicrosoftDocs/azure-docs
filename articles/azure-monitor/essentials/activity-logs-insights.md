@@ -14,7 +14,7 @@ ms.author: guywild
 Activity logs insights let you view information about changes to resources and resource groups in your Azure subscription. It uses information from the [Activity log](activity-log.md) to also present data about which users or services performed particular activities in the subscription. This includes which administrators deleted, updated or created resources, and whether the activities failed or succeeded. This article explains how to enable and use Activity log insights. 
 
 ## Enable Activity log insights
-The only requirement to enable Activity log insights is to [configure the Activity log to export to a Log Analytics workspace](activity-log.md#send-to-log-analytics-workspace). Pre-built [workbooks](/azure/azure-monitor/visualize/workbooks-overview) curate this data, which is stored in the [AzureActivity]/azure/azure-monitor/reference/tables/azureactivity) table in the workspace. 
+The only requirement to enable Activity log insights is to [configure the Activity log to export to a Log Analytics workspace](activity-log.md#send-to-log-analytics-workspace). Pre-built [workbooks](/azure/azure-monitor/visualize/workbooks-overview) curate this data, which is stored in the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) table in the workspace. 
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main.png" lightbox="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
