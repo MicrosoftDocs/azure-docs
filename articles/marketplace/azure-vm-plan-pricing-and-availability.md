@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/18/2022
+ms.date: 04/15/2022
 ---
 
 # Configure pricing and availability for a virtual machine offer
@@ -36,7 +36,7 @@ For the **License model**, select **Usage-based monthly billed plan** to configu
 For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they're billed monthly. This is our _Pay-as-you-go_ plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
 
 - **Free** – Your VM offer is free.
-- **Flat rate (recommended)** – Your VM offer is the same hourly price regardless of the hardware it runs on.
+- **Flat rate** – Your VM offer is the same hourly price regardless of the hardware it runs on.
 - **Per core** – Your VM offer pricing is based on per CPU core count. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware.
 - **Per core size** – Your VM offer is priced based on the number of CPU cores on the hardware it's deployed on.
 - **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on, and also for all markets. Currency conversion is done by you, the publisher. This option is easier if you use the import pricing feature.
@@ -46,13 +46,21 @@ For **Per core size** and **Per market and core size**, enter a **Price per core
 > [!NOTE]
 > To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. Before you export pricing data, first select **Save draft** near the bottom of the page to save pricing changes.
 
-Some things to consider when selecting a pricing option:
-- For the first four options, Microsoft does the currency conversion.
-- Microsoft suggests using a flat rate pricing for software solutions.
-- Prices are fixed, so once the plan is published the prices can't be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](support.md).
+When selecting a pricing option, Microsoft does the currency conversion for the Flat rate, Per core, and Per core size pricing options.
 
-> [!IMPORTANT]
-> Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified timeframe. If you do not review your offer within the timeframe specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).
+### Configure reservation pricing (optional)
+
+When you select either the _Flat rate_, _Per core_, and _Per core size_ price option, the **Reservation pricing** section appears. You can choose to offer savings for a 1-year commitment, 3-year commitment, or both. For more information about reservation pricing, including how prices are calculated, see [Plan a virtual machine offer](marketplace-virtual-machines.md#reservation-pricing-optional).
+
+These steps assume you have already selected either the _Flat rate_, _Per core_, or _Per core size_ price option and entered a per hour price.
+
+1. Under **Reservation pricing**, select **Yes, offer reservation pricing**.
+1. To offer a 1-year discount, select the **1-year saving %** check box and then enter the percentage discount you want to offer.
+1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
+1. To see the discounted prices, select **Price per core size**. A table with the 1-year and 3-year prices for each core size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
+    > [!TIP]
+    > For Per core size plans, you can optionally change the price for a particular core size in the Price/hour column of the table.
+1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
 ### Free Trial
 
