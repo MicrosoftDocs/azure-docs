@@ -2,11 +2,11 @@
 title: TLS termination with Azure Key Vault certificates
 description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/04/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # TLS termination with Key Vault certificates

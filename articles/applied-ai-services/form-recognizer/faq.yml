@@ -250,18 +250,17 @@ sections:
           - If you find that you’re being throttled on the number of POST requests, consider adding a delay between the requests.
 
           - Increase the workload gradually. Avoid sharp changes.
+          
+          - [Create a support request](service-limits.md#create-and-submit-support-request) to increase transactions per second(TPS) limit.
 
           Learn more about Form Recognizer [service quotas and limits](service-limits.md)
 
       - question: |
-         How can I reduce request latency for my API calls?
-        answer: |
-          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
-          
-      - question: |
-         How long will it to take analyze a document?
+         How long will it take to analyze a document?
         answer: |
           Form Recognizer is a multi-tenanted service where latency for similar documents is comparable but not always identical. The time to analyze a document depends on the size (e.g. number of pages) and associated content on each page.
+          
+          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
 
   - name: Custom models
     questions:

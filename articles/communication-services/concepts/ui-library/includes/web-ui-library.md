@@ -27,6 +27,9 @@ In conjunction to the UI components, the UI Library exposes a stateful client li
 This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
 This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/story/stateful-client-what-is-stateful--page).
 
+> [!NOTE]
+> The same components and composites offered in the UI Library are available in the [Design Kit for Figma](https://www.figma.com/community/file/1095841357293210472), so you can quickly design and prototype your calling and chat experiences.  
+
 ## Composites overview
 
 Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
@@ -34,6 +37,7 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite    | Use Cases  | 
 | ------------ | ---------- |
+| [CallwithChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) | Experience combining calling and chat features to allow users to start or join a call and chat thread. In the experience the user has the ability to both communicate using voice and video, as well as access to a rich chat thread where messages can be exchanged between participants. It includes support for Teams Interop. |
 | [CallComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-call--basic-example) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
 | [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chat--basic-example)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
 ## UI Component overview
