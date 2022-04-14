@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/14/2022
 ms.author: justinha
+ms.reviewer: manthanm
 ---
 
 # Azure AD DS instructions for data retrieval
