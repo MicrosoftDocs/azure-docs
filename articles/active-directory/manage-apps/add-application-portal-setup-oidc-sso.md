@@ -9,8 +9,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
+ms.date: 04/14/2022
+ms.author: ergreenl
 ms.reviewer: ergreenl
 ---
 
