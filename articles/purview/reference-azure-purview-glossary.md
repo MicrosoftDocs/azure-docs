@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: purview
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 04/14/2022
 ---
 # Azure Purview product glossary
 
