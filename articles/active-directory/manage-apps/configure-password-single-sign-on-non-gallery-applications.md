@@ -10,8 +10,8 @@ ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: alamaral
+ms.reviewer: alamaral
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 
