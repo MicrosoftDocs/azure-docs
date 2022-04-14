@@ -1,23 +1,22 @@
 ---
-title: 'MLOps: ML model management'
+title: 'MLOps: ML model management v1'
 titleSuffix: Azure Machine Learning
-description: 'Learn about model management (MLOps) with Azure Machine Learning . Deploy, manage, track lineage and monitor your models to continuously improve them. '  
+description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: rsethur
-ms.author:  seramasu
-ms.reviewer: larryfr
+author: jpe316
+ms.author:  jordane
 ms.custom: seodec18, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
 
-# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
-> * [v1](./v1/concept-model-management-and-deployment.md)
-> * [v2 (current version)](concept-model-management-and-deployment.md)
+> * [v1](concept-model-management-and-deployment.md)
+> * [v2 (current version)](../concept-model-management-and-deployment.md)
 
 In this article, learn about how do Machine Learning Operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
 
@@ -47,15 +46,15 @@ For more information on MLOps, see [Machine Learning DevOps (MLOps)](/azure/clou
 
 Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](../concept-ml-pipelines.md).
 
-If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+If you use the [Designer](../concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
 
 ## Create reusable software environments
 
 Azure Machine Learning environments allow you to track and reproduce your projects' software dependencies as they evolve. Environments allow you to ensure that builds are reproducible without manual software configurations.
 
-Environments describe the pip and Conda dependencies for your projects, and can be used for both training and deployment of models. For more information, see [What are Azure Machine Learning environments](concept-environments.md).
+Environments describe the pip and Conda dependencies for your projects, and can be used for both training and deployment of models. For more information, see [What are Azure Machine Learning environments](../concept-environments.md).
 
 ## Register, package, and deploy models from anywhere
 
@@ -72,7 +71,7 @@ Registered models are identified by name and version. Each time you register a m
 > You can also register models trained outside Azure Machine Learning.
 
 You can't delete a registered model that is being used in an active deployment.
-For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
+For more information, see the register model section of [Deploy models](../how-to-deploy-and-where.md#registermodel).
 
 > [!IMPORTANT]
 > When using Filter by `Tags` option on the Models page of Azure Machine Learning Studio, instead of using `TagName : TagValue` customers should use `TagName=TagValue` (without space)
@@ -84,56 +83,57 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](../how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](../how-to-troubleshoot-deployment.md).
 
 ### Convert and optimize models
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](../concept-onnx.md) article.
 
 ### Use models
 
-Trained machine learning models are deployed as [endpoints](concept-endpoints.md) in the cloud or locally. Deployments use CPU, GPU for inferencing.
+Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
 
-When deploying a model as an endpoint, you provide the following items:
+When using a model as a web service, you provide the following items:
 
 * The model(s) that are used to score data submitted to the service/device.
 * An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
 * An Azure Machine Learning environment that describes the pip and Conda dependencies required by the model(s) and entry script.
 * Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
 
-You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
+
+When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
 
 #### Batch scoring
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](../tutorial-pipeline-batch-scoring-classification.md).
 
-Batch scoring is supported through batch endpoints. For more information, see [endpoints](concept-endpoints.md).
+#### Real-time web services
 
-#### Online endpoints
+You can use your models in **web services** with the following compute targets:
 
-You can use your models with an online endpoint. Online endpoints can use the following compute targets:
-
-* Managed online endpoints
+* Azure Container Instance
 * Azure Kubernetes Service
 * Local development environment
 
-To deploy the model to an endpoint, you must provide the following items:
+To deploy the model as a web service, you must provide the following items:
 
 * The model or ensemble of models.
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md).
+For more information, see [Deploy models](../how-to-deploy-and-where.md).
 
 #### Controlled rollout
 
-When deploying to an online endpoint, you can use controlled rollout to enable the following scenarios:
+When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
 
 * Create multiple versions of an endpoint for a deployment
-* Perform A/B testing by routing traffic to different deployments within the endpoint.
-* Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
+* Perform A/B testing by routing traffic to different versions of the endpoint.
+* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of ML models](./how-to-safely-rollout-managed-endpoints.md).
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ### Analytics
 
@@ -143,12 +143,12 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
-- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
-- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
-- [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
+- Azure ML [integrates with Git](../how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- [Azure ML Datasets](../how-to-create-register-datasets.md) help you track, profile, and version data.
+- [Interpretability](../how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
-- [Integration with Azure](how-to-use-event-grid.md)  allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
+- [Integration with Azure](../how-to-use-event-grid.md)  allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
@@ -157,7 +157,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
+Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
@@ -166,11 +166,11 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
-For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
+For more information, see [How to enable model data collection](../how-to-enable-data-collection.md).
 
 ## Retrain your model on new data
 
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](../how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
 There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
@@ -179,7 +179,7 @@ There is no universal answer to "How do I know if I should retrain?" but Azure M
 - Compare the outputs of your new model to those of your old model
 - Use predefined criteria to choose whether to replace your old model 
 
-A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
+A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](../concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](../how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
 
 ## Automate the ML lifecycle 
 
@@ -196,21 +196,21 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 * [Azure Machine Learning MLOps](https://aka.ms/mlops) repository
 * [Azure Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository
 
-You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
+You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](../how-to-cicd-data-ingestion.md).
 
 ## Next steps
 
 Learn more by reading and exploring the following resources:
 
-+ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
++ [How & where to deploy models](../how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
++ [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md).
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
 + [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ Create clients that [consume a deployed model](how-to-consume-web-service.md)
++ Create clients that [consume a deployed model](../how-to-consume-web-service.md)
 
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 

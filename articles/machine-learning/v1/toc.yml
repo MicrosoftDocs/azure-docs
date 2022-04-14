@@ -2,6 +2,13 @@
   href: introduction.md
 - name: Switch to current version documentation
   href: ../index.yml
+- name: Concepts
+  items:
+  - name: Manage the ML lifecycle (MLOps)
+    items:
+    - name: MLOps capabilities
+      displayName: deploy, deployment, publish, production, operationalize, operationalization
+      href: concept-model-management-and-deployment.md
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)
