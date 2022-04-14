@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/22/2021
+ms.date: 01/22/2022
 ms.author: ergreenl
 ---
 
