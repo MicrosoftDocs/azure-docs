@@ -487,6 +487,7 @@ items:
       items:
       - name: Overview
         displayName: Azure Monitor agent
+        href: agents/azure-monitor-agent-overview.md
       - name: Installation options
         displayName: Azure Monitor agent
         items:
