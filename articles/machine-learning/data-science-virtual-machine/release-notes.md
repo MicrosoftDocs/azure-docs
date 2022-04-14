@@ -21,7 +21,7 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 ## April 14, 2022
-New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) is currently live in the marketplace
+New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace
 
 Version: 22.04.05
 
