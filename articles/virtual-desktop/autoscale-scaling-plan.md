@@ -3,7 +3,7 @@ title: Azure Virtual Desktop session host autoscale preview
 description: How to use the autoscale feature to allocate resources in your deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 04/14/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
