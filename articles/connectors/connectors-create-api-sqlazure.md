@@ -55,6 +55,8 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 * The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL Server trigger operation, you have to start with a blank workflow.
 
+<a name="multi-tenant-or-ise"></a>
+
 * To connect to an on-premises SQL server, the following extra requirements apply based on whether you have a Consumption logic app workflow, either in multi-tenant Azure Logic Apps or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), or if you have a Standard logic app workflow in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
   * Consumption logic app workflow
