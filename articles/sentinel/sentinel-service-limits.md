@@ -2,7 +2,7 @@
 title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel.
 author: yelevin
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 04/12/2022
 ms.author: yelevin
 ---
