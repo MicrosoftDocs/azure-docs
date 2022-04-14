@@ -280,6 +280,8 @@
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
+            - name: Use custom certificate authorities (preview)
+              href: custom-certificate-authority.md
             - name: Rotate certificates
               href: certificate-rotation.md
             - name: Use Azure Policy
