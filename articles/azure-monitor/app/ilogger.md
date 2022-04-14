@@ -515,6 +515,10 @@ builder.AddApplicationInsights(
 
 The Application Insights extension in Azure Web Apps uses the new provider. You can modify the filtering rules in the *appsettings.json* file for your application.
 
+### I can't see some of the logs from my application in the workspace. 
+
+This may happen because of adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](/azure/azure-monitor/app/sampling) for more details. 
+
 ## Next steps
 
 * [Logging in .NET](/dotnet/core/extensions/logging)
