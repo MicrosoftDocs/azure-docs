@@ -169,7 +169,7 @@ items:
               href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
-            - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
+            - name: Migrate PostgreSQL data into a PostgreSQL Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
