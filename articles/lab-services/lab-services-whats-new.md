@@ -17,7 +17,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Per customer assigned capacity](capacity-limits.md#per-customer-assigned-capacity)**. No more sharing capacity with others. If your organization has requested more quota, Azure Lab Services will save it just for you.
 
-**[Virtual network injection](how-to-connect-vnet-injection.md)**.  Virtual network peering is replaced by virtual network injection. In your own subscription, create a virtual network in the same region as the lab plan and delegate a subnet to Azure Lab Services.  Lab plans with vnet injection (i.e. advanced networking) will cause labs to create VMs attached to your virtual network.
+**[Virtual network injection](how-to-connect-vnet-injection.md)**.  Virtual network peering is replaced by virtual network injection. In your own subscription, create a virtual network in the same region as the lab plan and delegate a subnet to Azure Lab Services.  Lab plans with advanced networking will cause labs to create VMs attached to your virtual network.
 
 **[Improved auto-shutdown](how-to-configure-auto-shutdown-lab-plans.md)**. Auto-shutdown settings are now available for *all* operating systems!
 
@@ -25,7 +25,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Improved cost tracking in Azure Cost Management](cost-management-guide.md#separate-the-costs)**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added to each cost entry.  If you want to track the cost of a single lab, group the lab VM cost entries together by the lab name tag. Custom tags on labs will also propagate to Azure Cost Management entries to allow further cost analysis.  
 
-**[Updates to lab owner experience](how-to-manage-labs.md)**. Now you can choose to skip the template creation process when creating a new lab if you already have an image ready to use. We’ve also added the ability to add a non-admin user to lab VMs.
+**[Updates to lab owner experience](how-to-manage-labs.md)**. Choose to skip the template creation process when creating a new lab if you already have an image ready to use. We’ve also added the ability to add a non-admin user to lab VMs.
 
 **[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
 
@@ -47,7 +47,7 @@ For the new version of Lab Services, the lab account concept is being replaced w
 |Lab account served as the **parent** for the labs.|Lab plan is a **sibling** resource to the lab resource. Grouping of labs is now done by the resource group.|
 |Lab account served as a container for the labs.  A change to the lab account often affected the labs under it.|The lab plan serves as a collection of configurations and settings that are applied when a lab is **created**. If you change a lab plan’s settings, these changes won’t affect any existing labs that were previously created from the lab plan. (The exception is the internal help information, which will affect all labs.)|
 
-Lab accounts and labs have a parental relationship.  By moving to a sibling relationship between the lab plan and lab, lab plans provide an upgraded experience. The following table compares the previous experience with a lab account and the new improved experience with a lab plan.
+Lab accounts and labs have a parental relationship.  Moving to a sibling relationship between the lab plan and lab provides an upgraded experience. The following table compares the previous experience with a lab account and the new improved experience with a lab plan.
 
 |Feature/area|Lab account (classic)|Lab plan|
 |-|-|-|
@@ -59,11 +59,41 @@ Lab accounts and labs have a parental relationship.  By moving to a sibling rela
 |Labs portal experience|Labs are listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, someone must be assigned:</br>- **Lab Contributor** role on the lab account.</br>To modify an existing lab, someone must be assigned:</br>- **Reader** role on the lab account.</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|To create a lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the resource group that contains the lab plan.</br>- **Lab Creator** role on the lab plan.</br>To modify an existing lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|
 
-### Migrate from lab account to lab plan
+### Getting started
 
 To use the new features provided in the public preview, you'll need to create new lab plans and labs. When you create a lab plan, you can reuse the same Azure Compute Gallery and images.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a time when you're using both the April 2022 Update (preview) and the current version of Azure Lab Services. You might have both lab accounts and lab plans that coexist in your subscription and that access the same external resources.
 
 With all the new enhancements in the April 2022 Update (preview), it's a good time to revisit your overall lab structure. More than one lab plan might be needed depending on your scenario.  For example, the math department may only require one lab plan in one resource group.  The computer science department might require multiple lab plans.  One lab plan can enable advanced networking and enable a few custom images from an Azure Compute Gallery.  Another lab plan can use basic networking and not enable custom images.  Both lab plans can be kept in the same resource group.
+
+Use the following checklist to get started:
+1. **Lab plans.**  
+    1. [Create](tutorial-setup-lab-plan.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    1. [Assign permissions](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
+    1. Enable [Azure Marketplace images](specify-marketplace-images.md).
+    1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).
+1. **Capacity**. 
+
+    Forecast and [request dedicated VM capacity](capacity-limits.md#request-a-limit-increase).  Even if enrollment finalized, you can use preliminary estimates for your initial capacity request.  You can request more capacity later, if needed.
+
+1.	**Shared Resources**. 
+
+    Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation). 
+
+1.	**Validate images**.  
+
+    Each of the VM sizes has been remapped to use a newer Azure VM Compute SKU. If using an [attached compute gallery](how-to-attach-detach-shared-image-gallery.md), validate images with new Azure VM Compute SKUs.  Validate that each image in the compute gallery is replicated to regions the lab plans and labs are in.
+
+1.	**Configure integrations**.  
+
+    Optionally, configure [integration with Canvas](lab-services-within-canvas-overview.md) including [adding the app and linking lab plans](how-to-get-started-create-lab-within-canvas.md). Alternately, configure [integration with Teams](lab-services-within-teams-overview.md) by [adding the app to Teams groups](how-to-get-started-create-lab-within-teams.md).
+
+1.	**Create labs**.  
+       
+    Create labs to test educator and student experience in preparation for general availability of the updates. Lab administrators and educators should validate performance based on common student workloads. 
+
+1.	**Cost management.** 
+    
+    Update cost management reports.  Cost entry type is `Microsoft.LabServices/labs` for labs with the April 2022 Update (preview).  [Built-in and custom tags](cost-management-guide.md#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis.
 
 ### Configure a lab plan
 
