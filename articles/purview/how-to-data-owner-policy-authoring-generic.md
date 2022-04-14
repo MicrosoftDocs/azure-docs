@@ -125,5 +125,5 @@ Steps to update or delete a policy in Azure Purview are as follows.
 
 For specific guides on creating policies, you can follow these tutorials:
 
-- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
-- [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+- [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)
