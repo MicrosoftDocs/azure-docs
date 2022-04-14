@@ -103,7 +103,7 @@ It's equivalent to: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Import
 Here's a .NET C# example that creates the following Service Bus entities:
 
 - Service Bus topic named `topicfiltersampletopic`
-- Subscription to the topic named `AllOrders` with a SQL filter expression `1=1` 
+- Subscription to the topic named `AllOrders` with a True Rule filter, which is equivalent to a SQL rule filter with expression `1=1`.
 - Subscription named `ColorBlueSize10Orders` with a SQL filter expression `color='blue' AND quantity=10`
 - Subscription named `ColorRed` with a SQL filter expression `color='red'` and an action 
 - Subscription named `HighPriorityRedOrders` with a correlation filter expression `Subject = "red", CorrelationId = "high"`
@@ -145,11 +145,13 @@ namespace CreateTopicsAndSubscriptionsWithFilters
                 Console.WriteLine($"Creating the topic {topicName}");
                 await adminClient.CreateTopicAsync(topicName);
 
-                Console.WriteLine($"Creating the subscription {subscriptionAllOrders} for the topic with a SQL filter ");
-                // Create a SQL filter with an expression that always evaluates to true
+                Console.WriteLine($"Creating the subscription {subscriptionAllOrders} for the topic with a True filter ");
+                // Create a True Rule filter with an expression that always evaluates to true
+                // It's equivalent to using SQL rule filter with 1=1 as the expression
                 await adminClient.CreateSubscriptionAsync(
                         new CreateSubscriptionOptions(topicName, subscriptionAllOrders), 
-                        new CreateRuleOptions("AllOrders",new SqlRuleFilter("1=1")));
+                        new CreateRuleOptions("AllOrders", new TrueRuleFilter()));
+
 
                 Console.WriteLine($"Creating the subscription {subscriptionColorBlueSize10Orders} with a SQL filter");
                 // Create a SQL filter with color set to blue and quantity to 10
@@ -325,6 +327,27 @@ namespace SendAndReceiveMessages
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+    }
+
+    class Order
+    {
+        public string Color
+        {
+            get;
+            set;
+        }
+
+        public int Quantity
+        {
+            get;
+            set;
+        }
+
+        public string Priority
+        {
+            get;
+            set;
         }
     }
 }
