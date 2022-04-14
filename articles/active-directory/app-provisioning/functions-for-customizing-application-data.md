@@ -1237,7 +1237,7 @@ Generate a user alias by taking first three letters of user's first name and fir
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
 
-### Generate user alias by concatenating parts of first and last name
+### Add a comma between last name and first name. 
 Add a comma between last name and first name. 
 
 **Expression:** 
