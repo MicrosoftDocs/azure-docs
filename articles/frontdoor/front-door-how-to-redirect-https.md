@@ -56,7 +56,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Set the *Redirect type* to **Moved (301)** and *Redirect protocol* get set to **HTTPS only**. 
 
-    ![image](https://user-images.githubusercontent.com/94368087/163321811-4e79d8ce-0eee-4c6b-ad52-218a701ef3c6.png)
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Add an HTTP to HTTPS redirect route":::
 
 1. Select **Add** to save the routing rule for HTTP to HTTPS redirect.
 
