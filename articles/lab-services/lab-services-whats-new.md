@@ -59,6 +59,27 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 |Labs portal experience|Labs are listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, someone must be assigned:</br>- **Lab Contributor** role on the lab account.</br>To modify an existing lab, someone must be assigned:</br>- **Reader** role on the lab account.</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|To create a lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the resource group that contains the lab plan.</br>- **Lab Creator** role on the lab plan.</br>To modify an existing lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|
 
+### Configure a lab plan
+
+Once the lab plan is [created](how-to-manage-lab-plans.md), administrators can set up configurations as needed.
+
+Most lab plan configurations apply at the time of lab creation.
+
+- Which region(s) the labs can be created in.
+- Default auto-shutdown settings for labs.
+- What marketplace images are allowed.
+- What custom images from a connected Azure Compute Gallery are allowed.
+- Linked Azure Compute Gallery to export custom VM images to.
+- Give access to educators to create and manage labs.
+
+Configuration that applies to all labs:
+
+- Internal support information for your organization when using Azure Lab Services.
+
+Remember, changes made to the lab settings from the lab plan will apply only to new labs created after the settings change is saved.
+
+Don't forget to assign user permissions on the lab plan and the lab plan’s resource group.  Permission assignments for new labs may also be required if labs are created for educators instead of by them.
+
 ### Getting started
 
 To use the new features provided in the public preview, you'll need to create new lab plans and labs. When you create a lab plan, you can reuse the same Azure Compute Gallery and images.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a time when you're using both the April 2022 Update (preview) and the current version of Azure Lab Services. You might have both lab accounts and lab plans that coexist in your subscription and that access the same external resources.
@@ -94,27 +115,6 @@ Use the following checklist to get started:
 1.	**Cost management.** 
     
     Update cost management reports.  Cost entry type is `Microsoft.LabServices/labs` for labs with the April 2022 Update (preview).  [Built-in and custom tags](cost-management-guide.md#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis.
-
-### Configure a lab plan
-
-Once the lab plan is [created](how-to-manage-lab-plans.md), administrators can set up configurations as needed.
-
-Most lab plan configurations apply at the time of lab creation.
-
-- Which region(s) the labs can be created in.
-- Default auto-shutdown settings for labs.
-- What marketplace images are allowed.
-- What custom images from a connected Azure Compute Gallery are allowed.
-- Linked Azure Compute Gallery to export custom VM images to.
-- Give access to educators to create and manage labs.
-
-Configuration that applies to all labs:
-
-- Internal support information for your organization when using Azure Lab Services.
-
-Remember, changes made to the lab settings from the lab plan will apply only to new labs created after the settings change is saved.
-
-Don't forget to assign user permissions on the lab plan and the lab plan’s resource group.  Permission assignments for new labs may also be required if labs are created for educators instead of by them.
 
 ## Next steps
 
