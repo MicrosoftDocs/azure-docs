@@ -62,12 +62,12 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
-| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
+| **starttime** | datetime | Filter only authentication events that ran at or after this time. |
+| **endtime** | datetime | Filter only authentication events that finished running at or before this time. |
 | **targetusername_has** | string | Filter only authentication events that has any of the listed user names. |
 
 
-For example, to filter only DNS queries from the last day to a specific user, use:
+For example, to filter only authentication events from the last day to a specific user, use:
 
 ```kql
 imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())

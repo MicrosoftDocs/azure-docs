@@ -488,12 +488,23 @@ items:
       - name: Overview
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-overview.md
-      - name: Install and manage
+      - name: Installation options
         displayName: Azure Monitor agent
-        href: agents/azure-monitor-agent-manage.md
-      - name: Configure data collection
-        displayName: data collection rule,Azure Monitor agent
-        href: agents/data-collection-rule-azure-monitor-agent.md
+        items:
+        - name: Using extension
+          href: agents/azure-monitor-agent-manage.md
+        - name: Extension versions
+          href: agents/azure-monitor-agent-extension-versions.md
+        - name: Using Windows client installer (preview)
+          href: agents/azure-monitor-agent-windows-client.md
+      - name: Data collection
+        items:
+        - name: Collect events and performance
+          displayName: data collection rule,Azure Monitor agent
+          href: agents/data-collection-rule-azure-monitor-agent.md
+        - name: Collect text Logs
+          displayName: data collection rule,Azure Monitor agent
+          href: agents/data-collection-text-log.md
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
@@ -540,7 +551,7 @@ items:
           href: agents/data-sources-iis-logs.md
         - name: Event Tracing for Windows data
           href: agents/data-sources-event-tracing-windows.md
-        - name: Custom logs
+        - name: Text logs
           href: agents/data-sources-custom-logs.md
         - name: Custom fields
           href: logs/custom-fields.md
@@ -796,6 +807,9 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js
           href: app/azure-web-apps-nodejs.md
+      - name: Azure Cloud Services
+        displayName: cloud, cloud services, PaaS
+        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
