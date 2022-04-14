@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.author: kengaderdus
-ms.date: 03/29/2022
+ms.date: 04/15/2022
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
