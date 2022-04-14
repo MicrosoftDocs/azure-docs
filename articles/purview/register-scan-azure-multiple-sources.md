@@ -18,7 +18,7 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](tutorial-data-owner-policies-resource-group.md) | [Source Dependant](catalog-lineage-user-guide.md)|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](how-to-data-owner-policies-resource-group.md) | [Source Dependant](catalog-lineage-user-guide.md)|
 
 ## Prerequisites
 
