@@ -15,7 +15,7 @@ ms.reviewer: vgorbenko
 browser timing as physical by browser performance api (link to it) page timing is logical
 and can be provided by user and not the same as physical timing 
 
-https://teams.microsoft.com/l/message/19:2f92f8e50ec9473ba546d12a8a4cf4b0@thread.tacv2/1639570290196?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47&groupId=2fb9049b-bc9c-4cca-a900-84f22c86116c&parentMessageId=1639570290196&teamName=AzMon%20POD%20Swarming&channelName=Application%20Insights&createdTime=1639570290196 **Potential Graphic**
+https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript#explore-browserclient-side-data we might need to recreate for SPA.**Potential Graphic**
 
 **Question**
  https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftinsightscomponents. the difference between some of the BrowserTimings metrics versus this “pageview/duration” metric. Let me walk through a typical client browser request sequence and what I believe our docs describe for the browserTiming metrics…..
