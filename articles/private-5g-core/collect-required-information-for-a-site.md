@@ -20,17 +20,17 @@ You can use this information to create a site using the [Azure portal](create-a-
 
 You must have completed all of the steps in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses), [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools), and [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices) for your new site.
 
-## Collect Mobile Network Site resource values
+## Collect mobile network site resource values
 
-Collect all the values in the following table for the Mobile Network Site resource that will represent your site.
+Collect all the values in the following table for the mobile network site resource that will represent your site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to create the Mobile Network Site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
-   |The Azure resource group in which to create the Mobile Network Site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
+   |The Azure subscription to use to create the mobile network site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
+   |The Azure resource group in which to create the mobile network site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
-   |The region in which you’re creating the Mobile Network Site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The private mobile network resource representing the network to which you’re adding the site. |**Instance details: Mobile network**|
+   |The region in which you’re creating the mobile network site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
+   |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
 
 ## Collect custom location information
 
@@ -65,8 +65,8 @@ Collect all the values in the following table to define the packet core instance
    |The name of the data network.                  |**Data network**|
    |The network address of the data subnet in CIDR notation. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                  |**N6 subnet**|
    |The data subnet default gateway. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                               |**N6 gateway**|
-   | The network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. You won't need this if you don't want to support dynamic IP address allocation. You identified this in [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Dynamic UE IP pool prefixes**|
-   | The network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. You won't need this if you don't want to support static IP address allocation. You identified this in [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Static UE IP pool prefixes**|
+   | The network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. You won't need this if you don't want to support dynamic IP address allocation for this site. You identified this in [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Dynamic UE IP pool prefixes**|
+   | The network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs), given in CIDR notation. You won't need this if you don't want to support static IP address allocation for this site. You identified this in [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Static UE IP pool prefixes**|
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
 
 ## Next steps

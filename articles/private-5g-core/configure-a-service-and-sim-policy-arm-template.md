@@ -35,7 +35,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 Need to confirm whether the following link is correct.
 -->
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-sim-policy).
+The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-sim-policy).
 
 :::code language="json" source="~/quickstart-templates/microsoft.mobilenetwork/mobilenetwork-create-sim-policy/azuredeploy.json":::
 

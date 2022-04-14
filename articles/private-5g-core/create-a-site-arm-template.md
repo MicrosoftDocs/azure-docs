@@ -33,7 +33,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 Need to confirm whether the following link is correct.
 -->
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-site).
+The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-site).
 
 :::code language="json" source="~/quickstart-templates/microsoft.mobilenetwork/mobilenetwork-create-new-site/azuredeploy.json":::
 
@@ -55,10 +55,10 @@ Four Azure resources are defined in the template.
     | Field | Value |
     |--|--|
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
-    | **Resource group** | Select the resource group containing the Mobile Network resource representing your private mobile network. |
+    | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
     | **Region** | Select **East US**. |
     | **Location** | Leave this field unchanged. |
-    | **Existing Mobile Network Name** | Enter the name of the Mobile Network resource representing your private mobile network. |
+    | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site. |
     | **Control Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |

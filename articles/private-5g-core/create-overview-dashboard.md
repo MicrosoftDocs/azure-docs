@@ -35,7 +35,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 Need to confirm whether the following link is correct.
 -->
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-dashboard). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-dashboard/azuredeploy.json).
+The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-dashboard). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-dashboard/azuredeploy.json).
 
 The template defines one [**Microsoft.Portal/dashboards**](/azure/templates/microsoft.portal/dashboards) resource, which is a dashboard that displays data about your packet core instance's activity.
 
@@ -64,7 +64,9 @@ The template defines one [**Microsoft.Portal/dashboards**](/azure/templates/micr
 
 1. Once your configuration has been validated, you can select **Create** to create the dashboard. The Azure portal will display a confirmation screen when the dashboard has been created. 
 
-1. Select **Go to resource**.
+## Review deployed resources
+
+1. On the confirmation screen, select **Go to resource**.
 
     :::image type="content" source="media/create-overview-dashboard/deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
@@ -72,7 +74,7 @@ The template defines one [**Microsoft.Portal/dashboards**](/azure/templates/micr
 
     :::image type="content" source="media/create-overview-dashboard/go-to-dashboard-option.png" alt-text="Screenshot of the Azure portal showing the Go to dashboard option.":::
 
-1. The Azure portal displays the new overview dashboard, with several tiles providing information on important KPIs for the packet core instance. <!-- New screenshot with data required -->
+1. The Azure portal displays the new overview dashboard, with several tiles providing information on important KPIs for the packet core instance.
 
     :::image type="content" source="media/create-overview-dashboard/overview-dashboard.png" alt-text="Screenshot of the Azure portal showing the overview dashboard. It includes tiles for connected devices, gNodeBs, PDU sessions and throughput." lightbox="media/create-overview-dashboard/overview-dashboard.png":::
 

@@ -74,7 +74,7 @@ items:
     items:
     - name: Enable Log Analytics for a packet core instance
       href: enable-log-analytics-for-private-5g-core.md
-    - name: Create an overview Log Analytics dashboard
+    - name: Create an overview Log Analytics dashboard - ARM template
       href: create-overview-dashboard.md
   - name: Distributed tracing
     items:
