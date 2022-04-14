@@ -410,13 +410,13 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 When you call a stored procedure by using the SQL Server connector, the returned output is sometimes dynamic. In this scenario, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. View the output format by performing a test run. Copy and save your sample output.
 
 1. In the designer, under the action where you call the stored procedure, select **New step**.
 
-1. Under **Choose an action**, find and select the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) action.
+1. In the **Choose an operation** box, find and select the action named [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 1. In the **Parse JSON** action, select **Use sample payload to generate schema**.
 
