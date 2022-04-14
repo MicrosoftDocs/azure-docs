@@ -32,7 +32,7 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 
 ## Prerequisites
 
-1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) with a virtual network configured. For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
+1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?branch=pr-en-us-193001).
     1. Verify the subscription is registered to **Microsoft.AVS**.
     
         `az provider show -n "Microsoft.AVS" -- query registrationState`
