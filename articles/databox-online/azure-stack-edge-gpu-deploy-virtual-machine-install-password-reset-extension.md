@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 04/14/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -139,6 +139,10 @@ The extension deployment is a long running job and takes about 10 minutes to com
 Here's a sample output:
 
 ```powershell
+PS C:\WINDOWS\system32> $templateFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.json" 
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\PasswordResetVmExtensionTemplates\addPasswordResetExtensionTemplate.parameters.json" 
+PS C:\WINDOWS\system32> $RGName = "myasepro2rg" 
+PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "linuxvmdeploy" -AsJob
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command 
 --     ----            -------------   -----         -----------     --------             ------- 
 4      Long Running... AzureLongRun... Running       True            localhost            New-AzResourceGroupDep... 
@@ -231,17 +235,15 @@ You can see below that the extension has been installed successfully.
 
 ### [Windows](#tab/windows)
 
-To verify the VM password update, connect to the VM using the new password.
+To verify the VM password update, connect to the VM using the new password. For detailed instructions, see [Connect to a WIndows VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-windows-vm)
 
    ![Screenshot of the Remote Desktop Connection dialog to connect to a VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension/connect-to-vm.png)
 
 ### [Linux](#tab/linux)
 
-To verify the VM password update, connect to the VM using the new password.
+To verify the VM password update, connect to the VM using the new password. For detailed instructions, see [Connect to a Linux VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-linux-vm)
 
-For detailed instructions, see [Connect to a Linux VM.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-linux-vm)
-
-Open a cmd window and connect to the Linux VM. Here's a sample output:
+Here's a sample output:
 
 ```powershell
   
@@ -297,16 +299,17 @@ Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Na
 Here's a sample output:
 
 ```powershell
+PS C:\WINDOWS\system32> Remove-AzVMExtension -ResourceGroupName myasepro2rg -VMName mywindowsvm5 -Name windowsVMAccessExt 
+  
 Virtual machine extension removal operation 
 This cmdlet will remove the specified virtual machine extension. Do you want to continue? 
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y 
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Yes 
   
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase 
 --------- ------------------- ---------- ------------ 
           True                OK         OK 
   
-  
-PS C:\WINDOWS\system32> 
+PS C:\WINDOWS\system32>
 ```
 
 ### [Linux](#tab/linux)
@@ -338,7 +341,6 @@ PS C:\WINDOWS\system32>
 
 Learn how to:
 
-- [Troubleshoot GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Manage VM disks](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md)
 - [Manage VM network interfaces](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md)
