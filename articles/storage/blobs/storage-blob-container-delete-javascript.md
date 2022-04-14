@@ -15,18 +15,17 @@ ms.custom: devx-track-js
 
 # Delete and restore a container in Azure Storage with JavaScript
 
-This article shows how to delete containers with the [Azure Storage client library for JavaScript](). If you've enabled container soft delete, you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled container soft delete, you can restore deleted containers.
 
 ## Delete a container
 
 To delete a container in JavaScript, use one of the following methods:
 
-- [delete]()
-- [deleteIfExists]()
+- BlobServiceClient.[deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-deletecontainer)
+- ContainerClient.[delete](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-delete)
+- ContainerClient.[deleteIfExists](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-deleteifexists)
 
-The **delete** method throw an exception if the container doesn't exist.
-
-The **deleteIfExists** method return a Boolean value indicating whether the container was deleted. If the specified container doesn't exist, then this method return **False** to indicate that the container wasn't deleted.
+The delete methods returns an obj which includes an errorCode. When the errorCode is undefined, the delete operation succeeded. 
 
 After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found).
 

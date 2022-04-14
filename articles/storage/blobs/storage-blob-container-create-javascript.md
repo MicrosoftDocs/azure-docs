@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 # Create a container in Azure Storage with JavaScript
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript]().
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## Name a container
 
@@ -31,45 +31,25 @@ The URI for a container is in this format:
 
 ## Create a container
 
-To create a container, call one of the following methods:
+To create a container, call the following methods from the BlobStorageClient:
 
-- [CreateBlobContainer]()
-- [CreateBlobContainerAsync]()
+- [createContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-createcontainer)
 
-These methods throw an exception if a container with the same name already exists.
-
-Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another.
+Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
 The following example creates a container asynchronously:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_CreateContainer":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/create-container.js" id="snippet_CreateContainer":::
 
-## Create the root container
+This shows just one example of [how to create the BlobServiceClient object](/azure/storage/blobs/storage-blob-javascript-get-started#connect-to-blob-storage). 
 
-A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
+## Understand the root container
 
-You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob that is in the root container in the following manner:
+A root container, with the specific name `$root`, enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob _without using a container name in the URI_:
 
 `https://myaccount.blob.core.windowsJavaScript/default.html`
 
-The following example creates the root container synchronously:
-
-```javascript
-const { BlobServiceClient, AnonymousCredential } = require("@azure/storage-blob");
-
-// Enter your storage account name and SAS
-const account = process.env.ACCOUNT_NAME || "<account name>";
-const accountSas = process.env.ACCOUNT_SAS || "<account SAS>";
-
-// List containers
-const blobServiceClient = new BlobServiceClient(
-// When using AnonymousCredential, following url should include a valid SAS or support public access
-`https://${account}.blob.core.windows.net${accountSas}`,
-new AnonymousCredential()
-);
-
-const container =  blobServiceClient.createContainer("$root");
-```
+The root container must be explicitly created or deleted. If isn't created by default as part of service creation.
 
 ## See also
 
