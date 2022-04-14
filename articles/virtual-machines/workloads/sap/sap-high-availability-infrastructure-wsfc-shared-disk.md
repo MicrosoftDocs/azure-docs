@@ -172,7 +172,7 @@ Before you begin the installation, review this article:
 
 ## Create the ASCS VMs
 
-For SAP ASCS / SCS cluster deploy two VMs in Azure availability set or Azure availability zones based on the type of your deployment. In case if you are using [Azure proximity placement groups (PPG)](./sap-proximity-placement-scenarios.md), make sure all virtual machines sharing a disk must be part of the same PPG. Once the VMs are deployed:
+For SAP ASCS / SCS cluster deploy two VMs in Azure availability set or Azure availability zones based on the type of your deployment. If you are using [Azure proximity placement groups (PPG)](./sap-proximity-placement-scenarios.md), make sure all virtual machines sharing a disk must be part of the same PPG. Once the VMs are deployed:
 
 - Create Azure Internal Load Balancer for SAP ASCS /SCS instance.
 - Add Windows VMs to the AD domain.
@@ -258,7 +258,6 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 		- 5**nr**16 TCP
 
 	- Make sure that Idle timeout (minutes) is set to max value 30, and that Floating IP (direct server return) is Enabled.
-
 
 > [!TIP]
 > With the [Azure Resource Manager Template for WSFC for SAP ASCS/SCS instance with Azure Shared Disk](https://github.com/robotechredmond/301-shared-disk-sap), you can automate the infrastructure preparation, using Azure Shared Disk for one SAP SID with ERS1.  
