@@ -1,9 +1,9 @@
 ---
-title: 'How to cancel a scheduled contact on Azure Orbital Earth Observation service' 
-description: 'How to cancel a scheduled contact'
+title: 'Cancel a scheduled contact on Azure Orbital Earth Observation service' 
+description: 'Cancel a scheduled contact'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota

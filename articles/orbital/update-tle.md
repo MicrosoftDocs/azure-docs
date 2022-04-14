@@ -1,9 +1,9 @@
 ---
-title: 'How to update the spacecraft TLE on Azure Orbital Earth Observation service' 
+title: 'Update the spacecraft TLE on Azure Orbital Earth Observation service' 
 description: 'Update the spacecraft TLE'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota
