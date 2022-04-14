@@ -21,8 +21,8 @@ You can import into the Azure Active Directory (Azure AD) ECMA Connector Host a 
 >[!IMPORTANT]
 >Currently, only the generic SQL and LDAP connectors are supported for use with the Azure AD ECMA Connector Host.
 
-## Create and export a connector configuration in MIM Sync
-If you already have MIM Sync with your ECMA connector configured, skip to step 10.
+## Create a connector configuration in MIM Sync
+This section is included for illustrative purposes, if you wish to set up MIM Sync with a connector. If you already have MIM Sync with your ECMA connector configured, skip to the next section.
 
  1. Prepare a Windows Server 2016 server, which is distinct from the server that will be used for running the Azure AD ECMA Connector Host. This host server should either have a SQL Server 2016 database colocated or have network connectivity to a SQL Server 2016 database. One way to set up this server is by deploying an Azure virtual machine with the image **SQL Server 2016 SP1 Standard on Windows Server 2016**. This server doesn't need internet connectivity other than remote desktop access for setup purposes.
  1. Create an account for use during the MIM Sync installation. It can be a local account on that Windows Server instance. To create a local account, open **Control Panel** > **User Accounts**, and add the user account **mimsync**.
@@ -33,19 +33,26 @@ If you already have MIM Sync with your ECMA connector configured, skip to step 1
  1. Install your connector on the same server as MIM Sync. For illustration purposes, this test lab guide will illustrate using one of the Microsoft-supplied connectors for download from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=51495).
  1. Start the Synchronization Service UI. Select **Management Agents**. Select **Create**, and specify the connector management agent. Be sure to select a connector management agent that's ECMA based.
  1. Give the connector a name, and configure the parameters needed to import and export data to the connector. Be sure to configure that the connector can import and export single-valued string attributes of a user or person object type.
+
+## Export a connector configuration from MIM Sync
+
  1. On the MIM Sync server computer, start the Synchronization Service UI, if it isn't already running. Select **Management Agents**.
  1. Select the connector, and select **Export Management Agent**. Save the XML file, and the DLL and related software for your connector, to the Windows server that will be holding the ECMA Connector Host.
 
 At this point, the MIM Sync server is no longer needed.
 
- 1. Sign in to the Windows server as the account that the Azure AD ECMA Connector Host will run as.
+## Import a connector configuration
+
+ 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the guide in in the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) articles.
+ 1. Sign in to the Windows server as the account that the Azure AD ECMA Connector Host run as.
  1. Change to the directory C:\Program Files\Microsoft ECMA2host\Service\ECMA. Ensure there are one or more DLLs already present in that directory. Those DLLs correspond to Microsoft-delivered connectors.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.
  1. Change to the directory C:\Program Files\Microsoft ECMA2Host\Wizard. Run the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
  1. A new window appears with a list of connectors. By default, no connectors will be present. Select **New connector**.
- 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Configure a connector."
+ 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Create a connector" in the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#create-a-generic-sql-connector) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#configure-a-generic-ldap-connector) articles.
 
 ## Next steps
 
-- [App provisioning](user-provisioning.md)
-- [Generic SQL connector](on-premises-sql-connector-configure.md)
+- Learn more about [App provisioning](user-provisioning.md)
+- [Configuring Azure AD to provision users into SQL based applications](on-premises-sql-connector-configure.md) with the Generic SQL connector
+- [Configuring Azure AD to provision users into LDAP directories](on-premises-ldap-connector-configure.md) with the Generic LDAP connector
