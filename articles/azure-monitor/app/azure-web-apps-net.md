@@ -43,7 +43,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
             
     | Data | ASP.NET Basic Collection | ASP.NET Recommended collection |
     | --- | --- | --- |
-    | Adds CPU, memory, and I/O usage trends |Yes |Yes |
+    | Adds CPU, memory, and I/O usage trends |No |Yes |
     | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
     | Collects exceptions unhandled by the host process | Yes |Yes |
     | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
