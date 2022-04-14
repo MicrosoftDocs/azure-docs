@@ -117,7 +117,7 @@ You can also ingestion-time transformations to lower the storage requirements fo
 
 The following table for methods to apply transformations to different workflows.
 
-> {!NOTE]
+> [!NOTE]
 > Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor Reference](/azure/azure-monitor-reference). Custom tables are created by custom applications and have a suffix of *_CL* ion their name.
 
 | Source | Target | Description | Filtering method |
