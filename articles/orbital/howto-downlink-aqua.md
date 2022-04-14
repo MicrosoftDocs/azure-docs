@@ -80,8 +80,8 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 
 ## Prepare a virtual machine (VM) to receive the downlinked AQUA data
-1. [Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) to host your data endpoint virtual machine (VM)
-2. [Create a virtual machine (VM)](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) within the virtual network above. Ensure that this VM has the following specifications:
+1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
+2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
 - Size: at least 32 GiB of RAM
 - Ensure that the VM has at least one standard public IP
@@ -93,7 +93,7 @@ sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```console
 sudo apt install socat
 ```
-5. Edit the [Network Security Group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) for the subnet that your virtual machine is using to allow inbound connections from the following IPs over TCP port 56001:
+5. Edit the [Network Security Group](../virtual-network/network-security-groups-overview.md) for the subnet that your virtual machine is using to allow inbound connections from the following IPs over TCP port 56001:
 - 20.47.120.4
 - 20.47.120.38
 - 20.72.252.246
@@ -134,7 +134,7 @@ sudo apt install socat
    | IP Address | Enter the Public IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
-   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
+   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](mailto:msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
    | Decoding Configuration | Leave this field **blank** |
 
 
