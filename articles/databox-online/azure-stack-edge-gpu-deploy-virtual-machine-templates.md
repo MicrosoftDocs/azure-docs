@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/14/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -75,6 +75,8 @@ Configure these prerequisites to create the resources needed for VM creation.
     
 ### Create a resource group
 
+### [Az](#tab/az)
+
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
 
 > [!IMPORTANT]
@@ -98,7 +100,14 @@ ResourceId        : /subscriptions/DDF9FC44-E990-42F8-9A91-5A6A5CC472DB/resource
 PS C:\windows\system32>
 ```
 
+### [AzureRM](#tab/azure-rm)
+
+
+---
+
 ### Create a storage account
+
+### [Az](#tab/az)
 
 Create a new storage account using the resource group created in the previous step. This account is a **local storage account** that will be used to upload the virtual disk image for the VM.
 
@@ -137,6 +146,11 @@ KeyName    Value                                                  Permissions
 key1 GsCm7QriXurqfqx211oKdfQ1C9Hyu5ZutP6Xl0dqlNNhxLxDesDej591M8y7ykSPN4fY9vmVpgc4ftkwAO7KQ== 11 
 key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/ZjvoBWsQ1klqQ== ll
 ```
+
+### [AzureRM](#tab/azure-rm)
+
+
+---
 
 ### Add blob URI to hosts file
 
@@ -282,12 +296,14 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
 5. Save the parameters file.
 
 
-### Deploy template 
+### Deploy template
+
+### [Az](#tab/az)
 
 Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
 
 > [!NOTE]
-> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. On AZ, re-run the `login-AZ <syntax TBD>` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
 1. Run the following command: 
     
@@ -296,7 +312,7 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
     $templateParameterFile = "Path to CreateImage.parameters.json"
     $RGName = "<Name of your resource group>"
     New-AzureRmResourceGroupDeployment `
-        -ResourceGroupName $RGName `
+        -ResourceGroupName $RGName ` 
         -TemplateFile $templateFile `
         -TemplateParameterFile $templateParameterFile `
         -Name "<Name for your deployment>"
@@ -338,10 +354,22 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
     DeploymentDebugLogLevel :    
     PS C:\WINDOWS\system32>
     ```
+
+### [AzureRM](#tab/azure-rm)
+
+Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
+
+> [!NOTE]
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. On AzureRM, re-run the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
+
+
+---
     
 ## Create VM
 
 ### Edit parameters file to create VM
+
+### [Az](#tab/az)
  
 To create a VM, use the `CreateVM.parameters.json` parameter file. It takes the following parameters.
     
@@ -487,11 +515,18 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
         }
       }
     }
-    ```      
+    ```
+
+### [AzureRM](#tab/azure-rm)
+
+
+---
 
 ### Deploy template to create VM
 
 Deploy the VM creation template `CreateVM.json`. This template creates a network interface from the existing VNet and creates VM from the deployed image.
+
+### [Az](#tab/az)
 
 1. Run the following command: 
     
@@ -568,6 +603,10 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
     `Get-AzureRmVm`
 
+### [AzureRM](#tab/azure-rm)
+
+
+---
 
 ## Connect to a VM
 
