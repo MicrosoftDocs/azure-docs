@@ -17,7 +17,7 @@ This article shows you how to use location data in an IoT Central application. A
 You can use the location data to:
 
 * Plot the reported location on a map.
-* Plot the telemetry location history om a map.
+* Plot the telemetry location history on a map.
 * Create geofencing rules to notify an operator when a device enters or leaves a specific area.
 
 ## Add location capabilities to a device template
