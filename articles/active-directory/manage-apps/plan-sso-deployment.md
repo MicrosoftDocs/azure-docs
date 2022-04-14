@@ -3,15 +3,14 @@ title: Plan a single sign-on deployment
 description: Plan the deployment of single sign-on in Azure Active Directory.
 titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/18/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: alamaral
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
