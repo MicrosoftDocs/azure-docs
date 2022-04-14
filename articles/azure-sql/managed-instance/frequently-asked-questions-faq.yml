@@ -235,7 +235,7 @@ sections:
           
           ### Can I use SQL Profiler for performance tracking?
           
-          Yes, SQL Profiler is supported on SQL Managed Instance. For more information, see [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15). Instead, however, you should consider Extended Events for "tracing" activity with less impact to the monitored instance. For more information, see [Extended Events](sql/relational-databases/extended-events/extended-events).
+          Yes, SQL Profiler is supported on SQL Managed Instance. For more information, see [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15). Instead, however, you should consider Extended Events for "tracing" activity with less impact to the monitored instance. For more information, see [Extended Events](/sql/relational-databases/extended-events/extended-events).
           
           ### Are Database Advisor and Query Performance Insight supported for SQL Managed Instance databases?
           
