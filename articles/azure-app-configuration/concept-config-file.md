@@ -1,5 +1,5 @@
 ---
-title: App Configuration support for configuration files
+title: Azure App Configuration support for configuration files
 description: Tooling support for using configuration files with Azure App Configuration
 author: zhenlan
 ms.author: zhenlwa
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/01/2022
 ---
 
-# App Configuration support for configuration files
+# Azure App Configuration support for configuration files
 
 Files are one of the most common ways to store configuration data. To help you start quickly, App Configuration has tools to assist you in [importing your configuration files](./howto-import-export-data.md), so you don't have to type in your data manually. This operation is a one-time data migration if you plan to manage your data in App Configuration after importing them. In some other cases, for example, where you adopt [configuration as code](./howto-best-practices.md#configuration-as-code), you may continue managing your configuration data in files and importing them as part of your CI/CD process recurrently. You may find one of these two scenarios applies to you:
 
