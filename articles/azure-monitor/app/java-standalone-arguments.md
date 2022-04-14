@@ -165,7 +165,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to the existing `j
 ## WebSphere 8
 
 Open Management Console
-go to **servers > WebSphere application servers > Application servers**, choose the appropriate application servers and select: 
+Go to **servers > WebSphere application servers > Application servers**, choose the appropriate application servers and select: 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine
