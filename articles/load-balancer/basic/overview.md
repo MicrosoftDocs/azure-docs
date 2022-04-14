@@ -11,7 +11,15 @@ ms.custom: template-overview
 
 # What is Basic Azure Load Balancer?
 
-Basic Azure Load Balancer is a SKU of Azure Load Balancer. A basic load balancer provides limited features and capabilities. A basic load balancer can be internal or public. Azure recommends a standard SKU Azure Load Balancer for production environments.  For more information on a standard SKU Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer-overview.md). For more information about the Azure Load Balancer SKUs, see [SKUs](../skus.md).
+Basic Azure Load Balancer is a SKU of Azure Load Balancer. A basic load balancer provides limited features and capabilities. Azure recommends a standard SKU Azure Load Balancer for production environments.  For more information on a standard SKU Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer-overview.md). For more information about the Azure Load Balancer SKUs, see [SKUs](../skus.md).
+
+## Load balancer types
+
+An Azure load balancer is available with two types:
+
+A **[public load balancer](../components.md#frontend-ip-configurations)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
+
+An **[internal (or private) load balancer](../components.md#frontend-ip-configurations)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
 ## Next steps
 
