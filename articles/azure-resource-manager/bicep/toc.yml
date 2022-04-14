@@ -53,6 +53,8 @@
       href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Hadoop
       href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - HBase
+      href: ../../hdinsight/hbase/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
