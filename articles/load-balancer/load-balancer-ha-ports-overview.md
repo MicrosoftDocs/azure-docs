@@ -45,7 +45,7 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 >[!NOTE]
 > If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
 
-### Load balance a large numbers of ports
+### Load balance a large number of ports
 
 You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [standard load balancer](./load-balancer-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
