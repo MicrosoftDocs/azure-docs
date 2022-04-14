@@ -231,7 +231,7 @@ sections:
           
           ### How can I monitor the real-time performance of my managed instance?
           
-          See [Real-time performance monitoring for Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+          See [Real-time performance monitoring for Azure SQL Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
           
           ### Can I use SQL Profiler for performance tracking?
           
