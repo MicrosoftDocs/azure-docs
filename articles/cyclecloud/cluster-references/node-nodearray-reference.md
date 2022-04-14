@@ -219,25 +219,44 @@ CycleCloud supports the use of Spot VMs via the following attributes. See [Spot 
 Attribute | String | Definition
 ------ | ----- | ----------
 Interruptible | Boolean | If true, the VM will be a Spot VM to provide reduced pricing.
-MaxPrice | Float | The maximum price to spend on the VM. Default is -1.
+MaxPrice | Float | The maximum price to spend on the VM. (Default: -1)
 
 ### Nodearray-Specific Attributes
 
 All of the attributes for a node are valid for a nodearray, but a node array is an elastic resource so additional attributes are available. 
 Nodearray is a driver for Azure VirtualMachine ScaleSets (VMSS) and can have many backing VMSSs.  
 
+::: moniker range="=cyclecloud-7"
 Attribute | String | Definition
 ------ | ----- | ----------
 Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VMSS.
 Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes (Default: false).
 Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the VMSS. (Default: false)
 Azure.Overprovision | Boolean | Use the Overprovision feature of VMSS. Cyclecloud will dynamically set depending on the scenario. This is an override.
-Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. Default: `40`.
+Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. (Default: \`40\`)
 InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 InitialCoreCount | Integer | Number of cores to start when cluster starts.
 MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 ShutdownPolicy | String | Indicates what to do with the VM when a node shuts down. If 'terminate' the VM is deleted when the node shuts down. If 'deallocate', the node is stopped instead. (Default: terminate)
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+Attribute | String | Definition
+------ | ----- | ----------
+Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VMSS.
+Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes (Default: false).
+Azure.SinglePlacementGroup | Boolean | Use the single placement group setting for the VMSS. (Default: false)
+Azure.Overprovision | Boolean | Use the Overprovision feature of VMSS. Cyclecloud will dynamically set depending on the scenario. This is an override.
+Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. (Default: \`40\`)
+InitialCount | Integer | Number of nodes to start when cluster starts.
+MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+InitialCoreCount | Integer | Number of cores to start when cluster starts.
+MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+ShutdownPolicy | String | Indicates what to do with the VM when a node shuts down. If 'terminate' the VM is deleted when the node shuts down. If 'deallocate', the node is stopped instead. (Default: terminate)
+ThrottleCapacity | Boolean | Whether to suspend requests to Azure upon receiving `Insufficient Capacity` signal. (Default: false)
+ThrottleCapacityTime | Relative Time | Backoff time after receiving `Insufficient Capacity` signal from Azure. `AvailableCount` will be reported as zero during this time. (Default: \`5m\`)
+::: moniker-end
 
 > [!NOTE]
 > All VMSSs will be assigned `FaultDomainCount = 1`

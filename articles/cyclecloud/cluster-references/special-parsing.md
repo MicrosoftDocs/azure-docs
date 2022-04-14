@@ -61,3 +61,15 @@ One variable always provided is `${ClusterName}`. This is evaluated to the name 
 EmailAddress = ${strcat("myuser", "@", ClusterName)}
 ResourceId = ${ClusterName}-00-resource
 ```
+
+## Relative Time
+
+CycleCloud interprets back-ticks around time duration as relative time;
+supporting second, minute and day.
+
+```ini
+ThrottleCapacityTime=`10m` 
+Attribute1=`30s`
+Attribute2=`7d`
+```
+
