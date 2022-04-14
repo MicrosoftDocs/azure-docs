@@ -313,7 +313,7 @@ Get-AzCosmosdbMongoDBRestorableResource `
   -RestoreLocation "West US" `
   -RestoreTimestamp "2020-07-20T16:09:53+0000"
 ```
-### <a id="enumerate-sql-api"></a>Enumerate restorable resources for Graph API
+### <a id="enumerate-sql-api"></a>Enumerate restorable resources for Gremlin API
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. 
 
@@ -351,11 +351,11 @@ Get-AzCosmosdbGremlinRestorableResource `
    -RestoreTimestamp "2020-07-20T16:09:53+0000" 
 ```
 
-#### <a id="enumerate-sql-api"></a>Enumerate restorable resources for Table API
+### <a id="enumerate-sql-api"></a>Enumerate restorable resources for Table API
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, table resources. 
 
-#### List all the versions of Tables of a database in a live database account 
+#### List all the versions of tables of a database in a live database account 
 
 Use the following command to list all the versions of tables. This command only works with live accounts. 
 
@@ -641,7 +641,7 @@ az cosmosdb mongodb restorable-resource list \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
 
-### <a id="enumerate-graph-api-cli"></a>Enumerate restorable resources for Graph API account
+### <a id="enumerate-graph-api-cli"></a>Enumerate restorable resources for Gremlin API account
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database and Graph resources. These commands only work for live accounts.
 
@@ -779,7 +779,7 @@ az cosmosdb table restorable-resource list \
 
 ## <a id="restore-arm-template"></a>Restore using the Resource Manager template
 
-You can also restore an account using Resource Manager template. When defining the template include the following parameters:
+You can also restore an account using Resource Manager template. When defining the template, include the following parameters:
 
 * Set the `createMode` parameter to *Restore*
 * Define the `restoreParameters`, notice that the `restoreSource` value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
