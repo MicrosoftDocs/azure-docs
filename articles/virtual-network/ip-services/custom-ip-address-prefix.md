@@ -38,7 +38,7 @@ A public IP address range that's brought to Azure must be owned by you and regis
 
 ### Provision
 
-After the previous steps are completed, the public IP range can complete the **Provisioning** phase. The range will be created as a custom IP prefix resource in your subscription. Public IP prefixes and public IPs can be derived from your range and associated to Azure resources. The IPs won't be advertised at this point and not reachable.
+After the previous steps are completed, the public IP range can complete the **Provisioning** phase. The range will be created as a custom IP prefix resource in your subscription. Public IP prefixes and public IPs can be derived from your range and associated to any Azure resource that supports Standard SKU Public IPs (IPs derived from a custom IP prefix can also be safeguarded with [DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md). The IPs won't be advertised at this point and not reachable.
 
 ### Commission
 

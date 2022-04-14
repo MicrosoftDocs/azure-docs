@@ -76,7 +76,11 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
-|**[UI Library overview](https://aka.ms/acsstorybook))**| Review the UI Library for the Communication Services |
+|**[UI Library overview](https://aka.ms/acsstorybook)**| Review the UI Library for the Communication Services |
+
+## Design resources
+
+Find comprehensive components, composites, and UX guidance in the [UI Library Design Kit for Figma](https://www.figma.com/community/file/1095841357293210472). This design resource is purpose-built to help design your video calling and chat experiences faster and with less effort.  
 
 ## Other Microsoft Communication Services
 

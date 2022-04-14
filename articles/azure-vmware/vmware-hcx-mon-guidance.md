@@ -2,7 +2,7 @@
 title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 04/11/2022
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
@@ -54,7 +54,7 @@ In this scenario, we assume a VM from on-premises has been migrated to Azure VMw
 
 By default and without using MON, a VM in Azure VMware Solution on a stretched network without MON can communicate back to on-premises using the ExpressRoute preferred path. Ideally, and based on customers use case one should evaluate how a VM on an Azure VMware Solution stretched segment enabled with MON should be traversing back to on-premises either over the NE or the T0 gateway via the ExpressRoute, but keeping traffic flows symmetric.
 
-If choosing the NE path for example, the MON policy routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0/0 route is used. Policy routes can be found under the NE segment, selecting advanced. By default, all RFC1918 IP addresses are included in the MON policy routes definition. 
+If choosing the NE path for example, the MON policy routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0.0.0/0 default route is used. Policy routes can be found under the NE segment, selecting advanced. By default, all RFC1918 IP addresses are included in the MON policy routes definition. 
 
 :::image type="content" source="media/tutorial-vmware-hcx/default-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the default policy-based routes.":::
 

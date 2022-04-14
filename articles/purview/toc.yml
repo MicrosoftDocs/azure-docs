@@ -181,6 +181,8 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MongoDB
+      href: register-scan-mongodb.md
     - name: MySQL
       href: register-scan-mysql.md
     - name: On-premises SQL Server
@@ -215,6 +217,8 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
+    - name: Monitor scan runs
+      href: how-to-monitor-scan-runs.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Search and manage data catalog
@@ -271,8 +275,6 @@ items:
       href: asset-insights.md
     - name: View glossary insights
       href: glossary-insights.md
-    - name: View scan insights
-      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights

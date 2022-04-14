@@ -2,7 +2,7 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/26/2021
+ms.date: 04/12/2022
 ms.author: larryfr
 ---
 
@@ -10,6 +10,7 @@ When using Azure Machine Learning __compute instance__ (with a public IP) or __c
 
 > [!IMPORTANT]
 > Using service tags with user-defined routes is now GA. For more information, see [Virtual Network routing](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
+
 
 > [!TIP]
 > While a compute instance without a public IP (a preview feature) does not need a UDR for this inbound traffic, you will still need these UDRs if you also use a compute cluster or a compute instance with a public IP.

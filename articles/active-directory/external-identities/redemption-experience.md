@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 04/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -109,7 +109,7 @@ For just-in-time (JIT) redemptions, where redemption is through a tenanted appli
 
 ## Consent experience for the guest
 
-When a guest signs in to access resources in a partner organization for the first time, they're guided through the following pages. 
+When a guest signs in to a resource in a partner organization for the first time, they're presented with the following consent experience. These consent pages are shown to the guest only after sign-in, and they aren't displayed at all if the user has already accepted them.
 
 1. The guest reviews the **Review permissions** page describing the inviting organization's privacy statement. A user must **Accept** the use of their information in accordance to the inviting organization's privacy policies to continue.
 
@@ -127,11 +127,6 @@ When a guest signs in to access resources in a partner organization for the firs
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
-
-> [!NOTE]
-> The consent experience appears only after the user signs in, and not before. There are some scenarios where the consent experience will not be displayed to the user, for example:
-> - The user already accepted the consent experience
-> - The admin [grants tenant-wide admin consent to an application](../manage-apps/grant-admin-consent.md)
 
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
