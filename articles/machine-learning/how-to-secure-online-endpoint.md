@@ -44,8 +44,8 @@ When securing an online endpoint with a virtual network, you can secure the inbo
 
 Your Azure Machine Learning workspace can be configured to allow public network access, even while participating in a VNet. This behavior is configured using the `public_network_access` flag on the workspace. If this flag is `disabled`, then communication with the workspace is restricted to the VNet.
 
-    * If this flag is `disabled`, you can't create online endpoint deployments that communicate with public networks. You can only create deployments that use the VNet.
-    * If the flag was originally `enabled`, and you switch it to `disabled`, any existing online endpoint deployments that allowed public network communications will start failing.
+* If this flag is `disabled`, you can't create online endpoint deployments that communicate with public networks. You can only create deployments that use the VNet.
+* If the flag was originally `enabled`, and you switch it to `disabled`, any existing online endpoint deployments that allowed public network communications will start failing.
 
 ## Inbound (scoring)
 
