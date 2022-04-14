@@ -116,7 +116,6 @@ When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collec
 - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 - [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
