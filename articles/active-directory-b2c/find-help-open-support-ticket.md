@@ -76,7 +76,7 @@ If you're unable to find answers by using self-help resources, you can open an o
     1. Select a **[Severity](https://azure.microsoft.com/support/plans/response)**, and your preferred contact method.
     
     > [!NOTE]
-    > Under **Advanced diagnostic information**, it's highly recommended that you select allow collection of advanced information by selecting **Yes**. It allows Microsoft support team to investigate the issue faster.
+    > Under **Advanced diagnostic information**, it's highly recommended that you allow the collection of advanced information by selecting **Yes**. It enables Microsoft support team to investigate the issue faster.
 
     :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket-1.png" alt-text="Screenshot of how to find help and submit support ticket part 1.":::
 
