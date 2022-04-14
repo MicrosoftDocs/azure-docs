@@ -17,12 +17,12 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 ## Usage and version details
 
-* SSL 2.0 and 3.0 are disabled by default for all application gateways. These protocol versions are not configurable.
-* A custom TLS policy gives you the option to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2 or TLSv1_3.
-* If no TLS policy is defined, the minimum protocol version is set to TLSv1_0 and protocol versions v1.0, v1.1 and v1.2 are supported.
-* The new **Predefined and Customv2 policies** that support **TLS v1.3** are currently in **Preview** and are available only with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
-* Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy as well as SSL Profile). Hence, both old and new policies cannot co-exist. You are required to use any of the older predefined or custom policies across the gateway, in case there are clients requiring older TLS version or ciphers (for example, TLS v1.0).
-* TLS cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
+- SSL 2.0 and 3.0 are disabled by default for all application gateways. These protocol versions are not configurable.
+- A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
+- If no TLS policy is defined, the minimum protocol version is set to TLSv1_0, and protocol versions v1.0, v1.1, and v1.2 are supported.
+- The new **Predefined and Customv2 policies** that support **TLS v1.3** are currently in **Preview** and only available with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
+- Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy and [SSL Profile](application-gateway-configure-listener-specific-ssl-policy.md#set-up-a-listener-specific-ssl-policy)). Hence, both old and new policies cannot co-exist on a gateway. You must use any of the older predefined or custom policies across the gateway if clients require older TLS versions or ciphers (for example, TLS v1.0).
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. For "application gateway to backend pool connections", the cipher suites used are based on the type of server certificates on the backend servers.
 
 ## Predefined TLS policy
 
@@ -30,9 +30,11 @@ Application Gateway offers several predefined security policies. You can configu
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies, you can refer to the PowerShell, CLI, REST API or the Listeners blade in portal.
 
-| Predefined policy names (AppGwSslPolicy&lt;YYYYMMDD&gt;) | 20150501  | 20170401 | 2017041S | 20220101 <br/> (Preview) | 20220101S <br/> (Preview) |
+| Predefined policy names (AppGwSslPolicy&lt;YYYYMMDD&gt;) | 20150501  | 20170401 | 20170401S | 20220101 <br/> (Preview) | 20220101S <br/> (Preview) |
 | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
 | **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
+| **Enabled protocol versions** | 1.0<br/>1.1<br/>1.2 | 1.1<br/>1.2 | 1.2 | 1.2<br/>1.3 | 1.2<br/>1.3 |
+| **Default** | True | False | False | False | False |
 | TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_AES_256_GCM_SHA384 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
