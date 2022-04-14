@@ -110,7 +110,10 @@ Rotate the key 28 days before expiration and set the new key to expire after one
 Remove the key rotation policy (done by setting a blank policy)
 
 ```json
-{}
+{
+  "lifetimeActions": [],
+  "attributes": {}
+}
 ```
 
 ## Rotation on demand
