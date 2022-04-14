@@ -1,19 +1,18 @@
 ---
-title: 'Schedule a contact with NASA's AQUA public satellite' 
-description: 'How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service'
+title: Schedule a contact with NASA's AQUA public satellite
+description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
 author: wamota
 ms.service: orbital
 ms.topic: how-to
 ms.custom: public-preview
-ms.date: 11/16/2021
+ms.date: 04/14/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from NASA's AQUA public satellite into Azure.
 ---
 
+# Tutorial: Downlink data from NASA's AQUA public satellite
 
-# Tutorial: Downlink data from NASA's public AQUA satellite
-
-You can communicate with satellites directly from Azure using Azure Orbital's ground station service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you will learn how to:
+You can communicate with satellites directly from Azure using Azure Orbital's ground station service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you'll learn how to:
 
 > [!div class="checklist"]
 > * Create & authorize a spacecraft for AQUA
@@ -37,7 +36,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 ## Create & authorize a spacecraft for AQUA
 1. In the Azure portal search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results.
 2. In the **Spacecrafts** page, select Create.
-3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak: https://celestrak.com/NORAD/elements/active.txt
+3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak at https://celestrak.com/NORAD/elements/active.txt
    > [!NOTE]
    > You will want to periodically update this TLE value to ensure that it is up-to-date prior to scheduling a contact. A TLE that is more than one or two weeks old may result in an unsuccessful downlink.
 4. In **Create spacecraft resource**, enter or select this information in the Basics tab:
@@ -86,7 +85,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 - Operation System: Linux (Ubuntu 18.04 or higher)
 - Size: at least 32 GiB of RAM
 - Ensure that the VM has at least one standard public IP
-3. Create a tmpfs on the virtual machine. This is where the data will be written to in order to avoid slow writes to disk:
+3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
 sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```
@@ -94,7 +93,7 @@ sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```console
 sudo apt install socat
 ```
-5. Edit the network security group [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) for the subnet that your azure vm is within to allow inbound connections from the following IPs over TCP port 56001 to your customer VM.
+5. Edit the [Network Security Group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) for the subnet that your virtual machine is using to allow inbound connections from the following IPs over TCP port 56001:
 - 20.47.120.4
 - 20.47.120.38
 - 20.72.252.246
@@ -135,7 +134,7 @@ sudo apt install socat
    | IP Address | Enter the Public IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
-   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](msazureorbital@microsoft.com) to leverage a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
+   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
    | Decoding Configuration | Leave this field **blank** |
 
 
