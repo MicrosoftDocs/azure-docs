@@ -20,7 +20,7 @@ ms.custom:
 Virtual Network (VNet) service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Service Endpoints enables private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
 
    >[!NOTE]
-   > Microsoft recommends use of Azure Private Link for secure and private access to services hosted on Azure platform. For more information, see [Azure Private Link](../private-link/private-link-overview.md).  
+   > Microsoft recommends use of Azure Private Link in case of secure and access via private ip to services hosted on Azure platform. For more information, see [Azure Private Link](../private-link/private-link-overview.md). Basically security level between Service Endpoint and Plivate Link is same.
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
