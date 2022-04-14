@@ -1,8 +1,6 @@
 ---
 title: Migrate from Azure Data Catalog to Azure Purview
 description: Steps to migrate from Azure Data Catalog to Microsoft's unified data governance service--Azure Purview.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: how-to 
 ms.date: 01/24/2022
