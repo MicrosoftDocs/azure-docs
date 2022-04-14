@@ -106,6 +106,8 @@ items:
     items:
     - name: Data owner policies
       href: concept-data-owner-policies.md
+    - name: Self-service data access policy
+      href: concept-self-service-data-access-policy.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
@@ -305,8 +307,6 @@ items:
       href: how-to-data-owner-policies-storage.md
     - name: Data owner policies on resource groups or subscriptions
       href: how-to-data-owner-policies-resource-group.md
-    - name: Self-service data access policy
-      href: concept-self-service-data-access-policy.md
     - name: View self-service data access policy
       href: how-to-view-self-service-data-access-policy.md
     - name: Delete self-service data access policy
