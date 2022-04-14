@@ -175,4 +175,4 @@ socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
 ## Next steps
 
 - [Quickstart: Configure a contact profile](contact-profile.md)
-- [How-to: Schedule a contact](schedule-contact.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)

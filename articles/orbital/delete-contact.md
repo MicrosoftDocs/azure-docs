@@ -41,5 +41,5 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 6. The scheduled contact will be canceled once the contact entry is deleted.
 ## Next steps
 
-- [How-to: Schedule a contact](schedule-contact.md)
-- [How-to: Update the spacecraft TLE](update-tle.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Tutorial: Update the spacecraft TLE](update-tle.md)
