@@ -17,13 +17,13 @@ The HTTP status code 403 represents the request is forbidden to complete.
 
 ## Firewall blocking requests
 
-Data plane requests can come to Cosmos DB via the following 3 paths.
+Data plane requests can come to Cosmos DB via the following three paths.
 
 - Public internet (IPv4)
 - Service endpoint
 - Private endpoint
 
-When a data plane request is blocked with 403 Forbidden, the error message will specify via which of the above 3 paths the request came to Cosmos DB.
+When a data plane request is blocked with 403 Forbidden, the error message will specify via which of the above three paths the request came to Cosmos DB.
 
 - `Request originated from client IP {...} through public internet.`
 - `Request originated from client VNET through service endpoint.`
