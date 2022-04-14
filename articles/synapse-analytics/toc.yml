@@ -995,6 +995,8 @@ items:
         href: ../data-factory/connector-concur.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Couchbase
         href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: data.world
+        href: ../data-factory/connector-dataworld.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Dataverse
         href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: DB2
@@ -1141,6 +1143,8 @@ items:
         href: ../data-factory/connector-teamdesk.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
       - name: Teradata
         href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Twilio
+        href: ../data-factory/connector-twilio.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics 
       - name: Vertica
         href: ../data-factory/connector-vertica.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Web Table
