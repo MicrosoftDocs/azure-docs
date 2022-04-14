@@ -8,7 +8,7 @@ ms.assetid: 0a84734e-b5c1-4264-8d1f-77e781b28426
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 08/04/2021
+ms.date: 04/08/2022
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli 
 ms.devlang: azurecli
@@ -26,7 +26,7 @@ For more information and pricing. Go to the [NAT gateway overview](../../virtual
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram shows Internet traffic flowing to a NAT gateway in an Azure Virtual Network.":::
 
 > [!Note] 
-> * Using NAT gateway with App Service is dependent on virtual network integration, and therefore **Standard**, **Premium**, **PremiumV2** or **PremiumV3** App Service plan is required.
+> * Using NAT gateway with App Service is dependent on virtual network integration, and therefore a supported App Service plan pricing tier is required.
 > * When using NAT gateway together with App Service, all traffic to Azure Storage must be using private endpoint or service endpoint.
 > * NAT gateway cannot be used together with App Service Environment v1 or v2.
 

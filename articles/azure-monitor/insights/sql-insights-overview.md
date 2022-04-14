@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.reviewer: wiassaf
-ms.date: 03/16/2022
+ms.date: 04/14/2022
 ---
 
 # Monitor your SQL deployments with SQL Insights (preview)
@@ -15,7 +15,7 @@ SQL Insights (preview) is a comprehensive solution for monitoring any product in
 SQL Insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md) to enable easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL Insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data by using [log queries](../logs/get-started-queries.md).
 The following diagram details the steps taken by information from the database engine and Azure resource logs, and how they can be surfaced. For a more detailed diagram of Azure SQL logging, see [Monitoring and diagnostic telemetry](../../azure-sql/database/monitor-tune-overview.md#monitoring-and-diagnostic-telemetry).
 
-:::image type="content" source="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" lightbox="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" alt-text="Diagram showing how database engine information and resource logs are surfaced through AzureDiagnostics and Log Analytics.":::
+:::image type="content" source="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" alt-text="Diagram showing how database engine information and resource logs are surfaced through AzureDiagnostics and Log Analytics.":::
 
 ## Pricing
 There is no direct cost for SQL Insights (preview). All costs are incurred by the virtual machines that gather the data, the Log Analytics workspaces that store the data, and any alert rules configured on the data. 
@@ -56,7 +56,7 @@ SQL Insights (preview) has no support or has limited support for the following:
 
 SQL Insights (preview) is available in all Azure regions where Azure Monitor is [available](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), with the exception of Azure government and national clouds.
 
-## Opening SQL Insights
+## Open SQL Insights
 
 To open SQL Insights:
 
@@ -133,3 +133,4 @@ The tables have the following columns:
 ## Next steps
 
 - For frequently asked questions about SQL Insights (preview), see [Frequently asked questions](../faq.yml).
+- [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md)
