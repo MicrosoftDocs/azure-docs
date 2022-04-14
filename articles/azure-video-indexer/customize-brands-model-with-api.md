@@ -157,7 +157,7 @@ The response provides a list of all of the brands in your account and each of th
 
 ## Get Brands model settings
 
-The [get brands settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Analyzer for Media will only detect brands from the custom Brands model of the specified account.
+The [get brands settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, VAzure Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 ### Response
 

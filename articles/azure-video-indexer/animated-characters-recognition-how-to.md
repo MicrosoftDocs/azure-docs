@@ -23,7 +23,7 @@ In the trial accounts the Custom Vision integration is managed by Azure Video In
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Azure Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../cognitive-services/custom-vision-service/overview.md).
+If you own an Azure Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
@@ -145,7 +145,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
 
 1. Connect a Custom Vision account.
 
-    If you own a Azure Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
+    If you own an Azure Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
     If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../cognitive-services/custom-vision-service/overview.md).
 
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Connect-Custom-Vision-Account).

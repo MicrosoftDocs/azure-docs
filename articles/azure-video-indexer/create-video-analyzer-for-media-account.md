@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 This Quickstart walks you through the steps to get started with Azure Video Indexer. You will create an Azure Video Indexer account and its accompanying resources by using the Azure portal.
 
-To start using Azure Video Indexer, you will need to create a Azure Video Indexer account. The account needs to be associated with a [Media Services][docs-ms] resource and a [User-assigned managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
+To start using Azure Video Indexer, you will need to create an Azure Video Indexer account. The account needs to be associated with a [Media Services][docs-ms] resource and a [User-assigned managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
 
 ## Prerequisites
 > [!NOTE]
@@ -20,7 +20,7 @@ To start using Azure Video Indexer, you will need to create a Azure Video Indexe
 
 ## Azure portal
 
-### Create a Azure Video Indexer account in the Azure portal
+### Create an Azure Video Indexer account in the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Using the search bar at the top, enter **"Azure Video Indexer"**.
@@ -29,7 +29,7 @@ To start using Azure Video Indexer, you will need to create a Azure Video Indexe
     ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.png)
 
 1. Click **Create**.
-1. In the **Create a Azure Video Indexer resource** section enter required values.
+1. In the **Create an Azure Video Indexer resource** section enter required values.
 
     ![Image of create account](media/create-video-analyzer-for-media-account/create-account-blade.png)
 
@@ -78,6 +78,6 @@ Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-se
 
 <!-- links -->
 [docs-uami]: ../active-directory/managed-identities-azure-resources/overview.md
-[docs-ms]: /media-services/latest/media-services-overview
+[docs-ms]: /azure/media-services/latest/media-services-overview
 [docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contibutor
 [docs-contributor-on-ms]: ./add-contributor-role-on-the-media-service.md

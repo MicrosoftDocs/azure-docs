@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 This getting started quickstart shows how to sign in to the Azure Video Indexer (formerly Azure Video Analyzer for Media) website and how to upload your first video.
 
-When creating a Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
 ## Sign up for Azure Video Indexer
 
@@ -26,7 +26,7 @@ Once you start using Azure Video Indexer, all your stored data and uploaded cont
 
 ### Supported file formats for Azure Video Indexer
 
-See the [input container/file formats](/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
+See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
 
 ### Upload a video
 

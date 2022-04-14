@@ -16,7 +16,7 @@ This article discusses different options for managing multiple tenants with Azur
 
 ## Azure Video Indexer account per tenant
 
-When using this architecture, a Azure Video Indexer account is created for each tenant. The tenants have full isolation in the persistent and compute layer.  
+When using this architecture, an Azure Video Indexer account is created for each tenant. The tenants have full isolation in the persistent and compute layer.  
 
 ![Azure Video Indexer account per tenant](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 

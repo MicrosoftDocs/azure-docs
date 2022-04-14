@@ -1,14 +1,14 @@
 ---
-title: Manage a Azure Video Indexer (formerly Azure Video Analyzer for Media) account
-description: Learn how to manage a Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
+title: Manage an Azure Video Indexer (formerly Azure Video Analyzer for Media) account
+description: Learn how to manage an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
 ms.topic: how-to
 ms.date: 01/14/2021
 ms.author: juliako
 ---
 
-# Manage a Azure Video Indexer account connected to Azure
+# Manage an Azure Video Indexer account connected to Azure
 
-This article demonstrates how to manage a Azure Video Indexer (formerly Azure Video Analyzer for Media) account that's connected to your Azure subscription and an Azure Media Services account.
+This article demonstrates how to manage an Azure Video Indexer (formerly Azure Video Analyzer for Media) account that's connected to your Azure subscription and an Azure Media Services account.
 
 > [!NOTE]
 > You have to be the Azure Video Indexer account owner to do account configuration adjustments discussed in this topic.
@@ -54,9 +54,9 @@ In the **Update connection to Azure Media Services** dialog of your [Azure Video
 
 If your account needs some adjustments, you see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This section gives more details about the error and warning messages.
 
-* EventGrid
+* Event Grid
 
-    You have to register the EventGrid resource provider using the Azure portal. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the **Registered** state, select **Register**. It takes a couple of minutes to register.
+    You have to register the Event Grid resource provider using the Azure portal. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the **Registered** state, select **Register**. It takes a couple of minutes to register.
 
 * Streaming endpoint
 
@@ -64,7 +64,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 
 * Media reserved units
 
-    You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+    You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/) page.
 
 ## Next steps
 
