@@ -34,7 +34,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Overview
 
-an [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+An [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
@@ -111,7 +111,7 @@ Copy the ID of the image definition from the output to use later.
 
 ## Create the image version
 
-Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Create an image version from the VM using [az sig image-version create](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -148,7 +148,7 @@ In this example, we are creating a VM from the latest version of the *myImageDef
 ```azurecli
 az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
-    --name myVM \
+    --name myVM2 \
     --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
     --specialized
 ```

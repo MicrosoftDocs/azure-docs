@@ -2,11 +2,11 @@
 title: Azure PowerShell examples for Azure Application Gateway
 description: This article has links to Azure PowerShell examples so you can quickly deploy Azure Application Gateway configured in various ways.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
-ms.author: victorh
+ms.author: greglin
 
 ---
 # Azure PowerShell examples for Azure Application Gateway (AG)
