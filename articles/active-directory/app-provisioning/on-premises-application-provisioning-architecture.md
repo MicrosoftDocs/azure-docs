@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD on-premises application provisioning architecture (preview)
+# Azure AD on-premises application identity provisioning architecture (preview)
 
 ## Overview
 
