@@ -14,6 +14,8 @@ ms.custom:
 
 ---
 
+# Secure online endpoints with Azure Virtual Network
+
 If your Azure Machine Learning workspace is connected to an Azure Virtual Network (VNet) using a private endpoint, your can configure your online endpoints to use the VNet for secure communications. Securing an online endpoint with a VNet is currently a preview feature.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -30,15 +32,13 @@ When securing an online endpoint with a virtual network, you can secure the inbo
 
 * You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint to communicate with a virtual network. If you don't have one, use the steps in the [Create a secure workspace using a template](tutorial-create-secure-workspace-template.md) tutorial to create an example workspace and virtual network configuration.
 
-* (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
-
-   ```azurecli
-   git clone https://github.com/Azure/azureml-examples
-   cd azureml-examples/cli
-   ```
-
-    > [!IMPORTANT]
-    > The code snippets in this article are based on the files provided in the repository.
+> [!IMPORTANT]
+> The sample code in this article is based on the files provided in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory: 
+>
+> ```azurecli
+> git clone https://github.com/Azure/azureml-examples
+> cd azureml-examples/cli
+> ```
 
 ## Limitations
 
