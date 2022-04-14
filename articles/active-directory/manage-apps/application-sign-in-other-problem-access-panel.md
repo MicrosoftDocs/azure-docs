@@ -3,7 +3,7 @@ title: Troubleshoot problems signing in to an application from My Apps portal
 titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
-author: davidmu1
+author: lnalepa
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/01/2022
 ms.author: lenalepa
-ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
 
