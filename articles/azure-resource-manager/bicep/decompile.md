@@ -2,12 +2,16 @@
 title: Decompile ARM template JSON to Bicep
 description: Describes commands for decompiling Azure Resource Manager templates to Bicep files.
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 04/12/2022
 ms.custom: devx-track-azurepowershell
 ---
+
 # Decompiling ARM template JSON to Bicep
 
 This article describes how to decompile Azure Resource Manager templates (ARM templates) to Bicep files. You must have the [Bicep CLI installed](./install.md) to run the conversion commands.
+
+> [!NOTE]
+> From Visual Studio Code, you can directly create resource declarations by importing from existing resources. For more information, see [Bicep commands](./visual-studio-code.md#bicep-commands).
 
 Decompiling an ARM template helps you get started with Bicep development. If you have a library of ARM templates and want to use Bicep for future development, you can decompile them to Bicep. However, the Bicep file might need revisions to implement best practices for Bicep.
 
