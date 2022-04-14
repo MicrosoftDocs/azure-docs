@@ -35,11 +35,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 Need to confirm whether the following link is correct.
 -->
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-site).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-dashboard). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-dashboard/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/mobilenetwork-create-dashboard/azuredeploy.json":::
-
-The template defines a [**Microsoft.Portal/dashboards**](/azure/templates/microsoft.portal/dashboards) resource.
+The template defines one [**Microsoft.Portal/dashboards**](/azure/templates/microsoft.portal/dashboards) resource, which is a dashboard that displays data about your packet core instance's activity.
 
 ## Deploy the template
 
@@ -82,5 +80,5 @@ The template defines a [**Microsoft.Portal/dashboards**](/azure/templates/micros
 
 You can now begin using the overview dashboard to monitor your packet core instance's activity. You can also use the following articles to add more queries to the dashboard. 
 
-- [Learn more about constructing queries](monitoring-private-5g-core-with-log-analytics.md#constructing-queries)
-- [Learn more about how to pin a query to the dashboard](../azure-monitor/visualize/tutorial-logs-dashboards.md#visualize-a-log-query)
+- [Learn more about constructing queries](monitor-private-5g-core-with-log-analytics.md#construct-queries).
+- [Learn more about how to pin a query to the dashboard](../azure-monitor/visualize/tutorial-logs-dashboards.md#visualize-a-log-query).

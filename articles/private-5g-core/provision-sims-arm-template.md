@@ -72,7 +72,7 @@ Need to confirm whether the following link is correct.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-provision-sims).
 
-:::code language="json" source="~/quickstart-templates/mobilenetwork-provision-sims/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/microsoft.mobilenetwork/mobilenetwork-provision-sims/azuredeploy.json":::
 
 The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templates/microsoft.mobilenetwork/sims) resources, each of which represents a physical SIM or eSIM.
 
