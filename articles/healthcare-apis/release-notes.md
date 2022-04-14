@@ -52,10 +52,10 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
-|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations start, change, or delete. For more information, see [Events message structure](events/events-message-structure.md) and [What are events](events/events-overview.md). |
+|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations start, change, or delete. For more information, see [Events message structure](events/events-message-structure.md) and [What are events?](events/events-overview.md). |
 |Events documentation for Azure Health Data Services  |Updated docs to allow for better understanding, knowledge, and help for Events as it went GA. Updated troubleshooting for ease of use for the customer.  |
 |One touch deploy button for MedTech service launch in the portal |Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces.  |
-|Private Link  |Enabled Private link to allow access over a private endpoint. Private Link is a network interface that connects privately and securely using a private IP address. Access services securely from VNet as a first party service without having to go through a public Domain Name System (DNS). For more information, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).  |
+|Private Link  |Enabled Private Link to allow access over a private endpoint. Private Link is a network interface that connects privately and securely using a private IP address. Access services securely from VNet as a first party service without having to go through a public Domain Name System (DNS). For more information, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).  |
 
 ## January 2022
 
