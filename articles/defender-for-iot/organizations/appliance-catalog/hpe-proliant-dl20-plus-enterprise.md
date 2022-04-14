@@ -28,21 +28,21 @@ This article describes the **HPE ProLiant DL20 Plus** appliance for OT sensors a
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
 DL20 BOM
-| PN | Description: high end | Quantity |
+| Quantity | PN| Description: high end |
 |--|--|--|
-|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server | 1 |
-|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server | 1 |
-|1| P17104-L21 | HPE DL20 Gen10 E-2234 FIO Kit | 1 |
-|2| 879507-B21 | HPE 16-GB 2Rx8 PC4-2666V-E STND Kit | 2 |
-|3| 655710-B21 | HPE 1-TB SATA 7.2 K SFF SC DS HDD | 3 |
-|1| P06667-B21 | HPE DL20 Gen10 x8x16 FLOM Riser Kit | 1 |
-|1| 665240-B21 | HPE Ethernet 1-Gb 4-port 366FLR Adapter | 1 |
-|1| 782961-B21 | HPE 12-W Smart Storage Battery | 1 |
-|1| 869081-B21 | HPE Smart Array P408i-a SR G10 LH Controller | 1 |
-|2| 865408-B21 | HPE 500-W FS Plat Hot Plug LH Power Supply Kit | 2 |
-|1| 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support | 1 |
-|1| P06722-B21 | HPE DL20 Gen10 RPS Enablement FIO Kit | 1 |
-|1| 775612-B21 | HPE 1U Short Friction Rail Kit | 1 |
+|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server | 
+|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server | 
+|1| P17104-L21 | HPE DL20 Gen10 E-2234 FIO Kit | 
+|2| 879507-B21 | HPE 16-GB 2Rx8 PC4-2666V-E STND Kit | 
+|3| 655710-B21 | HPE 1-TB SATA 7.2 K SFF SC DS HDD | 
+|1| P06667-B21 | HPE DL20 Gen10 x8x16 FLOM Riser Kit | 
+|1| 665240-B21 | HPE Ethernet 1-Gb 4-port 366FLR Adapter | 
+|1| 782961-B21 | HPE 12-W Smart Storage Battery | 
+|1| 869081-B21 | HPE Smart Array P408i-a SR G10 LH Controller | 
+|2| 865408-B21 | HPE 500-W FS Plat Hot Plug LH Power Supply Kit | 
+|1| 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support | 
+|1| P06722-B21 | HPE DL20 Gen10 RPS Enablement FIO Kit | 
+|1| 775612-B21 | HPE 1U Short Friction Rail Kit | 
 
 DL20 Plus BOM
 |Quantity|PN|Description|
