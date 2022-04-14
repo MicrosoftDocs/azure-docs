@@ -30,7 +30,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
   The SQL connector requires that your tables contain data so that SQL connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL connector operations.
 
@@ -93,20 +93,20 @@ For the managed SQL Server connector technical information, such as trigger and 
 
 After you provide this information, continue with these steps:
 
-* [Connect to cloud-based Azure SQL Database or Managed Instance](#connect-azure-sql-db)
+* [Connect to cloud-based Azure SQL Database or SQL Managed Instance](#connect-azure-sql-db)
 * [Connect to on-premises SQL Server](#connect-sql-server)
 
 <a name="connect-azure-sql-db"></a>
 
-### Connect to Azure SQL Database or Managed Instance
+### Connect to Azure SQL Database or SQL Managed Instance
 
-To access an Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
+To access a SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
 The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
 1. For **Connection name**, provide a name to use for your connection.
 
-1. For **Authentication type**, select the authentication that's required and enabled on your database in Azure SQL Database or Azure SQL Managed Instance:
+1. For **Authentication type**, select the authentication that's required and enabled on your database in Azure SQL Database or SQL Managed Instance:
 
    | Authentication | Description |
    |----------------|-------------|
@@ -125,7 +125,7 @@ The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [
 
      ![Screenshot showing the Azure portal, workflow designer, and "SQL Server" cloud connection information with selected authentication type for Standard.](./media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-standard.png)
 
-1. After you select **Azure AD Integrated**, select **Sign in**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
+1. After you select **Azure AD Integrated**, select **Sign in**. Based on whether you use Azure SQL Database or SQL Managed Instance, select your user credentials for authentication.
 
 1. Select these values for your database:
 
@@ -284,7 +284,7 @@ In Standard logic app workflows, only the managed SQL Server connector has trigg
 
 ## Trigger recurrence shift and drift (daylight saving time)
 
-Recurring connection-based triggers where you need to create a connection first, such as the managed SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
+Recurring connection-based triggers where you need to create a connection first, such as the managed SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). For recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
 
 To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
@@ -390,7 +390,7 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 * Create a [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. The SQL connector provides many backend features that you can access by using Azure Logic Apps so that you can more easily automate business tasks that work with SQL database tables.
 
-  When getting or inserting multiple rows, your logic app can iterate through these rows by using an [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). However, when your logic app has to work with record sets so large, for example, thousands or millions of rows, that you want to minimize the costs resulting from calls to the database.
+  When a SQL action gets or inserts multiple rows, your logic app workflow can iterate through these rows by using an [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). However, when your logic app has to work with record sets so large, for example, thousands or millions of rows, that you want to minimize the costs resulting from calls to the database.
 
   To organize the results in the way that you want, you can create a stored procedure that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. This solution gives you more control over the size and structure of your results. Your logic app calls the stored procedure by using the SQL Server connector's **Execute stored procedure** action. For more information, see [SELECT - ORDER BY Clause](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
@@ -402,7 +402,7 @@ Sometimes, you have to work with result sets so large that the connector doesn't
   > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
   > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
   > [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
-  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
+  > and [SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
   > you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). To learn more, see 
   > [Handle long-running stored procedure timeouts in the SQL connector for Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
