@@ -9,20 +9,19 @@ ms.author: yelevin
 
 # Service limits for Microsoft Sentinel
 
-To do: intro that leads with a sentence in the form, "X is a (type of) Y that does Z".
-Answer question: why would I want to learn this knowledge?
+This article lists the service limits for several features in Microsoft Sentinel.
 
-## Analytics rules
+## Analytics rule limits
 
-Analytics rules in Microsoft Sentinel have the following resource limits.
+The following limit applies to Analytics rules in Microsoft Sentinel.
 
 |Name  |Limit  |
 |---------|---------|
 |Number of rules     | 512 rules       |
 
-## Incidents
+## Incident limits
 
-Incidents in Microsoft Sentinel have the following resource limits.
+The following limits apply to incidents in Microsoft Sentinel.
 
 |Name  |Limit  |
 |---------|---------|
@@ -33,18 +32,18 @@ Incidents in Microsoft Sentinel have the following resource limits.
 |Number of comments per incident   | 100    |
 |Number of conditions    | 50    |
 
-## Machine learning-based features
+## Machine learning-based limits
 
-Machine learning-based features like customizable anomalies and Fusion have the following resource limits.
+The following limits apply to Machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.
 
 | Name                                                          | Limit                                           | 
 |---------------------------------------------------------------|-------------------------------------------------|
 | Number of anomalies published per anomaly type                | Top 3000 ranked by anomaly score                |
 | Number of alerts and/or anomalies in a single Fusion incident | 100  |
 
-## Notebooks
+## Notebook limits
 
-Resource limits for notebooks in Microsoft Sentinel are related to the limits for Azure Machine Learning and Azure Storage.
+The following limits apply to notebooks in Microsoft Sentinel. The limits are related to the limits for Azure Machine Learning and Azure Storage.
 
 ### Machine learning-based feature dependencies
 |Description|Limit |
@@ -62,17 +61,18 @@ Resource limits for notebooks in Microsoft Sentinel are related to the limits fo
 |Maximum throughput (ingress + egress) for a single file share by default|60 MB/sec|
 |Maximum throughput (ingress + egress) for a single file share  with large file share feature enabled|300 MB/sec|
 
-## Threat intelligence
+## Threat intelligence limits
 
-Resource limits for threat intelligence in Microsoft Sentinel are related to the limits for the Microsoft Graph security API.
+The following limit applies to threat intelligence in Microsoft Sentinel. The limit for threat intelligence in Microsoft Sentinel is related to Microsoft Graph security API.
 
 |Description                   | Limit        |
 -------------------------|--------------------|
 | Indicators per call that use Graph security API | 100 indicators |
 
-## Watchlists
+## Watchlist limits
 
-Resource limits for watchlists in Microsoft Sentinel are related to the limits for Azure Resource Manager, Azure Storage, Log Analytics, and Azure Cosmos DB.
+The following limit applies to watchlists in Microsoft Sentinel.
+Limits for watchlists in Microsoft Sentinel are related to the limits for Azure Resource Manager, Azure Storage, Log Analytics, and Azure Cosmos DB.
 
 ### Azure Resource Manager dependencies
 | Description                   | Limit        |
@@ -99,9 +99,9 @@ Resource limits for watchlists in Microsoft Sentinel are related to the limits f
 |Number of large watchlist uploads per workspace at a time|One large watchlist|
 |Number of large watchlist deletions per workspace at a time|One large watchlist|
 
-## User and Entity Behavior Analytics (UEBA)
+## User and Entity Behavior Analytics (UEBA) limits
 
-Resource limits for UEBA in Microsoft Sentinel are related to the limits for Log Analytics.
+The following limit applies to UEBA in Microsoft Sentinel.Limits for UEBA in Microsoft Sentinel are related to the limits for Log Analytics.
 
 |Description   |Limit |
 |---------|---------|
