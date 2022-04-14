@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: jamondi
+ms.author: jomondi
 ms.reviewer: alamaral
 ---
 
