@@ -115,7 +115,7 @@
   - name: Node.js
     href: /javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/cognitiveservices/management?view=azure-python
+    href: /python/api/azure-mgmt-cognitiveservices/
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/resourcemanagement?view=azure-java-stable
   - name: Go
