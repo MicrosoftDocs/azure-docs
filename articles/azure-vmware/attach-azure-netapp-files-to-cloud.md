@@ -41,6 +41,9 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
     1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it is recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
 
+## Best practice
+
+For optimized performance, select the **UltraPerformance** gateway and enable ER FastPath from a private cloud to Azure NetApp Files volumes virtual network.
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
