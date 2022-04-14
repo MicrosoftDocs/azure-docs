@@ -154,7 +154,6 @@ Instance segmentation | Tasks to identify objects in an image at the pixel level
 
 ### Natural language processing: NLP (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Support for natural language processing (NLP) tasks in automated ML allows you to easily generate models trained on text data for text classification and named entity recognition scenarios. Authoring automated ML trained NLP models is supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 

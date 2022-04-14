@@ -27,7 +27,7 @@ In this article, you learn about:
 > * Start a batch scoring job
 > * Overview of batch endpoint features in Azure machine learning studio
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 

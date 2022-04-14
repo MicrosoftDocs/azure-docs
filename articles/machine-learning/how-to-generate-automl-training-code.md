@@ -13,8 +13,6 @@ ms.date: 02/16/2022
 
 #  View automated ML model's training code (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 In this article, you learn how to view the generated training code from any automated machine learning trained model. 
 
 Code generation for automated ML trained models allows you to see the following details that automated ML uses to train and build the model for a specific run.
