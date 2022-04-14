@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
-ms.date: 10/03/2021
+ms.date: 04/06/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -64,9 +64,18 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and so the data map scales down
 
+#### Automated scanning, classification and ingestion
 
-#### Automated scanning & classification
+There are two major automated processes that can trigger ingestion of metadata into Azure Purview:
+1. Automatic scans using native [connectors](azure-purview-connector-overview.md). This process includes three main steps:
+   - Metadata scan
+   - Automatic classification
+   - Ingestion of metadata into Azure Purview
 
+2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines. This process includes:
+   - Ingestion of metadata and lineage into Azure Purview if Azure Purview account is connected to any Azure Data Factory or Azure Synapse pipelines. 
+
+##### 1. Automatic scans using native connectors
 - A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
 
 - All scans (full or Incremental scans) will pick up **updated, modified, or deleted** assets
@@ -89,6 +98,9 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - Align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
+##### 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines
+
+- metadata and lineage is ingested from Azure Data Factory or Azure Synapse pipelines every time the pipelines run in the source system.
 
 #### Advanced resource sets
 
