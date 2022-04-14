@@ -19,7 +19,7 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. 
+Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
@@ -132,13 +132,18 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
 
-    :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
-
     1. Select the CORS blade for the storage account.
+
+       :::image type="content" source="../media/quickstarts/cors-setting-menu.png" alt-text="Screenshot of the CORS setting menu in the Azure portal.":::
 
     1. Start by creating a new CORS entry in the Blob service.
 
-    1. Set the **Allowed origins** to **https://fott-2-1.azurewebsites.net**.
+    1. Set the **Allowed origins** to **<https://fott-2-1.azurewebsites.net>**.
+
+       :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+       > [!TIP]
+       > You can use the wildcard character '*' rather than a specified domain to allow all origin domains to make requests via CORS.
 
     1. Select all the available 8 options for **Allowed methods**.
 
@@ -261,9 +266,9 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 #### Analyze a custom form
 
-1. Select the **Analyze** (light bulb) icon on the left to test your model. 
+1. Select the **Analyze** (light bulb) icon on the left to test your model.
 
-1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder. 
+1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder.
 
 1. Choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
