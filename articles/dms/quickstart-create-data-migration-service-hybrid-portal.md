@@ -103,11 +103,11 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 7. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 8. On the **Role** tab, select the **Contributor** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with Role tab selected.":::
 
 9. On the **Members** tab, select **User, group, or service principal**, and then select the App ID name.
 
