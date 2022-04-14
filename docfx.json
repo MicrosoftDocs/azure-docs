@@ -804,7 +804,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer",            
-        "articles/azure-video-indexer/*.md": "applied-ai-services"
+        "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
@@ -1082,8 +1082,6 @@
         "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer",
-        "articles/azure-video-analyzer/video-analyzer-media-docs/*.md": "Azure Video Analyzer for Media",
-        "articles/azure-video-analyzer/video-analyzer-media-docs/*.yml": "Azure Video Analyzer for Media",
         "articles/azure-video-indexer/*.yml": "Azure Video Indexer",
         "articles/azure-video-indexer/*.md": "Azure Video Indexer"          
       }
