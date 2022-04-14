@@ -32,14 +32,7 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 
 ## Prerequisites
 
-1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?branch=pr-en-us-193001).
-    1. Verify the subscription is registered to **Microsoft.AVS**.
-    
-        `az provider show -n "Microsoft.AVS" -- query registrationState`
-1. If it's not already registered, register it, then deploy a private cloud.
-    1. Register subscription.
-    
-        `az provider register -n "Microsoft.AVS"`
+1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?branch=pr-en-us-193001).
 1. Create an [NFS volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
     1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
     1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace to identify and confirm the volume is for Azure VMware Solution NFS datastore.
