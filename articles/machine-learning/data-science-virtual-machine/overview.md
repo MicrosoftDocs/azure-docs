@@ -21,6 +21,7 @@ The DSVM is available on:
 
 + Windows Server 2019
 + Ubuntu 18.04 LTS
++ Ubuntu 20.04 LTS
 
 ## Comparison with Azure Machine Learning
 
