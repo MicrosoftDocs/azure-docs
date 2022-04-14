@@ -11,7 +11,7 @@ ms.custom: subject-rbac-steps
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope as shown in the following image:
 
