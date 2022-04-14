@@ -421,7 +421,7 @@ You can synchronize the contents of a local file system with a file share or syn
 > Currently, this scenario is supported for accounts that have enabled hierarchical namespace via the blob endpoint.
 
 > [!Warning]  
-> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync doesn't support differential copies at scale, and some file fidelity might be lost. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview#file-copy-tools).
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync doesn't support differential copies at scale, and some file fidelity might be lost. To learn more, see [Migrate to Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-migration-overview#file-copy-tools).
 
 ### Guidelines
 
