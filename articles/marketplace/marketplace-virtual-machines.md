@@ -98,6 +98,7 @@ In this example, we’ll configure a plan with the “Per core” price option a
 All calculations are based on 8,760 hours per year. Without VM software reservation pricing, the yearly cost of a 1 core VM would be $8,760.00. If the customer purchases a VM software reservation, the price would be as follows:
 
 1-year price with 30% discount = $6,132.00
+
 3-year price with 50% discount = $13,140.00
 
 ### Private plans
