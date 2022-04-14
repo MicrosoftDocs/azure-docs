@@ -3,7 +3,7 @@ title: 'Properties of an enterprise application'
 titleSuffix: Azure AD
 description: Learn about the properties of an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/22/2021
 ms.author: ergreenl
-ms.reviewer: ergreenl
 #Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
 
