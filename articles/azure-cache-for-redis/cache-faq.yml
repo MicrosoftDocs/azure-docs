@@ -109,7 +109,7 @@ sections:
 
       - question: I have more questions about this retirement. Where can I get more information? 
         answer: |
-          ` Post any of your questions to the Q&A page for Cloud Services (classic) retirement. You can also send email to azurecachemigration@microsoft.com for more information.  
+          Post any of your questions to the Q&A page for Cloud Services (classic) retirement. You can also send email to azurecachemigration@microsoft.com for more information.  
 
   - name: General questions
     questions:
