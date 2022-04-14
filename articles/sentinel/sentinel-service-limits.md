@@ -25,21 +25,21 @@ The following limits apply to incidents in Microsoft Sentinel.
 
 |Description  |Limit  |
 |---------|---------|
-|Investigation     | The investigation experience is available for 90 days from the incident last update time       |
-|Number of automation rules     | 512        |
-|Number of actions    | 20      |
-|Number of characters per comment   | 30K   |
-|Number of comments per incident   | 100    |
-|Number of conditions    | 50    |
+|Investigation experience availablility     | 90 days from the incident last update time       |
+|Number of automation rules     | 512  rules      |
+|Number of actions    | 20  actions    |
+|Number of characters per comment   | 30K characters  |
+|Number of comments per incident   | 100  comments  |
+|Number of conditions    | 50 conditions   |
 
 ## Machine learning-based limits
 
 The following limits apply to Machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.
 
-| Description                                                         | Limit                                           | 
+| Description                                                         | Limit                                           |
 |---------------------------------------------------------------|-------------------------------------------------|
 | Number of anomalies published per anomaly type                | Top 3000 ranked by anomaly score                |
-| Number of alerts and/or anomalies in a single Fusion incident | 100  |
+| Number of alerts and/or anomalies in a single Fusion incident | 100 alerts and/or anomalies |
 
 ## Notebook limits
 
