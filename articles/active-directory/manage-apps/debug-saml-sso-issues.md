@@ -4,14 +4,13 @@ titleSuffix: Azure AD
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
 ms.author: alamaral
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: alamaral
 ---
 
 # Debug SAML-based single sign-on to applications
