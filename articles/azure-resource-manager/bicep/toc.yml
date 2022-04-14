@@ -83,6 +83,14 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: NAT gateway
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Security
+    items:
+    - name: Attestation
+      href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Key Vault - secret
+      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -186,6 +194,8 @@
     items:
     - name: Best practices
       href: best-practices.md
+    - name: Visual Studio Code
+      href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry
