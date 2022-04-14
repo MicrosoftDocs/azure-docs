@@ -29,6 +29,9 @@ The first step before deploying the EFLOW virtual machine, is to determine which
 >[!NOTE]
 > If you're using Windows client and you want to use the **default switch**, then no switch creation is needed and no `-vSwitchType` and `-vSwitchName` parameters are needed. 
 
+>[!NOTE]
+> If you're using a Windows virtual machine inside VMware infrastructure and **external switch**, please see [EFLOW nested virtualization](./nested-virtualization.md). 
+
 After creating the virtual switch and before starting your deployment, make sure that your virtual switch name and type is correctly set up and is listed under the Windows host OS. To list all the virtual switches in your Windows host OS, in an elevated PowerShell session, use the following PowerShell cmdlet:
 
 ```powershell

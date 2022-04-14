@@ -42,7 +42,7 @@ To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW re
 
 ## Update using Microsoft Update
 
-To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. You can turn this option with the following steps:
+To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. By default, Microsoft Updates will be turned on during EFLOW installation. If custom configuration is needed after EFLOW installation, you can turn this option On/Off with the following steps:
 
 1. Open **Settings** on the Windows host.
 
