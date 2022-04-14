@@ -67,7 +67,7 @@ Details on decision questions:
 2. Azure AD can hand off user sign-in to a trusted authentication provider such as Microsoft’s AD FS.
 3. If you need to apply, user-level Active Directory security policies such as account expired, disabled account, password expired, account locked out, and sign-in hours on each user sign-in, Azure AD requires some on-premises components.
 4. Sign-in features not natively supported by Azure AD:
-   * Sign-in using smartcards or certificates.
+   * Sign-in using smartcards.
    * Sign-in using on-premises MFA Server.
    * Sign-in using third-party authentication solution.
    * Multi-site on-premises authentication solution.
