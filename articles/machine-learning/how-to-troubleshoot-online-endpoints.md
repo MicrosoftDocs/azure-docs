@@ -221,7 +221,7 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
 #### Unable to download user container image
 
-It is possible that the user container could not be found.
+It is possible that the user container could not be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure container image is available in workspace ACR.
 
@@ -230,7 +230,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model or code artifacts
 
-It is possible that the user model or code artifacts can't be found.
+It is possible that the user model or code artifacts can't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
 
