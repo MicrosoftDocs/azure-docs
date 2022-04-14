@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/22/2021
-ms.author: jamondi
+ms.author: jomondi
 ---
 
 # What is application management in Azure Active Directory?
