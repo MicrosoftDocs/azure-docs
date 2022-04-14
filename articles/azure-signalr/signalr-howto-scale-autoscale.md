@@ -49,20 +49,18 @@ When you open custom autoscale settings for the first time, you'll see the **Def
 
 You can't set the default condition to autoscale on a specific days or date range. The default condition only supports scaling to a unit range. To scale according to a schedule, you'll need to add a new scale condition.
 
-Autoscale doesn't take effect until you save the default condition for the first time after selecting **Custom autoscale**. 
-
-
+Autoscale doesn't take effect until you save the default condition for the first time after selecting **Custom autoscale**.
 
 ## Add or change a scale condition
 
 There are two options for how to scale your Azure SignalR resource:
 
-- **Scale based on a metric** - Scale within unit limits based on a dynamic metric. One or more scale rules are defined to set the criteria used to evaluate the metric. 
+- **Scale based on a metric** - Scale within unit limits based on a dynamic metric. One or more scale rules are defined to set the criteria used to evaluate the metric.
 - **Scale to specific units** - Scale to a specific number of units based on a date range or recurring schedule.
 
 
 ### Scale based on a metric
-The following procedure shows you how to add a condition to automatically increase units (scale out) when the Connection Quota Utilization is greater than 70% and decrease units (scale in) when the Connection Quota Utilization is less than 20%. Increments or decrements are done between available units.
+The following procedure shows you how to add a condition to increase units (scale out) when the Connection Quota Utilization is greater than 70% and decrease units (scale in) when the Connection Quota Utilization is less than 20%. Increments or decrements are done between available units.
 
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option. 
 1. Select **Scale based on a metric** for **Scale mode**. 

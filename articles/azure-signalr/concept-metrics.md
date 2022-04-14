@@ -9,17 +9,11 @@ ms.author: chenyl
 ---
 # Metrics in Azure SignalR Service
 
-Azure SignalR Service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) and [autoscale](./signalr-howto-scale-autoscale.md) base on metrics.
-
-Horizontal scaling action (adding or removing units)is triggered when a *scale condition* is satisfied.
-
-When metrics are used for the scale condition, you must define at least one *scale rule*.
-
-Some metrics have additional information available in the form of a name:value pair, known as a *dimension*. Dimensions are available to use as criteria for scale rules.
+Azure SignalR Service Defines a set of metrics that can be used to set up [alerts](../azure-monitor/alerts/alerts-overview.md) and [autoscale conditions](./signalr-howto-scale-autoscale.md).
 
 ## Understand metrics
 
-Metrics provide the running info of the service. The available metrics are:
+Metrics provide insights into the operational state of the service. The available metrics are:
 
 > [!CAUTION]
 > The aggregation type "Count" is meaningless for all the metrics. Please DO NOT use it.
@@ -31,7 +25,7 @@ Metrics provide the running info of the service. The available metrics are:
 |Connection Open Count|Count|Sum|The count of new connections opened.|Endpoint|
 |Connection Quota Utilization|Percent|Max / Avg|The percentage of connection connected relative to connection quota.|No Dimensions|
 |Inbound Traffic|Bytes|Sum|The inbound traffic of service|No Dimensions|
-|Message Count|Count|Sum|The total amount of messages.|No Dimensions|
+|Message Count|Count|Sum|The total number of messages.|No Dimensions|
 |Outbound Traffic|Bytes|Sum|The outbound traffic of service|No Dimensions|
 |System Errors|Percent|Avg|The percentage of system errors|No Dimensions|
 |User Errors|Percent|Avg|The percentage of user errors|No Dimensions|
@@ -47,16 +41,16 @@ The dimensions available in some metrics:
     - Normal: Normal closure.
     - Throttled: With (Message count/rate or connection) throttling, check Connection Count and Message Count current usage and your resource limits.
     - PingTimeout: Connection ping timeout.
-    - NoAvailableServerConnection: Client connection cannot be established (won't even pass handshake) as no available server connection.
+    - NoAvailableServerConnection: Client connection can't be established (won't even pass handshake) as no available server connection.
     - InvokeUpstreamFailed: Upstream invoke failed.
     - SlowClient: Too many messages queued up at service side, which needed to be sent.
-    - HandshakeError: Terminate connection in handshake phase, could be caused by the remote party closed the WebSocket connection without completing the close handshake. Mostly, it's caused by network issue. Otherwise, please check if the client is able to create websocket connection due to some browser settings.
-    - ServerConnectionNotFound: Target hub server not available. Nothing need to be done for improvement, this is by-design and reconnection should be done after this drop.
+    - HandshakeError: Terminate connection in handshake phase, could be caused by the remote party closed the WebSocket connection without completing the close handshake. Mostly, it's caused by network issue. Otherwise, check if the client is able to create websocket connection due to some browser settings.
+    - ServerConnectionNotFound: Target hub server not available. Nothing need to be done for improvement, it's is by-design and reconnection should be done after this drop.
     - ServerConnectionClosed: Client connection aborted because the corresponding server connection is dropped. When app server uses Azure SignalR Service SDK, in the background, it initiates server connections to the remote Azure SignalR service. Each client connection to the service is associated with one of the server connections to route traffic between client and app server. Once a server connection is closed, all the client connections it serves will be closed with ServerConnectionDropped message.
     - ServiceTransientError: Internal server error
-    - BadRequest: This caused by invalid hub name, wrong payload, etc.
+    - BadRequest: A bad request is caused by an invalid hub name, wrong payload, &c.
     - ClosedByAppServer: App server asks the service to close the client.
-    - ServiceReload: This is triggered when a connection is dropped due to an internal service component reload. This event does not indicate a malfunction and is part of normal service operation.
+    - ServiceReload: Service reload is triggered when a connection is dropped due to an internal service component reload. This event doesn't indicate a malfunction and is part of normal service operation.
     - ServiceModeSwitched: Connection closed after service mode switched like from serverless mode to default mode
     - Unauthorized: The connection is unauthorized
 
@@ -64,16 +58,16 @@ Learn more about [multi-dimensional metrics](../azure-monitor/essentials/data-pl
 
 ### Understand the minimum grain of message count
 
-The minimum grain of message count showed in metric are 1, which means 2 KB outbound data traffic. If user sending very small amount of messages such as several bytes in a sampling time period, the message count will be 0.
+The minimum grain of message count showed in metric is one (1), which means two KB of outbound data traffic. If user sending a small number of messages,  such as several bytes in a sampling time period, the message count will be zero (0).
 
-The way to check out small amount of messages is using metrics *Outbound Traffic*, which is count by bytes.
+The way to check out a small number of messages is using metrics *Outbound Traffic*, which is count by bytes.
 
-### Understand System Errors and User Errors
+### Understand system errors and user errors
 
-The Errors are the percentage of failure operations. Operations are consist of connecting, sending message and so on. The difference between System Error and User Error is that the former is the failure caused by our internal service error and the latter is caused by users. In normal case, the System Errors should be very low and near to zero.
+The errors are the percentage of failure operations. Operations consist of connecting, sending a message, and so on. The difference between system error and User Error is that the former is the failure caused by our internal service error and the latter is caused by users. In normal case, the system errors should be very low and near to zero.
 
 > [!IMPORTANT]
-> In some cases, the User Error will be always very high, especially in serverless case. In some browser, when user close the web page, the SignalR client doesn't close gracefully. The service will finally close it because of timeout. The timeout closure will be counted into User Error.
+> In some cases, the user error will be always very high, especially in serverless case. In some browsers, when user closes the web page, the SignalR client doesn't close gracefully. The service will finally close it because of timeout. The timeout closure will be counted in the User Error metric. 
 
 ## Related resources
 
