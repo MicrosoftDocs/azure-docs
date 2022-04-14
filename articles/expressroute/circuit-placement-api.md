@@ -114,7 +114,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 ### To get a list of all port pairs by location
 
 ```rest
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}?api-version={api-version}
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}&api-version={api-version}
 {
   "parameters": {
     "api-version": "2021-12-01",

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 03/17/2022
+ms.date: 04/13/2022
 ---
 
 # Plan a Microsoft Dynamics 365 offer
@@ -24,9 +24,11 @@ These are the available licensing options for Dynamics 365 offer types:
 | Offer type | Listing option |
 | --- | --- |
 | Dynamics 365 Operations Apps | Contact me |
-| Dynamics 365 apps on Dataverse and Power Apps | Get it now<br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
+| Dynamics 365 apps on Dataverse and Power Apps | Get it now<sup>1</sup><br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
 | Dynamics 365 Business Central | Get it now (Free)<br>Free trial (listing)<br>Contact me |
 |||
+
+<sup>1</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
 
 The following table describes the transaction process of each listing option.
 
@@ -35,7 +37,7 @@ The following table describes the transaction process of each listing option.
 | Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 | Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
 | Get it now (free) | List your offer to customers for free. |
-| Get it now | Enables you to manage your ISV app0 licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 apps on Dataverse and Power Apps</li></ul><br>For more information about this option, see [ISV app license management](isv-app-license.md). |
+| Get it now | Enables you to manage your ISV app licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 apps on Dataverse and Power Apps</li></ul><br>For more information about this option, see [ISV app license management](isv-app-license.md). |
 |||
 
 ## Test drive

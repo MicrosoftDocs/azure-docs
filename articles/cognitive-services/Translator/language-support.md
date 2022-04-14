@@ -36,6 +36,7 @@ ms.author: lajanuar
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
 | Bashkir | `ba` |✔|||||
+| 🆕Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
@@ -56,6 +57,7 @@ ms.author: lajanuar
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
+| 🆕Galician | `gl` |✔|||||
 | Georgian | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek | `el` |✔|✔|✔|✔|✔|
@@ -134,6 +136,7 @@ ms.author: lajanuar
 | Vietnamese | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
+| Zulu | `zu` |✔|||||
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).

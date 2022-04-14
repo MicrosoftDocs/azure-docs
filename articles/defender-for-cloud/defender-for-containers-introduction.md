@@ -2,9 +2,9 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
-ms.date: 03/15/2022
+ms.author: elkrieger
+author: ElazarK
+ms.date: 04/07/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -73,11 +73,11 @@ There are four triggers for an image scan:
 
 - **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for Containers** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
 
-- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
 
 - **Continuous scan**- This trigger has two modes:
 
-    - A Continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
+    - A continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
 
     -  (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
 
@@ -88,19 +88,15 @@ Defender for Cloud filters, and classifies findings from the scanner. When an im
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
 
-### View vulnerabilities for running images
+### View vulnerabilities for running images 
 
-Defender for Containers expands on the registry scanning features by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile, or extension.
-
-> [!NOTE]
-> There's no Defender profile for Windows, it's only available on Linux OS.
-
-The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
-
-This recommendation shows running images, and their vulnerabilities based on ACR image. Images that are deployed from a non ACR registry, won't be scanned, and will appear under the Not applicable tab.
+The recommendation **Running container images should have vulnerability findings resolved** shows vulnerabilities for running images by using the scan results from ACR registeries and information on running images from the Defender security profile/extension. Images that are deployed from a non ACR registry, will appear under the **Not applicable** tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
+> [!NOTE]
+> This recommendation is currently supported for Linux containers only, as there's no Defender profile/extension for Windows.
+> 
 ## Run-time protection for Kubernetes nodes and clusters
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
@@ -224,11 +220,17 @@ The following describes the components necessary in order to receive the full pr
 ## FAQ - Defender for Containers
 
 - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
+- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set (VMSS)?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-set-vmss)
+- [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
+- [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
 
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
 
-### Does Microsoft Defender for Containers support AKS without scale set (default) ?
+### Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set (VMSS)?
+Yes.
+
+### Does Microsoft Defender for Containers support AKS without scale set (default)?
 No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported. 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
