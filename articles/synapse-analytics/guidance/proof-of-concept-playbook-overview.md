@@ -36,14 +36,14 @@ The playbook delivers the following content:
 
 The playbook includes three subjects:
 
-- [Data warehousing with dedicated SQL pool (formerly SQL DW)](proof-of-concept-playbook-dedicated-sql-pool.md)
+- [Data warehousing with dedicated SQL pool](proof-of-concept-playbook-dedicated-sql-pool.md)
 - [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)
 - [Big data analytics with Apache Spark pool](proof-of-concept-playbook-apache-spark-pool.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data warehousing with dedicated SQL pool (formerly SQL DW)](proof-of-concept-playbook-dedicated-sql-pool.md)
+> [Data warehousing with dedicated SQL pool](proof-of-concept-playbook-dedicated-sql-pool.md)
 
 > [!div class="nextstepaction"]
 > [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)
