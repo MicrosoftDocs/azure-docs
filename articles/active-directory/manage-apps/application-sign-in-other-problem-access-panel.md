@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/01/2022
-ms.author: davidmu
+ms.author: lenalepa
 ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
