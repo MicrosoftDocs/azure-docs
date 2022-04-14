@@ -33,13 +33,13 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 ## Prerequisites
 
 1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?branch=pr-en-us-193001).
-1. Create an [NFS volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
-    1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
-    1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace to identify and confirm the volume is for Azure VMware Solution NFS datastore.
+1. Create an [NFSv3 volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. Verify there is connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
+    1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription is not registered, register it now.
     
-        `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
+        `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
+    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it is recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
 
 
 ## Attach an Azure NetApp Files volume to your private cloud
