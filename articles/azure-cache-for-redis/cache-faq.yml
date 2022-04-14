@@ -1,6 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure Cache for Redis FAQ
+  titleSuffix: Azure Cache for Redis
   description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
   author: flang-msft
   ms.author: franlanglois
@@ -22,23 +23,19 @@ sections:
     questions:
       - question: Which Azure Cache for Redis services were deprecated?
         answer: |
-          - Managed Cache service
-
-             [Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
             <!-- To view archived documentation, see [Archived Managed Cache Service Documentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)). -->
 
-          - In-Role Cache
-            
-             [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
             <!-- To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)). -->
               
   - name: Caches with a dependency on Cloud Services (classic) 
     questions:
       - question: What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)?
         answer: |
-          Migrate caches with a dependency on **Cloud Services (classic)**
-
-          In August 2021, we announced Cloud Services (classic) will be retired on August 31, 2024. As some instances of Azure Cache for Redis are dependent on Cloud Services (classic), we need to retire these instances by the same date. You should migrate caches with a dependency on Cloud Services (classic) before August 31, 2024.
+          You should migrate all caches with a dependency on **Cloud Services (classic)**. In August 2021, we announced Cloud Services (classic) will be retired on August 31, 2024. 
+          
+          As some instances of Azure Cache for Redis are dependent on Cloud Services (classic), we need to retire these instances by the same date. You should migrate caches with a dependency on Cloud Services (classic) before August 31, 2024.
 
       - question: How many caches are affected? 
         answer: |
@@ -48,17 +45,17 @@ sections:
         answer: |
           Affected caches fit into one of three groups: 
 
-          1. Caches using Classic Virtual Network (VNet) injection
+          #### Caches using Classic Virtual Network (VNet) injection
 
-             Any cache injected into a Classic VNet defaults to being built on Cloud Services.
+          Any cache injected into a Classic VNet defaults to being built on Cloud Services.
 
-          1. Caches in an Azure Resource Manager (ARM) VNet subnet that once contained a Cloud Services-based cache. 
+          #### Caches in an Azure Resource Manager (ARM) VNet subnet that once contained a Cloud Services-based cache. 
           
-             Once a Cloud Services-based cache is contained in a VNet subnet, all other caches in that subnet must also rely on Cloud Services 
+          Once a Cloud Services-based cache is contained in a VNet subnet, all other caches in that subnet must also rely on Cloud Services 
 
-          1. Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
+          #### Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
           
-             This case is rare, but there are a few caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
+          This case is rare, but there are a few caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
         
           Emails will go out to customers identifying the specific subscriptions and cache names affected. If you’d like to confirm whether your cache is affected, send an email to azurecachemigration@microsoft.com. 
      
@@ -66,11 +63,11 @@ sections:
         answer: |
           We have migrated most caches from using Cloud Services (classic) to using ```Virtual Machine State Sets```` (VMSS) ```under the hood``. Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
-          ### Migrate to a new cache using Private Links (recommended). 
+          - Migrate to a new cache using Private Links (recommended). 
 
             	 Create a new cache that uses Private Link for network isolation rather than VNet injection and migrate your data to this cache. This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
             
-          ### Migrate to a new cache in a new ARM VNet subnet.  
+          - Migrate to a new cache in a new ARM VNet subnet.  
 
                This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, ```tear down```` and ```re-create```` the cache in a new ARM VNet subnet. For more information on recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](./cache-migration-guide.md).  
 
