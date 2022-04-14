@@ -158,13 +158,14 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Small| 2 | 4 | [Fsv2-series](../virtual-machines/fsv2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Medium | 4 | 8 | [Fsv2-series](../virtual-machines/fsv2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
-| Medium (nested virtualization) | 4  | 16 | [Dsv4-series](../virtual-machines/dv4-dsv4-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
-| Large | 8 | 16  |  [Fsv2-series](../virtual-machines/fsv2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Large (nested virtualization) | 8 | 32 | [Dsv4-series](../virtual-machines/dv4-dsv4-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
-| Small GPU (visualization) | 8 | 28 | [NVv4-series](../virtual-machines/nvv4-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Medium GPU (visualization) | 16 | 56 | [NVv4-series](../virtual-machines/nvv4-series.md)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small| 2 | 4 | [Standard_F2s_v2](../virtual-machines/fsv2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Medium | 4 | 8 | [Standard_F4s_v2](../virtual-machines/fsv2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
+| Medium (nested virtualization) | 4  | 16 | [Standard_D4s_v4](../virtual-machines/dv4-dsv4-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
+| Large | 8 | 16  |  [Standard_F8s_v2](../virtual-machines/fsv2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Large (nested virtualization) | 8 | 32 | [Standard_D8s_v4](../virtual-machines/dv4-dsv4-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
+| Small GPU (compute) | 6 | 112 | [Standard_NC6s_v3](/azure/virtual-machines/ncv3-series) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](../virtual-machines/nvv4-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 > [!NOTE]
 > You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity in the selected region.
