@@ -68,6 +68,6 @@ Azure Spring Cloud currently supports availability zones in the following region
 
 There's no extra cost for enabling the availability zone.
 
-## Next Steps
+## Next steps
 
 * [Plan for disaster recovery](disaster-recovery.md)
