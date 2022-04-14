@@ -40,7 +40,7 @@ To add a user to the **Monitoring Reader** role, the owner of Azure Purview acco
     | Assign access to | User, group, or service principal |
     | Members | &lt;Azure AD account user&gt; |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing Add role assignment page in Azure portal." lightbox="./media/how-to-monitor-with-azure-monitor/purview-metrics.png":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing Add role assignment page in Azure portal.":::
 
 ## Metrics visualization
 
