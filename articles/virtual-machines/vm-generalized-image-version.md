@@ -399,16 +399,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-
 1. Under **Instance details**, type a name for the **Virtual machine name**.
 1. For **Security type**, make sure *Standard* is selected.
 1. For your **Image**, select **See all images**. The **Select an image** page will open.
 1. In the left menu, under **Other Items**, seect **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see XXXX. Depending on the image choose, the **Region**the VM will be created in will change to match the image.
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
 ### [CLI](#tab/cli2)
@@ -447,6 +444,9 @@ To create the VM/VMSS from community gallery image, you must accept the license 
 
 
 ### [REST](#tab/rest2)
+
+
+---
 
 **Next steps**
 

@@ -161,12 +161,14 @@ To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/s
 To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
 
 ### [REST](#tab/rest2)
+To create gallery, submit a PUT request: 
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01
 ```
 
-Request Body
+Specify `permissions` as `Community` and information about your gallery in the request body: 
+
 ```json
 {
   "location": "West US",
@@ -175,10 +177,10 @@ Request Body
     "sharingProfile": {
       "permissions": "Community",
       "communityGalleryInfo": {
-        "publisherUri": "uri",
-        "publisherContact": "pir@microsoft.com",
-        "eula": "eula",
-        "publicNamePrefix": "PirPublic"
+        "publisherUri": "http://www.uri.com",
+        "publisherContact": "contact@domain.com",
+        "eula": "http://www.uri.com/terms",
+        "publicNamePrefix": "Prefix"
       }
     }
   }
