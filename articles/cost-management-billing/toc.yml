@@ -54,7 +54,7 @@
         href: costs/group-filter.md
     - name: Plan to manage costs
       href: understand/plan-manage-costs.md
-    - name: Prevent unexpected costs
+    - name: Identify cost anomalies and unexpected changes
       href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
@@ -194,8 +194,6 @@
         href: manage/create-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
-      - name: Export subscription information
-        href: manage/export-subscriptions.md
       - name: Change administrator
         displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
