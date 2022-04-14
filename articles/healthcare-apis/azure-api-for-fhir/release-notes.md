@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/13/2022
+ms.date: 04/14/2022
 ms.custom: references_regions
 ms.author: mikaelw
 ---
