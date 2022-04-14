@@ -45,23 +45,23 @@ sections:
         answer: |
           Affected caches fit into one of three groups: 
 
-          #### Caches using Classic Virtual Network (VNet) injection
+          - Caches using Classic Virtual Network (VNet) injection
 
-          Any cache injected into a Classic VNet defaults to being built on Cloud Services.
+             Any cache injected into a Classic VNet defaults to being built on Cloud Services.
 
-          #### Caches in an Azure Resource Manager (ARM) VNet subnet that once contained a Cloud Services-based cache. 
+          - Caches in an Azure Resource Manager (ARM) VNet subnet that once contained a Cloud Services-based cache. 
+            
+             Once a Cloud Services-based cache is contained in a VNet subnet, all other caches in that subnet must also rely on Cloud Services 
+
+          -  Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
           
-          Once a Cloud Services-based cache is contained in a VNet subnet, all other caches in that subnet must also rely on Cloud Services 
-
-          #### Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
-          
-          This case is rare, but there are a few caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
+               This case is rare, but there are a few caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
         
           Emails will go out to customers identifying the specific subscriptions and cache names affected. If you’d like to confirm whether your cache is affected, send an email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com). 
      
       - question: What is the solution? 
         answer: |
-          We have migrated most caches from using Cloud Services (classic) to using ```Virtual Machine State Sets```` (VMSS) ```under the hood``. Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+          We have migrated most caches from using Cloud Services (classic) to using `Virtual Machine State Sets` (VMSS) `under the hood`. Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
           - Migrate to a new cache using Private Links (recommended). 
 
@@ -69,7 +69,7 @@ sections:
             
           - Migrate to a new cache in a new ARM VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, ```tear down```` and ```re-create```` the cache in a new ARM VNet subnet. For  recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, `tear down` and `re-create` the cache in a new ARM VNet subnet. For  recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
@@ -92,22 +92,22 @@ sections:
         answer: |
           Retirement will occur in three phases so that you have the maximum amount of time to migrate: 
 
-            01. Active Stage (now to April 30, 2023) 
+            01. _Active Stage_ (now to April 30, 2023) 
 
             	  Caches have full support, with no change in status from today. This period is given to allow customers time to transition off Cloud Service (classic) with minimal interruption. 
             
-            01. Maintenance Stage (May 1, 2023 to December 31, 2023) 
+            01. _Maintenance Stage_ (May 1, 2023 to December 31, 2023) 
             
               	Caches will receive critical security, stability, and bug fixes, but no new features. 
 
-            01. Inactive Stage (January 1, 2024 to August 31, 2024) 
+            01. _Inactive Stage_ (January 1, 2024 to August 31, 2024) 
             	  
                 Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
 
             <!-- A picture containing Gantt chart -->
             <!-- @mssfteegarden - I can't copy from your document. -->
 
-      - question: I have more questions about this retirement. Where can I get more information? 
+      - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
           Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
 
