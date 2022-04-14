@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/22/2021
-ms.author: davidmu
+ms.author: ergreenl
 ms.reviewer: ergreenl
 #Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
