@@ -5,7 +5,7 @@ metadata:
   author: kanshiG
   ms.service: cosmos-db
   ms.topic: audit-continuos-mode
-  ms.date: 04/09/2022
+  ms.date: 04/13/2022
   ms.author: govindk
   ms.reviewer: wiassaf
 title: Auditing the point in time restore action for continuous mode
