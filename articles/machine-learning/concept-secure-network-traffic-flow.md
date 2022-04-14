@@ -129,6 +129,35 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+## Scenario: Use online endpoints
+
+Securing an online endpoint with a virtual network is a preview feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `enabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+
+__Outbound__ communication from the online endpoint can be secured on a per-deployment basis by using the `private_network_connection` flag. Outbound communication in this case is from the deployment to resources such as Azure Container Registry, Key Vault, workspace, file and blob storage. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+
+> [!NOTE]
+> For secure outbound communication, a private endpoint is created for each deployment where `private_network_connection` is set to `true`.
+
+Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+
+### Supported configurations
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `private_network_connection` is true   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `private_network_connection` is false  | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `private_network_connection` is true    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `private_network_connection` is false  | Yes |
+
+> [!WARNING]
+> If the workspace flag `public_network_access` is `disabled`:
+> 1. Only private deployments are allowed to be created (deployments with `private_network_connection` set to `true`).
+> 1. If the workspace had existing _public_ endpoints before the flag was disabled, then the public deployments will start failing.
+
 ## Scenario: Use Azure Kubernetes Service
 
 For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
