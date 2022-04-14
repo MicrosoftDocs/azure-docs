@@ -49,17 +49,21 @@ In summary, the disaster recovery strategy we recommend for Azure Virtual Deskto
 
 ## Recommended diaster recovery methods
 
-The two disaster recovery methods we recommend are:
+The disaster recovery methods we recommend are:
+
+- COnfiguring and deploying Azure resources across multiple availability zones.
 
 - Configuring and deploying Azure resources across multiple regions in either active or passive configuration as [shared host pools](create-host-pools-azure-marketplace.md).
 
 - Using dedicated or personal host pools to [replicate VMs using Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication) to another region.
 
+- Configuring a separate "disaster recovery" host pool in the secondary region and using FSLogix Cloud Cache to replicate the user profile, which you can switch users over to in the event of a disaster.
+
 ## Disaster recovery for shared host pools
 
 <!--I'm not sure if having a section that's totally dependent on a big, complicated graphic is accessible. Can we rethink this section and the other one that's dependent on a graphic?--->
 
-A sample multi-region Azure Virtual Desktop configuration is illustrated below. Figure 1 depicts an organization that has deployed an Azure Virtual Desktop shared host pool consisting of multi-session hosts in different regions. Notice two of the hosts in the secondary region are in a passive state, meaning they are turned off or in drain mode. Figure 1 shows redundant session hosts, network connectivity, storage, synchronization, identity source, and user profile data.
+A sample multi-region Azure Virtual Desktop configuration is illustrated below. Figure 1 depicts an organization that has deployed an Azure Virtual Desktop shared host pool consisting of multi-session hosts in different regions. Notice two of the hosts in the secondary region are in a passive state, meaning they are turned off or in drain mode. Figure 1 shows redundant infrastructure in a secondary region. This is standard behavior to provide resiliency for all components. For example, the secondary region has an Active Directory Domain Controller to maintain Directory Services, and potentially DNS is also functioning in the secondary site. It also includes network connectivity, storage, synchronization for user profile data, as well as the required session hosts.
 
 Figure 1
 
@@ -79,7 +83,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - Having multiple active user sessions across regions in the FSLogix cloud cache can corrupt user profiles. We recommend you limit active Azure Virtual Desktop sessions within the cache to one. The service evaluates RemoteApps as multi-session occurrences, and desktops as single-session occurrences, which means you should avoid active or active host pool configurations.
 
-- Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer may not spread the sessions across the session hosts evenly.
+- Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer will distribute user connections evenly across all available VMs. This means the smaller VMs may become resource-constrained earlier than expected compared to larger VMs, resulting in a negative user experience.
 
 - Region availability affects data or workspace monitoring. If a region isn't available, the service may lose all historical monitoring data during a disaster. We recommend using a custom export or dump of historical monitoring data.
 
@@ -92,18 +96,16 @@ The following table lists deployment recommendations for host pool disaster reco
 | Technology        | Recommendations  |
 |-------------------|-----------|
 | Network           | Create and deploy a secondary virtual network in another region and configure [Azure Peering](../virtual-network/virtual-network-manage-peering.md) with your primary virtual network. |
-| Session hosts     | [Create and deploy an Azure Virtual Desktop shared host pool](create-host-pools-azure-marketplace.md) with multi-session OS SKU and include VMs from another region. |
+| Session hosts     | [Create and deploy an Azure Virtual Desktop shared host pool](create-host-pools-azure-marketplace.md) with multi-session OS SKU and include VMs from other availability zones and another region. |
 | Storage           | Create storage accounts in multiple regions using premium-tier accounts.  |
 | User profile data | Create separate [FSLogix cloud cache GPOs](/fslogix/configure-cloud-cache-tutorial) pointing at separate Azure Files SMB locations using Azure storage accounts in different regions.   |
-| Identity          | Deploy DCs and identity synchronization across multiple regions. |
-
-<!---What does DC stand for?--->
+| Identity          | Active Directory Domain Controllers from the same directory. |
 
 ## Disaster recovery for personal host pools
 
 <!---See comments about "figure 1" section. Is there a way we can make this more accessible to visually impaired readers?--->
 
-To prepare for an Azure outage for dedicated hosts pools, you will want to make sure your Azure Virtual Desktop host pool VMs are replicating to a secondary region. With Azure Recovery Services Vault, data can be replicated to a designated secondary region. If your primary region goes down, you can go to your Azure Site Recovery Services Vault to failover and bring resources online in a secondary region.
+To prepare for an Azure outage for dedicated hosts pools, you will want to make sure your Azure Virtual Desktop host pool VMs are replicating to a secondary region. With Azure Recovery Services Vault, data can be replicated to a designated secondary region. If your primary region goes down, you can go to your Azure Site Recovery Services Vault to failover and bring resources online in a secondary region. The following diagram shows a primary region with a host pool that's protected by Azure Site Recovery by replicating the VM disks to a secondary region that can be powered on in the event of a disaster.
 
 Figure 2
 
@@ -124,7 +126,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - You may experience integration, performance, or contention issues for resources if a large-scale disaster affects multiple customers or tenants.
 
-- Personal host pools are dedicated to one user, which means affinity load load balancing rules direct all user sessions back to a specific host. This one-to-one mapping between user and host means that if a host is down, the user won't be able to sign in until the asset comes back online or disaster recovery starts.
+- Personal host pools use VMs that are dedicated to one user, which means affinity load load balancing rules direct all user sessions back to a specific host. This one-to-one mapping between user and host means that if a host is down, the user won't be able to sign in until the asset comes back online or disaster recovery starts.
 
 - VMs in a personal host pool store user profile on drive C. If user profile data is corrupted or unavailable, we recommend starting your disaster recovery plan.
 
@@ -142,9 +144,7 @@ The following table lists deployment recommendations for host pool disaster reco
 | Session hosts     | [Enable and configure Azure Site Recovery for VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md). Optionally, you can pre-stage an image manually or use the Azure Image Builder service for ongoing provisioning. |
 | Storage           | Creating an Azure Storage account is optional to store profiles.  |
 | User Profile Data | User profile data is locally stored on drive C. |
-| Identity          | Deploy DCs and identity synchronization across multiple regions or use Azure Active Directory.|
-
-<!---What are DCs?--->
+| Identity          | Active Directory Domain Controllers from the same directory across multiple regions.|
 
 ## Next steps
 
