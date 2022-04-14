@@ -65,11 +65,11 @@ sections:
 
           - Migrate to a new cache using Private Links (recommended). 
 
-            	 Create a new cache that uses Private Link for network isolation rather than VNet injection and migrate your data to this cache. This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
+             Create a new cache that uses Private Link for network isolation rather than VNet injection and migrate your data to this cache. This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
             
           - Migrate to a new cache in a new ARM VNet subnet.  
 
-               This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, ```tear down```` and ```re-create```` the cache in a new ARM VNet subnet. For more information on recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](./cache-migration-guide.md).  
+             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, ```tear down```` and ```re-create```` the cache in a new ARM VNet subnet. For more information on recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](./cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
@@ -104,8 +104,8 @@ sections:
             	  
                 Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
 
-              <!-- A picture containing Gantt chart -->
-              <!-- @mssfteegarden - I can't copy from your document. -->
+            <!-- A picture containing Gantt chart -->
+            <!-- @mssfteegarden - I can't copy from your document. -->
 
       - question: I have more questions about this retirement. Where can I get more information? 
         answer: |
