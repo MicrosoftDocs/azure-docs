@@ -58,7 +58,8 @@ Two Azure resources are defined in the Bicep file:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
     * Replace **\<cluster-type\>** with the type of the HDInsight cluster to create. Allowed strings include: `hadoop`, `interactivehive`, `hbase`, `storm`, and `spark`.
-    * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards. Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
+    * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
+    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
 
     You'll also be prompted to enter the following:
 
