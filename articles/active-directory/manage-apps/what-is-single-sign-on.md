@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/18/2021
-ms.author: jamondi
+ms.author: jomondi
 ms.reviewer: alamaral
 ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
