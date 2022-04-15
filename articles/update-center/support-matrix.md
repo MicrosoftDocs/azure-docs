@@ -11,11 +11,11 @@ ms.custom: references_regions
 
 # Support matrix for update management center (preview)
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by update management center (preview) including the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by update management center (preview) including the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc-enabled servers. 
 
 ## Update sources supported
 
-**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services(WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the WSUS last synchronize with Microsoft update, the results in the update management center (preview) might differ  to what the Microsoft update shows. You can specify sources for scanning and downloading updates using [specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
+**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the WSUS's last synchronization with Microsoft update, the results in the update management center (preview) might differ  to what the Microsoft update shows. You can specify sources for scanning and downloading updates using [specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
 
 **Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in update management center (preview) depend on where the machines are configured to report.
 
@@ -27,7 +27,7 @@ Update management center (preview) supports operating system updates for both Wi
 ### First party updates on Windows
 By default, the Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. You can configure this option if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) available for Windows 2016 and later.
 
-If you have machines running Windows Server 2012 R2, you can't configure this setting through Group Policy. Run the following PowerShell command on these machines:
+If you have machines running Windows Server 2012 R2, you can't configure this setting through **Group Policy**. Run the following PowerShell command on these machines:
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -77,8 +77,8 @@ The following table lists the supported operating systems for Azure VMs and Azur
    | Canonical | 0001-com-ubuntu-server-focal | 20_04-LTS |
    | Canonical | 0001-com-ubuntu-pro-focal | pro-20_04-LTS |
    | Canonical | 0001-com-ubuntu-pro-bionic | pro-18_04-LTS |
-   | Redhat | RHEL | 7-RAW, 7-LVM, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 8, 8.1, 8.2, 8_3, 8-LVM |    
-   | Redhat | RHEL-RAW | 8-RAW |     
+   | Red Hat | RHEL | 7-RAW, 7-LVM, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 8, 8.1, 8.2, 8_3, 8-LVM |    
+   | Red Hat | RHEL-RAW | 8-RAW |     
    | OpenLogic | CentOS | 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 8.0, 8_1, 8_2, 8_3 |
    | OpenLogic | CentOS-LVM | 7-LVM, 8-LVM |
    | SUSE | SLES-12-SP5 | Gen1, Gen2 |
