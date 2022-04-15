@@ -6,7 +6,7 @@ author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.author: victorh
+ms.author: greglin
 
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway

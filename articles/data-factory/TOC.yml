@@ -394,6 +394,8 @@ items:
       href: connector-concur.md
     - name: Couchbase
       href: connector-couchbase.md
+    - name: data.world
+      href: connector-dataworld.md
     - name: DB2
       href: connector-db2.md
     - name: Dataverse
@@ -552,6 +554,8 @@ items:
       href: connector-teamdesk.md
     - name: Teradata
       href: connector-teradata.md
+    - name: Twilio
+      href: connector-twilio.md
     - name: Vertica
       href: connector-vertica.md
     - name: Web Table

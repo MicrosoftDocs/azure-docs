@@ -121,8 +121,8 @@ Another way to find an image in a location is to run the [az vm image list-publi
     ```azurecli
     az vm image list \
         --location westus \
-        --publisher Canonical \  
-        --offer UbuntuServer \    
+        --publisher Canonical \
+        --offer UbuntuServer \
         --sku 18.04-LTS \
         --all --output table
     ```
