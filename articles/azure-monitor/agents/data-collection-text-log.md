@@ -2,7 +2,7 @@
 title: Collect text and IIS logs with Azure Monitor agent (preview)
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 04/15/2022
 
 ---
 
@@ -20,7 +20,7 @@ To complete this procedure, you need the following:
 - An agent with supported log file as described in the next section.
 
 ## Log files supported
-The log file must meet the following criteria to be collected by this feature:
+IIS logs must be in W3C format. Other log files must meet the following criteria to be collected:
 
 - The log file must be stored on a local drive of a virtual machine, virtual machine scale set, or Arc enabled server with the Azure Monitor installed.
 - Each entry in the log file must be delineated with an [ISO 8601 formatted](https://www.iso.org/standard/40874.html) time stamp or an end of line.
