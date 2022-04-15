@@ -86,7 +86,7 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Platform Image Repository (including Platform Image Purchase Plan)
 - Added support for the following customizations:
     - Shell (Linux) - Script or Inline
-    - PowerShell (Windows) - Script or Inline, run elevated run as system
+    - PowerShell (Windows) - Script or Inline, run elevated, run as system
     - File (Linux and Windows)
     - Windows Restart (Windows)
     - Windows Update (Windows) (with search criteria, filters, and update limit)
