@@ -1,5 +1,5 @@
 ---
-title: Schedule a contact with NASA's AQUA public satellite
+title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
 description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
 author: wamota
 ms.service: orbital
@@ -157,7 +157,7 @@ sudo apt install socat
 
 5. Select **Search** to view available contact times.
 6. Select one or more contact windows and select **Schedule**.
-7. View the scheduled contact by selecting the **AQUA** spacaecraft and navigating to **Contacts**.
+7. View the scheduled contact by selecting the **AQUA** spacecraft and navigating to **Contacts**.
 8. Shortly before the contact begins executing, start listening on port 56001, and output the data received into the file: 
 ```console
 socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
