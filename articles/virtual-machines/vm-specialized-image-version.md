@@ -20,7 +20,7 @@ Create a VM from a [specialized image version](./shared-image-galleries.md#gener
 
 > [!IMPORTANT]
 > 
-> When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information, like the CMID, is also kept. This duplicate information can cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 
 Replace resource names as needed in these examples. 
 

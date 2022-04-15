@@ -394,6 +394,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > The Community Gallery is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Microsoft does not provide support for images in the [Community Gallery](azure-compute-gallery#community).
+
 ### [Portal](#tab/portal2)
 
 1. Type **virtual machines** in the search.
