@@ -5,11 +5,11 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 04/15/2022
 ms.author: ranku
 ---
 
-# Bulk import FHIR data
+# Bulk import FHIR data (Preview)
 
 The Bulk import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
@@ -109,7 +109,7 @@ Make the REST call with the ```GET``` method to the **callback** link returned i
 | 202 Accepted | |The operation is still running.|
 | 200 OK |The response body doesn't contain any error.url entry|All resources were imported successfully.|
 | 200 OK |The response body contains some error.url entry|Error occurred while importing some of the resources. See the files located at error.url for the details. Rest of the resources were imported successfully.|
-| Other||A fatal error occurred and the operation has stopped. Successfully imported resources haven't been rolled back. For more information, see the [Troubleshooting](#troubleshooting) section.|
+| Other||A fatal error occurred and the operation has stopped. Successfully imported resources haven't been rolled back.|
 
 Below are some of the important fields in the response body:
 

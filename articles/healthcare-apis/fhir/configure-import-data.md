@@ -5,11 +5,11 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 04/15/2022
 ms.author: ranku
 ---
 
-# Configure bulk import settings
+# Configure bulk import settings (Preview)
 
 The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
 
@@ -74,4 +74,4 @@ In this article, you've learned the FHIR service supports $import operation and 
 >[Configure export settings and set up a storage account](configure-export-data.md)
 
 >[!div class="nextstepaction"]
->[Copy data from Azure API for FHIR to Azure Synapse Analytics](copy-to-synapse.md)
+>[Copy data from FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
