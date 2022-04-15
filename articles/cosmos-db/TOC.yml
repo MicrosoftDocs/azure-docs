@@ -1300,6 +1300,8 @@
         - name: MongoDB extension commands
           href: mongodb/custom-commands.md
           displayName: custom commands
+        - name: Configure role-based access control (RBAC)
+          href: mongodb/how-to-setup-rbac.md
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM

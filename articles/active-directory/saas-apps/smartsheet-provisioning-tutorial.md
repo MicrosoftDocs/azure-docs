@@ -118,7 +118,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL** of https://scim.smartsheet.com/v2 and **Access Token** value retrieved earlier from Smartsheet in **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Smartsheet. If the connection fails, ensure your Smartsheet account has SysAdmin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL** of `https://scim.smartsheet.com/v2` and **Access Token** value retrieved earlier from Smartsheet in **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Smartsheet. If the connection fails, ensure your Smartsheet account has SysAdmin permissions and try again.
 
 	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -182,7 +182,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * 06/16/2020 - Added support for enterprise extension attributes "Cost Center", "Division", "Manager" and "Department" for users.
 * 02/10/2021 - Added support for core attributes "emails[type eq "work"]" for users.
-* 02/12/2022 - Added SCIM base/tenant URL of https://scim.smartsheet.com/v2 for SmartSheet integration under Admin Credentials section.
+* 02/12/2022 - Added SCIM base/tenant URL of `https://scim.smartsheet.com/v2` for SmartSheet integration under Admin Credentials section.
 
 ## Additional resources
 

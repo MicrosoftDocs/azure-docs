@@ -2,11 +2,11 @@
 title: 'Tutorial: URL path-based routing rules using portal - Azure Application Gateway'
 description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 02/23/2021
-ms.author: victorh
+ms.author: greglin
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 

@@ -164,6 +164,8 @@
           href: flexible-server/how-to-restart-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restart-stop-start-server-cli.md
+      - name: Move Servers between regions
+        href: flexible-server/how-to-move-regions.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)

@@ -25,7 +25,7 @@ One of the platform features of Azure Purview is the ability to show the lineage
 Each system supports a different level of lineage scope. Check the sections below, or your system's individual lineage article, to confirm the scope of lineage currently available.
 
 ### Data processing systems
-Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Azure Purview for lineage are listed in below table.
+Data integration and ETL tools can push lineage into Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data processing systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Azure Purview for lineage are listed in below table.
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
@@ -54,7 +54,7 @@ Databases & storage solutions such as Oracle, Teradata, and SAP have query engin
 || [SAP S/4HANA](register-scan-saps4hana-source.md) |
 
 ### Data analytics and reporting systems
-Data systems like Azure ML and Power BI report lineage into Azure Purview. These systems will use the datasets from storage systems and process through their meta model to create BI Dashboard, ML experiments and so on.
+Data analytics and reporting systems like Azure ML and Power BI report lineage into Azure Purview. These systems will use the datasets from storage systems and process through their meta model to create BI Dashboards, ML experiments and so on.
 
 | Data analytics & reporting system | Supported scope |
 | ---------------------- | ------------|
