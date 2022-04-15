@@ -36,7 +36,7 @@ Components let you group and reuse device capabilities. To learn more about comp
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
-:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device.":::
+:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device." lightbox="media/howto-control-devices-with-rest-api/thermostat-device.png":::
 
 The following screenshot shows a [temperature controller](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json) device template that uses components. The temperature controller has two thermostat components and a device information component:
 
