@@ -17,7 +17,7 @@ On this pane, you configure:
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
-### Markets
+## Markets
 
 Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](azure-vm-plan-setup.md) section.
 
@@ -29,7 +29,7 @@ When you remove a market, customers from that market who are using active deploy
 
 Select **Save** to continue.
 
-### Pricing
+## Pricing
 
 For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license. 
 
@@ -62,11 +62,11 @@ These steps assume you have already selected either the _Flat rate_, _Per core_,
     > For Per core size plans, you can optionally change the price for a particular core size in the Price/hour column of the table.
 1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
-### Free Trial
+## Free Trial
 
 You can offer a one-month, three-month, or six-month **Free Trial** to your customers.
 
-### Plan visibility
+## Plan visibility
 
 You can design each plan to be visible to everyone or only to a preselected private audience.
 
@@ -79,7 +79,7 @@ You can design each plan to be visible to everyone or only to a preselected priv
 
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
-### Hide plan
+## Hide plan
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
