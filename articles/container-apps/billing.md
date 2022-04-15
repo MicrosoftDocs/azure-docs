@@ -31,9 +31,9 @@ This article describes how to calculate the cost of running your container app. 
 
 Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure for each revision. You're charged for the amount of resources allocated to each replica while it's running.
 
-There are two meters for resource consumption:
+There are 2 meters for resource consumption:
 
-- **vCPU-seconds**: The amount of vCPU cores allocated to your container app on a per-second basis.
+- **vCPU-seconds**: The number of vCPU cores allocated to your container app on a per-second basis.
 - **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis.
 
 The first 180,000 vCPU-seconds and 360,000 GiB-seconds in each subscription per calendar month are free.
