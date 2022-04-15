@@ -5,11 +5,19 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 04/15/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## April 2022
+
+On May 15, 2022, all new Azure Cache for Redis instances will use Redis 6 by default. You can still create a Redis 4 instance by explicitly selecting the version when you create an Azure Cache for Redis instance.
+
+This change doesn't affect any existing instances. The change is only applicable to new instances created after May 15, 2022.
+
+The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## February 2022
 
