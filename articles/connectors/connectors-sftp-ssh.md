@@ -169,6 +169,9 @@ The PuTTY format and OpenSSH format use different file name extensions. The PuTT
 SFTP connector will reject the connection if the fingerprint of the server does not match the expected fingerprint.
 the key is a 47 characters string delimited by colon.
 
+There are two approches to get the fingerprint 
+### if you dont have the Key
+
 In the PuTTY  window, go to connection -> SSH -> Host Keys, and make sure that RSA is on top of the algorithm selection policy list.
  ![algorithm selection policy](./media/connectors-sftp-ssh/putty-pick-the-RSA-for-key-algorithm.png)
  
@@ -177,6 +180,16 @@ Use PuTTY to connect , once the connection is established  you will get security
 > [!IMPORTANT]
 > You may need to clear the entry in your windows registry to be able to get the security alert popup
 > **Computer\HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys**
+ 
+> [!TIP]
+> WinSCP also can show the fingerprint check this (link)[https://winscp.net/eng/docs/ui_fsinfo?ver=5.19.6&lang=0409&utm_source=winscp&utm_medium=app&utm_campaign=5.19.6] .
+
+### if you have the key 
+
+you can use tools loke ssh-keygen to get the fingerprint of a Key in md5 format 
+```bash
+ssh-keygen -l -f id_rsa.pub -E md5
+```
 
 
 ## Considerations
