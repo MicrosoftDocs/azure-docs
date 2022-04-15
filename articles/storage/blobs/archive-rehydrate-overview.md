@@ -61,7 +61,7 @@ To learn how to rehydrate a blob by copying it to an online tier, see [Rehydrate
 > [!IMPORTANT]
 > Do not delete the source blob until the rehydration has completed successfully. If the source blob is deleted, then the destination blob may not finish copying. You can handle the event that is raised when the copy operation completes to know when it is safe to delete the source blob. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
-Copying an archived blob to an online destination tier is supported within the same storage account. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account.
+Copying an archived blob to an online destination tier is supported within the same storage account only for service versions prior to 2021-02-12. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account.
 
 The target blob for the copy operation must be in an online tier (Hot or Cool). You cannot copy an archived blob to a destination blob that is also in the Archive tier.
 

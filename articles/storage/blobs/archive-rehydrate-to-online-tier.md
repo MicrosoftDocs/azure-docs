@@ -99,7 +99,7 @@ N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
 
 The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
 
