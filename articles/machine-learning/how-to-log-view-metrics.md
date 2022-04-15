@@ -36,19 +36,32 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 > [!TIP]
 > This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
+## Prerequisites
+
+* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+* You must have the `aureml-core`, `mlflow`, and `azure-mlflow` packages installed. If you do not, use the following command to install them in your development environment:
+
+    ```bash
+    pip install azureml-core mlflow azureml-mlflow
+    ```
+
+## Data types
+
+The following table describes how to log specific value types:
+
+|Logged Value|Example code| Notes|
+|----|----|----|
+|Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
+|Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
+|Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
+|Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 ## Logging with MLflow
 
-The following table and code examples show how to use MLflow to log metrics and artifacts from your training runs. 
-[Learn more about MLflow's logging methods and design patterns](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
+The examples in this section show how to use MLflow to log metrics and artifacts from your training runs.
 
-Be sure to install the `mlflow` and `azureml-mlflow` pip packages to your training environment. 
 
-```conda
-pip install mlflow
-pip install azureml-mlflow
-```
-
-Set the MLflow tracking URI to point at the Azure Machine Learning backend to ensure that your metrics and artifacts are logged to your workspace.
 
 > [!TIP]
 > You do not need to call `mlflow.set_tracking_url()` if you are using an Azure Machine Learning compute resources (compute instance or compute cluster) to run the training job. On an Azure ML compute, the tracking URL is automatically set.
@@ -59,6 +72,7 @@ import mlflow
 from mlflow.tracking import MlflowClient
 
 ws = Workspace.from_config()
+# Set the tracking URI to the Azure ML backend
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 
 mlflow.create_experiment("mlflow-experiment")
@@ -66,13 +80,7 @@ mlflow.set_experiment("mlflow-experiment")
 mlflow_run = mlflow.start_run()
 ```
 
-|Logged Value|Example code| Notes|
-|----|----|----|
-|Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
-|Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
-|Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
-|Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
-|Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
+
 
 ## View run metrics
 
