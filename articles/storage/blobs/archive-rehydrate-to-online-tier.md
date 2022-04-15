@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 04/14/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -37,7 +37,7 @@ After the copy operation is complete, the destination blob appears in the Archiv
 
 ### Rehydrate a blob to the same storage account
 
-The following examples show how to copy an archived blob with the Azure portal, PowerShell, or Azure CLI.
+The following examples show how to copy an archived blob to a blob in the Hot tier in the same storage account.
 
 #### [Portal](#tab/azure-portal)
 
@@ -91,43 +91,59 @@ az storage blob copy start \
 
 ### Rehydrate a blob to a different storage account in the same region
 
-To rehydrate an archived blob to a different storage account in the same region, use the [Blob Storage SDK for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/), version 12.11.0 or later.
+The following examples show how to copy an archived blob to a blob in the Hot tier in a different storage account.
 
-```csharp
-private static void RehydrateWithCopy(BlobClient archivedBlobClient, BlobClient targetBlobClient)
-{
-    try
-    {
-        BlobProperties archivedBlobProperties = archivedBlobClient.GetProperties();
+#### [Portal](#tab/azure-portal)
 
-        if (archivedBlobProperties.AccessTier == AccessTier.Archive)
-        {
-            BlobCopyFromUriOptions blobCopyFromUriOptions = new BlobCopyFromUriOptions()
-            {
-                AccessTier = AccessTier.Hot
-            };
+N/A
 
-            if (targetBlobClient.Exists())
-            {
-                BlobProperties targetBlobProperties = targetBlobClient.GetProperties();
-                if (targetBlobProperties.AccessTier == AccessTier.Hot || targetBlobProperties.AccessTier == AccessTier.Cool)
-                {
-                    targetBlobClient.StartCopyFromUri(archivedBlobClient.Uri, blobCopyFromUriOptions);
+#### [PowerShell](#tab/azure-powershell)
 
-                }
-            }
-            else
-            {
-                targetBlobClient.StartCopyFromUri(archivedBlobClient.Uri, blobCopyFromUriOptions);
-            }
-        }
-    }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine(e.Message);
-        throw;
-    }
+To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+
+The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
+
+```powershell
+$rgName = "<resource-group>"
+$srcAccount = "<source-account>"
+$destAccount = "<dest-account>"
+$srcContainer = "<source-container>"
+$destContainer = "<dest-container>" 
+$srcBlob = "<source-blob>"
+$destBlob = "<destination-blob>"
+
+# Get the destination account context
+$destCtx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $destAccount).Context
+
+# Get the source account context
+$srcCtx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $srcAccount).Context
+
+# Get the SAS URI for the source blob
+$srcBlobUri = New-AzStorageBlobSASToken -Container $srcContainer `
+    -Blob $srcBlob `
+    -Permission rwd `
+    -ExpiryTime (Get-Date).AddDays(7) `
+    -FullUri `
+    -Context $srcCtx
+
+# Start the cross-account copy operation
+Start-AzStorageBlobCopy -AbsoluteUri $srcBlobUri `
+    -DestContainer $destContainer `
+    -DestBlob $destBlob `
+    -DestContext $destCtx `
+    -StandardBlobTier Hot `
+    -RehydratePriority Standard
 ```
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
 
 ## Rehydrate a blob by changing its tier
 
