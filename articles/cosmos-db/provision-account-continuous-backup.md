@@ -23,7 +23,7 @@ This article explains how to provision an account with continuous backup and poi
 > You can provision continuous backup mode account only if the following conditions are true:
 >
 > * If the account is of type SQL API or API for MongoDB.
-> * If the account is of type Table API or Graph API.
+> * If the account is of type Table API or Gremlin API.
 > * If the account has a single write region.
 > * If the account isn't enabled with customer managed keys(CMK).
 
@@ -33,7 +33,7 @@ When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choos
 
 :::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
 
-Table API and Graph API are in preview and can be provisioned with PowerShell and Azure CLI.
+Table API and Gremlin API are in preview and can be provisioned with PowerShell and Azure CLI.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzCosmosDBAccount `
    	  
 ```
 
-#### <a id="provision-powershell-graph-api"></a>Graph API account
+#### <a id="provision-powershell-graph-api"></a>Gremlin API account
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
@@ -177,7 +177,7 @@ az cosmosdb create \
   --default-consistency-level Session \
   --locations regionName="West US"
 ```
-### <a id="provision-cli-graph-api"></a>Graph API account
+### <a id="provision-cli-graph-api"></a>Gremlin API account
 
 The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
 ```azurecli-interactive
@@ -222,7 +222,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
 }
 ```
 
-Next deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
+Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
 
 ```azurecli-interactive
 az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
