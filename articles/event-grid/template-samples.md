@@ -19,4 +19,4 @@ For the JSON syntax and properties to use in a template, see [Microsoft.EventGri
 See the following samples:
 
 - [PowerShell samples](powershell-samples.md)
-- [CLI samples](cli-samples.md)
+- [CLI samples](scripts/event-grid-cli-subscribe-custom-topic.md)

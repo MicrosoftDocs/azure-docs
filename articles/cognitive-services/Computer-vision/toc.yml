@@ -91,11 +91,7 @@ items:
   - name: Image Analysis quickstart
     href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
-    items:  
-    - name: Explore an image processing app
-      href: Tutorials/CSharpTutorial.md
-    - name: Other samples
-      href: /samples/browse/?products=azure&terms=analyze-image
+    href: /samples/browse/?products=azure&terms=analyze-image
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
