@@ -404,9 +404,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**How do you onboard a customer?**
+**Is Arc supported in all the Azure VMware Solution regions?**
  
-Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+Arc is supported in EastUS and WestEU regions however we are working to extend the regional support.
 
 **How does support work?**
 

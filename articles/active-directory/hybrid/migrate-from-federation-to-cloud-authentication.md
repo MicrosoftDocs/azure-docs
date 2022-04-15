@@ -52,7 +52,11 @@ Install [Azure Active Directory Connect](https://www.microsoft.com/download/deta
 
 ### Document current federation settings
 
-To find your current federation settings, run the [Get-MsolDomainFederationSettings](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login) cmdlet. 
+To find your current federation settings, run [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
+
+```powershell
+Get-MgDomainFederationConfiguration –DomainID yourdomain.com
+```
 
 Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true), **SupportsMfa** (if **federatedIdpMfaBehavior** is not set), and **PromptLoginBehavior**.
 
