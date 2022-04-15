@@ -42,9 +42,9 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
     > [!WARNING]
     > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
   
-* The Azure Machine Learning CLI v2 installed. For guidance to update and install the latest version, see the [Install and set up CLI (v2)](../articles/machine-learning/how-to-configure-cli.md) doc
+* The Azure Machine Learning CLI v2 installed. For guidance to update and install the latest version, see the [Install and set up CLI (v2)](how-to-configure-cli.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train-v2.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -69,7 +69,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
     > [!WARNING]
     > Python 3.8 is not compatible with `automl`. 
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 ---
 
@@ -190,7 +190,7 @@ However, there are key differences:
 
 For CLI v2 AutoML jobs you configure your experiment in a YAML file like the following. 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-newsgroup/cli-automl-text-classification-newsgroup.yml:::
+
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -218,6 +218,7 @@ text_classification_job = automl.text_classification(
 text_classification_job.set_limits(timeout=120)
 
 ```
+---
 
 ### Language settings
 
@@ -267,14 +268,14 @@ You can also run your NLP experiments with distributed training on an Azure ML c
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
+This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
 
 ```python
 max_concurrent_iterations = number_of_vms
 enable_distributed_dnn_training = True
 ```
 
-Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
+---
 
 ## Submit the AutoML job
 
@@ -316,8 +317,6 @@ See the following sample YAML files for each NLP task.
 * [Multi-label text classification](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml)
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml)
 
-
-
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -328,6 +327,8 @@ See the sample notebooks for detailed code examples for each NLP task.
 * [Multi-label text classification](
 https://github.com/Azure/azureml-examples/blob/april-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
+
+---
 
 ## Next steps
 
