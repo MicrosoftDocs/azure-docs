@@ -115,10 +115,6 @@ Azure Logic Apps provides the following built-in triggers and actions:
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
 ## Service-based built-in trigger and actions
