@@ -487,6 +487,7 @@ items:
       items:
       - name: Overview
         displayName: Azure Monitor agent
+        href: agents/azure-monitor-agent-overview.md
       - name: Installation options
         displayName: Azure Monitor agent
         items:
@@ -806,6 +807,9 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js
           href: app/azure-web-apps-nodejs.md
+      - name: Azure Cloud Services
+        displayName: cloud, cloud services, PaaS
+        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
