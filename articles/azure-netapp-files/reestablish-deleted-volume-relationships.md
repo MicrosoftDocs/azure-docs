@@ -7,11 +7,11 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 04/15/2022
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files
 
-If you've deleted the cross-region replication relationship between two volumes, Azure NetApp Files allows you to re-establish the relationship. Re-establishing the relationship can only be performed from the destination volume. 
+Azure NetApp Files allows you to re-establish a cross-region replication relationship between two volumes in case you had previously deleted it. Re-establishing the relationship can only be performed from the destination volume. 
 
 ## Considerations
 
@@ -19,7 +19,7 @@ If you've deleted the cross-region replication relationship between two volumes,
 
 ## Register the feature 
 
-The network features capability is currently in public preview. If you're using this feature for the first time, you need to register the feature first.
+The re-establish deleted volume replication relationships capability is currently in public preview. If you're using this feature for the first time, you need to register the feature first.
 
 1.  Register the feature by running the following commands:
 
