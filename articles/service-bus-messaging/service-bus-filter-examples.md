@@ -2,21 +2,25 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 03/25/2022
 ms.devlang: csharp
 ---
 
 # Set subscription filters (Azure Service Bus)
-This article provides a few examples on setting filters on Service Bus topic subscriptions. For conceptual information about filters, see [Filters](topic-filters.md).
+This article provides a few examples on setting filters on subscriptions for Service Bus topics. For conceptual information about filters, see [Filters](topic-filters.md).
 
 ## Filter on system properties
 To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
 
 ```csharp
-sys.label LIKE '%bus%'`
+sys.label LIKE '%bus%'
 sys.messageid = 'xxxx'
 sys.correlationid like 'abc-%'
 ```
+
+> [!NOTE]
+> - For a list of system properties, see [Messages, payloads, and serialization](service-bus-messages-payloads.md). 
+> - Use system property names from [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties) in your filters even when you use [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) from the new [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) namespace to send and receive messages. The `Subject` from [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
 
 ## Filter on message properties
 Here are the examples of using message properties in a filter. You can access message properties using `user.property-name` or just `property-name`.

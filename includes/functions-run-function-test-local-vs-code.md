@@ -24,4 +24,4 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
 1. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
 
-1. Press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.
+1. With the **Terminal** panel focused, press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.

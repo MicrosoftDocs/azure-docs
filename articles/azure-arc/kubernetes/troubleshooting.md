@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/16/2022
+ms.date: 03/09/2022
 ms.topic: article
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
@@ -103,7 +103,6 @@ Error: list: failed to list: secrets is forbidden: User "myuser" cannot list res
 
 The user connecting the cluster to Azure Arc should have `cluster-admin` role assigned to them on the cluster.
 
-
 ### Unable to connect OpenShift cluster to Azure Arc
 
 If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc, check the following:
@@ -170,13 +169,6 @@ az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration create <parameters> --debug
 ```
 
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
-
-```azurecli
-az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8s-configuration flux create <parameters> --debug
-```
-
 ### Flux v1 - Create configurations
 
 Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
@@ -224,6 +216,21 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+
+### Flux v2 - General
+
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+
+```azurecli
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration flux create <parameters> --debug
+```
+
+### Flux v2 - Webhook/dry run errors
+
+If you see Flux fail to reconcile with an error like `dry-run failed, error: admission webhook "<webhook>" does not support dry run`, you can resolve the issue by finding the `ValidatingWebhookConfiguration` or the `MutatingWebhookConfiguration` and setting the `sideEffects` to `None` or `NoneOnDryRun`:
+
+For more information, see [How do I resolve `webhook does not support dry run` errors?](https://fluxcd.io/docs/faq/#how-do-i-resolve-webhook-does-not-support-dry-run-errors)
 
 ### Flux v2 - Error installing the `microsoft.flux` extension
 
@@ -701,4 +708,4 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OSM docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
 
 ### 14. Upgrade Envoy
-When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.

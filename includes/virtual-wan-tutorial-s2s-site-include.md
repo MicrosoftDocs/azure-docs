@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 08/17/2021
+ms.date: 03/18/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
@@ -38,7 +38,7 @@ ms.topic: include
    * **Link Border Gateway Protocol**: Configuring BGP on a virtual WAN link is equivalent to configuring BGP on an Azure virtual network gateway VPN. Your on-premises BGP peer address must not be the same as the public IP address of your VPN to device or the VNet address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. Specify this address in the corresponding VPN site representing the location.  For BGP prerequisites, see [About BGP with Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). You can always edit a VPN link connection to update its BGP parameters (Peering IP on the link and the AS #).
 1. You can add or delete more links. Four links per VPN Site are supported. For example, if you have four ISPs (Internet service provider) at the branch location, you can create four links, one per each ISP, and provide the information for each link.
 1. Once you have finished filling out the fields, select **Review + create** to verify. Click **Create** to create the site.
-1. On the **VPN sites** page, click **Hub association: Connected to this hub** to clear the filter.
+1. Go to your **Virtual WAN**. On the **VPN sites** page, you should be able to see the site you created. If you can't see the site, you need to adjust the filter. Click the **X** in the **Hub association:** bubble to clear the filter.
 
    :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::
 1. Once the filter has cleared, you can view your site.

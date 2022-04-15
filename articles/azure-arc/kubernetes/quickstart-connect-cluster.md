@@ -19,7 +19,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
@@ -52,7 +52,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
 
@@ -99,7 +99,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | ----------------- | ------------- |
 | `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
-| `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
+| `https://login.microsoftonline.com`, `https://<region>.login.microsoft.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us`, `<region>.login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |

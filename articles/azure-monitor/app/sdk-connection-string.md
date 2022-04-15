@@ -21,9 +21,11 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!TIP]
 > We recommend the use of connection strings over instrumentation keys.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Scenario overview 
 
-Customer scenarios where we visualize this having the most impact:
+Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects 
 
@@ -39,7 +41,7 @@ Customer scenarios where we visualize this having the most impact:
 
 ### Finding my connection string?
 
-Your connection string is displayed on the Overview blade of your Application Insights resource.
+Your connection string is displayed on the Overview section of your Application Insights resource.
 
 ![connection string on overview blade](media/overview-dashboard/overview-connection-string.png)
 
@@ -100,7 +102,7 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, this connection string specifies the endpoint suffix and the SDK will construct service endpoints.
+In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
@@ -116,7 +118,7 @@ In this example, this connection string specifies the endpoint suffix and the SD
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, this connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
+In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
@@ -126,11 +128,25 @@ In this example, this connection string specifies explicit overrides for every s
    - Profiler: `https://custom.com:333/`
    - Debugger: `https://custom.com:444/`  
 
+### Connection string with explicit region
+
+`InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://southcentralus.in.applicationinsights.azure.com/`
+
+In this example, the connection string specifies the South Central US region.
+
+- Authorization scheme defaults to "ikey" 
+- Instrumentation Key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the explicit override values: 
+   - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
+
+Run the following command in the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
+
+`az account list-locations -o table`
 
 ## How to set a connection string
 
 Connection Strings are supported in the following SDK versions:
-- .NET and .NET Core v2.12.0
+- .NET v2.12.0
 - Java v2.5.1 and Java 3.0
 - JavaScript v2.3.0
 - NodeJS v1.5.0
@@ -167,7 +183,7 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
-NetCore Explicitly Set:
+.NET Core Explicitly Set:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -176,7 +192,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-NetCore config.json: 
+.NET Core config.json: 
 
 ```json
 {

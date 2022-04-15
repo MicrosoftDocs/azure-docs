@@ -370,5 +370,5 @@ To learn more about the AMQP Protocol, see the [AMQP v1.0 specification](https:/
 To learn more about IoT Hub messaging, see:
 
 * [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
-* [Support for additional protocols](iot-hub-protocol-gateway.md)
+* [Support for additional protocols](../iot-edge/iot-edge-as-gateway.md)
 * [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](./iot-hub-mqtt-support.md)

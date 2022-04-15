@@ -163,6 +163,15 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-cosmos
+# Owner maquaran
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-text-analytics
   title: Programming languages
   prompt: Choose one of the client library languages or REST API.
@@ -1618,16 +1627,16 @@ groups:
   - id: iot-toolset-stm32cube
     title: STM32Cube IDE
 # Owner: v-amallick
-- id: backup-client-powershelltier-clitier-portaltier
+- id: backup-client-portaltier-powershelltier-clitier
   title: Clients
   prompt: Choose a client
   pivots:
+  - id: client-portaltier
+    title: Azure portal
   - id: client-powershelltier
     title: PowerShell
   - id: client-clitier
     title: CLI
-  - id: client-portaltier
-    title: Azure portal
 # Owner: prakulka
 - id: acs-tollfree-shortcode
   title: Number Type
@@ -1666,6 +1675,17 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: v-ksreedevan
+- id: migrate-agentlessvmware-hyperv-agentbased
+  title: Migration methods
+  prompt: Choose a migration method
+  pivots:
+  - id: agentlessvmware
+    title: Agentless VMware migrations
+  - id: hyperv
+    title: Agentless Hyper-V migrations
+  - id: agentbased
+    title: Agent-based migrations
 # Owner: cshoe
 - id: azure-cli-or-portal
   title: Interaction type
@@ -1678,21 +1698,21 @@ groups:
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
-  prompt: Select the Azure Front Door tier
+  prompt: "Select the Azure Front Door tier:"
   pivots:
-  - id: front-door-classic
-    title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
-  prompt: Select an Azure SQL deployment option
+  prompt: "Select an Azure SQL Database deployment option:"
   pivots:
   - id: azure-sql-single-db
-    title: Azure SQL Database, single database
+    title: Single database
   - id: azure-sql-elastic-pool
-    title: Azure SQL Database, elastic pool
+    title: Elastic pool
 # Owner: karler
 - id: spring-cloud-tier-selection
   title: Azure Spring Cloud tier
@@ -1711,3 +1731,22 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+# Owner: juliakm
+- id: pipelines-version
+  title: Pipelines version
+  prompt: Choose a Pipelines version
+  pivots:
+  - id: pipelines-yaml
+    title: YAML
+  - id: pipelines-classic
+    title: Classic
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift
+  title: ARM and Bicep-OpenShift
+  prompt: Choose an option
+  pivots:
+  - id: aro-arm
+    title: Azure Resouce Manager
+  - id: aro-bicep
+    title: Bicep   
+

@@ -569,7 +569,7 @@ The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enab
 
 ## Client-side field level encryption
 
-Client-level field encryption is a driver feature and is compatible with the API for MongoDB. Explicit encryption - were the driver explicitly encrypts each field when written is supported. Explicit decryption and automatic decryption is supported.
+Client-level field encryption is a driver feature and is compatible with the API for MongoDB. Explicit encryption - were the driver explicitly encrypts each field when written is supported. Automatic encryption is not supported. Explicit decryption and automatic decryption is supported.
 
 The mongocryptd should not be run since it is not needed to perform any of the supported operations.  
 

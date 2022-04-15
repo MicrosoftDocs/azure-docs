@@ -96,7 +96,7 @@ If you find that there are still enterprise applications that you can't delete i
 1. Open PowerShell as an administrator.
 1. Run `Connect-AzAccount -tenant <TENANT_ID>`.
 1. Sign in to Azure AD in the Global Administrator role.
-1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id -Force}​`.​​​​
+1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id }​`.​​​​
 
 ## Trial subscription that blocks deletion
 

@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/29/2021
+ms.date: 04/04/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -79,9 +79,7 @@ Since ECMA Connector Host currently only supports the USER object type, the OBJE
 You can define one or more matching attribute(s) and prioritize them based on the precedence.  Should you want to change the matching attribute you can also do so.
  [![Matching attribute](.\media\on-premises-application-provisioning-architecture\match-1.png)](.\media\on-premises-application-provisioning-architecture\match-1.png#lightbox)
 
-2.  ECMA Connector Host receives the GET request and queries its internal cache to see if the user exists and has based imported.  This is done using the **query attribute**. The query attribute is defined in the object types page.  
- [![Query attribute](.\media\on-premises-application-provisioning-architecture\match-2.png)](.\media\on-premises-application-provisioning-architecture\match-2.png#lightbox)
-
+2.  ECMA Connector Host receives the GET request and queries its internal cache to see if the user exists and has based imported.  This is done using the matching attribute(s) above. If you define multiple matching attributes, the Azure AD provisioning service will send a GET request for each attribute and the ECMA host will check it's cache for a match until it finds one.   
 
 3. If the user does not exist, Azure AD will make a POST request to create the user.  The ECMA Connector Host will respond back to Azure AD with the HTTP 201 and provide an ID for the user. This ID is derived from the anchor value defined in the object types page. This anchor will be used by Azure AD to query the ECMA Connector Host for future and subsequent requests. 
 4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azure AD and in the app.  

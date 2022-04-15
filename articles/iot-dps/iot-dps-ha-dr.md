@@ -26,6 +26,7 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 * Central US
 * East US
 * East US 2
+* France Central
 * Japan East
 * North Europe
 * UK South

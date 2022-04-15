@@ -1,6 +1,6 @@
 ---
-title: Set up your Config Server instance in Azure Spring Cloud
-description: Learn how to set up a Spring Cloud Config Server instance for Azure Spring Cloud on the Azure portal
+title: Configure your managed Spring Cloud Config Server in Azure Spring Cloud
+description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
 ms.author: karler
@@ -9,15 +9,15 @@ ms.date: 12/10/2021
 ms.custom: devx-track-java
 ---
 
-# Set up a Spring Cloud Config Server instance for your service
+# Configure a managed Spring Cloud Config Server in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
-This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
+This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Cloud service.
 
-Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
 
 ## Prerequisites
 

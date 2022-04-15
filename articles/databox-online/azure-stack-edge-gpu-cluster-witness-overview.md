@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 02/25/2022
 ms.author: alkohli
 ---
 
 # Cluster witness on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-gpu-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2-sku.md)]
 
 This article provides a brief overview of cluster witness on your Azure Stack Edge device including cluster witness requirements, setup, and management. 
 

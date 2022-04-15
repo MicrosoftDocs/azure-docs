@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Get started
 
 Java auto-instrumentation can be enabled without any code changes.
@@ -27,7 +29,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.2.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.7/applicationinsights-agent-3.2.7.jar) file.
+Download the [applicationinsights-agent-3.2.10.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.10/applicationinsights-agent-3.2.10.jar) file.
 
 > [!WARNING]
 > 
@@ -49,7 +51,7 @@ Download the [applicationinsights-agent-3.2.7.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.7.jar` to your application's JVM args.
+Add `-javaagent:path/to/applicationinsights-agent-3.2.10.jar` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -61,20 +63,20 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.7.jar` to your application
    - You can set an environment variable:
     
         ```console
-        APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
+        APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.7.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.10.jar` with the following content:
 
         ```json
         {
-          "connectionString": "InstrumentationKey=..."
+          "connectionString": "Copy connection string from Application Insights Resource Overview"
         }
         ```
 
 1. Find the connection string on your Application Insights resource.
 
-    :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Screenshot that shows the Application Insights connection string.":::
+    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
     
 #### Confirm data is flowing
 
@@ -88,7 +90,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the application map.
 
-As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You can disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Configuration options
 
@@ -158,7 +160,7 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Azure SDKs
 
-Telemetry emitted by these Azure SDKs is autocollected by default:
+Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
@@ -188,7 +190,7 @@ Telemetry emitted by these Azure SDKs is autocollected by default:
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 [//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
-[//]: # "and version sync'd manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
 [//]: # ""
 [//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
 [//]: # "var str = ''"

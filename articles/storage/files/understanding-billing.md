@@ -1,11 +1,11 @@
 ---
 title: Understand Azure Files billing | Microsoft Docs
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2021
-ms.author: rogarana
+ms.date: 3/21/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -79,7 +79,7 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
 | Burst limit | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-| Throughput rate (ingress + egress) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
+| Throughput rate (ingress + egress) (MiB/sec) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
@@ -158,7 +158,7 @@ For each server that you have connected to a sync group, there is an additional 
 The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
 
 #### Cloud enumeration scans cost
-Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of two LIST transactions per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of one LIST transaction per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
 
 > [!Tip]  
 > If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.

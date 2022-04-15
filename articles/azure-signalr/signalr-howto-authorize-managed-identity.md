@@ -137,9 +137,6 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Azure Functions SignalR bindings
 
-> [!WARNING]
-> SignalR trigger binding does not support identity-based connection yet and connection strings are still necessary.
-
 Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure managed-identity to access your SignalR resources.
 
 You might need a group of key-value pairs to configure an identity. The keys of all the key-value pairs must start with a **connection name prefix** (defaults to `AzureSignalRConnectionString`) and a separator (`__` on portal and `:` at local). The prefix can be customized with binding property [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md).

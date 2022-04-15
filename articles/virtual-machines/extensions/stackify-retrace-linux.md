@@ -4,8 +4,8 @@ description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author:  amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 04/12/2018 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -179,7 +179,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | Error code | Meaning | Possible action |
 | :---: | --- | --- |
 | 10 | Install Error | wget is required |
-| 20 | Install Error | python is required |
+| 20 | Install Error | Python is required |
 | 30 | Install Error | sudo is required |
 | 40 | Install Error | activationKey is required |
 | 51 | Install Error | OS distro not supported |

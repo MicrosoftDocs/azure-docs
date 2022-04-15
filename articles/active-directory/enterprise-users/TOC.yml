@@ -4,6 +4,8 @@
   items:
   - name: Azure AD users, groups, and licensing
     href: directory-overview-user-model.md
+  - name: What is delegated administration?
+    href: directory-delegated-administration-primer.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
@@ -64,7 +66,7 @@
       href: users-restrict-guest-permissions.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: Organization
+  - name: Organization (tenant)
     items:
     - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

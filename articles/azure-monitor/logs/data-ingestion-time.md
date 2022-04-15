@@ -4,7 +4,8 @@ description: Explains the different factors that affect latency in collecting lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
+ms.reviewer: eternovsky
+ms.date: 03/21/2022
 
 ---
 

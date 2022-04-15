@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
-ms.date: 02/18/2022
+ms.date: 03/09/2022
 ---
 # Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,7 +46,7 @@ The key reasons why you should choose Business Critical service tier instead of 
 - **Higher resiliency and faster recovery from failures**. In a case of system failure, the database on primary instance will be disabled and one of the secondary replicas will be immediately became new read-write primary database that is ready to process queries. The database engine doesn't need to analyze and redo transactions from the log file and load all data in the memory buffer.
 - **Advanced data corruption protection**. The Business Critical tier leverages database replicas behind-the-scenes for business continuity purposes, and so the service also then leverages automatic page repair, which is the same technology used for SQL Server database [mirroring and availability groups](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). In the event that a replica can't read a page due to a data integrity issue, a fresh copy of the page will be retrieved from another replica, replacing the unreadable page without data loss or customer downtime. This functionality is applicable in General Purpose tier if the database has geo-secondary replica.
 - **Higher availability** - The Business Critical tier in Multi-AZ configuration provides resiliency to zonal failures and a higher availability SLA.
-- **Fast geo-recovery** - The Business Critical tier configured with geo-replication has a guaranteed Recovery Point Objective (RPO) of 5 seconds and Recovery Time Objective (RTO) of 30 seconds for 100% of deployed hours.
+- **Fast geo-recovery** - When [active geo-replication](active-geo-replication-overview.md) is configured, the Business Critical tier has a guaranteed Recovery Point Objective (RPO) of 5 seconds and Recovery Time Objective (RTO) of 30 seconds for 100% of deployed hours.
  
 ## Compare Business Critical resource limits 
 
@@ -83,7 +83,7 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | [**Read-only replicas**](read-scale-out.md) |1 built-in high availability replica is readable <br> 0 - 4 [geo-replicas](active-geo-replication-overview.md) |1 built-in high availability replica is readable <br> 0 - 1 geo-replicas using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance)  | 
 | **Pricing/Billing** |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/> High availability replicas aren't charged. <br/>IOPS isn't charged. |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/managed/) are charged. <br/> High availability replicas aren't charged. <br/>IOPS isn't charged.  | 
 | **Discount models** |[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions | 
-| | |
+
 
 
 ## Next steps

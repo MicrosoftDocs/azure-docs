@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/22/2021
+ms.date: 04/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -51,6 +51,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.9**
+
+- TOTP multifactor authentication support. Adding links that allows users to download and install the Microsoft authenticator app to complete the enrollment of the TOTP on the authenticator.
 
 **2.1.8**
 
@@ -138,6 +142,16 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+
+**2.1.7**
+
+- Accessibility fix - correcting to the tab index
+
+**2.1.6**
+
+- Accessibility fix - set the focus on the input field for verification. 
+- Updates to the UI elements and CSS classes
 
 **2.1.5**
 - Fixed an issue on tab order when idp selector template is used on sign in page.

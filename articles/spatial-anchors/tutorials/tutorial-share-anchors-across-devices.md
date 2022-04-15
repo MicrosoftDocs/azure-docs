@@ -33,6 +33,8 @@ In this tutorial, you'll learn how to:
 > [!NOTE]
 > You'll be using Unity and an ASP.NET Core web app in this tutorial, but the approach here is only to provide an example of how to share Azure Spatial Anchors identifiers across other devices. You can use other languages and back-end technologies to achieve the same goal.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Download the sample project

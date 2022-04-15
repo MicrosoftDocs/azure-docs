@@ -803,7 +803,7 @@ items:
     - name: Gateway best practices
       href: ./interactive-query/gateway-best-practices.md
     - name: Sizing guidelines
-      href: ./interactive-query/sizing-guidelines.md
+      href: ./interactive-query/hive-llap-sizing-guide.md
     - name: Hive replication
       href: ./interactive-query/apache-hive-replication.md
   - name: How-to guides

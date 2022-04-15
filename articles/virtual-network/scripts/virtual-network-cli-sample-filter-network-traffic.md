@@ -29,7 +29,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh" range="4-81":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh" id="FullScript":::
 
 ## Clean up deployment
 

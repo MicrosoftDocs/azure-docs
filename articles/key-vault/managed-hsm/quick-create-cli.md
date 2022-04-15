@@ -37,10 +37,10 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *westus2* location.
+A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *westus3* location.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location westus2
+az group create --name "ContosoResourceGroup" --location westus3
 ```
 
 ## Create a Managed HSM
@@ -58,11 +58,11 @@ You need to provide following inputs to create a Managed HSM resource:
 - Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 2** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. Read more about [Managed HSM soft-delete](soft-delete-overview.md)
+The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. Read more about [Managed HSM soft-delete](soft-delete-overview.md)
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "westus2" --administrators $oid --retention-days 7
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "westus3" --administrators $oid --retention-days 7
 ```
 
 > [!NOTE]

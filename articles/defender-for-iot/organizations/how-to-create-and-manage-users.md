@@ -81,7 +81,7 @@ This section describes how to define users. Cyberx, support, and administrator u
 
 1. From the left pane for the sensor or the on-premises management console, select **Users**.
 
-     :::image type="content" source="media/how-to-create-and-manage-users/users-pane.png" alt-text="Users pane for creating users":::
+     :::image type="content" source="media/how-to-create-and-manage-users/users-pane.png" alt-text="Screenshot of the Users pane for creating users.":::
 1. In the **Users** window, select **Create User**.
     
 1. In the **Create User** pane, define the following parameters:
@@ -142,7 +142,7 @@ You can track user activity in the event timeline on each sensor. The timeline d
 
 1. Verify that  **User Operations** filter is set to **Show**.  
 
-   :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Event timeline showing user that signed in to Defender for IoT":::
+   :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
 
 1. Use the filters or Ctrl F option to find the information of interest to you.
 
@@ -173,7 +173,7 @@ You can associate Azure Active Directory groups defined here with specific permi
 
 1. From the left pane, select **System Settings**.
 1. Select **Integrations** and then select **Active Directory**.
-:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Azure Active Directory configuration dialog box":::
+:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Screenshot of the Azure Active Directory configuration dialog box.":::
 
 1. Enable the **Active Directory Integration Enabled** toggle.
 
@@ -221,7 +221,7 @@ CyberX role can change the password for all user roles. The Support role can cha
     
 1. On this row, select three dots (...) and then select **Edit**.
 
-   :::image type="content" source="media/how-to-create-and-manage-users/change-password.png" alt-text="Change password dialog for local sensor users":::
+   :::image type="content" source="media/how-to-create-and-manage-users/change-password.png" alt-text="Screenshot of the Change password dialog for local sensor users.":::
 
 1. Enter and confirm the new password in **Change Password** section.
 
@@ -253,11 +253,11 @@ You can recover the password for the on-premises management console, or the sens
 
 1. On the sign in screen of either the on-premises management console, or the sensor, select **Password recovery**. The **Password recovery** screen opens.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Select Password recovery from the sign in screen of either the on-premises management console, or the sensor":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Screenshot of the Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
 
 1. Select either **CyberX**, or **Support** from the drop-down menu, and copy the unique identifier code.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Select either the CyberX user or the Support user from the drop-down menu.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Screenshot of selecting either the Defender for IoT user or the support user.":::
 
 1. Navigate to the Azure portal, and select **Sites and Sensors**.  
 
@@ -265,14 +265,11 @@ You can recover the password for the on-premises management console, or the sens
 
 1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::   
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Screenshot of the recover on-premises management console password option.":::   
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
-
-    > [!NOTE]
-    > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
 
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
@@ -285,6 +282,8 @@ You can recover the password for the on-premises management console, or the sens
 
 ## Next steps
 
-[Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
-[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
-[Track sensor activity](how-to-track-sensor-activity.md)
+- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+
+- [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+
+- [Track sensor activity](how-to-track-sensor-activity.md)

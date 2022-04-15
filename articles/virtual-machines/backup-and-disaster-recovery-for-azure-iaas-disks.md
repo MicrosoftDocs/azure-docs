@@ -4,7 +4,7 @@
   author: roygara
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 08/26/2021
+  ms.date: 03/30/2022
   ms.author: rogarana
   ms.subservice: disks
 ---
@@ -130,7 +130,7 @@ Another option to create consistent backups is to shut down the VM and take snap
 
 ### Copy the snapshots to another region
 
-Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. Please review the instructions in [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. See [Cross-region snapshot copy](disks-incremental-snapshots.md#cross-region-snapshot-copy).
 
 ## Other options
 
