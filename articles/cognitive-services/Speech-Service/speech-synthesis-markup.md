@@ -256,7 +256,7 @@ The following table has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-By default, all neural voices are fluent in their own language and English without using `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
+By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
 You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. 
 
