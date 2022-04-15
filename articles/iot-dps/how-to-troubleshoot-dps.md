@@ -13,7 +13,7 @@ ms.author: xujing
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](../azure-monitor/overview.md).
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via Azure Monitor. To learn more about using Azure Monitor with DPS, see [Monitor Device Provisioning Service](monitor-iot-dps.md).
 
 ## Using Azure Monitor to view metrics and set up alerts
 
@@ -33,7 +33,7 @@ To view and set up alerts on IoT Hub Device Provisioning Service metrics.
 
 7. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
-To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
+To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](monitor-iot-dps.md#analyzing-metrics) and [Alerts](monitor-iot-dps.md#alerts) in Monitor Device Provisioning Service.
 
 ## Using Log Analytics to view and resolve errors
 
