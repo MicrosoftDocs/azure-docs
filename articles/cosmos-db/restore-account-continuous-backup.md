@@ -104,8 +104,6 @@ Use the following steps to get the restore details from Azure portal:
 1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the restored account.
 
 1. Navigate to the **Export template** pane. It opens a JSON template, corresponding to the restored account.
-<<<<<<< HEAD
->>>>>>> 391859699b200245d06e5552ec83341d020cbb42
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
@@ -122,7 +120,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
 
-### <a id="trigger-restore-ps"></a>Trigger a restore operation for SQL account
+### <a id="trigger-restore-ps"></a>Trigger a restore operation for SQL API account
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
 
@@ -299,7 +297,7 @@ Get-AzCosmosdbMongoDBRestorableDatabase `
 
 ```
 
-#### List all the versions of Mongodb collections of a database in a live database account
+#### List all the versions of MongoDB collections of a database in a live database account
 
 ```azurepowershell
 
@@ -309,7 +307,7 @@ Get-AzCosmosdbMongoDBRestorableCollection `
   -Location "West US"
 ```
 
-#### List all the resources of a Mongodb database account that are available to restore at a given timestamp and region
+#### List all the resources of a MongoDB database account that are available to restore at a given timestamp and region
 
 ```azurepowershell
 
@@ -420,7 +418,7 @@ Use the following command to get the list of databases or containers that can be
 ```azurepowershell
 
 Get-AzCosmosdbGremlinRestorableResource  `
-  -DatabaseAccountInstanceId "c056a4e8-022a-336f-81c9-cd3edbc94c55" `
+  -DatabaseAccountInstanceId "abcd1234-022a-336f-81c9-cd3edbc94c55" `
   -Location "West US" `
   -RestoreLocation "East US" `
   -RestoreTimestamp "2022-04-20T06:09:53+0000"
@@ -442,14 +440,14 @@ Get-AzCosmosdbTableRestorableTable   `
 
 ```
 
-#### Find tables  that can be restored at any given timestamp
+#### Find tables that can be restored at any given timestamp
 
 Use the following command to get the list of tables that can be restored at any given timestamp. This command only works with live accounts.
 
 ```azurepowershell
 
 Get-AzCosmosdbTableRestorableResource   `
-  -DatabaseAccountInstanceId "c056a4e8-022a-336f-81c9-cd3edbc94c44" `
+  -DatabaseAccountInstanceId "abcd1234-022a-336f-81c9-abcd1234" `
   -Location "West US" `
   -RestoreLocation "East US" `
   -RestoreTimestamp "2022-04-22T06:09:53+0000"
@@ -473,7 +471,7 @@ Before restoring the account, install Azure CLI with the following steps:
 
 The simplest way to trigger a restore is by issuing the restore command with name of the target account, source account, location, resource group, timestamp (in UTC), and optionally the database and container names. The following are some examples to trigger the restore operation:
 
-1. Create a new Azure Cosmos DB account by restoring from an existing account.
+#### Create a new Azure Cosmos DB account by restoring from an existing account
 
    ```azurecli-interactive
 
@@ -486,7 +484,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
    ```
 
-2. Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account.
+#### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
    ```azurecli-interactive
 
@@ -500,7 +498,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
     --databases-to-restore name=MyDB2 collections=Collection3 Collection4
 
    ```
-3. Create a new Azure Cosmos DB Gremlin API account by restoring only selected databases and graphs from an existing Gremlin API account.
+#### Create a new Azure Cosmos DB Gremlin API account by restoring only selected databases and graphs from an existing Gremlin API account
 
    ```azurecli-interactive
 
@@ -514,7 +512,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
     --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
    ```
 
-4. Create a new Azure Cosmos DB Table API account by restoring only selected tables from an existing Table API account.
+ #### Create a new Azure Cosmos DB Table API account by restoring only selected tables from an existing Table API account
 
    ```azurecli-interactive
 
@@ -694,7 +692,7 @@ az cosmosdb sql restorable-resource list \
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts.
 
-#### List all the versions of Mongodb databases in a live database account
+#### List all the versions of MongoDB databases in a live database account
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-database list \
@@ -702,7 +700,7 @@ az cosmosdb mongodb restorable-database list \
     --location "West US"
 ```
 
-#### List all the versions of Mongodb collections of a database in a live database account
+#### List all the versions of MongoDB collections of a database in a live database account
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-collection list \
@@ -1028,7 +1026,8 @@ You can also restore an account using Azure Resource Manager (ARM) template. Whe
   ]
 }
 ```
-Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:  
+
+Next, deploy the template by using Azure PowerShell or Azure CLI. The following example shows how to deploy the template with an Azure CLI command:  
 
 ```azurecli-interactive
 az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
