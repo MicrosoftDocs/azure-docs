@@ -24,16 +24,14 @@ You create and deploy the web app using [Azure CLI](/cli/azure/get-started-with-
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+To complete this quickstart, you need:
 
-## Set up your initial environment
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+1. <a href="https://git-scm.com/" target="_blank">Git</a>
+1. <a href="https://php.net/manual/install.php" target="_blank">PHP</a>
+1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to run commands in any shell to provision and configure Azure resources.
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- <a href="https://git-scm.com/" target="_blank">Install Git</a>
-- <a href="https://php.net/manual/install.php" target="_blank">Install PHP</a>
-- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
-
-## Download the sample locally
+## 1 - Sample application
 
 1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
@@ -41,46 +39,38 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
     git clone https://github.com/Azure-Samples/php-docs-hello-world
     cd php-docs-hello-world
     ```
-    
-1. Make sure the default branch is `main`.
 
-    ```bash
-    git branch -m main
-    ```
-    
-    > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this quickstart also shows you how to deploy a repository from `main`.
-    
-## Run the app locally
-
-1. Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
+1. To run the application locally, use the `php` command to launch the built-in PHP web server.
 
     ```bash
     php -S localhost:8080
     ```
     
-1. Open a web browser, and navigate to the sample app at `http://localhost:8080`.
-
-    You see the **Hello World!** message from the sample app displayed in the page.
+1. Browse to the sample application at `http://localhost:8080` in a web browser.
     
     ![Sample app running locally](media/quickstart-php/localhost-hello-world-in-browser.png)
     
 1. In your terminal window, press **Ctrl+C** to exit the web server.
 
-## Deploy to Azure
+## 2 - Deploy your application code to Azure
+
+Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that will create the necessary resources and deploy your application in a single step.
 
 In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
-``` 
+az webapp up \
+    --sku F1 \
+    --logs
+```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
-- Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+
 - The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
+- The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
+- You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
-- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument.
-- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
+- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the code directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
@@ -101,29 +91,24 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
   "appserviceplan": "&lt;app-service-plan-name>",
   "location": "centralus",
   "name": "&lt;app-name>",
-  "os": "&lt;os-type>",
+  "os": "linux",
   "resourcegroup": "&lt;group-name>",
-  "runtime_version": "node|10.14",
+  "runtime_version": "php|8.0",
   "runtime_version_detected": "0.0",
   "sku": "FREE",
-  "src_path": "//home//cephas//myExpressApp"
+  "src_path": "//home//msangapu//myPhpApp"
 }
 </pre>
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
+## 3 - Browse to the app
 
-1. Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-    ```bash
-    http://<app-name>.azurewebsites.net
-    ```
+![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-    Here's what your new web app should look like:
-
-    ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
-
-## Redeploy updates
+## 4 - Redeploy updates
 
 1. Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
