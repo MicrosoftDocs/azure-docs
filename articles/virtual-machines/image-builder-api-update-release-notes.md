@@ -81,8 +81,8 @@ For API versions October 2021 and newer, the error output will look like the fol
 **Improvements:**
 
 - Added support for creating images from the following sources:
-    - Managed Image
     - Azure Artifact Gallery
+    - Azure Compute Gallery
     - Platform Image Repository (including Platform Image Purchase Plan)
 - Added support for the following customizations:
     - Shell (Linux) - Script or Inline
@@ -91,7 +91,7 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Windows Restart (Windows)
     - Windows Update (Windows) (with search criteria, filters, and update limit)
 - Added support for the following distribution types:
-    - Managed Image
+    - Azure Artifact Gallery
     - Azure Artifact Gallery Image Version (including replication and the ability to exclude from latest)
     - VHD
 - **Other Features**
