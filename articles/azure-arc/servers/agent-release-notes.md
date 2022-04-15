@@ -21,14 +21,14 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### New features
 
 - The default resource name for AWS EC2 instances is now the instance ID instead of the hostname. To override this behavior, use the `-n PreferredResourceName` parameter to specify your own resource name when connecting a server to Azure Arc.
-- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can invoke the same check anytime by running [azcmagent check](manage-agent.md#check) with the new `--use-private-link` parameter.
-- The [local agent security controls](security-overview.md#local-agent-security-controls) now supports disabling the extensions manager.
+- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](manage-agent.md#check) with the new `--use-private-link` parameter.
+- You can now disable the extension manager with the [local agent security controls](security-overview.md#local-agent-security-controls).
 
 ### Fixed
 
 - If you attempt to run `azcmagent connect` on a server that is already connected to Azure, the resource ID is now printed to the console to help you locate the resource in Azure.
 - The `azcmagent connect` timeout has been extended to 10 minutes.
-- `azcmagent show` no longer prints the private link scope ID which could be incorrect if the network was misconfigured. You can find whether the server is associated with a private link scope in the Azure Portal, CLI, PowerShell, or REST API.
+- `azcmagent show` no longer prints the private link scope ID which could be incorrect if the network was misconfigured. You can find whether the server is associated with a private link scope in the Azure portal, CLI, PowerShell, or REST API.
 - `azcmagent logs` collects only the 2 most recent logs for each service to reduce ZIP file size.
 - `azcmagent logs` collects Guest Configuration logs again.
 
@@ -36,7 +36,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Known issues
 
-- `azcmagent logs` does not collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
+- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
 
 ### New features
 
