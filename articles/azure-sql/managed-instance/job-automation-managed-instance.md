@@ -78,7 +78,7 @@ SQL Agent enables you to create different types of job steps, such as Transact-S
 > [!Note]
 > For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
-[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
+[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/replication-between-two-instances-configure-tutorial). 
 
 Other types of job steps are not currently supported in SQL Managed Instance, including:
 
@@ -204,4 +204,4 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
 - [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
-- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)
+- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/features-comparison)
