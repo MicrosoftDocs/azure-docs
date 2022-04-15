@@ -18,6 +18,7 @@ The resources providers that are marked with **- registered** are registered by 
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
+| Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
 | Microsoft.ADHybridHealthService - [registered](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
