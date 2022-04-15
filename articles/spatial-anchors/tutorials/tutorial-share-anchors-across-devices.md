@@ -37,9 +37,15 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download the sample project
+## Download the sample project + import SDK
+
+### Clone Samples Repo
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+### Import ASA SDK
+
+Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the HoloLens platform.
 
 ## Deploy the Sharing Anchors service
 
@@ -87,7 +93,7 @@ To deploy the sharing service through Visual Studio Code, follow the instruction
 
 ---
 
-## Deploy the sample app
+## Configure + deploy the sample app
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 

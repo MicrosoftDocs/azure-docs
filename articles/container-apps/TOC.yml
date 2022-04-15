@@ -28,6 +28,8 @@
           href: get-started-existing-container-image.md
         - name: Visual Studio
           href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -50,6 +52,8 @@
         href: vnet-custom-internal.md
       - name: Firewall integration
         href: firewall-integration.md
+    - name: Observability
+      href: observability.md
     - name: Health probes
       href: health-probes.md
 - name: How-to guides
@@ -58,6 +62,8 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Use managed identities
+      href: managed-identity.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions

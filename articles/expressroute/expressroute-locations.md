@@ -113,7 +113,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Supported |Supported |London |
 | **MTN Global Connect** |Supported |Supported |Cape Town, Johannesburg|
 | **[National Telecom](https://www.nc.ntplc.co.th/cat/category/264/855/CAT+Direct+Cloud+Connect+for+Microsoft+ExpressRoute?lang=en_EN)** |Supported |Supported |Bangkok |
-| **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Supported |Supported |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
+| **[Neutrona Networks](https://flo.net/)** |Supported |Supported |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** |Supported |Supported | Newport(Wales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Supported |Supported | Melbourne, Perth, Sydney, Sydney2 |
 | **NL-IX** |Supported |Supported | Amsterdam2 |
@@ -298,7 +298,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[X2nsat Inc.](https://www.x2nsat.com/expressroute/)** |Coresite |Silicon Valley, Silicon Valley 2|
 | **Zain** |Equinix |London|
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
+| **Zirro**| Cologix, Equinix | Montreal, Toronto |
 
 ## Connectivity through datacenter providers
 
