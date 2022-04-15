@@ -12,11 +12,13 @@
     href: quickstart-on-demand.md
 - name: Concepts
   items:
-  - name: Update options
+  - name: Update and maintenance options
     href: updates-maintenance-schedules.md
+  - name: Assessment options
+    href: assessment-options.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
-  - name: Manage multiple machines
+  - name: Manage updates on multiple machines
     href: manage-multiple-machines.md  
 - name: Samples
   items:

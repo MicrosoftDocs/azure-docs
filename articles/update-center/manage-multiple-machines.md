@@ -12,15 +12,15 @@ ms.author: v-ssudhir
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the update management center (Preview), you can:
+This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the update management center (preview), you can:
 
 - Quickly assess the status of available operating system updates.
 - Deploy updates.
 - Set up recurring update deployment schedule.
-- Get insights on number of machines managed.
+- Get insights on the number of machines managed.
 - Information on how they're managed, and other relevant details. 
 
-Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all your machines in Azure subscription.
+Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all your machines in the Azure subscription.
 
 
 ## View update management center (Preview) status 
@@ -37,7 +37,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
    - **Update status of machines**—shows the update status information for assessed machines that had applicable or needed updates. You can filter the results based on classification types. By default, all [classifications](/azure/automation/update-management/overview#update-classifications) are selected and as per the classification selection, the tile is updated.
 
-      The graph provides a snapshot for all your machines in your subscription, regardless of whether or not you have used update management center (Preview) for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days. 
+      The graph provides a snapshot for all your machines in your subscription, regardless of whether you have used update management center (preview) for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days. 
 
       From the assessment data available, machines are classified into the following categories:
 
@@ -46,34 +46,34 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
       - **Reboot Required**—pending a reboot for the updates to take effect.
       - **No updates data**—no assessment data is available for these machines. 
    
-      There could be the following reasons for no assessment data:
+      There following could be the reasons for no assessment data:
       - No assessment has been done over the last seven days
-      - Machine has an unsupported OS
-      - Machine is in an unsupported region and you can't perform an assessment.
+      - The machine has an unsupported OS
+      - The machine is in an unsupported region and you can't perform an assessment.
 
    - **Patch orchestration configuration of Azure virtual machines** — all the Azure or Arc-enabled machines inventoried in the subscription are summarized by each update orchestration method. Values are: 
 
       - **Azure orchestrated**—this mode enables automatic VM guest patching for the Azure virtual machine and Arc-enabled server. Subsequent patch installation is orchestrated by Azure. 
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
-      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates are disabled.
+      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 
 
    For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). 
 
-   - **Update installation status**—by default, the tile shows the status for last 30 days. Using the **Time** picker, you can choose a different range. The values are:
+   - **Update installation status**—by default, the tile shows the status for the last 30 days. Using the **Time** picker, you can choose a different range. The values are:
       - **Failed**—is when one or more updates in the deployment have failed.
       - **Completed**—is when the deployment ends successfully by the time range selected. 
       - **Completed with warnings**—is when the deployment is completed successfully but had warnings.
       - **In progress**—is when the deployment is currently running.
 
-- Select the **Update status of machines** or **Patch orchestration configuration of Azure Virtual machines** to go to **Machines** page. 
-- Select the **Update installation status**, to go to **History** page. 
+- Select the **Update status of machines** or **Patch orchestration configuration of Azure Virtual machines** to go to the **Machines** page. 
+- Select the **Update installation status**, to go to the **History** page. 
 
 ## Summary of machine status
 
-Update management center (Preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (Preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
+Update management center (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
 
- In update management center (Preview) page, select **Machines** from the left menu.
+ In the update management center (preview) page, select **Machines** from the left menu.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Update management center Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
@@ -84,12 +84,12 @@ Update management center (Preview) in Azure enables you to browse information ab
    - **Patch orchestration**— the patches are applied following availability-first principles and managed by Azure.
    - **Periodic assessment**—an update setting that allows you to enable automatic periodic checking of updates.
 
-The column **Patch Orchestration**, the machine's patch mode. Values are:
+The column **Patch Orchestration**, in the machine's patch mode has the following values:
 
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Azure orchestrated**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it's set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
    * **Image Default**—for Linux machines, its default patching configuration is used.
-   * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
+   * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode automatic updates are disabled for Windows OS.
 
 The machine's status—for an Azure VM, it shows it's [power state](/azure/virtual-machines/states-billing#power-states-and-billing), and for an Arc-enabled server, it shows if it's connected or not. 
 
@@ -127,14 +127,14 @@ You can create a recurring update deployment for your machines. Select your mach
 
 ## Update deployment history
 
-Update management center (Preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (Preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (Preview), select **History** from the left menu.
+Update management center (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (preview), select **History** from the left menu.
 
 
 ## Update deployment history by machines
 
 :::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Update Center History page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-page-expanded.png":::
 
-Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a machine specific to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
+Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a specific machine to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
 
    - **Machine Name**
    - **Status** 
@@ -147,7 +147,7 @@ Provides a summarized status of update and assessment actions performed against 
    - **Last assessed time**
 
 ## Update deployment history by maintenance run ID
-Within the history page, select **By maintenance run ID** to view history of the maintenance run schedules. Each record shows 
+In the **History** page, select **By maintenance run ID** to view the history of the maintenance run schedules. Each record shows 
 - Maintenance run ID
 - Status
 - Updated machines
@@ -156,16 +156,16 @@ Within the history page, select **By maintenance run ID** to view history of the
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-inline.png" alt-text="Update Center History page by maintenance run ID in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-expanded.png":::
 
-When you select any one maintenance run ID records, you can view an expanded status of the maintenance run. It contains information about machines and updates. It includes the number of machines that were updated and updates installed on them, along with the status of each of the machines in form of a pie chart. At the end of the page, it contains list view of both machines and updates that were a part of this maintenance run.
+When you select any one maintenance run ID record, you can view an expanded status of the maintenance run. It contains information about machines and updates. It includes the number of machines that were updated and updates installed on them, along with the status of each of the machines in the form of a pie chart. At the end of the page, it contains a list view of both machines and updates that were a part of this maintenance run.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-maintenance-run-record-inline.png" alt-text="Maintenance run ID record." lightbox="./media/manage-multiple-machines/update-center-maintenance-run-record-expanded.png":::
 
 
 ### Resource Graph
 
-The update assessment and deployment data are available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Select **Go to resource graph** to go to Azure Resource Graph Explorer. It enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+The update assessment and deployment data are available for querying in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Select **Go to resource graph** to go to the Azure Resource Graph Explorer. It enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-When Resource Graph Explorer opens, it automatically populates with the same query used to generate the results presented in the table on the **History** page in Update management center (Preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When the Resource Graph Explorer opens, it is automatically populated with the same query used to generate the results presented in the table on the **History** page in Update management center (preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 
