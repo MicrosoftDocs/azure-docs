@@ -78,7 +78,7 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * If you intend multiple HDInsight clusters to access separate data, use a separate database for the metastore on each cluster. If you share a metastore across multiple HDInsight clusters, it means that the clusters use the same metadata and underlying user data files.
 
-* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](../azure-sql/database/automated-backups-overview.md).
+* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](/azure/azure-sql/database/automated-backups-overview).
 
 * Locate your metastore and HDInsight cluster in the same region. This configuration will provide the highest performance and lowest network egress charges.
 
