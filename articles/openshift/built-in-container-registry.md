@@ -20,7 +20,7 @@ In this article, you'll configure the built-in container image registry for an A
 
 ## Before you begin
 
-This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Azure AD integeration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
+This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Azure AD integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
 
 > [!NOTE]
 > [Configuring Azure AD Authentication](./configure-azure-ad-ui.md#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
