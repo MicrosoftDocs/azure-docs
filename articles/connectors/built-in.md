@@ -150,7 +150,7 @@ Azure Logic Apps provides the following built-in actions for the following servi
         [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
         \
         \
-        Connect to your Azure Storage account so that you can create and manage blob content.
+        Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
         [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
@@ -191,6 +191,17 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
+        ![Azure Table Storage icon][azure-table-storage-icon]
+        \
+        \
+        **Azure Table Storage**<br>(*Standard logic app only*)
+        \
+        \
+        Connect to your Azure Table Storage account so you can create and manage tables.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
@@ -199,8 +210,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
@@ -227,8 +236,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -508,6 +515,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
+[azure-table-storage-icon]: ./media/apis-list/azure-table-storage.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
