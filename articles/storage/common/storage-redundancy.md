@@ -185,7 +185,7 @@ The following table describes key parameters for each redundancy option:
 | Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) |
 | Number of copies of data maintained on separate nodes | Three copies within a single region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
 
-For more information, see the [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
+For more information, see the [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ### Durability and availability by outage scenario
 
