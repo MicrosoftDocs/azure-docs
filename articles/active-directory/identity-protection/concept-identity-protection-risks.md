@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 04/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -70,6 +70,7 @@ Premium detections are visible only to Azure AD Premium P2 customers. Customers 
 | Additional risk detected | Real-time or Offline | This detection indicates that one of the premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they're titled "additional risk detected" for customers without Azure AD Premium P2 licenses. |
 | Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
 | Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
+| Azure AD threat intelligence | Offline | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
 ### User-linked detections
 
