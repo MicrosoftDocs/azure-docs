@@ -18,6 +18,9 @@ ms.date: 03/15/2022
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+> [!IMPORTANT]
+> This article shows how to use the SDK v1 to train a natural language processing model with automated ML. For the recommended approach for v2, see [Set up AutoML training for NLP models with v2](how-to-auto-train-nlp-models-v2.md).
+
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
