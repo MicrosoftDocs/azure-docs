@@ -36,12 +36,12 @@ For each resource, you will find the current instance count and the Autoscale st
 
 Additionally, you can reach the scaling page by clicking on **All Resources** on the home page and filter to the resource you're interested in scaling.
 
-![Click on all resources][./media/autoscale-get-started/choose-all-resources.png]
+![Click on all resources][16]
 
 
 Once you've selected the resource that you're interested in, select the **Scaling** tab to configure autoscaling rules.
 
-![Click on Scaling][./media/autoscale-get-started/scaling-page.png]
+![Click on Scaling][17]
 
 ## Create your first Autoscale setting
 
@@ -165,3 +165,5 @@ To learn more about moving resources between regions and disaster recovery in Az
 [13]: ./media/autoscale-get-started/view-scale-definition-09.png
 [14]: ./media/autoscale-get-started/disable-autoscale.png
 [15]: ./media/autoscale-get-started/set-manualscale.png
+[16]: ./media/autoscale-get-started/choose-all-resources.png
+[17]: ./media/autoscale-get-started/scaling-page.png
