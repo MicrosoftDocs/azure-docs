@@ -58,13 +58,6 @@ Correlation generates and sends data that enables distributed tracing and powers
 
 In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
 
-### Route tracking
-
-Currently, we offer a desktop client [React plugin](javascript-react-plugin.md#enable-correlation), which you can initialize with the JS SDK. It sets up route change tracking, and collects other React specific telemetry.
-
-> [!NOTE]
-> Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
-
 ### PageView
 
 If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
