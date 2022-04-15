@@ -29,7 +29,9 @@ The delete methods returns an object which includes an errorCode. When the error
 
 After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found).
 
-The following example deletes the specified container immediately. You must the **BlobServiceClient** for the container:
+## Delete container immediately
+
+The following example deletes the specified container immediately. Use the **BlobServiceClient** for the container:
 
 ```javascript
 // delete container immediately on blobServiceClient
@@ -42,7 +44,9 @@ async function deleteContainerImmediately(blobServiceClient, containerName) {
 }
 ```
 
-The following example marks the container for deletion during garbage collection. You must the **ContainerClient** for the container:
+## Delete container on garbage collection
+
+The following example marks the container for deletion during garbage collection. Use the **ContainerClient** for a soft delete of the container:
 
 ```javascript
 // soft delete container on ContainerClient
@@ -56,7 +60,9 @@ async function deleteContainerSoft(containerClient) {
 }
 ```
 
-The following example shows how to delete all of the containers that start with a specified prefix.
+## Delete container on garbage collection with prefix
+
+The following example shows how to delete all of the containers whose name starts with a specified prefix.
 
 ```javascript
 async function deleteContainersWithPrefix(blobServiceClient, prefix){
@@ -83,14 +89,52 @@ async function deleteContainersWithPrefix(blobServiceClient, prefix){
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling either of the following methods of the [BlobServiceClient]() class.
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling.
 
-- [UndeleteBlobContainer]()
-- [UndeleteBlobContainerAsync]()
+- BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-undeletecontainer)
 
-The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the [UndeleteBlobContainerAsync]() method to restore the container.
+The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the [undeleteContainer]() method to restore the container.
 
 ```javascript
+// Undelete specific container - last version
+async function undeleteContainer(blobServiceClient, containerName) {
+
+  // version to undelete
+  let containerVersion;
+
+  const containerOptions = {
+    includeDeleted: true,
+    prefix: containerName
+  }
+
+  // container listing returns version (timestamp) in the ContainerItem
+  for await (const containerItem of blobServiceClient.listContainers(containerOptions)) {
+
+    // if there are multiple deleted versions of the same container,
+    // the versions are in asc time order
+    // the last version is the most recent
+    if (containerItem.name === containerName) {
+      containerVersion = containerItem.version;
+    }
+  }
+
+  const { containerClient, containerUndeleteResponse } = await blobServiceClient.undeleteContainer(
+    containerName,
+    containerVersion,
+
+    // optional/new container name - if unused, original container name is used
+    //newContainerName 
+  );
+
+  // undelete was successful
+  if (!containerUndeleteResponse.errorCode) {
+    console.log(`${containerName} is undeleted`);
+
+    // do something with containerClient
+    const containerProperties = await containerClient.getProperties();
+    console.log(`${containerName} lastModified: ${containerProperties.lastModified}`);
+  }
+}
 ```
 
 ## See also
