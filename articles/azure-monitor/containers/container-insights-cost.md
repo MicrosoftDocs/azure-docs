@@ -195,4 +195,4 @@ If you are utilizing [Prometheus metric scraping](container-insights-prometheus-
 
 ## Next steps
 
-For more information about how to understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Manage your usage and estimate costs](../logs/manage-cost-storage.md).
+For more information about how to understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).

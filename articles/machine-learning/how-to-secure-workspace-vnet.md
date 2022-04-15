@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 03/09/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2
 
 ---
 
@@ -351,3 +351,5 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md)
+* [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md)

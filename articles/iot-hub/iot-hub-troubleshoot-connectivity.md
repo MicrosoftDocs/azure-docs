@@ -102,7 +102,7 @@ After you've created a diagnostic setting to route IoT Hub resource logs to Azur
 
 Use the following problem resolution guides for help with the most common errors:
 
-* [400027 ConnectionForcefullyClosedOnNewConnection](iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md)
+* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400027-connectionforcefullyclosedonnewconnection)
 
 * [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
 
@@ -171,7 +171,7 @@ AzureDiagnostics
 
 As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
 
-If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal. For example, do not trigger actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
+If you're monitoring device connections with Event Hubs, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal. For example, do not trigger actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
 
 > [!NOTE]
 > IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.

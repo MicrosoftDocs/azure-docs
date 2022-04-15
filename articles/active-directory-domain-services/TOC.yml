@@ -91,6 +91,8 @@
           href: migrate-from-classic-vnet.md
         - name: Change SKU
           href: change-sku.md
+        - name: Retrieve data
+          href: how-to-data-retrieval.md
     - name: Secure Azure AD DS
       items:
         - name: Secure your managed domain

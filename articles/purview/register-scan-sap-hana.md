@@ -46,14 +46,14 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 
-* Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
+    * Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 
-* Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download the SAP HANA JDBC driver ([JAR ngdbc](https://mvnrepository.com/artifact/com.sap.cloud.db.jdbc/ngdbc)) on the machine where your self-hosted integration runtime is running.
+    * Download the SAP HANA JDBC driver ([JAR ngdbc](https://mvnrepository.com/artifact/com.sap.cloud.db.jdbc/ngdbc)) on the machine where your self-hosted integration runtime is running.
 
-  > [!Note]
-  > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
+      > [!Note]
+      > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
 ### Required permissions for scan
 
@@ -143,9 +143,9 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
         * Contain C or
         * Equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running. This should be the path to valid JAR folder location. Do not include the name of the driver in the path.
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running. This should be the path to valid JAR folder location. Don't include the name of the driver in the path.
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of SAP HANA database to be scanned.
 

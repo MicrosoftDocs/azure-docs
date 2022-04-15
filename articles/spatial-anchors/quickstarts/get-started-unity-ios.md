@@ -36,9 +36,11 @@ To complete this quickstart, make sure you have:
 - A Unity installation. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download and open the Unity sample project
+## Download sample project and import SDK
 
 ### Clone Samples Repository
 
@@ -48,12 +50,13 @@ To complete this quickstart, make sure you have:
 
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the iOS platform.
 
-### Configure Unity
+## Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
+## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Xcode project

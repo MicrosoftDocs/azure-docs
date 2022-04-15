@@ -6,7 +6,7 @@
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Assign a policy - Portal
     displayName: assign, compliance
@@ -19,7 +19,7 @@
     href: ./assign-policy-powershell.md
   - name: Assign a policy - .NET
     displayName: assign, compliance
-    href: ./assign-policy-dotnet.md  
+    href: ./assign-policy-dotnet.md
   - name: Assign a policy - JavaScript
     displayName: assign, compliance
     href: ./assign-policy-javascript.md
