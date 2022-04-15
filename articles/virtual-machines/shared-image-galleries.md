@@ -111,7 +111,7 @@ Image version:
 
 ## Sharing
 
-You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [Community Gallery (preview)](azure-compute-gallery.md#community-galleries-preview).
+You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [Community Gallery (preview)](azure-compute-gallery.md#community).
 
 > [!IMPORTANT]
 > Community Gallery is currently in public preview.

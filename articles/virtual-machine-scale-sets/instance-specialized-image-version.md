@@ -30,11 +30,11 @@ Replace resource names as needed in these examples.
 
 Creating a scale set using an image stored in an Azure Compute Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
 
-:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+:::image type="content" source="./media/gallery/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
 
 The **Select an image** page will open. Select **My images** if the image you want is in your own gallery, or select **Shared images** if the image has been shared to you from someone else's gallery.
 
-:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
+:::image type="content" source="./media/gallery/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 ### [CLI](#tab/cli)
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.35.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -185,7 +185,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Microsoft does not provide support for images in the [Community Gallery](azure-compute-gallery#community).
+> Microsoft does not provide support for images in the [Community Gallery](../virtual-machines/azure-compute-gallery.md#community).
 
 You can create scale sets from images in the community gallery, but if the image is removed at a later time, you won't be able to scale up. To ensure you have long-term access to the image, you should consider creating an image in your own gallery from a VM created using the community gallery image that you want to use for your scale set. For more information, see [Create an image definition and an image version](../virtual-machines/image-version.md).
 
@@ -230,11 +230,11 @@ az vmss create \
 
 Creating a scale set using an image from the Community Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
 
-:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+:::image type="content" source="./media/gallery/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
 
 The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the Community Gallery.
 
-:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
+:::image type="content" source="./media/gallery/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 

@@ -96,7 +96,7 @@ To share a gallery with all Azure users, you can also create a [Community Galler
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you can't migrate a regular gallery to a community gallery.
 
-To learn more, see [Community Galleries (preview) overview](azure-compute-gallery.md#community-galleries-preview) and [Create a community gallery](create-gallery.md#community).
+To learn more, see [Community Galleries (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
 
 
 
