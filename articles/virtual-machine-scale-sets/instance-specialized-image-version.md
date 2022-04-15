@@ -28,7 +28,13 @@ Replace resource names as needed in these examples.
 ## Create a scale set from your gallery
 ### [Portal](#tab/portal)
 
+Creating a scale set using an image stored in an Azure Compute Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
 
+:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+
+The **Select an image** page will open. Select **My images** if the image you want is in your own gallery, or select **Shared images** if the image has been shared to you from someone else's gallery.
+
+:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 ### [CLI](#tab/cli)
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.35.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -217,11 +223,18 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image $imgDef \
-  --orchestration-mode Flexible
+   --orchestration-mode Flexible
 ```
 
 ### [Portal](#tab/portal2)
 
+Creating a scale set using an image from the Community Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
+
+:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+
+The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the Community Gallery.
+
+:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 

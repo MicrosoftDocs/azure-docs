@@ -55,6 +55,16 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 ### [Portal](#tab/portal) 
 
+Creating a scale set using an image stored in an Azure Compute Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
+
+:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+
+The **Select an image** page will open. Select **My images** if the image you want is in your own gallery, or select **Shared images** if the image has been shared to you from someone else's gallery.
+
+:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
+
+
+
 ### [PowerShell](#tab/powershell)
 
 The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
@@ -260,7 +270,13 @@ az vmss create \
 
 ### [Portal](#tab/portal2)
 
+Creating a scale set using an image from the Community Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
 
+:::image type="content" source="./media/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
+
+The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the Community Gallery.
+
+:::image type="content" source="./media/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 
 
 ---
