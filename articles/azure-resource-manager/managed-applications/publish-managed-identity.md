@@ -192,7 +192,9 @@ A basic Azure Resource Manager template that deploys a Managed Application with 
 
 ## Granting access to Azure resources
 
-Once a Managed Application is granted an identity, it can be granted access to existing Azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Once a Managed Application is granted an identity, it can be granted access to existing Azure resources by creating a role assignment.
+
+To do so, search for and select the name of the Managed Application or user-assigned identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Linking existing Azure resources
 
@@ -305,7 +307,7 @@ Once the Managed Application package is created, the Managed Application can be 
 
 The token of the Managed Application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
 
-``` HTTP
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
 
 {
@@ -326,7 +328,7 @@ userAssignedIdentities | *no* | The list of user-assigned managed identities to 
 
 A sample response might look like:
 
-``` HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
