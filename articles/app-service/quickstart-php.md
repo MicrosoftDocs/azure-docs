@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 # Create a PHP web app in Azure App Service
 
 ::: zone pivot="platform-windows"  
-[!INCLUDE [quickstart-php-windows-](./includes/quickstart-php/quickstart-php-windows.pivot.md)]
+[!INCLUDE [quickstart-php-windows-](/includes/quickstart-php/quickstart-php-windows.pivot.md)]
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
@@ -79,7 +79,7 @@ az webapp up --sku F1 --name <app-name>
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
-- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
+- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument.
 - If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
@@ -111,54 +111,6 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 </pre>
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
-
-=======
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
-
-::: zone pivot="platform-windows"  
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
-::: zone-end  
-
-::: zone pivot="platform-linux"
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
-::: zone-end
-
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
-
-## Create a web app
-
-1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command.
-
-    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes).
-
-    ```azurecli-interactive
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP:8.0' --deployment-local-git
-    ```
-    
-    When the web app has been created, the Azure CLI shows output similar to the following example:
-
-    <pre>
-    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
-    {
-      "availabilityState": "Normal",
-      "clientAffinityEnabled": true,
-      "clientCertEnabled": false,
-      "cloningInfo": null,
-      "containerSize": 0,
-      "dailyMemoryTimeQuota": 0,
-      "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
-      "enabled": true,
-      &lt; JSON data removed for brevity. &gt;
-    }
-    </pre>
-    
-    You've created an empty new web app, with git deployment enabled.
-
-    > [!NOTE]
-    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
-    >
 
 
 1. Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
