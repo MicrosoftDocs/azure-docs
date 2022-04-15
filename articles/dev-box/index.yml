@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Project Fidalgo Dev Box documentation
-summary: placeholder for Project Fidalgo Dev Box description
+title: Microsoft Dev Box documentation
+summary: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
 
 metadata:
-  title: Project Fidalgo Dev Box documentation
-  description: placeholder for Project Fidalgo Dev Box description 
+  title: Microsoft Dev Box documentation
+  description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. 
   services: dev-box
   ms.service: dev-box
   ms.topic: hub-page
@@ -19,39 +19,57 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Project Fidalgo Dev Box?
+    - title: What is Microsoft Dev Box?
       itemType: overview
-      url: overview-what-is-project-fidalgo-dev-box.md
+      url: overview-what-is-microsoft-dev-box.md
+      
+    # Card
+    - title: 'Create a Dev Box Pool'
+      itemType: quickstart
+      url: quickstart-create-dev-box-pool.md
+
+    # Card
+    - title: 'Create a Dev Box'
+      itemType: quickstart
+      url: quickstart-create-dev-box.md      
    
 
 conceptualContent:
 # Supports up to 3 sections
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
+
     # Card
-    - title: Dev Box how to 1
+    - title: Configure an Azure Compute Gallery
       links:
-        - url: how-to-1.md
+        - url: how-to-configure-azure-compute-gallery.md
           itemType: how-to-guide
-          text: Dev Box text 
+          text: Learn how to create a repository for managing and sharing Dev Box images. 
     
     # Card
-    - title: Dev box how to 2
+    - title: Provide access to Project Admins
       links:
-        - url: how-to-1.md
+        - url: how-to-project-admin.md
           itemType: how-to-guide
-          text: Dev Box text 2
+          text: Learn how to provide access to Project Admins.
         
     # Card
-    - title: Dev box how to 3
+    - title: Provide access to Dev Box users
       links:
-        - url: how-to-1.md
+        - url: how-to-dev-box-user.md
           itemType: how-to-guide
-          text: Dev Box text 3
+          text: Learn how to provide access to Dev Box users.
 
     # Card
     - title: Reference
       links:
-        - url: reference-1.md
+        - url: concept-dev-box-concepts.md
           itemType: reference
-          text: Test configuration YAML
+          text: Learn key concepts and terminology for Microsoft Dev Box.
+
+    # Card
+    - title: Reference
+      links:
+        - url: CLI-reference.md
+          itemType: reference
+          text: CLI reference for Microsoft Dev Box.

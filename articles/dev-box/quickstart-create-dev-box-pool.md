@@ -1,0 +1,204 @@
+---
+title: 'Quickstart: Create a Dev Box Pool'
+description: 'This quickstart shows how to create and configure a Dev Box environment, including a DevCenter. network connections, Dev Box definitions, projects and a Dev Box Pool.'
+services: dev-box
+ms.service: dev-box
+ms.topic: quickstart
+author: RoseHJM
+ms.author: rosemalcolm
+ms.date: 04/15/2022
+---
+
+# Quickstart: Create a Dev Box Pool
+
+This quickstart describes how to set up a Dev Box Pool by using the Azure portal. You can go through this workflow to configure the resources required to create dev boxes. This is great for a trial experience or pilot of the service.
+
+In this quickstart, you will do the following actions:
+
+* [Create a DevCenter](#create-a-devcenter)
+* [Create a Network Connection](#create-a-network-connection)
+* [Create a Dev Box Definition](#create-a-dev-box-definition)
+* [Create a Project](#create-a-project)
+* [Create a Dev Box Pool](#create-a-dev-box-pool)
+
+## Prerequisites
+
+- As Dev Box (codenamed Fidalgo) is currently in Private Preview, only the subscriptions that are allow-listed can be used to create a Dev Box Pool, if your subscription is not yet allow-listed, reach out to [Dev Box Support](mailto:devboxsupport@microsoft.com)
+- Owner or Contributor permissions on an Azure Subscription or specific resource group.
+
+## Create a DevCenter
+
+The following steps illustrate how to use the Azure portal to create and configure a DevCenter in 'Project Fidalgo'. This is performed by the DevCenter Owner persona. If your org already has an existing DevCenter, you can reuse it and skip to the next section.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters) using the credentials for your Azure subscription. 
+
+2. On the DevCenter page, select **+ Create** 
+![image](/Documentation/media/create-devcenter.png)
+
+3. On the **Basics** tab of **Create a Fidalgo DevCenter** window, perform the following actions:
+   ![image](/Documentation/media/create-devcenter-basics.png)
+    1. For **Subscription**, select the subscription in which you want to create the DevCenter. Kindly note that you need to use the whitelisted subscription
+    2. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
+    3. For **Name**, enter a name for the DevCenter
+    4. For **Location**, select the location/region you want the DevCenter to be created in.
+    
+    The currently supported Azure locations with capacity are:
+    - East US
+    - East US 2
+    - Southcentral US
+    - West US 3
+    - West Europe
+
+
+3. [Optional] In the 'Tags' tab, enter a name and value pair that you want to assign.
+![image](https://user-images.githubusercontent.com/68404454/123877734-5f2f5980-d903-11eb-932c-ff76918145ff.png)
+
+4. Review + Create
+
+5. Confirm that the DevCenter is created successfully by looking at the notifications. 
+![image](/Documentation/media/azure-notifications.png)
+
+6. When the deployment is complete, select **Go to resource**.
+
+7. Confirm that you see the **DevCenter** page.
+
+    ![image](https://user-images.githubusercontent.com/68404454/123880540-82a8d300-d908-11eb-9a32-a2e90153525e.png)
+
+
+## Create a Network Connection
+The following steps illustrate how to use the Azure portal to create and configure a Network Connection in 'Project Fidalgo'. This is performed by the DevCenter owner persona. Network Connections can be created using virtual networks that are either Hybrid Azure AD joined or Native Azure AD joined. Both options are described below. If your DevCenter already has a Network Connection attached, in the region you want to use for your pool, you can use it and skip this section.
+
+### Native Azure AD Join
+Currently, you can use the Azure CLI to create an AADJ Network Connection. 
+
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and create a virtual network using [these steps](https://docs.microsoft.com/en-us/azure/virtual-network/manage-virtual-network#create-a-virtual-network). Make sure to:
+    1. Use a resource group in the subscription that has been allow-listed for Dev Box Private Preview.
+    1. Set the region of the vnet to the region where your Dev Boxes will be created. Supported regions:
+        - East US
+        - East US 2
+        - Southcentral US
+        - West US 3
+        - West Europe
+
+1. Set up the [Azure CLI Fidalgo extension](/Documentation/CLI-reference.md#setup).
+
+1. Create the Network Connection resource using the following command:
+```
+az fidalgo admin network-setting create --location {region} --domain-join-type "AzureADJoin" --networking-resource-group-id {rgID} --subnet-id {subnetID} --name {networkConnectionName} --resource-group "rg1"
+```
+Notes:
+- location - is the Azure Region of your other resources, doesn't necessarily have to be the region of your vnet. Supported locations:
+  - eastus
+  - eastus2
+  - southcentralus
+  - westus3
+  - westeurope
+- network-resource-group-id - the resource group in which the NICs will be created, this should be in the same subscription as your vnet.
+- subnet-id - append "/subnets/{subnetName}" to the resource ID of the vnet you created
+- resource-group - this is the rg where the network connection will be created, should be in the same subscription as the vnet.
+
+After creation, the dev box service will run health checks to ensure that the network connection has been created with the right configuration. You can view the status of the health checks in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/networkConnections).
+
+### Hybrid Azure AD Join
+1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/networkConnections).
+![Network Connections Grid](/Documentation/media/Network_Connection_Grid_empty.png)
+
+2. Click on **+ Create** and in the **Basics** tab of **Create a Network Connection** window, do the following actions:
+    1. Select your Azure subscription and resource group (the network connection needs to be in the same subscription as your vnet, but it can be in a different resource group).
+    2. Select the Virtual Network and subnet
+    To domain join the dev boxes and access corpnet, we are using Hybrid AAD join. Therefore the vnet needs line of sight to the domain controller. Look at the full network requirements in [the Windows 365 documentation](https://docs.microsoft.com/en-us/windows-365/enterprise/requirements-network).
+    The vnet should be in the same Azure region as where you want the dev boxes to be created.
+    3. Enter a name for the network that can be easily distinguishable when configuring dev box pools. eg: west-us3
+    4. Enter the name of the domain you want the dev boxes to join. eg: ad.contoso.com
+    5. Enter the Organizational Unit (OU) location for the dev boxes. After they are provisioned, the dev box computer objects will appear in this OU. eg: OU=devboxes,DC=ad,DC=contoso,DC=com
+    6. Enter the username and password for an Azure Active Directory user with sufficient permissions to perform a domain join. eg: domainjoin@ad.contoso.com
+    7. Select **Review + Create**.
+
+    ![Network Connection Create](/Documentation/media/create-network-connection.png)
+
+### Attach Network Connection to DevCenter
+A Network Connection is a top level Azure resource. In order for it to be used in Projects to create Dev Box Pools, it must first be attached to the overarching DevCenter.
+
+1. Once the Network Connection is deployed successfully, go back to the DevCenter resource you created and select the **Network Connection** tab from the left menu. Click on **+ Add** and select the Network Connection you just created. Select the Add button to attach the Network Connection to the DevCenter.
+![Attach Network Connection](/Documentation/media/Network_Connection_Add.png)
+
+After successful creation, several health checks will be run on the network. You can view the status of the checks on the resource overview page. If there are any errors, please refer to the [troubleshooting documentation](https://docs.microsoft.com/en-us/windows-365/enterprise/troubleshoot-on-premises-network-connection).
+
+![Network Connection Status](/Documentation/media/Network_Connection_Grid_populated.png)
+
+This Network Connection can now be used in the creation of Dev Box Pools. The dev boxes will be created and domain joined in the location of the VNet.
+
+## Create a Dev Box Definition
+The following steps illustrate how to use the Azure portal to create and configure a Dev Box Definition under a DevCenter. The Dev Box Definition is a resource that is reusable across Projects in a DevCenter. It defines the image and sku (compute + storage) that will be used in creation of the dev boxes. Dev Box Definitions are created and managed centrally by the DevCenter Owner persona.
+
+1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
+
+2. Select **Fidalgo DevCenters** in the left menu, and select the DevCenter you would like to use.
+    ![Dev Box Definition Grid](/Documentation/media/Dev_Box_Definition_Grid_empty.png)
+
+3. Select **Dev box definitions** from the left menu, and select **+ Create**.
+
+    ![Dev Box Definition Create](/Documentation/media/Dev_Box_Definition_Create.png)
+4. Enter a name for the Dev Box Definition.
+5. Select an image from the dropdown:
+    1.  By default, Azure provides two supported images for Dev Box from the Marketplace, a Windows 10 image and a Windows 11 image. You may choose either one of these from the dropdown according to your preference.
+    2. You may also attach your own Azure Compute Gallery from an Azure Subscription that you manage. Learn [how to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
+6. Select the image version you would like to use. 
+    1. You may use a specific image version statically. All dev boxes created from a Pool using this Definition will use the same image. 
+    2. You may also select the *Latest* image version. Using this feature will allow the Pool to always pick up the most recent image version for your chosen image from the Gallery. This way, the dev boxes created will stay up to date with your latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.
+7. For Private Preview, the only sku option available is 8 vCPU / 32 GB RAM / 1024 GB SSD. More compute and storage options will be available at Public Preview.
+
+## Create a Project
+
+The following steps illustrate how to use the Azure portal to create and configure a Project resource in 'Project Fidalgo'. This is done by the DevCenter Owner persona.
+
+1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters). 
+
+2. Select **Fidalgo Projects** in the left menu, click on **+ Create** and in the **Basics** tab of **Create a Fidalgo Project** window, do the following actions:
+    1. For **Subscription**, select the subscription in which you want to create the Project.
+    2. For **Resource group**, Either use an existing resource group or select **Create new**, and enter a name for the resource group.
+    3. For **Fidalgo DevCenter**, Select the DevCenter to which you want to associate this Project. This will result in all the DevCenter level settings applied on the Project.
+    4. For **Name**, enter a name for the Project.
+    5. For **Location**, select the location/region in which you want the Project to be created.
+    ![image](https://user-images.githubusercontent.com/68404454/124522497-196a0980-ddb9-11eb-9568-1cbfd257471d.png)
+
+
+3. Next, skip the **Subscription mapping** tab, this is relevant only to the Environments service, separate from dev boxes.
+
+4. Review + Create
+
+5. Confirm that the Project is created successfully by looking at the notifications. Select **Go to resource**.
+
+6. Confirm that you see the **Project** page.
+
+    ![image](https://user-images.githubusercontent.com/68404454/124523340-5257ad80-ddbc-11eb-8b9a-639d4293f651.png)
+
+## Create a Dev Box Pool
+The following steps illustrate how to use the Azure portal to create a Dev Box Pool resource within a Project. You will use the Dev Box Definition and Network Connection resources available within the DevCenter to configure a specific Pool that dev boxes will be created from. A Pool can be created and managed by the DevCenter Owner or [Project Admin](/Documentation/how-to-project-admin.md) persona
+
+1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects). 
+
+1. Select **Fidalgo Projects** in the left menu, and open the Project you want to create the Pool in. 
+![Fidalgo Projects](/Documentation/media/Projects_Grid.png)
+
+1. Select **Dev box pools** in the left menu, and select the **+ Add** button to open the context pane to create a Pool.
+![Dev Box Pool Grid](/Documentation/media/Dev_Box_Pool_Grid_empty.png)
+
+1. For **Name**, enter a name for the Pool. The Pool Name will be visible to developers to select when they are creating dev boxes, and must be unique within a Project.
+
+   ![Dev Box Pool Create](/Documentation/media/Dev_Box_Pool_Create.png)
+
+1. For **Dev box definition**, select from the dropdown, the Dev Box Definition that you just created earlier. The definition determines the base image and size for the dev boxes created within this Pool.
+
+1. For **Network connection**, select from the dropdown, the Network Connection that you created earlier. The Network Connection determines the region of the dev boxes created within this Pool.
+
+1. Select **Create**. 
+![Dev Box Pool status](/Documentation/media/Dev_Box_Pool_Grid_populated.png)
+
+The Pool resource will be deployed and health checks will be run to ensure the image and network pass the validation criteria to be used for dev boxes. 
+
+## Next steps
+
+In this quickstart, you created a Dev Box Pool including the resources necessary to configure it. To learn about how to create to your dev box and connect to it, advance to the next quickstart:
+
+- [Create a dev box](./quickstart-create-dev-box.md)
