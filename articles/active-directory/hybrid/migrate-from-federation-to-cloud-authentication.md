@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 04/15/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -76,7 +76,7 @@ When technology projects fail, it’s typically because of mismatched expectatio
 
 ### Plan communications
 
-After migrating to cloud authentication, the user sign in experience for accessing Microsoft 365 and other resources that are authenticated through Azure AD changes. Users who are outside the network see only the Azure AD sign in page. 
+After migrating to cloud authentication, the user sign-in experience for accessing Microsoft 365 and other resources that are authenticated through Azure AD changes. Users who are outside the network see only the Azure AD sign-in page. 
 
 Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
 
@@ -107,13 +107,13 @@ Here are key migration considerations.
 
 The onload.js file cannot be duplicated in Azure AD. If your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file, verify if Azure AD can meet your current customization requirements and plan accordingly. Communicate these upcoming changes to your users.
 
-#### Sign in experience
+#### Sign-in experience
 
-You cannot customize Azure AD sign in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
+You cannot customize Azure AD sign-in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
 
 #### Organization branding
 
-You can [customize the Azure AD sign in page](../fundamentals/customize-branding.md). Some visual changes from AD FS on sign in pages should be expected after the conversion. 
+You can [customize the Azure AD sign-in page](../fundamentals/customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
 
 >[!NOTE] 
 >Organization branding is not available in free Azure AD licenses unless you have a Microsoft 365 license.
@@ -167,7 +167,7 @@ For more information, see **[Migrate from Microsoft MFA Server to Azure Multi-fa
 
 ## Plan for implementation
 
-This section includes pre-work before you switch your sign in method and convert the domains.
+This section includes pre-work before you switch your sign-in method and convert the domains.
 
 ### Create necessary groups for staged rollout
 
@@ -189,11 +189,11 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 ### Pre-work for PHS and PTA
 
-Depending on the choice of sign in method, complete the [pre-work for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
+Depending on the choice of sign-in method, complete the [pre-work for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
 
 ## Implement your solution
 
-Finally, you switch the sign in method to PHS or PTA, as planned and convert the domains from federation to cloud authentication. 
+Finally, you switch the sign-in method to PHS or PTA, as planned and convert the domains from federation to cloud authentication. 
 
 ### Using staged rollout
 
@@ -240,7 +240,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 
 #### Option A
 
-**Switch from federation to the new sign in method by using Azure AD Connect**
+**Switch from federation to the new sign-in method by using Azure AD Connect**
 
 1. On your Azure AD Connect server, open **Azure AD Connect** and select **Configure**.
 
@@ -265,7 +265,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
     Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions:
       - A computer account named AZUREADSSO (which represents Azure AD) is created in your on-premises Active Directory instance.
       - The computer account’s Kerberos decryption key is securely shared with Azure AD.
-      - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign in.
+      - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
     The domain administrator credentials are not stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
 
@@ -274,7 +274,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
     ![Ready to configure page](media/deploy-cloud-user-authentication/ready-to-configure.png)
 
  > [!IMPORTANT] 
- > At this point, all your federated domains will change to managed authentication. Your selected User sign in method is the new method of authentication.
+ > At this point, all your federated domains will change to managed authentication. Your selected User sign-in method is the new method of authentication.
 
 1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
@@ -309,7 +309,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 #### Option B
 
-**Switch from federation to the new sign in method by using Azure AD Connect and PowerShell**
+**Switch from federation to the new sign-in method by using Azure AD Connect and PowerShell**
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
@@ -366,13 +366,13 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 Complete the following tasks to verify the sign-up method and to finish the conversion process.
 
-### Test the new sign in method
+### Test the new sign-in method
 
-When your tenant used federated identity, users were redirected from the Azure AD sign in page to your AD FS environment. Now that the tenant is configured to use the new sign in method instead of federated authentication, users aren’t redirected to AD FS. 
+When your tenant used federated identity, users were redirected from the Azure AD sign-in page to your AD FS environment. Now that the tenant is configured to use the new sign-in method instead of federated authentication, users aren’t redirected to AD FS. 
 
 **Instead, users sign in directly on the Azure AD sign-in page.**
 
-Follow the steps in this link - [Validate sign in with PHS/ PTA and seamless SSO](how-to-connect-staged-rollout.md#validation) (where required)
+Follow the steps in this link - [Validate sign-in with PHS/ PTA and seamless SSO](how-to-connect-staged-rollout.md#validation) (where required)
 
 ### Remove a user from staged rollout
 
