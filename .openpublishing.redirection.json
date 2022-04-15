@@ -44218,7 +44218,12 @@
       "redirect_url": "/azure/governance/policy/samples",
       "redirect_document_id": false
     },
-   {
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/custom-question-answering.md",
+      "redirect_url": "/azure/cognitive-services/language-service/question-answering/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
       "redirect_url": "/azure/openshift/howto-secure-openshift-with-front-door",
       "redirect_document_id": false
