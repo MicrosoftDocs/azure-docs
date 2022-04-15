@@ -61,7 +61,7 @@ sections:
      
       - question: What is the solution? 
         answer: |
-          We have migrated most caches from using Cloud Services (classic) to using `Virtual Machine State Sets` (VMSS) `under the hood`. Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+          We have migrated most  caches from being built on Cloud Services (class) to being built on Virtual Machine Scale Sets (VMSS). Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
           - Migrate to a new cache using Private Links (recommended). 
 
@@ -69,7 +69,7 @@ sections:
             
           - Migrate to a new cache in a new ARM VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. To migrate, `tear down` and `re-create` the cache in a new ARM VNet subnet. For  recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We hae migrated most  caches from being built on Cloud Services (class) to being built on Virtual machine Scale Sets (VMSS). To migrate, delete the existing cache and create a new cache in a new ARM VNET subnet. For  recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
@@ -104,8 +104,9 @@ sections:
             	  
                 Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
 
-            <!-- A picture containing Gantt chart -->
-            <!-- @mssfteegarden - I can't copy from your document. -->
+
+            ![./media/cache-cloud-service-timeline.png]
+            
 
       - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
