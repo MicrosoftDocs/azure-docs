@@ -754,9 +754,7 @@ az cosmosdb gremlin  restorable-resource list \
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts.
 
- 
-
-#### List all the versions of Table of a live Table API account
+#### List all the versions of a table of a live Table API account
 This command output shows includes list of operations performed on the Table inside this Table API account.
 ```azurecli-interactive
 az cosmosdb table  restorable-graph list  \
