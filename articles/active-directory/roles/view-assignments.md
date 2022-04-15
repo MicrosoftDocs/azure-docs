@@ -93,7 +93,7 @@ This section describes viewing assignments of a role with organization-wide scop
 
 Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) and [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) commands to list role assignments.
 
-The following example shows hows to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
+The following example shows how to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
 
 ```powershell
 # Fetch list of all directory roles with template ID
@@ -135,7 +135,7 @@ fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /admin
 
 This section describes how to list role assignments with organization-wide scope. To list single-application scope role assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
 
-Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignments for a specific role definition. The following example shows hows to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
+Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignments for a specific role definition. The following example shows how to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
 
 ```http
 GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
