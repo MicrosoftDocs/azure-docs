@@ -182,7 +182,7 @@ Unless you need the job to create containers on your behalf, you should choose *
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | User, group, or service principal |
-    | Members | &lt;Name of your Stream Analytics job&gt; |
+    | Members | \<Name of your Stream Analytics job> |
 
     ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -200,7 +200,7 @@ Unless you need the job to create containers on your behalf, you should choose *
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | User, group, or service principal |
-    | Members | &lt;Name of your Stream Analytics job&gt; |
+    | Members | \<Name of your Stream Analytics job> |
 
     ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 

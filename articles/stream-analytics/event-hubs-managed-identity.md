@@ -49,7 +49,7 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
     | --- | --- |
     | Role | Azure Event Hubs Data Owner |
     | Assign access to | User, group, or service principal |
-    | Members | &lt;Name of your Stream Analytics job&gt; |
+    | Members | \<Name of your Stream Analytics job> |
 
     ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
