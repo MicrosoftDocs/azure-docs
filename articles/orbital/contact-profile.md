@@ -70,4 +70,4 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 ## Next steps
 
 - [Quickstart: Schedule a contact](schedule-contact.md)
-- [How-to: Cancel a contact](delete-contact.md)
+- [Tutorial: Cancel a contact](delete-contact.md)
