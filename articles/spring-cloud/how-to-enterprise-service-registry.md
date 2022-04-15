@@ -1,7 +1,7 @@
 ---
-title: How to Use Tanzu Service Registry with Azure Spring Cloud Enterprise Tier
-titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use Tanzu Service Registry with Azure Spring Cloud Enterprise Tier.
+title: How to Use Tanzu Service Registry with Azure Spring Cloud Enterprise tier
+titleSuffix: Azure Spring Cloud Enterprise tier
+description: How to use Tanzu Service Registry with Azure Spring Cloud Enterprise tier.
 author: karlerickson
 ms.author: yoterada
 ms.service: spring-cloud
@@ -18,20 +18,18 @@ This article describes how to use VMware Tanzu® Service Registry with Azure Spr
 
 The [Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. This component helps you apply the Service Discovery design pattern to your applications. Service Discovery is one of the main ideas of the microservices architecture. It can be difficult to hand-configure each client of a service or adopt some form of access convention, and these configurations and conventions can be brittle in production. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
 
-To use the Service Registry and Service Discovery in Spring Boot applications, you would normally follow the instructions in [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) in the Spring documentation.
-Basically, you would create a Eureka Service Registry server yourself, start it, and then connect to the server from the Eureka Client. You would then access the Eureka Server from the client, and the registered Eureka Client information would be acquired and accessed. With Azure Spring Cloud Enterprise, however, you don't have to create or start the Eureka Server (Service Registry) yourself. You can use the Tanzu Service Registry by selecting it when you create your Azure Spring Cloud Enterprise tier instance.
+To use the Service Registry and Service Discovery in Spring Boot applications, you would normally follow the instructions in [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/) in the Spring documentation. Basically, you would create a Eureka Service Registry server yourself, start it, and then connect to the server from the Eureka Client. You would then access the Eureka Server from the client, and the registered Eureka Client information would be acquired and accessed. With Azure Spring Cloud Enterprise, however, you don't have to create or start the Eureka Server (Service Registry) yourself. You can use the Tanzu Service Registry by selecting it when you create your Azure Spring Cloud Enterprise tier instance.
 
 ## Prerequisites
 
-Please enable Tanzu Service Registry and provision Azure Spring Cloud Enterprise in advance.
-For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+Enable Tanzu Service Registry and provision Azure Spring Cloud Enterprise in advance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
-   :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure Spring Cloud Enterprise VMWare Tanzu settings":::
+   :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure portal screenshot of Azure Marketplace screen with Azure Spring Cloud offering and VMWare Tanzu settings section showing.":::
 
   > [!NOTE]
   > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
-In the following section, the resource group name and instance name used to create Azure Spring Cloud Enterprise are defined below. Please rewrite the contents of the variable according to the environment you created.
+In the following section, the resource group name and instance name used to create Azure Spring Cloud Enterprise are defined below. Rewrite the contents of the variable according to the environment you created.
 
 | Item                | Variable Name            |
 |---------------------|--------------------------|
@@ -42,21 +40,27 @@ In the following section, the resource group name and instance name used to crea
 
 ### How to proceed this guide
 
-This guide shows how to register a service for azure spring cloud Service Registry, and how to discover the service from another service with the following steps.
+This guide shows you how to register a service for Azure Spring Cloud Service Registry, and how to discover the service from another service with the following steps.
 
-   :::image type="content" source="./media/how-to-enterprise-service-registry/how-to-guide-story.png" alt-text="How to guide Story":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/how-to-guide-story.png" alt-text="Diagram showing the steps to create, deploy, and register Service A and Service B.":::
 
-1. Create `Service A` and Learn the basics implementation of it
-2. Deploy your `Service A` to `Azure Spring Cloud` and register it to Service Registry
-3. Create another `Service B` and implement it to call `Service A`
-4. Deploy `Service B` and register with `Service Registry`
-5. Invoke `Service A` through `Service B`
+1. Create Service A and learn the basics implementation of it.
+2. Deploy Service A to Azure Spring Cloud and register it with Service Registry.
+3. Create Service B and implement it to call Service A.
+4. Deploy Service B and register it with Service Registry.
+5. Invoke Service A through Service B.
 
 ### Create and implement Service A with Spring Boot
 
-Click following link "[Create Sample Service A](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20A&dependencies=web,cloud-eureka)". Then, the following screen will be displayed.
+Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20A&dependencies=web,cloud-eureka) to create sample Service A. This link uses the following URL to initialize the settings.
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Spring Initializr":::
+```URL
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20A&dependencies=web,cloud-eureka
+```
+
+The following screenshot shows Spring Initializr with the required settings.
+
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Screenshot of Spring Initializr.":::
 
 Then, select **GENERATE** to get a sample project for Spring Boot with the following directory structure.
 
@@ -101,7 +105,7 @@ To be able to manage Service Registry and Discovery by using the Spring Cloud Se
 
 #### Implement the Service Registry client
 
-Add an `@EnableEurekaClient` annotation to the *SampleServiceAApplication.java* file and create it as an Eureka Client.
+Add an `@EnableEurekaClient` annotation to the *SampleServiceAApplication.java* file and create it as a Eureka Client.
 
 ```java
 package foo.bar.Sample.Service.A;
@@ -124,8 +128,7 @@ With only the above setting the service in this Spring Boot acts as a Eureka Cli
 
 #### Create a REST endpoint for testing
 
-With the above, you can register the service to Service Registry, but you cannot verify it unless any actual services are implemented.
-To create simple RESTful endpoints so that they can be called from the external service.  
+With the above, you can register the service to Service Registry, but you can't verify it unless any actual services are implemented. To create simple RESTful endpoints so that they can be called from the external service.  
 
 Implement the code below.
 
@@ -180,18 +183,17 @@ az spring-cloud app create \
 
 #### Connect to the Service Registry from the app (About Binding)
 
-Now you've created a service with Spring Boot and created an application in Azure Spring Cloud.
-Since now we will deploy the application and confirm the operation, but before that, there is one thing that needs to be done to use Service Registry. It's about `binding` your application to the Service Registry so that you can get connection information to the Service Registry.
+Now you've created a service with Spring Boot and created an application in Azure Spring Cloud. Since now we'll deploy the application and confirm the operation, but before that, there's one thing that needs to be done to use Service Registry. It's about binding your application to the Service Registry so that you can get connection information to the Service Registry.
 
-Typically, an `Eureka Client` needs to write the following connection information settings in the `application.properties` configuration file of a Spring Boot application so that you can connect to the server:
+Typically, a Eureka client needs to write the following connection information settings in the *application.properties* configuration file of a Spring Boot application so that you can connect to the server:
 
 ```text
 eureka.client.service-url.defaultZone=http://eureka:8761/eureka/
 ```
 
-However, if you write the above settings directly in your application, you will need to re-edit and rebuild the project again each time when the Service Registry server changes. To avoid this effort, Azure Spring Cloud allows you to get connection information to the service registry by "binding applications to the service registry" to refer to the service registry.
+However, if you write the above settings directly in your application, you'll need to re-edit and rebuild the project again each time when the Service Registry server changes. To avoid this effort, Azure Spring Cloud allows you to get connection information to the service registry by "binding applications to the service registry" to refer to the service registry.
 
-Specifically, after binding the application to the Service Registry, you can get the service registry connection information (`eureka.client.service-url.defaultZone`) from the Java environment variable. This allows you to connect to the Service Registry by loading the contents of the environment variables when the application starts.
+Specifically, after binding the application to the Service Registry, you can get the service registry connection information (`eureka.client.service-url.defaultZone`) from the Java environment variable. This enables you to connect to the Service Registry by loading the contents of the environment variables when the application starts.
 
 In practice, the following environment variables are added to the JAVA_TOOL_OPTIONS:
 
@@ -201,7 +203,7 @@ In practice, the following environment variables are added to the JAVA_TOOL_OPTI
 
 #### Bind a service to the Service Registry
 
-Run the `az spring-cloud service-registry bind` command to bind the service to azure service registry. This allows you to bind the application to the Service Registry and will be able to connect to the server.
+Run the `az spring-cloud service-registry bind` command to bind the service to Azure Service Registry. This allows you to bind the application to the Service Registry and will be able to connect to the server.
 
 ```azurecli
 az spring-cloud service-registry bind \
@@ -210,9 +212,9 @@ az spring-cloud service-registry bind \
     --app serviceA
 ```
 
-You can also be set up the Application bindings from the Azure Portal.
+You can also be set up the Application bindings from the Azure portal.
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app.png" alt-text="Application Binding":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app.png" alt-text="Azure portal screenshot of 'Service Registry' screen with 'App binding' section showing.":::
 
 > [!NOTE]
 > It will take a few minutes to propagate to all applications when it changes the service registry status.
@@ -220,9 +222,9 @@ You can also be set up the Application bindings from the Azure Portal.
 > [!NOTE]
 > If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-#### Deploy an applications to Azure Spring Cloud
+#### Deploy an application to Azure Spring Cloud
 
-Now that you've bound your application, you'll then deploy the Spring Boot artifact file (`Sample-Service-A-A-0.0.1-SNAPSHOT.jar`) to Azure Spring Cloud. To deploy, run the `az spring-cloud app deploy` command below.
+Now that you've bound your application, you'll then deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Cloud. To deploy, run the following command:
 
 ```azurecli
 az spring-cloud app deploy \
@@ -233,7 +235,7 @@ az spring-cloud app deploy \
     --jvm-options="-Xms1024m -Xmx1024m"
 ```
 
-Run the `az spring-cloud app list` command below to see if your deployment is successful.
+Run the following command to see if your deployment is successful.
 
 ```azurecli
 az spring-cloud app list \
@@ -252,15 +254,14 @@ servicea                  southeastasia  $RESOURCE-GROUP         https://$AZURE_
 
 #### Confirm that the Service A application is running
 
-From the result of the above command, you can get the access URL listed in the `Public URL`. Please access the RESTful endpoint with (`/serviceA`). Then the following result will be returned.
+From the result of the above command, you can get the access URL listed in the `Public URL`. Access the RESTful endpoint with `/serviceA`. Then the following result will be returned.
 
 ```bash
 curl https://AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/serviceA
 This is a result of Service A
 ```
 
-The `Service A` also created a RESTful endpoint that displays a list of environment variables. Please access the endpoint with (`/env`) to see the environment variables.
-The lists of environment variables will be displayed.
+The `Service A` also created a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables. The lists of environment variables will be displayed.
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/env
@@ -278,11 +279,17 @@ You can now register the service to the Service Registry (Eureka Server) in Azur
 
 #### Implement Service B with Spring Boot
 
-Same as in 1.1, please push the link of [Create Sample Service B](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20B&dependencies=web,cloud-eureka) to create a new project for `Service B.` Then push the `GENERATE` button and get the new project.
+Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20B&dependencies=web,cloud-eureka) to create a new project for Service B. This link uses the following URL to initialize the settings:
+
+```URL
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20B&dependencies=web,cloud-eureka
+```
+
+Then, select **GENERATE** to get the new project.
 
 #### Implement Service B as a Service Registry client (Eureka client)
 
-Like `Service A`, add an annotation of `@EnableEurekaClient` in `Service B` and implement it as a Eureka Client.
+Like Service A, add the `@EnableEurekaClient` annotation to Service B to implement it as a Eureka client.
 
 ```java
 package foo.bar.Sample.Service.B;
@@ -303,7 +310,7 @@ public class SampleServiceBApplication {
 
 #### Implement service endpoints in Service B
 
-Next, implement a new service endpoint (`/invoke-serviceA`) which invokes the `Service A`. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with an additional string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by `Service B`.
+Next, implement a new service endpoint (`/invoke-serviceA`) which invokes Service A. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with another string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by Service B.
 
 We've also implemented another endpoint (`/list-all`) for validation. This is implemented to ensure that the service is communicating correctly with the Service Registry. You can call this endpoint to get the lists of applications registered in the Service Registry.
 
@@ -364,7 +371,7 @@ az spring-cloud app create \
     --assign-endpoint
 ```
 
-After you create the application, it is time to bind the application to the Service Registry.
+After you create the application, it's time to bind the application to the Service Registry.
 
 ```azurecli
 az spring-cloud service-registry bind \
@@ -393,7 +400,7 @@ az spring-cloud app list \
     --output table
 ```
 
-If `Service A` and `Service B` is deployed correctly, the following result will be displayed.
+If Service A and Service B are deployed correctly, the following result will be displayed.
 
 ```output
 Name      Location       ResourceGroup           Public Url                                                    Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
@@ -404,8 +411,7 @@ serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAM
 
 ### Invoke Service A from Service B
 
-You can get the access URL of `Service B` from the result of the above command. Please access to the service endpoint with (`/invoke-serviceA`). You can see the string `INVOKE SERVICE A FROM SERVICE B: This is a result of Service A` in your terminal or browser.  
-From the result, we were able to invoke `Service A` from `Service B` and see that the result was returned correctly.
+You can get the access URL of Service B from the result of the above command. Access the service endpoint with `/invoke-serviceA`. You can see the string `INVOKE SERVICE A FROM SERVICE B: This is a result of Service A` in your terminal or browser. From the result, we were able to invoke `Service A` from `Service B` and see that the result was returned correctly.
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/invoke-serviceA
@@ -436,7 +442,7 @@ curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/list-all
 ["SERVICEA","EUREKA-SERVER","SERVICEB"]
 ```
 
-In this way, you can obtain detailed information from the program as necessary.
+In this way, you can obtain detailed information from the program as needed.
 
 ## Next steps
 
