@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 04/15/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -102,6 +102,7 @@ PS C:\windows\system32>
 
 ### [AzureRM](#tab/azure-rm)
 
+AzureRm content...
 
 ---
 
@@ -149,6 +150,7 @@ key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/Zj
 
 ### [AzureRM](#tab/azure-rm)
 
+AzureRm content...
 
 ---
 
@@ -295,7 +297,6 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
 
 5. Save the parameters file.
 
-
 ### Deploy template
 
 ### [Az](#tab/az)
@@ -303,7 +304,7 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
 Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
 
 > [!NOTE]
-> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. On AZ, re-run the `login-AZ <syntax TBD>` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM>` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
 1. Run the following command: 
     
@@ -360,8 +361,9 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
 Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
 
 > [!NOTE]
-> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. On AzureRM, re-run the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. On AzureRM, re-run the `login-AzureRM ,syntax TBD>` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
+AzureRm content...
 
 ---
     
@@ -519,6 +521,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
 
 ### [AzureRM](#tab/azure-rm)
 
+AzureRm content...
 
 ---
 
@@ -605,6 +608,7 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
 ### [AzureRM](#tab/azure-rm)
 
+AzureRm content...
 
 ---
 
