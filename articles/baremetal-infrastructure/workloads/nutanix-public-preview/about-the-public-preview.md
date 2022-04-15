@@ -2,7 +2,7 @@
 title: About the Public Preview
 description: Explains Nutanix Public Preview and its parameters
 ms.topic: overview
-ms.subservice: 
+ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
