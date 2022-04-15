@@ -89,7 +89,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 ```console
 sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```
-4. Ensure that socat is installed on the machine:
+4. Ensure that SOCAT is installed on the machine:
 ```console
 sudo apt install socat
 ```
