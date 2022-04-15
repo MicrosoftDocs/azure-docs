@@ -106,7 +106,7 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+![Empty web app page](media/quickstart-php/hello-world-in-browser.png)
 
 ## 4 - Redeploy updates
 
@@ -142,7 +142,17 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
     The web app menu provides different options for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
+This command may take a minute to run.
 
 ## Next steps
 
