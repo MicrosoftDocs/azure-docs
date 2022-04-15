@@ -12,14 +12,13 @@ zone_pivot_groups: app-service-platform-windows-linux
 # Create a PHP web app in Azure App Service
 
 ::: zone pivot="platform-windows"  
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
+[!INCLUDE [quickstart-php-windows-](./includes/quickstart-php/quickstart-php-windows.pivot.md)]
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux.
-::: zone-end  
 
-You create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
+You create and deploy the web app using [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -27,12 +26,12 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+## Set up your initial environment
 
-To complete this quickstart:
-
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://php.net/manual/install.php" target="_blank">Install PHP</a>
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- <a href="https://git-scm.com/" target="_blank">Install Git</a>
+- <a href="https://php.net/manual/install.php" target="_blank">Install PHP</a>
+- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
 
 ## Download the sample locally
 
@@ -68,52 +67,51 @@ To complete this quickstart:
     
 1. In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Deploy to Azure
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
+In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
-::: zone pivot="platform-windows"  
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
-::: zone-end  
+```azurecli
+az webapp up --sku F1 --name <app-name>
+``` 
 
-::: zone pivot="platform-linux"
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
-::: zone-end
+- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
+- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
+- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
+- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
-## Create a web app
+<pre>
+The webapp '&lt;app-name>' doesn't exist
+Creating Resource group '&lt;group-name>' ...
+Resource group creation complete
+Creating AppServicePlan '&lt;app-service-plan-name>' ...
+Creating webapp '&lt;app-name>' ...
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir /home/cephas/myExpressApp ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://&lt;app-name>.azurewebsites.net
+{
+  "URL": "http://&lt;app-name>.azurewebsites.net",
+  "appserviceplan": "&lt;app-service-plan-name>",
+  "location": "centralus",
+  "name": "&lt;app-name>",
+  "os": "&lt;os-type>",
+  "resourcegroup": "&lt;group-name>",
+  "runtime_version": "node|10.14",
+  "runtime_version_detected": "0.0",
+  "sku": "FREE",
+  "src_path": "//home//cephas//myExpressApp"
+}
+</pre>
 
-1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command.
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
-    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes).
-
-    ```azurecli-interactive
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP|7.4' --deployment-local-git
-    ```
-    
-    When the web app has been created, the Azure CLI shows output similar to the following example:
-
-    <pre>
-    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
-    {
-      "availabilityState": "Normal",
-      "clientAffinityEnabled": true,
-      "clientCertEnabled": false,
-      "cloningInfo": null,
-      "containerSize": 0,
-      "dailyMemoryTimeQuota": 0,
-      "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
-      "enabled": true,
-      &lt; JSON data removed for brevity. &gt;
-    }
-    </pre>
-    
-    You've created an empty new web app, with git deployment enabled.
-
-    > [!NOTE]
-    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
-    >
 
 1. Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
 
@@ -125,48 +123,7 @@ To complete this quickstart:
 
     ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
-
-  <pre>
-  Counting objects: 2, done.
-  Delta compression using up to 4 threads.
-  Compressing objects: 100% (2/2), done.
-  Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-  Total 2 (delta 1), reused 0 (delta 0)
-  remote: Updating branch 'main'.
-  remote: Updating submodules.
-  remote: Preparing deployment for commit id '25f18051e9'.
-  remote: Generating deployment script.
-  remote: Running deployment command...
-  remote: Handling Basic Web Site deployment.
-  remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-  remote: Copying file: '.gitignore'
-  remote: Copying file: 'LICENSE'
-  remote: Copying file: 'README.md'
-  remote: Copying file: 'index.php'
-  remote: Ignoring: .git
-  remote: Finished successfully.
-  remote: Running post deployment command(s)...
-  remote: Deployment successful.
-  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-      cc39b1e..25f1805  main -> main
-  </pre>
-
-## Browse to the app
-
-Browse to the deployed application using your web browser.
-
-```
-http://<app-name>.azurewebsites.net
-```
-
-The PHP sample code is running in an Azure App Service web app.
-
-![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
-
-**Congratulations!** You've deployed your first PHP app to App Service.
-
-## Update locally and redeploy the code
+## Redeploy updates
 
 1. Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
@@ -174,11 +131,10 @@ The PHP sample code is running in an Azure App Service web app.
     echo "Hello Azure!";
     ```
 
-1. In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
+1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
 
-    ```bash
-    git commit -am "updated output"
-    git push azure main
+    ```azurecli
+    az webapp up
     ```
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
@@ -210,3 +166,4 @@ The PHP sample code is running in an Azure App Service web app.
 
 > [!div class="nextstepaction"]
 > [Configure PHP app](configure-language-php.md)
+::: zone-end  
