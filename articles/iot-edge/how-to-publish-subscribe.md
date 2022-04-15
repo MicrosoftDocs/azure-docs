@@ -394,8 +394,6 @@ Additionally, route the message to its destination.
 
 As with all IoT Edge messages, you can create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to the IoT hub. For more information about routing, see [Declare routes](module-composition.md#declare-routes).
 
-Alternatively, you can declare the output as part of the topic.
-
 Depending on the routing settings, the routing may define an input name, which will be attached to the topic when a message is getting forwarded. Also, Edge Hub (and the original sender) adds parameters to the message which is encoded in the topic structure. The following example shows a message routed with input name "TestInput". This message was sent by a module called "SenderModule", which name is also encoded in the topic:
 
 `devices/TestEdgeDevice/modules/TestModule/inputs/TestInput/%24.cdid=TestEdgeDevice&%24.cmid=SenderModule`
