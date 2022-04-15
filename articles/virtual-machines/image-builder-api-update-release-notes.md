@@ -29,11 +29,11 @@ This document contains all major API changes and feature updates for the Azure I
 
 **Improvements**: 
 
-- Validation Support. 
-- Shell (Linux) - Script or Inline. 
-- PowerShell (Windows) - Script or Inline, run elevated, run as system. 
-- Source-Validation-Only mode.
-- Customized staging resource group support.
+- Validation Support.
+    - Shell (Linux) - Script or Inline.
+    - PowerShell (Windows) - Script or Inline, run elevated, run as system.
+    - Source-Validation-Only mode.
+    - Customized staging resource group support.
 
 
 ### October 2021
