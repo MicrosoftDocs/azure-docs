@@ -36,7 +36,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Azure DevOps
 - Azure Event Hubs
 - Azure Service Bus
-- [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/conditional-access-configure)
 - Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -122,7 +122,7 @@ The Microsoft Azure Management application includes multiple services.
    - Azure Data Factory portal
    - Azure Event Hubs
    - Azure Service Bus
-   - [Azure SQL Database](../../azure-sql/database/conditional-access-configure.md)
+   - [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
    - SQL Managed Instance
    - Azure Synapse
    - Visual Studio subscriptions administrator portal

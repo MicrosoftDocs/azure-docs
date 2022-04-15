@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
 
 > [!CAUTION]
-> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview).
 
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
@@ -55,7 +55,7 @@ Use the process described in [Add Azure Monitor solutions from the Solutions Gal
 
 Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resource that you want to monitor to stream its diagnostics telemetry to Azure SQL Analytics. Follow detailed instructions on this page:
 
-- Enable Azure Diagnostics for your database to [stream diagnostics telemetry to Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Enable Azure Diagnostics for your database to [stream diagnostics telemetry to Azure SQL Analytics](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure).
 
 The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
@@ -97,7 +97,7 @@ Selecting the SQL Managed Instance view, shows details on the instance utilizati
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](/azure/azure-sql/database/intelligent-insights-overview) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/azure-sql/azure-sql-sol-insights.png)
 

@@ -13,13 +13,13 @@ ms.date: 05/19/2020
 
 # Tutorial: Sync data from SQL Edge to Azure SQL Database by using SQL Data Sync
 
-In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases in Azure SQL Database and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
+In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases in Azure SQL Database and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](/azure/azure-sql/database/sql-data-sync-data-sql-server-sql-database).
 
 Because SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to a SQL Server instance can also be used to sync data to or from a SQL Edge instance running on an edge device.
 
 ## Prerequisites
 
-This tutorial requires a Windows computer configured with the [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/sql-data-sync-agent-overview.md).
+This tutorial requires a Windows computer configured with the [Data Sync Agent for Azure SQL Data Sync](/azure/azure-sql/database/sql-data-sync-agent-overview).
 
 ## Before you begin
 
@@ -46,15 +46,15 @@ After you complete the preceding steps, you'll have a sync group that includes a
 
 For more info about SQL Data Sync, see these articles:
 
-* [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/sql-data-sync-agent-overview.md)
+* [Data Sync Agent for Azure SQL Data Sync](/azure/azure-sql/database/sql-data-sync-agent-overview)
 
-* [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../azure-sql/database/sql-data-sync-troubleshoot.md)
+* [Best practices](/azure/azure-sql/database/sql-data-sync-best-practices) and [How to troubleshoot issues with Azure SQL Data Sync](/azure/azure-sql/database/sql-data-sync-troubleshoot)
 
-* [Monitor SQL Data Sync with Azure Monitor logs](../azure-sql/database/monitor-tune-overview.md)
+* [Monitor SQL Data Sync with Azure Monitor logs](/azure/azure-sql/database/monitor-tune-overview)
 
-* [Update the sync schema with Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) or [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
+* [Update the sync schema with Transact-SQL](/azure/azure-sql/database/sql-data-sync-update-sync-schema) or [PowerShell](/azure/azure-sql/database/scripts/update-sync-schema-in-sync-group)
 
 ## Next steps
 
 
-* [Use PowerShell to sync between Azure SQL Database and Azure SQL Edge](../azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem.md). In this tutorial, replace the `OnPremiseServer` database details with the Azure SQL Edge details.
+* [Use PowerShell to sync between Azure SQL Database and Azure SQL Edge](/azure/azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem). In this tutorial, replace the `OnPremiseServer` database details with the Azure SQL Edge details.

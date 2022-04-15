@@ -29,12 +29,12 @@ The instructions below cover the process per type of SQL that you can monitor. T
 > [!NOTE]
 > SQL insights does not support the following Azure SQL Database scenarios:
 > - **Elastic pools**: Metrics cannot be gathered for elastic pools. Metrics cannot be gathered for databases within elastic pools.
-> - **Low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md)
+> - **Low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](/azure/azure-sql/database/resource-limits-dtu-single-databases)
 > 
 > SQL insights has limited support for the following Azure SQL Database scenarios:
-> - **Serverless tier**: Metrics can be gathered for databases using the [serverless compute tier](../../azure-sql/database/serverless-tier-overview.md). However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
+> - **Serverless tier**: Metrics can be gathered for databases using the [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview). However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
 
-Connect to an Azure SQL database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md), [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal, or any other SQL client tool.
+Connect to an Azure SQL database with [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms), [Query Editor (preview)](/azure/azure-sql/database/connect-query-portal) in the Azure portal, or any other SQL client tool.
 
 Run the following script to create a user with the required permissions. Replace *user* with a username and *mystrongpassword* with a strong password.
 
@@ -64,7 +64,7 @@ order by username
 ```
 
 ### Azure SQL Managed Instance
-Connect to your Azure SQL Managed Instance using [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or a similar tool, and execute the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
+Connect to your Azure SQL Managed Instance using [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or a similar tool, and execute the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
 
  
 ```sql
@@ -79,7 +79,7 @@ GO
 ```
 
 ### SQL Server
-Connect to SQL Server on your Azure virtual machine and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or a similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
+Connect to SQL Server on your Azure virtual machine and use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or a similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
  
 ```sql
 USE master; 
@@ -196,7 +196,7 @@ The connection string specifies the login name that SQL insights should use when
 The connections string will vary for each type of SQL resource:
 
 #### Azure SQL Database
-TCP connections from the monitoring machine to the IP address and port used by the database must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Database connectivity architecture](../../azure-sql/database/connectivity-architecture.md).
+TCP connections from the monitoring machine to the IP address and port used by the database must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Database connectivity architecture](/azure/azure-sql/database/connectivity-architecture).
 
 Enter the connection string in the form:
 
@@ -213,7 +213,7 @@ Get the details from the **Connection strings** menu item for the database.
 To monitor a readable secondary, append `;ApplicationIntent=ReadOnly` to the connection string. SQL Insights supports monitoring a single secondary. The collected data will be tagged to reflect primary or secondary. 
 
 #### Azure SQL Managed Instance
-TCP connections from the monitoring machine to the IP address and port used by the managed instance must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+TCP connections from the monitoring machine to the IP address and port used by the managed instance must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Managed Instance connection types](/azure/azure-sql/managed-instance/connection-types-overview).
 
 Enter the connection string in the form:
 
@@ -222,7 +222,7 @@ Enter the connection string in the form:
    "Server= mysqlserver.<dns_zone>.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
-Get the details from the **Connection strings** menu item for the managed instance. If using managed instance [public endpoint](../../azure-sql/managed-instance/public-endpoint-configure.md), replace port 1433 with 3342.
+Get the details from the **Connection strings** menu item for the managed instance. If using managed instance [public endpoint](/azure/azure-sql/managed-instance/public-endpoint-configure), replace port 1433 with 3342.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
