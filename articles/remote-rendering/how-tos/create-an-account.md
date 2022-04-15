@@ -80,7 +80,7 @@ The steps in this paragraph have to be performed for each storage account that s
 
    If you don't have owner permissions to this storage account, the **Add a role assignment** option will be disabled.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
     | Setting | Value |
     | --- | --- |
