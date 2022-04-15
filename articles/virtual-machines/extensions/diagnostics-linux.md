@@ -67,7 +67,7 @@ Supported distributions and versions:
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 8, 7, 6.7+
+- Red Hat Enterprise Linux (RHEL) 7, 6.7+
 
 ### Prerequisites
 
