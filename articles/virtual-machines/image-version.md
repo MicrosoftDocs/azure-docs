@@ -161,7 +161,7 @@ az sig image-version create \
 
 ### [PowerShell](#tab/powershell)
 
-Image definitions create a logical grouping for images. When making your image definition, make sure it is has all of the correct information. If you [generalized](generalize.md) the source for the image, then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
+Image definitions create a logical grouping for images. When making your image definition, make sure it has all of the correct information. If you [generalized](generalize.md) the source VM, then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 

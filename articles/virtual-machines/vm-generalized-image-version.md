@@ -448,7 +448,7 @@ To create the VM/VMSS from community gallery image, you must accept the license 
 
 ### [REST](#tab/rest2)
 
-Get the the ID of the image version. The value will be used in the VM deployment request.
+Get the ID of the image version. The value will be used in the VM deployment request.
 
 ```rest
 GET 
