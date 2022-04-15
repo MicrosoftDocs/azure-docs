@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: cartacioS
-ms.author: sacartac
+ms.author: cesardl
+author: CESARDELATORRE
 ms.date: 04/15/2022
 ms.custom: automl
 ---
