@@ -6,7 +6,7 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/13/2022
+ms.date: 04/15/2022
 ms.author: xujing
 #Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
@@ -17,7 +17,7 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 ## Using Azure Monitor to view metrics and set up alerts
 
-To view and set up alerts on IoT Hub Device Provisioning Service metrics.
+To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

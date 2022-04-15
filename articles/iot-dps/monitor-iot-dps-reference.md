@@ -6,28 +6,14 @@ ms.topic: reference
 ms.author: kgremban
 ms.service: iot-dps
 ms.custom: subject-monitoring
-ms.date: 03/29/2022
+ms.date: 04/15/2022
 ---
-<!-- VERSION 2.3
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-
-<!-- IMPORTANT STEP 1.  Do a search and replace of [TODO-replace-with-service-name] with the name of your service. That will make the template easier to read -->
 
 # Monitoring Azure IoT Hub Device Provisioning Service data reference
 
 See [Monitoring Iot Hub Device Provisioning Service](monitor-iot-dps.md) for details on collecting and analyzing monitoring data for Azure IoT Hub Device Provisioning Service (DPS).
 
 ## Metrics
-
-<!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
-<!-- Please keep headings in this order -->
-
-<!-- 2 options here depending on the level of extra content you have. -->
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
 This section lists all the automatically collected platform metrics collected for DPS.  
 
@@ -39,15 +25,9 @@ Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azur
 |DeviceAssignments|Yes|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
 |RegistrationAttempts|Yes|Registration attempts|Count|Total|Number of device registrations attempted|ProvisioningServiceName, IotHubName, Status|
 
-<!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
-
-<!-- Keep this text as-is -->
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
-
-<!-- REQUIRED. Please  keep headings in this order -->
-<!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
 DPS has the following dimensions associated with its metrics.
 
@@ -61,7 +41,6 @@ DPS has the following dimensions associated with its metrics.
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 ## Resource logs
-<!-- REQUIRED. Please  keep headings in this order -->
 
 This section lists the types of resource logs you can collect for DPS.
 
@@ -166,20 +145,17 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
 ```
 
 ## Azure Monitor Logs tables
-<!-- REQUIRED. Please keep heading in this order -->
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics. For a list of these tables and links to more information for the DPS resource type, see [Device Provisioning Services](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) in the Azure Monitor Logs table reference.
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for a description of monitoring Azure IoT Hub Device Provisioning Service.
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
