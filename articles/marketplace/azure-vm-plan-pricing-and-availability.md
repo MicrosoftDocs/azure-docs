@@ -64,7 +64,7 @@ These steps assume you have already selected either the _Flat rate_, _Per core_,
 
 1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
-## Free Trial
+## Free trial
 
 You can offer a one-month, three-month, or six-month **Free Trial** to your customers.
 
