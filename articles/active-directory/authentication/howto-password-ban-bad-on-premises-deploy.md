@@ -407,7 +407,7 @@ The current setting can be queried using the `Get-AzureADPasswordProtectionProxy
 The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Azure AD Password Protection proxy servers in a forest.
 
 > [!NOTE]
-> The proxy service will only automatically upgrade to a newer version when there are critical security patches needed.
+> The proxy service will only automatically upgrade to a newer version when critical security patches are needed.
 
 ### Manual upgrade process
 
