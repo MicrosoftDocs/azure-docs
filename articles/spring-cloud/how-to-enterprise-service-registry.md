@@ -24,7 +24,7 @@ To use the Service Registry and Service Discovery in Spring Boot applications, y
 
 Enable Tanzu Service Registry and provision Azure Spring Cloud Enterprise in advance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
-   :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure portal screenshot of Azure Marketplace screen with Azure Spring Cloud offering and VMWare Tanzu settings section showing.":::
+   :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure portal screenshot of Azure Marketplace screen with Azure Spring Cloud offering and VMware Tanzu settings section showing.":::
 
   > [!NOTE]
   > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
