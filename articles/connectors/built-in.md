@@ -80,10 +80,10 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
-        [![Batch icon][batch-icon]][batch-doc]<br>(*Consumption logic app only*)
+        [![Batch icon][batch-icon]][batch-doc]
         \
         \
-        [**Batch**][batch-doc]
+        [**Batch**][batch-doc]<br>(*Consumption logic app only*)
         \
         \
         [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
