@@ -860,7 +860,14 @@
       "url": "https://github.com/Azure/azure-webpubsub",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-sql-todo-sample",
+      "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
+      "branch": "docs-snippets",
+      "branch_mapping": {}
     }
+
   ],
   "branch_target_mapping": {
     "live": [
@@ -884,6 +891,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-blob.json",
     ".openpublishing.redirection.azure-sql.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",

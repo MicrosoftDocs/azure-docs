@@ -91,7 +91,6 @@ For the illustrated example above, the DNS resource records for the data factory
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.datafactory.azure.net |
 | DataFactoryA.{region}.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
 | < data factory service public endpoint >	| A | < data factory service public IP address > |
 

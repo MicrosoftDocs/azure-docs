@@ -351,10 +351,8 @@
                   href: functions-add-output-binding-storage-queue-java.md
                 - name: Python
                   href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-        - name: Debug and test
+        - name: Debug
           items:
-            - name: Test functions
-              href: functions-test-a-function.md
             - name: Debug local PowerShell functions
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally

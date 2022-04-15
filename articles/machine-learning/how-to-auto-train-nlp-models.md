@@ -84,7 +84,7 @@ For multi-label classification, the dataset columns would be the same as multi-c
 |Python list with quotes| `"['label1','label2','label3']"`| `"['label1']"`|`"[]"`
 
 > [!IMPORTANT]
-> Different parsers are used to read labels for these formats. If you are using the plaint text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
+> Different parsers are used to read labels for these formats. If you are using the plain text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
 >
 > For example, if your label is `"cs.AI"`, it's read as `"cs"` and `"AI"`. Whereas with the Python list format, the label would be `"['cs.AI']"`, which is read as `"cs.AI"` .
 
