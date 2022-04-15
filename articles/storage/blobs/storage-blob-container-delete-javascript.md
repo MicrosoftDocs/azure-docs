@@ -21,22 +21,64 @@ This article shows how to delete containers with the [Azure Storage client libra
 
 To delete a container in JavaScript, use one of the following methods:
 
-- BlobServiceClient.[deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-deletecontainer)
-- ContainerClient.[delete](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-delete)
-- ContainerClient.[deleteIfExists](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-deleteifexists)
+- BlobServiceClient.[deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclien#@azure-storage-blob-blobserviceclient-deletecontainer)
+- ContainerClient.[delete](/javascript/api/@azure/storage-blob/containerclien#@azure-storage-blob-containerclient-delete)
+- ContainerClient.[deleteIfExists](/javascript/api/@azure/storage-blob/containerclien#@azure-storage-blob-containerclient-deleteifexists)
 
-The delete methods returns an obj which includes an errorCode. When the errorCode is undefined, the delete operation succeeded. 
+The delete methods returns an object which includes an errorCode. When the errorCode is undefined, the delete operation succeeded. 
 
 After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found).
 
-The following example deletes the specified container, and handles the exception if the container doesn't exist:
+The following example deletes the specified container immediately. You must the **BlobServiceClient** for the container:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DeleteContainer":::
+```javascript
+// delete container immediately on blobServiceClient
+async function deleteContainerImmediately(blobServiceClient, containerName) {
+  const response = await blobServiceClient.deleteContainer(containerName);
+
+  if (!response.errorCode) {
+    console.log(`deleted ${containerItem.name} container`);
+  }
+}
+```
+
+The following example marks the container for deletion during garbage collection. You must the **ContainerClient** for the container:
+
+```javascript
+// soft delete container on ContainerClient
+async function deleteContainerSoft(containerClient) {
+
+  const response = await containerClient.delete();
+
+  if (!response.errorCode) {
+    console.log(`deleted ${containerClient.name} container`);
+  }
+}
+```
 
 The following example shows how to delete all of the containers that start with a specified prefix.
 
 ```javascript
+async function deleteContainersWithPrefix(blobServiceClient, prefix){
 
+  const containerOptions = {
+    includeDeleted: false,
+    includeMetadata: false,
+    includeSystem: true,
+    prefix
+  }
+
+  for await (const containerItem of blobServiceClient.listContainers(containerOptions)) {
+
+    const containerClient = blobServiceClient.getContainerClient(containerItem.name);
+
+    const response = await containerClient.delete();
+
+    if(!response.errorCode){
+      console.log(`deleted ${containerItem.name} container`);
+    }
+  }
+}
 ```
 
 ## Restore a deleted container

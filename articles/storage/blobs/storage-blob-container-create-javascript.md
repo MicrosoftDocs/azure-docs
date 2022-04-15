@@ -31,15 +31,36 @@ The URI for a container is in this format:
 
 ## Create a container
 
-To create a container, call the following methods from the BlobStorageClient:
+To create a container, call the following method from the BlobStorageClient:
 
-- [createContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-createcontainer)
+- [createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
 The following example creates a container asynchronously:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/create-container.js" id="snippet_CreateContainer":::
+```javascript
+async function createContainer(blobServiceClient, containerName){
+
+  // public access at container level
+  const options = {
+    access: 'container'
+  };
+
+  // creating client also creates container
+  const { containerClient, containerCreateResponse } = await blobServiceClient.createContainer(containerName, options);
+
+  // check if creation worked
+  if(!containerCreateResponse.errorCode){
+
+    console.log(`container ${containerName} created`);
+
+    // list container properties
+    const containerProperties = await containerClient.getProperties();
+    console.log(`container properties = ${JSON.stringify(containerProperties)}`);
+  }
+}
+```
 
 This shows just one example of [how to create the BlobServiceClient object](/azure/storage/blobs/storage-blob-javascript-get-started#connect-to-blob-storage). 
 
@@ -49,7 +70,7 @@ A root container, with the specific name `$root`, enables you to reference a blo
 
 `https://myaccount.blob.core.windowsJavaScript/default.html`
 
-The root container must be explicitly created or deleted. If isn't created by default as part of service creation.
+The root container must be explicitly created or deleted. If isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
 
 ## See also
 
