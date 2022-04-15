@@ -366,10 +366,6 @@ Correlation generates and sends data that enables distributed tracing and powers
 
 In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
 
-### PageView
-
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
-
 ## Sample app
 
 [Simple web app with Click Analytics Auto-collection Plugin enabled](https://go.microsoft.com/fwlink/?linkid=2152871).
