@@ -25,7 +25,7 @@ Traditional machine learning model development is resource-intensive, requiring 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
 
 * For code-experienced customers, 
-    * [Azure Machine Learning CLI (v2)](how-to-configure-cli).  Get started with [Set up automated ML jobs with the CLI (v2)](tutorial-auto-train-models.md).
+    * [Azure Machine Learning CLI (v2)](how-to-configure-cli.md).  Get started with [Set up automated ML jobs with the CLI (v2)](tutorial-auto-train-models.md).
     * [Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/intro). Get started with [Set up automated ML jobs with Python](tutorial-auto-train-models.md).
 
     > [!IMPORTANT] 
