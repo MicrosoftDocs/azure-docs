@@ -1,8 +1,6 @@
 ---
 title: Approach and process for adopting Azure Data Catalog
 description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 02/17/2022
