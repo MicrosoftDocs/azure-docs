@@ -66,6 +66,8 @@
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
+    - name: Use storage mounts
+      href: storage-mounts.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
