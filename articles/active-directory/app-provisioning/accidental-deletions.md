@@ -21,7 +21,7 @@ The feature lets you specify a deletion threshold, above which an admin
 needs to explicitly choose to allow the deletions to be processed.
 
 > [!NOTE]
-> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups". Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://aka.ms/AccidentalDeletionsPreview
+> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups"). Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://aka.ms/AccidentalDeletionsPreview
 
 
 ## Configure accidental deletion prevention
