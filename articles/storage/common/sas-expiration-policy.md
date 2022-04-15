@@ -35,7 +35,7 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 
 When you create a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
-To configure a SAS expiration policy for a storage account, use the Azure portal, PowerShell, or Azure CLI.
+To configure a SAS expiration policy for a storage account, use the Azure portal, PowerShell, or Azure CLI. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -43,7 +43,7 @@ To create a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
+1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**. You must rotate both access keys at least once before you can set a recommended upper limit for SAS expiry interval else the option will come as disabled.
 1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal":::
