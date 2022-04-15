@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 # Create a PHP web app in Azure App Service
 
 ::: zone pivot="platform-windows"  
-[!INCLUDE [quickstart-php-windows-](/includes/quickstart-php/quickstart-php-windows.pivot.md)]
+[!INCLUDE [quickstart-php-windows-](/includes/quickstart-php/quickstart-php-windows-pivot.md)]
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
