@@ -26,14 +26,6 @@ The report provides broad insights through graphs and KPIs and later deep dive i
 
 > [!NOTE]
 > File Extension Insights has been merged into Asset Insights with richer trend report showing growth in data size by file extension. Learn more by exploring [Asset Insights](asset-insights.md) 
->
->
-
-## Scan Insights
-
-The report enables Data Source Administrators to understand overall health of the scans - how many succeeded, how many failed, how many canceled. This report gives a status update on scans that have been executed in the Azure Purview account within a time period of last seven days or last 30 days.
-
-The report also allows administrators to deep dive and explore which scans failed and on what specific source types. To further enable users to investigate, the report helps them navigate into the scan history page within the "Sources" experience.
 
 ## Glossary Insights
 
@@ -63,6 +55,6 @@ For more information, see [Sensitivity label insights about your data in Azure P
 
 ## Next steps
 
+* [Asset insights](asset-insights.md)
 * [Glossary insights](glossary-insights.md)
-* [Scan insights](scan-insights.md)
 * [Classification insights](./classification-insights.md)

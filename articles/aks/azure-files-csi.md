@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 04/01/2021
 author: palma21
 
 ---
@@ -39,6 +39,7 @@ A storage class is used to define how an Azure Files share is created. A storage
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_ZRS**: Standard zone-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
+* **Standard_RAGZRS**: Standard read-access geo-zone-redundant storage
 * **Premium_LRS**: Premium locally redundant storage
 * **Premium_ZRS**: Premium zone-redundant storage
 

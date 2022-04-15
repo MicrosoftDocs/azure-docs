@@ -11,11 +11,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/application-insights/cloudservices.md",
-            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-insights",
             "redirect_document_id": false
@@ -39,7 +34,21 @@
             "source_path_from_root": "/articles/azure-monitor/app/change-analysis-troubleshoot.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-troubleshoot",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/pricing.md",
+            "redirect_url": "/azure/azure-monitor/logs/cost-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/manage-cost-storage.md",
+            "redirect_url": "/azure/azure-monitor/logs/cost-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/data-ingestion-from-file.md",
+            "redirect_url": "/azure/azure-monitor/agents/data-sources-custom-logs",
+            "redirect_document_id": false
         }
-
     ]
 }

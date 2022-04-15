@@ -57,16 +57,16 @@ When setting up scan, you can choose to scan an entire erwin Mart server, or sco
 
 * An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
     > [!IMPORTANT]
     > Make sure to install the self-hosted integration runtime and the Erwin Data Modeler software on the same machine where erwin Mart instance is running.
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
 ## Register
 
@@ -108,7 +108,7 @@ Follow the steps below to scan erwin Mart servers to automatically identify asse
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 1. Navigate to **Sources**.
 
 1. Select the registered **erwin** Mart.
@@ -166,7 +166,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

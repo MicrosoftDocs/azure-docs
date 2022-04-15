@@ -298,7 +298,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[X2nsat Inc.](https://www.x2nsat.com/expressroute/)** |Coresite |Silicon Valley, Silicon Valley 2|
 | **Zain** |Equinix |London|
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
+| **Zirro**| Cologix, Equinix | Montreal, Toronto |
 
 ## Connectivity through datacenter providers
 

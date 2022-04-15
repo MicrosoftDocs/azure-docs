@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to access Azure Key Vault.
 
-Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Azure Active Directory (AAD), and authenticate to any service that supports AAD authentication, including Key Vault, without having to display credentials in your code.
+Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Azure Active Directory (Azure AD), and authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
 The following video describes how to manage secrets using Azure Key Vault.
 
@@ -150,7 +150,7 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
       }
     ```
 
-    If you open pom.xml, you will see the dependency of `azure-keyvault-secrets-spring-boot-starter`. Add this dependency to your project in pom.xml.
+    If you open the *pom.xml* file, you'll see the dependency `azure-keyvault-secrets-spring-boot-starter`. Add this dependency to your project in the *pom.xml* file.
 
     ```xml
     <dependency>
@@ -177,11 +177,11 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
     curl https://myspringcloud-springapp.azuremicroservices.io/get
     ```
 
-    You will see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+    you'll see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
 
 ## Build sample Spring Boot app with Java SDK
 
-This sample can set and get secrets from Azure Key Vault. The [Azure Key Vault Secret client library for Java](/java/api/overview/azure/security-keyvault-secrets-readme) provides Azure Active Directory token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations that can be used to construct Azure SDK clients to support AAD token authentication.
+This sample can set and get secrets from Azure Key Vault. The [Azure Key Vault Secret client library for Java](/java/api/overview/azure/security-keyvault-secrets-readme) provides Azure Active Directory token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations that can be used to construct Azure SDK clients to support Azure AD token authentication.
 
 The Azure Key Vault Secret client library allows you to securely store and control the access to tokens, passwords, API keys, and other secrets. The library offers operations to create, retrieve, update, delete, purge, back up, restore, and list the secrets and its versions.
 
@@ -209,7 +209,7 @@ The Azure Key Vault Secret client library allows you to securely store and contr
 
     Get the example from [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) of the cloned sample project.
 
-    Also include `azure-identity` and `azure-security-keyvault-secrets` as dependency in your pom.xml. Get the example from [pom.xml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/pom.xml#L21) of the cloned sample project.
+    Also include `azure-identity` and `azure-security-keyvault-secrets` as dependencies in your *pom.xml* file. Get the example from [pom.xml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/pom.xml#L21) of the cloned sample project.
 
 4. Package your sample app.
 
@@ -231,7 +231,7 @@ The Azure Key Vault Secret client library allows you to securely store and contr
     curl https://myspringcloud-springapp.azuremicroservices.io/secrets/connectionString
     ```
 
-    You will see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+    you'll see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
 
     Now create a secret and then retrieve it using the Java SDK.
 
@@ -241,11 +241,11 @@ The Azure Key Vault Secret client library allows you to securely store and contr
     curl https://myspringcloud-springapp.azuremicroservices.io/secrets/test
     ```
 
-    You will see the message `Successfully got the value of secret test from Key Vault https://<your-keyvault-name>.vault.azure.net: success`.
+    you'll see the message `Successfully got the value of secret test from Key Vault https://<your-keyvault-name>.vault.azure.net: success`.
 
 ## Next steps
 
 * [How to access Storage blob with managed identity in Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
 * [How to enable system-assigned managed identity for applications in Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
-* [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](./github-actions-key-vault.md)

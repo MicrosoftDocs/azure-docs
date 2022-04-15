@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021, mode-ui
 # Get started: Form Recognizer Studio | Preview
 
 >[!NOTE]
-> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities. 
+> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
@@ -72,15 +72,26 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS blade of your storage account.
 
-:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
-
 1. Select the CORS blade for the storage account.
-2. Start by creating a new CORS entry in the Blob service.
-3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
-4. Select all the available 8 options for **Allowed methods**.
-5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
-6. Set the **Max Age** to 120 seconds or any acceptable value.
-7. Select the save button at the top of the page to save the changes.
+
+   :::image type="content" source="../media/quickstarts/cors-setting-menu.png" alt-text="Screenshot of the CORS setting menu in the Azure portal.":::
+
+1. Start by creating a new CORS entry in the Blob service.
+
+1. Set the **Allowed origins** to **<https://formrecognizer.appliedai.azure.com>**.
+
+   :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+    > [!TIP]
+    > You can use the wildcard character '*' rather than a specified domain to allow all origin domains to make requests via CORS.
+
+1. Select all the available 8 options for **Allowed methods**.
+
+1. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+
+1. Set the **Max Age** to 120 seconds or any acceptable value.
+
+1. Select the save button at the top of the page to save the changes.
 
 CORS should now be configured to use the storage account from Form Recognizer Studio.
 
@@ -175,7 +186,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 ### Signature detection
 
 >[!NOTE]
-> Signature fields are currently only supported for custom template models. When training a custom neural model, labeled signature fields are ignored. 
+> Signature fields are currently only supported for custom template models. When training a custom neural model, labeled signature fields are ignored.
 
 To label for signature detection: (Custom form only)
 

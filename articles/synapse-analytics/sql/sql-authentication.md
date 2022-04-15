@@ -33,7 +33,9 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Azure Active Directory admin**
 
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL.
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL. 
+
+   - The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools, for example, the **Synapse Administrator** role. Changing the Azure Active Directory administrator account will only affect the account's access to dedicated SQL pools. 
 
 The **Server admin** and **Azure AD admin** accounts have the following characteristics:
 
@@ -57,7 +59,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 
-Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
+Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a user, you can use the following syntax:
 
 ```sql
 CREATE USER Mary FROM LOGIN Mary;

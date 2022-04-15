@@ -6,6 +6,8 @@
     href: overview.md
   - name: Application Gateway v2
     href: overview-v2.md
+  - name: Well-Architected review of Application Gateway
+    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -15,6 +17,9 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quick-create-bicep.md
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md

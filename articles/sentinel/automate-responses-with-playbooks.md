@@ -20,7 +20,7 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an [automation rule](automate-incident-handling-with-automation-rules.md), respectively.
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
@@ -69,10 +69,6 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 - **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Microsoft Sentinel connector currently has two triggers:
   - [Alert trigger](/connectors/azuresentinel/#triggers): the playbook receives the alert as its input.
   - [Incident trigger](/connectors/azuresentinel/#triggers): the playbook receives the incident as its input, along with all its included alerts and entities.
-
-    > [!IMPORTANT]
-    >
-    > The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
