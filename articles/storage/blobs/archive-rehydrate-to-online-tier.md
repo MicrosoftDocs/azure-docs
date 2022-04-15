@@ -99,7 +99,7 @@ N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
 
 The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
 
@@ -126,7 +126,7 @@ $srcCtx = (Get-AzStorageAccount `
 $srcBlobUri = New-AzStorageBlobSASToken -Container $srcContainer `
     -Blob $srcBlob `
     -Permission rwd `
-    -ExpiryTime (Get-Date).AddDays(7) `
+    -ExpiryTime (Get-Date).AddDays(1) `
     -FullUri `
     -Context $srcCtx
 
@@ -141,7 +141,36 @@ Start-AzStorageBlobCopy -AbsoluteUri $srcBlobUri `
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To copy an archived blob to a blob in an online tier in a different storage account with the Azure CLI, make sure you have installed version 2.35.0 or higher. Next, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+
+The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+# Specify the expiry interval
+end=`date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'`
+
+# Get a SAS for the source blob
+srcBlobUri=$(az storage blob generate-sas \
+            --account-name <source-account> \ 
+            --container <source-container> \
+            --name <archived-source-blob> \
+            --permissions rwd \
+            --expiry $end \
+            --https-only \
+            --full-uri \
+            --as-user \
+            --auth-mode login | tr -d '"')
+
+# Copy to the destination blob in the Hot tier
+az storage blob copy start \
+    --source-uri $srcBlobUri \
+    --account-name <dest-account> \
+    --destination-container <dest-container> \
+    --destination-blob <dest-blob> \
+    --tier Hot \
+    --rehydrate-priority Standard \
+    --auth-mode login
+```
 
 ---
 
