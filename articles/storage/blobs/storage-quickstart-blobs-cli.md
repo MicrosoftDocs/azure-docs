@@ -35,9 +35,7 @@ Only Blob storage data operations support the `--auth-mode` parameter. Managemen
 To begin, sign-in to to your Azure account with the [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
-az login \
-    --name <resource-group> \
-    --location <location>
+az login
 ```
 
 ## Create a resource group
