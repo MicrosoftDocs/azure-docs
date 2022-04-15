@@ -27,7 +27,7 @@ The supported Kubelet parameters and accepted values are listed below.
 | `imageGcLowThreshold` | 0-100, no higher than `imageGcHighThreshold` | 80 | The percent of disk usage before which image garbage collection is never run. Minimum disk usage that **can** trigger garbage collection. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | none | Optimize NUMA node alignment, see more [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Allowed list of unsafe sysctls or unsafe sysctl patterns. | 
-| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 MB | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
+| `containerLogMaxSizeMB` | Size in megabytes (MB) | 50 MB | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. | 
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
