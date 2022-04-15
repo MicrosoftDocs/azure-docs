@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/15/2021
 ---
 
 # Built-in triggers and actions in Azure Logic Apps
@@ -93,6 +93,15 @@ Azure Logic Apps provides the following built-in triggers and actions:
     :::column-end:::
 :::row-end:::
 :::row:::
+    :::column:::
+        [![FTP icon][ftp-icon]][ftp-doc]
+        \
+        \
+        [**FTP**][ftp-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
+    :::column-end:::
     :::column:::
         [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
@@ -508,6 +517,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [data-operations-icon]: ./media/apis-list/data-operations.png
 [date-time-icon]: ./media/apis-list/date-time.png
 [for-each-icon]: ./media/apis-list/for-each-loop.png
+[ftp-icon]: ./media/apis-list/ftp.png
 [http-icon]: ./media/apis-list/http.png
 [http-request-icon]: ./media/apis-list/request.png
 [http-response-icon]: ./media/apis-list/response.png
@@ -545,6 +555,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
+[ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic apps"
 [http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic apps"
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
