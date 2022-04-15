@@ -1,6 +1,6 @@
 ---
-title: Govern access for critical applications | Microsoft Docs
-description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical on-premises and cloud-based applications.
+title: Govern access for critical third party applications in your environment| Microsoft Docs
+description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
 services: active-directory
 documentationcenter: ''
 author: ajburnle
@@ -17,11 +17,11 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Govern access for critical applications
+# Govern access for critical third party applications in your environment
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources.
 
-In most organizations subject to compliance requirements or that have a risk management plan, there will be some applications the organization is using which are particularly sensitive or business-critical. Their sensitivity might be based on the data the application contains, such as financial or personal information, or be due to the mission of the application. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  As part of your organization's controls for managing access, you can use Azure AD features to
+Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  As part of your organization's controls for managing access, you can use Azure AD features to
 
 * set up appropriate access,
 * enforce access checks, and
@@ -29,11 +29,14 @@ In most organizations subject to compliance requirements or that have a risk man
 
 In addition to application access governance scenario, identity governance and the other Azure AD features can also be used for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 
+<!-- TODO guidance for in-house apps -->
+
 ## Getting started with governing access to an application
 
-Azure AD identity governance can be integrated with any application, using standards such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications which your organization has developed.  This five step deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Azure AD identity governance can be integrated with any application, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications which your organization has developed.  This six step deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
 1. Establish policies for who should have access to the application
+1. Ensure your Azure AD environment is prepared for integrating with the application
 1. Integrate the application with Azure AD to ensure only authorized users cannot access the application
 1. Review user's existing access to the application to set a baseline of all users having been reviewed
 1. Deploy policies for automating access assignments
@@ -51,13 +54,19 @@ If this is an existing application in your environment, you may already have doc
 
 1. Determine how exceptions to those criteria should be handled.  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project.  In these situations, you may wish to also have a policy for approval that may have different stages.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
+## Ensure your Azure AD environment is prepared for integrating with the application
+
+<!-- TODO: do you have the data in your AAD? -->
+<!-- TODO: link to standards and fundamentals for security -->
+
+1. Ensure the users in highly privileged administrative roles in your Azure AD tenant have been reviewed. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
+
 ## Integrate the application with Azure AD to ensure only authorized users cannot access the application
 
 Once you have established the policies for who should have access to your application, then you will [connect your application to Azure AD](../manage-apps/what-is-application-management.md). Typically this begins with configuring your application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  If the application permits provisioning, to automatically add, remove or update users, then you should also configure provisioning, so that Azure AD can signal to the application when a user has been granted access or access has been removed.  These provisioning signals permits the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
 
-1. Ensure the users in highly privileged administrative roles in your Azure AD tenant have been reviewed. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
 1. Check if your app is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) or [list of app registrations](../develop/app-objects-and-service-principals.md). If the application is already present in your tenant, then skip to step 5 in this section.
-1. If your application isn'nt already registered in your tenant, then check if the app is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO. If it is, then use the [tutorials](../saas-apps/tutorial-list.md) to configure the application for federation, and if it supports it, and [configuration the application](/app-provisioning/configure-automatic-user-provisioning-portal.md) . When complete, skip to step 5 in this section.
+1. If your application isn't already registered in your tenant, then check if the app is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO. If it is, then use the [tutorials](../saas-apps/tutorial-list.md) to configure the application for federation, and if it supports it, and [configuration the application](/app-provisioning/configure-automatic-user-provisioning-portal.md) . When complete, skip to step 5 in this section.
 1. If the application isn't a well-known application the gallery, then select the integration that's most appropriate, based on the location and capabilities of the application:
 
    |Application location|Application supports| Next steps|
@@ -90,9 +99,9 @@ If the application already existed in your environment, then it is possible that
 
 * If the application relies upon Azure AD application role assignments to determine who has access, then create a one-time [access review](../governance/create-access-review.md) of that application.
 * If the application relies upon Azure AD group memberships to determine who has access, then create a one-time [access review](../governance/create-access-review.md) of the membership of those groups.
-<!-- * If the application uses an AD DS group, ... -->
-<!-- * If the application has a local data store accessible via SCIM ... -->
-<!-- * If the application uses a SQL database or another LDAP directory, ... -->
+<!-- TODO * If the application uses an AD DS group, ... -->
+<!-- TODO * If the application has a local data store accessible via SCIM ... -->
+<!-- TODO * If the application uses a SQL database or another LDAP directory, ... -->
 
 ## Deploy policies for automating access assignments
 
@@ -118,3 +127,4 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 
 ## Next steps
 
+- [Access reviews deployment plan](deploy-access-reviews.md)
