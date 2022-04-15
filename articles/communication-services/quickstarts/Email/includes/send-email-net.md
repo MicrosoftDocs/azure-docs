@@ -41,7 +41,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
 ```console
-dotnet new console -o SmsQuickstart
+dotnet new console -o EmailQuickstart
 ```
 
 Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
@@ -59,12 +59,29 @@ While still in the application directory, install the Azure Communication Servic
 dotnet add package Azure.Communication.Email --version 1.0.0
 ```
 
-Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
+Open **Program.cs** and replace the existing code with the following
+to add `using` directives for including the `Azure.Communication` namespace and a starting point for execution for your program.
 
-```csharp
+  ```csharp
 
-using Azure.Communication;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+using Azure;
 using Azure.Communication.Email;
+
+namespace SendEmail
+{
+    internal class Program
+    {
+        static async Task Main(string[] args)
+        {
+            
+        }
+    }
+}
 
 ```
 
@@ -72,19 +89,18 @@ using Azure.Communication.Email;
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for C#.
 
-| Name                                       | Description                                                                                                                                                       |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EmailAddress        | This class is leveraged to .                           |
-| EmailAttachment     | This class is leveraged to .                           |
-| EmailBody     | This class is leveraged to .                           |
-| EmailClient     | This class is leveraged to .                           |
-| EmailClientOptions     | This class is leveraged to .                           |
-| EmailContent     | This class is leveraged to .                           |
-| EmailCustomHeader     | This class is leveraged to .                           |
-| EmailMessage     | This class is leveraged to .                           |
-| EmailRecipients     | This class is leveraged to .                           |
-| EmailCustomHeader     | This class is leveraged to .                           |
-| StatusFoundResponse     | This class is leveraged to .                           |
+| Name                | Description                                                                                                                                          |
+| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
+| EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes.                               |
+| EmailBody           | This class contains the plain text and/or HTML content of the email body.                                                                            |
+| EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
+| EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
+| EmailContent        | This class contains the subject and the body of the email message. The importance can also be set within the EmailContent class.                     |
+| EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
+| EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
+| EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
+| StatusFoundResponse | This class holds lists of email addresses for recipients of the email message, including optional CC & .                                             |
 
 
 ## Authenticate the client
@@ -162,6 +178,17 @@ do
 
 } while (DateTime.Now.Ticks - start < duration.Ticks);
 ```
+
+| Status Name         | Description                                                                                                                                          |
+| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
+| None                | An email with this messageId could not be found.                                                                                                     |
+| Queued              | The email has been placed in the queue for delivery.                                                                                                 |
+| OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
+| InternalError       | An error occurred internally during the delivery of this message. Please try again.                                                                  |
+| Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
+| InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
+| InvalidAttachments  | The content bytes string for the attachment is not valid.                                                                                            |
+| InvalidSenderDomain | The sender's email address domain is not valid.                                                                                                      |
 
 ## Run the code
 
