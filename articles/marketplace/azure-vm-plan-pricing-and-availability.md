@@ -58,8 +58,10 @@ These steps assume you have already selected either the _Flat rate_, _Per core_,
 1. To offer a 1-year discount, select the **1-year saving %** check box and then enter the percentage discount you want to offer.
 1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
 1. To see the discounted prices, select **Price per core size**. A table with the 1-year and 3-year prices for each core size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
+
     > [!TIP]
     > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
+
 1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
 ## Free Trial
