@@ -81,8 +81,7 @@ sections:
             1. Unlink your original pair of geo-replicated caches and [export an RDB file](cache-how-to-import-export-data.md#export) from the primary cache.  
             1. [Import the RDB](cache-how-to-import-export-data.md#import) file into the primary cache in your new geo-replicated pair.  
 
-          The new pair of geo-replicated caches should not have the dependency on Cloud Services (classic).
-          <!-- @msfteegarden  - Not sure what 'should' means. Don't choose it< or afterwards check that it doesn't? -->
+          The new pair of geo-replicated  caches will not have the same dependency on Cloud Services.
 
       - question: What happens if caches aren't upgraded/migrated by August 31, 2024? 
         answer: |
@@ -103,10 +102,9 @@ sections:
             01. _Inactive Stage_ (January 1, 2024 to August 31, 2024) 
             	  
                 Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
-
-
-            ![./media/cache-cloud-service-timeline.png]
             
+            :::image type="content" source="/media/cache-cloud-service-timeline.png" alt-text="picture of a timeline that shows the timeline for retiring cloud services (classic).":::
+          
 
       - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
