@@ -624,6 +624,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/conceptual-agent-architecture.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/conceptual-agent-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
