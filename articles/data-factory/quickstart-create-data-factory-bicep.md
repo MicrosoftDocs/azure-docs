@@ -8,7 +8,7 @@ author: schaffererin
 ms.author: v-eschaffer
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/01/2022
+ms.date: 04/15/2022
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -30,17 +30,28 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-factory-v2-blob-to-blob-copy/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/main.bicep":::
 
 There are several Azure resources defined in the Bicep file:
 
-- [Microsoft.Storage/storageAccounts](/azure/templates/Microsoft.Storage/storageAccounts): Defines a storage account.
-- [Microsoft.DataFactory/factories](/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
-- [Microsoft.DataFactory/factories/linkedServices](/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
-- [Microsoft.DataFactory/factories/datasets](/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
-- [Microsoft.DataFactory/factories/pipelines](/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
+- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts?tabs=bicep): Defines a storage account.
+- [Microsoft.DataFactory/factories](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories?tabs=bicep): Create an Azure Data Factory.
+- [Microsoft.DataFactory/factories/linkedServices](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/linkedservices?tabs=bicepazure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
+- [Microsoft.DataFactory/factories/datasets](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/datasets?tabs=bicep): Create an Azure Data Factory dataset.
+- [Microsoft.DataFactory/factories/pipelines](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines?tabs=bicep): Create an Azure Data Factory pipeline.
+
+## Create a file
+
+Open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
+
+```emp.txt
+John, Doe
+Jane, Doe
+```
+
+Save the file in the C:\ADFv2QuickstartPSH folder. (If the folder doesn't already exist, create it.)
 
 ## Deploy the Bicep file
 
@@ -82,6 +93,14 @@ Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
+
+## Upload a file
+
+## Start trigger
+
+## Monitor the pipeline
+
+## Verify the output file
 
 ## Clean up resources
 
