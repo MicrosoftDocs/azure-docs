@@ -117,7 +117,7 @@ The BI Platform needs database for CMS and Auditing Data store, which can be ins
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (Supported database only for SAP BOBI Platform on Windows)
 
-  It's a fully managed SQL Server database engine, based on the latest stable Enterprise Edition of SQL Server. Azure SQL database handles most of the database management functions such as upgrading, patching, and monitoring without user involvement. With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. For more details, check [Azure SQL Database](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md) documentation.
+  It's a fully managed SQL Server database engine, based on the latest stable Enterprise Edition of SQL Server. Azure SQL database handles most of the database management functions such as upgrading, patching, and monitoring without user involvement. With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. For more details, check [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) documentation.
 
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) (Follow same compatibility guidelines as mentioned for MySQL AB in SAP PAM)
 
@@ -208,7 +208,7 @@ Availability Zones are physically separate locations within an Azure region. Eac
 
 To achieve high availability on each tier for SAP BI Platform, you can distribute VMs across Availability Zone by implementing high availability framework, which can provide the best SLA in Azure. For Virtual Machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
-For data tier, Azure Database as a Service (DBaaS) service provides high availability framework by default. You just need to select the region and service inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components. For more details on the SLA for supported DBaaS offering on Azure, check [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](../../../azure-sql/database/high-availability-sla.md).
+For data tier, Azure Database as a Service (DBaaS) service provides high availability framework by default. You just need to select the region and service inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components. For more details on the SLA for supported DBaaS offering on Azure, check [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
 
 ### Availability sets
 
@@ -255,7 +255,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premise system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 
-For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../../mysql/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](../../../azure-sql/database/network-access-controls-overview.md) section for Azure SQL database.
+For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../../mysql/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](/azure/azure-sql/database/network-access-controls-overview) section for Azure SQL database.
 
 ## Next steps
 
