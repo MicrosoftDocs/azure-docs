@@ -45,88 +45,9 @@ To complete this project, you'll need the following items:
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
-Now Azure CLI setup is validated, define the initial environment variables used throughout this article.
+Now Azure CLI setup is validated, you can next define the initial environment variables used throughout this article.
 
-# [Bash](#tab/bash)
-
-```azurecli
-RESOURCE_GROUP="album-containerapps"
-LOCATION="canadacentral"
-ENVIRONMENT="env-album-containerapps"
-API_NAME="album-api"
-GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
-```
-
-Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
-
-Now create a unique container registry name.
-
-```azurecli
-ACR_NAME=$GITHUB_USERNAME"acaalbums"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$RESOURCE_GROUP="album-containerapps"
-$LOCATION="canadacentral"
-$ENVIRONMENT="env-album-containerapps"
-$API_NAME="album-api"
-$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
-```
-
-Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
-
-Now create a unique container registry name.
-
-```powershell
-$ACR_NAME=$GITHUB_USERNAME + "acaalbums"
-```
-
----
-
-### Set your language preference
-
-Set an environment variable for the language you'll be using. The value can be one of the following values:
-
-- csharp
-- go
-- javascript
-- python
-
-# [Bash](#tab/bash)
-
-```bash
-LANGUAGE="<LANGUAGE_VALUE>"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$LANGUAGE="<LANGUAGE_VALUE>"
-```
-
----
-
-Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: `csharp`, `go`, `javascript`, or `python`.
-
-Next, set an environment variable for the target port of your application.  If you're using the JavaScript API, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
-
-# [Bash](#tab/bash)
-
-```bash
-API_PORT="<TARGET_PORT>"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$API_PORT="<TARGET_PORT>"
-```
-
----
-
-Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, or `80` for all other apps.
+[!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
 ## Prepare the GitHub repository
 
@@ -134,10 +55,10 @@ Navigate to the repository for your preferred language and fork the repository.
 
 Select the **Fork** button at the top of the page to fork the repo to your account.
 
-- [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
-- [Go](https://github.com/azure-samples/containerapps-albumapi-go)
-- [JavaScript](https://github.com/azure-samples/containerapps-albumapi-javascript)
-- [Python](https://github.com/azure-samples/containerapps-albumapi-python)
+* [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
+* [Go](https://github.com/azure-samples/containerapps-albumapi-go)
+* [JavaScript](https://github.com/azure-samples/containerapps-albumapi-javascript)
+* [Python](https://github.com/azure-samples/containerapps-albumapi-python)
 
 Now you can clone your fork of the sample repository.
 
