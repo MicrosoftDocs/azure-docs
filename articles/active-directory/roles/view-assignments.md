@@ -112,7 +112,7 @@ RoleDefinitionId                     PrincipalId                          Direct
 fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /administrativeUnits/3883b136-67f0-412c-9b...
 ```
 
-The following example shows hows to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
+The following example shows how to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
 
 ```powershell
 $roles = Get-AzureADMSRoleDefinition
