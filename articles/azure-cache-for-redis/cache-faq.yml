@@ -55,21 +55,21 @@ sections:
 
           -  Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
           
-               This case is rare, but there are a few caches that are pinned to Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
+               This case is rare, but there are a few caches that are use Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
         
           Emails will go out to customers identifying the specific subscriptions and cache names affected. If you’d like to confirm whether your cache is affected, send an email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com). 
      
       - question: What is the solution? 
         answer: |
-          We have migrated most  caches from being built on Cloud Services (class) to being built on Virtual Machine Scale Sets (VMSS). Migrating to VMSS removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+          We have migrated most  caches from being built on Cloud Services (class) to being built on virtual machine scale sets. Migrating to virtual machine scale sets removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
           - Migrate to a new cache using Private Links (recommended). 
 
              Create a new cache that uses Private Link for network isolation rather than VNet injection and [migrate your data to this cache](cache-vnet-migration.md). This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
             
-          - Migrate to a new cache in a new ARM VNet subnet.  
+          - Migrate to a new cache in a new Azure Resource Manager VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We hae migrated most  caches from being built on Cloud Services (class) to being built on Virtual machine Scale Sets (VMSS). To migrate, delete the existing cache and create a new cache in a new ARM VNET subnet. For  recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We have migrated most caches from being built on Cloud Services (class) to being built on virtual machine scale sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
@@ -81,7 +81,7 @@ sections:
             1. Unlink your original pair of geo-replicated caches and [export an RDB file](cache-how-to-import-export-data.md#export) from the primary cache.  
             1. [Import the RDB](cache-how-to-import-export-data.md#import) file into the primary cache in your new geo-replicated pair.  
 
-          The new pair of geo-replicated  caches will not have the same dependency on Cloud Services.
+          The new pair of geo-replicated  caches won't have the same dependency on Cloud Services.
 
       - question: What happens if caches aren't upgraded/migrated by August 31, 2024? 
         answer: |
@@ -103,12 +103,11 @@ sections:
             	  
                 Caches will only receive critical security fixes. All customers with support issues will be requested to migrate to a VMSS-based cache before receiving support. Customers must move off their caches by August 31, 2024.  
             
-            :::image type="content" source="/media/cache-cloud-service-timeline.png" alt-text="picture of a timeline that shows the timeline for retiring cloud services (classic).":::
-          
+            :::image type="content" source="media/cache-faq/cache-cloud-service-timeline.png" alt-text="picture of a timeline that shows the timeline for retiring cloud services (classic).":::
 
       - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
-          Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
+          Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
 
   - name: General questions
     questions:
