@@ -17,9 +17,8 @@ On behalf of an indexer, a search service will issue outbound calls to an extern
 
 This article explains how to find the IP address of your search service and configure an inbound IP rule on an Azure Storage account. While specific to Azure Storage, this approach also works for other Azure resources that use IP firewall rules for data access, such as Cosmos DB and Azure SQL.
 
-## Prerequisites
-
-The storage account and the search service must be in different regions. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview).
+> [!NOTE]
+> A storage account and your search service must be in different regions if you want to define IP firewall rules. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) instead.
 
 ## Get a search service IP address
 
@@ -44,7 +43,7 @@ The storage account and the search service must be in different regions. If your
 
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
-If your search service workloads include skillset execution, create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This step explains how to get the range of IP addresses needed for this inbound rule.
+We also require customers to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment) to ensure we optimize the resource availability for search services. This step explains how to get the range of IP addresses needed for this inbound rule.
 
 An IP address range is defined for each region that supports Azure Cognitive Search. You can get this IP address range from the `AzureCognitiveSearch` service tag.
 

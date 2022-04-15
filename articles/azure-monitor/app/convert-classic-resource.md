@@ -24,14 +24,14 @@ Workspace-based Application Insights allows you to take advantage of all the lat
     - Encryption-at-rest policy
     - Lifetime management policy
     - Network access for all data associated with Application Insights Profiler and Snapshot Debugger 
-* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. Otherwise, Pay-as-you-go data ingestion and data retention are billed similarly in Log Analytics as they are in Application Insights. 
+* [Commitment Tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the Pay-As-You-Go price. Otherwise, Pay-as-you-go data ingestion and data retention are billed similarly in Log Analytics as they are in Application Insights. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Migration process
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
 
-Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/manage-cost-storage.md#change-the-data-retention-period) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/manage-cost-storage.md#retention-by-data-type).
+Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
 <!-- This note duplicates information in pricing.md. Understanding workspace-based usage and costs has been added as a migration prerequisite.
@@ -61,7 +61,7 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
     > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period.
 
-- Understand [Workspace-based Application Insights](pricing.md#workspace-based-application-insights) usage and costs.
+- Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
 
 ## Migrate your resource
 
@@ -87,7 +87,7 @@ Once your resource is migrated, you'll see the corresponding workspace info in t
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs instead of the cap in Application Insights.
+> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
 

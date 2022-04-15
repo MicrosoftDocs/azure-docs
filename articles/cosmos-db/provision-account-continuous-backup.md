@@ -4,9 +4,9 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 04/06/2022
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
@@ -24,7 +24,7 @@ This article explains how to provision an account with continuous backup and poi
 >
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.
-> * If the account isn't enabled with customer managed keys(CMK).
+
 
 ## <a id="provision-portal"></a>Provision using Azure portal
 

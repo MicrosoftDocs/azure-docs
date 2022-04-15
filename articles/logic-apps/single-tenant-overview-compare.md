@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 04/04/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -312,10 +312,10 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
 ## Strict network and firewall traffic permissions
 
-If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your logic app workflows. To find the fully qualified domain names (FQDNs) for these connections, review the corresponding sections in these topics:
+If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your workflows. You can optionally allow traffic from [service tags](../virtual-network/service-tags-overview.md) and use the same level of restrictions or policies as Azure App Service. You also need to find and use the fully qualified domain names (FQDNs) for your connections. For more information, review the corresponding sections in the following documentation:
 
-* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
+* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 
 ## Next steps
 

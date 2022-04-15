@@ -2,11 +2,11 @@
 title: Bulk import data into the FHIR service in Azure Health Data Services
 description: This article describes how to bulk import data to the FHIR service in Azure Health Data Services.
 services: healthcare-apis
-author: SteveWohl
+author: dougseven
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 03/01/2022
-ms.author: zxue
+ms.author: dseven
 ---
 
 # Bulk importing data to the FHIR service in Azure Health Data Services
