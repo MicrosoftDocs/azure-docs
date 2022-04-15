@@ -2,7 +2,7 @@
 title: What's New in Azure Lab Services | Microsoft Docs
 description: Learn what's new in the Azure Lab Services April 2022 Updates. 
 ms.topic: overview
-ms.date: 01/06/2022
+ms.date: 04/14/2022
 ---
 
 # What's new in Azure Lab Services April 2022 Update (preview)
