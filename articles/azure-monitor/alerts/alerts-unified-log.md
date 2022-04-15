@@ -180,7 +180,7 @@ Location affects which region the alert rule is evaluated in. Queries are execut
 
 Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost).  Additionally, for Log Alerts configured for [at scale monitoring](#split-by-alert-dimensions), the cost will also depend on the number of time series created by the dimensions resulting from your query.
 
-Prices for Log Alert rules are availalble on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
+Prices for Log Alert rules are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ## View log alerts usage on your Azure bill
 
