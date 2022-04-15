@@ -94,11 +94,12 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Managed Image
     - Azure Artifact Gallery Image Version (including replication and the ability to exclude from latest)
     - VHD
-- Added support for customers to use their own VNet.
-- Added support for customers to customize the build VM (VM size, OS disk size)
-- Added support for user assigned MSI (for customize/distribute steps)
+- **Other Features**
+    - Added support for customers to use their own VNet.
+    - Added support for customers to customize the build VM (VM size, OS disk size)
+    - Added support for user assigned MSI (for customize/distribute steps)
 
-## Other Features
+
 
 ### November 2021
 
