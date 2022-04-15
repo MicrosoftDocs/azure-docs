@@ -117,8 +117,6 @@ items:
         href: sap-successfactors-attribute-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
-    - name: On-premises provisioning
-      items:
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
       - name: Migrate connector from MIM Sync
