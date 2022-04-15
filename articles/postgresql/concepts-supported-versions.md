@@ -8,6 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.date: 03/10/2022
 ms.custom: fasttrack-edit
+adobe-target: true
 ---
 # Supported PostgreSQL major versions
 

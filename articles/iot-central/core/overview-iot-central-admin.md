@@ -118,7 +118,7 @@ To learn how to monitor your IoT Edge fleet remotely by using Azure Monitor and 
 
 ## Tools
 
-Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
+Many of the tools you use as an administrator are available in the **Security** and **Settings** sections of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
 - [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-iot-central-from-cli.md)
 - [Azure portal](howto-manage-iot-central-from-portal.md)
