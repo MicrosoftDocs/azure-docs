@@ -1,5 +1,5 @@
 ---
-title: Log & view metrics and log files
+title: Log & view metrics and log files v1
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics, and to help diagnose errors and warnings.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 ---
 
-# Log & view metrics and log files
+# Log & view metrics and log files v1
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-log-view-metrics.md)
@@ -32,7 +32,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 
 > [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 ## Data types
 
@@ -40,7 +40,7 @@ You can log multiple data types including scalar values, lists, tables, images, 
 
 ## Logging run metrics 
 
-Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](./resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
+Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](../resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
 
 |Logged Value|Example code| Format in portal|
 |----|----|----|
@@ -212,7 +212,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md)
+For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](../how-to-track-designer-experiments.md)
 
 ## Example notebooks
 
@@ -220,10 +220,10 @@ The following notebooks demonstrate concepts in this article:
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
 See these articles to learn more on how to use Azure Machine Learning:
 
-* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
+* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](..]tutorial-train-deploy-notebook.md).
