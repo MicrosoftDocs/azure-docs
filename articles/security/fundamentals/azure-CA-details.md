@@ -11,25 +11,21 @@ ms.author: sarahlipsey
 author: shlipsey3
 manager: rachelkarlin
 ms.reviewer: person
-
-<a id="ameroot-ea76"></a>ameroot (413e)
-
-<a id="Baltimore-CyberTrust-Root"></a>Baltimore CyberTrust Root (d4de)
-
 ---
 
 # Azure Certificate Authority details
 
-This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure, including Public Key Infrastructure (PKI) and SSL/TSL information.
+This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure, including Public Key Infrastructure (PKI) and SSL/TLS information.
 
 **How to read the certificate details:**
 - The CA name includes the Common Name (CN) of the certificate plus the first four characters of the SHA-1 Thumbprint. This construction gives each entry a unique anchor when there are multiple versions of a particular cert.
-- The Serial Number contains the hexadecimal value of the certificate serial number.
-- The Thumbprint is the SHA-1 thumbprint.
+- The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
+- The Thumbprint (bottom string in the table) is the SHA-1 thumbprint.
+- Links to download the Privacy Enhanced Mail (PEM) and Distinguished Encoding Rules (DER) are the last cell in the table.
 
 ## Root Certificate Authorities
 
-| Certificate Authority | Expiry Date | Serial Number<br>Thumbprint | Downloads |
+| Certificate Authority | Expiry Date | Serial Number /<br>Thumbprint | Downloads |
 |---- |---- |---- |---- |
 | DigiCert Global Root CA (a898) | Nov 10, 2031 | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10pem.crt) |
 | DigiCert Global Root G2 (df3c) | Nov 10 2031 | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/digicert/digicertglobalrootca2031-11-10pem.crt) |
