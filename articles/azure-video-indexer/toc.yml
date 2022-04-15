@@ -88,6 +88,8 @@
     href: video-indexer-embed-widgets.md
   - name: Considerations when using Azure Video Indexer at scale
     href: considerations-when-use-at-scale.md
+  - name: Network Security
+    href: network-security.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
   - name: Customize content models
