@@ -697,8 +697,8 @@ You can use the same technique for an account that has the hierarchical namespac
 | Azure Purview                  | Microsoft.Purview/accounts             | Allows Azure Purview to access storage accounts. |
 | Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
-| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
-| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) audit data to storage accounts behind firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics              | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 

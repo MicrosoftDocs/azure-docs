@@ -92,7 +92,7 @@ After you've created a managed identity, you select an Active Directory admin.
 
 Next, you create a contained database user in your Azure SQL or Azure Synapse database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the primary database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job.
 
-For more information, review the following article for background on Azure AD integration: [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](../azure-sql/database/authentication-mfa-ssms-overview.md)
+For more information, review the following article for background on Azure AD integration: [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
 
 1. Connect to your Azure SQL or Azure Synapse database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication.
 
