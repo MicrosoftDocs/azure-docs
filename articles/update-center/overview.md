@@ -10,13 +10,13 @@ ms.topic: overview
 
 # About Update management center (preview)
 
-Update management center (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Update management center(preview) you can make updates in real-time or schedule them within a defined maintenance window.
+Update management center (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Update management center (preview), you can make updates in real-time or schedule them within a defined maintenance window.
 
 You can use the update management center (preview) in Azure to:
 
-- Oversee update compliance for your entire fleet of machines in Azure, on premises and other cloud environments.
+- Oversee update compliance for your entire fleet of machines in Azure, on- premises, and other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
-- Leverage flexible patching options such as automatic VM guest patching in Azure, [hot patching](/azure/automanage/automanage-hotpatch), and customer-defined maintenance schedules. 
+- Leverage flexible patching options such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hot patching](/azure/automanage/automanage-hotpatch), and customer-defined maintenance schedules. 
 
 We also offer other capabilities to help you manage updates for your Azure Virtual Machines (VM) that you should consider as part of your overall update management strategy. Review the Azure VM [Update options](/azure/virtual-machines/updates-maintenance-overview) to learn more about the options available.
 
@@ -29,20 +29,20 @@ Before you enable your machines for update management center (preview), make sur
 
 ## Key benefits
 
-Update management center (preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](/azure/automation/update-management/overview). Update management center (preview) offers many new features and provides enhanced functionality over the original version available with Azure Automation and some of those benefits are as below:
+Update management center (preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](/azure/automation/update-management/overview). Update management center (preview) offers many new features and provides enhanced functionality over the original version available with Azure Automation and some of those benefits are listed below:
 
-- Provides native experience with zero on-onboarding
+- Provides native experience with zero on-boarding.
     - Built as native functionality on Azure Compute and Azure Arc for Servers platform for ease of use.
     - No dependency on Log Analytics and Azure Automation.
-    - Azure policy support
-    - Global availability of Azure Compute and Azure Arc
-- Works with Azure roles and identity
-    - Granular access control as per resource level instead of access control at Automation account and Log Analytics workspace level.
-    - Update management center now as Azure Resource Manager based operations allows RBAC and roles based of ARM in Azure.
+    - Azure policy support.
+    - Global availability in all Azure Compute and Azure Arc regions.
+- Works with Azure roles and identity.
+    - Granular access control at per resource level instead of access control at Automation account and Log Analytics workspace level.
+    - Update management center now as Azure Resource Manager based operations. It allows RBAC and roles based of ARM in Azure.
 - Enhanced flexibility
     - Ability to take immediate action either by installing updates immediately or schedule them for a later date.
     - Check updates automatically or on demand.
-    - Helps secure machines with new ways of patching such as [automatic VM](/azure/virtual-machines/automatic-vm-guest-patching), [guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hotpatching](/azure/automanage/automanage-hotpatch) or custom maintenance schedules.
+    - Helps secure machines with new ways of patching such as [automatic VM](/azure/virtual-machines/automatic-vm-guest-patching) [guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hotpatching](/azure/automanage/automanage-hotpatch) or custom maintenance schedules.
     - Sync patch cycles in relation to patch Tuesday—the unofficial term for Microsoft's scheduled security fix release on every Tuesday.
 
 
@@ -55,7 +55,7 @@ To support management of your Azure VM or non-Azure machine, update management c
 - [Azure virtual machine Windows agent](/azure/virtual-machines/extensions/agent-windows) or [Azure virtual machine Linux agent](/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
 - [Azure arc-enabled servers agent](/azure/azure-arc/servers/agent-overview) for non-Azure Linux and Windows machines or physical servers.
 
- The extension agent installation and configuration are managed by update management center (preview) and there's no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and it includes:
+ The extension agent installation and configuration is managed by update management center (preview) and there's no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and it includes:
 
 - Retrieving the assessment information about status of system updates for it specified by the Windows Update client or Linux package manager.
 - Initiating the download and installation of approved updates with Windows Update client or Linux package manager. 
@@ -68,7 +68,7 @@ The machines assigned to update management center (preview) report how up to dat
 > You can manage your Azure VMs or Arc-enabled servers directly, or at-scale with update management center (preview).
 
 ## Prerequisites
-Along with the prerequisites listed below, see [support matrix](support-matrix.md) for update management center (preview)
+Along with the prerequisites listed below, see [support matrix](support-matrix.md) for update management center (preview).
 
 ### Role
 
@@ -97,7 +97,7 @@ You need the following permissions to create and manage update deployments. The 
 
 ### Network planning
 
-To prepare your network to support, update management center (preview), you may need to configure some infrastructure components.
+To prepare your network to support update management center (preview), you may need to configure some infrastructure components.
 
 For Windows machines, you must allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) (WSUS) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -105,7 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azu
 
 ### VM images
 
-Update management center (preview) supports Azure VMs created using Azure Marketplace images, the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details see:
+Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details, see:
 
 - [Manual install of Azure Windows VM agent](/azure/virtual-machines/extensions/agent-windows#manual-installation)
 - [Manual install of Azure Linux VM agent](/azure/virtual-machines/extensions/agent-linux#installation)
