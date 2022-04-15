@@ -30,7 +30,7 @@ This section is included for illustrative purposes, if you wish to set up MIM Sy
  1. Give the account created earlier the ability to run a service. Start **Local Security Policy** and select **Local Policies** > **User Rights Assignment** > **Log on as a service**. Add the account mentioned earlier.
  1. Install MIM Sync on this host.
  1. After the installation of MIM Sync is complete, sign out and sign back in.
- 1. Install your connector on the same server as MIM Sync. For illustration purposes, use either of the Microsoft-supplied SQL or LDAP connectors for download from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=51495).
+ 1. Install your connector on the same server as MIM Sync. For illustration purposes, use either of the Microsoft-supplied SQL or LDAP connectors for download from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=51495).
  1. Start the Synchronization Service UI. Select **Management Agents**. Select **Create**, and specify the connector management agent. Be sure to select a connector management agent that's ECMA based.
  1. Give the connector a name, and configure the parameters needed to import and export data to the connector. Be sure to configure that the connector can import and export single-valued string attributes of a user or person object type.
 
