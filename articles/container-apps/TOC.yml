@@ -28,6 +28,8 @@
           href: get-started-existing-container-image.md
         - name: Visual Studio
           href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -50,6 +52,8 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Use managed identities
+      href: managed-identity.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions

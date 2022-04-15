@@ -59,11 +59,6 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-> [!WARNING]
-> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
-> 
-> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
-
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Disabling of the KMS etcd encryption feature.
@@ -77,6 +72,11 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 
 ## Create a KeyVault and key
+
+> [!WARNING]
+> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
+> 
+> If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
 Use `az keyvault create` to create a KeyVault.
 
@@ -143,7 +143,7 @@ az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-iden
 
 ## Update an exiting AKS cluster to enable KMS etcd encryption
 
-Use `az aks update` with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
+Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
@@ -152,5 +152,15 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azur
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az extension add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update

@@ -67,8 +67,10 @@
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
-      - name: RDP Shortpath
+      - name: RDP Shortpath for managed networks
         href: shortpath.md
+      - name: RDP Shortpath for public networks (preview)
+        href: shortpath-public.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
       - name: Required URL list
@@ -237,6 +239,12 @@
         href: autoscale-scenarios.md
       - name: Autoscale feature FAQ (preview)
         href: autoscale-faq.yml
+  - name: Manage agent updates
+    items:
+      - name: Scheduled Agent Updates (preview)
+        href: scheduled-agent-updates.md
+      - name: Set up diagnostics to monitor agent updates
+        href: agent-updates-diagnostics.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
@@ -291,6 +299,10 @@
       href: start-virtual-machine-connect-faq.md
   - name: Set drain mode
     href: drain-mode.md
+  - name: Network connectivity
+    items:
+    - name: Use Azure Firewall to protect Azure Virtual Desktop
+      href: /azure/firewall/protect-azure-virtual-desktop?context=/azure/virtual-desktop/context/context
   - name: Azure Virtual Desktop for Azure Stack HCI (preview)
     href: azure-stack-hci.md
 - name: Troubleshoot
