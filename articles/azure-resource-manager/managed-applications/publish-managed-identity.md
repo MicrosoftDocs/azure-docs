@@ -194,7 +194,7 @@ A basic Azure Resource Manager template that deploys a Managed Application with 
 
 Once a Managed Application is granted an identity, it can be granted access to existing Azure resources by creating a role assignment.
 
-To do so, search for and select the name of the Managed Application or user-assigned identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To do so, search for and select the name of the Managed Application or **user-assigned identity**, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Linking existing Azure resources
 
