@@ -28,7 +28,7 @@ This section is included for illustrative purposes, if you wish to set up MIM Sy
  1. Create an account for use during the MIM Sync installation. It can be a local account on that Windows Server instance. To create a local account, open **Control Panel** > **User Accounts**, and add the user account **mimsync**.
  1. Add the account created in the previous step to the local Administrators group.
  1. Give the account created earlier the ability to run a service. Start **Local Security Policy** and select **Local Policies** > **User Rights Assignment** > **Log on as a service**. Add the account mentioned earlier.
- 1. Install MIM Sync on this host. If you don't have MIM Sync binaries, you can install an evaluation by downloading the zip file from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=48244), mounting the ISO image, and copying the folder **Synchronization Service** to the Windows Server host. Then run the setup program contained in that folder. Evaluation software is time limited and will expire. It isn't intended for production use.
+ 1. Install MIM Sync on this host.
  1. After the installation of MIM Sync is complete, sign out and sign back in.
  1. Install your connector on the same server as MIM Sync. For illustration purposes, use either of the Microsoft-supplied SQL or LDAP connectors for download from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=51495).
  1. Start the Synchronization Service UI. Select **Management Agents**. Select **Create**, and specify the connector management agent. Be sure to select a connector management agent that's ECMA based.
