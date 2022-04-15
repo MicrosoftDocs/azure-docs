@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 04/14/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -23,6 +23,8 @@ Create a VM from a [specialized image version](./shared-image-galleries.md#gener
 > When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 
 Replace resource names as needed in these examples. 
+
+## Create a VM from your gallery
 
 ### [Portal](#tab/portal)
 
@@ -154,9 +156,30 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+---
 
+## Create a VM from a community gallery image
 
-## From community gallery
+> [!IMPORTANT]
+> The Community Gallery is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### [Portal](#tab/portal2)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+1. In the left menu, under **Other Items**, seect **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+1. Select an image from the list. Make sure that the **OS state** is *Specialized*. If you want to use a specialized image, see [Create a VM using a generalized image version](vm-generalized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+### [CLI](#tab/cli2)
 
 List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
@@ -171,7 +194,10 @@ To create a VM from a generalized image in a community gallery, see [Create a VM
 
 Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image.
 
-Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`.
+To create a VM using an image shared to a community gallery, use the unique ID of the image for the `--image` which will be in the following format:
+
+```
+/CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
 
 In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
 
@@ -179,18 +205,9 @@ In this example, we are creating a VM from the latest version of the *myImageDef
 az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
     --name myVM \
-    --image "/CommunityGalleries/xxContosoImages-f61bb1d9-3c5a-4ad2-99b5-744030225de6/Images/LinuxSpecialized" \
+    --image "/CommunityGalleries/ContosoImages-f61bb1d9-3c5a-4ad2-99b5-744030225de6/Images/LinuxSpecializedVersions/latest" \
     --specialized
 ```
-
-XXX
-For VM deployments of a custom image, use the 
-imageReference.communityGalleryImageId value if the custom image has been shared 
-via subscription / tenant; otherwise use the imageReference.id value if the custom image 
-has been shared using RBAC (user, group, service principal, or managed identity) 
-
-
-/CommunityGalleries/xxContosoImages-f61bb1d9-3c5a-4ad2-99b5-744030225de6/Images/LinuxSpecialized
 
 
 ---

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/31/2021
+ms.date: 04/14/2022
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -445,6 +445,70 @@ To create the VM/VMSS from community gallery image, you must accept the license 
 
 ### [REST](#tab/rest2)
 
+Get the the ID of the image version. The value will be used in the VM deployment request.
+
+```rest
+GET 
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/CommunityGalleries/{CommunityGalleryPublicName}/Images/{galleryImageName}/Versions/{1.0.0}?api-version=2021-07-01 
+
+```
+
+Response:
+
+```json 
+"location": "West US",
+  "identifier": {
+    "uniqueId": "/CommunityGalleries/{PublicGalleryName}/Images/{imageName}/Versions/{verionsName}"
+  },
+  "name": "1.0.0"
+```
+ 
+
+
+Now you can deploy the VM. The example requires API version 2021-07-01 or later.
+
+```rest
+PUT 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachines/{VMName}?api-version=2021-03-01   
+{ 
+ 	"location": "{location}", 
+ 	"properties": { 
+ 	 	"hardwareProfile": { 
+ 	 	 	"vmSize": "Standard_D1_v2" 
+ 	 	}, 
+ 	 	"storageProfile": { 
+ 	 	 	"imageReference": { 
+ 	 	 	 	"communityGalleryImageId":"/communityGalleries/{publicGalleryName}/images/{galleryImageName}/versions/1.0.0" 
+ 	 	 	}, 
+ 	 	 	"osDisk": { 
+ 	 	 	 	"caching": "ReadWrite", 
+ 	 	 	 	"managedDisk": { 
+ 	 	 	 	 	"storageAccountType": "Standard_LRS" 
+ 	 	 	 	}, 
+ 	 	 	 	"name": "myVMosdisk", 
+ 	 	 	 	"createOption": "FromImage" 
+ 	 	 	} 
+   	}, 
+ 	 	"osProfile": { 
+ 	 	 	"adminUsername": "azureuser", 
+ 	 	 	"computerName": "myVM", 
+ 	 	 	"adminPassword": "{password}}" 
+ 	 	}, 
+ 	 	"networkProfile": { 
+ 	 	 	"networkInterfaces": [ 
+ 	 	 	 	{ 
+ 	 	 	 	 	"id": "/subscriptions/00000000-0000-0000-0000-
+000000000000/resourceGroups/{rg}/providers/Microsoft.Network/networkInterfaces/{networkIntefaceName}", 
+ 	 	 	 	 	"properties": { 
+ 	 	 	 	 	 	"primary": true 
+ 	 	 	 	 	} 
+ 	 	 	 	} 
+ 	 	 	] 
+ 	 	} 
+ 	} 
+} 
+
+```
 
 ---
 
