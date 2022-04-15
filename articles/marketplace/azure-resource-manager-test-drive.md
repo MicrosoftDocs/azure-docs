@@ -331,7 +331,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
       1. On the **Roles** tab, select **Contributor**.
 
-      1. On the **Members** tab, select **User, group, or service principal**, and then select **Select members**.
+      1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
       1. Find and select the the Microsoft TestDrive service principal that you created previously.
 
