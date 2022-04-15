@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 01/06/2022
 ---
 
-# What's new in Azure Lab Services April 2022 Updates (preview)
+# What's new in Azure Lab Services April 2022 Update (preview)
 
 We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this preview!
 
@@ -88,10 +88,12 @@ With all the new enhancements in the April 2022 Update (preview), it's a good ti
 
 Use the following checklist to get started:
 1. **Lab plans.**  
+
     1. [Create](tutorial-setup-lab-plan.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
     1. [Assign permissions](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
     1. Enable [Azure Marketplace images](specify-marketplace-images.md).
     1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).
+
 1. **Capacity**. 
 
     Forecast and [request dedicated VM capacity](capacity-limits.md#request-a-limit-increase).  Even if enrollment finalized, you can use preliminary estimates for your initial capacity request.  You can request more capacity later, if needed.
