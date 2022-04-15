@@ -995,7 +995,7 @@ This SSML snippet demonstrates how the MathML elements are used to output synthe
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural">This is test: <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math> end!</voice></speak> 
 ```
 
-The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional. All elements from the MathML 2.0 specification are supported. And the `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored. For MathML 3.0, all elements except ones in [elementary math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) are also supported. 
+The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional. All elements from the [MathML 2.0 specification](https://www.w3.org/TR/MathML2/) are supported. And the `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored. For [MathML 3.0](https://www.w3.org/TR/MathML3/), all elements except ones in [elementary math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) are also supported. 
 
 > [!NOTE]
 > If the element is not recognized due to typos or unsupported tags, it will be ignored, and the child elements within it will still be processed.
