@@ -27,7 +27,7 @@ Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azur
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-## Metric Dimensions
+## Metric dimensions
 
 DPS has the following dimensions associated with its metrics.
 
