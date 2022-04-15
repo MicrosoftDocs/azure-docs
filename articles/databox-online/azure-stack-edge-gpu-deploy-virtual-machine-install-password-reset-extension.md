@@ -292,7 +292,7 @@ azureuser@mylinuxvm5:~$
 To remove the password reset extension, run the following command:
 
 ```powershell
-Remove-AzVMExtension -Resource group name <ResourceGroupName> -VMName <VM name> -Name <Name of the extension>
+Remove-AzVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Name of the extension>
 ```
 
 Here's a sample output:
