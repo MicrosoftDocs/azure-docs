@@ -1,0 +1,176 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: dademath
+manager: nimag
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services-email
+ms.date: 07/28/2020
+ms.topic: include
+ms.custom: include file
+ms.author: bashan
+ms.custom: private_preview
+---
+> [!IMPORTANT]
+> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
+> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+
+
+Get started with Azure Communication Services by using the Communication Services C# Email client library to send Email messages.
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- An Azure Email Communication Services Resource created and ready with a provisioned domains [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
+- An active Communication Services resource connected with Email Domain and a Connection String[Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
+
+### Prerequisite check
+
+- In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
+- To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
+
+## Setting up
+
+### Create a new C# application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+
+```console
+dotnet new console -o SmsQuickstart
+```
+
+Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+
+```console
+cd EmailQuickstart
+dotnet build
+```
+
+### Install the package
+
+While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
+
+```console
+dotnet add package Azure.Communication.Email --version 1.0.0
+```
+
+Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
+
+```csharp
+
+using Azure.Communication;
+using Azure.Communication.Email;
+
+```
+
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for C#.
+
+| Name                                       | Description                                                                                                                                                       |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EmailAddress        | This class is leveraged to .                           |
+| EmailAttachment     | This class is leveraged to .                           |
+| EmailBody     | This class is leveraged to .                           |
+| EmailClient     | This class is leveraged to .                           |
+| EmailClientOptions     | This class is leveraged to .                           |
+| EmailContent     | This class is leveraged to .                           |
+| EmailCustomHeader     | This class is leveraged to .                           |
+| EmailMessage     | This class is leveraged to .                           |
+| EmailRecipients     | This class is leveraged to .                           |
+| EmailCustomHeader     | This class is leveraged to .                           |
+| StatusFoundResponse     | This class is leveraged to .                           |
+
+
+## Authenticate the client
+
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+
+
+```csharp
+// This code demonstrates how to fetch your connection string
+// from an environment variable.
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+
+EmailClient emailClient = new EmailClient(connectionString);
+```
+
+## Send an Email message
+
+To send an Email message, you need to
+- Construct the email content and body using EmailContent 
+- Add Recipients 
+- Contrust your email message with your Sender information you get your MailFrom address from your verifed domain.
+- Include your Email Content and Recipients and include attachments if any 
+- Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
+
+Please replace with your domain details and modify the content, recipient details as required
+```csharp
+
+EmailClient emailClient = new EmailClient(connectionString);
+
+//Replace with your domain and modify the content, recipient details as required
+
+EmailContent emailContent = new EmailContent("Your Email Subject Goes Here", new EmailBody { PlainText = "Your Email body Goes Here" });
+EmailRecipients emailRecipients = new EmailRecipients(new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" } });
+EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
+var response = emailClient.SendEmail(emailMessage, Guid.NewGuid().ToString(), DateTime.Now.ToString());
+```
+
+## Getting MessageId to track Email Delivery
+
+To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
+
+```csharp
+string messageId = string.Empty;
+if (!response.IsError)
+{
+    if (!response.Headers.TryGetValue("x-ms-request-id", out messageId))
+    {
+        Console.WriteLine("MessageId not found");
+        return;
+    }
+    else
+    {
+        Console.WriteLine($"MessageId = {messageId}");
+    }
+}
+```
+## Getting Status on Email Delivery
+To get the delivery status of email call GetMessageStatus API with MessageId
+```csharp
+Response<StatusFoundResponse> messageStatus = null;
+messageStatus = emailClient.GetMessageStatus(messageId);
+Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
+TimeSpan duration = TimeSpan.FromMinutes(3);
+long start = DateTime.Now.Ticks;
+do
+{
+    messageStatus = emailClient.GetMessageStatus(messageId);
+    if (messageStatus.Value.Status != MessageStatus.Queued )
+    {
+        Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
+        break;
+    }
+    Thread.Sleep(60000);
+    Console.WriteLine($"...");
+
+} while (DateTime.Now.Ticks - start < duration.Ticks);
+```
+
+## Run the code
+
+Run the application from your application directory with the `dotnet run` command.
+
+```console
+dotnet run
+```
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
