@@ -6,8 +6,8 @@ summary: Azure Video Indexer (formerly Azure Video Analyzer for Media) is a clou
 metadata:
   title: Azure Video Indexer (formerly Azure Video Analyzer for Media) documentation
   description: Azure Video Indexer (formerly Azure Video Analyzer for Media) is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
-  services: azure-video-analyzer
-  ms.service: azure-video-analyzer
+  services: azure-video-indexer
+  ms.service: azure-video-indexer
   ms.topic: landing-page # Required
   ms.collection: collection
   author: Juliako
