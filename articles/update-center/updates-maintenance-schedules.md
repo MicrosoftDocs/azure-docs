@@ -22,7 +22,7 @@ Update management center (preview) provides you the flexibility to take an immed
 Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
 
 ## Scheduled patching
-You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates to be installed. The schedule will then automatically install the updates as per the specifications.
+You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates that you must install. The schedule will then automatically install the updates as per the specifications.
 
 Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control documentation](/azure/virtual-machines/maintenance-control). 
 Start using [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
@@ -30,7 +30,7 @@ Start using [scheduled patching](scheduled-patching.md) to create and save recur
 
 ## Automatic VM Guest patching in Azure
 
-This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines keeping in mind the availability-first principles. For more information, see [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).
+This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines following the availability-first principles. For more information, see [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).
 
 This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. 
 
@@ -42,7 +42,7 @@ This mode of patching allows operating system to automatically install updates a
 
 Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](/azure/automanage/automanage-hotpatch)
 
-Hotpatching property is available as a setting in Update management cente (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
+Hotpatching property is available as a setting in Update management center (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
