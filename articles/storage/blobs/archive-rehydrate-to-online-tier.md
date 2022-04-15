@@ -113,14 +113,10 @@ $srcBlob = "<source-blob>"
 $destBlob = "<destination-blob>"
 
 # Get the destination account context
-$destCtx = (Get-AzStorageAccount `
-        -ResourceGroupName $rgName `
-        -Name $destAccount).Context
+$destCtx = New-AzStorageContext -StorageAccountName $destAccount -UseConnectedAccount
 
 # Get the source account context
-$srcCtx = (Get-AzStorageAccount `
-        -ResourceGroupName $rgName `
-        -Name $srcAccount).Context
+$srcCtx = New-AzStorageContext -StorageAccountName $srcAccount -UseConnectedAccount
 
 # Get the SAS URI for the source blob
 $srcBlobUri = New-AzStorageBlobSASToken -Container $srcContainer `
