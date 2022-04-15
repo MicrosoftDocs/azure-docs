@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 04/15/2022
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
@@ -61,7 +61,7 @@ For the maximum number of user-assigned managed identities per application, see 
 
 ### Azure services that aren't supported
 
-The following services do not support managed identity-based access at this time, but they will at a future date:
+The following services do not currently support managed identity-based access:
 
 - Azure Redis Cache
 - Azure Flexible MySQL
