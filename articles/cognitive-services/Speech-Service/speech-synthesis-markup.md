@@ -982,22 +982,23 @@ For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cogniti
 
 ## Supported MathML elements
 
-The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. Some special MathML entities are not supported, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities. 
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. 
 
 > [!NOTE]
 > The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales. 
 
 **Example**
 
-This SSML snippet demonstrates how the MathML elements are used to output synthesized speech.
+This SSML snippet demonstrates how the MathML elements are used to output synthesized speech. The text-to-speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural">This is test: <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math> end!</voice></speak> 
+<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>
 ```
-
 The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional. All elements from the [MathML 2.0 specification](https://www.w3.org/TR/MathML2/) are supported. And the `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored. For [MathML 3.0](https://www.w3.org/TR/MathML3/), all elements except ones in [elementary math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) are also supported. 
 
 > [!NOTE]
+> Some special MathML entities are not supported, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities. 
+> 
 > If the element is not recognized due to typos or unsupported tags, it will be ignored, and the child elements within it will still be processed.
 
 ## Next steps
