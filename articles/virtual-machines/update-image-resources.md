@@ -315,7 +315,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## Community Galleries
 
 
-To list you community galleries with their public name:
+To list your own galleries, and output the public names for the community galleries:
 
 ```azurecli-interactive
 az sig list --query [*]."{Name:name,PublicName:sharingProfile.communityGalleryInfo.publicNames}"

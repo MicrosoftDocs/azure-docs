@@ -15,7 +15,7 @@ ms.reviewer: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-Create a scale set from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
+Create a scale set from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). If you want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 
 ## Create a scale set from an image in your gallery
 

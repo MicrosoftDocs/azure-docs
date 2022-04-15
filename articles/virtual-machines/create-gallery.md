@@ -232,7 +232,7 @@ When you are ready to make the gallery public:
 
 1. On the page for the gallery, select **Sharing** from the left menu.
 1. Select **Share** from the top of the page.
-   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for shaing your gallery to the community.":::
+   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
 1. When you are done, select **Save**.
 
 

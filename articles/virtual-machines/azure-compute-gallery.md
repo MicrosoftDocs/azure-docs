@@ -100,11 +100,11 @@ As a content publisher, you might want to use Community Galleries:
 
 - If you have non-commercial, non-proprietary content to share widely on Azure. 
 
-- If you want greater control over the number of versions, regions and even the duration of VM Image availability.  
+- You want greater control over the number of versions, regions, and the duration of image availability.  
 
-- If you have daily/nightly builds to share publicly with your customers and don’t want to deal with the overhead that comes with publishing on Azure Marketplace 
+- You have daily/nightly builds to share publicly with your customers and don’t want to deal with the overhead that comes with publishing on Azure Marketplace 
 
-- If you don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.  
+- You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.  
 
 ### How community galleries work
 

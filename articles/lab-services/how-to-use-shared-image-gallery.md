@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
-# Use an shared image gallery in Azure Lab Services
+# Use a shared image gallery in Azure Lab Services
 
 An image contains the operating system, software applications, files, and settings that are installed on a VM.  There are two types of images that you can use when you set up a new lab:
 -   Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
@@ -56,7 +56,7 @@ After a shared image gallery is attached, a lab account admin or an educator can
     > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.    
 
 ## Use a custom image from the shared image gallery
-An educator can pick a custom image available in the shared image gallery for the template VM that is created when you setup a new lab.
+An educator can pick a custom image available in the shared image gallery for the template VM that is created when you set up a new lab.
 
 ![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
 

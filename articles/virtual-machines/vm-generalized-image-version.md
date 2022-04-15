@@ -406,7 +406,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 1. Under **Instance details**, type a name for the **Virtual machine name**.
 1. For **Security type**, make sure *Standard* is selected.
 1. For your **Image**, select **See all images**. The **Select an image** page will open.
-1. In the left menu, under **Other Items**, seect **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
 1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
