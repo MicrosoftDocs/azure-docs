@@ -33,3 +33,5 @@
     href: /cli/azure/confluent
   - name: Azure PowerShell
     href: /powershell/module/az.confluent/#confluent
+  - name: REST API
+    href: /rest/api/confluent

@@ -92,6 +92,8 @@
           href: howto-authorize-from-managed-identity.md
   - name: Troubleshooting
     items:
+    - name: Debug event handlers locally
+      href: howto-local-debug-event-handler.md
     - name: Collect network trace
       href: howto-troubleshoot-network-trace.md
     - name: Capture resource logs
@@ -116,6 +118,8 @@
     href: concept-billing-model.md
   - name: Azure AD Authorization
     href: concept-azure-ad-authorization.md
+  - name: Metrics
+    href: concept-metrics.md
 
 - name: Reference 
   items:

@@ -12,6 +12,9 @@
     href: expressroute-howto-circuit-arm.md
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
+  - name: Create an ExpressRoute circuit - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-expressroute-vnet-bicep.md
   - name: Create an ExpressRoute circuit - ARM template
     displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md

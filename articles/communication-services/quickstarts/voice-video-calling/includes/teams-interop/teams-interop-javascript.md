@@ -70,7 +70,7 @@ const recordingStateElement = document.getElementById('recording-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'Test user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();

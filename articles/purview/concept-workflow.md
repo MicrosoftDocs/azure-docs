@@ -4,7 +4,7 @@ description: This article describes workflows in Azure Purview, the roles they p
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-workflows
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 03/09/2022
 ms.custom: template-concept

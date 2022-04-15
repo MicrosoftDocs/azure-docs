@@ -180,7 +180,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
@@ -211,7 +211,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az group create --name AzureFunctionsQuickstart-rg --location <REGION>
     ```
 
-    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
+    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -234,7 +234,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az storage account create --name <STORAGE_NAME> --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account.
+    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -255,18 +255,18 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you are using Python 3.7 or 3.6, change `--runtime-version` to `3.7` or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you are using Python 3.8, 3.7, or 3.6, change `--runtime-version` to `3.8`, `3.7`, or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccountName <STORAGE_NAME> -FunctionsVersion 4 -RuntimeVersion 3.9 -Runtime python -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.7 or 3.6, change `-RuntimeVersion` to `3.7` or `3.6`, respectively.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `-RuntimeVersion` to `3.8`, `3.7`, or `3.6`, respectively.
 
     ---
 

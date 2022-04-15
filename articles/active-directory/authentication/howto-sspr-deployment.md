@@ -14,6 +14,7 @@ manager: martinco
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
+adobe-target: true
 ---
 # Plan an Azure Active Directory self-service password reset deployment
 

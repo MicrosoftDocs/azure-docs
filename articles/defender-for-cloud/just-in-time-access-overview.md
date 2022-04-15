@@ -1,6 +1,8 @@
 ---
 title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
 description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
@@ -59,7 +61,7 @@ When Defender for Cloud finds a machine that can benefit from JIT, it adds that 
 
 ### What permissions are needed to configure and use JIT?
 
-JIT requires [Microsoft Defender for servers](defender-for-servers-introduction.md) to be enabled on the subscription. 
+JIT Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans) to be enabled on the subscription. 
 
 **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
 
@@ -73,7 +75,7 @@ If you want to create custom roles that can work with JIT, you'll need the detai
 |Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Request JIT access to a VM | *Assign these actions to the user:*  <ul><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li> `Microsoft.Compute/virtualMachines/read` </li><li> `Microsoft.Network/networkInterfaces/*/read` </li> <li> `Microsoft.Network/publicIPAddresses/read` </li></ul> |
 |Read JIT policies| *Assign these actions to the user:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
-|||
+
 
 
 ## Next steps

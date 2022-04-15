@@ -46,7 +46,7 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
 
 ### [CLI](#tab/cli)
 
-Create a gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create a gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus

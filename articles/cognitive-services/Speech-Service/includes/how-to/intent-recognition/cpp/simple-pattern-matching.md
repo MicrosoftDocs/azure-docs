@@ -136,7 +136,7 @@ case ResultReason::Canceled:
     if (!cancellation->ErrorDetails.empty())
     {
         std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
-        std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
+        std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
     }
 }
 default:
@@ -216,7 +216,7 @@ int main()
         if (!cancellation->ErrorDetails.empty())
         {
             std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
-            std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
         }
     }
     default:

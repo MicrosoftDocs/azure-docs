@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 3/07/2022
+ms.date: 3/24/2022
 ms.custom:
 ---
 
@@ -56,8 +56,7 @@ To disable data use governance for a source, resource group, or subscription, a 
 
 1. Set the **Data use governance** toggle to **Disabled**.
 
-
-### Important considerations related to Data use governance
+## Additional considerations related to Data use governance
 - Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 - To disable a source for *Data use governance*, remove it first from being bound (i.e. published) in any policy.
 - While user needs to have both data source *Owner* and Azure Purview *Data source admin* to enable a source for *Data use governance*, either of those roles can independently disable it.
@@ -68,7 +67,7 @@ To disable data use governance for a source, resource group, or subscription, a 
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
 > - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
-### Data use governance best practices
+## Data use governance best practices
 - We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
 - Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is registered in an Azure Purview account in the same subscription.
@@ -78,9 +77,8 @@ To disable data use governance for a source, resource group, or subscription, a 
 
 ![Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.](./media/access-policies-common/valid-and-invalid-configurations.png)
 
-
 ## Next steps
 
 - [Create data owner policies for your resources](how-to-data-owner-policy-authoring-generic.md)
-- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
-- [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+- [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)

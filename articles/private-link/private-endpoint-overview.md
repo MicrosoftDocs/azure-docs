@@ -77,6 +77,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
@@ -106,7 +107,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
-| Azure App Service | Microsoft.Web/staticSites | staticSite |
+| Azure Static Web Apps | Microsoft.Web/staticSites | staticSite |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
