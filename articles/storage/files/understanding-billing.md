@@ -30,24 +30,40 @@ For Azure Files pricing information, see [Azure Files pricing page](https://azur
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-## Storage units	
-Azure Files uses base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same unit of measurement or counting system.
+## Storage units
+Azure Files uses the base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB. 
 
-### Windows
-Both the Windows operating system and Azure Files measure storage capacity using the base-2 counting system, but there is a difference when labeling units. Azure Files labels its storage capacity with base-2 units of measurement while Windows labels its storage capacity in base-10 units of measurement. When reporting storage capacity, Windows doesn't convert its storage capacity from base-2 to base-10.
+| Acronym | Definition                         | Unit     |
+|---------|------------------------------------|----------|
+| KiB     | 1,024 bytes                        | kibibyte |
+| MiB     | 1,024 KiB (1,048,576 bytes)        | mebibyte |
+| GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte |
+| TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte |
 
-| Acronym | Definition                         | Unit     | Windows displays as |
-|---------|------------------------------------|----------|---------------------|
-| KiB     | 1,024 bytes                        | kibibyte | KB (kilobyte)       |
-| MiB     | 1,024 KiB (1,048,576 bytes)        | mebibyte | MB (megabyte)       |
-| GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte | GB (gigabyte)       |
-| TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte | TB (terabyte)       |
+Although these are the units commonly used by most operating systems and tools, they are frequently mislabeled as the base-10 units, which you may be more familiar with: KB, MB, GB, and TB. Although the rationale may vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
 
-### macOS
-See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) on Apple's website to determine which counting system is used.
+The following table shows how common operating systems measure and label storage:
 
-### Linux
-A different counting system could be used by each operating system or individual piece of software. See their documentation to determine how they report storage capacity.
+| Operating system | Measurement system | Labeling |
+|-|-|-|-|
+| Windows | Base-2 | Consistently mislabels as base-10. |
+| Linux distributions | Commonly base-2, some software may use base-10 | Inconsistent labeling, alignment between measurement and labeling depends on the software package. |
+| macOS, iOS, and iPad OS | Base-10 | [Consistently labels as base-10](https://support.apple.com/HT201402). |
+
+Check with your operating system vendor if your operating system is not listed. 
+
+## File share total cost of ownership checklist
+If you are migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, you should consider the following factors to ensure a fair, apples-to-apples comparison:
+
+- **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for what you actually use). Of particular interest for provisioned models are minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
+
+- **Are there any methods to optimized storage costs?** With Azure Files, you can use [capacity reservations](#reserve-capacity) to achieve an up to 36% discount on storage. Other solutions may employ storage efficiency strategies like deduplication or compression to optionally optimized storage, but remember, these storage optimization strategies often have non-monetary costs, such as reducing performance. Azure Files capacity reservations have no side-effects on performance. 
+
+- **How do you achieve storage resiliency and redundancy?** With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built-in or something you must assemble yourself. 
+
+- **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
+
+- **What are the costs of value-added products, like backup, security, etc.?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services), such as Azure Backup, Azure File Sync, and Azure Defender that provide backup, replication and caching, and additional security functionality for Azure Files. Value-added solutions on-premises or with other cloud storage solutions will have their own licensing and product costs, and should be considered consistently as part of the total cost of ownership for file storage.
 
 ## Reserve capacity
 Azure Files supports storage capacity reservations, which enable you to achieve a discount on storage by pre-committing to storage utilization. You should consider purchasing reserved instances for any production workload, or dev/test workloads with consistent footprints. When you purchase reserved capacity, your reservation must specify the following dimensions:
@@ -61,19 +77,6 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation.
 
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
-
-## Snapshots
-Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. Snapshots are always differential from the live share and from each other, meaning that you are always paying only for what's different in each snapshot. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
-
-Snapshots do not count against file share size limits, although you are limited to a specific number of snapshots. To see the current snapshot limits, see [Azure file share scale targets](storage-files-scale-targets.md#azure-file-share-scale-targets).
-
-Snapshots are always billed based on the differential storage utilization of each snapshot, however this looks slightly different between premium file shares and standard file shares:
-
-- In premium file shares, snapshots are billed against their own snapshot meter, which has a reduced price over the provisioned storage price. This means that you will see a separate line item on your bill representing snapshots for premium file shares for each FileStorage storage account on your bill.
-
-- In standard file shares, snapshots are billed as part of the normal used storage meter, although you are still only billed for the differential cost of the snapshot. This means that you will not see a separate line item on your bill representing snapshots for each standard storage account containing Azure file shares. This also means that differential snapshot usage counts against capacity reservations that are purchased for standard file shares.
-
-Value-added services for Azure Files may use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information on how snapshots are used.
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
@@ -156,9 +159,6 @@ To see previous transactions:
 > [!Note]  
 > Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
 
-### Logical size versus physical size
-The data at-rest capacity charge for Azure Files is billed based on the logical size, often colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
-
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
 
@@ -174,6 +174,28 @@ There are five basic transaction categories: write, list, read, other, and delet
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
+
+## Provisioned/quota, logical size, and physical size
+Azure Files tracks three distinct quantities with respect to share capacity: 
+
+- **Provisioned size or quota** With both premium and standard file shares, you specify the maximum size that the file share is allowed to grow to. In premium file shares, this value is called the provisioned size of the file share and whatever you amount you provision is what you pay for, regardless of how much you actually use. In standard file shares, this value is called quota and does not directly affect your bill. Provisioned size is a required field for premium file shares, while standard file shares will default if not directly specified to the maximum value supported by the storage account, either 5 TiB or 100 TiB, depending on the storage account type and settings.
+
+- **Logical size** The logical size of a file share or of a particular file relates to how big the file is without considering how the file is actually stored, where additional optimizations may be applied. One way to think about this is that the logical size of the file is how many KiB/MiB/GiB will be transferred over the wire if you copy it to a different location. In both premium and standard file shares, the total logical size of the file share is what is used for enforcement against provisioned size/quota. In standard file shares, the logical size is the quantity used for the data at-rest usage billing. Logical size is referred to as "size" in the Windows properties dialog for a file/folder and as "content length" by Azure Files metrics.
+
+- **Physical size** The physical size of the file relates to the size of the file as encoded on disk. This may align with the file's logical size, or it may be smaller, depending on how the file has been written to by the operating system. A common reason for the logical size and physical size to be different is through the use of [sparse files](https://docs.microsoft.com/windows/win32/fileio/sparse-files). The physical size of the files in the share is used for snapshot billing, although allocated ranges are shared between snapshots if they are unchanged (differential storage). To learn more about how snapshots are billed in Azure Files, see [Snapshots](#snapshots).
+
+## Snapshots
+Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. Snapshots are always differential from the live share and from each other, meaning that you are always paying only for what's different in each snapshot. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
+
+Snapshots do not count against file share size limits, although you are limited to a specific number of snapshots. To see the current snapshot limits, see [Azure file share scale targets](storage-files-scale-targets.md#azure-file-share-scale-targets).
+
+Snapshots are always billed based on the differential storage utilization of each snapshot, however this looks slightly different between premium file shares and standard file shares:
+
+- In premium file shares, snapshots are billed against their own snapshot meter, which has a reduced price over the provisioned storage price. This means that you will see a separate line item on your bill representing snapshots for premium file shares for each FileStorage storage account on your bill.
+
+- In standard file shares, snapshots are billed as part of the normal used storage meter, although you are still only billed for the differential cost of the snapshot. This means that you will not see a separate line item on your bill representing snapshots for each standard storage account containing Azure file shares. This also means that differential snapshot usage counts against capacity reservations that are purchased for standard file shares.
+
+Value-added services for Azure Files may use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information on how snapshots are used.
 
 ## Value-added services
 Like on-premises storage solutions which offer first- and third-party features/product integrations to bring additional value to the hosted file shares, Azure Files provides integration points for first- and third-party products to integrate with customer-owned file shares. Although these solutions may provide considerable extra value to Azure Files, you should consider the additional costs that these services add to the total cost of an Azure Files solution. 
@@ -233,17 +255,6 @@ Microsoft Defender for Storage does not support antivirus capabilities for Azure
 The main cost from Microsoft Defender for Storage is an additional set of transaction costs that the product levies on top of the transactions that are done against the Azure file share. Although these costs are based on the transactions incurred in Azure Files, they are not part of the billing for Azure Files, but rather are part of the Microsoft Defender pricing. Microsoft Defender for Storage charges a transaction rate even on premium file shares, where Azure Files includes transactions as part of IOPS provisioning. The current transaction rate can be found on [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) under the *Microsoft Defender for Storage* table row.
 
 Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you may wish to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](../../defender-for-cloud/defender-for-storage-exclude.md).
-
-## File storage comparison checklist
-To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:
-
-- **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for what you actually use). Of particular interest for provisioned models are minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.  
-
-- **How do you achieve storage resiliency and redundancy?** With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built-in or something you must assemble yourself. 
-
-- **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
-
-- **What are the backup costs?** With Azure Files, Azure Backup integration is easily enabled, and backup storage is billed as part of the cost of the share (backups are stored as differential snapshots). Other solutions may require backup software licensing and additional backup storage costs.
 
 ## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
