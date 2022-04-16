@@ -239,8 +239,8 @@ Run the following command to see if your deployment is successful.
 
 ```azurecli
 az spring-cloud app list \
-    -g $RESOURCE-GROUP \
-    -s $AZURE_SPRING_CLOUD_NAME \
+    --resource-group $RESOURCE-GROUP \
+    --service $AZURE_SPRING_CLOUD_NAME \
     -o table
 ```
 
@@ -395,7 +395,7 @@ After the deployment is complete, check the status of the application with follo
 
 ```azurecli
 az spring-cloud app list \
-    --service-group $RESOURCE-GROUP \
+    --resource-group $RESOURCE-GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --output table
 ```
