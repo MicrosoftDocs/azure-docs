@@ -99,11 +99,11 @@ To assign Azure role-based access control (Azure RBAC) permissions:
     | --- | --- |
     | Role | Storage File Data SMB Share Elevated Contributor |
     | Assign access to | User, group, or service principal |
-    | Members | &lt;Name of the administrator account&gt; |
+    | Members | \<Name of the administrator account> |
 
     To assign users permissions for their FSLogix profiles, select the **Storage File Data SMB Share Contributor** role instead.
 
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Assign users permissions on the Azure file share
 

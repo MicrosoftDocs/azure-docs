@@ -67,9 +67,9 @@ To assign users access permissions:
     | --- | --- |
     | Role | Storage File Data SMB Share Contributor |
     | Assign access to | User, group, or service principal |
-    | Members | &lt;Name or email address for the target Azure Active Directory identity&gt; |
+    | Members | \<Name or email address for the target Azure Active Directory identity> |
 
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Get the Storage Account access key
 
