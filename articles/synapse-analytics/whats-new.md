@@ -29,7 +29,7 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ## SQL
 
-* Column Level Encryption for Azure Synapse dedicated SQL Pools is now Generally Available. With column level encryption, you can use different protection keys for each column with each key having its own access permissions. The data in CLE-enforced columns are encrypted on disk and remain encrypted in memory until the DECRYPTBYKEY function is used to decrypt it. To learn more, see [how to encrypt a data column](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).
+* Column Level Encryption for Azure Synapse dedicated SQL Pools is now Generally Available. With column level encryption, you can use different protection keys for each column with each key having its own access permissions. The data in CLE-enforced columns are encrypted on disk and remain encrypted in memory until the DECRYPTBYKEY function is used to decrypt it. To learn more, see [how to encrypt a data column](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true).
 
 * Serverless SQL pools now support better performance for CETAS(Create External Table as Select) and subsequent SELECT queries. The performance improvements include, a parallel execution plan resulting in faster CETAS execution and outputting multiple files. To learn more, see [CETAS with Synapse SQL](/sql/develop-tables-cetas.md) article and the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_7)
 
@@ -51,13 +51,13 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ## Data Integration
 
-* Flowlets and CDC Connectors are now Generally Available. Flowlets in Synapse Data Flows allow for reusable and composable ETL logic. To learn more, see [Flowlets in mapping data flow](../../data-factory/concepts-data-flow-flowlet.md) or see the [blog post.](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_17)
+* Flowlets and CDC Connectors are now Generally Available. Flowlets in Synapse Data Flows allow for reusable and composable ETL logic. To learn more, see [Flowlets in mapping data flow](../data-factory/concepts-data-flow-flowlet.md) or see the [blog post.](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_17)
 
-* sFTP connector for Synapse data flows. You can read and write data while transforming data from sftp using the visual low-code data flows interface in Synapse. To learn more, see [source transformation](../../data-factory/connector-sftp?tabs=data-factory.md#source-transformation)
+* sFTP connector for Synapse data flows. You can read and write data while transforming data from sftp using the visual low-code data flows interface in Synapse. To learn more, see [source transformation](../data-factory/connector-sftp?tabs=data-factory.md#source-transformation)
 
 * Data flow improvements to Data Preview. To learn more see [Data Preview and debug improvements in Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254?wt.mc_id=azsynapseblog_mar2022_blog_azureeng)
 
-* Pipeline script activity. The Script Activity enables data engineers to build very powerful data integration pipelines that can read from and write to Synapse databases, as well as other database types. To learn more, see [Transform data by using the Script activity in Azure Data Factory or Synapse Analytics](../../data-factory/transform-data-using-script.md)
+* Pipeline script activity. The Script Activity enables data engineers to build very powerful data integration pipelines that can read from and write to Synapse databases, as well as other database types. To learn more, see [Transform data by using the Script activity in Azure Data Factory or Synapse Analytics](../data-factory/transform-data-using-script.md)
 
 ## Next steps
 
