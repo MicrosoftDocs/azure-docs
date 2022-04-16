@@ -24,8 +24,8 @@ This article identifies the component versions with each release of Azure Arc-en
 |CRD names and versions	|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2, v3, v4</br>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2</br>`kafkas.arcdata.microsoft.com`: v1beta1</br>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2</br>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2, v3, v4</br>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2</br>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1</br>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2</br>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2|
 |ARM API version|2021-11-01|
 |`arcdata` Azure CLI extension version|	1.3.0|
-|Arc enabled Kubernetes helm chart extension version|1.1.19091004|
-|Arc Data extension for Azure Data Studio|1.0|
+|Arc enabled Kubernetes helm chart extension version|1.1.19211001|
+|Arc Data extension for Azure Data Studio|1.1.0|
 
 ## March 08, 2022
 

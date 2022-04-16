@@ -27,16 +27,15 @@ Before you proceed, you must have:
 
 The AD domain service account should have sufficient permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 
+
 The sufficient permission including the following:
  
 - Read all properties
 - Write all properties
-- Create Computer objects
-- Delete Computer objects
-- Create Group objects
-- Delete Group objects
 - Create User objects
 - Delete User objects
+- Reset Password for Descendant User objects
+
 
 ## Input for deploying an automatic Active Directory (AD) connector
 

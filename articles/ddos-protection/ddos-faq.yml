@@ -63,7 +63,7 @@ sections:
       - question: |
           What are the supported protected resource types?
         answer: |
-          Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). 
+          Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs).
 
           PaaS services (multitenant) are not supported at present. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
 
@@ -75,7 +75,7 @@ sections:
       - question: |
           Can I protect my PaaS resources using DDoS Protection?
         answer: |
-          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hub VIPs and App/Cloud Services applications. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
           
       - question: |
           Can I protect my on-premise resources using DDoS Protection?

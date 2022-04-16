@@ -217,7 +217,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. This can be done through the Azure portal or the Azure CLI. 
 
-If you are working in VS Code, right-click the database server and select **Open in Portal** to go to the Azure portal. Or, go to the [Azure Cloud Shell](https://shell.zure.com) and run the Azure CLI commands.
+If you are working in VS Code, right-click the database server and select **Open in Portal** to go to the Azure portal. Or, go to the [Azure Cloud Shell](https://shell.azure.com) and run the Azure CLI commands.
 ### [Azure portal](#tab/azure-portal-access)
 
 | Instructions    | Screenshot |

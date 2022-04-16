@@ -523,8 +523,7 @@ Follow these steps:
        {
            new ServiceInstanceListener((c) =>
            {
-               return new FabricTransportServiceRemotingListener(c, this,
-                   new ServiceRemotingJsonSerializationProvider());
+               return new FabricTransportServiceRemotingListener(context, _calculatorFactory.GetCalculator(Context), serializationProvider: new         ServiceRemotingJsonSerializationProvider());
            })
        };
    }

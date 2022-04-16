@@ -79,7 +79,7 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
 | Burst limit | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-| Throughput rate (ingress + egress) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
+| Throughput rate (ingress + egress) (MiB/sec) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
