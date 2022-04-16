@@ -80,5 +80,5 @@ To disable data use governance for a source, resource group, or subscription, a 
 ## Next steps
 
 - [Create data owner policies for your resources](how-to-data-owner-policy-authoring-generic.md)
-- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
-- [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+- [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)

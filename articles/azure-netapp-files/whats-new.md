@@ -12,13 +12,19 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 04/12/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## April 2022
+
+* The [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users) feature is now generally available (GA).    
+
+    You no longer need to register this feature before using it.
 
 ## March 2022
 

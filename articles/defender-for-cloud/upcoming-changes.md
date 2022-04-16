@@ -24,6 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
 | [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
+| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -101,6 +102,17 @@ As part of this update, vulnerabilities that have medium and low severities, tha
 :::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
 Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+
+### Key Vault recommendations changed to "audit"
+
+The Key Vault recommendations listed here are currently disabled so that they don't impact your secure score. We will change their effect to "audit".
+
+| Recommendation name | Recommendation ID |
+| ------- | ------ |
+| Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
+| Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
+| Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
+
 
 ## Next steps
 
