@@ -153,16 +153,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    1. select **SAML 2.0** as **Federation Protocol**.
    1. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
    1. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
-   1. In the **AuthContextClassRef** textbox, type one of the following values:
-      * `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
-      * `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`
-    
-      To enable the MFA by using Azure AD, enter the two values like this:
-      `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
-
-      To enable the MFA by using Azure AD during the staged rollout of cloud authentication, enter the following values:
-      `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509;urn:oasis:names:tc:SAML:2.0:ac:classes:Password;urn:federation:authentication:windows;urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
-
    1. Select **Auto Account Creation**.
    
       > [!NOTE]
