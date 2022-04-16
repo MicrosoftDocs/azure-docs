@@ -28,7 +28,7 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is 1.19.0.
+The current version of the Cognitive Services Speech SDK is 1.21.0.
 
 The Speech SDK for Android is packaged as an [Android Archive (AAR) file](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
 It's hosted in a Maven repository at `https://azureai.azureedge.net/maven/`.
@@ -43,7 +43,7 @@ Set up your project to use the Speech SDK. Open the **Project Structure** window
 
    ![Screenshot of a library dependency in a project structure.](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. In the window that appears, enter the name and version of the Speech SDK for Android: **com.microsoft.cognitiveservices.speech:client-sdk:1.19.0**. Then select **OK**.
+1. In the window that appears, enter the name and version of the Speech SDK for Android: **com.microsoft.cognitiveservices.speech:client-sdk:1.21.0**. Then select **OK**.
    
    The Speech SDK should now be added to the list of dependencies:
 
