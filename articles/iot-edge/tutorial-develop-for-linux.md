@@ -17,9 +17,9 @@ ms.custom: mvc
 
 Use Visual Studio Code to develop and deploy code to devices running IoT Edge.
 
-In the quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
-This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it's the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. Complete this introduction to the development process, then choose your preferred language or Azure service to dive into the details.
+This tutorial uses the example of deploying a **C# module to a Linux device**, the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts.
 
 In this tutorial, you learn how to:
 
@@ -27,24 +27,24 @@ In this tutorial, you learn how to:
 >
 > * Set up your development machine.
 > * Use the IoT Edge tools for Visual Studio Code to create a new project.
-> * Build your project as a container and store it in an Azure container registry.
+> * Build your project as a [Docker container](/dotnet/architecture/microservices/container-docker-introduction) and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
 
 ## Prerequisites
 
 A development machine:
 
-* You can use your own computer or a virtual machine, depending on your development preferences.
-  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
+* You can use your own computer or a virtual machine.
+* Make sure your development machine supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). This capability is necessary for running a container engine, which you'll install in the next section.
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+* [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 An Azure IoT Edge device:
 
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
-* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md).
+* If you don't have a second device available, use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure.
 
 Cloud resources:
 
@@ -235,7 +235,7 @@ Provide your container registry credentials to Docker so that it can push your c
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. Log in to Azure Container Registry
+3. Log in to Azure Container Registry. [Install Azure CLI](install-azure-cli.md)to use the `az` command.
 
    ```azurecli
    az acr login -n <ACR registry name>

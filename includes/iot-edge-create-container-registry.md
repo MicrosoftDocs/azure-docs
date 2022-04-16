@@ -16,7 +16,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
-2. Provide the following values to create your container registry:
+1. Provide the following values to create your container registry:
 
    | Field | Value |
    | ----- | ----- |
@@ -26,12 +26,16 @@ If you don't already have a container registry, follow these steps to create a n
    | Location | Choose a location close to you. |
    | SKU | Select **Basic**. |
 
-3. Select **Create**.
+1. Select **Create**.
 
-4. After your container registry is created, browse to it, and from the left pane select **Access keys** from the menu located under **Settings**. 
+1. Select your newly-created container registry from the **Resources** section of your Azure portal home page to open it.
+ 
+1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**. 
 
-5. Click to Enable Admin user to view the **Username** and **Password** for your container registry.
+:::image type="content" source="media/tutorial-develop-for-linux-on-windows" alt-text="Access Keys menu location.":::
 
-6. Copy the values for **Login server**, **Username**, and **Password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
+1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
+
+1. Copy the values for **Login server**, **Username**, and **password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
 
    ![Copy login server, username, and password for container registry](./media/iot-edge-create-container-registry/registry-access-key.png)
