@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/30/2022
 ---
 
-# Data lake exploration with serverless SQL pool
+# Synapse POC playbook: Data lake exploration with serverless SQL pool
 
 ## Prepare for your proof of concept
 

@@ -1,6 +1,6 @@
 ---
 title: Data warehousing with dedicated SQL pool
-description: TODO
+description: A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -13,7 +13,7 @@ ms.date: 04/30/2022
 
 [!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
-This article provides a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
+This article presents a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
 
 ## Prepare for the POC
 

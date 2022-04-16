@@ -1480,7 +1480,7 @@ items:
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
       - name: Big data analytics with Apache Spark pool
         href: ./guidance/proof-of-concept-playbook-apache-spark-pool.md
-    - name: Synapse implementation success method
+    - name: Synapse implementation success methodology
       items:
       - name: Overview
         href: ./guidance/implementation-success-overview.md

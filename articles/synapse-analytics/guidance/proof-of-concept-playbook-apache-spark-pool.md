@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/30/2022
 ---
 
-# Big data analytics with Apache Spark pool
+# Synapse POC playbook: Big data analytics with Apache Spark pool
 
 ## Prepare for your proof of concept
 
