@@ -11,9 +11,9 @@ ms.date: 04/30/2022
 
 # Synapse POC playbook: Data warehousing with dedicated SQL pool
 
-[!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
-
 This article presents a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
+
+[!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
 ## Prepare for the POC
 

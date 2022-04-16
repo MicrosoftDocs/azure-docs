@@ -1,6 +1,6 @@
 ---
 title: Data lake exploration with serverless SQL pool
-description: TODO
+description: A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool.
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -10,6 +10,10 @@ ms.date: 04/30/2022
 ---
 
 # Synapse POC playbook: Data lake exploration with serverless SQL pool
+
+This article presents a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool.
+
+[!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
 ## Prepare for your proof of concept
 

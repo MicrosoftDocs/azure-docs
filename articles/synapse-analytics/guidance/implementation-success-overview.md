@@ -1,5 +1,5 @@
 ---
-title: Synapse implementation success method
+title: Synapse implementation success methodology
 description: TODO ()
 author: peter-myers
 ms.author: v-petermyers
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/28/2022
 ---
 
-# Synapse implementation success method
+# Synapse implementation success methodology
 
-The Success By Design: Synapse Implementation Success method is designed to help guide you to a successful solution implementation that includes Azure Synapse Analytics as a component. This method is designed to complement your solution implementation project by adding suggested checks at strategic points during your project that can help assure a successful implementation of Azure Synapse Analytics. This method does not replace or change your chosen project management method (SCRUM, Agile, Waterfall), but will suggest validations to make while your project is in flight to improve the success of your overall deployment to a production environment.
+The Success By Design: Synapse Implementation Success methodology is designed to help guide you to a successful solution implementation that includes Azure Synapse Analytics as a component. This methodology is designed to complement your solution implementation project by adding suggested checks at strategic points during your project that can help assure a successful implementation of Azure Synapse Analytics. This methodology doesn't replace or change your chosen project management methodology (SCRUM, Agile, Waterfall), but will suggest validations to make while your project is in flight to improve the success of your overall deployment to a production environment.
 
 [Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.
 
 :::image type="content" source="media/implementation-success-overview/azure-synapse-analytics-architecture.png" alt-text="Image shows the Azure Synapse Analytics in terms of data lake, analytics runtimes, and the studio.":::
 
-The Synapse Implementation Success method uses a strategic checkpoint approach to assessing and monitoring a project's progress.
+The Synapse Implementation Success methodology uses a strategic checkpoint approach to assessing and monitoring a project's progress.
 
 The goals of these checkpoints include:
 
@@ -81,7 +81,7 @@ This evaluation is critical at this stage. The lack of the proper skillset will 
 
 #### Periodic Quality Checks
 
-Throughout the solution development checks should be made periodically to validate that the solution is being built with respect to recommended practices as they apply to the different components of Azure Synapse Analytics. Check that the project use cases will be satisfied, and the enterprise requirements are being met.  For the purposes of this method, we are calling these periodic evaluations quality checks.
+Throughout the solution development checks should be made periodically to validate that the solution is being built with respect to recommended practices as they apply to the different components of Azure Synapse Analytics. Check that the project use cases will be satisfied, and the enterprise requirements are being met. For the purposes of this methodology, we are calling these periodic evaluations quality checks.
 Implement the following quality checks as appropriate to your solution.
 
 - Quality Checks for Workspaces
@@ -110,7 +110,7 @@ Select the reviews appropriate to the solution
 
 ## Conclusion
 
-The Success By Design Synapse Implementation Success method is provided to help you with  implementing a solution incorporating Azure Synapse Analytics. By utilizing this method during your Azure Synapse Analytics implementation project, you should be able to identify and address any issues early on and deploy to production a solution that benefits your business and delights your users.
+The Success By Design Synapse Implementation Success methodology is provided to help you with implementing a solution incorporating Azure Synapse Analytics. By utilizing this methodology during your Azure Synapse Analytics implementation project, you should be able to identify and address any issues early on and deploy to production a solution that benefits your business and delights your users.
 
 ## Next steps
 
