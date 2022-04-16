@@ -94,8 +94,8 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 If you're new to Azure Video Indexer (formerly Azure Video Analyzer for Media), see:
 
-* [Azure Video Indexer Documentation](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
-* [Azure Video Indexer Developer Portal](/en-gb/azure/azure-video-analyzer/video-analyzer-for-media-docs/)
+* [Azure Video Indexer Documentation](/azure/azure-video-indexer)
+* [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/)
 * After completing this tutorial, head to other Azure Video Indexer samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
 
 If you're new to template deployment, see:
