@@ -23,7 +23,11 @@ Organizations use many Azure services and manage them from Azure Resource Manage
 * Azure PowerShell
 * Azure CLI
 
-These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources, Microsoft recommends requiring multi-factor authentication for any user accessing these resources. In Azure AD, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this suite should be the Azure Government Cloud Management API app. 
+These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources, Microsoft recommends requiring multi-factor authentication for any user accessing these resources.   
+
+In Azure Commercial, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). 
+
+For Azure Government, this suite should be the Azure Government Cloud Management API app. 
 
 ## User exclusions
 
@@ -53,10 +57,12 @@ The following steps will help create a Conditional Access policy to require user
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management**, and select **Select** then **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
+1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose:  
+i. For Azure Commercial, **Microsoft Azure Management**, and select **Select** then **Done**.  
+ii. For Azure Government, select **Azure Government Cloud Management API**, and select **Select** then **Done**.  
+3. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+4. Confirm your settings and set **Enable policy** to **Report-only**.
+5. Select **Create** to create to enable your policy.
 
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
