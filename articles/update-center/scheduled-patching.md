@@ -43,10 +43,8 @@ To schedule recurring updates on a single VM, follow these steps:
 	> [!Note] 
 	> Currently, VMs and maintenance configuration in the same subscription are supported.
 
-	:::image type="content" source="./media/scheduled-updates/scheduling-tab-inline.png" alt-text="screenshot on create maintenance configuration." lightbox="./media/scheduled-updates/scheduling-tab-expanded.png":::
-
 1. In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
-	- Select **Add a schedule** and specify the schedule details such as:
+	- Select **Add a schedule** and in **Add/Modify schedule**, specify the schedule details such as:
 	
 		- Start on
 		- Maintenance window (in hours)
@@ -66,16 +64,69 @@ To schedule recurring updates on a single VM, follow these steps:
 	- Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally you can also specify an end date when you want the schedule to expire.
 
 1. In the **Machines**, select your machine and select **Next** to continue.
-In the **Tags** page, assign tags to maintenance configurations.
+
+1. In the **Tags** page, assign tags to maintenance configurations.
+
 1. In the **Review + Create** page, verify your update deployment options and then select **Create**.
 
 A notification appears that the deployment is created.
 
 **From Machines blade**
 
- 1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machine and select **Schedule updates**.
+
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
+
+A notification appears that the deployment is created.
+
+
+## Schedule recurring updates at scale
+
+To schedule recurring updates at scale, follow these steps:
+
+>[!NOTE]
+> You can schedule updates from Overview or Machines blade.
+
+**From Overview blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Update management center (Preview)**, **Overview**, select your **Subscription** and select **Schedule updates**.
+
+1. In the **Create new maintenance configuration**, you can create a schedule for multiple machines.
+
+	> [!Note] 
+	> Currently, VMs and maintenance configuration in the same subscription are supported.
+
+1. In **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
+	- Select **Add a schedule** and in **Add/Modify schedule**, specify the schedule details such as:
+	
+		- Start on
+		- Maintenance window (in hours)
+		- Repeats(monthly, daily or weekly)
+		- Add end date
+		- Schedule summary
+
+	> [!NOTE]
+	> The hourly option is currently not supported in the portal, but can be used through the [API](./manage-vms-programmatically.md#create-a-maintenance-configuration-schedule). 
+
+1. In the **Machines** page, verify if the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
+
+1. In the **Tags** page, assign tags to maintenance configurations.
+
+1. In the **Review + Create** page, verify your update deployment options and then select **Create**.
+
+A notification appears that the deployment is created.
+
+**From Machines blade**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machines and select **Schedule updates**.
+
+In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
 A notification appears that the deployment is created.
 
