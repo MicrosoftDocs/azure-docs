@@ -221,7 +221,7 @@ When considering the total cost of ownership for a solution deployed using Azure
 
 To optimize costs for Azure Files with Azure File Sync, you should consider the tier of your file share. For more information on how to pick the tier for each file share, see [choosing a file share tier](#choosing-a-tier).
 
-If you are migrating to Azure File Sync from StorSimple, see [Comparing the costs of StorSimple to Azure File Sync](file-sync-storsimple-cost-comparison.md).
+If you are migrating to Azure File Sync from StorSimple, see [Comparing the costs of StorSimple to Azure File Sync](../file-sync/file-sync-storsimple-cost-comparison.md).
 
 ### Azure Backup
 Azure Backup provides a serverless backup solution for Azure Files that seamlessly integrates with your file shares, as well as other value-added services such as Azure File Sync. Azure Backup for Azure Files is a snapshot-based backup solution, meaning that Azure Backup provides a scheduling mechanism for automatically taking snapshots on an administrator-defined schedule and a user-friendly interface for restoring deleted files/folders or the entire share to a particular point in time. To learn more about Azure Backup for Azure Files, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json).

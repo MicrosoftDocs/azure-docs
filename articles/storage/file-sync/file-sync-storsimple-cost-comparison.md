@@ -61,4 +61,4 @@ If you are trying to estimate the costs of Azure File Sync based on the expenses
 ## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
-- [Create a file share](storage-how-to-create-file-share.md) and [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md).
+- [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/file-sync/toc.json) and [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md).
