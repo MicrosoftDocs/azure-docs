@@ -23,7 +23,6 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Improved reliability when validating signatures of extension packages.
 - `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
 - `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
-- 
 ## Version 1.11 - September 2021
 
 ### Fixed
