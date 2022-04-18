@@ -954,7 +954,7 @@
         "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL"],
         "articles/postgresql/**.yml": ["Azure","Azure Database for PostgreSQL"],
         "articles/purview/**/*.md": ["Azure","Microsoft Purview","Azure Purview"],
-        "articles/purview/**/*.yml": ["Azure","Microsoft Purview""Azure Purview"],
+        "articles/purview/**/*.yml": ["Azure","Microsoft Purview","Azure Purview"],
         "articles/service-bus-messaging/**/*.md": ["Azure","Azure Service Bus Messaging"],
         "articles/service-bus-messaging/**/*.yml": ["Azure","Azure Service Bus Messaging"],
         "articles/service-health/**/*.md": ["Azure","Service Health"],
