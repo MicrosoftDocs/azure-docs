@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022 Preview 2 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
+- Visual Studio 2022 Preview 3 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project
@@ -80,6 +80,8 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 6) Select **Create** to finalize the creation or your container app. Visual Studio and Azure create the needed resources on your behalf.  This process may take a couple minutes, so allow it to run to completion before moving on.
 
 7) Once the resources are created, choose **Next**.
+
+    :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to create the container registry.":::
 
 8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
