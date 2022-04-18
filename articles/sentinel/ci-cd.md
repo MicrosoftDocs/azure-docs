@@ -199,7 +199,7 @@ Select one of the following tabs depending on your connection type:
             directory: '${{ github.workspace }}/SentinelContent'
         ```
     - **To disable smart deployments**:
-        Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` value (typically on line 33) the default `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+        Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) on GitHub Actions and editing GitHub workflows.
 
@@ -254,7 +254,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
         ```
     
     - **To disable smart deployments**:
-        Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` value (typically on line 33) the default `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+        Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
 
