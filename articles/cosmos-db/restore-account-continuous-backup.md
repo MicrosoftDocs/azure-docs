@@ -4,7 +4,7 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 04/18/2022
 ms.author: govindk
 ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
-This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
+This article describes how to identify the restore time and restore a live or d Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
 
 > [!NOTE]
 > Currently in preview, the restore action for Table API and Gremlin API is supported via PowerShell and the Azure CLI.
@@ -787,9 +787,13 @@ az cosmosdb table restorable-resource list \
 
 You can also restore an account using Azure Resource Manager (ARM) template. When defining the template, include the following parameters:
 
+### Restore SQL API or MongoDB API account using ARM template
+
 1. Set the `createMode` parameter to *Restore*.
 1. Define the `restoreParameters`, notice that the `restoreSource` value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
 1. Set the `restoreMode` parameter to *PointInTime* and configure the `restoreTimestampInUtc` value.
+
+Use the following ARM template to restore an account for the Azure Cosmos DB SQL API or MongoDB API. Examples for other APIs are provided next.
 
 ```json
 {
@@ -820,7 +824,7 @@ You can also restore an account using Azure Resource Manager (ARM) template. Whe
 }
 ```
 
-### Restore ARM template for Gremlin API account 
+### Restore Gremlin API account using ARM template
 
 ```json
 {
@@ -860,7 +864,7 @@ You can also restore an account using Azure Resource Manager (ARM) template. Whe
 }
 ```
 
-### Restore ARM template for Table API account 
+### Restore Table API account using ARM template
 
 ```json
 {
