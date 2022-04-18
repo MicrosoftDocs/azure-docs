@@ -157,11 +157,9 @@ sections:
         answer: |
           Training a model with audio data can be a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it can't be finished within one week, the service might abort the training operation and report the model as failed.
           
-          Use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. Speech service will use up to 20 hours of audio for training in these regions. In other regions, Speech service will use only up to 8 hours.
+          In general, Speech service processes approximately 10 hours of audio data per day in regions that have dedicated hardware. It can process only about 1 hour of audio data per day in other regions. Training with text only is much faster and ordinarily finishes within minutes.
           
-          In general, Speech service processes approximately 10 hours of audio data per day in regions that have dedicated hardware. It can process only about 1 hour of audio data per day in other regions. You can copy the fully trained model to another region by using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with text only is much faster and ordinarily finishes within minutes.
-          
-          Some base models can't be customized with audio data. For them, the service will use only the text of the transcription for training and ignore the audio data. The training will then be finished much faster, and the results will be the same as training with text only. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).
+          Use one of the regions where dedicated hardware is available for training. Speech service will use up to 20 hours of audio for training in these regions. In other regions, Speech service will use only up to 8 hours.
           
   - name: Accuracy testing
     questions:
