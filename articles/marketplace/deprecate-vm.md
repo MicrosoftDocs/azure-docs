@@ -1,5 +1,5 @@
 ---
-title: Deprecate or restore a virtual machine offer
+title: Deprecate or restore a virtual machine offer from Azure Marketplace
 description: Deprecate or restore a virtual machine, image, plan, or offer.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
