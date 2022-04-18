@@ -1,9 +1,9 @@
 ---
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
-ms.author: kgremban
+ms.author: patricka
 ---
 
 ## Create a container registry
@@ -32,7 +32,7 @@ If you don't already have a container registry, follow these steps to create a n
  
 1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**. 
 
-:::image type="content" source="media/tutorial-develop-for-linux/access-keys.png" alt-text="Access Keys menu location.":::
+:::image type="content" source="/media/tutorial-develop-for-linux/access-keys.png" alt-text="Access Keys menu location.":::
 
 1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
 
