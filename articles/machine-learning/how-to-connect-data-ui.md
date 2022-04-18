@@ -26,7 +26,7 @@ The following table defines and summarizes the benefits of datastores and datase
 |Datastores| Securely connect to your storage service on Azure, by storing your connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace | Because your information is securely stored, you <br><br> <li> Don't&nbsp;put&nbsp;authentication&nbsp;credentials&nbsp;or&nbsp;original&nbsp;data sources at risk. <li> No longer need to hard code them in your scripts.
 |Datasets| By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. With datasets you can, <br><br><li> Access data during model training.<li> Share data and collaborate with other users.<li> Leverage open-source libraries, like pandas, for data exploration. | Because datasets are lazily evaluated, and the data remains in its existing location, you <br><br><li>Keep a single copy of data in your storage.<li> Incur no extra storage cost <li> Don't risk unintentionally changing your original data sources.<li>Improve ML workflow performance speeds. 
 
-To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
+To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see the [Securely access data](./v1/concept-data.md#data-workflow) article.
 
 For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/) to:
 * [Connect to Azure storage services with datastores](how-to-access-data.md). 

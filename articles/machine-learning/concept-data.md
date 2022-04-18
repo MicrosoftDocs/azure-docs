@@ -1,7 +1,7 @@
 ---
-title: Secure data access in the cloud
+title: Data access
 titleSuffix: Azure Machine Learning
-description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets.
+description: Learn how to connect to your data storage on Azure with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -33,6 +33,7 @@ You can bring data to Azure Machine Learning
 
 * That's already in a cloud-based storage service in Azure and access it using your [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) related credentials and an Azure Machine Learning datastore.
 
+<a name="datastores"></a>
 ## Connect to storage with datastores
 
 Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. 
