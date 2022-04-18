@@ -306,7 +306,7 @@ The first tab on an incident details page is now the **Timeline**, which shows a
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
+:::image type="content" source="media/investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
 
 For more information, see [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md).
 

@@ -14,10 +14,9 @@ ms.custom: mode-ui
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-
 ## Prerequisites
 
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 

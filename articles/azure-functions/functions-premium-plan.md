@@ -178,7 +178,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 40 |
+|East US | 100 | 60 |
 |East US 2| 100 | 20 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |

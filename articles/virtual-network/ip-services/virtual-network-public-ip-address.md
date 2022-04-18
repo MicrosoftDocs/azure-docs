@@ -97,6 +97,10 @@ Learn how to assign a public IP address to the following resources:
 - [Azure Firewall](../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Cross-region load balancer](../../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
+## Region availability
+
+Azure Public IP is available in all regions for both Public and US Gov clouds.  Azure Public IP doesn't move or store customer data out of the region it's deployed in.
+
 ## Permissions
 
 To manage public IP addresses, your account must be assigned to the [network contributor](../../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role. A [custom](../../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role is also supported. The custom role must be assigned the appropriate actions listed in the following table:

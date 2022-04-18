@@ -114,7 +114,7 @@ You can find the resource ID in the **Properties** page of the IoT hub in the Az
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
@@ -134,7 +134,7 @@ You can find the resource ID in the **Properties** page of the IoT Central appli
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id-iot-central.png" alt-text="Retrieve resource ID from the IoT Central properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"

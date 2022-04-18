@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer C# SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer C# SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)'
 author: laujan
@@ -7,18 +7,19 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD029 -->
 
-# Get started: Form Recognizer C# SDK v3.0 | Preview
+# Get started: Form Recognizer C# SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -145,11 +146,6 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 >
 > * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Run your application
-
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 <!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
@@ -285,6 +281,12 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -395,6 +397,12 @@ for (int i = 0; i < result.Tables.Count; i++)
 }
 
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Layout model output
 
@@ -545,6 +553,12 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Prebuilt model output
 

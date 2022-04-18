@@ -51,7 +51,7 @@ You can specify a property, like `StatusMessage` or `StatusCode` to filter the o
 
 You can't enable debug logging with Azure CLI but you can retrieve debug logging data.
 
-Get the deployment operations with the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list) command:
+Get the deployment operations with the [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) command:
 
 ```azurecli
 az deployment operation group list \

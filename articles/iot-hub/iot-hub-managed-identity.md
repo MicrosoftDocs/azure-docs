@@ -226,7 +226,7 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 Managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs, and service bus endpoints.
 
 > [!NOTE]
-> Use a system-assigned managed identity to access private resources.
+> Only system-assigned managed identity gives IoT Hub access to private resources. If you want to use user-assigned managed identity, then the public access on those private resources needs to be enabled in order to allow connectivity. 
 
 ## Configure message routing with managed identities
 
