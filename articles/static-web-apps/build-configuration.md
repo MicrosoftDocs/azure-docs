@@ -24,6 +24,7 @@ The following table lists the available configuration settings.
 | `app_build_command` | For Node.js applications, you can define a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. | No |
 | `api_build_command` | For Node.js applications, you can define a custom command to build the Azure Functions API application. | No |
 | `skip_app_build` | Set the value to `true` to skip building the front-end app. | No |
+| `skip_api_build` | Set the value to `true` to skip building the API functions. | No |
 | `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
 
@@ -217,9 +218,42 @@ inputs:
 ```
 
 ---
+## Skip building the API
 
+If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
 > [!NOTE]
-> You can only skip the build for the front-end app. The API is always built if it exists.
+> Currently the `skip_api_build` is only supported in GitHub Actions and not Azure Pipelines.
+
+Steps to skip building the API:
+
+- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct language and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported languages and versions.
+```json
+{
+  "platform": {
+    "apiRuntime": "node:16"
+  }
+}
+```
+- Set `skip_api_build` to `true`.
+
+# [GitHub Actions](#tab/github-actions)
+
+```yml
+...
+
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }}
+  action: 'upload'
+  app_location: "src" # App source code path relative to repository root
+  api_location: "api" # Api source code path relative to repository root - optional
+  output_location: "public" # Built app content directory, relative to app_location - optional
+  skip_api_build: true
+```
+# [Azure Pipelines](#tab/azure-devops)
+This feature is unsupported in Azure Pipelines.
+---
+---
 
 ## Extend build timeout
 

@@ -9,7 +9,8 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 04/06/2022
+ms.date: 04/13/2022
+
 ---
 # Azure SQL Database traffic migration to newer Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -188,7 +189,7 @@ You may be impacted if you:
 
 - Hard coded the IP address for any particular gateway in your on-premises firewall
 - Have any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the gateway IP addresses
-- Use the [zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Use the [zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability)
 - Use the [zone redundant configuration for premium & business critical tiers](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 You will not be impacted if you have:

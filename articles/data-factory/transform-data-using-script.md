@@ -64,22 +64,8 @@ Here is the JSON format for defining a Script activity:
             ] 
          }, 
          ... 
-      ], 
-      "scriptReference":{ 
-         "linkedServiceName":{ 
-            "referenceName": "<name>", 
-            "type": "<LinkedServiceReference>" 
-         }, 
-         "path": "<file path>", 
-         "parameters":[ 
-            { 
-               "name": "<name>", 
-               "value": "<value>", 
-               "type": "<type>", 
-               "direction": "<Input> or <Output> or <InputOutput> or <ReturnValue>", 
-               "size": 256 
-            }, 
-            ... 
+      ],     
+         ... 
          ] 
       }, 
       "logSettings": { 

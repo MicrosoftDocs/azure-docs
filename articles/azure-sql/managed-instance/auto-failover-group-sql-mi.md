@@ -54,7 +54,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 - **Secondary**
 
-  The managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same Azure region as the primaryF.
+  The managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same Azure region as the primary.
  
 - **DNS zone**
 

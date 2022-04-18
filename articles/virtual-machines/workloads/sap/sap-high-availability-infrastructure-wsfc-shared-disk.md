@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/14/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -202,7 +202,7 @@ Based on your deployment type, the host names and the IP addresses of the scenar
 The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if the cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
 
 > [!Note]
-> When using [Azure proximity placement group](../../windows/proximity-placement-groups.md) for SAP system, all virtual machines sharing a disk must be part of the same PPG.
+> [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But if you are using PPG for SAP system, all virtual machines sharing a disk must be part of the same PPG.
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
@@ -258,7 +258,6 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 		- 5**nr**16 TCP
 
 	- Make sure that Idle timeout (minutes) is set to max value 30, and that Floating IP (direct server return) is Enabled.
-
 
 > [!TIP]
 > With the [Azure Resource Manager Template for WSFC for SAP ASCS/SCS instance with Azure Shared Disk](https://github.com/robotechredmond/301-shared-disk-sap), you can automate the infrastructure preparation, using Azure Shared Disk for one SAP SID with ERS1.  

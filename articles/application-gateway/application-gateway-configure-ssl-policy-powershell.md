@@ -3,11 +3,11 @@ title: Configure TLS policy using PowerShell
 titleSuffix: Azure Application Gateway
 description: This article provides instructions to configure TLS Policy on Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
