@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 04/18/2022
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -16,7 +16,6 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.AlertsManagement
 
 * prometheusRuleGroups
-* resourceHealthAlertRules
 * smartDetectorAlertRules
 
 ## Microsoft.Automation
@@ -103,12 +102,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.GuestConfiguration
 
-* autoManagedVmConfigurationProfiles
-* configurationProfileAssignments
 * guestConfigurationAssignments
-* software
-* softwareUpdateProfile
-* softwareUpdates
 
 ## Microsoft.HybridCompute
 
@@ -137,6 +131,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
 * netAppAccounts/capacityPools/volumes/subvolumes
+* netAppAccounts/capacityPools/volumes/volumeQuotaRules
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
