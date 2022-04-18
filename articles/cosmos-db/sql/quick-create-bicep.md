@@ -37,7 +37,9 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 Three Azure resources are defined in the Bicep file:
 
 - [Microsoft.DocumentDB/databaseAccounts](/azure/templates/microsoft.documentdb/databaseaccounts): Create an Azure Cosmos account.
+
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Create an Azure Cosmos database.
+
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos container.
 
 ## Deploy the Bicep file
@@ -107,8 +109,8 @@ Remove-AzResourceGroup -Name exampleRG
 
 In this quickstart, you created an Azure Cosmos account, a database and a container by using a Bicep file and validated the deployment. To learn more about Azure Cosmos DB and Bicep, continue on to the articles below.
 
-- Read an [Overview of Azure Cosmos DB](../introduction.md)
-- Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)
+- Read an [Overview of Azure Cosmos DB](../introduction.md).
+- Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md).
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md)
-    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md).
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
