@@ -8,18 +8,18 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/18/2022
 ms.author: yitoh 
 ms.custom: devx-track-azurepowershell, mode-api
 
 ---
 # Quickstart: Create and configure Azure DDoS Protection Standard using Azure PowerShell
 
-Get started with Azure DDoS Protection Standard by using Azure PowerShell. 
+Get started with Azure DDoS Protection Standard by using Azure PowerShell.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan. 
+A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
-In this quickstart, you'll create a DDoS protection plan and link it to a virtual network. 
+In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ### Enable DDoS for a new virtual network
 
-You can enable DDoS protection when creating a virtual network. In this example, we'll name our virtual network _MyVnet_: 
+You can enable DDoS protection when creating a virtual network. In this example, we'll name our virtual network _MyVnet_:
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -72,7 +72,7 @@ $vnet.DdosProtectionPlan = New-Object Microsoft.Azure.Commands.Network.Models.PS
 $vnet.DdosProtectionPlan.Id = $ddosProtectionPlan.Id
 $vnet.EnableDdosProtection = $true
 $vnet | Set-AzVirtualNetwork
-``` 
+```
 
 ## Validate and test
 
@@ -92,7 +92,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-To disable DDoS protection for a virtual network: 
+To disable DDoS protection for a virtual network:
 
 ```azurepowershell-interactive
 # Gets the most updated version of the virtual network
