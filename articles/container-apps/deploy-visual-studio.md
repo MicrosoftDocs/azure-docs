@@ -43,7 +43,7 @@ Begin by creating the containerized ASP.NET Core application to deploy to Azure.
 
 If this is your first time creating a project using Docker, you may get a prompt instructing you to install Docker Desktop.  This installation is required for working with containerized apps, as mentioned in the prerequisites, so click **Yes**.  You can also  download and [install Docker Desktop for Windows from the official Docker site](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 
-Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to setup Docker, which requires a system reboot.
+Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to set up Docker, which requires a system reboot.
 
 ## Deploy to Azure Container Apps
 
@@ -107,7 +107,7 @@ Choose **Publish** in the upper right of the publishing profile screen to deploy
 
 :::image type="content" source="media/visual-studio/container-apps-publish.png" alt-text="A screenshot showing how to publish the app.":::
 
-When the app finishes deploying, Visual Studio opens a browser to the the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
+When the app finishes deploying, Visual Studio opens a browser to the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
 
 
 :::image type="content" source="media/visual-studio/container-apps-site.png" alt-text="A screenshot showing the published site.":::
