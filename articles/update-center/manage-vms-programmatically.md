@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 This article walks you through the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with update management center (preview) in Azure. If you are new to update management center (preview) and you want to learn more, see [overview of update management center (preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
 
-Update management center (private preview) in Azure enables you to use the [Azure REST API](https://docs.microsoft.com/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) and [Azure CLI](https://docs.microsoft.com/cli/azure/).
+Update management center (private preview) in Azure enables you to use the [Azure REST API](/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](/powershell/azure/) and [Azure CLI](/cli/azure/).
 
 Support for Azure REST API to manage Azure VMs is available through the update management center (preview) virtual machine extension.
 
@@ -26,7 +26,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 
 # [Azure CLI](#tab/cli)
 
-To specify the POST request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Network/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
@@ -34,7 +34,7 @@ az rest --method post --url https://management.azure.com/subscriptions/subscript
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod
@@ -107,7 +107,7 @@ POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Micros
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the POST request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version==2020-12-01 @body.json
@@ -140,7 +140,7 @@ The format of the request body for version 2020-12-01 is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod
@@ -246,7 +246,7 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the PUT request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
+To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method put --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview @body.json
@@ -290,7 +290,7 @@ The format of the request body is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview"
@@ -354,7 +354,7 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the PUT request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
+To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method put --url https://management.azure.com/<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview @body.json
@@ -373,7 +373,7 @@ The format of the request body is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview"
