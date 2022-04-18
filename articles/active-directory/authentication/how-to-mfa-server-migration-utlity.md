@@ -170,61 +170,80 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 You have successfully installed the Migration Utility.
 
 ### Migrate user data
-Migrating user data does not remove any data from or alter any data in the Multi-Factor authentication server database. Likewise, this process will not change where a user performs MFA. This process is a one-way copy of data from the on-premises server, to the corresponding user object in Azure AD.
+Migrating user data does not remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process will not change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.
 
-The MFA Server Migration utility targets a single Azure AD group for all migration activities. You can add users directly to this group, or nest other groups within the main group. You can also add users or groups of users in stages as you carry out your various migration and validation activities.
+The MFA Server Migration utility targets a single Azure AD group for all migration activities. You can add users directly to this group, or add other groups. You can also add them in stages during the migration.
 
-To begin the migration process, enter the name or GUID of the Azure AD group containing the users or group(s) of users you want to migrate. Once complete, hit the Tab key or click outside of the box and the utility will begin searching for the appropriate group. The window will populate all users within the group. Depending on group size, this could take several minutes.
+To begin the migration process, enter the name or GUID of the Azure AD group you want to migrate. Once complete, press Tab or click outside of the box and the utility will begin searching for the appropriate group. The window will populate all users within the group. Depending on group size, this could take several minutes.
 
 To view user attribute data for a user, highlight the user, and select **View**:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/view-user.png" alt-text="Screenshot of how to view use settings.":::
 
-This window displays the attributes for the selected user in both Azure AD (AAD) and the on-premises MFA Server (MFA Server). You can use this window to view how data was written to a user after they’ve been migrated.
+This window displays the attributes for the selected user in both Azure AD and the on-premises MFA Server. You can use this window to view how data was written to a user after they’ve been migrated.
 
 The settings option allows you to change the settings for the migration process:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/settings.png" alt-text="Screenshot of settings.":::
 
--	Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
--	User Match – Allows you to specify a different attribute for matching users instead of the default UPN-matching
--	Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises Multi-factor authentication server, and write them to Azure AD at the specified time interval defined
+- Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
+- User Match – Allows you to specify a different attribute for matching users instead of the default UPN-matching
+- Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises MFA Server, and write them to Azure AD at the specified time interval defined
+
 The migration process can be an automatic process, or a manual process.
-Manual:
-1)	To begin the migration process for a user or selection of multiple users, hold the ‘Ctrl’ key while selecting each of the user(s) you wish to migrate. 
-2)	Once the desired users have been highlighted, select ‘Migrate Users’>’Selected users’>OK to begin the process.
-3)	If you wish to perform the migration for all users in the group, simply select ‘Migrate Users’>’All users in AAD group’>OK.
-Automatic:
-1)	Select “Automatic synchronization” in the settings menu, and then select whether you want all users to be synced, or only members of a given Azure AD Group
-Sync logic is as follows for the various methods:
-Phone	•	If no extension, will update MFA phone
-•	If has extension, will update Office phone
-o	Exception: If default method is Text Message, will drop extension and update MFA phone
-Backup Phone	•	If no extension, will update Alternate phone
-•	If has extension, will update Office phone
-o	Exception: If both Phone and Backup Phone have an extension, will skip Backup Phone
-Mobile App	•	Maximum of 5 devices will be migrated or only 4 if user also has hardware OATH token
-•	If there are multiple devices with the same name, will only migrate the most recent one
-•	Devices will be ordered from newest to oldest
-•	If devices already exist in AAD, will match on OATH Token Secret Key and update
-o	If no match on OATH Token Secret Key, will match on Device Token
-	If found, will create a Software OATH Token for the MFA Server device to allow OATH Token method to work.  Notifications will still work using the existing Azure MFA device.
-	If not found, will create a new device
-•	If adding a new device will exceed the 5-device limit, the device will be skipped
-OATH Token	•	If devices already exist in AAD, will match on OATH Token Secret Key and update
-o	If not found, will add a new Hardware OATH Token device
-•	If adding a new device will exceed the 5-device limit, the OATH token will be skipped
+
+The manual process steps are:
+
+1. To begin the migration process for a user or selection of multiple users, press and hold the Ctrl key while selecting each of the user(s) you wish to migrate. 
+1. After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
+1. To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
+
+The automatic process steps are:
+
+- Click **Automatic synchronization** in the settings menu, and then select whether you want all users to be synced, or only members of a given Azure AD group.
+
+  The sync logic for the various methods is as follows
+
+- **Phone** 
+  - If no extension, will update MFA phone
+  - If has extension, will update Office phone
+  
+  Exception: If default method is Text Message, will drop extension and update MFA phone
+
+- **Backup Phone**
+  - If no extension, will update Alternate phone
+  - If has extension, will update Office phone
+  
+  Exception: If both Phone and Backup Phone have an extension, will skip Backup Phone
+
+- **Mobile App**
+  - Maximum of 5 devices will be migrated or only 4 if user also has hardware OATH token
+  - If there are multiple devices with the same name, will only migrate the most recent one
+  - Devices will be ordered from newest to oldest
+  - If devices already exist in Azure AD, will match on OATH Token Secret Key and update
+    - If no match on OATH Token Secret Key, will match on Device Token
+      - If found, will create a Software OATH Token for the MFA Server device to allow OATH Token method to work.  Notifications will still work using the existing Azure MFA device.
+      - If not found, will create a new device
+  - If adding a new device will exceed the 5-device limit, the device will be skipped 
+
+- **OATH Token**
+  - If devices already exist in Azure AD, will match on OATH Token Secret Key and update
+    - If not found, will add a new Hardware OATH Token device
+  - If adding a new device will exceed the 5-device limit, the OATH token will be skipped
+
 MFA Methods will be updated based on what was migrated and the default method will be set. MFA Server will keep track of the last migration timestamp and will only migrate the user again if the user’s MFA settings change.
 
-During testing, we recommend doing a manual migration first, testing to ensure a given number of users behave as expected. Once testing is successful, turn on automatic synchronization for the Azure AD group(s) you wish to use as migration groups. As you add users to this group, their information will be automatically synchronized to Azure AD. Note that the Migration Utility targets one Azure AD group, however that group can encompass both users and nested groups of users.
-Once complete, a confirmation window will appear, informing you of the tasks completed:
+During testing, we recommend doing a manual migration first, and test to ensure a given number of users behave as expected. Once testing is successful, turn on automatic synchronization for the Azure AD group you wish to migrate. As you add users to this group, their information will be automatically synchronized to Azure AD. Note that the Migration Utility targets one Azure AD group, however that group can encompass both users and nested groups of users.
+
+Once complete, a confirmation will inform you of the tasks completed:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/confirmation.png" alt-text="Screenshot of confirmation.":::
 
-As called out the confirmation message shown, it can take several minutes for the migrated data to appear on user objects within Azure AD. Users can view their migrated methods by navigating to aka.ms/mfasetup.
+As mentioned in the confirmation message, it can take several minutes for the migrated data to appear on user objects within Azure AD. Users can view their migrated methods by navigating to [aka.ms/mfasetup](https://aka.ms/mfasetup).
 
 ### Validate and test
-Once you have successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The below process will allow you to target specific Azure AD group(s) for staged rollout for MFA. This tells Azure AD to perform MFA via Azure MFA for users in the targeted groups, rather than sending them on-premises to perform MFA.
+
+Once you have successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for staged rollout for MFA. This tells Azure AD to perform MFA via Azure MFA for users in the targeted groups, rather than sending them on-premises to perform MFA.
 
 1. Create the featureRolloutPolicy
    1. Navigate to aka.ms/ge and login to Graph Explorer using a Hybrid Identity admin account in the tenant you wish to setup for Staged Rollout.
