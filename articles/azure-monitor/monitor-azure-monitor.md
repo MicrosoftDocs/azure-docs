@@ -31,7 +31,7 @@ The **Overview** page in the Azure portal for Azure Monitor shows links and tuto
 
 ## Monitoring data 
 
-Azure Monitor collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](./essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
+Azure Monitor collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](./essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). 
 
 See [Monitoring *Azure Monitor* data reference](azure-monitor-monitoring-reference.md) for detailed information on the metrics and logs metrics created by Azure Monitor.
 
