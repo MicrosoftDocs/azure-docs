@@ -42,7 +42,7 @@ Update management center (preview) has been redesigned and doesn't depend on Azu
 - Enhanced flexibility
     - Ability to take immediate action either by installing updates immediately or schedule them for a later date.
     - Check updates automatically or on demand.
-    - Helps secure machines with new ways of patching such as [automatic VM](/azure/virtual-machines/automatic-vm-guest-patching) [guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hotpatching](/azure/automanage/automanage-hotpatch) or custom maintenance schedules.
+    - Helps secure machines with new ways of patching such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hotpatching](/azure/automanage/automanage-hotpatch) or custom maintenance schedules.
     - Sync patch cycles in relation to patch Tuesday—the unofficial term for Microsoft's scheduled security fix release on every Tuesday.
 
 

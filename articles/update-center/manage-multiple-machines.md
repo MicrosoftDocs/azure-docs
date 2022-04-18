@@ -4,8 +4,8 @@ description: The article details how to use Update management center (preview) i
 ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ---
 
 # Manage multiple machines with update management center (Preview)
@@ -68,6 +68,9 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 - Select the **Update status of machines** or **Patch orchestration configuration of Azure Virtual machines** to go to the **Machines** page. 
 - Select the **Update installation status**, to go to the **History** page. 
+
+- **Pending Windows updates** — the tile shows the status of pending updates for Windows machines in your subscription.
+- **Pending Linux updates** — the tile shows the status of pending updates for Linux machines in your subscription.
 
 ## Summary of machine status
 
