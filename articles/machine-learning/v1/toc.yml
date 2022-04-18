@@ -4,6 +4,10 @@
   href: ../index.yml
 - name: Concepts
   items:
+  - name: Work with data
+    items:
+    - name: Data access
+      href: concept-data.md
   - name: Manage the ML lifecycle (MLOps)
     items:
     - name: MLOps capabilities
