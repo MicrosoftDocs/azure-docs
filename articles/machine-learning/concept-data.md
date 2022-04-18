@@ -29,7 +29,7 @@ Azure Machine Learning makes it easy to connect to your data in the cloud. It pr
 
 You can bring data to Azure Machine Learning 
 
-* Directly from your local machine,
+* Directly from your local machine and URLs
 
 * That's already in a cloud-based storage service in Azure and access it using your [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) related credentials and an Azure Machine Learning datastore.
 
@@ -57,7 +57,7 @@ Azure Database for MySQL | ✓ | |
 
 ## Work with data
 
-
+You can read in data from a datastore or directly from storage uri's. 
 
 In Azure Machine Learning there are three types for data
 
@@ -84,5 +84,4 @@ Create an [image labeling project](how-to-create-image-labeling-projects.md) or 
 
 ## Next steps 
 
-+ Read and write data 
 + Try out dataset training examples with the [Working with data sample notebook](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/assets/data/data.ipynb).
