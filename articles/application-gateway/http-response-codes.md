@@ -64,7 +64,10 @@ HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have W
 
 #### 404 – Page not found
 
-HTTP 404 response may be returned if a request is sent to application gateways using v2 sku without a hostname match defined in any multi-site listeners and if a basic listener isn't present.
+An HTTP 404 response can be returned if a request is sent to an application gateway that is:
+- using a [v2 sku](overview-v2.md) 
+- without a hostname match defined in any [multi-site listeners](multiple-site-overview.md)
+- not configured with a [basic listener](application-gateway-components.md#types-of-listeners)
 
 #### 408 – Request Timeout
 
