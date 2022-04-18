@@ -9,7 +9,7 @@ ms.date: 03/03/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than 6 months ago.
+This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
 
 For more recent updates, see [What's new in Microsoft Defender for IoT?](release-notes.md).
 

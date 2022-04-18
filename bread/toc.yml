@@ -460,7 +460,7 @@
 #      topicHref: /azure/cognitive-services/translator-speech/
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/
-      topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
       topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
@@ -770,9 +770,6 @@
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
-      - name: Front Door Standard/Premium (Preview)
-        tocHref: /azure/frontdoor/standard-premium
-        topicHref: /azure/frontdoor/standard-premium
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
         topicHref: /azure/internet-analyzer/

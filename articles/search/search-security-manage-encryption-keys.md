@@ -1,28 +1,38 @@
 ---
 title:  Encrypt data using customer-managed keys
 titleSuffix: Azure Cognitive Search
-description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search using keys that you create and manage in Azure Key Vault.
+description: Supplement server-side encryption in Azure Cognitive Search using customer managed keys (CMK) or bring your own keys (BYOK) that you create and manage in Azure Key Vault.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 04/07/2022
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
 
-Azure Cognitive Search automatically encrypts content with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets.
+Azure Cognitive Search automatically encrypts data at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. 
 
-This article walks you through the steps of setting up customer-managed key (CMK) encryption. Here are some points to keep in mind:
+This article walks you through the steps of setting up customer-managed key (CMK) or "bring-your-own-key" (BYOK) encryption. Here are some points to keep in mind:
+
++ CMK encryption is enacted on individual objects. If you require CMK unilaterally across your search service, [set an enforcement policy](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchencryptionwithcmk) at the service level so that you can be notified if the service falls out of compliance.
 
 + CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
 + CMK encryption occurs when an object is created. You can't encrypt objects that already exist.
 
-Encryption is computationally expensive to decrypt so only sensitive content is encrypted. This includes all content within indexes and synonym lists. For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
+## CMK-qualified encryption
+
+Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
+
+Encryption is performed over the following objects:
+
++ All content within indexes and synonym lists, including descriptions.
+
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
 
 ## Double encryption
 

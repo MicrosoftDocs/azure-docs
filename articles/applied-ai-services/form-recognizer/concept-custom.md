@@ -13,7 +13,7 @@ recommendations: false
 ---
 # Form Recognizer custom models
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use pre-built or pre-trained models or you can train standalone custom models. Standalone custom models can be combined to create composed models.
+Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use pre-built or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
 
 To create a custom model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
@@ -109,7 +109,7 @@ See how data is extracted from your specific or unique documents by using custom
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
 
 |Feature    |Custom Template | Custom Neural |

@@ -78,7 +78,6 @@ var appInsights = new ApplicationInsights({
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         enableAutoRouteTracking: true,
         extensions: [reactPlugin]
-        }
     }
 });
 appInsights.loadAppInsights();

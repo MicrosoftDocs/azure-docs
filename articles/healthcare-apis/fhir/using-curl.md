@@ -5,11 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/01/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ---
 
-# Access the Healthcare APIs with cURL
+# Access the Azure Health Data Services with cURL
 
 In this article, you'll learn how to access Azure Health Data Services with cURL.
 
@@ -32,9 +32,9 @@ In this article, you'll learn how to access Azure Health Data Services with cURL
 
 ## Obtain Azure Access Token
 
-Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](../authentication-authorization.md).
+Before accessing the Azure Health Data Services, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Azure Health Data Services authorization](../authentication-authorization.md).
 
-There are several different ways to obtain an Azure access token for the Healthcare APIs. 
+There are several different ways to obtain an Azure access token for the Azure Health Data Services. 
 
 > [!NOTE]
 > Make sure that you have logged into Azure and that you are in the Azure subscription and tenant where you have deployed the Azure Health Data Services instance.

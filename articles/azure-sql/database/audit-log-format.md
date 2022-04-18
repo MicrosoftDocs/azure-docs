@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: reference
-author: DavidTrigano
-ms.author: datrigan
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
 ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: sqldbrb=1
-ms.date: 06/03/2020
 ---
 
 # SQL Database audit log format

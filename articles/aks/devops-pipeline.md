@@ -5,6 +5,7 @@ ms.topic: article
 ms.author: jukullam
 author: juliakm
 ms.date: 03/15/2022
+ms.custom: devops-pipelines-deploy
 zone_pivot_groups: pipelines-version
 ---
 

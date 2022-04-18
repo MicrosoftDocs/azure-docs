@@ -75,7 +75,7 @@ Uninstall from the UI or from a command prompt.
 2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
     ```
-    uninstall.sh -Y
+    ./uninstall.sh -Y
    ```
    
 ## Install Site Recovery VSS provider on source machine

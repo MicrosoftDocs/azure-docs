@@ -106,7 +106,6 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
 ---
-Now, you can add the storage output binding to your project.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

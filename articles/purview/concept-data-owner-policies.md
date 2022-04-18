@@ -92,12 +92,12 @@ Then let’s assume that user ‘user1’, who is part of two groups:
 
 ## Policy publishing
 
-A newly created policy exists in the draft mode state, only visible in Azure Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It's an asynchronous action that can take up to 2 minutes to be effective on the underlying data sources.
+A newly created policy exists in the draft mode state, only visible in Azure Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It's an asynchronous action that can take between 5 minutes and 2 hours to be effective, depending on the enforcement code in the underlying data sources. For more information, consult the tutorials related to each data source
 
 A policy published to a data source could contain references to an asset belonging to a different data source. Such references will be ignored since the asset in question does not exist in the data source where the policy is applied.
 
 ## Next steps
 Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
 
-* [Access provisioning by data owner to Azure Storage datasets](tutorial-data-owner-policies-storage.md)
-* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
+* [Access provisioning by data owner to Azure Storage datasets](how-to-data-owner-policies-storage.md)
+* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
