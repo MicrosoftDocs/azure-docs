@@ -5,12 +5,12 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 04/18/2022
 ---
 
 # Dapr integration with Azure Container Apps (preview)
 
-When building a microservice application, you may encounter common patterns and challenges, like how you: 
+When building a distributed microservice application, you may encounter common patterns and challenges, like how you: 
 
 - Integrate external systems with your application.
 - Observe and monitor your application.
@@ -52,7 +52,7 @@ Dapr components are scoped to a Container App environment and are pluggable modu
 - Can be scoped to specific Container Apps.
 - Can be easily swapped out at the environment level of your Container App.
 
-Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. Below are the various schemas you can define for a Dapr component in Azure Container Apps.
+Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. See examples of the various schemas you can define for a Dapr component in Azure Container Apps below.
 
 # [YAML](#tab/yaml)
 
@@ -249,7 +249,7 @@ resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
 
-By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes. unless scopes are used to limit which container app will load the component.  
+By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
 
 Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app ids. 
 
@@ -259,10 +259,10 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 
 | Field | Description |
 | ----- | ----------- |
-| `enabled` | Enable Dapr at the container app level. |
-| `appPort` | The endpoint to which you'd like to point the container app. |
-| `appProtocol` | Enter either `http` or `grpc`. |
-| `appId` | Your container app's unique identifier. |
+| `enabled` | Enables Dapr on the container app. |
+| `appPort` | Identifies on which port your application is listening. |
+| `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
+| `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
 # [YAML](#tab/yaml)
 
