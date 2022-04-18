@@ -1,6 +1,6 @@
 ---
-title: Request access to Cosmos DB previews
-description: Learn how to request access to Cosmos DB previews
+title: Request access to Azure Cosmos DB previews
+description: Learn how to request access to Azure Cosmos DB previews
 author: gahl-levy
 ms.service: cosmos-db
 ms.topic: how-to
@@ -8,17 +8,20 @@ ms.date: 04/13/2022
 ms.author: gahllevy
 ---
 
-# Access Cosmos DB Preview Features
+# Access Azure Cosmos DB Preview Features
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Cosmos DB offers several preview features that you can request access to. Here are the steps to request access to these preview features.
+## Steps to register for a preview feature from the portal
 
-1. Go to “Preview Features” area in your Azure subscription.
-2. Under “Type”, select “Microsoft.DocumentDB”.
+Azure Cosmos DB offers several preview features that you can request access to. Here are the steps to request access to these preview features.
+
+1. Go to **Preview Features** area in your Azure subscription.
+2. Under **Type**, select "Microsoft.DocumentDB”.
 3. Click on the feature you would like access to in the list of available preview features.
-4. Click the “Register” button at the bottom of the page to join the preview.
+4. Click the **Register** button at the bottom of the page to join the preview.
 
-:::image type="content" source="./mongodb/media/mongodb-indexing/unique-Reindex-Preview.png" alt-text="Enable unique index on existing collections preview":::
+:::image type="content" source="./mongodb/media/mongodb-indexing/unique-reindex-preview.png" alt-text="Screenshot of steps to enable preview feature" lightbox="./mongodb/media/mongodb-indexing/unique-reindex-preview.png":::
 
 ## Next steps
 
