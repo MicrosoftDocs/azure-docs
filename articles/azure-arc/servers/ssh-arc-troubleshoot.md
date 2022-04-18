@@ -18,7 +18,7 @@ For general information, see [SSH access to Arc enabled servers overview](./ssha
 These issues are due to errors that occur on the machine that the user is connecting from.
 
 ### Incorrect Azure subscription
-This occurs when the active subscription for Azure CLI is not the same as the server that is being connected to.
+This occurs when the active subscription for Azure CLI isn't the same as the server that is being connected to.
 Possible errors:
  - "Unable to determine the target machine type as Azure VM or Arc Server"
  - "Unable to determine that the target machine is an Arc Server"
@@ -40,13 +40,13 @@ Resolution:
 
 ## Server-side issues
 ### SSH traffic is not allowed on the server
-This issue occurs when SSHD is not running on the server, or SSH traffic is not allowed on the server.
+This issue occurs when SSHD isn't running on the server, or SSH traffic isn't allowed on the server.
 Possible errors:
  - {"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}
 
 Resolution:
  - Ensure that the SSHD service is running on the Arc-enabled server
- - Ensure that port 22 (or other non-default port) is listed in allowed incomming connections. Run ```azcmagent config list``` on the Arc-enabled server in an elevated session
+ - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run ```azcmagent config list``` on the Arc-enabled server in an elevated session
 
 ## Azure permissions issues
 

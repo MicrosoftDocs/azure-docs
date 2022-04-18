@@ -3,6 +3,7 @@ title: (Preview) SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
 ms.date: 03/25/2022
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # SSH access to Azure Arc-enabled servers
@@ -26,7 +27,7 @@ To leverage this functionality, please ensure the following:
  - Ensure the Arc-enabled server has a hybrid agent version of "1.13.21320.014" or higher.
   - Run: ```azcmagent show``` on your Arc-enabled Server.
  - Ensure the Arc-enabled server has the "sshd" service enabled.
- - Ensure you have the Virtual Machine Local User Login role assigned (role Id: 602da2baa5c241dab01d5360126ab525)
+ - Ensure you have the Virtual Machine Local User Login role assigned (role ID: 602da2baa5c241dab01d5360126ab525)
 
 ### Availability
 SSH access to Arc-enabled servers is currently supported in the following regions:

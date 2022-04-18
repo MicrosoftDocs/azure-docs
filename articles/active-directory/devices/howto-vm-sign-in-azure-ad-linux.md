@@ -368,8 +368,8 @@ For customers who are using previous version of Azure AD login for Linux that wa
    ```azurecli
    az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
    ```
-> [!NOTE]
-> The extension uninstall can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
+    > [!NOTE]
+    > The extension uninstall can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
 
 1. Enable system-assigned managed identity on your VM.
 
@@ -451,7 +451,7 @@ Solution 1: Upgrade the Azure CLI client to version 2.21.0 or higher.
 
 After the user has successfully signed in using az login, connection to the VM using `az ssh vm -ip <addres>` or `az ssh vm --name <vm_name> -g <resource_group>` fails with *Connection closed by <ip_address> port 22*.
 
-Cause 1: The user isn’t assigned to the either the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
+Cause 1: The user isn’t assigned to either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
 
 Solution 1: Add the user to the either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
 
