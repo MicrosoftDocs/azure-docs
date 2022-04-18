@@ -400,11 +400,11 @@ When a blob is moved from one access tier to another, its last modification time
 
 The blob prefix match field of a policy is a full or partial blob path, which is used to match the blobs you want the policy actions to apply to. The path must start with the blob container name. If no prefix match is specified, then the policy will apply to all the blobs in the storage account. The prefix match string format is [container name]/[blob name], where the container name or blob name can be a full or partial container name.
 Here are some common misconceptions about the prefix match string:
-•	A prefix match string of container1/ applies to all blobs in the blob container named container1. A prefix match string of container1 (note that there is no trailing / character in the prefix string) applies to all blobs in all containers where the blob container name starts with the string container1. This includes blob containers named container11, container1234, container1ab, and so on.
-•	A prefix match string of container1/sub1/ would apply to all blobs in the container with the name container1, whose blob names that start with the string sub1/ like container1/sub1/test.txt or container1/sub1/sub2/test.txt.
-•	Wildcard character * - This doesn't mean 'matches one or more occurrences of any character'. The asterisk character * is a valid character in a blob name in Azure Storage. If added in a rule, it means match the blobs with the asterisk in the blob name.
-•	Wildcard character ? - This doesn't mean 'match a single occurrence of any character'. The question mark character ? is a valid character in a blob name in Azure Storage. If added in a rule, it means match the blobs with a question mark in the blob name.
-•	prefixMatch with != - The prefixMatch rules only consider positive (=) logical comparisons. Therefore, negative (!=) logical comparisons are ignored.
+-	A prefix match string of container1/ applies to all blobs in the blob container named container1. A prefix match string of container1 (note that there is no trailing / character in the prefix string) applies to all blobs in all containers where the blob container name starts with the string container1. This includes blob containers named container11, container1234, container1ab, and so on.
+-	A prefix match string of container1/sub1/ would apply to all blobs in the container with the name container1, whose blob names that start with the string sub1/ like container1/sub1/test.txt or container1/sub1/sub2/test.txt.
+-	Wildcard character * - This doesn't mean 'matches one or more occurrences of any character'. The asterisk character * is a valid character in a blob name in Azure Storage. If added in a rule, it means match the blobs with the asterisk in the blob name.
+-	Wildcard character ? - This doesn't mean 'match a single occurrence of any character'. The question mark character ? is a valid character in a blob name in Azure Storage. If added in a rule, it means match the blobs with a question mark in the blob name.
+-	prefixMatch with != - The prefixMatch rules only consider positive (=) logical comparisons. Therefore, negative (!=) logical comparisons are ignored.
 
 
 
