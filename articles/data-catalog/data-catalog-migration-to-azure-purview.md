@@ -22,9 +22,9 @@ To migrate from Azure Data Catalog to Microsoft Purview, we recommend the follow
 
 :heavy_check_mark: Step 2: [Prepare to migrate](#prepare-to-migrate)
 
-:heavy_check_mark: Step 3: [Migrate to Microsoft Purview](#migrate-to-azure-purview)
+:heavy_check_mark: Step 3: [Migrate to Microsoft Purview](#migrate-to-microsoft-purview)
 
-:heavy_check_mark: Step 4: [Cutover from Azure Data Catalog to Microsoft Purview](#cutover-from-azure-data-catalog-to-azure-purview)
+:heavy_check_mark: Step 4: [Cutover from Azure Data Catalog to Microsoft Purview](#cutover-from-azure-data-catalog-to-microsoft-purview)
 
 > [!NOTE]
 > Azure Data Catalog and Microsoft Purview are different services, so there is no in-place upgrade experience. Intentional migration effort required.
