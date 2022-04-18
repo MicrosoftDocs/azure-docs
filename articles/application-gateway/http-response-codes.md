@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # HTTP response codes in Application Gateway
 
-This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
+This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target. For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
 
 ## 3XX response codes
 
@@ -34,16 +34,15 @@ HTTP 302 responses are presented when a redirection rule is specified with the *
 
 HTTP 307 responses are presented when a redirection rule is specified with the **Temporary** value.
 
-For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
 
 ## 4XX response codes
 
-4XX response codes typically indicate an issue with file access.
+4XX response codes typically indicate an issue with file or service access.
 
 #### 400 – Bad Request
 
 HTTP 400 response codes are commonly observed when:
-1.	Non-HTTP / HTTPS traffic is initiated to an application gateway with an http or https listener.
+1.	Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
 2.	HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
 3.	Mutual authentication is configured and unable to properly negotiate.
 
@@ -65,13 +64,13 @@ HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have W
 #### 404 – Page not found
 
 An HTTP 404 response can be returned if a request is sent to an application gateway that is:
-- using a [v2 sku](overview-v2.md) 
-- without a hostname match defined in any [multi-site listeners](multiple-site-overview.md)
-- not configured with a [basic listener](application-gateway-components.md#types-of-listeners)
+- Using a [v2 sku](overview-v2.md).
+- Without a hostname match defined in any [multi-site listeners](multiple-site-overview.md).
+- Not configured with a [basic listener](application-gateway-components.md#types-of-listeners).
 
 #### 408 – Request Timeout
 
-HTTP 408 response can be observed when client requests to the frontend listener of application gateway do not respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when traffic is inspected by virtual appliances, or the client itself becomes overwhelmed.
+An HTTP 408 response can be observed when client requests to the frontend listener of application gateway do not respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when traffic is inspected by virtual appliances, or the client itself becomes overwhelmed.
 
 
 ## 5XX response codes
@@ -80,13 +79,13 @@ HTTP 408 response can be observed when client requests to the frontend listener 
 
 #### 500 – Internal Server Error
 
-Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code because this issue is an internal error to the service.  For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service.  For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 #### 502 – Bad Gateway
 
 HTTP 502 errors can have several root causes, for example:
 - NSG, UDR, or custom DNS is blocking access to backend pool members.
-- Back-end VMs or instances of virtual machine scale set aren't responding to the default health probe.
+- Back-end VMs or instances of [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [back-end pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).
