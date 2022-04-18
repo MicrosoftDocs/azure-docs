@@ -487,9 +487,9 @@ The Application Insights JavaScript SDK is open-source to view the source code o
 
 For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
-## FAQ
+## Troubleshooting
 
-### Correlation header excluded domains
+### JS SDK causes request to fail
 
 The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
 An example would be `*.queue.core.windows.net`, as seen in the code sample above.
@@ -501,7 +501,7 @@ The server-side needs to be able to accept connections with those headers presen
 
 Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
 
-### Correlation recursion
+### SDK reports correlation recursivley
 
 If the SDK reports correlation recursively enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data, this can occur when using connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
