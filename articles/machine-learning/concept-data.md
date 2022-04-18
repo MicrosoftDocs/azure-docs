@@ -17,15 +17,21 @@ ms.custom: devx-track-python, data4ml
 
 # Data in Azure Machine Learning
 
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](./v1/concept-data.md)
+> * [v2 (current version)](concept-data.md)
+
 Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 
 *    Interoperability with Pandas and Spark DataFrames
 *    Versioning and tracking of data lineage
 *    Data labeling
-    
-## Data workflow
 
-When bringing data to Azure Machine Learning the assumption is you have an [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
+You can bring data to Azure Machine Learning 
+
+* Directly from your local machine,
+
+* That's already in a cloud-based storage service in Azure and access it using your [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) related credentials and an Azure Machine Learning datastore.
 
 ## Connect to storage with datastores
 
@@ -51,8 +57,7 @@ Azure Database for MySQL | ✓ | |
 
 ## Work with data
 
->[!TIP]
-> If you require to use the Azure Machine Learning Python SDK v1 
+
 
 In Azure Machine Learning there are three types for data
 
