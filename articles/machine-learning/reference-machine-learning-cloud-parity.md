@@ -145,7 +145,7 @@ The information in the rest of this document provides information on what featur
 | Support for deep learning and other advanced learners                      | GA               | YES       | N/A        |
 | Large data support (up to 100 GB)                                          |  Preview   | YES       | N/A        |
 | Azure Databricks Integration                                              | GA               | YES        | N/A        |
-| SQL, CosmosDB, and HDInsight integrations                                   | GA               | YES       | N/A        |
+| SQL, Cosmos DB, and HDInsight integrations                                   | GA               | YES       | N/A        |
 | **Machine Learning pipelines** |    | | |
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
@@ -204,7 +204,7 @@ The information in the rest of this document provides information on what featur
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
 | **Inference** |   | | |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
-| Data Box Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
+| Azure Stack Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
 | **Other** |    | | |
 | Open Datasets                                                              | Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Preview   | YES       | N/A        |
