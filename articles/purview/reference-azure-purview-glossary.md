@@ -23,8 +23,6 @@ Any single object that is stored within an Azure Purview data catalog.
 > A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage.
 ## Azure Information Protection
 A cloud solution that supports labeling of documents and emails to classify and protect information. Labeled items can be protected by encryption, marked with a watermark, or restricted to specific actions or users, and is bound to the item. This cloud-based solution relies on Azure Rights Management Service (RMS) for enforcing restrictions.
-## Business rule
-A user-defined rule that automatically runs to enrich the data map at scale. Business rules can modify metadata properties and annotations like terms, classifications, etc. They can also trigger advanced actions like starting a workflow.
 ## Business glossary
 A searchable list of specialized terms that an organization uses to describe key business words and their definitions. Using a business glossary can provide consistent data usage across the organization.
 ## Capacity unit
@@ -49,22 +47,14 @@ An individual who is associated with an entity in the data catalog.
 An operation that manages resources in your subscription, such as role-based access control and Azure policy, that are sent to the Azure Resource Manager end point. Control plane operations can also apply to resources outside of Azure across on-premises, multicloud, and SaaS sources.
 ## Credential
 A verification of identity or tool used in an access control system. Credentials can be used to authenticate an individual or group to grant access to a data asset.
-## Dark data
-Data within an organization that is not managed by Azure Purview. For example, if an organization has 100 subscriptions and only 20 are managed by an Azure Purview account, then the other 80 subscriptions are considered "dark data." 
 ## Data catalog
 Azure Purview features that enable customers to view and manage the metadata for assets in your data estate.
 ## Data curator
 A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
-## Data estate
-All the data an organization owns and the infrastructure the organization has put in place to manage the data. 
-## Data governance
-A method of data management used to ensure an organization’s data maintains a high quality throughout the data lifecycle and adheres to established standards and policies. 
 ## Data map
 Azure Purview features that enable customers to manage their data estate, such as scanning, lineage, and movement.
 ## Data map operation
 A create, read, update, or delete action performed on an entity in the data map. For example, creating an asset in the data map is considered a data map operation.
-## Data object
-An entity that can be described and grouped by a distinct set of attributes or business uses. For example, a table is a data object that has attributes in the form of columns.
 ## Data owner
 An individual or group responsible for managing a data asset.
 ## Data pattern
@@ -91,8 +81,6 @@ A scan that processes all assets within a selected scope of a data source.
 A path that defines the location of an asset within its data source.
 ## Glossary term
 An entry in the Business glossary that defines a concept specific to an organization. Glossary terms can contain information on synonyms, acronyms, and related terms.
-## Governance
-An area in Azure Purview that supports the application of data policies and sensitive data classifications.
 ## Incremental scan
 A scan that detects and processes assets that have been created, modified, or deleted since the previous successful scan. To run an incremental scan, at least one full scan must be completed on the source.
 ## Ingested asset
@@ -141,8 +129,6 @@ A classification applied to one of the columns in an asset schema.
 A feature that allows users to find items in the data catalog by entering in a set of keywords.
 ## Search relevance
 The scoring of data assets that determine the order search results are returned. Multiple factors determine an asset's relevance score.
-## Secondary asset
-Any Atlas entity in the data catalog that is not returned in search results or shown in search taxonomy. For example, column, parameter, index, foreign key, and primary key are considered secondary assets.
 ## Self-hosted integration runtime
 An integration runtime installed on an on-premises machine or virtual machine inside a private network that is used to connect to data on-premises or in a private network.
 ## Sensitivity label
@@ -155,16 +141,10 @@ A product that provides standalone functionality and is available to customers b
 A system where data is stored. Sources can be hosted in various places such as a cloud or on-premises. You register and scan sources so that you can manage them in Azure Purview.
 ## Source type
 A categorization of the registered sources used in an Azure Purview instance, for example, Azure SQL Database, Azure Blob Storage, Amazon S3, or SAP ECC.
-## Structured data
-Data that adheres to a strict schema, so all the data has the same columns or properties. Sometimes referred to as relational data. 
 ## Steward
 An individual who defines the standards for a glossary term. They are responsible for maintaining quality standards, nomenclature, and rules for the assigned entity.
 ## Term template
 A definition of attributes included in a glossary term. Users can either use the system-defined term template or create their own to include custom attributes.
-## Unmanaged data source
-A data source in an organization that is not a part of the Azure Purview data catalog.
-## Unstructured data
-Data that does not adhere to a strict schema, has no structure, or does not have a repeating structure. Unstructured data is often stored in a data lake. 
 
 ## Next steps
 
