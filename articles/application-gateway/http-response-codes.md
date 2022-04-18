@@ -12,11 +12,11 @@ ms.custom: devx-track-azurepowershell
 
 # HTTP response codes in Application Gateway
 
-This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target. For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
+This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
 
 ## 3XX response codes
 
-3XX responses are presented when a client request matches an application gateway rule that has redirects configured.  Redirects can be configured on a rule as-is or via a path map rule.  
+3XX responses are presented when a client request matches an application gateway rule that has redirects configured.  Redirects can be configured on a rule as-is or via a path map rule. For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
 
 #### 301 Permanent Redirect
 
