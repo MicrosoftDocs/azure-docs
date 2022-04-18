@@ -357,7 +357,7 @@ Get-AzCosmosdbGremlinRestorableResource `
 
 ### <a id="enumerate-table-api-ps"></a>Enumerate restorable resources for Table API
 
-The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, table resources. 
+The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account and table resources.
 
 #### List all the versions of tables of a database in a live database account 
 
