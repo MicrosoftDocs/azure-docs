@@ -43,7 +43,7 @@ Your Azure resources could be protected using any number of the network isolatio
 | Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Unsupported |
+| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
