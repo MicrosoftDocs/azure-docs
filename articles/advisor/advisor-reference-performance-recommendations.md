@@ -44,7 +44,7 @@ Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your 
 
 Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](../azure-cache-for-redis/cache-faq.yml#performance-considerations-around-connections).
+Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](/azure/azure-cache-for-redis/cache-faq#performance-considerations-around-connections).
 
 ### Improve your Cache and application performance when running with high server load
 
