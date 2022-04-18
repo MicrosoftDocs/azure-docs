@@ -55,7 +55,7 @@ The SharePoint List Online connector uses service principal authentication to co
                 </AppPermissionRequests>
                 ```           
             
-                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have "Owner" role.":::
+                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Owner role.":::
 
                 > [!NOTE]
                 > You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
@@ -68,7 +68,7 @@ The SharePoint List Online connector uses service principal authentication to co
                 </AppPermissionRequests>
                 ```
     
-                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have "Admin" role.":::
+                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Admin role.":::
 
     3. Click "Trust It" for this app.
 
