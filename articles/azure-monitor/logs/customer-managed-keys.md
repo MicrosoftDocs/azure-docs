@@ -471,5 +471,5 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   -  409 — Workspace link or unlink operation in process.
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
 - Learn about [proper design of Log Analytics workspaces](./design-logs-deployment.md)

@@ -407,7 +407,6 @@ Here are some common misconceptions about the prefix match string:
 -	prefixMatch with != - The prefixMatch rules only consider positive (=) logical comparisons. Therefore, negative (!=) logical comparisons are ignored.
 
 
-
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)

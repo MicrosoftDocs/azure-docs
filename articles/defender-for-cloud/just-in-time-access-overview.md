@@ -1,6 +1,8 @@
 ---
 title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
 description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
@@ -59,7 +61,7 @@ When Defender for Cloud finds a machine that can benefit from JIT, it adds that 
 
 ### What permissions are needed to configure and use JIT?
 
-JIT requires [Microsoft Defender for servers](defender-for-servers-introduction.md) to be enabled on the subscription. 
+JIT Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans) to be enabled on the subscription. 
 
 **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
 

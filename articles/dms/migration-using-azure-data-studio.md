@@ -13,9 +13,16 @@ ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 
-# Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
+# Migrate databases with Azure SQL Migration extension for Azure Data Studio
 
 The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure.
+
+The key benefits of using the Azure SQL Migration extension for Azure Data Studio are:
+1. Assess your SQL Server databases for Azure readiness or to identify any migration blockers before migrating them to Azure. You can assess SQL Server databases running on both Windows and Linux Operating System using the Azure SQL Migration extension.
+1. Get right-sized Azure recommendation based on performance data collected from your source SQL Server databases. To learn more, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](ads-sku-recommend.md).
+1. Perform online (minimal downtime) and offline database migrations using an easy-to-use wizard. To see step-by-step tutorial, see sample [Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-online-ads.md).
+1. Monitor all migrations started in Azure Data Studio from the Azure portal. To learn more, see [Monitor database migration progress from the Azure portal](#monitor-database-migration-progress-from-the-azure-portal).
+1. Leverage the capabilities of the Azure SQL Migration extension to assess and migrate databases at scale using automation with Azure PowerShell and Azure CLI. To learn more, see [Migrate databases at scale using automation](migration-dms-powershell-cli.md).
 
 ## Architecture of Azure SQL Migration extension for Azure Data Studio
 
@@ -95,6 +102,15 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
 - Configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
+## Monitor database migration progress from the Azure portal
+When you migrate database(s) using the Azure SQL Migration extension for Azure Data Studio, the migrations are orchestrated by the Azure Database Migration Service that was selected in the wizard. To monitor database migrations from the Azure portal, 
+- Open the [Azure portal](https://portal.azure.com/)
+- Search for your Azure Database Migration Service by the resource name
+  :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Search Azure Database Migration Service resource in portal":::
+- Select the **Monitor migrations** tile in the **Overview** page to view the details of your database migrations.
+  :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Monitor migrations in Azure portal":::
+
+
 ## Known issues and limitations
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology is not supported by DMS.
@@ -108,15 +124,16 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - When migrating to SQL Server on Azure Virtual Machines, SQL Server 2014 and below as target versions are not supported currently.
 - Migrating to Azure SQL Database isn't supported.
 - Azure storage accounts secured by specific firewall rules or configured with a private endpoint are not supported for migrations.
-- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations.
-> [!IMPORTANT]
-> **Known issue when migrating multiple databases to SQL Server on Azure VM:** Concurrently migrating multiple databases to the same SQL Server on Azure VM results in migration failures for most databases. Ensure you only migrate a single database to a SQL Server on Azure VM at any point in time.  
+- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations. 
 
 ## Pricing
 - Azure Database Migration Service is free to use with the Azure SQL Migration extension in Azure Data Studio. You can migrate multiple SQL Server databases using the Azure Database Migration Service at no charge for using the service or the Azure SQL Migration extension.
 - There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
 - Provide your own machine or on-premises server to install Azure Data Studio.
 - A self-hosted integration runtime is needed to access database backups from your on-premises network share.
+
+## Regional Availability
+For the list of Azure regions that support database migrations using the Azure SQL Migration extension for Azure Data studio (powered by Azure DMS), see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)
 
 ## Next steps
 

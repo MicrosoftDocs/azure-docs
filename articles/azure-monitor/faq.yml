@@ -123,7 +123,7 @@ sections:
       - question: |
           Can I delete data from a Log Analytics workspace?
         answer: |
-          Data is removed from a workspace according to its [retention period](logs/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
           
       - question: |
           Is Log Analytics storage immutable?
@@ -226,7 +226,7 @@ sections:
           * The number of logs and performance counters being collected
           * The volume of data in the logs
           
-          See [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details.
+          See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for details.
           
           For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
           
@@ -444,7 +444,7 @@ sections:
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
           
-          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](app/pricing.md).
+          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
           
           The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It is suitable if you want to use Continuous Export on a large scale.
           
@@ -938,7 +938,7 @@ sections:
       - question: |
           Why don't I see data in my Log Analytics workspace?
         answer: |
-          If you are unable to see any data in the Log Analytics workspace at a certain time everyday, you may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](logs/manage-cost-storage.md).
+          If you are unable to see any data in the Log Analytics workspace at a certain time everyday, you may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Azure Monitor Logs pricing details](logs/cost-logs.md).
           
       - question: |
           What are the container states specified in the ContainerInventory table?

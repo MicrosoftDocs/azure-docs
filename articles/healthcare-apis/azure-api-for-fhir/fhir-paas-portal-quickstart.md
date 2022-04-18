@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
-author: zxue
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 03/21/2022
-ms.author: zxue
+ms.author: dseven
 ms.custom: mode-api
 ---
 
