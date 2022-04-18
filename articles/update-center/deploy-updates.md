@@ -44,7 +44,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. In **Select resources**, choose the machine and select **Add**. 
 
-1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, it's necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
+1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, its necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
    > [!NOTE]
    > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
@@ -136,7 +136,7 @@ You can browse information about your Azure VMs and Arc-enabled servers across y
 
 After your scheduled deployment starts, you can see it's status on the **History** tab. It displays the total number of deployments including the successful and failed deployments.
 
-:::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates historys." lightbox="./media/deploy-updates/updates-history-expanded.png":::
+:::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
 A list of the deployments created are show in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
