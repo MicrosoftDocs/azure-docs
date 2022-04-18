@@ -49,7 +49,7 @@ Add the Azure remote to your local Git repository and push your code.
 ```azurecli
 cd $gitdirectory
 git remote add azure $url
-git push azure master
+git push azure main
 # When prompted for password, use the value of $password that you specified
 ```
 
