@@ -110,12 +110,10 @@ An extension resource is a resource that adds to another resource's capabilities
 * BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
-* calculatePrice
 * CheckNameAvailability
 * Dimensions
 * Exports
 * ExternalSubscriptions
-* fetchMicrosoftPrices
 * Forecast
 * GenerateDetailedCostReport
 * Insights
@@ -220,7 +218,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.PolicyInsights
 
 * attestations
-* checkPolicyRestrictions
 * eventGridFilters
 * policyEvents
 * policyStates
@@ -247,7 +244,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Resources
 
-* changes
 * links
 * tags
 
