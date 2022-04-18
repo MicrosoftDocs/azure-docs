@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 05/06/2021
+ms.date: 03/17/2022
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -39,8 +39,9 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 
 Use the portal to create a standard internal load balancer.
 
-1. On the top left-hand side of the screen, select **Create a resource > Networking > Load Balancer**.
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information:
+1. In the search bar at the top of the portal, search for and select **Load Balancers** in the **Services** section of the search pane.
+2. On the **Load balancing** services page, Select **Create** to create a new load balancer.
+3. On the **Basics** tab of the **Create load balancer** page, enter, or select the following details:
 
     | Setting | Value |
     |:--- |:--- |
@@ -48,18 +49,22 @@ Use the portal to create a standard internal load balancer.
     |Resource group|Select your resource group.|
     |Name|Enter **myLoadBalancer**.|
     |Region|Select **East US**.|
-    |Type|Select **Internal**.|
     |SKU|Select **Standard**.|
+    |Type|Select **Internal**.|
+
+4. On the **Frontend IP configuration** tab of the **Create load balancer** page, select **Add a frontend IP configuration**, and then enter, or select the following details on the **Add frontend IP address** configuration pane:
+
+    | Setting | Value |
+    |:--- |:--- |
+    |Frontend IP name|Enter a name for your frontend IP|
     |Virtual network|Select your virtual network.|
     |Subnet|Select **fe-subnet** created in the previous step.|
     |IP address assignment|Select **Dynamic**.|
     |Availability zone|Select **Zone-redundant**.|
 
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
-4. In the **Review + create** tab, select **Create**.
+5. Accept the defaults for the remaining settings, and then select **Review + create**.
+6. In the **Review + create** tab, select **Create**.
     
-    :::image type="content" source="./media/tutorial-managed-virtual-network/create-load-balancer.png" alt-text="Screenshot that shows the step to create standard load balancer.":::
-
 ## Create load balancer resources
 
 ### Create a backend pool
@@ -230,6 +235,9 @@ the page.
     >|**SQL MI 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
     >|**SQL MI 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
     
+    >[!Note]
+    > Run the script again every time you restart the VMs behind the load balancer.
+
 ## Create a Private Endpoint to Private Link Service
 
 1. Select All services in the left-hand menu, select All resources, and then select your 

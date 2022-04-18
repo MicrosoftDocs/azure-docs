@@ -150,6 +150,12 @@ You can also monitor restore progress from the Recovery Services vault:
 1. Select the workload name that corresponds to your file share to view more details about the restore operation, like **Data Transferred** and **Number of Restored Files**.
 
     ![See restored details](./media/restore-afs/restore-details.png)
+    
+ >[!NOTE]
+ > Folders will be restored with original permissions if there is atleast one file present in them.
+
+ >[!NOTE]
+ > Trailing dots in any directory path can lead to failures in the restore.
 
 ## Next steps
 

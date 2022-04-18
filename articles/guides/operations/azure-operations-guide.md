@@ -153,15 +153,15 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
+In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure CLI.
 
 #### Azure PowerShell
 
 Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-#### Azure command-line interface
+#### Azure CLI
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+The Azure CLI provides a command-line experience for creating, managing, and deleting Azure resources. The Azure CLI is available for Windows, Linux, and macOS. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -331,7 +331,7 @@ In addition to deploying Azure compute resources individually, you can use the A
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
@@ -399,7 +399,7 @@ In addition to deploying Azure resources individually, you can use the Azure Pow
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, macOS, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, macOS, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 

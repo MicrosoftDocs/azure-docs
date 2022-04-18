@@ -12,9 +12,9 @@ ms.custom: template-how-to
 
 # Upgrade a public IP address using Azure PowerShell
 
-Azure public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
+Azure public IP addresses are created with a SKU, either Basic or Standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
 
-In this article, you'll learn how to upgrade a static basic SKU public IP address to standard SKU using Azure PowerShell.
+In this article, you'll learn how to upgrade a static Basic SKU public IP address to Standard SKU using Azure PowerShell.
 
 ## Prerequisites
 
@@ -26,7 +26,12 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Upgrade public IP address
 
-In this section, you'll use the Azure CLI to upgrade your static basic SKU public IP to the standard SKU.
+In this section, you'll use the Azure CLI to upgrade your static Basic SKU public IP to the Standard SKU.
+
+In order to upgrade a public IP, it must not be associated with any resource (see [this page](/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
+
+>[!IMPORTANT]
+>Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
 
 ```azurepowershell-interactive
 ### Place the public IP address into a variable. ###

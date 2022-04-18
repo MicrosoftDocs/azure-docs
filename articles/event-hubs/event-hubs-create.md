@@ -3,7 +3,7 @@ title: Azure Quickstart - Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure event hub using Azure portal.
 ms.topic: quickstart
 ms.date: 10/20/2021
-ms.custom: ignite-fall-2021, mode-portal
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Create an event hub using Azure portal

@@ -1,16 +1,53 @@
 ---
 title: What's new in Azure Files
 description: Learn more about new features and enhancements in Azure Files.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.author: rogarana
+ms.date: 12/08/2021
+ms.author: kendownie
 ms.subservice: files
 ---
 
 # What's new in Azure Files
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files.
+
+## 2021 quarter 4 (October, November, December)
+### Increased IOPS for premium file shares
+Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to at least 10,000 IOPS. 
+
+Formula changes:
+
+| Item | Old value | New value
+|-|-|-|
+| Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
+| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
+
+For more information, see:
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
+
+### NFS 4.1 protocol support is generally available
+Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
+
+For more information, see:
+
+- [NFS file shares in Azure Files](files-nfs-protocol.md)
+- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
+- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
+
+### Symmetric throughput for premium file shares
+Premium Azure file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput and aligns premium file shares with standard file shares.
+
+Formula changes:
+
+| Item | Old value | New value
+|-|-|-|
+| Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
+
+For more information, see:
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ## 2021 quarter 3 (July, August, September)
 ### SMB Multichannel is generally available
@@ -79,16 +116,6 @@ To learn more about the Azure Files management API, see:
     - [`FileService`](/rest/api/storagerp/file-services) 
     - [`FileShare`](/rest/api/storagerp/file-shares) 
 - [Azure PowerShell](/powershell/module/az.storage) and [Azure CLI](/en-us/cli/azure/storage)
-
-## 2020 quarter 4 (October, November, December)
-### Azure file share soft-delete
-Azure file shares support soft-delete. When soft-delete is enabled, accidentally deleted shares can easily be recovered if undeleted within the user defined retention period. During the retention period, soft-deleted shares incur data used capacity charges during the retention period at the share snapshot rate.
-
-To learn more about soft-delete, see:
-
-- [Soft-delete overview](storage-files-prevent-file-share-deletion.md)
-- [Enable soft-delete](storage-files-enable-soft-delete.md)
-- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ## See also
 - [What is Azure Files?](storage-files-introduction.md)

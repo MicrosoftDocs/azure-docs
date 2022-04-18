@@ -3,7 +3,7 @@ title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
 ms.date: 08/18/2021
-
+ms.devlang: csharp
 ---
 # Configure managed identities in Batch pools
 

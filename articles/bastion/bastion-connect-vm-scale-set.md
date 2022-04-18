@@ -21,10 +21,10 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
 
 ## <a name="rdp"></a>Connect using RDP
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine scale set that you want to connect to.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine scale set that you want to connect to.
 
    ![navigate](./media/bastion-connect-vm-scale-set/1.png)
-2. Navigate to the virtual machine scale set instance that you want to connect to, then select **Connect**. When using an RDP connection, the virtual machine scale set should be a Windows virtual machine scale set.
+2. Go to the virtual machine scale set instance that you want to connect to, then select **Connect**. When using an RDP connection, the virtual machine scale set should be a Windows virtual machine scale set.
 
    ![virtual machine scale set](./media/bastion-connect-vm-scale-set/2.png)
 3. After you select **Connect**, a side bar appears that has three tabs – RDP, SSH, and Bastion. Select the **Bastion** tab from the side bar. If you didn't provision Bastion for the virtual network, you can select the link to configure Bastion. For configuration instructions, see [Configure Bastion](./tutorial-create-host-portal.md).

@@ -3,7 +3,6 @@ title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
 ms.date: 07/30/2019
-
 ---
 
 # Using Search in Application Insights
@@ -133,7 +132,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 ### <a name="limits"></a>How much data is retained?
 
-See the [Limits summary](./pricing.md#limits-summary).
+See the [Limits summary](../service-limits.md#application-insights).
 
 ### How can I see POST data in my server requests?
 

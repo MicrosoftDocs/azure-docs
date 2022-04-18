@@ -111,7 +111,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 1. To access your key vault, you can use the user-assigned managed identity that you created when you [enabled a managed identity on your AKS cluster][use-managed-identity]:
 
     ```azurecli-interactive
-    az aks show -g <resource-group> -n <cluster-name> --query identityProfile.kubeletidentity.clientId -o tsv
+    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set:
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
@@ -206,7 +206,9 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 ### Prerequisites
 
-- Before you begin this step, [enable system-assigned managed identity][enable-system-assigned-identity] in your AKS cluster's VMs or scale sets.
+>[!IMPORTANT]
+> Before you begin this step, [enable system-assigned managed identity][enable-system-assigned-identity] in your AKS cluster's VMs or scale sets.
+>
 
 ### Usage
 
@@ -217,8 +219,11 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az vm identity show -g <resource group> -n <vm name> -o yaml
     ```
 
-    The output should contain `type: SystemAssigned`. Make a note of the `principalId`.
-
+    >[!NOTE]
+    > The output should contain `type: SystemAssigned`. Make a note of the `principalId`.
+    > 
+    > IMDS is looking for a System Assigned Identity on VMSS first, then it will look for a User Assigned Identity and pull that if there is only 1. If there are multiple User Assigned Identities IMDS will throw an error as it does not know which identity to pull.
+    > 
 1. To grant your identity permissions that enable it to read your key vault and view its contents, run the following commands:
 
     ```azurecli-interactive
@@ -265,7 +270,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and system-assigned identity to access your key vault

@@ -37,6 +37,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{
@@ -71,7 +72,7 @@ ms.reviewer: azmetadatadev
                 "lun": "0",
                 "managedDisk": {
                   "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                  "storageAccountType": "Standard_LRS"
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
                 "opsPerSecondThrottle": "65280",
@@ -102,7 +103,7 @@ ms.reviewer: azmetadatadev
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Windows",
@@ -177,6 +178,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{
@@ -211,7 +213,7 @@ ms.reviewer: azmetadatadev
                 "lun": "0",
                 "managedDisk": {
                   "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                  "storageAccountType": "Standard_LRS"
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
                 "opsPerSecondThrottle": "65280",
@@ -242,7 +244,7 @@ ms.reviewer: azmetadatadev
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Linux",

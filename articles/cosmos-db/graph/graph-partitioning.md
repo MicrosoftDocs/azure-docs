@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
+ms.devlang: java
 ms.custom: seodec18
 ---
 # Using a partitioned graph in Azure Cosmos DB
@@ -47,12 +48,6 @@ The following guidelines describe how the partitioning strategy in Azure Cosmos 
 
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
-        ```
-
-    - Specifying an **array of tuples of partition key values and IDs**:
-
-        ```java
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
 
     - Selecting a set of vertices with their IDs and **specifying a list of partition key values**:

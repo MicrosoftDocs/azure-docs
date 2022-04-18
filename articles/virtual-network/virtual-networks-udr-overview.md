@@ -4,10 +4,9 @@ titlesuffix: Azure Virtual Network
 description: Learn how Azure routes virtual network traffic, and how you can customize Azure's routing.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -94,12 +93,9 @@ You can specify the following next hop types when creating a user-defined route:
 
 You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the next hop type in user-defined routes. Routes with the **VNet peering** or **VirtualNetworkServiceEndpoint** next hop types are only created by Azure, when you configure a virtual network peering, or a service endpoint.
 
-### Service Tags for user-defined routes (Preview)
+### Service Tags for user-defined routes
 
-You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
-
-> [!IMPORTANT]
-> Service Tags for user-defined routes is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+You can now specify a [service tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with service tags in each route table. With this release, using service tags in routing scenarios for containers is also supported. </br>
 
 #### Exact Match
 When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 
@@ -109,7 +105,7 @@ When there is an exact prefix match between a route with an explicit IP prefix a
    3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. The AzureCloud tag </br></br>
 
-To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in PowerShell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -128,7 +124,7 @@ When BGP routes are present or a Service Endpoint is configured on your subnet, 
 
 
 > [!NOTE] 
-> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
+> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through PowerShell and CLI. There is no support for use with containers. 
 
 ## Next hop types across Azure tools
 

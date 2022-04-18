@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 03/30/2022
 ms.topic: conceptual
 ---
 
@@ -50,7 +50,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported|
 |**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure blob storage for long-term, off-site retention.|
 |**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
-|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use K8s authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
+|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use Kubernetes authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
 |**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC. **Pending availability in directly connected mode**|
 
 ## Connectivity requirements
@@ -194,6 +194,10 @@ A computer running Azure CLI that is uploading monitoring metrics or logs to Azu
 - `*.ods.opinsights.azure.com`
 - `*.oms.opinsights.azure.com`
 - `*.monitoring.azure.com`
+
+For example, to upload usage metrics data services will connect to `https://<azureRegion>.monitoring.azure.com/` where `<azureRegion>` is the region where data services is deployed.
+
+Likewise, data services will connect to the log analytics workspace at `https://<subscription_id>.ods.opinsights.azure.com` where `<subscription_id>` represents your Azure subscription.
 
 #### Protocol
 

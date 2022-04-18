@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/2/2021
+ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
@@ -18,7 +18,9 @@ ms.custom: contperf-fy21q3
 
 # Parse and validate models with the DTDL parser library
 
-[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). **It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.**
+This article describes how to parse and validate Azure Digital Twins models using the DTDL validator sample or the .NET parser library.
+
+[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.
 
 To help you validate your models, a .NET client-side DTDL parsing library is provided on NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
@@ -34,7 +36,7 @@ You can view the code in GitHub by selecting the **Browse code** button at the s
 
 The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 
-In the folder for the DTDL Validator sample, see the **readme.md** file for instructions on how to package the sample into a self-contained executable.
+In the folder for the DTDL Validator sample, see the *readme.md* file for instructions on how to package the sample into a self-contained executable.
 
 After you have built a self-contained package and added the executable to your path, you can run the validator with this command in a console on your machine:
 

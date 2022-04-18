@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell, mode-other
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Microsoft Azure confidential ledger client library for Python
@@ -63,11 +63,11 @@ pip install azure.confidentialledger
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
-## Create your python app
+## Create your Python app
 
 ### Initialization
 
-We can now start writing our python application.  First, we'll import the required packages.
+We can now start writing our Python application.  First, we'll import the required packages.
 
 ```python
 # Import the Azure authentication library
@@ -94,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"
@@ -307,7 +307,7 @@ print(entry.contents)
 
 Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az_group_delete) command to delete the resource group and all its contained resources:
+Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az-group-delete) command to delete the resource group and all its contained resources:
 
 ```azurecli
 az group delete --resource-group myResourceGroup

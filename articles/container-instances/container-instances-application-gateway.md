@@ -97,7 +97,7 @@ ACI_IP=$(az container show \
 ```
 
 > [!IMPORTANT]
-> If the container group is stopped, started, or restarted, the container group�s private IP is subject to change. If this happens, you will need to update the application gateway configuration.
+> If the container group is stopped, started, or restarted, the container group's private IP is subject to change. If this happens, you will need to update the application gateway configuration.
 
 ## Create application gateway
 

@@ -136,7 +136,7 @@ az role assignment create --assignee <appId> --role 'Monitoring Metrics Publishe
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 

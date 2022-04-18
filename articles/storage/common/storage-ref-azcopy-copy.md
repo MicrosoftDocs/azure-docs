@@ -39,7 +39,7 @@ For more information, see the examples section of this article.
 
 ## Advanced
 
-AzCopy automatically detects the content type of the files when you upload them from the local disk. AzCopy detects the content type based on the file extension or content (if no extension is specified).
+AzCopy automatically detects the content type of the files based on the file extension or content (if no extension is specified) when you upload them from the local disk.
 
 The built-in lookup table is small, but on Unix, it is augmented by the local system's `mime.types` file(s) if they are available under one or more of these names:
 
@@ -143,7 +143,7 @@ There's only two supported ways to use a wildcard character in a URL.
 
 - You can use one just after the final forward slash (/) of a URL. This use of the wildcard character copies all of the files in a directory directly to the destination without placing them into a subdirectory.
 
-- You can also a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers.
+- You can also use a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers.
 
 Download the contents of a directory without copying the containing directory itself.
 

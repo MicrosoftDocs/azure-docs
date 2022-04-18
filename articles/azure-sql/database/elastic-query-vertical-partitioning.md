@@ -7,10 +7,10 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: MladjoA
-ms.author: mlandzic
-ms.reviewer: mathoma
-ms.date: 01/25/2019
+author: scoriani
+ms.author: scoriani
+ms.reviewer: kendralittle, mathoma
+ms.date: 12/15/2021
 ---
 # Query across cloud databases with different schemas (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -198,6 +198,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
 ## Next steps
 
 * For an overview of elastic query, see [Elastic query overview](elastic-query-overview.md).
+* For limitations of elastic query, see [Preview limitations](elastic-query-overview.md#preview-limitations)
 * For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
 * For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](elastic-query-getting-started.md).
 * For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](elastic-query-horizontal-partitioning.md)

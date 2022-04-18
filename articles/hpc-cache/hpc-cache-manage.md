@@ -1,11 +1,11 @@
 ---
 title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal or Azure CLI
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2021
-ms.author: femila
+ms.date: 01/19/2022
+ms.author: rohogue
 ---
 
 # Manage your cache
@@ -32,9 +32,9 @@ Read more about these options below.
 > [!TIP]
 > You can also manage individual storage targets - read [View and manage storage targets](manage-storage-targets.md) for details.
 
-Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
+<!-- Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
-[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)  -->
 
 ## Stop the cache
 
@@ -58,13 +58,13 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/hpc-cache#az_hpc_cache_stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
+Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/hpc-cache#az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
 The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.
 
 When the action is complete, the cache status changes to **Stopped**.
 
-Reactivate a stopped cache with [az hpc-cache start](/cli/azure/hpc-cache#az_hpc_cache_start).
+Reactivate a stopped cache with [az hpc-cache start](/cli/azure/hpc-cache#az-hpc-cache-start).
 
 When you issue the start or stop command, the command line shows a "Running" status message until the operation completes.
 
@@ -113,7 +113,7 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use [az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush) to force the cache to write all changed data to the storage targets.
+Use [az hpc-cache flush](/cli/azure/hpc-cache#az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
 Example:
 
@@ -161,9 +161,9 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/hpc-cache#az_hpc_cache_show) to check.) Look for the string "upgradeStatus" in the message.
+On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/hpc-cache#az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
-Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware) to apply the update, if any exists.
+Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
 
 If no update is available, this operation has no effect.
 
@@ -225,7 +225,7 @@ After stopping the cache, click the **Delete** button to permanently remove the 
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the Azure CLI command [az hpc-cache delete](/cli/azure/hpc-cache#az_hpc_cache_delete) to permanently remove the cache.
+Use the Azure CLI command [az hpc-cache delete](/cli/azure/hpc-cache#az-hpc-cache-delete) to permanently remove the cache.
 
 Example:
 ```azurecli

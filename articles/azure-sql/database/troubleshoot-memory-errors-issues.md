@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot memory issues 
 titleSuffix: Azure SQL Database
-description: Provides steps to troubleshoot out of memory issues in Azure SQL Database
+description: Provides steps to investigate and troubleshoot out of memory issues in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,8 +9,8 @@ ms.topic: troubleshooting
 ms.custom: 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.date: 11/03/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 01/14/2022
 ---
 
 # Troubleshoot out of memory errors with Azure SQL Database  
@@ -26,9 +26,23 @@ Try the following avenues of investigation in response to:
 - Error code 701 with error message "There is insufficient system memory in resource pool '%ls' to run this query."
 - Error code 802 with error message "There is insufficient memory available in the buffer pool."
 
+## View out of memory events
+
+If you encounter out of memory errors, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events). Introduced in January 2022, this view includes predicted out of memory cause information that is determined by a heuristic algorithm and is provided with a finite degree of confidence.
+
+```sql
+SELECT * FROM sys.dm_os_out_of_memory_events ORDER BY event_time DESC;  
+```
+
+<!-- XE -->
+
 ## Investigate memory allocation
 
 If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure portal. If out of memory errors persist, use the following queries to look for unusually high query memory grants that may contribute to an insufficient memory condition. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
+
+### Use DMV to view out of memory events
+
+Beginning in April 2022, a new dynamic management view (DMV) has been added to allow visibility to the events and causes of out of memory (OOM) events in Azure SQL Database, `sys.dm_os_out_of_memory_events`. For more information, see [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ### Use DMVs to view memory clerks
 
@@ -133,9 +147,9 @@ ORDER BY max_query_max_used_memory DESC, avg_query_max_used_memory DESC;
 ```
 
 ### Extended events
-In addition to the previous information, it may be helpful to capture a trace of the activities on the server to thoroughly investigate an out of memory issue in Azure SQL Database. 
+In addition to the previous information, it may be helpful to capture a trace of the activities on the server to thoroughly investigate an out of memory issue in Azure SQL Database.
 
-There are two ways to capture traces in SQL Server; Extended Events (XEvents) and Profiler Traces. However, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) is deprecated trace technology not supported for Azure SQL Database. [Extended Events](/sql/relational-databases/extended-events/extended-events) is the newer tracing technology that allows more versatility and less impact to the observed system, and its interface is integrated into SQL Server Management Studio (SSMS). 
+There are two ways to capture traces in SQL Server; Extended Events (XEvents) and Profiler Traces. However, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) is deprecated trace technology not supported for Azure SQL Database. [Extended Events](/sql/relational-databases/extended-events/extended-events) is the newer tracing technology that allows more versatility and less impact to the observed system, and its interface is integrated into SQL Server Management Studio (SSMS). For more information on querying extended events in Azure SQL Database, see [Extended events in Azure SQL Database](/azure/azure-sql/database/xevent-db-diff-from-svr).
 
 Refer to the document that explains how to use the [Extended Events New Session Wizard](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server) in SSMS. For Azure SQL databases however, SSMS provides an Extended Events subfolder under each database in Object Explorer. Use an Extended Events session to capture these useful events, and identify the queries generating them: 
 

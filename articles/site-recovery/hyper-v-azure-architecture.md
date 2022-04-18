@@ -156,6 +156,6 @@ After your on-premises infrastructure is up and running again, you can fail back
 ## Next steps
 
 
-Follow [this tutorial](tutorial-prepare-azure.md) to get started with Hyper-V to Azure replication.
+Follow [this tutorial](tutorial-prepare-azure-for-hyperv.md) to get started with Hyper-V to Azure replication.
 
 

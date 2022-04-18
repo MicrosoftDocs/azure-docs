@@ -3,7 +3,7 @@ title: Tutorial - Create custom VM images with Azure PowerShell
 description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
@@ -130,7 +130,7 @@ New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $sourceVM.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -PublishingProfileEndOfLifeDate '2030-12-01'
 ```
 
 It can take a while to replicate the image to all of the target regions.
@@ -159,7 +159,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $locati
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -Location $location `

@@ -56,7 +56,7 @@ In this article, you'll learn how to modify an existing [lake database](./concep
      - Your database will be validated for errors before it's published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
 
        ![Screenshot of the validation pane showing validation errors in the database](./media/create-lake-database-from-lake-database-template/validation-error.png)
-     - Publishing will create your database schema in the Azure Synapse Metastore.  After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+     - Publishing will create your database schema in the Azure Synapse Metastore.  After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Azure Purview.
 
 
 ## Customize tables within a database

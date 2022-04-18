@@ -7,9 +7,10 @@ ms.author: jeffme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
+ms.devlang: csharp, javascript, python
 ms.custom: mode-other
 ---
 

@@ -39,13 +39,13 @@ Next, create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP trigger function
 
-1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
+1. From the left menu of the **Function App** window, select **Functions**, then select **Create** from the top menu. 
  
-1. From the **Add Function** window, select the **Http trigger** template.
+1. From the **Create Function** window, leave the Development environment property has **Develop in portal** and select the **HTTP trigger** template.
 
     ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Under **Template details** use `HttpExample` for **New Function**, choose **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Add**.
+1. Under **Template details** use `HttpExample` for **New Function**, choose **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 

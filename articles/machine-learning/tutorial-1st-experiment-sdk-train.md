@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 08/18/2021
+ms.date: 12/21/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
@@ -48,6 +48,8 @@ The training code is taken from [this introductory example](https://pytorch.org/
     ```python
     import torch.nn as nn
     import torch.nn.functional as F
+    
+    
     class Net(nn.Module):
         def __init__(self):
             super(Net, self).__init__()
@@ -57,6 +59,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
             self.fc1 = nn.Linear(16 * 5 * 5, 120)
             self.fc2 = nn.Linear(120, 84)
             self.fc3 = nn.Linear(84, 10)
+    
         def forward(self, x):
             x = self.pool(F.relu(self.conv1(x)))
             x = self.pool(F.relu(self.conv2(x)))
@@ -90,6 +93,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
     trainloader = torch.utils.data.DataLoader(
         trainset, batch_size=4, shuffle=True, num_workers=2
     )
+    
     
     if __name__ == "__main__":
     
@@ -140,6 +144,25 @@ After the script completes, select **Refresh** above the file folders. You'll se
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
 
+## Create a Python environment
+
+Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments.  It's easy to create an environment from a local Conda or pip environment.
+
+First you'll create a file with the package dependencies.
+
+1. Create a new file in the **get-started** folder called `pytorch-env.yml`:
+    
+    ```yml
+    name: pytorch-env
+    channels:
+        - defaults
+        - pytorch
+    dependencies:
+        - python=3.6.2
+        - pytorch
+        - torchvision
+    ```
+1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
 ## <a name="create-local"></a> Create the control script
 
@@ -161,8 +184,11 @@ if __name__ == "__main__":
                              script='train.py',
                              compute_target='cpu-cluster')
 
-    # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.6-CPU']
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -181,7 +207,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. Here you use one of the [curated environments](how-to-use-environments.md#use-a-curated-environment).  It's also easy to create an environment from a local Conda or pip environment.
+      References the dependency file you created above.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -203,34 +229,27 @@ if __name__ == "__main__":
 
 ### View the output
 
-1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 3 to 4 minutes to complete.  This image will be reused in future runs to make them run much quicker.
+1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might around 10 minutes to complete.  This image will be reused in future runs to make them run much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
 1. When the status of the run is **Completed**, select **Output + logs**.
-1. Select **70_driver_log.txt** to view the output of your run.
+1. Select **std_log.txt** to view the output of your run.
 
 ```txt
-Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
-...
-Files already downloaded and verified
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
+Extracting ../data/cifar-10-python.tar.gz to ../data
 epoch=1, batch= 2000: loss 2.19
 epoch=1, batch= 4000: loss 1.82
 epoch=1, batch= 6000: loss 1.66
-epoch=1, batch= 8000: loss 1.58
-epoch=1, batch=10000: loss 1.52
-epoch=1, batch=12000: loss 1.47
-epoch=2, batch= 2000: loss 1.39
-epoch=2, batch= 4000: loss 1.38
-epoch=2, batch= 6000: loss 1.37
-epoch=2, batch= 8000: loss 1.33
-epoch=2, batch=10000: loss 1.31
-epoch=2, batch=12000: loss 1.27
+...
+epoch=2, batch= 8000: loss 1.51
+epoch=2, batch=10000: loss 1.49
+epoch=2, batch=12000: loss 1.46
 Finished Training
 ```
 
 If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
 
 Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
-
 
 
 ## <a name="log"></a> Log training metrics
@@ -250,8 +269,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
     import torchvision.transforms as transforms
     from model import Net
     from azureml.core import Run
+    
+    
     # ADDITIONAL CODE: get run from the current context
     run = Run.get_context()
+    
     # download CIFAR 10 data
     trainset = torchvision.datasets.CIFAR10(
         root='./data',
@@ -265,6 +287,8 @@ The current training script prints metrics to the terminal. Azure Machine Learni
         shuffle=True,
         num_workers=2
     )
+    
+    
     if __name__ == "__main__":
         # define convolutional network
         net = Net()
@@ -317,9 +341,29 @@ compare metrics.
 - Equipped with a UI so you can visualize training performance in the studio.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
 
+### Update the Conda environment file
+
+The `train.py` script just took a new dependency on `azureml.core`. Update `pytorch-env.yml` to reflect this change:
+
+```yml
+name: pytorch-env
+channels:
+    - defaults
+    - pytorch
+dependencies:
+    - python=3.6.2
+    - pytorch
+    - torchvision
+    - pip
+    - pip:
+        - azureml-sdk
+```
+
+Make sure you save this file before you submit the run.
+
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 
-Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. 
+Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script.  Make sure you've saved your changes to `pytorch-aml-env.yml` first.
 
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins.  
 

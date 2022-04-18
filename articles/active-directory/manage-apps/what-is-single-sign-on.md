@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 11/18/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.custom: contperf-fy21q1, contperf-fy22q2
+ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
 
@@ -52,13 +52,13 @@ Choosing an SSO method depends on how the application is configured for authenti
     - You're testing other aspects of the application
     - An on-premises application doesn't require users to authenticate, but you want them to. With SSO disabled, the user needs to authenticate.
 
-    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign in](disable-user-sign-in-portal.md).
+    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to disable the ability for users to sign in.
 
 ## Plan SSO deployment
 
 Web applications are hosted by various companies and made available as a service. Some popular examples of web applications include Microsoft 365, GitHub, and Salesforce. There are thousands of others. People access web applications using a web browser on their computer. Single sign-on makes it possible for people to navigate between the various web applications without having to sign in multiple times. For more information, see [Plan a single sign-on deployment](plan-sso-deployment.md).
 
-How you implement SSO depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. Users don't need to use the Internet to access on-premises applications (hosted on a local network). If the application is hosted in the cloud, users need the Internet to use it. Cloud hosted applications are also called [Software as a Service (SaaS) applications](../saas-apps/tutorial-list.md).
+How you implement SSO depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. Users don't need to use the Internet to access on-premises applications (hosted on a local network). If the application is hosted in the cloud, users need the Internet to use it. Cloud hosted applications are also called Software as a Service (SaaS) applications.
 
 For cloud applications, federation protocols are used. You can also use single sign-on for on-premises applications. You can use Application Proxy to configure access for your on-premises application. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
@@ -68,4 +68,4 @@ If you're a user of an application, you likely don't care much about SSO details
 
 ## Next steps
 
-- [Enable single sign on](add-application-portal-setup-sso.md)
+- [Quickstart: Enable single sign on](add-application-portal-setup-sso.md)

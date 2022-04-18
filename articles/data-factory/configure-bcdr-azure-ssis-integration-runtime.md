@@ -12,14 +12,14 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 ---
 
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-Azure SQL Database/Managed Instance and SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) can be combined as the recommended all-Platform as a Service (PaaS) solution for SQL Server migration. You can deploy your SSIS projects into SSIS catalog database (SSISDB) hosted by Azure SQL Database/Managed Instance and run your SSIS packages on Azure SSIS integration runtime (IR) in ADF.
+Azure SQL Database/Managed Instance and SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines can be combined as the recommended all-Platform as a Service (PaaS) solution for SQL Server migration. You can deploy your SSIS projects into SSIS catalog database (SSISDB) hosted by Azure SQL Database/Managed Instance and run your SSIS packages on Azure SSIS integration runtime (IR) in ADF or Synapse Pipelines.
 
 For business continuity and disaster recovery (BCDR), Azure SQL Database/Managed Instance can be configured with a [geo-replication/failover group](../azure-sql/database/auto-failover-group-overview.md), where SSISDB in a primary Azure region with read-write access (primary role) will be continuously replicated to a secondary region with read-only access (secondary role). When a disaster occurs in the primary region, a failover will be triggered, where the primary and secondary SSISDBs will swap roles.
 

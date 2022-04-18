@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 
 ms.author: justinha
 author: rckyplln
-manager: daveba
+manager: karenhoran
 ms.reviewer: ripull
 
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ For example, let's say a customer in U.S has an office phone number 425-555-1234
 
 If the setting is **Off**, the system will automatically dial extensions as part of the phone number. Your admin can still specify individual users who should be enabled for operator assistance by prefixing the extension with ‘@’. For example, 425-555-1234x@5678 would indicate that operator assistance should be used, even though the setting is **Off**.
 
-You can check the status of this feature in your own tenant by navigating to the [Azure AD portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade), then in the left pane, click **Security** > **MFA** > **Phone call settings**. Check **Operator required to transfer extensions** to see if the setting is **On** or **Off**. 
+You can check the status of this feature in your own tenant by navigating to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade), then in the left pane, click **Security** > **MFA** > **Phone call settings**. Check **Operator required to transfer extensions** to see if the setting is **On** or **Off**. 
 
 ![Screenshot of operator assistance settings](./media/concept-authentication-operator-assistance/settings.png)
 

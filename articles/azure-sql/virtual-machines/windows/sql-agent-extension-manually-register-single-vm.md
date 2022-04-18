@@ -7,7 +7,6 @@ author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -112,7 +111,7 @@ Provide the SQL Server license type as either pay-as-you-go (`PAYG`) to pay per 
 Register a SQL Server VM in full mode with the Azure CLI:
 
 ```azurecli-interactive
-# Register Enterprise or Standard self-installed VM in Lightweight mode
+# Register Enterprise or Standard self-installed VM in full mode
 az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> --sql-mgmt-type Full
 ```
 
@@ -169,7 +168,7 @@ Upgrade the extension to full mode with Azure PowerShell:
 # Get the existing  Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 # Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
 ---
@@ -348,7 +347,7 @@ Unregister your SQL Server VM from the extension using the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-To unregister your SQL Server VM from the extension with the Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm#az_sql_vm_delete) command. This removes the SQL Server VM *resource* but does not delete the virtual machine.
+To unregister your SQL Server VM from the extension with the Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm#az-sql-vm-delete) command. This removes the SQL Server VM *resource* but does not delete the virtual machine.
 
 To unregister your SQL Server VM with the Azure CLI: 
 

@@ -11,7 +11,6 @@ ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: duau 

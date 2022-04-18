@@ -1,8 +1,8 @@
 ---
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: wesmc7777
-ms.author: v-stharr
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -27,12 +27,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
->[!NOTE]
->**Data residency consideration:**
->
->DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
->
->To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
+Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 ## Behind the scenes
 
@@ -113,22 +108,13 @@ DPS only supports HTTPS connections for service operations.
 
 DPS is available in many regions. The updated list of existing and newly announced regions for all services is at [Azure Regions](https://azure.microsoft.com/regions/). You can check availability of the Device Provisioning Service on the [Azure Status](https://azure.microsoft.com/status/) page.
 
-> [!NOTE]
-> DPS is global and not bound to a location. However, you must specify a region in which the metadata associated with your DPS profile will reside.
+### Data residency consideration
 
-## Availability
+Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
-There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+However, by default, DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
 
-DPS also supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of a minimum of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Japan East
-* North Europe
-* West Europe
-* UK South
+To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
 
 ## Quotas and Limits
 
@@ -142,7 +128,7 @@ For more details on quota limits, see [Azure Subscription Service Limits](../azu
 
 Each API call on DPS is billable as one *operation*. This includes all the service APIs and the device registration API.
 
-The tables below show the current billable status for each DPS service API operation. To learn more about pricing, see [Azure Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/) in the IoT Hub Device Provisioning Service section.
+The tables below show the current billable status for each DPS service API operation. To learn more about pricing for DPS, select **Pricing table** at the top of the [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) page. Then select the  **IoT Hub Device Provisioning Service** tab and the currency and region for your service.
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
@@ -185,6 +171,14 @@ The tables below show the current billable status for each DPS service API opera
 ## Related Azure components
 
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
+
+> [!NOTE]
+> Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
+
+IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
+
+* [How devices connect to IoT Central](../iot-central/core/overview-iot-central-developer.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
 
 ## Next steps
 

@@ -5,23 +5,22 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: rolyon
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
-  ms.topic: how-to
+  ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
-  ms.date: 11/04/2020
+  ms.date: 03/22/2022
   ms.author: rolyon
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
   ms.collection: M365-identity-device-management
-    
 title: "Azure AD administrative units: Troubleshooting and FAQ"
 summary: |
   For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
   
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: |
           Why am I unable to create an administrative unit?
@@ -36,7 +35,7 @@ sections:
       - question: |
           I just added (or removed) a member of the administrative unit. Why is the member not showing up (or still showing up) on the user interface?
         answer: |
-          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [View a list of administrative units for a user](admin-units-add-manage-users.md) and [View a list of administrative units for a group](admin-units-add-manage-groups.md).
+          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about members in administrative units, see [List users, groups, or devices in an administrative unit](admin-units-members-list.md).
           
       - question: |
           I am a delegated Password Administrator on an administrative unit. Why am I unable to reset a specific user's password?
@@ -58,7 +57,7 @@ sections:
           Adding a group to an administrative unit brings the group itself into the management scope of any *User Administrator* who is also scoped to that administrative unit. User administrators for the administrative unit can manage the name and membership of the group itself. It does not grant the *User Administrator* permissions to manage the users of the group (for example, to reset their passwords). To grant the *User Administrator* the ability to manage users, the users have to be direct members of the administrative unit.
 
       - question: |
-          Can a resource (user or group) be a member of more than one administrative unit?
+          Can a resource (user, group, or device) be a member of more than one administrative unit?
         answer: |
           Yes, a resource can be a member of more than one administrative unit. The resource can be managed by all organization-wide and administrative unit-scoped administrators who have permissions over the resource.
 
@@ -79,10 +78,49 @@ sections:
           
           Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
 
+  - name: Dynamic administrative units (Preview)
+    questions:
+      - question: |
+          I just saved a dynamic membership rule for an administrative unit, but I don't see any users populated yet.
+        answer: |
+          The initial update of an administrative unit can take a few minutes depending on your tenant size and the current Azure AD load.
+
+      - question: |
+          After creating a dynamic membership rule in the Azure portal using the rule builder and attempting to save, I get the error "Failed to update administrative unit properties".
+        answer: |
+          This usually means there is a problem with the supplied property values. Confirm that the property values you have supplied have a proper value type (Boolean, string, or string collection). For more information, see the allowed values for each operator for [users](../enterprise-users/groups-dynamic-membership.md#supported-properties) or [devices](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
+          
+          This error can also result if a person without an Azure AD Premium P1 license attempts to save an update to the administrative unit.
+
+      - question: |
+          How can I add a single member to an administrative unit in addition to the current dynamic membership rule?
+        answer: |
+          To add a single user, add an appropriate expression with the `OR` query operator to the dynamic membership rule.
+
+      - question: |
+          I am a Global Administrator, but I can't add or remove members for an administrative unit.
+        answer: |
+          When an administrative unit has been configured for dynamic membership, you must edit the dynamic membership rules to change membership.
+
+      - question: |
+          How many administrative units with dynamic membership rules can I create in a tenant?
+        answer: |
+          For the preview, the total number of dynamic groups and dynamic administrative units combined cannot exceed 5,000.
+
+      - question: |
+          Is there a limit to the number of characters in a dynamic membership rule?
+        answer: |
+          Yes. 3,072 characters.
+
+      - question: |
+          Can I create administrative units with dynamic membership rules in the Microsoft 365 admin center?
+        answer: |
+          No.
+
 additionalContent: |
 
   ## Next steps
   
   - [Restrict scope for roles by using administrative units](administrative-units.md)
-  - [Manage administrative units](admin-units-manage.md)
+  - [Create or delete administrative units](admin-units-manage.md)
   

@@ -7,7 +7,6 @@ ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ms.custom: mvc
 ---
 
@@ -165,7 +164,7 @@ To upload pins and path data:
    ```
 
 >[!TIP]
->To obtain your own path and pin location information, use the [Data Upload API](/rest/api/maps/data-v2/upload-preview).
+>To obtain your own path and pin location information, use the [Data Upload API](/rest/api/maps/data-v2/upload).
 
 ### Check pins and path data upload status
 

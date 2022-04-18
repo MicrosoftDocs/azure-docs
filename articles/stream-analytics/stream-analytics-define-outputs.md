@@ -6,24 +6,27 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 12/9/2020
+ms.date: 01/14/2022
 ---
 
 # Outputs from Azure Stream Analytics
 
 An Azure Stream Analytics job consists of an input, query, and an output. There are several output types to which you can send transformed data. This article lists the supported Stream Analytics outputs. When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](/stream-analytics-query/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by adding multiple INTO clauses to the query.
 
-To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), [REST API](/rest/api/streamanalytics/), and [Visual Studio](stream-analytics-quick-create-vs.md).
+To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), [REST API](/rest/api/streamanalytics/), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](./quick-create-visual-studio-code.md).
+
+> [!NOTE] 
+> We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
 
 Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput. The following table shows features that are supported for each output type:
 
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> , Managed Identity|
-|[Azure Database Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
+|[Azure Data Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|
 |[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity (preview)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
 |[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|

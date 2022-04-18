@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 12/07/2021
 ms.author: tisande
 ---
 
@@ -17,7 +17,7 @@ In Azure Cosmos DB, every container has an indexing policy that dictates how the
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB API for MongoDB](mongodb/mongodb-indexing.md)
 
 ## Indexing mode
 
@@ -55,7 +55,7 @@ Taking the same example again:
             { "country": "Germany", "city": "Berlin" },
             { "country": "France", "city": "Paris" }
         ],
-        "headquarters": { "country": "Belgium", "employees": 250 }
+        "headquarters": { "country": "Belgium", "employees": 250 },
         "exports": [
             { "city": "Moscow" },
             { "city": "Athens" }

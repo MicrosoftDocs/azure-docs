@@ -20,13 +20,16 @@ ms.author: cherylmc
 
 This article helps you add additional Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This architecture is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Prerequisites](#before) section in this article to verify before you start your configuration.
 
-This article applies to Resource Manager VNets that have a RouteBased VPN gateway. These steps do not apply to new ExpressRoute/Site-to-Site coexisting connection configurations. However, if you are merely adding a new VPN connection to an already existing coexist configuration, you can use these steps. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
+**About ExpressRoute/Site-to-Site coexisting connections**
+
+* You can use the steps in this article to add a new VPN connection to an already existing ExpressRoute/Site-to-Site coexisting connection.
+* You can't use the steps in this article to configure a new ExpressRoute/Site-to-Site coexisting connection. To create a new coexsiting connection see: [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md).
 
 ## <a name="before"></a>Prerequisites
 
 Verify the following items:
 
-* You are not configuring a new coexisting ExpressRoute and VPN Gateway configuration.
+* You are NOT configuring a new coexisting ExpressRoute and VPN Gateway Site-to-Site connection.
 * You have a virtual network that was created using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) with an existing connection.
 * The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RouteBased.
 * None of the address ranges overlap for any of the VNets that this VNet is connecting to.
@@ -58,7 +61,7 @@ Verify the following items:
 1. On the **Create local network gateway** page, fill out the following fields:
 
    * **Name:** The name you want to give to the local network gateway resource.
-   * **Endpoint:** The public IP address of the VPN device on the site that you want to connect to, or the FQDN of the endpoint.
+   * **Endpoint:** The public IP address of the VPN device on the site that you want to connect to, or the FQDN of the endpoint. If you want to create a connection to another VPN gateway, you can use the IP address of the other gateway in this field.
    * **Address space:** The address space that you want to be routed to the new local network site.
 1. Select **OK** on the **Create local network gateway** page to save the changes.
 

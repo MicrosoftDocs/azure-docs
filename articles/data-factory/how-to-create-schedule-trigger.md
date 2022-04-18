@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -35,28 +35,32 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Switch to Edit tab":::
 
     # [Azure Synapse](#tab/synapse-analytics)
+
     :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Switch to Edit tab":::
 
 ---
-    
-2. Select **Trigger** on the menu, then select **New/Edit**. 
+
+2. Select **Trigger** on the menu, then select **New/Edit**.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="New trigger menu":::
 
-1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
+1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Add triggers - new trigger":::
 
-1. On the **New Trigger** page, do the following steps: 
+1. On the **New Trigger** page, do the following steps:
 
     1. Confirm that **Schedule** is selected for **Type**.
     1. Specify the start datetime of the trigger for **Start Date**. It's set to the current datetime in Coordinated Universal Time (UTC) by default.
-    1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone. Please note that Scheduled Execution time of Trigger will be considered post the Start Date (Ensure Start Date is atleast 1minute lesser than the Execution time else it will trigger pipeline in next recurrence). 
+    1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone. Please note that Scheduled Execution time of Trigger will be considered post the Start Date (Ensure Start Date is at least 1 minute lesser than the Execution time else it will trigger pipeline in next recurrence).
 
         > [!NOTE]
-        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
+        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change, if the recurrence is set to _Days_ or above. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
-    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+        > [!IMPORTANT]
+        > Daylight saving adjustment only happens for trigger with recurrence set to _Days_ or above. If the trigger is set to _Hours_ or _Minutes_ frequency, it will continue to fire at regular intervals.
+
+    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box.
     1. In the **Recurrence**, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
@@ -65,7 +69,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
         :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Trigger settings for End Date":::
 
-1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
+1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Trigger settings - Next button":::
 
@@ -77,7 +81,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Publish button":::
 
-1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
+1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list.
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -85,10 +89,10 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Monitor triggered runs":::
-    
+
 ---
 
-9. Switch to the **Trigger Runs** \ **Schedule** view. 
+9. Switch to the **Trigger Runs** \ **Schedule** view.
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -96,7 +100,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Monitor trigger runs":::
-    
+
 ---
 
 ## Azure PowerShell
@@ -206,7 +210,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
 
 ### Sample Code
 
-1. In your working direactory, create a JSON file named **MyTrigger.json** with the trigger's properties. For this example use the following content:
+1. In your working directory, create a JSON file named **MyTrigger.json** with the trigger's properties. For this example use the following content:
 
     > [!IMPORTANT]
     > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
@@ -252,31 +256,31 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
     - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. And you pass values for these parameters from the trigger.
 
-1. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) command:
+1. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az-datafactory-trigger-create) command:
 
     ```azurecli
     az datafactory trigger create --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory"  --name "MyTrigger" --properties @MyTrigger.json  
     ```
 
-1. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+1. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) command:
+1. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az-datafactory-trigger-start) command:
 
     ```azurecli
     az datafactory trigger start --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+1. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
+1. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az-datafactory-trigger-run-query-by-factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
 
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00" --last-updated-before "2017-12-08T01:00:00"
@@ -472,7 +476,7 @@ The following table provides a high-level overview of the major schema elements 
 |:--- |:--- |
 | **startTime** | A Date-Time value. For simple schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
 | **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. This property is optional.  <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
-| **timeZone** | The time zone the trigger is created in. This setting impact **startTime**, **endTime**, and **schedule**. See [list of supported time zone](#time-zone-option) |
+| **timeZone** | The time zone the trigger is created in. This setting affects **startTime**, **endTime**, and **schedule**. See [list of supported time zone](#time-zone-option) |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute," "hour," "day," "week," and "month." |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week," the trigger recurs every 3 weeks. |
@@ -582,5 +586,5 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 
 ## Next steps
 
-- For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+- For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 - Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

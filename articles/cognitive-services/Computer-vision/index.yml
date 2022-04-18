@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/31/2021 #Required; mm/dd/yyyy format.
+  ms.date: 02/28/2022 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -111,7 +111,7 @@ tools:
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/overview/azure/cognitiveservices/computervision
+    url: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision

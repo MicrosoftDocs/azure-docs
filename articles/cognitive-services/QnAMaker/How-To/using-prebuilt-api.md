@@ -6,14 +6,15 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2021
-ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Prebuilt question answering
 
 Prebuilt question answering provides user the capability to answer question over a passage of text  without having to create knowledgebases, maintain question and answer pairs or incurring cost for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about QnA Maker or additional storage.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 > [!NOTE]
 > This documentation does not apply to the latest release. To learn about using the Prebuilt API with the latest release consult the [question answering prebuilt API article](../../language-service/question-answering/how-to/prebuilt.md).

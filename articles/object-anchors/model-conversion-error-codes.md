@@ -1,10 +1,10 @@
 ---
 title: Model Conversion Error Codes
 description: Model conversion error codes for the Azure Object Anchors service.
-author: jastenze
+author: vriveras
 manager: vriveras
 
-ms.author: jastenze
+ms.author: virivera
 ms.date: 04/20/2021
 ms.topic: overview
 ms.service: azure-object-anchors

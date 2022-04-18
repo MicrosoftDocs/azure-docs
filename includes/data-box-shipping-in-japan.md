@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 01/25/2022
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ Take the following steps if you're returning the device in Japan.
     * If you have multiple orders, email to ensure individual pickup.
 
     ```
-    To: Customerservice.JP@quantiumsolutions.com
+    To: azure.qsjp@quantiumsolutions.com
     Subject: Pickup request for Azure Data Box｜Job name： 
     Body:
     - Japan Post Yu-Pack tracking number (reference number)：
@@ -34,5 +34,5 @@ Take the following steps if you're returning the device in Japan.
 
 If needed, you can contact Quantium Solutions Support (Japanese language) at the following information:
 
-* Email：Customerservice.JP@quantiumsolutions.com
+* Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
 * Telephone：03-5755-0150

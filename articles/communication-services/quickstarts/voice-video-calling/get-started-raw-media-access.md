@@ -9,8 +9,7 @@ ms.date: 11/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-
-
+ms.custom: mode-other
 ---
 
 # Raw media access
@@ -21,7 +20,7 @@ In this quickstart, you'll learn how implement raw media access using the Azure 
 
 ## Outbound virtual video device
 
-The ACS Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
+The Azure Communication Services Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
 
 This quick start builds upon [QuickStart: Add 1:1 video calling to your app](./get-started-with-video-calling.md?pivots=platform-android) for Android.
 
@@ -30,7 +29,7 @@ This quick start builds upon [QuickStart: Add 1:1 video calling to your app](./g
 
 Once an outbound virtual video device is created, use DeviceManager to make a new virtual video device that behaves just like any other webcam connected to your computer or mobile phone.
 
-Since the app will be generating the video frames, the app must inform the ACS Calling SDK about the video formats the app is capable of generating. This is required to allow the ACS Calling SDK to pick the best video format configuration given the network conditions at any giving time.
+Since the app will be generating the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats the app is capable of generating. This is required to allow the Azure Communication Services Calling SDK to pick the best video format configuration given the network conditions at any giving time.
 
 The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
 

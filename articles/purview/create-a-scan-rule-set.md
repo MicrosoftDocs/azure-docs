@@ -19,7 +19,7 @@ A scan rule set is a container for grouping a set of scan rules together so that
 
 To create a scan rule set:
 
-1. From your Azure [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map**.
+1. From your Azure [Azure Purview Studio](https://web.purview.azure.com/resource/), select **Data Map**.
 
 1. Select **Scan rule sets** from the left pane, and then select **New**.
 
@@ -103,7 +103,7 @@ In the above example:
 Here are some more tips you can use to ignore patterns:
 
 - While processing the regex, Azure Purview will add $ to the regex by default.
-- A good way to understand what url the scanning agent will compare with your regular expression is to browse through the Purview data catalog, find the asset you want to ignore in the future, and see its fully qualified name (FQN) in the **Overview** tab.
+- A good way to understand what url the scanning agent will compare with your regular expression is to browse through the Azure Purview data catalog, find the asset you want to ignore in the future, and see its fully qualified name (FQN) in the **Overview** tab.
 
    :::image type="content" source="./media/create-a-scan-rule-set/fully-qualified-name.png" alt-text="Screenshot showing the fully qualified name on an asset's overview tab.":::
 

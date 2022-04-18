@@ -1,73 +1,73 @@
 ---
-title: What is IoT connector? - Azure Healthcare APIs
-description: In this article, you'll learn the steps that IoT connector does before storing IoMT data in the FHIR service.
+title: What is the MedTech service? - Azure Health Data Services
+description: In this article, you'll learn about the MedTech service, its features, functions, integrations, and next steps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 03/25/2022
 ms.author: jasteppe
 ---
 
-# What is IoT connector?
+# What is the MedTech service?
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## Overview
 
-IoT connector is an optional feature of Azure Healthcare APIs that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.
+MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
 
-This article provides an overview of data flow in IoT connector. You'll learn about different data processing stages within the IoT connector service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+MedTech service is important because health data collected from patients and health care consumers can be fragmented from access across multiple systems, device types, and formats. Managing healthcare data can be difficult, however, trying to gain insight from the data can be one of the biggest barriers to population and personal wellness understanding as well as sustaining health.  
 
-Below are the different stages that data goes through once it's received by IoT connector.
 
-## Ingest
+MedTech service transforms device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. Allowing for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects.
 
-Ingest is the first stage where device data is received into the IoT connector service. The ingestion endpoint for device data is hosted on an Azure Event Hub. [Azure Event Hub](../../event-hubs/index.yml) platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the IoT connector service to consume messages asynchronously removing the need for devices to wait while device data gets processed.
+Below is an overview of what the MedTech service does after IoMT device data is received. Each step will be further explained in the [MedTech service data flow](./iot-data-flow.md) article.
 
 > [!NOTE]
-> JSON is the only supported format at this time for device data.
+> Learn more about [Azure Event Hubs](../../event-hubs/index.yml) use cases, features and architectures.
 
-## Normalize
+:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by the MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
-Normalize is the next stage where device data is retrieved from the above Azure Event Hub and processed using Device mapping templates. This mapping process results in transforming device data into a normalized schema. The normalization process not only simplifies data processing at later stages but also provides for the projection one input message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single message. This input message would create four separate FHIR resources. Each resource would represent different vital sign, with the input message projected into four different normalized messages.
+## Scalable
 
-## Group
+MedTech service is designed out-of-the-box to support growth and adaptation to the changes and pace of healthcare by using autoscaling features. The service enables developers to modify and extend the capabilities to support additional device mapping template types and FHIR resources.
 
-Group is the next stage where the normalized messages available from the previous stage are grouped using three different parameters: 
+## Configurable 
 
-* Device identity
-* Measurement type 
-* Time period
+MedTech service is configured by using [Device](./how-to-use-device-mappings.md) and [FHIR destination](./how-to-use-fhir-mappings.md) mappings. The mappings instruct the filtering and transformation of your IoMT device messages into the FHIR format.
 
-Device identity and measurement type grouping enable use of [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. This type provides a concise way to represent a time-based series of measurements from a device in FHIR while time period controls the latency at which Observation resources generated by IoT connector is written to the FHIR service.
+The different points for extension are:
+* Normalization: Health data from disparate devices can be aligned and standardized into a common format to make sense of the data from a unified lens and capture trends.
+* FHIR conversion: Health data is normalized and grouped by mapping commonalities to FHIR. Observations can be created or updated according to chosen or configured templates. Devices and health care consumers can be linked for enhanced insights and trend capture.
 
-> [!NOTE]
-> The time period value is defaulted to 15 minutes and cannot be configured for preview.
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-## Transform
+## Extensible
 
-In the Transform stage, grouped-normalized messages are processed through FHIR destination mapping templates. Messages matching a template type get transformed into FHIR-based Observation resources as specified through the mapping.
+MedTech service may also be used with our [open-source projects](./iot-git-projects.md) for ingesting IoMT device data from the following wearables:
+* Fitbit&#174;
+* Apple&#174;
+* Google&#174;
 
-At this point, Device resource, along with its associated Patient resource, is also retrieved from the FHIR service using the device identifier present in the message. These resources are added as a reference to the Observation resource being created.
-
-> [!NOTE]
->All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send virtual device identifier in the message payload. The virtual device can be linked to the actual device resource as a parent.
-
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of Resolution Type set at the time of creation. When set to Look up, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to Create, the IoT connector service will create a bare-bones Device and Patient resources on the FHIR service.
-
-## Persist
-
-Once the Observation FHIR resource is generated in the Transform stage, the resource is saved into the FHIR service. If the FHIR resource is new, it will be created on the service. If the FHIR resource already exists, it will be updated.
+MedTech service may also be used with the following Microsoft solutions to provide more functionalities and insights:
+ * [Azure Machine Learning Service](./iot-connector-machine-learning.md)
+ * [Microsoft Power BI](./iot-connector-power-bi.md)
+ * [Microsoft Teams](./iot-connector-teams.md)
+ 
+## Secure
+MedTech service uses Azure [Resource-based Access Control](../../role-based-access-control/overview.md) and [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) for granular security and access control of your MedTech service assets. 
 
 ## Next steps
 
-For more information about IoT connector mappings, see these guides:
+For more information about MedTech service data flow, see
 
 >[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mappings.md)
+>[MedTech service data flow](./iot-data-flow.md)
+
+For more information about deploying MedTech service, see
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+>[Deploying MedTech service in the Azure portal](./deploy-iot-connector-in-azure.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -12,7 +12,7 @@ You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image.
 * A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS.
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container applications that listen on other ports.
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
@@ -187,13 +187,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Deploy the container group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Deploy the container group with the [az container create](/cli/azure/container#az_container_create) command, passing the YAML file as an argument.
+Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -201,7 +201,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### View deployment state
 
-To view the state of the deployment, use the following [az container show](/cli/azure/container#az_container_show) command:
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

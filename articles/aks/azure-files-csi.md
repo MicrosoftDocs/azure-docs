@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/18/2021
+ms.date: 04/01/2021
 author: palma21
 
 ---
@@ -19,6 +19,12 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
+## Azure File CSI driver new features
+Besides original in-tree driver features, Azure File CSI driver already provides following new features:
+- NFS 4.1
+- Private endpoint
+- support creating large mount of file shares in parallel 
+
 ## Use a persistent volume with Azure Files
 
 A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or NFS protocol. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share](azure-files-volume.md).
@@ -33,6 +39,7 @@ A storage class is used to define how an Azure Files share is created. A storage
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_ZRS**: Standard zone-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
+* **Standard_RAGZRS**: Standard read-access geo-zone-redundant storage
 * **Premium_LRS**: Premium locally redundant storage
 * **Premium_ZRS**: Premium zone-redundant storage
 
@@ -105,6 +112,9 @@ storageclass.storage.k8s.io/my-azurefile created
 ```
 
 The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+
+> [!NOTE]
+> This driver only supports snapshot creation, restore from snapshot is not supported by this driver, snapshot could be restored from Azure portal or CLI. To get the snapshot created, you can go to Azure Portal -> access the Storage Account -> File shares -> access the file share associated -> Snapshots. There you can click on it and restore. 
 
 Create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
@@ -270,8 +280,11 @@ kind: StorageClass
 metadata:
   name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
+allowVolumeExpansion: true
 parameters:
   protocol: nfs
+mountOptions:
+  - nconnect=8
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -366,3 +379,4 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
+[use-tags]: use-tags.md

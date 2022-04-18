@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Connect to Azure Synapse Link for Azure Cosmos DB'
 description: How to connect an Azure Cosmos DB to a Synapse workspace with Synapse Link
-services: synapse-analytics
 author: Rodrigossz
 ms.service: synapse-analytics
 ms.subservice: synapse-link
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: rosouz
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: cosmos-db, mode-other
 ---
 

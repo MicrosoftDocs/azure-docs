@@ -16,7 +16,7 @@ Azure Database for MariaDB automatically creates server backups and stores them 
 
 Azure Database for MariaDB takes backups of the data files and the transaction log. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
-These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
+These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MariaDB. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
 
 The backup type and frequency is depending on the backend storage for the servers.
 
@@ -58,7 +58,7 @@ Long-term retention of backups beyond 35 days is currently not natively supporte
 
 ### Backup redundancy options
 
-Azure Database for MariaDB provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../best-practices-availability-paired-regions.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
+Azure Database for MariaDB provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
 #### Moving from locally redundant to geo-redundant backup storage
 Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, creating a new server and migrating the data using [dump and restore](howto-migrate-dump-restore.md) is the only supported option.

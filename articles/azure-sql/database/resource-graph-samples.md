@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure SQL Database
 description: Sample Azure Resource Graph queries for Azure SQL Database showing use of resource types and tables to access Azure SQL Database related resources and properties.
-ms.date: 10/12/2021
+ms.date: 03/08/2022
 ms.topic: sample
 author: LitKnd
 ms.author: kendralittle

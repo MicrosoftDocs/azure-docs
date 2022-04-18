@@ -21,7 +21,7 @@ keywords: content moderator, azure content moderator, online moderator, content 
 
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
-Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
+Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically.
 
 You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -47,7 +47,7 @@ The following are a few scenarios in which a software developer or team would re
 
 ## What it includes
 
-The Content Moderator service consists of several web service APIs available through both REST calls and a .NET SDK. It also includes the Review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
+The Content Moderator service consists of several web service APIs available through both REST calls and a .NET SDK.
 
 ## Moderation APIs
 
@@ -64,21 +64,6 @@ The following table describes the different types of moderation APIs.
 |[**Image moderation**](image-moderation-api.md)| Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.|
 |[**Custom image lists**](try-image-list-api.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|
 |[**Video moderation**](video-moderation-api.md)| Scans videos for adult or racy content and returns time markers for said content.|
-
-## Review APIs
-
-The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#review-tool) (below).
-
-> [!NOTE]
-> The Workflow API is not yet available in the .NET SDK but can be used with the REST endpoint.
-
-![block diagram for Content Moderator review APIs](images/content-moderator-rev-api.png)
-
-## Review tool
-
-The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input doesn't train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front end for several Content Moderator resources.
-
-![Content Moderator Review tool homepage](images/homepage.PNG)
 
 ## Data privacy and security
 

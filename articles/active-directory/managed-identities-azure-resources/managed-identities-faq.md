@@ -4,7 +4,7 @@ description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2021
+ms.date: 02/23/2022
 ms.author: barclayn
 ---
 
@@ -36,9 +36,9 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 ### Which Azure RBAC permissions are required to use a managed identity on a resource?
 
 - System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- Assigning user-assigned managed identities to resources: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. You will also need the `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` action over the user-assigned identity. This action is included in the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) built-in role.
+- Assigning user-assigned managed identities to resources: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. You'll also need `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` action over the user-assigned identity. This action is included in the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) built-in role.
 - Managing user-assigned identities: To create or delete user-assigned managed identities, you need the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
-- Managing role assignments for managed identities: You need the [Owner](../../role-based-access-control/built-in-roles.md#all) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#all) role assignment over the resource to which you're granting access. You will need the [Reader](../../role-based-access-control/built-in-roles.md#all) role assignment to the resource with a system-assigned identity, or to the user-assigned identity that is being given the role assignment. If you do not have read access, you can search by "User, group, or service principal" to find the identity's backing service principal, instead of searching by managed identity while adding the role assignment. [Read more about assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
+- Managing role assignments for managed identities: You need the [Owner](../../role-based-access-control/built-in-roles.md#all) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#all) role assignment over the resource to which you're granting access. You'll need the [Reader](../../role-based-access-control/built-in-roles.md#all) role assignment to the resource with a system-assigned identity, or to the user-assigned identity that is being given the role assignment. If you don't have read access, you can search by "User, group, or service principal" to find the identity's backing service principal, instead of searching by managed identity while adding the role assignment. [Read more about assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### How do I prevent the creation of user-assigned managed identities?
 
@@ -47,7 +47,7 @@ You can keep your users from creating user-assigned managed identities using [Az
 1. Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
 2. Choose **Definitions**
 3. Select **+ Policy definition** and enter the necessary information.
-4. In the policy rule section paste
+4. In the policy rule section, paste:
     
     ```json
     {
@@ -85,7 +85,7 @@ At this point, any attempt to create a user-assigned managed identity in the res
 
 ### Do managed identities have a backing app object?
 
-No. Managed identities and Azure AD App Registrations are not the same thing in the directory.
+No. Managed identities and Azure AD App Registrations aren't the same thing in the directory.
 
 App registrations have two components: An Application Object + A Service Principal Object.
 Managed Identities for Azure resources have only one of those components: A Service Principal Object.
@@ -97,19 +97,19 @@ Managed identities don't have an application object in the directory, which is w
 > [!NOTE]
 > How managed identities authenticate is an internal implementation detail that is subject to change without notice.
 
-Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it is rolled after 45 days.
+Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it's rolled after 45 days.
 
 ### What identity will IMDS default to if don't specify the identity in the request?
 
-- If system assigned managed identity is enabled and no identity is specified in the request, IMDS defaults to the system assigned managed identity.
-- If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS defaults to that single user assigned managed identity.
-- If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then you are required to specify a managed identity in the request.
+- If system assigned managed identity is enabled and no identity is specified in the request, Azure Instance Metadata Service (IMDS) defaults to the system assigned managed identity.
+- If system assigned managed identity isn't enabled, and only one user assigned managed identity exists, IMDS defaults to that single user assigned managed identity.
+- If system assigned managed identity isn't enabled, and multiple user assigned managed identities exist, then you are required to specify a managed identity in the request.
 
 ## Limitations
 
 ### Can the same managed identity be used across multiple regions?
 
-In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities would not be impacted.
+In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
 
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 
@@ -118,17 +118,18 @@ No, there are no plans to support managed identities for Azure resources in Azur
 
 ### What is the security boundary of managed identities for Azure resources?
 
-The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine with managed identities for Azure resources enabled, is the Virtual Machine. Any code running on that VM, is able to call the managed identities for Azure resources endpoint and request tokens. It is the similar experience with other resources that support managed identities for Azure resources.
+The security boundary of the identity is the resource to which it's attached. For example, the security boundary for a virtual machine with managed identities for Azure resources enabled, is the virtual machine. Any code running on that VM, is able to call the managed identities endpoint and request tokens. The experience is similar experience when working with other resources that support managed identities.
 
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
-No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
+No. If you move a subscription to another directory, you have to manually re-create them and grant Azure role assignments again.
+
 - For system assigned managed identities: disable and re-enable. 
 - For user assigned managed identities: delete, re-create, and attach them again to the necessary resources (for example, virtual machines)
 
 ### Can I use a managed identity to access a resource in a different directory/tenant?
 
-No. Managed identities do not currently support cross-directory scenarios. 
+No. Managed identities don't currently support cross-directory scenarios. 
 
 ### Are there any rate limits that apply to managed identities?
 
@@ -141,7 +142,11 @@ Managed identities limits have dependencies on Azure service limits, Azure Insta
 
 ### Is it possible to move a user-assigned managed identity to a different resource group/subscription?
 
-Moving a user-assigned managed identity to a different resource group is not supported.
+Moving a user-assigned managed identity to a different resource group isn't supported.
+
+### Are managed identities tokens cached?
+
+Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. It can take several hours for changes to a managed identity's permissions to take effect, for example. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 ## Next steps
 

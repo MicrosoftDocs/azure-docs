@@ -7,8 +7,9 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
+ms.topic: how-to
 ms.date: 09/09/2019
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 

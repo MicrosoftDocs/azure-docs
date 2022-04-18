@@ -3,7 +3,7 @@ title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 ms.topic: quickstart
 ms.date: 09/16/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Enable capturing of events streaming through Azure Event Hubs
@@ -15,7 +15,9 @@ You can configure Capture at the event hub creation time using the [Azure portal
 For more information, see the [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
-> The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub.
+> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
+> - Event Hubs doesn't support capturing events in a **premium** storage account. 
+
 
 ## Capture data to Azure Storage
 
@@ -23,10 +25,10 @@ When you create an event hub, you can enable Capture by clicking the **On** butt
 
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
+You can enable or disable emitting empty files when no events occur during the Capture window. 
+
 ![Time window for capture][1]
 
-> [!NOTE]
-> You can enable or disable emitting empty files when no events occur during the Capture window. 
 
 ## Capture data to Azure Data Lake Storage Gen 2 
 

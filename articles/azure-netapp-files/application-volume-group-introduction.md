@@ -3,7 +3,7 @@ title: Understand Azure NetApp Files application volume group for SAP HANA | Mic
 description: Describes the use cases and key features of Azure NetApp Files application volume group for SAP HANA.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
 

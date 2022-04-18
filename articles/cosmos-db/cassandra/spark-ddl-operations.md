@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
-
+ms.devlang: scala
 ---
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark

@@ -24,6 +24,10 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-load-testing.md
     # Card
+    - title: 'Create & run a load test'
+      itemType: quickstart
+      url: quickstart-create-and-run-load-test.md
+    # Card
     - title: 'Identify performance bottlenecks'
       itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
@@ -45,9 +49,21 @@ conceptualContent:
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
           text: Parameterize load tests
-        - url: how-to-update-rerun-test.md
+        - url: how-to-read-csv-data.md
           itemType: how-to-guide
-          text: Update & rerun load tests
+          text: Read a CSV file in load tests
+        - url: how-to-monitor-server-side-metrics.md
+          itemType: how-to-guide
+          text: Configure server-side monitoring
+        - url: how-to-define-test-criteria.md
+          itemType: how-to-guide
+          text: 'Define pass/fail criteria'
+        - url: how-to-use-a-managed-identity.md
+          itemType: how-to-guide
+          text: Use a managed identity
+        - url: how-to-assign-roles.md
+          itemType: how-to-guide
+          text: Manage users and roles
     
     # Card
     - title: Analyze test results
@@ -57,10 +73,10 @@ conceptualContent:
           text: Analyze performance by comparing runs
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
-          text: Find & download load testing logs
+          text: Troubleshoot test execution errors
         - url: how-to-appservice-insights.md
           itemType: how-to-guide
-          text: Get insights from AppService workloads
+          text: Get insights from App Service Diagnostics
         - url: how-to-export-test-results.md
           itemType: how-to-guide
           text: Export results 
@@ -74,3 +90,10 @@ conceptualContent:
         - url: tutorial-cicd-github-actions.md
           itemType: tutorial
           text: CI/CD workflows in GitHub Actions
+
+    # Card
+    - title: Reference
+      links:
+        - url: reference-test-config-yaml.md
+          itemType: reference
+          text: Test configuration YAML

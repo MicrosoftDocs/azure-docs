@@ -2,7 +2,7 @@
 title: Task runtime environment variables
 description: Task runtime environment variable guidance and reference for Azure Batch Analytics.
 ms.topic: conceptual
-ms.date: 12/30/2020
+ms.date: 12/13/2021
 ---
 
 # Azure Batch runtime environment variables
@@ -45,7 +45,7 @@ The command lines executed by tasks on compute nodes don't run under a shell. Th
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | The full path of the job preparation [task working directory](files-and-directories.md) on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
 | AZ_BATCH_MASTER_NODE            | The IP address and port of the compute node on which the primary task of a [multi-instance task](batch-mpi.md) runs. Do not use the port specified here for MPI or NCCL communication - it is reserved for the Azure Batch service. Use the variable MASTER_PORT instead, either by setting it with a value passed in through command line argument (port 6105 is a good default choice), or using the value AML sets if it does so. | Multi-instance primary and subtasks. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | The ID of the node that the task is assigned to. | All tasks. | tvm-1219235766_3-20160919t172711z |
-| AZ_BATCH_NODE_IS_DEDICATED      | If `true`, the current node is a dedicated node. If `false`, it is a [low-priority node](batch-low-pri-vms.md). | All tasks. | `true` |
+| AZ_BATCH_NODE_IS_DEDICATED      | If `true`, the current node is a dedicated node. If `false`, it is an [Azure Spot node](batch-spot-vms.md). | All tasks. | `true` |
 | AZ_BATCH_NODE_LIST              | The list of nodes that are allocated to a [multi-instance task](batch-mpi.md) in the format `nodeIP;nodeIP`. | Multi-instance primary and subtasks. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_NODE_MOUNTS_DIR        | The full path of the node level [file system mount](virtual-file-mount.md) location where all mount directories reside. Windows file shares use a drive letter, so for Windows, the mount drive is part of devices and drives.  |  All tasks including start task have access to the user, given the user is aware of the mount permissions for the mounted directory. | In Ubuntu, for example, the location is: `/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | The full path of the root of all [Batch directories](files-and-directories.md) on the node. | All tasks. | C:\user\tasks |
@@ -55,7 +55,6 @@ The command lines executed by tasks on compute nodes don't run under a shell. Th
 | AZ_BATCH_TASK_DIR               | The full path of the [task directory](files-and-directories.md) on the node. This directory contains the `stdout.txt` and `stderr.txt` for the task, and the AZ_BATCH_TASK_WORKING_DIR. | All tasks. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | The ID of the current task. | All tasks except start task. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | A directory path that is identical for the primary task and every subtask of a [multi-instance task](batch-mpi.md). The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command](batch-mpi.md#coordination-command) and the [application command](batch-mpi.md#application-command). Subtasks or a primary task that execute on other nodes do not have remote access to this directory (it is not a "shared" network directory). | Multi-instance primary and subtasks. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_WORKING_DIR       | The full path of the [task working directory](files-and-directories.md) on the node. The currently running task has read/write access to this directory. | All tasks. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | AZ_BATCH_TASK_WORKING_DIR       | The full path of the [task working directory](files-and-directories.md) on the node. The currently running task has read/write access to this directory. | All tasks. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | The current threshold for disk space upon which the VM will be marked as `DiskFull`. | All tasks. | 1000000 |
 | CCP_NODES                       | The list of nodes and number of cores per node that are allocated to a [multi-instance task](batch-mpi.md). Nodes and cores are listed in the format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, where the number of nodes is followed by one or more node IP addresses and the number of cores for each. |  Multi-instance primary and subtasks. |`2 10.0.0.4 1 10.0.0.5 1` |

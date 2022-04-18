@@ -3,7 +3,6 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
 ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
@@ -33,7 +32,7 @@ The following video explains Azure Maps in depth:
 
 </br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
 ## Map controls
 
@@ -65,13 +64,9 @@ For more details, read the [Geolocation service documentation](/rest/api/maps/ge
 
 ### Render service
 
-The [Render service V2](/rest/api/maps/renderv2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
+[Render service V2](/rest/api/maps/render-v2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile) that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 (where applicable) tile sizes and numerous map types such as road, weather, contour, or map tiles created using Azure Maps Creator. For a complete list see [TilesetID](/rest/api/maps/render-v2/get-map-tile#tilesetid) in the REST API documentation. It's recommended that you use Render service V2 instead of Render service V1. You are required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service V2, either as basemaps or layers, in any third-party map control. For more information see [How to use the Get Map Attribution API](how-to-show-attribution.md).
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
-
-For more details, read the [Render service V2 documentation](/rest/api/maps/renderv2).
-
-To learn more about the Render service V1 that is in GA (General Availability), see the [Render service V1 documentation](/rest/api/maps/render).  
 
 ### Route service
 
@@ -207,7 +202,7 @@ The Azure Maps Power BI visual provides a rich set of data visualizations for sp
 
 :::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data":::
 
-For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+For more information, see the [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md) article.
 
 ## Usage
 
@@ -218,7 +213,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 > [!NOTE]
 > Azure Maps shares customer-provided address/location queries with third-party TomTom for mapping functionality purposes. These queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals.
 
-Microsoft is currently in the process of adding TomTom, Moovit, and AccuWeather to the Online Services Subcontractor List.
+Microsoft is currently in the process of adding TomTom and AccuWeather to the Online Services Subcontractor List.
 
 ## Supported regions
 

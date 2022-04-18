@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm

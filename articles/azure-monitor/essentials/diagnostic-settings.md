@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 03/07/2022
 ---
 
 # Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations
@@ -14,16 +14,18 @@ This article provides details on creating and configuring diagnostic settings to
 
 [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
 
-[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on it own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
+[Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. 
+   - **Resource logs** are not collected until they are routed to a destination. 
+   - The **Activity Log** exists on its own but can be routed to other locations. 
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-- Sources - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
-- Destinations - One or more destinations to send to.
+- **Sources** - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
+- **Destinations** - One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following video walks you through routing platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
+The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
  - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
  - A new feature called category groups was introduced in Nov 2021. 
 
@@ -39,7 +41,7 @@ Here are the source options.
 
 The **AllMetrics** setting routes a resource's platform metrics to additional destinations. This option may not be present for all resource providers.  
 
-### Logs
+### Resource Logs
 
 With logs, you can select the log categories you want to route individually or choose a category group.
 
@@ -56,6 +58,9 @@ Currently, there are two category groups:
 - **All** - Every resource log offered by the resource.
 - **Audit** - All resource logs that record customer interactions with data or the settings of the service.
 
+### Activity Log
+See [Activity Log settings](#activity-log-settings) section below. 
+
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
 
@@ -65,6 +70,10 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
 | [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
 | [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
+
+## Activity Log settings
+
+The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Activity Log](activity-log.md). 
 
 ## Requirements and limitations
 
@@ -76,15 +85,9 @@ There are certain limitations with exporting metrics.
 
 To get around these limitations for specific metrics, you can manually extract them using the [Metrics REST API](/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](../logs/data-collector-api.md).
 
-### Activity log as a source
-
-> [!IMPORTANT]
-> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](../essentials/activity-log.md#legacy-collection-methods) for details.
-
-
 ### Destination limitations
 
-Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace in another Azure Active Directory tenant. The following table provides unique requirements for each destination including any regional restrictions.
+Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace, storage account or Event Hub in another Azure Active Directory tenant. The following table provides unique requirements for each destination including any regional restrictions.
 
 | Destination | Requirements |
 |:---|:---|
@@ -92,11 +95,6 @@ Any destinations for the diagnostic setting must be created before creating the 
 | Azure storage account | Do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
 | Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
-
-### Azure Data Lake Storage Gen2 as a destination
-
-> [!NOTE]
-> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
 ## Create in Azure portal
 
@@ -172,7 +170,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## Create using Azure CLI
 
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
@@ -304,9 +302,9 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ### Metric category is not supported
 
-When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though a previous your deployment succeeded. 
+When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though your previous deployment succeeded. 
 
-The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
+The problem occurs when using a Resource Manager template, REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
 The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
 

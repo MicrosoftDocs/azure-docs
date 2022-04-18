@@ -3,15 +3,14 @@ title: Telemetry processors (preview) - Azure Monitor Application Insights for J
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: kryalama
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: kryalama
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The telemetry processors feature is in preview.
+> The telemetry processors feature is designated as preview because we cannot guarantee backwards compatibility from release to release due to the experimental state of the attribute [semantic conventions](https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions). However, the feature has been tested and is supported in production.
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
@@ -237,7 +236,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -368,7 +369,7 @@ This section lists some common span attributes that telemetry processors can use
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
@@ -384,7 +385,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -507,7 +510,9 @@ The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
-  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
   * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
     
 > [!NOTE]
@@ -567,7 +572,9 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 * **Required field**:
   * `matchType` controls how items in `metricNames` are matched. Possible values are `regexp` and `strict`.
-  * `metricNames` must match at least one of the items.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+   * `metricNames` must match at least one of the items.
 
 ### Sample usage
 
@@ -585,3 +592,18 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
   }
 ]
 ```
+### Default metrics captured by Java agent
+
+| Metric name  | Metric type | Description  | Filterable |
+|---|---|---|---|
+| `Current Thread Count` | custom metrics | See [ThreadMXBean.getThreadCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadMXBean.html#getThreadCount--). | yes |
+| `Loaded Class Count` | custom metrics | See [ClassLoadingMXBean.getLoadedClassCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ClassLoadingMXBean.html#getLoadedClassCount--). | yes |
+| `GC Total Count` | custom metrics | Sum of counts across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionCount()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html). | yes |
+| `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
+| `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
+| `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes. See [MemoryUsage](https://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html)| yes |
+| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks())(Only User and System) divided by the number of [logical processors count](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors—) in a given interval of time | no |
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
+| `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | `/proc/[pid]/io` Sum of bytes read and written by the process (diff since last reported). See [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html). | no |
+| `\Memory\Available Bytes` | default metrics | See [OperatingSystemMXBean.getFreePhysicalMemorySize()](https://docs.oracle.com/javase/7/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getFreePhysicalMemorySize()). | no |

@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: aahi
 #Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
@@ -169,5 +169,4 @@ Open a browser on the host machine and go to **localhost** by using the specifie
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Cognitive Services containers](../cognitive-services-container-support.md)
+[Cognitive Services containers](../cognitive-services-container-support.md)

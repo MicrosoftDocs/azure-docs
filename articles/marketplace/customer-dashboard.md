@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 9/27/2021
+ms.date: 04/18/2022
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -35,10 +35,6 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 ## Access the Customers dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
@@ -46,32 +42,15 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 1. In the left menu, select **Customers**.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Customers**.
-
----
-
 ## Elements of the Customers dashboard
 
 The following sections describe how to use the Customers dashboard and how to read the data.
 
 ### Month range
 
-#### [Workspaces view](#tab/workspaces-view)
-
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Customers** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 [ ![Illustrates the month filters on the Customers page.](./media/customer-dashboard/customers-workspace-filters.png) ](./media/customer-dashboard/customers-workspace-filters.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Customers** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
-
-:::image type="content" source="./media/customer-dashboard/month-range-filters.png" alt-text="Illustrates the month filters on the Customers page.":::
-
----
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -188,7 +167,10 @@ _**Table 1: Dictionary of data terms**_
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | Customer Type | Customer Type | The value of this field signifies the type of the customer. The possible values are:<ul><li>individual</li> <li>organization</li></ul> | CustomerType |
-|||||
+| OfferName | OfferName | The name of the commercial marketplace offer | OfferName|
+| PlanID | PlanID | The display name of the plan entered when the offer was created in Partner Center | PlanID |
+| SKU | SKU | The plan associated with the offer | SKU |
+| N/A | lastModifiedAt | The latest timestamp for customer purchases. Use this field, via programmatic API access, to pull the latest snapshot of all customer purchase transactions since a specific date | lastModifiedAt |
 
 ### Customers page filters
 

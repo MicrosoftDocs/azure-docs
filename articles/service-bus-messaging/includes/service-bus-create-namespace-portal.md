@@ -22,13 +22,18 @@ To create a namespace:
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
     1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
-    1. Enter a **name for the namespace**. The system immediately checks to see if the name is available. For a list of rules for naming namespaces, see [Create Namespace REST API](/rest/api/servicebus/create-namespace).
+    1. Enter a **name for the namespace**. The namespace name should adhere to the following naming conventions:
+        - The name must be unique across Azure. The system immediately checks to see if the name is available. 
+        - The name length is at least 6 and at most 50 characters.
+        - The name can contain only letters, numbers, hyphens “-“.
+        - The name must start with a letter and end with a letter or number.
+        - The name does not end with “-sb“ or “-mgmt“.
     1. For **Location**, choose the region in which your namespace should be hosted.
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
     
         If you want to use [topics and subscriptions](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions aren't supported in the Basic pricing tier. 
 
-        If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-premium-messaging.md).
+        If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, or 4, 8 or 16 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-premium-messaging.md).
     1. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
    
         :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page":::

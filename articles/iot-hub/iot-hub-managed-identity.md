@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub managed identity | Microsoft Docs
 description: How to use managed identities to allow egress connectivity from your IoT Hub to other Azure resources.
-author: miag
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.author: miag
+ms.author: lizross
 ---
 
 # IoT Hub support for managed identities 
@@ -226,7 +226,7 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 Managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs, and service bus endpoints.
 
 > [!NOTE]
-> Use a system-assigned managed identity to access private resources.
+> Only system-assigned managed identity gives IoT Hub access to private resources. If you want to use user-assigned managed identity, then the public access on those private resources needs to be enabled in order to allow connectivity. 
 
 ## Configure message routing with managed identities
 
@@ -376,7 +376,7 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 ## SDK samples
 - [.NET SDK sample](https://aka.ms/iothubmsicsharpsample)
 - [Java SDK sample](https://aka.ms/iothubmsijavasample)
-- [Python SDK sample](https://aka.ms/iothubmsipythonsample)
+- [Python SDK sample](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-hub/samples)
 - Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
 
 ## Next steps

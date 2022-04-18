@@ -6,7 +6,7 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
@@ -22,6 +22,11 @@ You can configure the schema that a publisher must conform to during topic creat
 
 Subscribers can also configure the schema in which they want the events delivered. If unspecified, default is topic's schema.
 Currently subscriber delivery schema has to match its topic's input schema. 
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## EventGrid schema
 
@@ -54,7 +59,7 @@ All events have the following top-level data:
 | subject | string | Yes | Publisher-defined path to the event subject. |
 | eventType | string | Yes | Event type for this event source, for example, BlobCreated. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
-| ID | string | No | Unique identifier for the event. |
+| id | string | No | Unique identifier for the event. |
 | data | object | No | Used to capture event data that's specific to the publishing entity. |
 | dataVersion | string | Yes | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |

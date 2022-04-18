@@ -4,15 +4,14 @@ description: Learn how to complete an access review of group members or applicat
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/20/2021
+ms.date: 02/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -43,7 +42,6 @@ You can track the progress of access reviews as they are completed.
  
 1. In the list, click an access review.
  
- 
     On the **Overview** page, you can see the progress of the **Current** instance of the review. If there is not an active instance open at the time, you will see information on the previous instance. No access rights are changed in the directory until the review is completed.
  
      ![Review of All company group](./media/complete-access-review/all-company-group.png)
@@ -70,19 +68,27 @@ You can track the progress of access reviews as they are completed.
  
 1. If you're no longer interested in the access review, you can delete it by clicking the **Delete** button.
  
+### View status of multi-stage review (preview)
+
+To see the status and stage of a multi-stage access review:
+
+1. Select the multi-stage review you want to check the status of or see what stage it's in.
+ 
+1. Click **Results** on the left nav menu under **Current**.
+
+1. Once you are on the results page, under **Status** it will tell you which stage the multi-stage review is in. The next stage of the review won't become active until the duration specified during the access review setup has passed. 
+
+1. If a decision has been made, but the review duration for this stage has not expired yet, you can select **Stop current stage** button on the results page. This will trigger the next stage of review.
+
 ## Retrieve the results
  
 To view the results for a review, click the **Results** page. To view just a user's access, in the Search box, type the display name or user principal name of a user whose access was reviewed.
  
 ![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png) 
  
- 
 To view the results of a completed instance of an access review that is recurring, click **Review history**, then select the specific instance from the list of completed access review instances, based on the instance's start and end date. The results of this instance can be obtained from the **Results** page. Recurring access reviews allow you to have a constant picture of access to resources that may need to be updated more often than one-time access reviews.
  
 To retrieve the results of an access review, both in-progress or completed, click the **Download** button. The resulting CSV file can be viewed in Excel or in other programs that open UTF-8 encoded CSV files.
-
-
- 
 
 ## Apply the changes
  
@@ -106,13 +112,14 @@ Manually or automatically applying results doesn't have an effect on a group tha
 > - Reviewing a resource (role, group, application) with nested groups assigned: For users who have membership through a nested group, we will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
 > - User not found / other errors can also result in an apply result not being supported.
  
-
 ## Actions taken on denied guest users in an access review
  
 On review creation, the creator can choose between two options for denied guest users in an access review. 
  - Denied guest users can have their access to the resource removed. This is the default.
  - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user has not had access to the resource granted to them again, they will be removed from the tenant permanently. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
-
+ 
+### Actions taken on denied B2B direct connect users
+Denied B2B direct connect users and teams will lose access to all shared channels in the Team.
 
 ## Next steps
  

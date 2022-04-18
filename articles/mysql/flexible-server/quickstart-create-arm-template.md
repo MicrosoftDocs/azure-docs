@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create an Azure Database for MySQL
 author: mksuni
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth
 ms.date: 10/23/2020
 ---

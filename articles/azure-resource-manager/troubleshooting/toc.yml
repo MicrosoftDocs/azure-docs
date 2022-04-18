@@ -1,4 +1,4 @@
-- name: Troubleshooting deployments documentation
+- name: Deployment troubleshooting documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,10 +6,10 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Troubleshoot ARM deployment
-    href: quickstart-troubleshoot-arm-deployment.md
   - name: Troubleshoot Bicep deployment
     href: quickstart-troubleshoot-bicep-deployment.md
+  - name: Troubleshoot JSON deployment
+    href: quickstart-troubleshoot-arm-deployment.md
 - name: How to
   items:
   - name: Find error code

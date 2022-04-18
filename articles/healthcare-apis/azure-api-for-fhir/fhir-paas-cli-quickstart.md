@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure CLI'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 services: healthcare-apis
-author: matjazl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/15/2019
-ms.author: zxue
+ms.date: 03/21/2022
+ms.author: dseven
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -19,7 +19,7 @@ In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Add HealthcareAPIs extension
+## Add Azure Health Data Services (for example, HealthcareAPIs) extension
 
 ```azurecli-interactive
 az extension add --name healthcareapis
@@ -63,10 +63,26 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
 
->[!div class="nextstepaction"]
->[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
+
+>[!div class="nextstepaction"]
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)

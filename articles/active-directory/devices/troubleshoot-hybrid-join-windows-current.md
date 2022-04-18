@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot hybrid Azure Active Directory-joined devices
-description: This article helps you troubleshoot hybrid Azure Active Directory-joined Windows&nbsp;10 and Windows Server 2016 devices.
+description: This article helps you troubleshoot hybrid Azure Active Directory-joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,9 +20,9 @@ ms.custom: has-adal-ref
 ---
 # Troubleshoot hybrid Azure AD-joined devices
 
-This article provides troubleshooting guidance to help you resolve potential issues with devices that are running Windows&nbsp;10 or Windows Server 2016.
+This article provides troubleshooting guidance to help you resolve potential issues with devices that are running Windows 10 or newer and Windows Server 2016 or newer.
 
-Hybrid Azure Active Directory (Azure AD) join supports the Windows&nbsp;10 November 2015 update and later.
+Hybrid Azure Active Directory (Azure AD) join supports the Windows 10 November 2015 update and later.
 
 To troubleshoot other Windows clients, see [Troubleshoot hybrid Azure AD-joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md).
 
@@ -95,16 +95,16 @@ Review the fields in the following table, and make sure that they have the expec
 
 | Field | Expected value | Description |
 | --- | --- | --- |
-| DomainJoined | YES | This field indicates whether the device is joined to an on-premises Active Directory. <br><br>If the value is *NO*, the device can't perform a hybrid Azure AD-join. |
-| WorkplaceJoined | NO | This field indicates whether the device is registered with Azure AD as a personal device (marked as *Workplace Joined*). This value should be *NO* for a domain-joined computer that's also hybrid Azure AD-joined. <br><br>If the value is *YES*, a work or school account was added prior to the completion of the hybrid Azure AD-join. In this case, the account is ignored when you're using Windows&nbsp;10 version 1607 or later. |
-| AzureAdJoined | YES | This field indicates whether the device is joined. The value will be *YES* if the device is either an Azure AD-joined device or a hybrid Azure AD-joined device. <br><br>If the value is *NO*, the join to Azure AD has not finished yet. |
+| DomainJoined | YES | This field indicates whether the device is joined to an on-premises Active Directory. <br><br>If the value is *NO*, the device can't do hybrid Azure AD-join. |
+| WorkplaceJoined | NO | This field indicates whether the device is registered with Azure AD as a personal device (marked as *Workplace Joined*). This value should be *NO* for a domain-joined computer that's also hybrid Azure AD-joined. <br><br>If the value is *YES*, a work or school account was added before the completion of the hybrid Azure AD-join. In this case, the account is ignored when you're using Windows 10 version 1607 or later. |
+| AzureAdJoined | YES | This field indicates whether the device is joined. The value will be *YES* if the device is either an Azure AD-joined device or a hybrid Azure AD-joined device. <br><br>If the value is *NO*, the join to Azure AD hasn't finished yet. |
 |  |  |
 
-Proceed to the next steps for further troubleshooting.
+Continue to the next steps for further troubleshooting.
 
 ### Step 3: Find the phase in which the join failed, and the error code
 
-**For Windows&nbsp;10 version 1803 or later**
+**For Windows 10 version 1803 or later**
 
 Look for the "Previous Registration" subsection in the "Diagnostic Data" section of the join status output. This section is displayed only if the device is domain-joined and unable to hybrid Azure AD-join.
 
@@ -123,7 +123,7 @@ The "Error Phase" field denotes the phase of the join failure, and "Client Error
 +----------------------------------------------------------------------+
 ```
 
-**For earlier Windows&nbsp;10 versions**
+**For earlier Windows 10 versions**
 
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
@@ -141,7 +141,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 Possible reasons for failure:
 
 - The device has no line of sight to the domain controller.
-   - The device must be on the organization’s internal network or on a virtual private network with a network line of sight to an on-premises Active Directory domain controller.
+   - The device must be on the organization's internal network or on a virtual private network with a network line of sight to an on-premises Active Directory domain controller.
 
 #### Discover phase
 
@@ -152,10 +152,10 @@ Possible reasons for failure:
    - For more information, see the "Configure a service connection point" section of [Tutorial: Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Failure to connect to and fetch the discovery metadata from the discovery endpoint.
    - The device should be able to access `https://enterpriseregistration.windows.net`, in the system context, to discover the registration and authorization endpoints.
-   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
-- Failure to connect to the user realm endpoint and perform realm discovery (Windows&nbsp;10 version 1809 and later only).
-   - The device should be able to access `https://login.microsoftonline.com`, in the system context, to perform realm discovery for the verified domain and determine the domain type (managed or federated).
-   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the system context on the device is able to discover and silently authenticate to the outbound proxy.
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device can discover and silently authenticate to the outbound proxy.
+- Failure to connect to the user realm endpoint and do realm discovery (Windows 10 version 1809 and later only).
+   - The device should be able to access `https://login.microsoftonline.com`, in the system context, to do realm discovery for the verified domain and determine the domain type (managed or federated).
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the system context on the device can discover and silently authenticate to the outbound proxy.
 
 **Common error codes:**
 
@@ -171,7 +171,7 @@ Possible reasons for failure:
 
 To find the sub-error code for the discovery error code, use one of the following methods.
 
-##### Windows&nbsp;10 version 1803 or later
+##### Windows 10 version 1803 or later
 
 Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join status output. This section is displayed only if the device is domain-joined and unable to hybrid Azure AD-join.
 
@@ -193,7 +193,7 @@ Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join statu
 +----------------------------------------------------------------------+
 ```
 
-##### Earlier Windows&nbsp;10 versions
+##### Earlier Windows 10 versions
 
 Use Event Viewer logs to look for the phase and error code for the join failures.
 
@@ -225,7 +225,7 @@ Use Event Viewer logs to look for the phase and error code for the join failures
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **E_INVALIDDATA** (0x8007000d/-2147024883) | The server response JSON couldn't be parsed, likely because the proxy is returning an HTTP 200 with an HTML authorization page. | If the on-premises environment requires an outbound proxy, the IT admin must ensure that the system context on the device is able to discover and silently authenticate to the outbound proxy. |
+| **E_INVALIDDATA** (0x8007000d/-2147024883) | The server response JSON couldn't be parsed, likely because the proxy is returning an HTTP 200 with an HTML authorization page. | If the on-premises environment requires an outbound proxy, the IT admin must ensure that the system context on the device can discover and silently authenticate to the outbound proxy. |
 | | |
 
 
@@ -236,7 +236,7 @@ This content applies only to federated domain accounts.
 Reasons for failure:
 
 - Unable to get an access token silently for the DRS resource.
-   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Windows 10 and Windows 11 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Common error codes**:
 
@@ -245,7 +245,7 @@ Use Event Viewer logs to locate the error code, sub-error code, server error cod
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
 1. Look for event ID 305.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot of Event Viewer, with event ID 305 selected, its information displayed, and the A D A L error codes and status highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot of Event Viewer, with event ID 305 selected, its information displayed, and the ADAL error codes and status highlighted." border="false":::
 
 **Configuration errors**:
 
@@ -285,11 +285,11 @@ Reasons for failure:
 
 Look for the registration type and error code from the following tables, depending on the Windows 10 version you're using.
 
-#### Windows&nbsp;10 version 1803 or later
+#### Windows 10 version 1803 or later
 
 Look for the "Previous Registration" subsection in the "Diagnostic Data" section of the join status output. This section is displayed only if the device is domain-joined and is unable to hybrid Azure AD-join.
 
-The "Registration Type" field denotes the type of join that's performed.
+The "Registration Type" field denotes the type of join that's done.
 
 ```
 +----------------------------------------------------------------------+
@@ -304,7 +304,7 @@ The "Registration Type" field denotes the type of join that's performed.
 +----------------------------------------------------------------------+
 ```
 
-#### Earlier Windows&nbsp;10 versions
+#### Earlier Windows 10 versions
 
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
@@ -328,7 +328,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 | Error code | Reason | Resolution |
 | --- | --- | --- |
 | **NTE_BAD_KEYSET** (0x80090016/-2146893802) | The Trusted Platform Module (TPM) operation failed or was invalid. | The failure likely results from a bad sysprep image. Ensure that the machine from which the sysprep image was created isn't Azure AD-joined, hybrid Azure AD-joined, or Azure AD-registered. |
-| **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641) | Generic TPM error. | Disable TPM on devices with this error. Windows&nbsp;10 versions 1809 and later automatically detect TPM failures and complete hybrid Azure AD-join without using the TPM. |
+| **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641) | Generic TPM error. | Disable TPM on devices with this error. Windows 10 versions 1809 and later automatically detect TPM failures and complete hybrid Azure AD-join without using the TPM. |
 | **TPM_E_NOTFIPS** (0x80280036/-2144862154) | TPM in FIPS mode isn't currently supported. | Disable TPM on devices with this error. Windows 10 version 1809 automatically detects TPM failures and completes the hybrid Azure AD join without using the TPM. |
 | **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775) | TPM is locked out. | Transient error. Wait for the cool-down period. The join attempt should succeed after a while. For more information, see [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering). |
 | | |
@@ -356,7 +356,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
-| DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | This is an expected error, possibly because multiple registration requests were made in quick succession. | Retry the join after the cool-down period |
+| DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | This error is expected, possibly because multiple registration requests were made in quick succession. | Retry the join after the cool-down period |
 | | |
 
 **Sync-join server errors**:
@@ -364,8 +364,8 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: Tenant `UUID` not found. This error might happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | The tenant ID in the service connection point object is incorrect. | Ensure that the service connection point object is configured with the correct Azure AD tenant ID and active subscriptions or that the service is present in the tenant. |
-| DirectoryError | The device object by the given ID is not found. | This is an expected error for sync-join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to finish, and the next join attempt after sync completion will resolve the issue. |
-| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate that's used to sign in the blob during the sync-join. This error ordinarily means that sync hasn’t finished yet. |  Wait for the Azure AD Connect sync to finish, and the next join attempt after the sync completion will resolve the issue. |
+| DirectoryError | The device object by the given ID isn't found. | This error is expected for sync-join. The device object hasn't synced from AD to Azure AD | Wait for the Azure AD Connect sync to finish, and the next join attempt after sync completion will resolve the issue. |
+| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate that's used to sign in the blob during the sync-join. This error ordinarily means that sync hasn't finished yet. |  Wait for the Azure AD Connect sync to finish, and the next join attempt after the sync completion will resolve the issue. |
 
 ### Step 5: Collect logs and contact Microsoft Support
 
@@ -389,7 +389,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 1. Run `dsregcmd /status`. 
 
-   The “SSO state” section provides the current PRT status. 
+   The "SSO state" section provides the current PRT status. 
 
    If the AzureAdPrt field is set to *NO*, there was an error acquiring the PRT status from Azure AD. 
 
@@ -417,7 +417,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 **From the `dsregcmd` output**
 
 > [!NOTE]
->  The output is available from the Windows&nbsp;10 May 2021 update (version 21H1).
+>  The output is available from the Windows 10 May 2021 update (version 21H1).
 
 The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the Azure AD analytics and operational logs.
 
@@ -461,14 +461,14 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **STATUS_LOGON_FAILURE** (-1073741715/ 0xc000006d)<br>**STATUS_WRONG_PASSWORD** (-1073741718/ 0xc000006a) | <li>The device is unable to connect to the Azure AD authentication service.<li>Received an error response (HTTP 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | <li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.<li>Events 1081 and 1088 (Azure AD operational logs) would contain the server error code for errors originating from the Azure AD authentication service and error description for errors originating from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section. The first instance of event 1022 (Azure AD analytics logs), preceding events 1081 or 1088, will contain the URL that's being accessed. |
+| **STATUS_LOGON_FAILURE** (-1073741715/ 0xc000006d)<br>**STATUS_WRONG_PASSWORD** (-1073741718/ 0xc000006a) | <li>The device is unable to connect to the Azure AD authentication service.<li>Received an error response (HTTP 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | <li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device can discover and silently authenticate to the outbound proxy.<li>Events 1081 and 1088 (Azure AD operational logs) would contain the server error code for errors originating from the Azure AD authentication service and error description for errors originating from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section. The first instance of event 1022 (Azure AD analytics logs), preceding events 1081 or 1088, will contain the URL that's being accessed. |
 | **STATUS_REQUEST_NOT_ACCEPTED** (-1073741616/ 0xc00000d0) | Received an error response (HTTP 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | Events 1081 and 1088 (Azure AD operational logs) would contain the server error code and error description for errors originating from Azure AD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. The first instance of event 1022 (Azure AD analytics logs), preceding events 1081 or 1088, will contain the URL that's being accessed. |
 | **STATUS_NETWORK_UNREACHABLE** (-1073741252/ 0xc000023c)<br>**STATUS_BAD_NETWORK_PATH** (-1073741634/ 0xc00000be)<br>**STATUS_UNEXPECTED_NETWORK_ERROR** (-1073741628/ 0xc00000c4) | <li>Received an error response (HTTP > 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication.<li>Network connectivity issue to a required endpoint. | <li>For server errors, events 1081 and 1088 (Azure AD operational logs) would contain the error code from the Azure AD authentication service and the error description from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section.<li>For connectivity issues, event 1022 (Azure AD analytics logs) will contain the URL that's being accessed, and event 1084 (Azure AD operational logs) will contain the sub-error code from the network stack. |
-| **STATUS_NO_SUCH_LOGON_SESSION**    (-1073741729/ 0xc000005f) | User realm discovery failed because the Azure AD authentication service was unable to find the user’s domain. | <li>The domain of the user’s UPN must be added as a custom domain in Azure AD. Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure an Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
-| **AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED**   (-1073445812/ 0xc004844c) | The user’s UPN isn't in the expected format.<br>**Notes**:<li>For Azure AD-joined devices, the UPN is the text that's entered by the user in the LoginUI. <li>For hybrid Azure AD-joined devices, the UPN is returned from the domain controller during the login process. | <li>User’s UPN should be in the internet-style login name, based on the internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>For hybrid-joined devices, ensure that the domain controller is configured to return the UPN in the correct format. In the domain controller, `whoami /upn` should display the configured UPN.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
+| **STATUS_NO_SUCH_LOGON_SESSION**    (-1073741729/ 0xc000005f) | User realm discovery failed because the Azure AD authentication service was unable to find the user's domain. | <li>The domain of the user's UPN must be added as a custom domain in Azure AD. Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure an Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
+| **AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED**   (-1073445812/ 0xc004844c) | The user's UPN isn't in the expected format.<br>**Notes**:<li>For Azure AD-joined devices, the UPN is the text that's entered by the user in the LoginUI. <li>For hybrid Azure AD-joined devices, the UPN is returned from the domain controller during the login process. | <li>User's UPN should be in the internet-style login name, based on the internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>For hybrid-joined devices, ensure that the domain controller is configured to return the UPN in the correct format. In the domain controller, `whoami /upn` should display the configured UPN.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
 | **AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY** (-1073445822/ 0xc0048442) | The user SID is missing in the ID token that's returned by the Azure AD authentication service. | Ensure that the network proxy isn't interfering with and modifying the server response. |
 | **AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY** (--1073445695/ 0xc00484c1) | Received an error from the WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | <li>Ensure that the network proxy isn't interfering with and modifying the WS-Trust response.<li>Event 1088 (Azure AD operational logs) would contain the server error code and error description from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section. |
-| **AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY** (-1073445749/ 0xc004848b) | The MEX endpoint is incorrectly configured. The MEX response doesn't contain any password URLs. | <li>Ensure that the network proxy isn't interfering with and modifying the server response.<li>Fix the MEX configuration to return valid URLs in response. |'
+| **AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY** (-1073445749/ 0xc004848b) | The MEX endpoint is incorrectly configured. The MEX response doesn't contain any password URLs. | <li>Ensure that the network proxy isn't interfering with and modifying the server response.<li>Fix the MEX configuration to return valid URLs in response. |
 | **AAD_CLOUDAP_E_HTTP_CERTIFICATE_URI_IS_EMPTY** (-1073445748/ 0xc004848C) | The MEX endpoint is incorrectly configured. The MEX response doesn't contain any certificate endpoint URLs. | <li>Ensure that the network proxy isn't interfering with and modifying the server response.<li>Fix the MEX configuration in the identity provider to return valid certificate URLs in response. |
 | **WC_E_DTDPROHIBITED** (-1072894385/ 0xc00cee4f) | The XML response, from the WS-Trust endpoint, included a Document Type Definition (DTD). A DTD isn't expected in XML responses, and parsing the response will fail if a DTD is included.<br>**Note**: WS-Trust is required for federated authentication. | <li>Fix the configuration in the identity provider to avoid sending a DTD in the XML response.<li>Event 1022 (Azure AD analytics logs) will contain the URL that's being accessed that's returning an XML response with a DTD. |
 | | |
@@ -480,7 +480,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 | --- | --- | --- |
 | **AADSTS50155: Device authentication failed** | <li>Azure AD is unable to authenticate the device to issue a PRT.<li>Confirm that the device hasn't been deleted or disabled in the Azure portal. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). | Follow the instructions for this issue in [Azure Active Directory device management FAQ](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) to re-register the device based on the device join type. |
 | **AADSTS50034: The user account `Account` does not exist in the `tenant id` directory** | Azure AD is unable to find the user account in the tenant. | <li>Ensure that the user is typing the correct UPN.<li>Ensure that the on-premises user account is being synced with Azure AD.<li>Event 1144 (Azure AD analytics logs) will contain the UPN provided. |
-| **AADSTS50126: Error validating credentials due to invalid username or password.** | <li>The username and password entered by the user in the Windows LoginUI are incorrect.<li>If the tenant has password hash sync enabled, the device is hybrid-joined, and the user just changed the password, it's likely that the new password hasn’t synced with Azure AD. | To acquire a fresh PRT with the new credentials, wait for the Azure AD password sync to finish. |
+| **AADSTS50126: Error validating credentials due to invalid username or password.** | <li>The username and password entered by the user in the Windows LoginUI are incorrect.<li>If the tenant has password hash sync enabled, the device is hybrid-joined, and the user just changed the password, it's likely that the new password hasn't synced with Azure AD. | To acquire a fresh PRT with the new credentials, wait for the Azure AD password sync to finish. |
 | | |
 
 
@@ -488,7 +488,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **ERROR_WINHTTP_TIMEOUT** (12002)<br>**ERROR_WINHTTP_NAME_NOT_RESOLVED** (12007)<br>**ERROR_WINHTTP_CANNOT_CONNECT** (12029)<br>**ERROR_WINHTTP_CONNECTION_ERROR** (12030) | Common general network-related issues. | <li>Events 1022 (Azure AD analytics logs) and 1084 (Azure AD operational logs) will contain the URL that's being accessed.<li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.<br><br>Get additional [network error codes](/windows/win32/winhttp/error-messages). |
+| **ERROR_WINHTTP_TIMEOUT** (12002)<br>**ERROR_WINHTTP_NAME_NOT_RESOLVED** (12007)<br>**ERROR_WINHTTP_CANNOT_CONNECT** (12029)<br>**ERROR_WINHTTP_CONNECTION_ERROR** (12030) | Common general network-related issues. | <li>Events 1022 (Azure AD analytics logs) and 1084 (Azure AD operational logs) will contain the URL that's being accessed.<li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device can discover and silently authenticate to the outbound proxy.<br><br>Get more [network error codes](/windows/win32/winhttp/error-messages). |
 | | |
 
 
@@ -508,7 +508,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 > [!NOTE]
 > When you're collecting network traces, it's important to *not* use Fiddler during repro.
 
-1.	Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
+1.    Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
 1. Lock and unlock the device. For hybrid-joined devices, wait a minute or more to allow the PRT acquisition task to finish.
 1. Run `netsh trace stop`.
 1. Share the *nettrace.cab* file with Support.
@@ -516,7 +516,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 ---
 
 ## Known issues
-- If you're connected to a mobile hotspot or an external Wi-Fi network and you go to **Settings** > **Accounts** > **Access Work or School**, hybrid Azure AD-joined devices might show two different accounts, one for Azure AD and one for on-premises AD. This is a UI issue only and doesn't affect functionality.
+- If you're connected to a mobile hotspot or an external Wi-Fi network and you go to **Settings** > **Accounts** > **Access Work or School**, hybrid Azure AD-joined devices might show two different accounts, one for Azure AD and one for on-premises AD. This UI issue doesn't affect functionality.
 
 ## Next steps
 

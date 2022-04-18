@@ -7,7 +7,7 @@ ms.subservice: scenario
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ---
@@ -185,7 +185,7 @@ The following table summarizes the differences between the main tenancy models.
 | Performance monitoring and management | Per-tenant only | Aggregate + per-tenant | Aggregate; although is per-tenant only for singles. |
 | Development complexity | Low | Low | Medium; due to sharding. |
 | Operational complexity | Low-High. Individually simple, complex at scale. | Low-Medium. Patterns address complexity at scale. | Low-High. Individual tenant management is complex. |
-| &nbsp; ||||
+
 
 ## Next steps
 

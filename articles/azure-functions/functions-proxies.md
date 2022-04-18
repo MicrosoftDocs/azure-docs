@@ -12,8 +12,6 @@ This article explains how to configure and work with Azure Functions Proxies. Wi
 
 Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
 > [!NOTE] 
 > Proxies is available in Azure Functions [versions](./functions-versions.md) 1.x to 3.x.
 > 
@@ -22,6 +20,9 @@ Standard Functions billing applies to proxy executions. For more information, se
 ## <a name="create"></a>Create a proxy
 
 This section shows you how to create a proxy in the Functions portal.
+
+> [!NOTE]  
+> Not all languages and operating system combinations support in-portal editing. If you're unable to create a proxy in the portal, you can instead manually create a _proxies.json_ file in the root of your function app project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
 
 1. Open the [Azure portal], and then go to your function app.
 2. In the left pane, select **New proxy**.

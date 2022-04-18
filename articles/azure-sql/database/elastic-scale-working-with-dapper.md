@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/04/2018
 ---
 # Using the elastic database client library with Dapper

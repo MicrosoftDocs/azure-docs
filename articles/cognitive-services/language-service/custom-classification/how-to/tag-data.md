@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Tag text data for training your model 
 
-Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
+Before creating a custom text classification model, you need to have tagged data first. If your data isn't tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
 ## Prerequisites
 
@@ -25,8 +25,6 @@ Before you can tag data, you need:
 
 See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-<!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
-
 ## Tag your data
 
 After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training. 
@@ -35,7 +33,7 @@ As you tag your data, keep in mind:
 
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
-* Although we recommended having around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](design-schema.md), and the quality of your tagged data.
+* Although we recommended having around 50 tagged files per class, there's no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](design-schema.md), and the quality of your tagged data.
 
 Use the following steps to tag your data
 
@@ -43,7 +41,7 @@ Use the following steps to tag your data
 
 1. From the left side menu, select **Tag data**
 
-3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the Back and Next button from the bottom of the page to navigate.  
+3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.  
     
 4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
 
@@ -52,20 +50,34 @@ Use the following steps to tag your data
 
 5. Before you start tagging, add classes to your project from the top-right corner
 
-
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
 
-6. Start tagging your files.
+6. Start tagging your files. In the images below:
 
-    * **Single label classification**: your file can only be tagged with one class, you can do so by checking one of the radio buttons next to the class you want to tag this file with.
+    * *Section 1*: is where the content of the text file is displayed.
 
-      :::image type="content" source="../media/tag-single.png" alt-text="A screenshot showing the single label classification menu" lightbox="../media/tag-single.png":::
+    * *Section 2*: includes your project's classes and distribution across your files and tags. 
 
-    * **Multiple label classification**: your file can be tagged with multiple classes, you can do so by checking all applicable check boxes next to the classes you want to tag this file with.
+    * *Section 3* is the split project data toggle. You can choose to add the selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.     
 
-      :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
+    **Single label classification**: your file can only be tagged with one class; you can do so by selecting one of the buttons next to the class you want to tag this file with.
 
-While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on Save tags button at the top of the page.
+    :::image type="content" source="../media/single.png" alt-text="A screenshot showing the single label classification tag page" lightbox="../media/single.png":::
+
+    **Multi label classification**: your file can be tagged with multiple classes, you can do so by selecting all applicable check boxes next to the classes you want to tag this file with.
+
+    :::image type="content" source="../media/multiple.png" alt-text="A screenshot showing the multiple label classification tag page." lightbox="../media/multiple.png":::
+
+For distribution section, you can **View class distribution across** Training and Testing sets.
+   
+:::image type="content" source="../media/distribution.png" alt-text="A screenshot showing the distribution options" lightbox="../media/distribution.png":::
+
+To add a text file to a training or testing set, use the buttons choose the set it belongs to.
+
+> [!TIP]
+> It is recommended to define your testing set.
+
+Your changes will be saved periodically as you add tags. If they have not been saved yet you will find a warning at the top of your page. If you want to save manually, select **Save tags** at the top of the page.
 
 ## Remove tags
 

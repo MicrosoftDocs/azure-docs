@@ -1,16 +1,16 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+description: Comprehensive list of Azure Government Cloud Solution Providers, resellers, and distributors.
 services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 10/05/2021
+ms.date: 01/19/2022
 ---
 
 # Azure Government authorized reseller list
 
-Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we have worked with the partner community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
+Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we've worked with the partner community to bring them the benefits of this channel. Our goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
 
 Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
 
@@ -82,6 +82,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
 |[Castalia Systems](https://www.castaliasystems.com)|
+|[cb20](https://cb20.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
 |[cBEYONData](https://cbeyondata.com/)|
 |[CBTS](https://www.cbts.com/)|
@@ -92,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
-|[Ciracom Inc.](https://ciracom.com)|
+|[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
@@ -101,7 +102,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
-|[Computer Professionals International](http://www.comproinc.com/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
@@ -144,7 +144,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
-|[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
@@ -172,7 +171,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[FourPoints Technology](https://www.4points.com)|
 |[For The Record LTD](https://www.fortherecord.com/)|
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
-|[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
@@ -200,7 +198,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
-|[I10 Inc](http://i10agile.com/)|
+|I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
@@ -383,7 +381,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[South River Technologies](https://southrivertech.com)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
-|[Static Networks, LLC](https://staticnetworks.com)|
+|Static Networks, LLC|
 |[Steel Root](https://steelroot.us)|
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
@@ -472,6 +470,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
+|[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
 |[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
@@ -484,7 +483,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
-|PC Connection|govtssms@connection.com|800-998-0009|
+|PC Connection|govtssms@connection.com|800-800-0019|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 

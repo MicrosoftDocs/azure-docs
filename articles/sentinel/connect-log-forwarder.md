@@ -3,7 +3,7 @@ title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentine
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
 author: batamig
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 12/23/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -31,6 +31,8 @@ Using the link provided below, you will run a script on the designated machine t
  
 ## Prerequisites
 
+[!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
 Your machine must meet the following requirements:
 
 - **Hardware (physical/virtual)**
@@ -43,8 +45,8 @@ Your machine must meet the following requirements:
 - **Operating system**
 
     - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
-    - Amazon Linux 2017.09 (64-bit only)
-    - Oracle Linux 7 (64-bit/32-bit)
+    - Amazon Linux 2017.09 and Amazon Linux 2 (64-bit only)
+    - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
     - Ubuntu Linux 14.04 LTS and 16.04 LTS (64-bit/32-bit), 18.04 LTS (64-bit only), and 20.04 LTS (64-bit only)

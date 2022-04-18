@@ -7,9 +7,9 @@ ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MaraSteiu 
-ms.author: masteiu
-ms.reviewer: mathoma
+author: rothja 
+ms.author: jroth
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between databases in Azure SQL Database and SQL Server

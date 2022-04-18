@@ -1,5 +1,5 @@
 ---
-title: Manage retention policy with Azure Video Analyzer
+title: Manage retention policy 
 description: This topic explains how to manage retention policy with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -31,7 +31,7 @@ The retention period is typically set in the properties of a video sink node whe
 }
 ```
 
-You can also set or update the `retentionPeriod` property of a video resource, using Azure portal, or via the [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json). Below is an example of setting a 3-day retention policy.
+You can also set or update the `retentionPeriod` property of a video resource, using Azure portal, or via the [REST API](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json). Below is an example of setting a 3-day retention policy.
 
 ```
 "archival":
@@ -50,4 +50,4 @@ You can also set or update the `retentionPeriod` property of a video resource, u
 
 ## Next steps
 
-[Playback of recordings](playback-recordings-how-to.md)
+[Recorded and live videos](viewing-videos-how-to.md)

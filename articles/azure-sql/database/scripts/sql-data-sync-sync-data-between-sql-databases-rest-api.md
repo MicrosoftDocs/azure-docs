@@ -7,9 +7,9 @@ ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: rest-api
 ms.topic: sample
-author: MaraSteiu 
-ms.author: masteiu
-ms.reviewer: mathoma
+author: rothja 
+ms.author: jroth
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 

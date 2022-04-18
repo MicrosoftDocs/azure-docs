@@ -3,7 +3,7 @@ title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, mode-other
+ms.custom: devx-track-azurecli, mode-api
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
@@ -25,7 +25,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 

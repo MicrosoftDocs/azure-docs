@@ -3,7 +3,7 @@ title: Custom domains in Azure Active Directory Application Proxy
 description: Configure and manage custom domains in Azure Active Directory Application Proxy. 
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -90,7 +90,7 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section. If the certificate is not valid or there is a problem with the password you will see an error message. The [Application Proxy FAQ](application-proxy-faq.yml#application-configuration) contains some troubleshooting steps you can try.
+7. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section. If the certificate is not valid or there is a problem with the password you will see an error message. The [Application Proxy FAQ](application-proxy-faq.yml) contains some troubleshooting steps you can try.
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    

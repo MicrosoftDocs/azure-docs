@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 # [C#](#tab/csharp)
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 ---
 
@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.1.0
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -138,7 +138,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)
@@ -204,6 +204,10 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        ```
 
 5. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
@@ -265,6 +269,11 @@ In this tutorial, you learn how to:
             return value.ToString("0.000");
         }
         ``` 
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        using Microsoft.Azure.WebPubSub.Common;
+        ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
@@ -310,14 +319,14 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
 
-    Run command below in the function folder to set the service connection string. Replace `<connection-string`> with your value as needed.
+    Run command below in the function folder to set the service connection string. Replace `<connection-string>` with your value as needed.
 
     ```bash
     func settings add WebPubSubConnectionString "<connection-string>"
     ```
 
     > [!NOTE]
-    > `TimerTrigger` used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
+    > `TimerTrigger` used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
     Now you're able to run your local function by command below.
 
@@ -338,19 +347,19 @@ Use the following commands to create these item.
 
 1. If you haven't done so already, sign in to Azure:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
-    ```bash
+    ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
     ```
 
 1. Create a general-purpose storage account in your resource group and region:
 
-    ```bash
+    ```azurecli
     az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
     ```
 
@@ -358,13 +367,15 @@ Use the following commands to create these item.
 
     # [JavaScript](#tab/javascript)
 
-    ```bash
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
+    > [!NOTE]
+    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
     # [C#](#tab/csharp)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 

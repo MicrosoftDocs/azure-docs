@@ -1,12 +1,12 @@
 ---
 title: Getting started with Azure Cosmos DB Partial Document Update
 description: This article provides example for how to use Partial Document Update with .NET, Java, Node SDKs
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.author: abhishgu
+ms.date: 12/09/2021
+ms.author: jroth
 ms.custom: ignite-fall-2021
 ---
 
@@ -45,7 +45,7 @@ List<PatchOperation> patchOperations = new List<PatchOperation>();
 patchOperations.Add(PatchOperation.Add("/nonExistentParent/Child", "bar"));
 patchOperations.Add(PatchOperation.Remove("/cost"));
 patchOperations.Add(PatchOperation.Increment("/taskNum", 6));
-patchOperations.Add(patchOperation.Set("/existingPath/newproperty",value));
+patchOperations.Add(PatchOperation.Set("/existingPath/newproperty",value));
 
 container.PatchItemAsync<item>(
                 id: 5,
@@ -158,7 +158,14 @@ if (response.isSuccessStatusCode()) {
 }
 ```
 
-## Node
+## Node.js
+
+Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](sql/sql-api-sdk-node.md) is available from version *3.15.0* onwards. You can download it from the [NPM Registry](https://www.npmjs.com/package/@azure/cosmos/v/3.15.0)
+
+> [!NOTE]
+> A complete partial document update sample can be found in the [.js v3 samples repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/ItemManagement.ts#L167) on GitHub. In the sample, as the container is created without a partition key specified, the JavaScript SDK
+resolves the partition key values from the items through the container's partition
+key definition.
 
 **Executing a single patch operation**
 
@@ -284,6 +291,40 @@ Partial Document Update operations can also be [executed on the server-side](sto
                     } 
                 ); 
             }; 
+```
+> [!NOTE]
+> Definition of validateOptionsAndCallback can be found in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
+
+
+**Sample parameter for patch operation**
+
+```javascript
+function () {
+   var doc = {
+      "id": "exampleDoc",
+      "field1": {
+         "field2": 10,
+         "field3": 20
+      }
+   };
+   var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
+         if (err) throw err;
+         var patchSpec = [
+            {"op": "add", "path": "/field1/field2", "value": 20}, 
+            {"op": "remove", "path": "/field1/field3"}
+         ];
+         isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
+               if (err) throw err;
+               else {
+                  getContext().getResponse().setBody(docPatched);
+               }
+            }
+         }
+         if(!isAccepted) throw new Error("patch was't accepted")
+      }
+   }
+   if(!isAccepted) throw new Error("create wasn't accepted")
+}
 ```
 
 ## Troubleshooting

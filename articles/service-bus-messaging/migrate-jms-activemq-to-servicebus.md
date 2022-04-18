@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
 ms.date: 09/27/2021
 ms.author: spelluru

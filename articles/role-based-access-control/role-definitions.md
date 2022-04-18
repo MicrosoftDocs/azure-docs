@@ -4,11 +4,11 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/28/2021
+ms.date: 01/06/2022
 ms.author: rolyon
 ms.custom:
 ---
@@ -20,7 +20,7 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using Azure PowerShell:
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```
 Name
@@ -34,7 +34,7 @@ NotDataActions []
 AssignableScopes []
 ```
 
-The following shows an example of the properties in a role definition when displayed using the Azure portal, Azure CLI, or the REST API:
+The following shows an example of the properties in a role definition when displayed using the [Azure portal](role-definitions-list.md#azure-portal), [Azure CLI](role-definitions-list.md#azure-cli), or the [REST API](role-definitions-list.md#rest-api):
 
 ```
 roleName
@@ -82,7 +82,7 @@ The `{action}` portion of an action string specifies the type of actions you can
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in Azure PowerShell:
+Contributor role as displayed in [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```json
 {
@@ -108,7 +108,7 @@ Contributor role as displayed in Azure PowerShell:
 }
 ```
 
-Contributor role as displayed in Azure CLI:
+Contributor role as displayed in [Azure CLI](role-definitions-list.md#azure-cli):
 
 ```json
 {
@@ -346,7 +346,7 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
 > | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).

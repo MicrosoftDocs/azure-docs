@@ -1,8 +1,8 @@
 ---
 title: Deploy a vision AI model to Azure Percept DK
 description: Learn how to deploy a vision AI model to your Azure Percept DK from Azure Percept Studio
-author: tsampige
-ms.author: amiyouss
+author: nkhuyent
+ms.author: tsampige
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
@@ -33,7 +33,7 @@ Follow this guide to deploy a vision AI model to your Azure Percept DK from with
 
     :::image type="content" source="./media/how-to-deploy-model/select-device.png" alt-text="Percept devices list.":::
 
-1. On the next page, click **Deploy a sample model** if you would like to deploy one of the pre-trained sample vision models. If you would like to deploy an existing [custom no-code vision solution](./tutorial-nocode-vision.md), click **Deploy a Custom Vision project**.
+1. On the next page, click **Deploy a sample model** if you would like to deploy one of the pre-trained sample vision models. If you would like to deploy an existing [custom no-code vision solution](./tutorial-nocode-vision.md), click **Deploy a Custom Vision project**. If you do not see your Custom Vision projects, set project's domain to "General (Compact)" on [Custom Vision portal](https://www.customvision.ai/) and train a model again. Other domains are not supported currently.
 
     :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Model choices for deployment.":::
 

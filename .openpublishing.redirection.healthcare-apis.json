@@ -93,11 +93,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/convert-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/convert-data",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/customer-managed-key.md",
         "redirect_url": "/azure/healthcare-apis/fhir/customer-managed-key",
         "redirect_document_id": true
@@ -230,11 +225,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/configure-private-link.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/configure-private-link",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/convert-data",
         "redirect_document_id": true
     },
     {
@@ -373,23 +363,23 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/de-identified-export.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/de-identified-export",
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/de-identified-export.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/de-identified-export",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/export-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/export-data",
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/export-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/export-data",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/move-to-synapse.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/move-to-synapse",
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/move-to-synapse.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/copy-to-synapse",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/configure-export-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/configure-export-data",
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/configure-export-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/configure-export-data",
         "redirect_document_id": true
     },
     {
@@ -439,7 +429,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial.md",
-        "redirect_url": "/azure/healthcare-apis/use-postman",
+        "redirect_url": "/azure/healthcare-apis/fhir/use-postman",
         "redirect_document_id": true
     },
     {
@@ -491,6 +481,16 @@
         "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
         "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/convert-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/configure-import-data",
+        "redirect_document_id": true
     }
   ]
 }

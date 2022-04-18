@@ -7,16 +7,16 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 12/09/2021
 ---
 
 #	Language detection cognitive skill
 
-The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
 This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment-v3.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
-Language detection leverages Bing's natural language processing libraries, which exceeds the number of [supported languages and regions](../cognitive-services/text-analytics/language-support.md) listed for Text Analytics. The exact list of languages is not published, but includes all widely-spoken languages, plus variants, dialects, and some regional and cultural languages. If you have content expressed in a less frequently used language, you can [try the Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) to see if it returns a code. The response for languages that cannot be detected is `(Unknown)`.
+See [supported languages](../cognitive-services/language-service/language-detection/language-support.md) for Language Detection. If you have content expressed in an unsupported language, the response is `(Unknown)`.
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -34,8 +34,8 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) on this topic for more details. Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
-| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
+| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot [disambiguate the language](../cognitive-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/language-detection/how-to/call-api.md#specify-the-language-detection-model) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 
@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 | Inputs	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) on this topic for more details. |
+| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot [disambiguate the language](../cognitive-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). |
 
 ## Skill outputs
 
@@ -54,7 +54,7 @@ Parameters are case-sensitive.
 | `languageName` | The name of language. For example "English". |
 | `score` | A value between 0 and 1. The likelihood that language is correctly identified. The score may be lower than 1 if the sentence has mixed languages.  |
 
-##	Sample definition
+## Sample definition
 
 ```json
  {
@@ -87,7 +87,7 @@ Parameters are case-sensitive.
   }
 ```
 
-##	Sample input
+## Sample input
 
 ```json
 {
@@ -117,8 +117,7 @@ Parameters are case-sensitive.
     ]
 ```
 
-
-##	Sample output
+## Sample output
 
 ```json
 {

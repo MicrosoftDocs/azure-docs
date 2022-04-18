@@ -1,7 +1,8 @@
 ---
 title: Share VM images in a compute gallery 
 description: Learn how to use an Azure Compute Gallery to share VM images.
-author: cynthn
+author: sandeepraichura
+ms.author: saraic
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
@@ -35,7 +36,7 @@ An image is a copy of either a full VM (including any attached data disks) or ju
 
 If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an Azure Compute Gallery as a repository. 
 
-The there are multiple resource types that are created when you use a gallery for storing images:
+When you use a gallery to store images, multiple resource types are created:
 
 | Resource | Description|
 |----------|------------|

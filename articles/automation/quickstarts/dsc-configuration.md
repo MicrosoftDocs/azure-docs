@@ -34,7 +34,7 @@ There are many different methods to enable a machine for Automation State Config
 2. Click **Add** to open the **VM select** page.
 3. Find the virtual machine for which to enable DSC. You can use the search field and filter options to find a specific virtual machine.
 4. Click on the virtual machine, and then click **Connect**
-5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
+5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status reported is `Connecting`.
 
 ![Enabling an Azure VM for DSC](./media/dsc-configuration/dsc-onboard-azure-vm.png)
@@ -52,7 +52,7 @@ Modules contain DSC resources and many can be found in the [PowerShell Gallery](
 
 ## Import the configuration
 
-This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
+This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](/powershell/dsc/configurations/configurations).
 
 In a text editor, type the following and save it locally as **AMPServer.ps1**.
 
@@ -110,7 +110,7 @@ You can assign a compiled node configuration to a DSC node. Assignment applies t
 1. In the left pane of the Automation account, select **State Configuration (DSC)** and then click the **Nodes** tab.
 1. Select the node to which to assign a configuration.
 1. Click **Assign Node Configuration**
-1. Select the node configuration `LAMPServer.localhost` and click **OK**. State Configuration now assigns the compiled configuration to the node, and the node status changes to `Pending`. On the next periodic check, the node retrieves the configuration, applies it, and reports status. It can take up to 30 minutes for the node to retrieve the configuration, depending on the node settings. 
+1. Select the node configuration `LAMPServer.localhost` and click **OK**. State Configuration now assigns the compiled configuration to the node, and the node status changes to `Pending`. On the next periodic check, the node retrieves the configuration, applies it, and reports status. It can take up to 30 minutes for the node to retrieve the configuration, depending on the node settings.
 1. To force an immediate check, you can run the following command locally on the Linux virtual machine:
    `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 

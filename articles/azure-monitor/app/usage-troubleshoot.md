@@ -3,7 +3,6 @@ title: Troubleshoot user analytics tools - Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 ms.topic: conceptual
 ms.date: 07/30/2021
-
 ---
 
 # Troubleshoot user behavior analytics tools in Application Insights
@@ -12,7 +11,7 @@ Have questions about the [user behavior analytics tools in Application Insights]
 ## Counting Users
 **The user behavior analytics tools show that my app has one user/session, but I know my app has many users/sessions. How can I fix these incorrect counts?**
 
-All telemetry events in Application Insights have an [anonymous user ID](./data-model-context.md) and a [session ID](./data-model-context.md) as two of their standard properties. By default, all of the usage analytics tools count users and sessions based on these IDs. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
+All telemetry events in Application Insights have an [anonymous user ID](./data-model-context.md#anonymous-user-id) and a [session ID](./data-model-context.md#session-id) as two of their standard properties. By default, all of the usage analytics tools count users and sessions based on these IDs. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
 
 If you're monitoring a web app, the easiest solution is to add the [Application Insights JavaScript SDK](./javascript.md) to your app, and make sure the script snippet is loaded on each page you want to monitor. The JavaScript SDK automatically generates anonymous user and session IDs, then populates telemetry events with these IDs as they're sent from your app.
 

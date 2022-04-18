@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 04/28/2020
 ---
 # Use PowerShell to configure SQL Database auditing and Advanced Threat Protection
@@ -48,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseaudit) | Sets the auditing policy for a database. |
 | Set-AzSqlDatabaseThreatDetectionPolicy | Sets an Advanced Threat Protection policy on a database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
-|||
+
 
 ## Next steps
 

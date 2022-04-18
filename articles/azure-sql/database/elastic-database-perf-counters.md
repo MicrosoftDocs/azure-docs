@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 02/07/2019
 ---
 # Create performance counters to track performance of shard map manager

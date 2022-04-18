@@ -4,7 +4,7 @@ description: Restrict guest user access permissions using the Azure portal, Powe
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: active-directory

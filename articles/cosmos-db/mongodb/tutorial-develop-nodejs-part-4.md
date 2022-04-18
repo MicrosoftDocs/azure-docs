@@ -4,7 +4,7 @@ description: Part 4 of the tutorial series on creating a MongoDB app with Angula
 author: johnpapa
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jopapa
@@ -44,7 +44,7 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) command.
+Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

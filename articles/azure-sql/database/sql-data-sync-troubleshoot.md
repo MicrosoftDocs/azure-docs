@@ -7,9 +7,9 @@ ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1
 ms.devlang: 
 ms.topic: troubleshooting
-author: MaraSteiu 
-ms.author: masteiu
-ms.reviewer: mathoma
+author: rothja 
+ms.author: jroth
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync

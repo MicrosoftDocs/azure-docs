@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/11/2020
 ---
 # Ports beyond 1433 for ADO.NET 4.5

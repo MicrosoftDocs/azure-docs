@@ -3,7 +3,7 @@ title: How to create a free Azure Active Directory developer tenant
 description: This article shows you how to create a developer account
 services: active-directory
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-ms.date: 11/5/2018
+ms.date: 01/21/2022
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: security
@@ -56,7 +56,7 @@ Permissions on Azure Repos and GitHub are independent of Data Factory permission
 
    In publish context, **Microsoft.DataFactory/factories/write** permission applies to following modes.
 - That permission is only required in Live mode when the customer modifies the global parameters.
-- That permission is always required in Git mode since every time after the customer publishes,the factory object with the last commit ID needs to be updated.
+- That permission is always required in Git mode since every time after the customer publishes, the factory object with the last commit ID needs to be updated.
 
 ### Custom scenarios and custom roles
 

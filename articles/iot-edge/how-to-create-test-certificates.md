@@ -1,10 +1,10 @@
 ---
 title: Create test certificates - Azure IoT Edge | Microsoft Docs
 description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 10/25/2021
+ms.author: patricka
+ms.date: 01/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -256,8 +256,8 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
    This command creates several certificate and key files. The following certificate and key pair needs to be copied over to an IoT Edge device and referenced in the config file:
 
-   * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-<CA cert name>.key.pem`
 
 The name passed to the **New-CACertsEdgeDevice** command should not be the same as the hostname parameter in the config file, or the device's ID in IoT Hub.
 
@@ -273,8 +273,8 @@ The name passed to the **New-CACertsEdgeDevice** command should not be the same 
 
    This script command creates several certificate and key files. The following certificate and key pair needs to be copied over to an IoT Edge device and referenced in the config file:
 
-   * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-<CA cert name>.key.pem`
 
 The name passed to the **create_edge_device_ca_certificate** command should not be the same as the hostname parameter in the config file, or the device's ID in IoT Hub.
 

@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Automation Update Management from an Azure VM
-description: This article tells how to enable Update Management from an Azure VM.
+title: Enable Azure Automation Update Management for an Azure VM
+description: This article tells how to enable Update Management for an Azure VM.
 services: automation
 ms.subservice: update-management
 ms.date: 11/04/2020
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ---
 
-# Enable Update Management from an Azure VM
+# Enable Update Management for an Azure VM
 
 This article describes how you can enable the [Update Management](overview.md) feature on one or more Azure virtual machines (VM). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 

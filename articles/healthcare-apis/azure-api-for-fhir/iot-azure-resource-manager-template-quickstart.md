@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
 ms.author: rabhaiya
-ms.date: 09/10/2021
-ms.custom: devx-track-azurepowershell, mode-other
+ms.date: 02/15/2022
+ms.custom: devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
@@ -254,7 +254,7 @@ Once you've deployed your IoT Central application, your two out-of-the-box simul
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../fhir/use-postman.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.

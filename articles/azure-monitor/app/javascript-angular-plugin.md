@@ -6,8 +6,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
-author: mattmccleary
-ms.author: mmcc
+ms.devlang: javascript
 ---
 
 # Angular plugin for Application Insights JavaScript SDK
@@ -19,6 +18,9 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+
+> [!IMPORTANT]
+> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
 
 ## Getting started
 
@@ -81,4 +83,4 @@ export class AppModule { }
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md)
-- [Angular plugin on GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js)
+- [Angular plugin on GitHub](https://github.com/microsoft/applicationinsights-angularplugin-js)

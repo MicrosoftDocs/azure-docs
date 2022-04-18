@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
@@ -32,7 +33,7 @@ There are two parts to this configuration besides creating the App Service and t
 With Azure portal, you follow four steps to provision and configure the setup. If you have existing resources, you can skip the first steps.
 1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.NET Core Quickstart](../quickstart-dotnetcore.md)
 2. Create an Application Gateway using the [portal Quickstart](../../application-gateway/quick-create-portal.md), but skip the Add backend targets section.
-3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app-portal.md), but skip the Restrict access section.
+3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app.md), but skip the Restrict access section.
 4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
@@ -44,7 +45,7 @@ The [Resource Manager deployment template][template-app-gateway-app-service-comp
 
 To apply the template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
 
-## Using Azure Command Line Interface
+## Using Azure CLI
 The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) will provision an App Service locked down with service endpoints and access restriction to only receive traffic from Application Gateway. If you only need to isolate traffic to an existing App Service from an existing Application Gateway, the following command is sufficient.
 
 ```azurecli-interactive

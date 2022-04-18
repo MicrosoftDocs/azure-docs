@@ -58,8 +58,8 @@ The self-hosted gateway currently does not send [diagnostic logs](./api-manageme
 
 If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect logs from your containers and view them in Log Analytics. 
 
-
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn about [configuring and persisting logs locally](how-to-configure-local-metrics-logs.md)

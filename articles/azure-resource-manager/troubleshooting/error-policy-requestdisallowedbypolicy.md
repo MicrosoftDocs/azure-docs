@@ -1,55 +1,89 @@
 ---
 title: RequestDisallowedByPolicy error
-description: Describes the cause of the RequestDisallowedByPolicy error when deploying resources with Azure Resource Manager.
+description: Describes the cause of the RequestDisallowedByPolicy error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 author: genlin
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 12/08/2021
 ms.author: genli
 ms.custom: devx-track-azurepowershell
 ---
+
 # RequestDisallowedByPolicy error with Azure resource policy
 
-This article describes the cause of the RequestDisallowedByPolicy error, it also provides solution for this error.
+This article describes the cause of the `RequestDisallowedByPolicy` error and provides a solution for the error. The error can occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
 
 ## Symptom
 
-During deployment, you might receive a **RequestDisallowedByPolicy** error that prevents you from creating the resources. The following example shows the error:
+During a deployment, you might receive a `RequestDisallowedByPolicy` error that prevents you from creating a resource. Azure CLI, Azure PowerShell, and the Azure portal's activity log show similar information about the error. The key elements are the error code, policy assignment, and policy definition.
 
-```json
-{
-  "statusCode": "Forbidden",
-  "serviceRequestId": null,
-  "statusMessage": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}",
-  "responseBody": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}"
-}
+```Output
+"statusMessage": "{"error":{"code":"RequestDisallowedByPolicy", "target":"examplenic1207",
+  "message":"Resource `examplenic1207` was disallowed by policy. Policy identifiers:
+
+"policyAssignment":{"name":"Network interfaces should not have public IPs",
+  "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyAssignments/1111aa2222bb3333cc4444dd"}
+
+"policyDefinition":{"name":"Network interfaces should not have public IPs",
+  "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114"}
 ```
 
-## Troubleshooting
+The name of a `policyAssignment` or `policyDefinition` is the last segment of the `id` string. The `{guid}` placeholder represents an Azure subscription ID.
 
-To retrieve details about the policy that blocked your deployment, use the following one of the methods:
+## Cause
 
-### PowerShell
+In this example, the error occurred when an administrator attempted to create a network interface with a public IP address. A policy assignment enables enforcement of a built-in policy definition that prevents public IPs on network interfaces.
 
-In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
+You can use the name of a policy assignment or policy definition to get more details about a policy that caused the error. The example commands use placeholders for input. For example, replace `<policy definition name>` including the angle brackets, with the definition name from your error message.
 
-```powershell
-(Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
-```
+# [Azure CLI](#tab/azure-cli)
 
-### Azure CLI
-
-In Azure CLI, provide the name of the policy definition:
+To get more information about a policy definition, use [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show).
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+defname=<policy definition name>
+az policy definition show --name $defname
 ```
+
+To get more information about a policy assignment, use [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show).
+
+```azurecli
+rg=<resource group name>
+assignmentname=<policy assignment name>
+az policy assignment show --name $assignmentname --resource-group $rg
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+To get more information about a policy definition, use [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition).
+
+The `ConvertTo-Json` cmdlet has a `Depth` parameter that expands the output and the default value is 2. For more information, see [ConvertTo-Json](/powershell/module/microsoft.powershell.utility/convertto-json).
+
+```azurepowershell
+$subid = (Get-AzContext).Subscription.Id
+$defname = "<policy definition name>"
+(Get-AzPolicyDefinition -Id "/subscriptions/$subid/providers/Microsoft.Authorization/policyDefinitions") |
+  Where-Object -Property Name -EQ -Value $defname |
+    ConvertTo-Json -Depth 10
+```
+
+To get more information about a policy assignment, use [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+
+```azurepowershell
+$rg = Get-AzResourceGroup -Name "<resource group name>"
+$assignmentname = "<policy assignment name>"
+Get-AzPolicyAssignment -Name $assignmentname -Scope $rg.ResourceId | ConvertTo-Json -Depth 5
+```
+
+---
 
 ## Solution
 
-For security or compliance, your subscription administrators might assign policies that limit how resources are deployed. For example, your subscription might have a policy that prevents creating Public IP addresses, Network Security Groups, User-Defined Routes, or route tables. The error message in the **Symptoms** section shows the name of the policy.
-To resolve this problem, review the resource policies, and determine how to deploy resources that comply with those policies.
+For security or compliance, your subscription administrators might assign policies that limit how resources are deployed. For example, policies that prevent creating public IP addresses, network security groups, user-defined routes, or route tables.
+
+To resolve `RequestDisallowedByPolicy` errors, review the resource policies and determine how to deploy resources that comply with those policies. The error message displays the names of the policy definition and policy assignment.
 
 For more information, see the following articles:
 
 - [What is Azure Policy?](../../governance/policy/overview.md)
-- [Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
+- [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
+- [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md)

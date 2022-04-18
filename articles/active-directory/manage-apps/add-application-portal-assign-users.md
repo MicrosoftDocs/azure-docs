@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 03/24/2022
 ms.author: davidmu
 ms.reviewer: alamaral
-# Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ---
 
 # Quickstart: Create and assign a user account
@@ -26,7 +26,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To create a user account and assign it to an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
@@ -61,7 +61,7 @@ To assign a user account to an enterprise application:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant.
 
 ## Next steps
 

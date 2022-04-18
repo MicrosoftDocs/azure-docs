@@ -9,7 +9,7 @@ ms.devlang: cpp
 ms.topic: how-to
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++

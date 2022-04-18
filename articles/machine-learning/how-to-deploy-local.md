@@ -5,8 +5,8 @@ description: 'This article describes how to use your local computer as a target 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: laobri
-author: lobrien
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy
@@ -25,7 +25,7 @@ Scenarios for local deployment include:
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md).
+- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-deploy-notebook.md).
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 - A conda manager, like Anaconda or Miniconda, if you want to mirror Azure Machine Learning package dependencies.
 - Docker, if you want to use a containerized version of the Azure Machine Learning environment.
@@ -35,6 +35,9 @@ Scenarios for local deployment include:
 The most reliable way to locally run an Azure Machine Learning model is with a Docker image. A Docker image provides an isolated, containerized experience that duplicates, except for hardware issues, the Azure execution environment. For more information on installing and configuring Docker for development scenarios, see [Overview of Docker remote development on Windows](/windows/dev-environment/docker/overview).
 
 It's possible to attach a debugger to a process running in Docker. (See [Attach to a running container](https://code.visualstudio.com/docs/remote/attach-container).) But you might prefer to debug and iterate your Python code without involving Docker. In this scenario, it's important that your local machine uses the same libraries that are used when you run your experiment in Azure Machine Learning. To manage Python dependencies, Azure uses [conda](https://docs.conda.io/). You can re-create the environment by using other package managers, but installing and configuring conda on your local machine is the easiest way to synchronize. 
+
+> [!IMPORTANT]
+> GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
 
 ## Prepare your entry script
 
@@ -53,7 +56,7 @@ The argument to the `run()` method will be in this form:
 
 The object you return from the `run()` method must implement `toJSON() -> string`.
 
-The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-models-with-aml.md).
+The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-deploy-notebook.md).
 
 ```python
 import json
@@ -95,7 +98,7 @@ The easiest way to replicate the environment used by Azure Machine Learning is t
 The following code shows these steps:
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.webservice import LocalWebservice
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
 from azureml.core import Workspace
@@ -121,6 +124,7 @@ print(f"Scoring URI is : {local_service.scoring_uri}")
 ```
 
 The call to `Model.deploy()` can take a few minutes. After you've initially deployed the web service, it's more efficient to use the `update()` method rather than starting from scratch. See [Update a deployed web service](how-to-deploy-update-web-service.md).
+
 
 ### Test your local deployment
 
@@ -180,7 +184,7 @@ Using Docker to deploy your model as a web service is the most common option. Bu
 You can download the model:  
 
 - From the portal, by selecting the **Models** tab, selecting the desired model, and on the **Details** page, selecting **Download**.
-- From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ml/model#az_ml_model_download))
+- From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ml/model#az-ml-model-download))
 - By using the Python SDK `Model.download()` method. (See [Model class.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
 An Azure model may be in whatever form your framework uses but is generally one or more serialized Python objects, packaged as a Python pickle file (.pkl extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:

@@ -8,9 +8,10 @@ titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 08/03/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Azure SQL connectivity settings
@@ -30,20 +31,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 ## Deny public network access
 
-When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. When this setting is **No** (default), customers can connect by using either public endpoints (with IP-based firewall rules or with virtual-network-based firewall rules) or private endpoints (by using Azure Private Link), as outlined in the [network access overview](network-access-controls-overview.md).
-
- ![Diagram showing connectivity when Deny public network access is set to yes versus when Deny public network access is set to no.][2]
-
-Any attempts to set **Deny public network access** to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
-
-```output
-Error 42102
-Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server.
-Please set up private endpoints and retry the operation.
-```
-
-> [!NOTE]
-> To define virtual network firewall rules on a logical server that has already been configured with private endpoints, set **Deny public network access** to **No**.
+The default for this setting is **No** so that customers can connect by using either public endpoints (with IP-based server- level firewall rules or with virtual-network firewall rules) or private endpoints (by using Azure Private Link), as outlined in the [network access overview](network-access-controls-overview.md).
 
 When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. All connections via public endpoints will be denied with an error message similar to:  
 
@@ -54,13 +42,14 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-When **Deny public network access** is set to **Yes**, any attempts to add or update firewall rules will be denied with an error message similar to:
+When **Deny public network access** is set to **Yes**, any attempts to add, remove or edit any firewall rules will be denied with an error message similar to:
 
 ```output
 Error 42101
 Unable to create or modify firewall rules when public network interface for the server is disabled. 
 To manage server or database level firewall rules, please enable the public network interface.
 ```
+Ensure that **Deny public network access** is set to **No** to be able to add, remove or edit any firewall rules for Azure Sql
 
 ## Change public network access via PowerShell
 

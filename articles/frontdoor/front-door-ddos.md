@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -17,9 +16,9 @@ ms.author: jodowns
 
 Azure Front Door has several features and characteristics that can help to prevent distributed denial of service (DDoS) attacks. These features can prevent attackers from reaching your application and affecting your application's availability and performance.
 
-## Integration with Azure DDoS Protection Basic
+## Infrastructure DDoS protection
 
-Front Door is protected by Azure DDoS Protection Basic. It is integrated into the Front Door platform by default and at no additional cost. The full scale and capacity of Front Door's globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. Basic DDoS protection also defends against the most common, frequently occurring layer 7 DNS query floods and layer 3 and 4 volumetric attacks that target public endpoints. This service also has a proven track record in protecting Microsoft's enterprise and consumer services from large-scale attacks. For more information, see [Azure DDoS Protection](../security/fundamentals/ddos-best-practices.md).
+Front Door is protected by the default Azure infrastructure DDoS protection. The full scale and capacity of Front Door's globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. This infrastructure DDoS protection has a proven track record in protecting Microsoft's enterprise and consumer services from large-scale attacks.
 
 ## Protocol blocking
 
@@ -45,7 +44,7 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 
 ## For further protection
 
-If you require further protection, then you can enable [Azure DDoS Protection Standard](../security/fundamentals/ddos-best-practices.md#ddos-protection-standard) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+If you require further protection, then you can enable [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
 
 ## Next steps
 

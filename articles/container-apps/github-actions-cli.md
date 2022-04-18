@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/30/2021
 ms.author: cshoe
 ---
 
@@ -54,7 +54,7 @@ az ad sp create-for-rbac `
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
-The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
+The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `clientId`, and `clientSecret`.
 
 The following example shows you how to add an integration while using a personal access token.
 

@@ -133,6 +133,12 @@ might not be pre-installed in your image yet.
 
 ## Windows
 
+### Virtual Machine Generation 2 (Gen 2) not working
+When you try to create Data Science VM based on Virtual Machine Generation 2 (Gen 2) it fails.
+
+Currently, we maintain and provide images for Data Science VM based on Windows 2019 Server only for Generation 1 virtual machines. [Gen 2](../../virtual-machines/generation-2.md) are not yet supported and we plan to support them in near future. 
+
+
 ### Accessing SQL Server
 
 When you try to connect to the pre-installed SQL Server instance, you might encounter a "login failed" error. To

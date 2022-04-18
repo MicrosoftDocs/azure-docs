@@ -6,11 +6,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: connect
 ms.custom: sqldbrb=2, devx-track-csharp, mode-other
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use .NET Core (C#) to query a database

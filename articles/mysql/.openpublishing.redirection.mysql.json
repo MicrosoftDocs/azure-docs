@@ -1,25 +1,64 @@
 {
     "redirections": [
     {
-        "source_path_from_root": "/articles/mysql/flexible-server/how-to-configure-audit-log-cli.md",
-        "redirect_url": "/azure/mysql/flexible-server/tutorial-query-performance-insights",
+        "source_path_from_root": "/articles/mysql/concepts-aad-authentication.md",
+        "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/flexible-server/how-to-configure-audit-logs-portal.md",
-        "redirect_url": "/azure/mysql/flexible-server/tutorial-query-performance-insights",
+        "source_path_from_root": "/articles/mysql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/flexible-server/how-to-configure-slow-query-log-cli.md",
-        "redirect_url": "/azure/mysql/flexible-server/tutorial-query-performance-insights",
+        "source_path_from_root": "/articles/mysql/concepts-service-tiers.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/policy-samples.md",
+        "redirect_url": "/azure/mysql/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/store-php-create-mysql-database.md",
+        "redirect_url": "/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/reference-data-in-stored-procedures.md",
+        "redirect_url": "/azure/mysql/reference-stored-procedures",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/reference-sync-data-store-procedures.md",
+        "redirect_url": "/azure/mysql/reference-stored-procedures",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/scripts/sample-pitr-restore.md",
+        "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
+        "redirect_url": "/azure/security-center/enable-azure-defender",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/concepts-data-access-and-security-threat-protection.md",
+        "redirect_url": "/azure/security-center/defender-for-databases-usage",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/migrate/index.md",
+        "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/reference-azure-cli.md",
+        "redirect_url": "/cli/azure/mysql",
         "redirect_document_id": false
     }
-    ,
-    {
-        "source_path_from_root": "/articles/mysql/flexible-server/how-to-configure-slow-query-logs-portal.md",
-        "redirect_url": "/azure/mysql/flexible-server/tutorial-query-performance-insights",
-        "redirect_document_id": false 
-    }
-]
+    ]
 }

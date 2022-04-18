@@ -27,7 +27,7 @@ In order to experience Azure Arc-enabled data services, you will need to complet
 1. [Install client tools](install-client-tools.md).
 1. Access a Kubernetes cluster.
 
-   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the steps at [Create cluster on AKS](create-aks-cluster-data-controller.md).
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the instructions at [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process.
 
 1. [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md).
 
@@ -69,11 +69,9 @@ After you're prepared the infrastructure, deploy Azure Arc-enabled data services
 > [!CAUTION]
 > Some of the data services tiers and modes are in [general availability (GA)](release-notes.md), and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
 
-## Overview: Create an Azure Arc-enabled data controller
+## Deployment requirements
 
-You can create Azure Arc-enabled data services on various types of Kubernetes clusters, and you can create managed Kubernetes services by various approaches.
-
-Currently, the validated list of Kubernetes services and distributions includes:
+You can deploy Azure Arc-enabled data services on various types of Kubernetes clusters. Currently, the validated list of Kubernetes services and distributions includes:
 
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 - Azure Kubernetes Service (AKS)
@@ -84,11 +82,13 @@ Currently, the validated list of Kubernetes services and distributions includes:
 - OpenShift Container Platform (OCP)
 
 > [!IMPORTANT]
-> * The minimum supported version of Kubernetes is v1.19. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
-> * The minimum supported version of OCP is 4.7.
+> * The minimum supported version of Kubernetes is v1.21. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
+> * The minimum supported version of OCP is 4.8.
 > * If you're using Azure Kubernetes Service, your cluster's worker node virtual machine (VM) size should be at least Standard_D8s_v3 and use Premium Disks. 
 > * The cluster should not span multiple availability zones. 
 > * For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
+
+## Deployment information
 
 When you're creating Azure Arc-enabled data services, regardless of the service or distribution option you choose, you'll need to provide the following information:
 
@@ -111,6 +111,8 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - `gcp`
 - `onpremises`
 - `other`
+
+- **Container runtime**: Use `containerd` runtime for the container runtime. Azure Arc-enabled data services does not support Docker runtime.
 
 ## Additional concepts for direct connectivity mode
 

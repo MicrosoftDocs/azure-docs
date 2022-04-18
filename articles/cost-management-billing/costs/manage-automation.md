@@ -3,7 +3,7 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2021
+ms.date: 04/05/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -36,7 +36,13 @@ You might not need to analyze the data daily. If so, consider using Cost Managem
 
 **Usage Details API**
 
-Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. If you have a large amount of cost data, you should request the smallest amount of usage data as possible for a period. To do so, specify either a small time range or use a filter in your request. For example, in a scenario where you need three years of cost data, the API does better when you make multiple calls for different time ranges rather than with a single call. From there, you can load the data into Excel for further analysis.
+Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. Here are recommended best practices:
+
+- If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
+- Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
+- Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
+- If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-export-acm-data.md) as a more scalable solution.
 
 ## Automate retrieval with Usage Details API
 
@@ -93,6 +99,9 @@ For modern customers with a Microsoft Customer Agreement, use the following call
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
+
+> [!NOTE]
+> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
 
 ### Get amortized cost details
 
@@ -159,7 +168,6 @@ With budgets, you're alerted when costs cross a set threshold. You can set up to
     }
   }
 }
-
 ```
 
 Languages supported by a culture code:
@@ -286,8 +294,8 @@ We recommend that you call the APIs no more than once per day. Cost Management d
 
 To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. The current throughput limits for our APIs are as follows:
 
-- 30 calls per minute - It's done per scope, per user, or application.
-- 200 calls per minute - It's done per tenant, per user, or application.
+- 15 calls per minute - It's done per scope, per user, or application.
+- 100 calls per minute - It's done per tenant, per user, or application.
 
 ## Next steps
 

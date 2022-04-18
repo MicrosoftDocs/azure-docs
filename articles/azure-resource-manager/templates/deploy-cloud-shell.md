@@ -11,6 +11,8 @@ You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy an Azur
 
 You can deploy to any scope. This article shows deploying to a resource group.
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deploy remote template
 
 To deploy an external template, provide the URI of the template exactly as you would for any external deployment. The external template could be in a GitHub repository or and an external storage account.
