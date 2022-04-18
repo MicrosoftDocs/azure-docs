@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 3/24/2022
+ms.date: 4/18/2022
 ms.custom:
 ---
 
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-*Data use governance* (DUG) is an option in the data source registration in Microsoft Purview. Its purpose is to make those data sources available in the policy authoring experience of Microsoft Purview Studio. In other words, access policies can only be written on data sources that have been previously registered and with DUG toggle set to enable. 
+*Data use governance* (DUG) is an option (enabled/disabled) that gets displayed when registering a data source in Microsoft Purview. Its purpose is to make that data source available in the policy authoring experience of the Microsoft Purview studio. In other words, access policies can only be written on data sources that have been previously registered with the DUG toggle set to enable.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
@@ -57,8 +57,12 @@ To disable data use governance for a source, resource group, or subscription, a 
 1. Set the **Data use governance** toggle to **Disabled**.
 
 ## Additional considerations related to Data use governance
+
 - Make sure you write down the **Name** you use when registering in Microsoft Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 - To disable a source for *Data use governance*, remove it first from being bound (i.e. published) in any policy.
+- While user needs to have both data source *Owner* and Microsoft Purview *Data source admin* to enable a source for *Data use governance*, either of those roles can independently disable it.
+- Make sure you write down the **Name** you use when registering in Microsoft Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
+- To disable a source for *Data use governance*, remove it first from being bound (i.e., published) in any policy.
 - While user needs to have both data source *Owner* and Microsoft Purview *Data source admin* to enable a source for *Data use governance*, either of those roles can independently disable it.
 - Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
 
