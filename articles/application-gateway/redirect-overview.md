@@ -15,14 +15,15 @@ You can use application gateway to redirect traffic.  It has a generic redirecti
 
 A common redirection scenario for many web applications is to support automatic HTTP to HTTPS redirection to ensure all communication between application and its users occurs over an encrypted path. In the past, customers have used techniques such as creating a dedicated backend pool whose sole purpose is to redirect requests it receives on HTTP to HTTPS. With redirection support in Application Gateway, you can accomplish this simply by adding a new redirect configuration to a routing rule, and specifying another listener with HTTPS protocol as the target listener.
 
-The following types of redirection are supported:
+## Redirection types
+A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-- 301 Permanent Redirect
-- 302 Found
-- 303 See Other
-- 307 Temporary Redirect
+- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
+- 307 (Temporary redirect): Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
+- 308 (Permanent redirect): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
 
-Application Gateway redirection support offers the following capabilities:
+## Redirection capabilities:
 
 -  **Global redirection**
 
