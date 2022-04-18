@@ -47,7 +47,7 @@ async function createBlobFromLocalPath(containerClient, blobName, localFileWithP
 
 ## Upload by using a Stream
 
-The following example uploads a blob by creating a JavaScript stream object. 
+The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions?view=azure-node-latest) to affect the upload:
 
 ```javascript
 // containerName: string
@@ -90,25 +90,78 @@ async function createBlobFromLocalPath(containerClient, blobName, readableStream
 
 ## Upload by using a BinaryData object
 
-The following example uploads a [BinaryData]() object.
+The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions?view=azure-node-latest) to affect the upload:
 
 ```javascript
+// containerName: string
+// blobName: string, includes file extension if provided
+// readableStream: Node.js Readable stream
+// uploadOptions: {
+//    blockSize: destination block blob size in bytes,
+//    concurrency: concurrency of parallel uploading - must be greater than or equal to 0,
+//    maxSingleShotSize: blob size threshold in bytes to start concurrency uploading
+//    metadata, 
+//    onProgress: fnUpdater
+//    tags, 
+//    tier: accessTier (hot, cool, archive), 
+//  }
+async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOptions) {
 
+  // Create blob client from container client
+  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+
+  // Upload buffer
+  const uploadBlobResponse = await blockBlobClient.uploadData(buffer, uploadOptions);
+
+  // Check for errors or get tags from Azure
+  if(uploadBlobResponse.errorCode) {
+    console.log(`${blobName} failed to upload from file: ${errorCode}`);
+  } else {
+    // do something with blob
+    const getTagsResponse = await blockBlobClient.getTags();
+    console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
+  }
+}
 ```
 
 ## Upload a string
 
-The following example uploads a string:
+The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions?view=azure-node-latest) to affect the upload:
 
 ```javascript
+// containerName: string
+// blobName: string, includes file extension if provided
+// fileContentsAsString: blob content
+// uploadOptions: {
+//    metadata, 
+//    onProgress: fnUpdater
+//    tags, 
+//    tier: accessTier (hot, cool, archive), 
+//  }
+async function createBlobFromString(client, blobName, fileContentsAsString, uploadOptions){
 
+  // Create blob client from container client
+  const blockBlobClient = await client.getBlockBlobClient(blobName);
+
+  // Upload string
+  const uploadBlobResponse = await blockBlobClient.upload(fileContentsAsString, fileContentsAsString.length, uploadOptions);
+
+  // Check for errors or get tags from Azure
+  if(uploadBlobResponse.errorCode) {
+    console.log(`${blobName} failed to upload from file: ${errorCode}`);
+  } else {
+    // do something with blob
+    const getTagsResponse = await blockBlobClient.getTags();
+    console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
+  }
+}
 ```
 
 ## Upload with index tags
 
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. You can perform this task by adding tags to a [BlobUploadOptions]() instance, and then passing that instance into the [Upload]() method.
+Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. You can perform this task by adding tags in the uploadOptions parameter for the upload methods.
 
-The following example uploads a blob with three index tags.
+The following example uploads a blob with three index tags. One example of the uploadOptions object follows:
 
 ```javascript
 
@@ -119,13 +172,22 @@ The following example uploads a blob with three index tags.
 You can open a stream in Blob Storage and write to that stream. The following example creates a zip file in Blob Storage and writes files to that file. Instead of building a zip file in local memory, only one file at a time is in memory. 
 
 ```javascript
-```
+const uploadOptions = {
 
-## Upload by staging blocks and then committing them
+    // not indexed for searching
+    metadata: {
+        owner: 'PhillyProject'
+    },
 
-You can have greater control over how to divide our uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach if you want to enhance performance by uploading blocks in parallel. 
-
-```javascript
+    // indexed for searching
+    tags: {
+        createdBy: 'YOUR-NAME',
+        createdWith: `StorageSnippetsForDocs-${i}`,
+        createdOn: (new Date()).toDateString(),
+        reviewedOn: `2022-04-01`,
+        reviewedBy: `johnh`
+    }
+};
 ```
 
 ## See also
