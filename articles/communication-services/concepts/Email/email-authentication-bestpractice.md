@@ -61,7 +61,7 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 - Policy statements domains publishing DMARC records be “p=reject” where possible, “p=quarantine” otherwise. 
 - The policy statement of “p=none”, “sp=none”, and pct<100 should only be viewed as transitional states, with the goal of removing them as quickly as possible. 
 - Any published DMARC policy record should include, at a minimum, a rua tag that points to a mailbox for receiving DMARC aggregate reports and should send no replies back when receiving reports due to privacy concerns.
-- 
+
 ## Next steps
 
 > [Best practices for implementing DMARC](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
