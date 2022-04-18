@@ -19,8 +19,8 @@ ms.date: 10/25/2021
 
 You have two options to connect data factory to Microsoft Purview:
 
-- [Connect to Microsoft Purview account in Data Factory](#connect-to-azure-purview-account-in-data-factory)
-- [Register Data Factory in Microsoft Purview](#register-data-factory-in-azure-purview)
+- [Connect to Microsoft Purview account in Data Factory](#connect-to-microsoft-purview-account-in-data-factory)
+- [Register Data Factory in Microsoft Purview](#register-data-factory-in-microsoft-purview)
 
 ### Connect to Microsoft Purview account in Data Factory
 
