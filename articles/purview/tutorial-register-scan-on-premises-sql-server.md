@@ -159,7 +159,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-credential-secret.png" alt-text="Add values to key vault credential.":::
 
 1. Select **Create** to complete.
-1. In the [Microsoft Purview Studio](#sign-in-to-azure-purview-studio), navigate to the **Management** page in the left menu.
+1. In the [Microsoft Purview Studio](#sign-in-to-microsoft-purview-studio), navigate to the **Management** page in the left menu.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-management.png" alt-text="Select Management page on left menu.":::
 
@@ -195,7 +195,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 ## Register SQL Server
 
-1. Navigate to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and select the [Microsoft Purview Studio](#sign-in-to-azure-purview-studio).
+1. Navigate to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and select the [Microsoft Purview Studio](#sign-in-to-microsoft-purview-studio).
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it's not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
