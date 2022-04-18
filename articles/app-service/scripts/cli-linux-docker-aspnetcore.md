@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/18/2022
 ms.author: msangapu
 ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
 ---
@@ -20,15 +20,38 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker.sh?highlight=6 "Linux Docker")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-linux-docker\deploy-linux-docker-app-only.sh" id="FullScript":::
+
+### Configure Web App with a Custom Docker Container from Docker Hub
+
+Create the following variable containing your GitHub information.
+
+```azurecli
+dockerHubContainerPath="<replace-with-docker-container-path>" #format: <username>/<container-or-image>:<tag>
+```
+
+To configure the web app with a custom docker container from Docker Hub, use the following command:
+
+```azurecli
+
+az webapp config container set --docker-custom-image-name $dockerHubContainerPath --name $webApp --resource-group $resourceGroup
+```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands to create a resource group, App Service app, and all related resources. Each command in the table links to command specific documentation.
 
