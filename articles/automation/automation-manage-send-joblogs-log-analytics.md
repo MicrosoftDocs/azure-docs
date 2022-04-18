@@ -264,7 +264,7 @@ To create an alert rule, create a log search for the runbook job records that sh
     ```kusto
     AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and     Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s 
     ```
- 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-in-the-azure-portal)
+ 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal)
 
 
 ## Azure Automation diagnostic audit logs
