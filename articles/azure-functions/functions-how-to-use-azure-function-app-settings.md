@@ -249,9 +249,9 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 ## Platform features
 
-Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. When working in the [Azure portal](https://portal.azure.com), the left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
-The following matrix indicates Azure portal feature support by hosting plan and operating system:
+The following matrix indicates portal feature support by hosting plan and operating system:
 
 | Feature | Consumption plan | Premium plan  | Dedicated plan | 
 | --- | --- | --- | --- |
