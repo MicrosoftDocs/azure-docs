@@ -374,7 +374,7 @@ Service Connector manages the connection configuration for you:
 
 Service Connector manages the connection configuration for you:
 
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L10).
 - Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
 
 ### [Connection string](#tab/connectionstring)
