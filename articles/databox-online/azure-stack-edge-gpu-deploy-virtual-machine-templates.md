@@ -418,7 +418,7 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
 Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
 
 > [!NOTE]
-> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM>` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
 1. Run the following command: 
     
