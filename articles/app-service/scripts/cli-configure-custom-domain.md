@@ -34,9 +34,9 @@ Create the following variable containing your fully qualified domain name.
 fqdn=<Replace with www.{yourdomain}>
 ```
 
-Configure a CNAME record that maps your fully qualified domain name to your webapp ($webappname.azurewebsites.net).
+Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
 
-To map your domain name to the web app, run the following command:
+Map your domain name to the web app.
 
 ```azurecli
 az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \

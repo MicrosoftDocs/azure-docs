@@ -28,13 +28,13 @@ This sample script creates an app in App Service with an additional deployment s
 
 ### To deploy code to a staging environment
 
-To create a deployment slot with the name "staging, use the following command.
+Create a deployment slot with the name "staging", use the following command".
 
 ```azurecli
 az webapp deployment slot create --name $webapp --resource-group $resourceGroup --slot staging
 ```
 
-To deploy sample code to "staging" slot from GitHub, use the following command.
+Deploy sample code to "staging" slot from GitHub.
 
 ```azurecli
 # az webapp deployment source config --name $webapp --resource-group $resourceGroup --slot staging --repo-url $gitrepo --branch master --manual-integration

@@ -36,7 +36,7 @@ Create the following variable containing your GitHub information.
 dockerHubContainerPath="<replace-with-docker-container-path>" #format: <username>/<container-or-image>:<tag>
 ```
 
-To configure the web app with a custom docker container from Docker Hub, use the following command:
+Configure the web app with a custom docker container from Docker Hub.
 
 ```azurecli
 
