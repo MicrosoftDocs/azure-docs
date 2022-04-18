@@ -26,22 +26,21 @@ Moving User-assigned managed identities across Azure regions is not supported.  
 
 ## Prerequisites
 
-- Permissions to list permissions granted to existing user-assigned managed identity. 
-- Permissions to grant a new user-assigned managed identity the required permissions. 
+- Permissions to list permissions granted to existing user-assigned managed identity.
+- Permissions to grant a new user-assigned managed identity the required permissions.
 - Permissions to assign a new user-assigned identity to the Azure resources.
 - Permissions to edit Group membership, if your user-assigned managed identity is a member of one or more groups.
 
-
 ## Prepare and move
 
-- Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](../../role-based-access-control/role-assignments-list-powershell.md) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
-- Create a [new user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
-- Grant the managed identity the same permissions as the original identity that it's replacing, including Group membership. You can review [Assign Azure roles to a managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md), and [Group membership](../../active-directory/fundamentals/active-directory-groups-view-azure-portal.md).
-- Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
+1. Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](../../role-based-access-control/role-assignments-list-powershell.md) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
+1. Create a [new user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
+1. Grant the managed identity the same permissions as the original identity that it's replacing, including Group membership. You can review [Assign Azure roles to a managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md), and [Group membership](../../active-directory/fundamentals/active-directory-groups-view-azure-portal.md).
+1. Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
 
 ## Verify
 
-- After reconfiguring your service to use your new managed identities in the target region, you need to confirm that all operations have been restored.
+After reconfiguring your service to use your new managed identities in the target region, you need to confirm that all operations have been restored.
 
 ## Clean up
 
