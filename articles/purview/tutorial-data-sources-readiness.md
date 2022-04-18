@@ -32,7 +32,7 @@ In part 1 of this tutorial series, you'll:
 ## Prerequisites
 
 * Azure subscriptions where your data sources are located. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* An [Microsoft Purview account](create-catalog-portal.md).
+* A [Microsoft Purview account](create-catalog-portal.md).
 * An Azure Key Vault resource in each subscription that has data sources like Azure SQL Database, Azure Synapse Analytics, or Azure SQL Managed Instance.
 * The [Microsoft Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script.
 
