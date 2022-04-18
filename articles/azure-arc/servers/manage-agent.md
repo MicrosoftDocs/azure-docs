@@ -407,7 +407,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| Azure AD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| AAD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | ARM | `management.azure.com` |
 | Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
 
