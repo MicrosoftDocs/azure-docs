@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "articles/azure-monitor/app/troubleshoot-portal-connectivity.md",
-            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
+            "redirect_url": "/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
             "redirect_document_id": false
         },
         {
