@@ -52,10 +52,10 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 **Supported versions**
 
 API Management only supports:
+
 * OpenAPI version 2.
 * OpenAPI version 3.0.x (up to version 3.0.3).
-
-OpenAPI version 3.1 is currently not supported in API Management.
+* OpenAPI version 3.1 (import only)
 
 **Size limitations**
 
@@ -65,6 +65,7 @@ OpenAPI version 3.1 is currently not supported in API Management.
 | **Size limit doesn't apply** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. |
 
 #### Supported extensions
+
 The only supported extensions are:
 
 | Extension | Description |
@@ -73,6 +74,7 @@ The only supported extensions are:
 | **`x-servers`** | A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2. |
 
 #### Unsupported extensions
+
 | Extension | Description |
 | ----------- | ----------- |
 | **`Recursion`** | API Management doesn't support definitions defined recursively.<br />For example, schemas referring to themselves. |
@@ -80,15 +82,22 @@ The only supported extensions are:
 | **`Produces` keyword** | Describes MIME types returned by an API. <br />Not supported. |
 
 #### Custom extensions
-- Are ignored on import.
-- Aren't saved or preserved for export.
+
+* Are ignored on import.
+* Aren't saved or preserved for export.
 
 #### Unsupported definitions 
+
 Inline schema definitions for API operations aren't supported. Schema definitions:
-- Are defined in the API scope.
-- Can be referenced in API operations request or response scopes.
+
+* Are defined in the API scope.
+* Can be referenced in API operations request or response scopes.
+
+<!-- Ref: 1851786 Query parameter handling -->
+When importing query parameters, only the default array serialization method (`style: form`, `explode: true`) is supported.  For more details on query parameters in OpenAPI specifications, refer to [the serialization specification](https://swagger.io/docs/specification/serialization/).
 
 #### Ignored definitions
+
 Security definitions are ignored.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
@@ -100,13 +109,16 @@ OpenAPI version 2 support is limited to JSON format only.
 The latest supported OpenAPI version 3.0 is 3.0.3.
 
 #### HTTPS URLs
-- If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
-- If there aren't any HTTPS URLs, the server URL will be empty.
+
+* If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
+* If there aren't any HTTPS URLs, the server URL will be empty.
 
 #### Supported
+
 - `example`
 
 #### Unsupported
+
 The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/specification/), but are not supported:
 
 | Object | Field |
@@ -122,6 +134,7 @@ The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/
 ### <a name="open-import-export-general"> </a>General
 
 API definitions exported from an API Management service are:
+
 * Primarily intended for external applications that need to call the API hosted in API Management service. 
 * Not intended to be imported into the same or different API Management service. 
 
