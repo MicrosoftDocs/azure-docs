@@ -22,11 +22,9 @@ Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scal
 
 ## Prerequisites
 
-An Azure subscription or free Azure Cosmos DB trial account
+An Azure subscription or free Azure Cosmos DB trial account.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Review the Bicep file
 
