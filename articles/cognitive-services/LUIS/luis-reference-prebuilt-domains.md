@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/27/2019
+ms.date: 04/18/2022
 
 #source: https://raw.githubusercontent.com/Microsoft/luis-prebuilt-domains/master/README.md
 #acrolinx bug for exception: https://mseng.visualstudio.com/TechnicalContent/_workitems/edit/1518317
