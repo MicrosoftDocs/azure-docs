@@ -12,7 +12,7 @@ ms.date: 11/30/2020
 
 Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Empower data consumers to find valuable, trustworthy data.
 
-Azure Purview Data Map provides the foundation for data discovery and effective data governance. Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
+Azure Purview Data Map provides the foundation for data discovery and effective data governance. Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
 
 Azure Purview Data Map powers the Purview Data Catalog and Purview data insights as unified experiences within the [Purview Studio](https://web.purview.azure.com/resource/).
  

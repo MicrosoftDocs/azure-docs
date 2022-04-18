@@ -34,6 +34,8 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
+  - name: Use Atlas 2.2 APIs
+    href: tutorial-atlas-2.2-apis.md
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
