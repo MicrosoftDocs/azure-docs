@@ -223,13 +223,13 @@ Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve
 
 We have detected that one or more of your alert rules have invalid queries specified in their condition section. Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries may become invalid overtime due to changes in referenced resources, tables, or commands. We recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure.
 
-Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-is-not-valid).
+Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
 
 ### Log alert rule was disabled
 
 The alert rule was disabled by Azure Monitor as it was causing service issues. To enable the alert rule, contact support.
 
-Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-is-not-valid).
+Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
 
 ## Key Vault
 
@@ -281,7 +281,7 @@ Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should
 
 A region can support a maximum of 250 storage accounts per subscription. You have either already reached or are about to reach that limit. If you reach that limit, you will be unable to create any more storage accounts in that subscription/region combination. Please evaluate the recommended action below to avoid hitting the limit.
 
-Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](../storage/blobs/storage-performance-checklist.md#what-to-do-when-approaching-a-scalability-target).
+Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](../storage/blobs/storage-performance-checklist.md).
 
 ### Update to newer releases of the Storage Java v12 SDK for better reliability.
 
