@@ -18,7 +18,7 @@ Cosmos DB offers several preview features that you can request access to. Here a
 3. Click on the feature you would like access to in the list of available preview features.
 4. Click the “Register” button at the bottom of the page to join the preview.
 
-:::image type="content" source="./media/mongodb-indexing/unique-Reindex-Preview.png" alt-text="Enable unique index on existing collections preview":::
+:::image type="content" source="./mongodb/media/mongodb-indexing/unique-Reindex-Preview.png" alt-text="Enable unique index on existing collections preview":::
 
 ## Next steps
 

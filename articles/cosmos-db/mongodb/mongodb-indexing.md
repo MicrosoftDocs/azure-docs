@@ -243,14 +243,7 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 #### Note
 
-Support for unique index on existing collections with data is available in preview. You can sign up for this preview through the Azure portal:
-
-1. Go to “Preview Features” area in your Azure subscription.
-2. Under “Type”, select “Microsoft.DocumentDB”.
-3. Click on “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” in the list of available preview features.
-4. Click the “Register” button at the bottom of the page to join the preview.
-
-:::image type="content" source="./media/mongodb-indexing/unique-Reindex-Preview.png" alt-text="Enable unique index on existing collections preview":::
+Support for unique index on existing collections with data is available in preview. You can sign up for the feature “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” through the [Preview Features blade in the portal](./../access-previews.md).
 
 #### Limitations
 
