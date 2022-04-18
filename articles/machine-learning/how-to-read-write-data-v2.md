@@ -1,7 +1,7 @@
 ---
 title: Read and write data 
 titleSuffix: Azure Machine Learning
-description: Learn how to read and write data for consumption in Azure Machine Learning experiments
+description: Learn how to read and write data for consumption in Azure Machine Learning jobs
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 04/15/2022
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
+ms.custom: devx-track-python,devplatv2
 
 
 # Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
@@ -44,25 +44,9 @@ ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_g
 
 ## Use local data in a job
 
-If you have data in your current working directory that you want to use in a job
-
-When you submit the job, the log files print out of the first 10 records of the titanic sample data. The inputs to the job were defined with a `dict` format
-```python
-
-my_job_inputs = {
-    "input_data": JobInput(
-        type=AssetTypes.URI_FILE, 
-        path='./sample_data/titanic.csv'
-    )
-}
-```
-
-The JobInput class allow you to define data inputs where:
-
-type can be a uri_file (a specific file) or uri_folder (a folder location)
-path can be a local path or a cloud path. Azure Machine Learning supports https://, abfss://, wasbs:// and azureml:// URIs. As you saw above, if the path is local but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
-The JobInput defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you cannot write to JobInputs only JobOutputs - we will cover this later in the notebook.
-The data is automatically uploaded to cloud storage.
+If you have data in your current working directory that you want to use in a job. 
+The JobInput class allow you to define data inputs of type  uri_file (a specific file) or uri_folder (a folder location). The `path`
+can be a local path or a cloud path. Azure Machine Learning supports https://, abfss://, wasbs:// and azureml:// URIs. If the path is local but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
 
 ```python
 
@@ -157,6 +141,9 @@ returned_job.services["Studio"].endpoint
 
 You can read and write data from your job into your cloud-based storage. 
 
+The JobInput defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you cannot write to JobInputs only JobOutputs 
+The data is automatically uploaded to cloud storage.
+
 # [Azure Data Lake Storage Gen2](#tab/ADLS-Gen2)
 
 ```python
@@ -240,7 +227,7 @@ You can register data as an asset. The benefits of registering data are:
 * Versioning of the metadata (location, description, etc)
 * Lineage tracking
 
-The following is an example of versioning the sample data in this repo. The data is uploaded to cloud storage and registered as an asset.
+The following is an example of versioning the sample data in this repo and shows how to register a local file as a data asset. The data is uploaded to cloud storage and registered as an asset.
 
 ```python
 
@@ -258,8 +245,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ``` 
 
-The above example shows how to register a local file as a data asset. To register data that is in a cloud location, just specify the path with any of the supported protocols for the storage type.
-The following shows an ADLS Gen 2 path example. 
+To register data that is in a cloud location, just specify the path with any of the supported protocols for the storage type. The following example shows what the path looks like for data from Azure Data Lake Storage Gen 2. 
 
 ```python
 from azure.ml.entities import Data
