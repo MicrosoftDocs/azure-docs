@@ -107,7 +107,7 @@ sections:
 
       - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
-          Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
+          Post any of your questions to the [Q&A page](/answers/topics/azure-cache-redis.html) for Cloud Services (classic) retirement. Also, You can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
 
   - name: General questions
     questions:
@@ -120,4 +120,3 @@ sections:
             - If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
             
             - You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
-          

@@ -78,7 +78,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate is not available for this kind|App Service Environment v1 can't be migrated using the migration feature at this time. |
 |Full migration cannot be called before IP addresses are generated|You'll see this error if you attempt to migrate before finishing the pre-migration steps. |
 |Migration to ASEv3 is not allowed for this ASE|You won't be able to migrate using the migration feature. |
-|Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) has been met. You'll need to remove unneeded environments or contact support to review your options.|
+|Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) has been met. You'll need to remove unneeded environments or contact support to review your options.|
 |`<ZoneRedundant><DedicatedHosts><ASEv3/ASE>` is not available in this location|You'll see this error if you're trying to migrate an App Service Environment in a region that doesn't support one of your requested features. |
 
 ## Overview of the migration process using the migration feature
