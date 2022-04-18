@@ -90,7 +90,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 
 ### Use an SSD as a temporary path
 
-In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt'. In Red Hat and CentOS distributions, the disk is mounted on '/mnt/resource/'.
+In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. Depending on the provisioning agent used, the ephemeral disk would be mounted on '/mnt' for cloud-init or '/mnt/resource' for waagent VMs.
 
 Make sure your user has access to the temporary path:
 
