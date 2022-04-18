@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl 
 ms.reviewer: kendralittle, mathoma, danil
-ms.date: 01/10/2022
+ms.date: 04/18/2022
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,8 +45,8 @@ For a large or very active database, the restore might take several hours. If th
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
-> [!NOTE]
-> Very large restores on Managed Instance lasting for more than 36 hours will be prolonged in case of pending critical system update. In such case current restore operation will be paused, critical system update will be applied, and restore resumed after the update has completed.
+> [!TIP]
+> System updates will take precedence over database restores in progress. All pending restores in case of a system update will be cancelled and restarted from scratch once the update has been applied. This system behavior might prolong the time of restores and might be especially be impactful to long-running restores. To achieve a predictable time of database restores, consider configuring [maintenance window](maintenance-window.md) scheduling the system updates at a specific schedule, and consider running database restores outside of the maintenance window.
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
