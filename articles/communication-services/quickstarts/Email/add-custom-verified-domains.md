@@ -2,13 +2,12 @@
 title: Adding Custom verified domains for Email Communication Services
 titleSuffix: An Azure Communication Services quick start guide
 description: Learn about adding Custom domains for Email Communication Services.
-author: bashan
-manager: shanhen
+author: author
+manager: author
 services: azure-communication-services
-
-ms.author: bashan
-ms.date: 02/15/2022
-ms.topic: overview
+ms.author: author
+ms.date: 04/15/2022
+ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
@@ -76,7 +75,7 @@ ms.custom: private_preview
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
 
-When azure manged domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configre and change the MailFrom address and FROM displayname to more user friendly value.
+When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the MailFrom address and FROM displayname to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
@@ -104,9 +103,9 @@ When azure manged domain is provisioned to send mail, it has default Mail From a
 
 > [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](./email-authentication-bestpractice.md)
+> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
 
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../Email/sdk-features.md)
+- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)

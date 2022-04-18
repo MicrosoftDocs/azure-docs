@@ -1,9 +1,12 @@
 ---
-author: bashan
-ms.service: azure-communication-services
+author: author
+manager: author
+services: azure-communication-services
+ms.author: author
+ms.date: 04/15/2022
 ms.topic: include
-ms.date: 02/15/2020
-ms.author: bashan
+ms.service: azure-communication-services
+ms.custom: private_preview
 ---
 
 ## Prerequisites

@@ -2,17 +2,16 @@
 title: Best Practices for Sender Authentication Support in Azure Communication Services Email
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Email Domains and Sender Authentication.
-author: bashan
-manager: shanhen
+author: author
+manager: author
 services: azure-communication-services
-
-ms.author: bashan
-ms.date: 02/15/2022
-ms.topic: overview
+ms.author: author
+ms.date: 04/15/2022
+ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Email Authentication Best Practices
+
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
@@ -65,11 +64,11 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 - 
 ## Next steps
 
->  [Best practices for implementing DMARC](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
+> [Best practices for implementing DMARC](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
   
->  [Troubleshooting your DMARC implementation](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
+> [Troubleshooting your DMARC implementation](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
 
->  [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
 

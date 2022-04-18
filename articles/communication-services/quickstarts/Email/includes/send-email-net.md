@@ -1,15 +1,14 @@
 ---
 title: include file
-description: include file
+description: Send email.net sdk include file
 services: azure-communication-services
-author: dademath
-manager: nimag
-ms.service: azure-communication-services
-ms.subservice: azure-communication-services-email
-ms.date: 07/28/2020
+author: author
+manager: author
+services: azure-communication-services
+ms.author: author
+ms.date: 04/15/2022
 ms.topic: include
-ms.custom: include file
-ms.author: bashan
+ms.service: azure-communication-services
 ms.custom: private_preview
 ---
 > [!IMPORTANT]
@@ -19,7 +18,7 @@ ms.custom: private_preview
 
 Get started with Azure Communication Services by using the Communication Services C# Email client library to send Email messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
 
 ## Prerequisites
@@ -121,7 +120,7 @@ EmailClient emailClient = new EmailClient(connectionString);
 To send an Email message, you need to
 - Construct the email content and body using EmailContent 
 - Add Recipients 
-- Contrust your email message with your Sender information you get your MailFrom address from your verifed domain.
+- Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Include your Email Content and Recipients and include attachments if any 
 - Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
 
