@@ -9,7 +9,7 @@ author: sravanisaluru
 ms.author: srsaluru
 ms.date: "03/23/2022"
 ms.reviewer: kendralittle, vanto, mathoma
-ms.custom: azure-synapse
+ms.custom: azure-synapse, subject-rbac-steps
 ---
 # Write audit to a storage account behind VNet and firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -112,12 +112,14 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    }
    ```
 
-2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
+1. Assign the Storage Blob Data Contributor role to the server hosting the database that you registered with Azure Active Directory (Azure AD) in the previous step.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-3. Configure the [server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
+1. Configure the [server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
 
    Sample request
 

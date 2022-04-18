@@ -6,19 +6,20 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 4/08/2022
+ms.date: 4/15/2022
 ms.custom:
 ---
 
 # Resource group and subscription access provisioning by data owner (preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) in Azure Purview allow you to enable access to data sources that have been registered to a collection. You can also [register an entire Azure resource group or subscription to a collection](register-scan-azure-multiple-sources.md), which will allow you to scan all available data sources in that resource group or subscription. If you create a single access policy against a registered resource group or subscription, a data owner can enable access to **all** available data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
+[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Azure Purview.
 
-This article describes how a data owner can create a single access policy for **all available** data sources in a subscription or a resource group. 
+You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
+This article describes how this is done. 
 
 > [!IMPORTANT] 
-> Currently, these are the available data sources for access policies:
+> Currently, these are the available data sources for access policies in Public Preview:
 > - Blob storage
 > - Azure Data Lake Storage (ADLS) Gen2
 
@@ -37,7 +38,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 
 - [Register multiple sources in Azure Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
-After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it delegates to certain users to manage access to data resources from within Azure Purview.
 
 To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
 

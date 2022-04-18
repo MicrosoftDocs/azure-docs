@@ -17,6 +17,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: April 2022
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
+* Support for updating Private DNS Zone for [Azure Database for PostgreSQL - Flexible Server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
 
 <sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
