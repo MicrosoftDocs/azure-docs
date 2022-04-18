@@ -13,7 +13,7 @@ ms.custom:
 # Resource group and subscription access provisioning by data owner (preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Azure Purview.
+[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Microsoft Purview.
 
 You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
 This article describes how this is done. 
@@ -32,13 +32,13 @@ This article describes how this is done.
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the subscription or resource group for data use governance
-The subscription or resource group needs to be registered with Azure Purview to later define access policies.
+The subscription or resource group needs to be registered with Microsoft Purview to later define access policies.
 
 To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
 
-- [Register multiple sources in Azure Purview](register-scan-azure-multiple-sources.md#prerequisites)
+- [Register multiple sources in Microsoft Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
-After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Microsoft Purview.
 
 To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
 
@@ -60,12 +60,12 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 - Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or subcontainer level).
 
 ### Limits
-The limit for Azure Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
+The limit for Microsoft Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
 
 ## Next steps
 Check blog, demo and related tutorials:
 
-* [Concepts for Azure Purview data owner policies](./concept-data-owner-policies.md)
+* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * [Data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
 * [Demo of data owner access policies for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)

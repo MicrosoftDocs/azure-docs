@@ -14,9 +14,9 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Azure Purview.
+[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Microsoft Purview.
 
-This article describes how a data owner can delegate in Azure Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
+This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -28,16 +28,16 @@ This article describes how a data owner can delegate in Azure Purview management
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-### Register the data sources in Azure Purview for Data use governance
-The Azure Storage resources need to be registered first with Azure Purview to later define access policies.
+### Register the data sources in Microsoft Purview for Data use governance
+The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.
 
 To register your resources, follow the **Prerequisites** and **Register** sections of these guides:
 
--   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md#prerequisites)
+-   [Register and scan Azure Storage Blob - Microsoft Purview](register-scan-azure-blob-storage-source.md#prerequisites)
 
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md#prerequisites)
+-   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered your resources, you'll need to enable *Data use governance*. Data use governance can affect the security of your data, as it allows certain Azure Purview roles to manage access to data sources that have been registered. Secure practices related to *Data use governance* are described in this guide:
+After you've registered your resources, you'll need to enable *Data use governance*. Data use governance can affect the security of your data, as it allows certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data use governance* are described in this guide:
 
 - [How to enable data use governance](./how-to-enable-data-use-governance.md) 
 
@@ -63,18 +63,18 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 
 ### Limits
-- The limit for Azure Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
+- The limit for Microsoft Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
 
 ### Known issues
 
 **Known issues** related to Policy creation
-- Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
+- Do not create policy statements based on Microsoft Purview resource sets. Even if displayed in Microsoft Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 
 ### Policy action mapping
 
-This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
+This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Storage.
 
-| **Azure Purview policy action** | **Data source specific actions**                                                        |
+| **Microsoft Purview policy action** | **Data source specific actions**                                                        |
 |---------------------------|-----------------------------------------------------------------------------------------|
 |||
 | *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
@@ -95,8 +95,8 @@ This section contains a reference of how actions in Azure Purview data policies 
 Check blog, demo and related tutorials:
 
 * [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
-* [Concepts for Azure Purview data owner policies](./concept-data-owner-policies.md)
-* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
-* [Blog: What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
+* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+* [Blog: What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Blog: Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
 * [Blog: Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
