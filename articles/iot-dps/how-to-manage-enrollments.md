@@ -3,7 +3,7 @@ title: Manage device enrollments for Azure IoT Hub Device Provisioning Service i
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
 author: kgremban
 ms.author: kgremban
-ms.date: 10/25/2021
+ms.date: 03/21/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -18,6 +18,9 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+> [!IMPORTANT]
+> If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
 ## Create an enrollment group
 

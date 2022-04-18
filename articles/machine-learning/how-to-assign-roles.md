@@ -427,10 +427,11 @@ Allows you to define a role scoped only to labeling data:
     "Actions": [
         "Microsoft.MachineLearningServices/workspaces/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
     ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    "NotActions": [        
     ],
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"
