@@ -34,7 +34,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ### Design recommendations 
 
-- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-azure-purview-instances) and define the adequate number of Azure Purview accounts required in your organization before you plan the collection structure.  
+- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-microsoft-purview-instances) and define the adequate number of Azure Purview accounts required in your organization before you plan the collection structure.  
 
 - We recommend that you design your collection architecture based on the security requirements and data management and governance structure of your organization. Review the recommended [collections archetypes](#collections-archetypes) in this article.
 
