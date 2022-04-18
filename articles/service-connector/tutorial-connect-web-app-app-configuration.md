@@ -49,7 +49,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
 
     ### [SMI](#tab/smi)
 
-    Create an ASP.NET Core app using a system-assigned managed identity.
+    Create an Azure Web app with runtime ASP.NET Core.
 
     ```azurecli
     # Login to the Azure CLI. Skip if you're using Cloud Shell.
