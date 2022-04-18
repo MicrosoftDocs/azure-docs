@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 11/09/2021
+ms.date: 04/18/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -169,6 +169,20 @@ Azure Resource Manager restricts template size to be 4-MB. Limit the size of you
 #### Resolution
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+###  DevOps API limit of 20 MB causes ADF trigger twice instead of once 
+
+#### Issue
+
+While publishing ADF resources, the azure pipeline triggers twice every time.
+
+#### Cause
+ 
+DevOps has limitation of 20 MB REST api load for arm templates, linked template and  global parameters. Large ADF resources are reorganized to get around  GitHub API rate limits. That may rarely cause ADF DevOps APIs hit 20 MB limit.
+
+#### Resolution
+
+Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigger once instead of twice.
 
 ### Cannot connect to GIT Enterprise  
 
