@@ -1,14 +1,13 @@
 ---
-title: Microsoft Sentinel DNS normalization schema reference | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview) | Microsoft Docs
 description: This article describes the Microsoft Sentinel DNS normalization schema.
-author: batamig
+author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.author: ofshezaf
 ---
 
-# Microsoft Sentinel DNS normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -76,16 +75,17 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
-|**Microsoft DNS Server**<br>Collected by the DNS connector<br> and the Log Analytics Agent | `_ASim_DnsMicrosoftOMS` (regular) <br> `_Im_DnsMicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
-| **Microsoft DNS Server**<br>Collected by NXlog| `_ASim_DnsMicrosoftNXlog` (regular)<br>`_Im_DnsMicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
-| **Azure Firewall** | `_ASim_DnsAzureFirewall` (regular)<br> `_Im_DnsAzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
-| **Sysmon for Windows**  (event 22)<br> Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_DnsMicrosoftSysmon` (regular)<br> `_Im_DnsMicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
-| **Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
-| **Infoblox NIOS**<br><br>The InfoBlox parsers<br>require [configuring the relevant sources](normalization-manage-parsers.md#configure-the-sources-relevant-to-a-source-specific-parser).<br> Use `InfobloxNIOS` as the source type. | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
-| **GCP DNS** | `_ASim_DnsGcp` (regular)<br> `_Im_DnsGcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
-| **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
-| **Zscaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
-| | | |
+|**Microsoft DNS Server**<br>Collected by the DNS connector<br> and the Log Analytics Agent | `_ASim_Dns_MicrosoftOMS` (regular) <br> `_Im_Dns_MicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
+| **Microsoft DNS Server**<br>Collected by NXlog| `_ASim_Dns_MicrosoftNXlog` (regular)<br>`_Im_Dns_MicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
+| **Azure Firewall** | `_ASim_Dns_AzureFirewall` (regular)<br> `_Im_Dns_AzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
+| **Sysmon for Windows**  (event 22)<br> Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_Dns_MicrosoftSysmon` (regular)<br> `_Im_Dns_MicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
+| **Cisco Umbrella**  | `_ASim_Dns_CiscoUmbrella` (regular)<br> `_Im_Dns_CiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
+| **Infoblox NIOS**<br><br>The InfoBlox parsers<br>require [configuring the relevant sources](normalization-manage-parsers.md#configure-the-sources-relevant-to-a-source-specific-parser).<br> Use `InfobloxNIOS` as the source type. | `_ASim_Dns_InfobloxNIOS` (regular)<br> `_Im_Dns_InfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
+| **GCP DNS** | `_ASim_Dns_Gcp` (regular)<br> `_Im_Dns_Gcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
+| **Corelight Zeek DNS events** | `_ASim_Dns_CorelightZeek` (regular)<br> `_Im_Dns_CorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
+| **Vectra AI** |`_ASim_Dns_VectraIA` (regular)<br> `_Im_Dns_VectraIA` (filtering)  | `AsimDnsVectraAI` (regular)<br> `vimDnsVectraAI` (filtering)  |
+| **Zscaler ZIA** |`_ASim_Dns_ZscalerZIA` (regular)<br> `_Im_Dns_ZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
+||||
 
 These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
@@ -112,7 +112,7 @@ The following filtering parameters are available:
 | **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results aren't returned for sources that don't provide a response.|
 | **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results aren't returned for sources that don't provide a response. The length of the list is limited to 10,000 items. |
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
-| | | |
+
 
 For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
 
@@ -126,6 +126,9 @@ To filter only DNS queries for a specified list of domain names, use:
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
 _Im_Dns (domain_has_any = torProxies)
 ```
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Normalized content
 
@@ -137,11 +140,17 @@ The DNS information model is aligned with the [OSSEM DNS entity schema](https://
 
 For more information, see the [Internet Assigned Numbers Authority (IANA) DNS parameter reference](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).
 
-### Common fields
+### Common ASIM fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for DNS events.
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
+
+
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for DNS events:
 
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
@@ -151,7 +160,17 @@ For more information, see the [Internet Assigned Numbers Authority (IANA) DNS pa
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.3**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dns**. |
 | **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
-| | | | |
+
+
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
 
 
 ### DNS-specific fields
@@ -206,7 +225,7 @@ The fields listed in this section are specific to DNS events, although many are 
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that the request tries to resolve. <br><br>**Note**: Some sources send the query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-about-schemas.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
+| <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that the request tries to resolve. <br><br>**Note**: Some sources send the query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-common-fields.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
 | **Domain** | Alias | | Alias to [DnsQuery](#query). |
 | **DnsQueryType** | Optional | Integer | The [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `28`|
 | **DnsQueryTypeName** | Recommended | Enumerated | The [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA doesn't define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
@@ -232,7 +251,7 @@ The fields listed in this section are specific to DNS events, although many are 
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
 |<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. Note that this value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | String | Alias to [DnsSessionId](#dnssessionid) |
-| | | | |
+
 
 ### Deprecated aliases
 
@@ -271,7 +290,7 @@ The following table lists known discrepancies:
 | ------ | ------------- |
 | Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | The connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dynamic update). The data is available at the source, but not forwarded by the connector. |
 | Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observed such behavior in certain cases in which the DNS response code name is `NXDOMAIN`. |
-|||
+
 
 ## Handling DNS response
 

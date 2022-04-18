@@ -1,12 +1,14 @@
 ---
 title: High availability - Azure Database for PostgreSQL - Single Server
 description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 6/15/2020
 ---
+
 # High availability in Azure Database for PostgreSQL – Single Server
 The Azure Database for PostgreSQL – Single Server service provides a guaranteed high level of availability with the financially backed service level agreement (SLA) of [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) uptime. Azure Database for PostgreSQL provides high availability during planned events such as user-initated scale compute operation, and also when unplanned events such as underlying hardware, software, or network failures occur. Azure Database for PostgreSQL can quickly recover from most critical circumstances, ensuring virtually no application down time when using this service.
 

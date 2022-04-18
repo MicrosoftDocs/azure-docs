@@ -143,7 +143,7 @@ There's only two supported ways to use a wildcard character in a URL.
 
 - You can use one just after the final forward slash (/) of a URL. This use of the wildcard character copies all of the files in a directory directly to the destination without placing them into a subdirectory.
 
-- You can also a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers.
+- You can also use a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers.
 
 Download the contents of a directory without copying the containing directory itself.
 

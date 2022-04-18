@@ -494,6 +494,28 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 :::moniker-end
 <!-- end 1.2 -->
 
+## Security daemon couldn't start successfully
+
+**Observed behavior:**
+
+The security daemon fails to start and module containers aren't created. The `edgeAgent`, `edgeHub` and other custom modules aren't started by IoT Edge service. In `aziot-edged` logs, you see this error:
+
+> - The daemon could not start up successfully: Could not start management service
+>  - caused by: An error occurred for path /var/run/iotedge/mgmt.sock
+>  - caused by: Permission denied (os error 13)
+
+
+**Root cause:**
+
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+
+**Resolution:**
+
+You do not need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
+1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
+1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
+
 ## Next steps
 
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve.

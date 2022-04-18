@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 02/16/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, fasttrack-edit
 ---
 
 # Credentials for source authentication in Azure Purview
@@ -44,7 +44,8 @@ If you're using the Azure Purview system-assigned managed identity (SAMI) to set
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
+- [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
+- [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## Grant Azure Purview access to your Azure Key Vault
 

@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST 9.2
 description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/15/2022
+ms.date: 03/14/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -20,9 +20,6 @@ are implemented with an [Azure Policy](../overview.md) initiative definition. To
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **HITRUST/HIPAA** Regulatory Compliance built-in
 initiative definition.
-
-This built-in initiative is deployed as part of the
-[HIPAA HITRUST 9.2 blueprint sample](../../blueprints/samples/hipaa-hitrust-9-2.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
@@ -1399,7 +1396,7 @@ This built-in initiative is deployed as part of the
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Audit Windows machines that do not contain the specified certificates in Trusted Root](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F934345e1-4dfb-4c70-90d7-41990dc9608b) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](../concepts/guest-configuration.md). Machines are non-compliant if the machine Trusted Root certificate store (Cert:\LocalMachine\Root) does not contain one or more of the certificates listed by the policy parameter. |auditIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsCertificateInTrustedRoot_AINE.json) |
+|[Audit Windows machines that do not contain the specified certificates in Trusted Root](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F934345e1-4dfb-4c70-90d7-41990dc9608b) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](../concepts/guest-configuration.md). Machines are non-compliant if the machine Trusted Root certificate store (Cert:\LocalMachine\Root) does not contain one or more of the certificates listed by the policy parameter. |auditIfNotExists |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsCertificateInTrustedRoot_AINE.json) |
 
 ### The organization requires the use of encryption between, and the use of electronic signatures by, each of the parties involved in the transaction.
 

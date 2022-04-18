@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/24/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -399,7 +399,7 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-The following example shows how to use the `pickZones` function to enable zone redundancy for Cosmos DB.
+Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 

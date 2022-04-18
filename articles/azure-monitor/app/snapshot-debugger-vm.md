@@ -168,7 +168,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
         }
     }
     ```
-
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 ## Next steps
 
 - Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.

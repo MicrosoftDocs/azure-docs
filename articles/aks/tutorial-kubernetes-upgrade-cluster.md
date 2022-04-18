@@ -190,7 +190,7 @@ Tags                    : {}
 When you upgrade your cluster, the following Kubenetes events may occur on each node:
 
 * Surge – Create surge node.
-* Drain – Pods are being evicted from the node. Each pod has a 30 minute timeout to complete the eviction.
+* Drain – Pods are being evicted from the node. Each pod has a 5 minute timeout to complete the eviction.
 * Update – Update of a node has succeeded or failed.
 * Delete – Deleted a surge node.
 

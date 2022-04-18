@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 01/03/2020
+ms.date: 02/15/2022
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, cliv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -101,7 +101,7 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 > [!WARNING]
 > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_amlcompute).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
 # [Studio](#tab/azure-studio)
 

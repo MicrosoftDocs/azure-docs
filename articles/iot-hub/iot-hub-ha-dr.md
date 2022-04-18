@@ -61,7 +61,6 @@ Both these failover options offer the following recovery point objectives (RPOs)
 | Cloud-to-device messages<sup>1</sup> |0-5 mins data loss |
 | Parent<sup>1</sup> and device jobs |0-5 mins data loss |
 | Device-to-cloud messages |All unread messages are lost |
-| Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device feedback messages |All unread messages are lost |
 
 <sup>1</sup>Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover.
@@ -77,9 +76,14 @@ Once the failover operation for the IoT hub completes, all operations from the d
 
 ## Microsoft-initiated failover
 
-Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the IoT hubs from an affected region to the corresponding geo-paired region. This process is a default option (no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's hub is failed over. Microsoft-initiated failover has a recovery time objective (RTO) of 2-26 hours. 
+Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the IoT hubs from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's hub is failed over. Microsoft-initiated failover has a recovery time objective (RTO) of 2-26 hours.
 
 The large RTO is because Microsoft must perform the failover operation on behalf of all the affected customers in that region. If you are running a less critical IoT solution that can sustain a downtime of roughly a day, it is ok for you to take a dependency on this option to satisfy the overall disaster recovery goals for your IoT solution. The total time for runtime operations to become fully operational once this process is triggered, is described in the "Time to recover" section.
+
+The only users who are able to opt-out of this feature are those deploying to the Brazil South and Southeast Asia (Singapore) regions. For more information, see [Disable disaster recovery](#disable-disaster-recovery).
+
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
 ## Manual failover
 

@@ -1,8 +1,8 @@
 ---
 title: Initial server group size - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Pick the right initial size for your use case
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

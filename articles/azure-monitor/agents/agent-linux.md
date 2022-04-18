@@ -2,9 +2,7 @@
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 02/07/2022
+ms.date: 03/31/2022
 
 ---
 
@@ -80,7 +78,7 @@ The following are not supported:
 - CIS
 - SELinux (custom hardening like MLS)
 
-CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like Github Enterprise Server which include customizations such as limitations to user account privileges are not supported.
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges are not supported.
 
 ## Agent prerequisites
 

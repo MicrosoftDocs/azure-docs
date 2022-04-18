@@ -34,13 +34,14 @@ The preview is currenty availabe in US South Central and West Europe regions.[Si
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU partition | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6ads_A10_v5 |6 |55 |180 | 1/6 | 4 | 4 | 2 / 5000 |
-| Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 6 | 4 | 2 / 10000 |
+| Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 8 | 4 | 2 / 10000 |
 | Standard_NV18ads_A10_v5 |18 |220 |720 | 1/2 | 12 | 8 | 4 / 20000 |
 | Standard_NV36ads_A10_v5 |36 |440 |720 | 1 | 24 | 16 | 4 / 40000 |
 | Standard_NV36adms_A10_v5 |36 |880 |720 | 1 | 24 | 32 | 8 / 80000 |
 | Standard_NV72ads_A10_v5 |72 |880 |1400 | 2 | 48 | 32 | 8 / 80000 |
 
 <sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology
+<sup>2</sup> The actual GPU VRAM reported in the operating system will be little less due to Error Correcting Code (ECC) support.
 
 
 

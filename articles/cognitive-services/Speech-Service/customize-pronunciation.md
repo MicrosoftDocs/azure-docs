@@ -1,5 +1,5 @@
 ---
-title: Create structured text data
+title: Create phonetic pronunciation data
 description: Use phonemes to customize pronunciation of words in Speech-to-Text.
 author: ut-karsh
 ms.author: umaheshwari
@@ -9,7 +9,7 @@ ms.date: 03/01/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Create structured text data
+# Create phonetic pronunciation data
 
 Custom speech allows you to provide different pronunciations for specific words using the Universal Phone Set. The Universal Phone Set (UPS) is a machine-readable phone set that is based on the International Phonetic Set Alphabet (IPA). The IPA is used by linguists world-wide and is accepted as a standard.
 
