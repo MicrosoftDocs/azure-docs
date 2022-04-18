@@ -26,11 +26,11 @@ This sample script creates an app in App Service with its related resources. It 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/deploy-github/deploy-github.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-github/deploy-github.sh" id="FullScript":::
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
