@@ -72,18 +72,18 @@ landingContent:
      - text: Update devices using Device Update for IoT Hub
        url: ../iot-hub-device-update/understand-device-update.md
 
-- title: Secure your IoT solution
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Use X.509 certificates to authenticate
-      url: tutorial-x509-introduction.md
-  - linkListType: concept
-    links:
-    - text: Secure your IoT deployment
-      url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
-    - text: Control access to IoT Hub
-      url: iot-hub-devguide-security.md
+ - title: Secure your IoT solution
+   linkLists:
+   - linkListType: tutorial
+     links:
+     - text: Use X.509 certificates to authenticate
+       url: tutorial-x509-introduction.md
+   - linkListType: concept
+     links:
+     - text: Secure your IoT deployment
+       url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
+     - text: Control access to IoT Hub
+       url: iot-hub-devguide-security.md
 
  - title: Develop with SDKs and tools
    linkLists:
