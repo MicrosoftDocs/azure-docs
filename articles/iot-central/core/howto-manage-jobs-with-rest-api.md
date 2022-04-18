@@ -19,7 +19,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 - Stop, resume, and rerun jobs in your application.
 
 > [!IMPORTANT]
-> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=preview`.
+> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=1.2-preview`.
 
 This article describes how to use the `/jobs/{job_id}` API to control devices in bulk. You can also control devices individually.
 
@@ -90,7 +90,7 @@ The following table describes the fields in the previous JSON snippet:
 Use the following request to retrieve the list of the jobs in your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -159,7 +159,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve an individual job by ID:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -194,7 +194,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the details of the devices in a job:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -227,7 +227,10 @@ The response to this request looks like the following example:
 Use the following request to retrieve the details of the devices in a job:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
+```
+
+```json
 {
   "displayName": "Set target temperature",
   "description": "Set target temperature device property",
@@ -286,7 +289,7 @@ The response to this request looks like the following example. The initial job s
 Use the following request to stop a running job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=1.2-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -294,7 +297,7 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following request to resume a stopped job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=1.2-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -302,7 +305,7 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following command to rerun an existing job on any failed devices:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=1.2-preview
 ```
 
 ## Next steps
