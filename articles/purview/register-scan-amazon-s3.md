@@ -84,9 +84,9 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 > [!div class="checklist"]
 > * You need to be a Microsoft Purview Data Source Admin.
-> * [Create a Microsoft Purview account](#create-an-microsoft-purview-account) if you don't yet have one
+> * [Create a Microsoft Purview account](#create-a-microsoft-purview-account) if you don't yet have one
 > * [Create a new AWS role for use with Microsoft Purview](#create-a-new-aws-role-for-microsoft-purview)
-> * [Create a Microsoft Purview credential for your AWS bucket scan](#create-an-microsoft-purview-credential-for-your-aws-s3-scan)
+> * [Create a Microsoft Purview credential for your AWS bucket scan](#create-a-microsoft-purview-credential-for-your-aws-s3-scan)
 > * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
 > * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confirm-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
 > * When adding your buckets as Microsoft Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
@@ -94,7 +94,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 ### Create a Microsoft Purview account
 
-- **If you already have a Microsoft Purview account,** you can continue with the configurations required for AWS S3 support. Start with [Create a Microsoft Purview credential for your AWS bucket scan](#create-an-microsoft-purview-credential-for-your-aws-s3-scan).
+- **If you already have a Microsoft Purview account,** you can continue with the configurations required for AWS S3 support. Start with [Create a Microsoft Purview credential for your AWS bucket scan](#create-a-microsoft-purview-credential-for-your-aws-s3-scan).
 
 - **If you need to create a Microsoft Purview account,** follow the instructions in [Create a Microsoft Purview account instance](create-catalog-portal.md). After creating your account, return here to complete configuration and begin using Microsoft Purview connector for Amazon S3.
 
@@ -285,7 +285,7 @@ You'll need to record your AWS Role ARN and copy it in to Microsoft Purview when
 
 **To retrieve your role ARN:**
 
-1. In the AWS **Identity and Access Management (IAM)** > **Roles** area, search for and select the new role you [created for Microsoft Purview](#create-an-microsoft-purview-credential-for-your-aws-s3-scan).
+1. In the AWS **Identity and Access Management (IAM)** > **Roles** area, search for and select the new role you [created for Microsoft Purview](#create-a-microsoft-purview-credential-for-your-aws-s3-scan).
 
 1. On the role's **Summary** page, select the **Copy to clipboard** button to the right of the **Role ARN** value.
 
@@ -401,7 +401,7 @@ Once you've added your buckets as Microsoft Purview data sources, you can config
     |---------|---------|
     |**Name**     |  Enter a meaningful name for your scan or use the default.       |
     |**Type** |Displayed only if you've added your AWS account, with all buckets included. <br><br>Current options include only **All** > **Amazon S3**. Stay tuned for more options to select as Microsoft Purview's support matrix expands. |
-    |**Credential**     |  Select a Microsoft Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a Microsoft Purview credential for your AWS bucket scan](#create-an-microsoft-purview-credential-for-your-aws-s3-scan).     |
+    |**Credential**     |  Select a Microsoft Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a Microsoft Purview credential for your AWS bucket scan](#create-a-microsoft-purview-credential-for-your-aws-s3-scan).     |
     | **Amazon S3**    |   Displayed only if you've added your AWS account, with all buckets included. <br><br>Select one or more buckets to scan, or **Select all** to scan all the buckets in your account.      |
     | | |
 
