@@ -31,7 +31,7 @@ The functionality of the extension varies depending on the extension version:
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
 This extension version is available by installing the [NuGet package], version 5.x.
 
@@ -57,13 +57,13 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Version 1.x of the Functions runtime doesn't supported running in an isolated process. 
+Version 1.x of the Functions runtime doesn't support running in an isolated process. 
 
 # [Extension v5.x+](#tab/extensionv5/csharp-script)
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
 
