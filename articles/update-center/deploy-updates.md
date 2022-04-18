@@ -1,6 +1,6 @@
 ---
-title: Deploy updates and track results in Update management center (Preview).
-description: The article details how to use Update management center (Preview) in the Azure portal to deploy updates and view results for supported machines.
+title: Deploy updates and track results in update management center (preview).
+description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
 ms.date: 09/02/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: sudhirsneha
 ms.custom: references_regions
 ---
 
-# Deploy updates now and track results with update management center (Preview)
+# Deploy updates now and track results with update management center (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -34,9 +34,9 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-1. In **Update management center (Preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+1. In **Update management center (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
-   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
+   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
 1. Select **Install now** to proceed with the one-time updates.
 
@@ -102,7 +102,7 @@ To create a new update deployment for multiple machines, follow these steps:
 
 1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
-   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
+   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
    
 1. In **Install one-time updates**, you can select the resources and machines to install the updates.
 
