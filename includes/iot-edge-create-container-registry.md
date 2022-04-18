@@ -32,7 +32,7 @@ If you don't already have a container registry, follow these steps to create a n
  
 1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**. 
 
-:::image type="content" source="media/tutorial-develop-for-linux-on-windows" alt-text="Access Keys menu location.":::
+:::image type="content" source="media/tutorial-develop-for-linux-on-windows/access-keys.png" alt-text="Access Keys menu location.":::
 
 1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
 
