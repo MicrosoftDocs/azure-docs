@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 04/18/2022
 ---
 
 # Move operation support for resources
@@ -1398,7 +1398,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | holographicsbroadcastaccounts | No | No | No |
 > | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | Yes | Yes | No |
 > | spatialanchorsaccounts | Yes | Yes | No |

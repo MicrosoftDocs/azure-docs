@@ -34,6 +34,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
+- [Azure Data Explorer](/azure/data-explorer/security-conditional-access)
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/conditional-access-configure)
