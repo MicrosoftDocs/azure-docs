@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn where to find information about security rules and how to create, change, or delete a network security group.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Create, change, or delete a network security group

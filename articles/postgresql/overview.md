@@ -8,6 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc
 ms.date: 01/24/2022
+adobe-target: true
 ---
 
 # What is Azure Database for PostgreSQL?

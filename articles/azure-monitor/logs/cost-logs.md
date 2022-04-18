@@ -75,13 +75,26 @@ If your linked workspace is using legacy Per Node pricing tier, it will be bille
 See [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) for details on creating a dedicated cluster and specifying its billing type.
 
 ## Basic Logs
-You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There is a charge though to query against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts.
+You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There is a charge though to search against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts.
+
+The charge for searching against Basic Logs is based on the GB of data scanned in performing the search. 
 
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
-## Data retention and Archive Logs
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, but there is a charge to restore or search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+
+## Log data retention and archive
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
+
+## Search jobs
+Searching against Archived Logs uses [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that is accessed to perform the search. 
+
+## Log data restore
+For situations in which older or archived logs need to be intensively queried with the full analyitics query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're done. Log data restore is billed by the amount of data restored, and by the time the restore is kept active.  The minimal values billed for any data restore is 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration are billed on a pro-rated basis. 
+
+## Log data export
+[Data export](logs-data-export.md) in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it arrives to Azure Monitor pipeline. Charges for the use of data export are based on the amount of data exported. The size of data exported is the number of bytes in the exported JSON formatted data.
+
 ## Application insights billing
 Since [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers) in addition to Pay-As-You-Go.
 
