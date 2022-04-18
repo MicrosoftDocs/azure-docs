@@ -20,13 +20,13 @@ There are some limits on the number of metrics and events per application, that 
 | Data retention Metrics | 90 days | 90 days | This resource is for [Metrics Explorer](../articles/azure-monitor/essentials/metrics-charts.md).
 | [Availability multi-step test](../articles/azure-monitor/app/availability-multistep.md) detailed results retention | 90 days | 90 days | This resource provides detailed results of each step.
 | Maximum telemetry item size | 64 kB | 64 KB | |
-| Maximum telemetry items per batch | 64 K | 64,000
+| Maximum telemetry items per batch | 64 K | 64 K | |
 | Property and metric name length | 150 | 150 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Property value string length | 8,192 | 8,192 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Trace and exception message length | 32,768 | 32,768 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | [Availability tests](../articles/azure-monitor/app/monitor-web-app-availability.md) count per app | 100 | 100 | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) and Snapshot data retention | 2 weeks | [Contact support](https://azure.microsoft.com/support/options/) Maximum retention limit is 6 months | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | No limit | No limit | |
-| Snapshot data sent per day | 30 snapshots per day per monitored app | No limit | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md) |
+| Snapshot data sent per day | 30 snapshots per day per monitored app | No limit | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md). |
 
 For more information, see [About pricing and quotas in Application Insights](../articles/azure-monitor/logs/cost-logs.md#application-insights-billing).
