@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
 
-## 3XX response codes
+## 3XX response codes (redirection)
 
-3XX responses are presented when a client request matches an application gateway rule that has redirects configured.  Redirects can be configured on a rule as-is or via a path map rule. For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
+300-399 responses are presented when a client request matches an application gateway rule that has redirects configured. Redirects can be configured on a rule as-is or via a path map rule. For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
 
 #### 301 Permanent Redirect
 
@@ -35,9 +35,9 @@ HTTP 302 responses are presented when a redirection rule is specified with the *
 HTTP 307 responses are presented when a redirection rule is specified with the **Temporary** value.
 
 
-## 4XX response codes
+## 4XX response codes (client error)
 
-4XX response codes typically indicate an issue with file or service access.
+400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
 
 #### 400 – Bad Request
 
@@ -73,9 +73,9 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 An HTTP 408 response can be observed when client requests to the frontend listener of application gateway do not respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when traffic is inspected by virtual appliances, or the client itself becomes overwhelmed.
 
 
-## 5XX response codes
+## 5XX response codes (server error)
 
-5XX response codes usually indicate that a problem occurred with the server while performing the request.
+500-599 response codes indicate a problem has occurred with application gateway or the backend server while performing the request.
 
 #### 500 – Internal Server Error
 
