@@ -62,7 +62,7 @@ Note the following when deprecating an image:
 1. In the left nav, select the **Technical Configuration** page.
 1. Under **VM images**, select the **Active** tab.
 1. In the **Action** column, select **Deprecate** for the image you want to deprecate. Upon confirming the deprecation, the image is listed on the **Deprecated** tab.
-1. Save your changes on the Technical Configuration page.
+1. Save your changes on the **Technical configuration** page.
 1. For the change to take effect and for customers to be notified, select **Review and publish** and publish the offer.
 
 ## Restore a deprecated image
@@ -77,14 +77,14 @@ Note the following when restoring a deprecated image:
 
 1. On the [Marketplace offers](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, in the **Offer alias** column, select the offer with the image you want to restore.
 1. On the **Offer overview** page, under **Plan overview**, select the plan with the image.
-1. In the left nav, select the **Technical Configuration** page.
-1. Under **VM images**, select the **Deprecated** tab. The status is shown in the Status column.
+1. In the left nav, select the **Technical configuration** page.
+1. Under **VM images**, select the **Deprecated** tab. The status is shown in the **Status** column.
 1. In the **Action** column, select one of the following:
     - If the deprecation date shown in the **Status** column is in the future, you can select **Cancel deprecation**. The image version will then be listed under the Active tab.
     - If the deprecation date shown in the **Status** column is in the past, select **Restore image**. The image is then listed on the **Active** tab.
     > [!NOTE]
     > If the image can no longer be restored, then no actions will be available.
-1. Save your changes on the Technical Configuration page.
+1. Save your changes on the **Technical configuration** page.
 1. For the change to take effect, select **Review and publish** and publish the offer.
 
 ## Deprecate a plan
@@ -143,7 +143,7 @@ You can restore an offer only if the offer contains at least one active plan and
 
 1. On the [Marketplace offers](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, in the **Offer alias** column, select the offer you want to restore.
 1. In the left nav, select **Plan overview**.
-1. In the **Action** column of the plan you want to restore, select **Restore**. You can optionally create a new plan within the offer.
+1. In the **Action** column of the plan you want to restore, select **Restore**. You can optionally [create a new plan](azure-vm-plan-overview.md) within the offer.
 1. Ensure that there is at least one active image version available on the **Technical Configuration** page of the plan. Note that all deprecated images are listed under **VM Images** on the **Deprecated** tab. You can either [restore a deprecated image](#restore-a-deprecated-image) or [add a new VM image](azure-vm-plan-technical-configuration.md#vm-images). Remember, if the restore window has expired, the image can no longer be restored.
 1. Save your changes on the **Technical configuration** page.
 1. For the changes to take effect, select **Review and publish** and publish the offer.
