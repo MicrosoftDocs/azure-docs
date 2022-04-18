@@ -198,13 +198,16 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 Below is a list of reasons you might run into this error:
 
 * [Resource request was greater than limits](#resource-requests-greater-than-limits)
-* [Unable to download resources](#unable-to-download-resources)
+* [Startup task failed due to authorization error](#authorization-error)
+* [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Unable to download user container image](#unable-to-download-user-container-image)
+* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
 
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
-#### Unable to download resources
+#### Authorization error
 
 After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
@@ -216,20 +219,9 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
   - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
 
-During this process, you can run into a few different issues depending on which stage the operation failed at:
-
-* [Unable to download user container image](#unable-to-download-user-container-image)
-* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
-
-To get more details about these errors, run:
-
-```azurecli
-az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
-``` 
-
 #### Unable to download user container image
 
-It is possible that the user container could not be found.
+It is possible that the user container could not be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure container image is available in workspace ACR.
 
@@ -238,7 +230,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model or code artifacts
 
-It is possible that the user model or code artifacts can't be found.
+It is possible that the user model or code artifacts can't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
 
