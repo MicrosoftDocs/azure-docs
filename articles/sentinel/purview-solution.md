@@ -58,7 +58,7 @@ For more information, see [About Microsoft Sentinel content and solutions](senti
 
 ## Start ingesting Microsoft Purview data in Microsoft Sentinel
 
-Configure diagnostic settings to have Microsoft Purview data sensitivity logs flow into Microsoft Sentinel, and then run an Microsoft Purview scan to start ingesting your data.
+Configure diagnostic settings to have Microsoft Purview data sensitivity logs flow into Microsoft Sentinel, and then run a Microsoft Purview scan to start ingesting your data.
 
 Diagnostics settings send log events only after a full scan is run, or when a change is detected during an incremental scan. It typically takes about 10-15 minutes for the logs to start appearing in Microsoft Sentinel.
 
