@@ -1,5 +1,5 @@
 ---
-title: How to deploy updates and track results in Update management center (Preview).
+title: Deploy updates and track results in Update management center (Preview).
 description: The article details how to use Update management center (Preview) in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
 ms.date: 09/02/2021
@@ -16,22 +16,21 @@ ms.custom: references_regions
 The article describes how to perform an on-demand update on a single VM or multiple VMs using update management center (preview).
 
 See the following sections for detailed information:
-- Install updates on a single VM
-- Install updates at scale
+- [Install updates on a single VM](#install-updates-on-single-vm)
+- [Install updates at scale](#install-updates-at-scale)
 
 ## Supported regions
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
+>[!NOTE]
+> You can check the updates from **Overview** or **Machines** blade.
 
 ## Install updates on single VM
 
-**From Overview blade**
+# [From Overview blade](#tab/install-single-overview) 
 
 To install one time updates on a single VM, follow these steps:
-
->[!NOTE]
-> You can check the updates from **Overview** or **Machines** blade.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
@@ -45,23 +44,23 @@ To install one time updates on a single VM, follow these steps:
 
 1. In **Select resources**, choose the machine and select **Add**. 
 
-1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, it's necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
+1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, its necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
    > [!NOTE]
-   > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update Center Management (Preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
+   > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
    
       :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
-   - Select **Include KB ID/package** to include in the updates. enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
+   - Select **Include KB ID/package** to include in the updates. Enter a comma-separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to the [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
 
-   - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend to check this option because updates that are not displayed here might be installed as newer updates might be available.
+   - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend checking this option because updates that are not displayed here might be installed, as newer updates might be available.
    
    - To ensure that the updates published are on or before a specific date, choose the date and select**Add** and **Next**.
 
 1. In **Properties**, specify the reboot and maintenance window.
-   - Use the **Reboot** to specify the way to handle reboots during deployment. The following options are available:
+   - Use the **Reboot** option to specify the way to handle reboots during deployment. The following options are available:
       * Reboot if required
       * Never reboot
       * Always reboot
@@ -74,9 +73,8 @@ To install one time updates on a single VM, follow these steps:
 
 1. When you're finished configuring the deployment, verify the summary in **Review + install** and select **Install**. 
 
-A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in the **History** The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
-
-**From Machines blade**
+ 
+# [From Machines blade](#tab/install-single-machine) 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -84,8 +82,11 @@ A notification appears to inform you the activity has started and another is cre
 
 1. Select to **Install now** to proceed with installing updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
 
+---
+
+A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log). 
 
 ## Install updates at scale
  
@@ -94,21 +95,23 @@ To create a new update deployment for multiple machines, follow these steps:
 >[!NOTE]
 > You can check the updates from **Overview** or **Machines** blade.
 
-**From Overview blade**
+# [From Overview blade](#tab/install-scale-overview) 
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-1. In **Update management center (Preview)**, **Overview**, choose your **Subscription** and select **One-time update**, **Install now** to install updates.
+1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example on installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
    
 1. In **Install one-time updates**, you can select the resources and machines to install the updates.
 
-1. In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
+1. In **Machines**, you can view all the machines available in your subscription. You can also use the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose **Select all** and select **Add**.
 
-The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+The **Machines** displays a list of machines for which you can deploy one-time update. Select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
 
-**From Machines blade**
+
+# [From Machines blade](#tab/install-scale-machines) 
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
@@ -120,18 +123,20 @@ The **Machines** displays a list of machines for which you want to deploy one-ti
 
 1.  In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
 
-The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in the above procedure](#install-updates-on-single-vm).
+The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
 
+----
 
+A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log). 
 
 
 ## View update history for single VM
 
 You can browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions. For more information, see [Update deployment history](manage-multiple-machines.md#update-deployment-history).
 
-After your scheduled deployment starts, you can see it's status on the **History** tab. It displays the total number of deployments including the successful and failed.
+After your scheduled deployment starts, you can see it's status on the **History** tab. It displays the total number of deployments including the successful and failed deployments.
 
-:::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates historys." lightbox="./media/deploy-updates/updates-history-expanded.png":::
+:::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
 A list of the deployments created are show in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
