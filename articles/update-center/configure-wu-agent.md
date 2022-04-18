@@ -4,20 +4,20 @@ description: This article tells how to configure Windows update settings to work
 ms.service: update-management-center
 ms.date: 08/17/2021
 ms.topic: conceptual
-author: SGSneha
-ms.author: v-ssudhir
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ---
 
-# Configure Windows update settings for update management center (Preview)
+# Configure Windows update settings for update management center (preview)
 
-Update management center (Preview) relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed with:
+Update management center (Preview) relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed by:
 
 - Local Group Policy Editor
 - Group Policy
 - PowerShell
 - Directly editing the Registry
 
-Update management center (Preview) respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update management center (Preview) will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+The Update management center (preview) respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, the Update management center (preview) will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
 For additional recommendations on setting up WSUS in your Azure subscription and to secure your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
 
@@ -52,7 +52,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## Make WSUS configuration settings
 
-Update management center (Preview) supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
+Update management center (Preview) supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, the update deployment fails, if the updates aren't approved in WSUS. 
 
 To restrict machines to the internal update service, see [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
 
