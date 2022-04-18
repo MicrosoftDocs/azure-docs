@@ -749,7 +749,7 @@ Learn more about [SQL data warehouse - SqlDwReplicateTable (Convert tables to re
 
 We have detected that you can increase load throughput by splitting your compressed files that are staged in your storage account. A good rule of thumb is to split compressed files into 60 or more to maximize the parallelism of your load.
 
-Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](../synapse-analytics/sql/data-loading-best-practices.md#preparing-data-in-azure-storage).
+Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](../synapse-analytics/sql/data-loading-best-practices.md#prepare-data-in-azure-storage).
 
 ### Increase batch size when loading to maximize load throughput, data compression, and query performance
 
@@ -761,7 +761,7 @@ Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch siz
 
 We have detected that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data.
 
-Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](../synapse-analytics/sql/data-loading-best-practices.md#preparing-data-in-azure-storage).
+Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](../synapse-analytics/sql/data-loading-best-practices.md#prepare-data-in-azure-storage).
 
 ## Storage
 
