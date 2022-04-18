@@ -63,7 +63,7 @@ When you enumerate large data stores like Data Lake Storage Gen2, there are mult
 
 ## Ingestion
 
-The technical metadata or classifications identified by the scanning process are then sent to Ingestion. The ingestion process is responsible for populating the data map and is managed by Microsoft Purview.  Ingestion analyses the input from scan, [applies resource set patterns](concept-resource-sets.md#how-azure-purview-detects-resource-sets), populates available [lineage](concept-data-lineage.md) information, and then loads the data map automatically. Assets/schemas can be discovered or curated only after ingestion is complete. So, if your scan is completed but you haven't seen your assets in the data map or catalog, you'll need to wait for the ingestion process to finish.
+The technical metadata or classifications identified by the scanning process are then sent to Ingestion. The ingestion process is responsible for populating the data map and is managed by Microsoft Purview.  Ingestion analyses the input from scan, [applies resource set patterns](concept-resource-sets.md#how-microsoft-purview-detects-resource-sets), populates available [lineage](concept-data-lineage.md) information, and then loads the data map automatically. Assets/schemas can be discovered or curated only after ingestion is complete. So, if your scan is completed but you haven't seen your assets in the data map or catalog, you'll need to wait for the ingestion process to finish.
 
 ## Next steps
 
