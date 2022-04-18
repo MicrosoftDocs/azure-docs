@@ -81,7 +81,7 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
 7) Once the resources are created, choose **Next**.
 
-    :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to create the container registry.":::
+    :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to select the created resource.":::
 
 8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
