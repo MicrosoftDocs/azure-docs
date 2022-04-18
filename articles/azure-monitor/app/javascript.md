@@ -489,19 +489,19 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 ## Troubleshooting
 
-### JS SDK causes request to fail
+### I am getting an error message of Failed to get Request-Context correlation header as it may be not included in the response or not accessible
 
 The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
 An example would be `*.queue.core.windows.net`, as seen in the code sample above.
 Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
 
-### Access control allow headers
+### I'm not sure how to update my third-party server configuration
 
 The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
 
 Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
 
-### SDK reports correlation recursivley
+### I am receiving duplicate telemetry data from the Application Insights JavaScript SDK
 
 If the SDK reports correlation recursively enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data, this can occur when using connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
