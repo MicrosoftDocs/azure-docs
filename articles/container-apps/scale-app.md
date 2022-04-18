@@ -37,7 +37,7 @@ Azure container Apps supports the following scale triggers:
 
 - [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your revision.
 - [Event-driven](#event-driven): Event-based triggers such as messages in an Azure Service Bus.
-- [CPU](#CPU) or [Memory](#memory) usage: Scaling based on the amount of CPU or memory consumed by a replica.
+- [CPU](#cpu) or [Memory](#memory) usage: Scaling based on the amount of CPU or memory consumed by a replica.
 
 ## HTTP
 
@@ -181,6 +181,9 @@ To create a custom scale trigger, we must first create a connection string secre
 
 1. Select **Create** when you are done.
 
+> [!NOTE]
+> In multiple revision mode, adding a new scale trigger will create a new revision of your application but your old revision will still be available with the old scale rules. Use the **Revision management** page to manage their traffic allocations.
+
 ### KEDA scalers conversion
 
 Azure container apps supports all the available [scalers](https://keda.sh/docs/scalers/) from KEDA. To convert KEDA templates, it's easier to start with a  Container apps custom JSON template and add the parameters you need based on the scenario and the scale trigger you want to set up.
@@ -270,6 +273,9 @@ Now your JSON config file should look like this:
 }
 ```
 
+> [!NOTE]
+> Azure Container Apps does not support scaling as Kubernetes jobs. See [Keda scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview) for more details.
+
 ## CPU
 
 CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
@@ -345,9 +351,6 @@ The following example shows how to create a memory scaling rule.
 
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
-
-> [!NOTE]
-> Azure Container Apps does not support [ScaledJobs](https://keda.sh/docs/concepts/scaling-jobs/#scaledjob-spec).
 
 ## Considerations
 
