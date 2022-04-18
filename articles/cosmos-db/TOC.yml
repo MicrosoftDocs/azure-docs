@@ -152,6 +152,9 @@
           items:
             - name: Azure portal
               href: sql/create-cosmosdb-resources-portal.md
+            - name: Bicep
+              displayName: ARM, Resource Manager, Template
+              href: sql/quick-create-bicep.md
             - name: ARM template
               displayName: Resource Manager
               href: sql/quick-create-template.md
