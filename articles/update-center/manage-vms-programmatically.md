@@ -1,20 +1,20 @@
 ---
 title: Programmatically manage updates for Azure VMs
-description: This article tells how to use update management center (private preview) in Azure using REST API with Azure virtual machines.
+description: This article tells how to use update management center (preview) in Azure using REST API with Azure virtual machines.
 ms.service: update-management-center
-author: mgoedtel
-ms.author: magoedte
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 
 # How to programmatically manage updates for Azure VMs
 
-This article walks you through the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with update management center (private preview) in Azure. If you are new to update management center (private preview) and you want to learn more, see [overview of update management center (private preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
+This article walks you through the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with update management center (preview) in Azure. If you are new to update management center (preview) and you want to learn more, see [overview of update management center (preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
 
 Update management center (private preview) in Azure enables you to use the [Azure REST API](https://docs.microsoft.com/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) and [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
-Support for Azure REST API to manage Azure VMs is available through the update management center (private preview) virtual machine extension.
+Support for Azure REST API to manage Azure VMs is available through the update management center (preview) virtual machine extension.
 
 ## Update assessment
 
@@ -174,7 +174,7 @@ Invoke-AzRestMethod
 ---
 
 
-## Create a Maintenance configuration schedule
+## Create a maintenance configuration schedule
 
 To create a maintenance configuration schedule, specify the following PUT request:
 
@@ -193,9 +193,9 @@ The following table describes the elements of the request body:
 | `name` |	Name of the resource |
 | `properties.extensionProperties` | Gets or sets extensionProperties of the maintenanceConfiguration |
 | `properties.maintenanceScope` | Gets or sets maintenanceScope of the configuration |
-| `properties.maintenanceWindow.duration` | Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00. |
+| `properties.maintenanceWindow.duration` | Duration of the maintenance window in HH:MM format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00. |
 | `properties.maintenanceWindow.expirationDateTime` | Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59. |
-| `properties.maintenanceWindow.recurEvery` | Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days. Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday. |
+| `properties.maintenanceWindow.recurEvery` | Rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days. Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday. |
 | `properties.maintenanceWindow.startDateTime` | 	Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. |
 | `properties.maintenanceWindow.timeZone` |	Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time. |
 | `properties.namespace` | 	Gets or sets namespace of the resource |
@@ -389,5 +389,5 @@ Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Main
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (private preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (private preview).
+* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see [Troubleshoot](troubleshoot.md) update management center (preview).
