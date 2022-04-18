@@ -66,11 +66,14 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
+> [!NOTE]
+> If you are following along with this tutorial with your own app, look at the *requirements.txt* file description in each project's *README.md* file ([Flask](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md), [Django](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/README.md)) to see what packageS you'll need.
+
 Set environment variables to specify how to connect to a local PostgreSQL instance.
 
 This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
+For Django, if you want to run SQLite locally instead, follow the instructions in the comments of the [*settings.py*](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/azureproject/settings.py) file.
 
 Create the `restaurant` and `review` database tables:
 
