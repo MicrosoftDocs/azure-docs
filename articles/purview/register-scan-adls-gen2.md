@@ -270,8 +270,8 @@ To enable data use governance, follow [the data use governance guide](how-to-ena
 
 Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
 
-* [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
-* [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+* [Single storage account](./how-to-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 Or you can follow the [generic guide for creating data access policies](how-to-data-owner-policy-authoring-generic.md).
 

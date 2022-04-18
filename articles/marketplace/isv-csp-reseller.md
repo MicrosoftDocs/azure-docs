@@ -75,15 +75,13 @@ The offer setup page lets you define private offer terms, notification contact, 
 
 2. Provide up to five emails as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your private offer moves to **Live**, **Ended**, or is **Withdrawn**.
 
-3. Configure the percentage-based margins or absolute **Pricing** for up to ten offers/plans in a private offer.
-
-    - *Percentage-based* margin can be given at an offer level so it applies to all plans within the offer, or it can be given only for a specific plan. The margin the CSP partner receives will be a percentage off your plan's list price in the marketplace.
-    - *Absolute price* can be used to specify a price point higher, lower, or equal to the publicly listed plan price; it can only be applied at a plan level and does not apply to Virtual Machine offer types. You can only customize the price based on the same pricing model, billing term, and dimensions of the public offer; you cannot change to a new pricing model or billing term or add dimensions.<br><br>
+3. Configure the percentage-based margins <!-- or absolute **Pricing** -->for up to ten offers/plans in a private offer. Margin can be given at an offer level so it applies to all plans within the offer, or it can be given only for a specific plan. The margin the CSP partner receives will be a percentage off your plan's list price in the marketplace.
+    <!--- *Absolute price* can be used to specify a price point higher, lower, or equal to the publicly listed plan price; it can only be applied at a plan level and does not apply to Virtual Machine offer types. You can only customize the price based on the same pricing model, billing term, and dimensions of the public offer; you cannot change to a new pricing model or billing term or add dimensions.<br><br> -->
 
     1. Select **+ Add Offers/plans** to choose the offers/plans you want to provide a private offer for.
     1. Choose to provide a custom price or margin at either an offer level (all current and future plans under that offer will have a margin associated to it) or at a plan level (only the plan you selected will have a private price associated with it).
     1. Choose up to ten offers/plans and select **Add**.
-    1. Enter the margin percentage or configure the absolute price for each item in the pricing table.
+    1. Enter the margin percentage <!-- or configure the absolute price -->for each item in the pricing table.
 
     > [!NOTE]
     > Only offers/plans that are transactable in Microsoft AppSource or Azure Marketplace appear in the selection menu.

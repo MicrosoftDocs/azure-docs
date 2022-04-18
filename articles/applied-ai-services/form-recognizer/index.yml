@@ -38,9 +38,6 @@ landingContent:
              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-#Card 2
-   - title: Models and features
-     linkLists:
       - linkListType: overview
         links:
           - text: 🆕Read model (preview)
@@ -61,6 +58,52 @@ landingContent:
             url: concept-id-document.md
           - text: Business card model
             url: concept-business-card.md
+
+  #Card 2
+   - title: Quickstarts and how-to-guides
+     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: 🆕Form Recognizer Studio (preview)
+          url: quickstarts/try-v3-form-recognizer-studio.md
+        - text: Form Recognizer Sample Labeling tool
+          url: quickstarts/try-sample-label-tool.md
+        - text: REST API
+          url: quickstarts/try-v3-rest-api.md
+        - text: C# SDK
+          url: quickstarts/try-v3-csharp-sdk.md
+        - text: Java SDK
+          url: quickstarts/try-v3-java-sdk.md
+        - text: JavaScript SDK
+          url: quickstarts/try-v3-javascript-sdk.md
+        - text: Python SDK
+          url: quickstarts/try-v3-python-sdk.md
+
+      - linkListType: how-to-guide
+        links:
+          - text: Create a Form Recognizer resource
+            url: create-a-form-recognizer-resource.md
+          - text: Migrate to Form Recognizer v3.0
+            url: v3-migration-guide.md
+          - text: Use the read model
+            url: how-to-guides/use-prebuilt-read.md
+          - text: Generate SAS tokens for Azure Blob containers
+            url: generate-sas-tokens.md
+          - text: Build a custom model (v3.0)
+            url:  how-to-guides/build-custom-model-v3.md
+          - text: Compose custom models (v3.0)
+            url: compose-custom-models-preview.md
+          - text: Install and run Form Recognizer containers
+            url: containers/form-recognizer-container-install-run.md
+          - text: Create and use managed identities
+            url: managed-identities.md
+
+      - linkListType: video
+        links:
+          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+          - text: AI-powered process automation
+            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
   #Card 3
    - title: 🆕Form Recognizer Studio (v3.0)
@@ -109,33 +152,8 @@ landingContent:
             url: "concept-id-document.md#sample-labeling-tool-api-v21"
           - text:  Business card model
             url: "concept-business-card.md#sample-labeling-tool-api-v21"
-  #Card 5
-   - title: Quickstarts
-     linkLists:
-      - linkListType: quickstart
-        links:
-        - text: 🆕Form Recognizer Studio (preview)
-          url: quickstarts/try-v3-form-recognizer-studio.md
-        - text: Form Recognizer Sample Labeling tool
-          url: quickstarts/try-sample-label-tool.md
-        - text: REST API
-          url: quickstarts/try-v3-rest-api.md
-        - text: C# SDK
-          url: quickstarts/try-v3-csharp-sdk.md
-        - text: Java SDK
-          url: quickstarts/try-v3-java-sdk.md
-        - text: JavaScript SDK
-          url: quickstarts/try-v3-javascript-sdk.md
-        - text: Python SDK
-          url: quickstarts/try-v3-python-sdk.md
-      - linkListType: video
-        links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
-# Card 6
+# Card 5
    - title: Responsible AI and Community Support
      linkLists:
       - linkListType: reference

@@ -2,11 +2,11 @@
 title: Azure Application Gateway HTTP settings configuration
 description: This article describes how to configure Azure Application Gateway HTTP settings.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/17/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Application Gateway HTTP settings configuration
