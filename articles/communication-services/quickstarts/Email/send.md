@@ -15,8 +15,6 @@ zone_pivot_groups: acs-js-csharp
 ---
 # Quickstart: Send an email
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
-
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
