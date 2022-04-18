@@ -38,7 +38,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 
 - [Register multiple sources in Azure Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
-After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it allows your users to manage access to resources from within Azure Purview.
+After you've registered your resources, you'll need to enable data use governance. Data use governance affects the security of your data, as it delegates to certain users to manage access to data resources from within Azure Purview.
 
 To ensure you securely enable data use governance, and follow best practices, follow this guide to enable data use governance for your resource group or subscription:
 

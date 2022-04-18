@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 9/27/2021
+ms.date: 04/18/2022
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -167,7 +167,10 @@ _**Table 1: Dictionary of data terms**_
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | Customer Type | Customer Type | The value of this field signifies the type of the customer. The possible values are:<ul><li>individual</li> <li>organization</li></ul> | CustomerType |
-|||||
+| OfferName | OfferName | The name of the commercial marketplace offer | OfferName|
+| PlanID | PlanID | The display name of the plan entered when the offer was created in Partner Center | PlanID |
+| SKU | SKU | The plan associated with the offer | SKU |
+| N/A | lastModifiedAt | The latest timestamp for customer purchases. Use this field, via programmatic API access, to pull the latest snapshot of all customer purchase transactions since a specific date | lastModifiedAt |
 
 ### Customers page filters
 
