@@ -7,7 +7,7 @@ tags: azure-resource-manager, bicep
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: quickstart
-ms.date: 04/15/2022
+ms.date: 04/18/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
 ---
@@ -64,7 +64,7 @@ Three Azure resources are defined in the Bicep file:
     ---
 
    > [!NOTE]
-   > Replace **\<primary-region\>** with the primary replica region for the Cosmos DB account. Replace **\<secondary-region\>** with the secondary replica region for the Cosmos DB account.
+   > Replace **\<primary-region\>** with the primary replica region for the Cosmos DB account, such as **WestUS**. Replace **\<secondary-region\>** with the secondary replica region for the Cosmos DB account, such as **EastUS**.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
