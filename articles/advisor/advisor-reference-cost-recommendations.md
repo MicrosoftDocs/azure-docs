@@ -143,7 +143,7 @@ Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete
 
 For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup which is even more cost effective
 
-Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](../backup/sap-hana-faq-backup-azure-vm.yml#policy).
+Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](/azure/backup/sap-hana-faq-backup-azure-vm#policy).
 
 ## Storage
 
