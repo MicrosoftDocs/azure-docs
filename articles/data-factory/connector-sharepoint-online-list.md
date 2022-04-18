@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 04/18/2022
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -41,23 +41,34 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application: 
 
-    > [!NOTE]
-    > This operation requires SharePoint Online site owner permission. You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
-
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
-        - Permission Request XML:
+        - Specify the following Permission Request XML for SharePoint Online site "Owner" role and "Admin" role respectively.
+            - For "Owner" role, the Permission Request XML is:
 
-        ```xml
-        <AppPermissionRequests AllowAppOnlyPolicy="true">
-            <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-        </AppPermissionRequests>
-        ```
+            ```xml
+            <AppPermissionRequests>
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```           
+            
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have "Owner" role.":::
 
-        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="sharepoint grant permission":::
+            > [!NOTE]
+            > You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
+
+            - For "Admin" role, the Permission Request XML is:
+
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have "Admin" role.":::
 
     3. Click "Trust It" for this app.
 
