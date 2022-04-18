@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 06/31/2022
+ms.date: 04/18/2022
 
 ---
 
@@ -20,7 +20,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](visualize/tutorial-logs-dashboards.md) and [workbooks](visualize/workbooks-overview.md).
 - Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./essentials/data-platform-metrics.md).
-- Investigate change data for routine monitoring or for triaging incidents using [Change Analysis](./change/change-analysis.md) 
+- Investigate change data for routine monitoring or for triaging incidents using [Change Analysis](./change/change-analysis.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
