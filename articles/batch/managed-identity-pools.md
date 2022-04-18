@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 04/04/2022
+ms.date: 04/18/2022
 ms.devlang: csharp
 ---
 # Configure managed identities in Batch pools
@@ -41,11 +41,12 @@ To create a Batch pool with a user-assigned managed identity through the Azure p
 1. Under **User assigned managed identity**, select **Add**.
 1. Select the user assigned managed identity or identities you want to use Then, select **Add**.
 1. Under **Operating System**, select the publisher, offer, and SKU to use.
-1. For **Container configuration**, change the setting to **Custom**. Then, select your custom configuration.
-1. For **Start task** select **Enabled**. Then, select **Resource files** and add your storage container information.
-1. Enable **Container settings**.
-1. Change  **Container registry** to **Custom**
-1. For **Identity reference**, select the storage container.
+1. Optionally, enable the managed identity in the container registry:
+    1. For **Container configuration**, change the setting to **Custom**. Then, select your custom configuration.
+    1. For **Start task** select **Enabled**. Then, select **Resource files** and add your storage container information.
+    1. Enable **Container settings**.
+    1. Change  **Container registry** to **Custom**
+    1. For **Identity reference**, select the storage container.
 
 ###  Create Batch pool with .NET
 
