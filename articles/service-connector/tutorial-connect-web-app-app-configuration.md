@@ -37,7 +37,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Set up Azure resources
 
-Start by creating your Azure resources using a system-assigned managed identity (SMI), a user-assigned managed identity (UMI), a service principal or a connection string.
+Start by creating your Azure resources.
 
 1. Clone the following sample repo:
 
