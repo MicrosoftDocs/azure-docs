@@ -1,4 +1,3 @@
----
 title: Feature availability across cloud regions
 titleSuffix: Azure Machine Learning
 description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
@@ -35,7 +34,7 @@ The information in the rest of this document provides information on what featur
 | Support for deep learning and other advanced learners                      | GA                   | YES                | YES         |
 | Large data support (up to 100 GB)                                          | Public Preview       | YES                | YES         |
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
-| SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
+| SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA                   | YES                | YES         |
 | **[Machine Learning pipelines](concept-ml-pipelines.md)** |   |  | | 
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
@@ -94,7 +93,7 @@ The information in the rest of this document provides information on what featur
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
-| [Data Box Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
+| [Azure Stack Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
 | [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
@@ -145,7 +144,7 @@ The information in the rest of this document provides information on what featur
 | Support for deep learning and other advanced learners                      | GA               | YES       | N/A        |
 | Large data support (up to 100 GB)                                          |  Preview   | YES       | N/A        |
 | Azure Databricks Integration                                              | GA               | YES        | N/A        |
-| SQL, Cosmos DB, and HDInsight integrations                                   | GA               | YES       | N/A        |
+| SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA               | YES       | N/A        |
 | **Machine Learning pipelines** |    | | |
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
