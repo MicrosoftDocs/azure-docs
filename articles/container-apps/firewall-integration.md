@@ -16,7 +16,7 @@ Firewall settings Network Security Groups (NSGs) needed to configure virtual net
 Some outbound dependencies of Azure Kubernetes Service (AKS) clusters rely exclusively on fully qualified domain names (FQDN), therefore securing an AKS cluster purely with NSGs isn't possible. Refer to [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) for details.
 
 * You can lock down a network via NSGs with more restrictive rules than the default NSG rules.
-* The recommended practice is to lock down the cluster with a combination of NSGs and Firewall to fully secure the cluster.
+* To fully secure a cluster, use a combination of NSGs and a firewall.
 
 ## NSG allow rules
 
