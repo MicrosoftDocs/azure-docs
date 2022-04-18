@@ -22,9 +22,6 @@ zone_pivot_groups: acs-js-csharp
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send email with JavaScript SDK](./includes/send-email-js.md)]
-::: zone-end
 
 ## Troubleshooting
 
