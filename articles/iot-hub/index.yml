@@ -22,6 +22,8 @@ landingContent:
       links:
       - text: Compare IoT Hub and Event Hubs
         url: iot-hub-compare-event-hubs.md
+      - text: Choose your IoT Hub tier
+        url: iot-hub-scaling.md
 
  - title: Collect data from your devices
    linkLists:
@@ -38,7 +40,7 @@ landingContent:
      - text: Upload files
        url: iot-hub-devguide-file-upload.md
 
- -   title: Route messages to Azure services
+ -   title: Process data with Azure services
      linkLists:
      -  linkListType: concept
         links:
@@ -50,6 +52,10 @@ landingContent:
           url: tutorial-routing.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
+        - text: Visualize data in a web app
+          url: iot-hub-live-data-visualization-in-web-apps.md
+        - text: Visualize data in Power BI
+          url: iot-hub-live-data-visualization-in-power-bi.md
 
  - title: Manage and monitor devices remotely
    linkLists:
@@ -66,6 +72,19 @@ landingContent:
      - text: Update devices using Device Update for IoT Hub
        url: ../iot-hub-device-update/understand-device-update.md
 
+- title: Secure your IoT solution
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Use X.509 certificates to authenticate
+      url: tutorial-x509-introduction.md
+  - linkListType: concept
+    links:
+    - text: Secure your IoT deployment
+      url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
+    - text: Control access to IoT Hub
+      url: iot-hub-devguide-security.md
+
  - title: Develop with SDKs and tools
    linkLists:
    - linkListType: concept
@@ -74,6 +93,6 @@ landingContent:
        url: iot-hub-devguide-sdks.md
      - text: Use the Azure IoT Tools for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-     - text: Supported protocols
+     - text: Supported device protocols
        url: iot-hub-devguide-protocols.md
 
