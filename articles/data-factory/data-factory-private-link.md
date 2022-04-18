@@ -82,6 +82,9 @@ If your self-hosted integration runtime is installed on the machine in your on-p
 > [!NOTE]
 > If you don’t allow above outbound traffic in the firewall and NSG, self-hosted integration runtime is shown as limited status. But you can still use it to execute activities. Only interactive authoring and auto-update don’t work.
 
+> [!NOTE]
+> If one data factory (shared) has a self-hosted integration runtime and the self-hosted integration runtime is shared with other data factories (linked). You only need to create private endpoint for the shared data factory, other linked data factories can leverage this private link for the communications between self-hosted integration runtime and Azure data factory service.
+
 ## DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME resource record for the data factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
 
