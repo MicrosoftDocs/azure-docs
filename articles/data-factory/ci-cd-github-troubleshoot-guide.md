@@ -33,7 +33,7 @@ Sometimes you encounter Authentication issues like HTTP status 401. Especially w
 
 #### Cause
 
-What we have observed is that the token was obtained from the original tenant, but the service is in guest tenant and trying to use the token to visit DevOps in guest tenant. This is not the expected behavior.
+What we have observed is that the token was obtained from the original tenant, but the service is in guest tenant and trying to use the token to visit DevOps in guest tenant. This isn't  the expected behavior.
 
 #### Recommendation
 
@@ -101,7 +101,7 @@ When trying to publish changes, you get following error message:
 `
 ### Cause
 
-You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the service as "in sync". This means no change during  publication..
+You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the service as "in sync". This means no change during  publication.
 
 #### Resolution
 
@@ -128,7 +128,7 @@ You are unable to move a data factory from one Resource Group to another, failin
 
 #### Resolution
 
-You can delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old data factory.
+You can delete the SSIS-IR and Shared IRs to allow the move operation. If you don't  want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old data factory.
 
 ###  Unable to export and import ARM template
 
@@ -160,7 +160,7 @@ CI/CD process has been enhanced. The **Automated** publish feature takes, valida
 
 #### Issue
 
-You cannot deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
@@ -174,7 +174,7 @@ For small to medium solutions, a single template is easier to understand and mai
 
 #### Issue
 
-While publishing ADF resources, the azure pipeline triggers twice every time.
+While publishing ADF resources, the azure pipeline triggers twice instead of once.
 
 #### Cause
  
@@ -188,11 +188,11 @@ Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigg
 
 ##### Issue
 
-You cannot connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
+You can't connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
 
 #### Cause
 
-* You have not configured Oauth for the service. 
+* You haven't configured Oauth for the service. 
 * Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
@@ -206,7 +206,7 @@ An instance of the service, or the resource group containing it, was deleted and
 
 #### Cause
 
-It is possible to recover the instance only if source control was configured for it with DevOps or Git. This action will bring all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there is no Source control, recovering a deleted instance from the Azure backend is not possible because once the service receives the delete command, the instance is permanently deleted without any backup.
+It is possible to recover the instance only if source control was configured for it with DevOps or Git. This action will bring all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there is no Source control, recovering a deleted instance from the Azure backend isn't  possible because once the service receives the delete command, the instance is permanently deleted without any backup.
 
 #### Resolution
 
@@ -220,7 +220,7 @@ To recover a deleted service instance that has source control configured, refer 
 
  * If there was a Self-hosted Integration Runtime in a deleted data factory or Synapse workspace, a new instance of the IR must be created in a new factory or workspace.  The on-premises or virtual machine IR instance must be uninstalled and reinstalled, and a new key obtained. After setup of the new IR is completed, the Linked Service must be updated to point to new IR and the connected tested again, or it will fail with error **invalid reference.**
 
-### Cannot deploy to different stage using automatic publish method
+### Can't  deploy to different stage using automatic publish method
 
 #### Issue
 Customer followed all necessary steps like installing NPM package and setting up a higher stage using Azure DevOps, but deployment still fails.
