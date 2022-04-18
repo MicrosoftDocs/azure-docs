@@ -21,7 +21,7 @@ By bringing the best of Windows and Linux together, EFLOW enables new capabiliti
 EFLOW does not require extensive Linux knowledge and utilizes familiar Windows tools to manage your EFLOW device and workloads. Windows IoT provides trusted enterprise-grade security with established IT admin infrastructure. Lastly, the entire solution is maintained and kept up to date by Microsoft. 
 
 ## Easily Connect to Azure
-**IoT Edge Built-In**. [Tier 1 Azure IoT Edge support](https://docs.microsoft.com/en-us/azure/iot-edge/support?view=iotedge-2020-11#operating-systems) is built-in to EFLOW for a simplified deployment experience for your cloud workloads.
+**IoT Edge Built-In**. [Tier 1 Azure IoT Edge support](support.md#operating-systems) is built-in to EFLOW for a simplified deployment experience for your cloud workloads.
 
 **Curated Linux VM for Azure**. EFLOW consists of a specially curated Linux VM that runs alongside Windows IoT Host OS. This Linux VM is based on [CBL-Mariner Linux](https://github.com/microsoft/CBL-Mariner), and is optimized for hosting IoT Edge workloads.
 
