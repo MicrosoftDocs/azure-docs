@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 04/14/2022
+ms.date: 04/18/2022
 ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
@@ -134,7 +134,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-These following instructions show you how to upload files by using the Azure portal. You could also use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
+The following instructions show you how to upload files by using the Azure portal. You could also use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
 
 1. In the Azure portal, navigate to the storage account containing your static website. Select **Containers** in the left navigation pane to display the list of containers.
 
@@ -142,7 +142,7 @@ These following instructions show you how to upload files by using the Azure por
 
     :::image type="content" source="media/storage-blob-static-website-how-to/web-containers-sml.png" alt-text="Image showing" lightbox="media/storage-blob-static-website-how-to/web-containers-lrg.png":::
 
-3. In the **Overview** pane, select the **Upload** icon to open the **Upload blob** pane. Next, select the **Files** field within the **Upload blab** pane to open the file browser. Navigate to the file you want to upload, select it, and then select **Open** to populate the **Files** field. Optionally, select the **Overwrite if files already exist** checkbox.
+3. In the **Overview** pane, select the **Upload** icon to open the **Upload blob** pane. Next, select the **Files** field within the **Upload blob** pane to open the file browser. Navigate to the file you want to upload, select it, and then select **Open** to populate the **Files** field. Optionally, select the **Overwrite if files already exist** checkbox.
 
     :::image type="content" source="media/storage-blob-static-website-how-to/file-upload-sml.png" alt-text="Image showing how to upload files to the static website storage container" lightbox="media/storage-blob-static-website-how-to/file-upload-lrg.png":::
 
