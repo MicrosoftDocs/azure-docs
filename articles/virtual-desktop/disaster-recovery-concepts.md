@@ -1,17 +1,17 @@
 ---
-title: Azure Virtual Desktop disaster recovery plan
-description: Make a disaster recovery plan for your Azure Virtual Desktop deployment to protect your data.
+title: Azure Virtual Desktop disaster recovery concepts
+description: Understand what a disaster recovery plan for Azure Virtual Desktop is and how each plan works.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 04/18/2022
 ms.author: helohr
 manager: femila
 ---
 
-# Azure Virtual Desktop disaster recovery
+# Azure Virtual Desktop disaster recovery concepts
 
 Azure Virtual Desktop has grown tremendously as a remote and hybrid work solution in recent years. Because so many users now work remotely, organizations require solutions with high deployment speed and reduced costs. Users also need to have a remote work environment with guaranteed availability and resiliency, with minimal disruptions and the ability to access their virtual machines even during disasters. This document describes recommendations for business continuity and disaster recovery.
 
@@ -55,7 +55,7 @@ The disaster recovery methods we recommend are:
 
 - Configuring and deploying Azure resources across multiple regions in either active or passive configuration as [shared host pools](create-host-pools-azure-marketplace.md).
 
-- Using dedicated or personal host pools to [replicate VMs using Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication) to another region.
+- Using dedicated or personal host pools to [replicate VMs using Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-replication.md) to another region.
 
 - Configuring a separate "disaster recovery" host pool in the secondary region and using FSLogix Cloud Cache to replicate the user profile, which you can switch users over to in the event of a disaster.
 
@@ -140,7 +140,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - We recommend you avoid using FSLogix when using a personal host pool configuration.
 
-- Run [controlled failover](../site-recovery/azure-to-azure-tutorial-dr-drill.md) and [failback](,,/site-recovery/azure-to-azure-tutorial-failback.md) tests at least once every six months.
+- Run [controlled failover](../site-recovery/azure-to-azure-tutorial-dr-drill.md) and [failback](../site-recovery/azure-to-azure-tutorial-failback.md) tests at least once every six months.
 
 The following table lists deployment recommendations for host pool disaster recovery strategies:
 
@@ -156,6 +156,6 @@ The following table lists deployment recommendations for host pool disaster reco
 
 For more in-depth information about disaster recovery in Azure, check out these articles:
 
-- [Cloud Adoption Framework Azure Virtual Desktop business continuity and disaster recovery documentation](../cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery.md)
+- [Cloud Adoption Framework Azure Virtual Desktop business continuity and disaster recovery documentation](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
 
-- [Azure Virtual Desktop Handbook: Disaster Recovery](https://azure.microsoft.com/en-us/resources/azure-virtual-desktop-handbook-disaster-recovery/)
+- [Azure Virtual Desktop Handbook: Disaster Recovery](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-disaster-recovery/)
