@@ -175,9 +175,6 @@ For example, say you have the following header rewrite rule for the header `"Acc
 
 Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
 
->[!NOTE]
-> URL rewrite operations may cause a minor increase in the compute utilization of your WAF Application Gateway. In application gateway v1 deployments, it is recommended that you monitor the [CPU utilization metric](high-traffic-support.md) for a brief period of time after enabling the URL rewrite rules on your WAF Application Gateway.
-
 ### Common scenarios for header rewrite
 
 #### Remove port information from the X-Forwarded-For header
