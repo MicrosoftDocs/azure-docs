@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Over the years the directory integration tools have grown and evolved.  
 
 
-- [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016) is still supported, and primarily enable synchronization between on-premises systems.  The [FIM Windows Azure AD Connector](/previous-versions/mim/dn511001(v=ws.10)) is deprecated. Customers with on-premises sources such as Notes or SAP HCM should use MIM in one of two topologies.
+- [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016) is still supported, and primarily enables synchronization from or between on-premises systems.  The [FIM Windows Azure AD Connector](/previous-versions/mim/dn511001(v=ws.10)) is deprecated. Customers with on-premises sources such as Notes or SAP HCM should use MIM in one of two topologies.
     - If users and groups are needed in Active Directory Domain Services (AD DS), then use MIM to populate users and groups into AD DS, and use either Azure AD Connect sync or Azure AD Connect cloud provisioning to synchronize those users and groups from AD DS to Azure AD.
     - If users and groups are not needed in AD DS, then use MIM to populate users and groups into Azure AD through the [MIM Graph connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph).
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md) incorporates the components and functionality previously released in DirSync and Azure AD Sync, for synchronizing between AD DS forests and Azure AD.  
