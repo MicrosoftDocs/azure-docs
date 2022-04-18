@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # HTTP response codes in Application Gateway
 
-This article lists some HTTP response codes that can be returned by Azure Application Gateway, together with common causes and troubleshooting steps to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
+This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
 
 ## 3XX response codes
 
@@ -43,18 +43,18 @@ For more information about redirects, see [Redirect overview for Azure Applicati
 ### 400 – Bad Request
 
 HTTP 400 response codes are commonly observed when:
-1.	Non-HTTP / HTTPS traffic is initiated to an application gateway with a http or https listener
+1.	Non-HTTP / HTTPS traffic is initiated to an application gateway with an http or https listener
 2.	HTTP traffic is initiated to a listener with HTTPS, with no redirection configured
 3.	Mutual authentication is configured and unable to properly negotiate
 
-For cases when mutual authentication is configured, several scenarios can lead to a HTTP 400 response being returned the client, such as:
-1.	Client certificate is not presented, but mutual authentication is enabled
-2.	DN validation is enabled and the DN of the client certificate does not match the DN of the specified certificate chain
-3.	Client certificate chain does not match certificate chain configured in the defined SSL Policy
+For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
+1.	Client certificate isn't presented, but mutual authentication is enabled
+2.	DN validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain
+3.	Client certificate chain doesn't match certificate chain configured in the defined SSL Policy
 4.	Client certificate is expired
 5.	OCSP Client Revocation check is enabled and the certificate is revoked
 6.	OCSP Client Revocation check is enabled, but unable to be contacted
-7.	OCSP Client Revocation check is enabled, but OCSP responder is not provided in the certificate
+7.	OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate
 
 For more information about troubleshooting mutual authentication, see [Troubleshoot mutual authentication on Azure Application Gateway](mutual-authentication-troubleshooting.md#solution-2).
 
@@ -64,7 +64,7 @@ HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have W
 
 ### 404 – Page not found
 
-HTTP 404 response may be returned if a request is sent to application gateways using v2 sku without a hostname match defined in any multi-site listeners and if a basic listener is not present.
+HTTP 404 response may be returned if a request is sent to application gateways using v2 sku without a hostname match defined in any multi-site listeners and if a basic listener isn't present.
 
 ### 408 – Request Timeout
 
@@ -73,11 +73,11 @@ HTTP 408 response can be observed when client requests to the frontend listener 
 
 ## 5XX response codes
 
-5XX response codes usually indicate that a problem ocurred with the server while performing the request.
+5XX response codes usually indicate that a problem occurred with the server while performing the request.
 
 ### 500 – Internal Server Error
 
-Application Gateway should not exhibit 500 response codes, however in the rare case it does, please open a support request, because this issue is an internal error to the service.  For information on how to open a support case, see [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request.md)
+Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code because this issue is an internal error to the service.  For information on how to open a support case, see [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request.md)
 
 ### 502 – Bad Gateway
 
@@ -89,11 +89,11 @@ HTTP 502 errors can have several root causes, for example:
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).
 - [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests.
 
-For information about scenarios where 502 errors and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
+For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 
 ### 504 – Request timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku and the backend takes longer than the time-out value defined in the HTTP Setting associated to the listener’s rule.
+HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response exceeds the time-out value associated to the listener’s rule. This value is defined in the HTTP setting.
 
 ## Next steps
 
