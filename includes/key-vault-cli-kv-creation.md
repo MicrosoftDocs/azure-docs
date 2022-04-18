@@ -9,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command to create a Key Vault in the resource group from the previous step. You will need to provide some information:
+Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault in the resource group from the previous step. You will need to provide some information:
 
 - Key vault name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 

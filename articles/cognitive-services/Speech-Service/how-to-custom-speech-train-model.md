@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021
 In this article, you'll learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
 
 > [!NOTE]
-> You are charged when the Custom Speech model is used, but there is no charge to train a model.
+> You pay to use Custom Speech models, but you are not charged for training a model.
 
 ## Use training to resolve accuracy problems
 

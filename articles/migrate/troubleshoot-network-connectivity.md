@@ -54,7 +54,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
   - Go to **Settings** > **DNS configuration** to obtain the storage account FQDN and private IP address.    
 
-      :::image type="content" source="./media/troubleshoot-network-connectivity/private-link-info.png" alt-text="Screenshot showing the Private Link FQDN information.":::
+      :::image type="content" source="./media/troubleshoot-network-connectivity/private-link-info.png" alt-text="Screenshot showing the Private Link F Q D N information.":::
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
@@ -62,7 +62,7 @@ An illustrative example for DNS resolution of the storage account private link F
 
     You'll receive a message like this:  
 
-   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png" alt-text="Screenshot showing a DNS resolution example.":::
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png" alt-text="Screenshot showing a D N S resolution example.":::
 
 -  A private IP address of 10.1.0.5 is returned for the storage account. This address belongs to the private endpoint virtual network subnet.   
 
@@ -317,7 +317,7 @@ To set up the storage account for public endpoint connectivity,
 
 1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix *usa*. 
 
-      :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
+      :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download D N S settings."::: 
 
 2. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks. 
 
@@ -325,4 +325,21 @@ To set up the storage account for public endpoint connectivity,
 
 3. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure portal.  
 
-      :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::
+      :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public I P address of the client.":::
+
+### Using private endpoints for replication requires the Azure Migrate appliance services to be running on the following versions
+
+#### Possible causes:
+This issue can occur if the services running on the appliance are not running on their latest version. The DRA agent orchestrates server replication, and coordinates communication between replicated servers and Azure. The gateway agent sends replicated data to Azure.
+
+>[!Note]
+> This error is only applicable for agentless VMware VM migrations. 
+
+#### Remediation:
+
+1. Validate that the services running on the appliance are updated to the latest versions.
+
+    To do so, launch the appliance configuration manager from your appliance server and select **View appliance services** from the **Setup prerequisites** panel. The appliance and its components are automatically updated. If not, follow the instructions to update the appliance services manually. 
+
+    :::image type="content" source="./media/troubleshoot-network-connectivity/view-appliance-services.png" alt-text="Snapshot of View appliance services.":::
+

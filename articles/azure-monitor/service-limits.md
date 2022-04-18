@@ -4,7 +4,7 @@ description: Lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/10/2019
+ms.date: 04/05/2022
 
 ---
 
@@ -53,4 +53,3 @@ This article lists limits in different areas of Azure Monitor.
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitoring usage and estimated costs in Azure Monitor](./usage-estimated-costs.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)

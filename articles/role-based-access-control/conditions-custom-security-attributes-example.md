@@ -25,7 +25,7 @@ This article describes a solution to scale the management of role assignments by
 
 ## Example scenario
 
-Consider a company named Contoso with thousands of customers that want to set up the following configuration:
+Consider a company named Contoso with thousands of customers that wants to set up the following configuration:
 
 - Distribute customer data across 128 storage accounts for security and performance reasons​.
 - Add 2,000 containers to each storage account where there is a container for each customer.
