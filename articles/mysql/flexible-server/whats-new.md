@@ -17,6 +17,30 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## April 2022
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
+    Azure Database for MySQL - Flexible Server 8.0 now is running on minor version 8.0.28*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.28 (2022-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)
+
+- **Minor version upgrade for Azure Database for MySQL - Single server to 5.7.37**
+    Azure Database for MySQL - Flexible Server 5.7 now is running on minor version 5.7.37*, to learn more about changes coming in this minor version [visit Changes in MySQL 5.7.37 (2022-01-18, General Availability](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)
+
+* Please note that some regions are still running older minor versions of the Azure Database for MySQL and will be patched by end of April 2022.
+
+- **Deprecation of TLSv1 or TLSv1.1 protocols with Azure Database for MySQL - Flexible Server (8.0.28)**
+
+    Starting version 8.0.28, MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL – Flexible Server will also stop supporting TLSv1 and TLSv1.1 protocols, to align with modern security standards. You will no longer be able to configure TLSv1 or TLSv1.1 from the server parameter blade for newly created resources as well as for resources created previously. The default will be TLSv1.2. Resources created before the upgrade will still support communication through TLS protocol TLSv1 or TLSv1.1 through 1 May 2022. 
+
+## March 2022
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Migrate from locally redundant backup storage to geo-redundant backup storage for existing flexible server**
+    Azure Database for MySQL - Flexible Server now provides the added flexibility to migrate to geo-redundant backup storage from locally redundant backup storage post server-create to provide higher data resiliency. Enabling geo-redundancy via the server's Compute + Storage blade empowers customers to recover their existing flexible servers from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled for their existing servers, customers can perform geo-restore and deploy a new server to the geo-paired Azure region leveraging the original server’s latest available geo-redundant backup. [Learn more](concepts-backup-restore.md)
+
+- **Simulate disaster recovery drills for your stopped servers**
+    Azure Database for MySQL - Flexible Server now provides the ability to perform geo-restore on stopped servers helping users simulate disaster recovery drills for their workloads to estimate impact and recovery time.This will help users plan better to meet their disaster recovery and business continuity objectives by leveraging geo-redundancy feature offered by Azure Database for MySQL Flexible Server. [Learn more](how-to-restore-server-cli.md)
+
 ## January 2022
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
@@ -42,7 +66,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
 
-  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time HA has been disabled for the server and then enabled, you will lose viewing rights to the server's backups on the blade though the flexible server is successfully taking daily automated backups for the server in the backend.  
+  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time a forced or automatic failover is performed, you may lose viewing rights to the server's backups on the Backup and Restore blade. Despite the invisibility of information regarding backups on the portal, the flexible server is successfully taking daily automated backups for the server in the backend and the server can be restored to any point in time within the retention period.  
 
 ## November 2021
 

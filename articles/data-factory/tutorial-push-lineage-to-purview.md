@@ -1,8 +1,8 @@
 ---
 title: Push Data Factory lineage data to Azure Purview
 description: Learn about how to push Data Factory lineage data to Azure Purview
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom: [seo-lt-2019, references_regions]
 ms.date: 08/10/2021
 ---
 
-# Push Data Factory lineage data to Azure Purview (Preview)
+# Push Data Factory lineage data to Azure Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

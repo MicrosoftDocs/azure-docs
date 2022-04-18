@@ -17,7 +17,7 @@ ms.date: 10/21/2021
 This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
 
 ## Why should I use curated environments?
 
@@ -27,14 +27,14 @@ This article lists the curated environments with latest framework versions in Az
 * Only have required dependencies and access right in the image/container. 
 
 >[!IMPORTANT] 
-> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-in-studio). 
+> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md). 
 
 ## Training curated environments
 
 ### PyTorch
 
 **Name**: AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu  
-**Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and other python packages.  
+**Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and other Python packages.  
 * GPU: Cuda11
 * OS: Ubuntu18.04
 * PyTorch: 1.10
@@ -58,7 +58,7 @@ Other available PyTorch environments:
 
 ### Sklearn
 **Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu
-**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other python packages.  
+**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other Python packages.  
 * OS: Ubuntu20.04
 * Scikit-learn: 1.0
 
@@ -69,7 +69,7 @@ Other available Sklearn environments:
 ### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and other python packages.  
+**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and other Python packages.  
 * GPU: Cuda11
 * Horovod: 2.4.1
 * OS: Ubuntu18.04
@@ -94,5 +94,4 @@ For more information on AutoML and Azure ML pipelines, see [use automated ML in 
 [!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## Support
-Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios. 
-
+Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

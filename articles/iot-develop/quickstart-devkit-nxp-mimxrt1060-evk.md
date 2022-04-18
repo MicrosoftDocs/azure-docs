@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 11/16/2021
-ms.custom: mode-other
+ms.custom: mode-other, contperf-fy22q3
 zone_pivot_groups: iot-develop-nxp-toolset
 
 # Owner: timlt

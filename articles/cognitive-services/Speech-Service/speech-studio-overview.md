@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/24/2022
 ms.author: eur
 ---
@@ -47,5 +47,4 @@ In Speech Studio, the following Speech service features are available as project
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Speech Studio](https://speech.microsoft.com)
+* [Explore Speech Studio](https://speech.microsoft.com)

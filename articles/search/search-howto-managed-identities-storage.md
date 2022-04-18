@@ -9,14 +9,15 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 03/30/2022
+ms.custom: subject-rbac-steps
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
 
-This article describes how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the data source object connection string.
+This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview).
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure Storage. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 This article assumes familiarity with indexer concepts and configuration. If you're new to indexers, start with these links:
 
@@ -28,6 +29,9 @@ This article assumes familiarity with indexer concepts and configuration. If you
 
 For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
+> [!NOTE]
+> If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview). 
+
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
@@ -37,6 +41,8 @@ For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://gith
   * **Storage Blob Data Reader** for data read access in Blob Storage and ADLS Gen2. 
 
   * **Reader and Data** for data read access in Table Storage and File Storage.
+
+The easiest way to test the connection is using the [Import data wizard](search-import-data-portal.md). The wizard supports data source connections for both system and user managed identities.
 
 ## Create the data source
 
@@ -105,17 +111,17 @@ The index specifies the fields in a document, attributes, and other constructs t
 Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `content` field to store the text extracted from blobs:   
 
 ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-          "name" : "my-target-index",
-          "fields": [
-            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
-          ]
-    }
+{
+        "name" : "my-target-index",
+        "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+        ]
+}
 ```
 
 ## Create the indexer
@@ -125,20 +131,20 @@ An indexer connects a data source with a target search index, and provides a sch
 Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with a blob indexer definition. The indexer will run when you submit the request.
 
 ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      "name" : "blob-indexer",
-      "dataSourceName" : "blob-datasource",
-      "targetIndexName" : "my-target-index"
-    }
+{
+    "name" : "blob-indexer",
+    "dataSourceName" : "blob-datasource",
+    "targetIndexName" : "my-target-index"
+}
 ```
 
 ## Accessing network secured data in storage accounts
 
-Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a blob storage account or ADLS Gen2 storage account that is secured using a firewall or virtual network, follow the instructions for [Make indexer connections to Azure Storage as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
+Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a storage account that is secured using a firewall or virtual network, see [Make indexer connections to Azure Storage as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
 ## See also
 

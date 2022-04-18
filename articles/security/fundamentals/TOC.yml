@@ -10,6 +10,11 @@
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
+- name: Security posture management
+  items:
+  - name: Zero Trust
+    href: zero-trust.md
+
 - name: Detect and mitigate threats
   items:
   - name: Protect against ransomware and extortion 
@@ -24,6 +29,8 @@
         href: ransomware-features-resources.md
       - name: Backup and restore plan for ransomware
         href: backup-plan-to-protect-against-ransomware.md
+      - name: Ransomware protection with Azure Firewall Premium
+        href: ransomware-protection-with-azure-firewall.md
       - name: Recovering from systemic identity compromise
         href: recover-from-identity-compromise.md
   - name: Threat protection
@@ -129,6 +136,8 @@
     href: key-management.md
   - name: Double encryption
     href: double-encryption.md
+  - name: Sunset for SHA-1 OCSP signing
+    href: ocsp-sha-1-sunset.md
   - name: TLS certificate changes
     href: tls-certificate-changes.md
   - name: Disk encryption

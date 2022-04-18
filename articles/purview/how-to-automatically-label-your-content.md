@@ -1,8 +1,8 @@
 ---
 title: How to automatically apply sensitivity labels to your data in Azure Purview
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
-author: ajaykar
-ms.author: ajaykar
+author: jasonwhowell
+ms.author: jasonh
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

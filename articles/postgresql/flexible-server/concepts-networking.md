@@ -1,10 +1,11 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: nlarin
+author: niklarin
 ms.date: 11/30/2021
 ---
 
@@ -53,6 +54,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 * **Delegated subnet**. A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
   Your flexible server must be in a subnet that's *delegated*. That is, only Azure Database for PostgreSQL - Flexible Server instances can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as `Microsoft.DBforPostgreSQL/flexibleServers`.
+ The smallest CIDR range you can specify for a subnet is /28, which provides fourteen IP addresses, of which five will be utilized by Azure internally, whereas a single Flexible Server with HA features utilizes 4 addresses. 
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
@@ -94,6 +96,8 @@ Private DNS zone settings and virtual network peering are independent of each ot
 > [!NOTE]
 > Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
 
+
+
 ### Unsupported virtual network scenarios
 
 Here are some limitations for working with virtual networks:
@@ -103,6 +107,8 @@ Here are some limitations for working with virtual networks:
 * Subnet size (address spaces) can't be increased after resources exist in the subnet.
 * A flexible server doesn't support Azure Private Link. Instead, it uses virtual network injection to make the flexible server available within a virtual network. 
 
+> [!IMPORTANT]
+> Azure Resource Manager supports  ability to lock resources, as a security control. Resource locks are applied to the resource, and are effective across all users and roles. There are two types of resource lock: CanNotDelete and ReadOnly. These lock types can be applied either to a Private DNS zone, or to an individual record set. Applying a lock of either type against Private DNS Zone or individual record set may interfere with ability of Azure Database for PostgreSQL - Flexible Server service to update DNS records and cause issues during important operations on DNS, such as High Availability failover from primary to secondary.  Please make sure you are not utilizing DNS private zone or record locks when utilizing High Availability features with Azure Database for PostgreSQL - Flexible Server. 
 
 ## Public access (allowed IP addresses)
 

@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: In this tutorial, you use Microsoft Sentinel to perform security analytics for Azure Active Directory B2C data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity

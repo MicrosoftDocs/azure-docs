@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Run queries - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to run queries on table data in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
@@ -43,7 +43,9 @@ SELECT count(*) FROM github_users;
 
 Recall that `github_users` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
-the shards in parallel, and combines the results.
+shards in parallel, and combines the results.
+
+Let's continue looking at a few more query examples:
 
 ```sql
 -- Find all events for a single user.
@@ -66,10 +68,6 @@ SELECT created_at, event_type, repo->>'name' AS repo_name
 ```
 
 ## More complicated queries
-
-Hyperscale (Citus) uses an advanced query planner to transform arbitrary SQL
-queries into tasks running across shards. The tasks run in parallel on
-horizontally scalable worker nodes.
 
 Here's an example of a more complicated query, which retrieves hourly
 statistics for push events on GitHub. It uses PostgreSQL's JSONB feature to
@@ -98,7 +96,7 @@ ORDER BY hour;
 (4 rows)
 ```
 
-Hyperscale (Citus) also automatically applies changes to data definition across
+Hyperscale (Citus) also automatically applies data definition changes across
 the shards of a distributed table.
 
 ```sql
@@ -113,12 +111,10 @@ The quickstart is now complete. You've successfully created a scalable
 Hyperscale (Citus) server group, created tables, sharded them, loaded data, and
 run distributed queries.
 
-Here are good resources to begin to deepen your knowledge.
+Here are good resources to deepen your knowledge.
 
 * See a more detailed [illustration](tutorial-shard.md) of distributed query
   execution.
-* Discover [useful diagnostic queries](howto-useful-diagnostic-queries.md) to
-  inspect distributed tables.
-* Learn how to speed up the per-minute `http_request` aggregation from this
-  example with "roll-ups" in the [real-time
-  dashboard](tutorial-design-database-realtime.md) tutorial.
+* Scale your server group by [adding
+  nodes](howto-scale-grow.md#add-worker-nodes) and [rebalancing
+  shards](howto-scale-rebalance.md).

@@ -5,7 +5,7 @@ services: ddos-protection
 documentationcenter: na
 author: aletheatoh
 ms.service: ddos-protection
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020

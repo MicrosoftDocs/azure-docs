@@ -13,7 +13,7 @@ ms.date: 12/21/2021
 
 In the increasingly competitive retail landscape, retailers constantly face pressure to close the gap between demand and fulfillment. A new trend that has emerged to address the growing consumer demand is to house inventory near the end customers and the stores they visit.
 
-The IoT Central micro-fulfillment center application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
+The IoT Central _micro-fulfillment center_ application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
 
 The application template enables you to:
 
@@ -23,25 +23,17 @@ The application template enables you to:
 - Transform the environmental conditions within your fulfillment center into insights that the retail warehouse team can use.
 - Export the aggregated insights into existing or new business applications for the benefit of the retail staff members.
 
-Use the IoT Central *micro-fulfillment center* application template and the guidance in this article to develop an end-to-end micro-fulfillment center solution.
-
 ![Azure IoT Central Store Analytics](./media/tutorial-micro-fulfillment-center-app/micro-fulfillment-center-architecture-frame.png)
 
-1. Set of IoT sensors sending telemetry data to a gateway device
-2. Gateway devices sending telemetry and aggregated insights to IoT Central
-3. Continuous data export to the desired Azure service for manipulation
-4. Data can be structured in the desired format and sent to a storage service
-5. Business applications can query data and generate insights that power retail operations
-
-### Robotic carriers
+### Robotic carriers (1)
 
 A micro-fulfillment center solution will likely have a large set of robotic carriers generating different kinds of telemetry signals. These signals can be ingested by a gateway device, aggregated, and then sent to IoT Central as reflected by the left side of the architecture diagram.  
 
-### Condition monitoring sensors
+### Condition monitoring sensors (1)
 
 An IoT solution starts with a set of sensors capturing meaningful signals from within your fulfillment center. It's reflected by different kinds of sensors on the far left of the architecture diagram above.
 
-### Gateway devices
+### Gateway devices (2)
 
 Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable. 
 
@@ -51,18 +43,17 @@ The Azure IoT Central application ingests data from different kinds of IoT senso
 
 Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
-### Data transform
+### Data transform (3,4)
 
-The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a-Service) services that can perform data manipulation and enrich these insights before landing them in a business application. 
+The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a-Service) services that can perform data manipulation and enrich these insights before landing them in a business application.
 
-### Business application
+### Business application (5)
 
 The IoT data can be used to power different kinds of business applications deployed within a retail environment. A fulfillment center manager or employee can use these applications to visualize business insights and take meaningful actions in real time. To learn how to build a real-time Power BI dashboard for your retail team, follow the [tutorial](./tutorial-in-store-analytics-create-app.md).
 
 In this tutorial, you learn:
 
 > [!div class="checklist"]
-
 > * How to deploy the application template
 > * How to use the application template
 
@@ -85,7 +76,7 @@ Create the application using following steps:
 
 The following sections walk you through the key features of the application:
 
-After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
+After successfully deploying the application template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard, you can:
 
@@ -125,11 +116,12 @@ Use the sample rule as inspiration to define rules that are more appropriate for
 
 If you're not going to continue to use this application, delete the application template. Go to **Application** > **Management**, and select **Delete**.
 
-:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application settings page.":::
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application Management page.":::
 
 ## Next steps
 
-Learn more about:
+Learn more about :
 
 > [!div class="nextstepaction"]
-> [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
+

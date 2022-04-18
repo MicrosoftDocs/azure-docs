@@ -2,11 +2,11 @@
 title: Troubleshoot backend health issues in Azure Application Gateway
 description: Describes how to troubleshoot backend health issues for Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 06/09/2020
-ms.author: victorh 
+ms.date: 03/17/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -21,7 +21,7 @@ successfully, Application Gateway resumes forwarding the requests.
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -454,7 +454,7 @@ This behavior can occur for one or more of the following reasons:
 
     d.	If an NSG is configured, search for that NSG resource on the **Search** tab or under **All resources**.
 
-    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **Any** or **Internet**.
+    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **GatewayManager** service tag.
 
     f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
@@ -479,6 +479,19 @@ This behavior can occur for one or more of the following reasons:
 1.	If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
 1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
+
+1. If Internet and private traffic are going though an Azure Firewall hosted in a secured Virtual hub (using Azure Virtual WAN Hub):
+
+   a. To ensure the application gateway can send traffic directly to the Internet, configure the following user defined route:
+   
+   Address prefix: 0.0.0.0/0<br>
+   Next hop: Internet
+
+   b. To ensure the application gateway can send traffic to the backend pool via an Azure Firewall in the Virtual WAN hub, configure the following user defined route:
+   
+   Address Prefix: Backend pool subnet<br>
+   Next hop: Azure Firewall private IP address
+
 
 ## Next steps
 

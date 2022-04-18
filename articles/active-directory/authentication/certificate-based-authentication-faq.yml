@@ -6,14 +6,13 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 02/09/2022
   ms.author: justinha
   author: vimrang
   manager: karenhoran
   ms.reviewer: vimrang
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions about Azure AD certificate-based authentication (CBA)
 summary: |
   This article addresses frequently asked questions about how Azure AD certificate-based authentication (CBA) works. 
@@ -61,7 +60,7 @@ sections:
           We highly recommend not to disable certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
           However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
           
-          Use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+          Use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
           
           ```powershell
           $c=Get-AzureADTrustedCertificateAuthority
@@ -98,4 +97,3 @@ additionalContent: |
     * [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
     * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
     * [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

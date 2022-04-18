@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>2.2.3</version>
+        <version>2.5.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -248,7 +248,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:2.2.3:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:2.5.0:deploy (default-cli) @ spring-todo-app ---
 Auth Type: AZURE_CLI
 Default subscription: xxxxxxxxx
 Username: xxxxxxxxx

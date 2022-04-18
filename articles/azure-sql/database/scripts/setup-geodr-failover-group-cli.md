@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use CLI to configure a failover group for a group of databases in Azure SQL Database
+# Configure a failover group for a group of databases in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -27,7 +27,7 @@ ms.date: 01/26/2022
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -44,7 +44,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Creates a failover group. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Set the primary of the failover group by failing over all databases from the current primary server |
 | [az sql failover-group show](/cli/azure/sql/failover-group) | Gets a failover group |
 | [az sql failover-group delete](/cli/azure/sql/failover-group) | Deletes a failover group |

@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Generate simulated device data - Machine Learning on Azure IoT Edge'
 description: 'Tutorial - Create virtual devices that generate simulated telemetry that can later be used to train a machine learning model.'
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge

@@ -5,12 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 9/28/2021
+ms.date: 04/06/2022
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -198,7 +197,7 @@ If using [customer managed transparent data encryption](transparent-data-encrypt
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
-1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. For service objective options, see [serverless resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
+1. Specify the service objective. The service objective prescribes the service tier, hardware configuration, and max vCores. For service objective options, see [serverless resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
 
 2. Optionally, specify the min vCores and auto-pause delay to change their default values. The following table shows the available values for these parameters.
@@ -286,7 +285,7 @@ Modifying the maximum or minimum vCores, and autopause delay, is performed by us
 
 ### Use Azure CLI
 
-Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az_sql_db_update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
+Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
 ## Monitoring
 

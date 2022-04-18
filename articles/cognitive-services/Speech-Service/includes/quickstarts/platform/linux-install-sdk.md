@@ -1,9 +1,9 @@
 ---
-author: glecaros
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/15/2020
-ms.author: gelecaro
+ms.date: 02/14/2022
+ms.author: eur
 ---
 
 ### System requirements
@@ -56,8 +56,6 @@ sudo yum install alsa-lib openssl wget
 
 ## Install the Speech SDK
 
-You can use the Speech SDK for Linux to build both 64-bit and 32-bit applications. 
-
 Use the following procedure to download and install the SDK. The steps include downloading the required libraries and header files as a .tar file from https://aka.ms/csspeech/linuxbinary.
 
 1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. 
@@ -87,6 +85,6 @@ Use the following procedure to download and install the SDK. The steps include d
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   The directory listing should contain the third-party notice and license files. The listing should also contain an `include` directory that holds header (`.h`) files and a `lib` directory that holds libraries.
+   The directory listing should contain the third-party notice and license files. The listing should also contain an `include` directory that holds header (`.h`) files and a `lib` directory that holds libraries for arm32, arm64, x64, and x86.
 
    [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]

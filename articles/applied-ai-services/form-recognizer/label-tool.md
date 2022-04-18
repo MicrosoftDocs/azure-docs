@@ -1,7 +1,7 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
+description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -18,7 +18,7 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom document processing model with manually labeled data. 
+In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data. 
 
 > [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 

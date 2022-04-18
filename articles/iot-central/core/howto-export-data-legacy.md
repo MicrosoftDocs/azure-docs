@@ -19,7 +19,6 @@ The legacy data export (classic) feature is now deprecated and you should plan t
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Transforms| None | Transform the export message to your desired shape |
 | Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus Azure Data Explorer and webhooks|
-| Supported application versions | V2, V3 | V3 only |
 | Notable limits | Five exports per app, one destination per export | 10 export-destination connections per app |
 
 ## Migration considerations
@@ -59,6 +58,9 @@ Device templates: If you're currently using legacy data exports with the device 
 ### Destination migration considerations
 
 In the new data export, you can create a destination and reuse it across different data exports. When you migrate from legacy data exports, you should create destinations in the new data exports that store information on your existing legacy data export destinations.  
+
+> [!Note]
+> The new data export doesn't support exporting non-valid JSON messages.
 
 ## Export IoT data to cloud destinations (legacy)
 

@@ -10,13 +10,11 @@ services: iot-central
 ---
 # Tutorial: Deploy and walk through the connected waste management application template
 
-Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
-
-Use the IoT Central *connected waste management* application template and the guidance in this article to develop an end-to-end connected waste management solution.
+The _connected waste management_ application template helps you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
 
 :::image type="content" source="media/tutorial-connectedwastemanagement/concepts-connected-waste-management-architecture-1.png" alt-text="Connected waste management architecture.":::
 
-### Devices and connectivity
+### Devices and connectivity (1,2)
 
 Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT Central application. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
@@ -26,7 +24,7 @@ Azure IoT Central is an IoT App platform that helps you quickly build and deploy
 
 When you connect your smart waste devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
-### Extensibility and integrations
+### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
@@ -34,7 +32,7 @@ You can extend your IoT application in IoT Central and optionally:
 * Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
 * Programatically access your IoT application in IoT Central through IoT Central APIs.
 
-### Business applications
+### Business applications (4)
 
 You can use IoT data to power various business applications within a waste utility. For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
@@ -48,9 +46,8 @@ You can easily configure the following integration processes with IoT Central an
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
-> * Use the Azure IoT Central *Connected waste management* template to create your app.
-> * Explore and customize the dashboard. 
+> * Use the Azure IoT Central *connected waste management* application template to create your app.
+> * Explore and customize the dashboard.
 > * Explore the connected waste bin device template.
 > * Explore simulated devices.
 > * Explore and configure rules.
@@ -266,8 +263,8 @@ Here's how:
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. From the left pane of your Azure IoT Central app, select **Administration**.
-1. Select  **Application** > **Management** > **Delete**.
+1. From the left pane of your Azure IoT Central app, select **Application**.
+1. Select  **Management > Delete**.
 
 ## Next steps
 

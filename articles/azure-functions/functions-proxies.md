@@ -12,8 +12,6 @@ This article explains how to configure and work with Azure Functions Proxies. Wi
 
 Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
 > [!NOTE] 
 > Proxies is available in Azure Functions [versions](./functions-versions.md) 1.x to 3.x.
 > 

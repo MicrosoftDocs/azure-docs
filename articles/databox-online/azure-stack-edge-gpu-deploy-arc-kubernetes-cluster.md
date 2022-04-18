@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 02/17/2022
 ms.author: alkohli
 ---
 
@@ -41,6 +41,7 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
+    
 1. You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
     
     - Installed `kubectl` on the client.    
@@ -70,7 +71,7 @@ Before you enable Azure Arc on the Kubernetes cluster, you will need to enable a
     
     ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
+You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-providers-for-azure-arc-enabled-kubernetes).
 
 ## Create service principal, assign role
 
@@ -86,7 +87,7 @@ You can also register resource providers via the `az cli`. For more information,
 
     `az ad sp create-for-rbac --name "<Informative name for service principal>"`  
 
-    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
+    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell). If using `az cli` on a local client to create the service principal, make sure that you are running version 2.25 or later.
 
     Here is an example. 
     

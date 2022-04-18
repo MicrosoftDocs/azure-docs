@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Anomaly detection with Cognitive Services'
 description: Learn how to use Cognitive Services for anomaly detection in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial

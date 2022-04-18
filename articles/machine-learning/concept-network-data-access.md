@@ -34,7 +34,7 @@ In general, data access from studio involves the following checks:
 
 1. Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
-    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage.
+    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
 2. Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
@@ -66,6 +66,9 @@ The following table lists what identities should be used for specific scenarios:
 | Access from UI | No | User's Identity |
 | Access from Job | Yes/No | Compute MSI |
 | Access from Notebook | Yes/No | User's identity |
+
+> [!TIP]
+> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, _user_ identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
 
 ## Azure Storage Account
 
@@ -120,7 +123,7 @@ To secure communication between Azure Machine Learning and Azure SQL Database, t
 
 * __Allow Azure services and resources to access the Azure SQL Database server__. Enabling this setting _allows all connections from Azure_, including __connections from the subscriptions of other customers__, to your database server.
 
-    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](../azure-sql/database/firewall-configure.md).
 
 * __Allow the IP address range of the Azure Machine Learning service in Firewalls and virtual networks__ for the Azure SQL Database. Allowing the IP addresses through the firewall limits __connections to the Azure Machine Learning service for a region__.
 
@@ -129,7 +132,7 @@ To secure communication between Azure Machine Learning and Azure SQL Database, t
 
     To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
 
-    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](../azure-sql/database/firewall-configure.md).
 
 ## Next steps
 

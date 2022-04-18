@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: iot-edge
@@ -56,7 +56,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A Bash shell in Azure Cloud Shell using Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
-  * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
+  * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az-version).
 * A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy using the command below.
 
    Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique DNS prefix, which will also serve as its name. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.

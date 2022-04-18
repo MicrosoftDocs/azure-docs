@@ -49,7 +49,6 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > [!NOTE]
 > While ExpressRoute circuit is preferred over Site-to-Site VPN when both routes are the same, Azure will use the longest prefix match to choose the route towards the packet's destination.
 > 
-> 
 
 ![Diagram that shows a Site-to-Site VPN connection as a backup for ExpressRoute.](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 

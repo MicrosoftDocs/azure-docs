@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 1/28/2021
+ms.date: 2/3/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,7 +21,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample](https://aka.ms/azurecontainerapps/customvnet) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -41,7 +41,7 @@ Additionally, subnets must have a size between /21 and /12.
 As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
 
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
+- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
 
 ::: zone pivot="azure-cli"
 
@@ -66,6 +66,10 @@ When set to internal, the environment has no public endpoint. Internal environme
 To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
 
 ::: zone-end
+
+## Managed resources
+
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
 
 ## Example
 
@@ -231,8 +235,6 @@ Finally, create the Container Apps environment with the VNET and subnets.
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
   --app-subnet-resource-id $APP_SUBNET \
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
@@ -244,8 +246,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
   --app-subnet-resource-id $APP_SUBNET `
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
@@ -254,16 +254,14 @@ az containerapp env create `
 ---
 
 > [!NOTE]
-> As you call `az conatinerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
-The following table describes the parameters used in for `containerapp env create`.
+The following table describes the parameters used in `containerapp env create`.
 
 | Parameter | Description |
 |---|---|
 | `name` | Name of the container apps environment. |
 | `resource-group` | Name of the resource group. |
-| `logs-workspace-id` | The ID of the Log Analytics workspace. |
-| `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
@@ -407,9 +405,9 @@ az group delete `
 
 ## Additional resources
 
-- Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
+- Refer to [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md) for more details on configuring your private endpoint.
 
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](/azure/dns/).
+- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps
 

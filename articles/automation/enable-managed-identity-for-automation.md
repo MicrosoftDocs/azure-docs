@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Hybrid Runbook Worker: version 7.3.1125.0
   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
-- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
  
 ## Enable a system-assigned managed identity for an Azure Automation account

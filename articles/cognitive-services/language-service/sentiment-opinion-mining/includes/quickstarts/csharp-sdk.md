@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 03/08/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -39,6 +39,7 @@ Copy the following code into your *program.cs* file. Remember to replace the `ke
 using Azure;
 using System;
 using Azure.AI.TextAnalytics;
+using System.Collections.Generic;
 
 namespace Example
 {
@@ -111,7 +112,7 @@ namespace Example
         static void Main(string[] args)
         {
             var client = new TextAnalyticsClient(endpoint, credentials);
-            SentimentAnalysisExample(client)
+            SentimentAnalysisExample(client);
             SentimentAnalysisWithOpinionMiningExample(client);
 
             Console.Write("Press any key to exit.");

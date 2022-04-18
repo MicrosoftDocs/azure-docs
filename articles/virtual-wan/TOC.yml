@@ -47,8 +47,6 @@
     items: 
     - name: Migrate to Virtual WAN
       href: migrate-from-hub-spoke-topology.md
-    - name: Disaster recovery design
-      href: disaster-recovery-design.md
     - name: Global transit network architecture
       href: virtual-wan-global-transit-network-architecture.md
     - name: SD-WAN connectivity architecture
@@ -81,6 +79,8 @@
       href: scenario-route-between-vnets-firewall.md
     - name: Application Gateway and backend pools
       href: scenario-secured-hub-app-gateway.md
+    - name: Microsoft 365 - ExpressRoute private peering
+      href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -93,6 +93,8 @@
       href: point-to-site-ipsec.md
     - name: About P2S client address pools
       href: about-client-address-pools.md
+    - name: About P2S global and hub-based profiles
+      href: global-hub-profile.md
   - name: Security
     items:
     - name: Security baseline
@@ -138,14 +140,18 @@
   - name: User VPN (point-to-site)
     items:
     - name: Create User VPN
-      href: virtual-wan-point-to-site-portal.md
-    - name: Create User VPN - Azure AD authentication
-      href: virtual-wan-point-to-site-azure-ad.md
+      items: 
+        - name: Certificate or RADIUS - portal
+          href: virtual-wan-point-to-site-portal.md
+        - name: Certificate or RADIUS - PowerShell
+          href: virtual-wan-point-to-site-powershell.md
+        - name: Azure AD authentication
+          href: virtual-wan-point-to-site-azure-ad.md
     - name: Generate certificates
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Client profiles
+    - name: VPN client profiles
       items:
       - name: Download global and hub-based profiles
         href: global-hub-profile.md
@@ -163,20 +169,18 @@
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
-    - name: Configure Always-On tunnels
+    - name: Configure Always On tunnels
       items:
       - name: User tunnel
         href: howto-always-on-user-tunnel.md
       - name: Device tunnel
         href: howto-always-on-device-tunnel.md
-    - name: Authentication
-      items:
-      - name: Multi-Factor Authentication(MFA)
-        href: openvpn-azure-ad-mfa.md   
-      - name: Azure AD authentication
-        href: virtual-wan-point-to-site-azure-ad.md
-      - name: Multi-application Azure AD authentication
-        href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Configure forced tunneling
+      href: how-to-forced-tunnel.md
+    - name: Multi-Factor Authentication(MFA)
+      href: openvpn-azure-ad-mfa.md   
+    - name: Multi-application Azure AD authentication
+      href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
     - name: Configure virtual hub routing
@@ -215,6 +219,8 @@
         href: packet-capture-site-to-site-portal.md
       - name: PowerShell
         href: packet-capture-site-to-site-powershell.md
+    - name: Advanced Monitoring for P2S VPN
+      href: monitor-point-to-site-connections.md
 - name: Reference
   items:
   - name: Azure PowerShell

@@ -51,4 +51,4 @@ If your application does not respond to the `SIGTERM` message, then [SIGKILL](ht
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Work with revisions](revisions.md)
+> [Microservices](microservices.md)

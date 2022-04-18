@@ -3,13 +3,13 @@ title: 'Integrate with a client app using Speech SDK'
 titleSuffix: Azure Cognitive Services
 description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

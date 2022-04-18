@@ -14,7 +14,7 @@ adobe-target: true
 
 Azure Load Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
-You can create a load test by using existing test scripts based on Apache JMeter, a popular open-source load and performance tool. For Azure-based applications, detailed resource metrics help you identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
+You can create a load test by using existing test scripts based on Apache JMeter, a popular open-source load and performance tool. For Azure-based applications, detailed resource metrics help you identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing. Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -23,7 +23,7 @@ You can create a load test by using existing test scripts based on Apache JMeter
 
 Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. To scale out the load test, you can configure the number of test engines.
 
-Azure Load Testing uses Apache JMeter version 5.4.1 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
+Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. During the load test, the service collects the following resource metrics and displays them in a dashboard:
 
@@ -65,3 +65,4 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 Start using Azure Load Testing:
 - [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
 - [Tutorial: Set up automated load testing](./tutorial-cicd-azure-pipelines.md)
+- Learn about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).

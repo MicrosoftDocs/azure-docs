@@ -8,7 +8,8 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/17/2021
 ms.author: banders 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Link a partner ID to your Power Platform and Dynamics Customer Insights accounts

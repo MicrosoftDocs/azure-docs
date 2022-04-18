@@ -2,7 +2,7 @@
 metadata:
   title: FAQ - Backing up Azure Database for PostgreSQL server
   description: In this article, discover answers to common questions about backing up Azure Database for PostgreSQL server with the Azure Backup service.
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
   ms.date: 01/24/2022
   author: v-amallick

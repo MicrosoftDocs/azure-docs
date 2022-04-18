@@ -2,15 +2,15 @@
 title: Tutorial to enable Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
-author: NishthaBabith-V
-ms.author: v-nisba
-manager: martinco
+author: gargi-sinha
+ms.author: gasinh
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.reviewer: v-nisba
 ---
 
 # Tutorial: Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
@@ -379,7 +379,7 @@ The next attempt at connecting to the application should take you straight to th
 
 Failure to access the protected application could be down to any number of potential factors, including a misconfiguration.
 
-- BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
+BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
 
   1. Go to **Access Policy** > **Overview** > **Event Logs** > **Settings**.
 
@@ -424,6 +424,6 @@ Exact root cause is still being investigated by F5 engineering, but issue appear
 
 You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
   
-  5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and select **Apply** again to refresh the access profile list.
+  5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Then select **Apply** again to refresh the access profile list.
 
 See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)

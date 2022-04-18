@@ -6,13 +6,13 @@ ms.date: 04/13/2020
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/cpp.md)]
+[!INCLUDE [Header](../../common/cpp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
@@ -400,7 +400,7 @@ void MultiLingualTranslation()
             {
                 cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
                 recognitionEnd.set_value();
             }

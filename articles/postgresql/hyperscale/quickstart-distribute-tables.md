@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: distribute tables - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to distribute table data across nodes in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
@@ -88,16 +88,16 @@ By default, `create_distributed_table()` splits tables into 32 shards.  We can
 verify using the `citus_shards` view:
 
 ```sql
-SELECT table_name, count(*)
+SELECT table_name, count(*) AS shards
   FROM citus_shards
  GROUP BY 1;
 ```
 
 ```
-  table_name   | count
----------------+-------
- github_events |    32
- github_users  |    32
+  table_name   | shards
+---------------+--------
+ github_users  |     32
+ github_events |     32
 (2 rows)
 ```
 
@@ -106,21 +106,31 @@ SELECT table_name, count(*)
 We're ready to fill the tables with sample data. For this quickstart, we'll use
 a dataset previously captured from the GitHub API.
 
+Run the following commands to download example CSV files and load them into the
+database tables. (The `curl` command downloads the files, and comes
+pre-installed in the Azure Cloud Shell.)
+
 ```
+-- download users and store in table
+
 \COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
+
+-- download events and store in table
+
 \COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
 
 We can confirm the shards now hold data:
 
 ```sql
-SELECT table_name, pg_size_pretty(sum(shard_size))
+SELECT table_name,
+       pg_size_pretty(sum(shard_size)) AS shard_size_sum
   FROM citus_shards
  GROUP BY 1;
 ```
 
 ```
-  table_name   | pg_size_pretty
+  table_name   | shard_size_sum
 ---------------+----------------
  github_users  | 38 MB
  github_events | 95 MB

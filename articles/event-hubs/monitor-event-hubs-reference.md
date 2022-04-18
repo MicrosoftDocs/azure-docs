@@ -11,7 +11,8 @@ ms.date: 02/10/2022
 See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecting and analyzing monitoring data for Azure Event Hubs.
 
 > [!NOTE]
-> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination (Azure Storage, Azure Event Hubs, or Log Analytics).
+> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/clusters**.
@@ -87,7 +88,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in the Event Hubs dedicated cluster. 
 
 > [!NOTE] 
-> Runtime audit logs are currently available only in the **dedicated** tier.  
+> Runtime audit logs are currently available only in **premium** and **dedicated** tiers.  
 
 Runtime audit logs include the elements listed in the following table:
 
@@ -127,8 +128,11 @@ Here's an example of a runtime audit log entry:
 
 ```
 
-## Application metrics Logs
+## Application metrics logs
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+
+> [!NOTE] 
+> Application metrics logs are currently available only in **premium** and **dedicated** tiers.  
 
 Name | Description
 ------- | -------

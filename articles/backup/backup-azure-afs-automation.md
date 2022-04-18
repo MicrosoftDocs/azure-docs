@@ -2,8 +2,11 @@
 title: Back up an Azure file share by using PowerShell
 description: In this article, learn how to back up an Azure Files file share by using the Azure Backup service and PowerShell. 
 ms.topic: conceptual
-ms.date: 08/20/2019 
+ms.date: 02/11/2022
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up an Azure file share by using PowerShell
@@ -32,7 +35,7 @@ This article explains how to:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Azure Powershell currently doesn't support backup policies with hourly schedule. Please use Azure Portal to leverage this feature. [Learn more](manage-afs-backup.md#create-a-new-policy)
+> Azure PowerShell currently doesn't support backup policies with hourly schedule. Please use Azure Portal to leverage this feature. [Learn more](manage-afs-backup.md#create-a-new-policy)
 
 Set up PowerShell as follows:
 
@@ -41,13 +44,13 @@ Set up PowerShell as follows:
     > [!NOTE]
     > The minimum PowerShell version required for backup of Azure file shares is Az.RecoveryServices 2.6.0. Using the latest version, or at least the minimum version, helps you avoid issues with existing scripts. Install the minimum version by using the following PowerShell command:
     >
-    > ```powershell
+    > ```azurepowershell-interactive
     > Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
     > ```
 
 2. Find the PowerShell cmdlets for Azure Backup by using this command:
 
-    ```powershell
+    ```azurepowershell-interactive
     Get-Command *azrecoveryservices*
     ```
 
@@ -64,19 +67,19 @@ Set up PowerShell as follows:
 
 6. Associate the subscription that you want to use with the account, because an account can have several subscriptions:
 
-    ```powershell
+    ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 7. If you're using Azure Backup for the first time, use the **Register-AzResourceProvider** cmdlet to register the Azure Recovery Services provider with your subscription:
 
-    ```powershell
+    ```azurepowershell-interactive
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
 8. Verify that the providers registered successfully:
 
-    ```powershell
+    ```azurepowershell-interactive
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
@@ -90,13 +93,13 @@ Follow these steps to create a Recovery Services vault:
 
 1. If you don't have an existing resource group, create a new one by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. In this example, we create a resource group in the West US region:
 
-   ```powershell
+   ```azurepowershell-interactive
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
 1. Use the [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) cmdlet to create the vault. Specify the same location for the vault that you used for the resource group.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
@@ -104,13 +107,13 @@ Follow these steps to create a Recovery Services vault:
 
 To view all vaults in the subscription, use [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault):
 
-```powershell
+```azurepowershell-interactive
 Get-AzRecoveryServicesVault
 ```
 
 The output is similar to the following. Note that the output provides the associated resource group and location.
 
-```powershell
+```azurepowershell-interactive
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -130,7 +133,7 @@ The vault context is the type of data protected in the vault. Set it by using [S
 
 The following example sets the vault context for **testvault**:
 
-```powershell
+```azurepowershell-interactive
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
@@ -138,7 +141,7 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 We plan to deprecate the vault context setting in accordance with Azure PowerShell guidelines. Instead, you can store or fetch the vault ID, and pass it to relevant commands. If you haven't set the vault context or you want to specify the command to run for a certain vault, pass the vault ID as `-vaultID` to all relevant commands as follows:
 
-```powershell
+```azurepowershell-interactive
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultID $vaultID
 ```
@@ -147,7 +150,11 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 A backup policy specifies the schedule for backups, and how long backup recovery points should be kept.
 
-A backup policy is associated with at least one retention policy. A retention policy defines how long a recovery point is kept before it's deleted. You can configure backups with daily, weekly, monthly, or yearly retention.
+A backup policy is associated with at least one retention policy. A retention policy defines how long a recovery point is kept before it's deleted. You can configure backups with daily, weekly, monthly, or yearly retention. With multiple backups policy, you can also configure backups hourly retention.
+
+**Choose a policy type**:
+
+# [Daily backup policy](#tab/daily-backup-policy)
 
 Here are some cmdlets for backup policies:
 
@@ -157,7 +164,7 @@ Here are some cmdlets for backup policies:
 
 By default, a start time is defined in the schedule policy object. Use the following example to change the start time to the desired start time. The desired start time should be in Universal Coordinated Time (UTC). The example assumes that the desired start time is 01:00 AM UTC for daily backups.
 
-```powershell
+```azurepowershell-interactive
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
 $UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
 $UtcTime = $UtcTime.ToUniversalTime()
@@ -169,7 +176,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 
 The following example stores the schedule policy and the retention policy in variables. It then uses those variables as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** takes a daily backup and retains it for 30 days.
 
-```powershell
+```azurepowershell-interactive
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureFiles"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol
@@ -177,11 +184,83 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 The output is similar to the following:
 
-```powershell
+```azurepowershell-interactive
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
+
+# [Multiple backups policy](#tab/multiple-backups-policy)
+
+To create a backup policy that configures multiple backups a day, follow these steps:
+
+1. Fetch the schedule policy object using below cmdlet:
+
+   ```azurepowershell-interactive
+   $schPol=Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType AzureFiles -BackupManagementType AzureStorage -ScheduleRunFrequency Hourly
+   $schPol
+
+   ```
+
+   The output is similar to:
+
+   ```azurepowershell
+   ScheduleRunFrequency    : Hourly
+   ScheduleRunDays         :
+   ScheduleRunTimes        :
+   ScheduleInterval        : 8
+   ScheduleWindowStartTime : 12/22/2021 8:00:00 AM
+   ScheduleWindowDuration  : 16
+   ScheduleRunTimeZone     : India Standard Time
+   
+   ```
+
+1. Set the different parameters of the schedule as required.
+
+   ```azurepowershell-interactive
+   $schpol.ScheduleInterval=4
+   $schpol.ScheduleWindowDuration=12
+   
+   ```
+
+   The previous configuration helps you schedule 4 backups a day in a window of 8 am – 8pm (8am+12hours). You can also set the timezone as mentioned in the following cmdlet:
+
+   ```azurepowershell-interactive
+   $timeZone= $timeZone=Get-TimeZone -ListAvailable |Where-Object{$_.Id-match "Russia Time Zone 11"}
+   $schPol.ScheduleRunTimeZone=$timeZone.Id
+   ```
+
+1. Fetch the retention policy object using following cmdlet:
+
+   ```azurepowershell-interactive
+   $retPol=Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureFiles -BackupManagementType AzureStorage -ScheduleRunFrequency Hourly
+   ```
+
+1. Set the retention values as required.
+
+   ```azurepowershell-interactive
+   $retPol.DailySchedule.DurationCountInDays=15
+   ```
+
+1. Create a new backup policy using [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/new-azrecoveryservicesbackupprotectionpolicy).
+
+   You can pass the schedule and retention policy objects set previously as inputs.
+
+   ```azurepowershell-interactive
+   New-AzRecoveryServicesBackupProtectionPolicy -Name "FilesPolicytesting" -WorkloadType AzureFiles -RetentionPolicy $retpol -SchedulePolicy $schpol
+   ```
+
+   The output displays the policy configuration:
+
+   ```azurepowershell
+   Name           WorkloadType   BackupManagementType ScheduleFrequency  BackupTime    WindowStartTime     Interval   WindowDuration TimeZone
+                                                                        (UTC)                                         (Hours)      
+   ----          ------------    -------------------- -----------------  ------------  ---------------       -------- -------------- --------
+   FilesPolicy
+   testing        AzureFiles      AzureStorage         Hourly                          12/22/2021 8:00:00 AM     4        12         Russia Time Zone 11
+   
+    ```
+---
 
 ## Enable backup
 
@@ -195,13 +274,13 @@ You fetch the relevant policy object by using [Get-AzRecoveryServicesBackupProte
 
 The following example retrieves policies for the workload type **AzureFiles**:
 
-```powershell
+```azurepowershell-interactive
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureFiles"
 ```
 
 The output is similar to the following:
 
-```powershell
+```azurepowershell-interactive
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 AM
@@ -214,7 +293,7 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 
 The following policy retrieves the backup policy named **dailyafs**:
 
-```powershell
+```azurepowershell-interactive
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 ```
 
@@ -222,9 +301,9 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 Enable protection by using [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
 
-The following example enables protection for the Azure file share **testAzureFileShare** in storage account **testStorageAcct**, with the policy **dailyafs**:
+The following example enables protection for the Azure file share **testAzureFS** in storage account **testStorageAcct**, with the policy **dailyafs**:
 
-```powershell
+```azurepowershell-interactive
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
 ```
 
@@ -255,7 +334,7 @@ We recommend that you list items and then retrieve their unique name from the na
 >
 > Not installing the minimum version might result in a failure of existing scripts. Install the minimum version of PowerShell by using the following command:
 >
->```powershell
+>```azurepowershell-interactive
 >Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
 >```
 
@@ -269,7 +348,7 @@ Use [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices
 
 Run the on-demand backup as follows:
 
-```powershell
+```azurepowershell-interactive
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
 $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
@@ -277,7 +356,7 @@ $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 
 The command returns a job with an ID to be tracked, as shown in the following example:
 
-```powershell
+```azurepowershell-interactive
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 testAzureFS       Backup               Completed            11/12/2018 2:42:07 PM     11/12/2018 2:42:11 PM     8bdfe3ab-9bf7-4be6-83d6-37ff1ca13ab6

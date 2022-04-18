@@ -1,129 +1,164 @@
 ---
-title: Manage lab policies
+title: Control costs with lab policies
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 02/14/2022
 ---
 
-# Manage all policies for a lab in Azure DevTest Labs
+# Manage lab policies to control costs in Azure DevTest Labs
 
-Azure DevTest Labs lets you control cost and minimizes waste in your labs by managing policies (settings) for each lab. This article explains in step-by-step detail how to set each policy.  
+This article describes how you can manage Azure DevTest Labs policies to control lab costs and minimize waste. Lab policies you can set to control costs include:
+
+- Allowed virtual machine (VM) sizes
+- Maximum VMs per user
+- Maximum VMs per lab
+- Auto-shutdown settings
+- Auto-shutdown policy settings
+- Autostart settings
+
+## Access lab Configuration and policies
+
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), on the **Overview** page for your lab, select **Configuration and policies** from the left navigation.
+
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/configuration-policies-menu.png" alt-text="Screenshot that shows the Configuration and policies menu for a lab.":::
+
+1. On the **Configuration and policies** page, select the policy you want to configure from the left navigation.
+   
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/policies-menu.png" alt-text="Screenshot that shows a lab's Configuration and Policies options.":::
 
 ## Set allowed virtual machine sizes
-The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab and then select **Configuration and policies**.
+This policy specifies the VM sizes that users can create in the lab.
 
-    ![Access the lab's configuration and policies](./media/devtest-lab-set-lab-policy/policies-menu.png)
-
-1. On the lab's **Configuration and policies** pane, select **Allowed virtual machines sizes**.
+1. On the lab's **Configuration and policies** page, select **Allowed virtual machines sizes** from the left navigation.
    
-    ![Allowed virtual machines sizes](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
+1. On the **Allowed virtual machines sizes** screen, select **Yes** or **No** to enable or disable the policy.
 
-1. Select **On** to enable this policy, and **Off** to disable it.
-
-1. If you enable this policy, select one or more VM sizes that can be created in your lab.
+1. If you enable the policy, select the VM sizes to allow in the lab.
 
 1. Select **Save**.
+
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png" alt-text="Screenshot showing Allowed virtual machines sizes.":::
 
 ## Set virtual machines per user
-The policy for **Virtual machines per user** lets you specify the number of VMs that can be created by an individual user. If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
 
-1. On the lab's **Configuration and policies** pane, select **Virtual machines per user**.
-   
-    ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
+This policy specifies the maximum number of VMs that an individual lab user can own.
 
-1. Select **Yes** to limit the number of VMs per user. If you do not want to limit the number of VMs per user, select **No**. If you select **Yes**, enter a numeric value indicating the number of VMs that can be created or claimed by a user. 
+1. On the lab's **Configuration and policies** page, select **Virtual machines per user** from the left navigation.
 
-1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the number of VMs that can be created using SSD. 
+1. On the **Virtual machines per user** screen, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
+
+1. If you enable the policy, under **What is the limit**, enter the maximum number of VMs that a user can own.
+
+1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable limiting the number of a user's VMs that use premium solid-state disks (SSDs).
+
+1. If you selected **On**, enter the maximum number of VMs using premium disks that a user can own.
+
+   > [!NOTE]
+   > This policy applies only to Premium SSDs. The limitation doesn't apply to Standard SSDs.
 
 1. Select **Save**.
+
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/max-vms-per-user.png" alt-text="Screenshot showing Virtual machines per user.":::
+
+If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the user can't exceed their VM limit.
+
+:::image type="content" source="./media/devtest-lab-set-lab-policy/error.png" alt-text="Screenshot showing the error that the user can't exceed their VM limit.":::
 
 ## Set virtual machines per lab
-The policy for **Virtual machines per lab** lets you specify the number of VMs that can be created for the current lab. If a user tries to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
 
-1. On the lab's **Configuration and policies** pane, select **Virtual machines per lab**.
-   
-    ![Virtual machines per lab](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
+This policy specifies the maximum number of VMs that all users can create or claim in the current lab.
 
-1. Select **Yes** to limit the number of VMs per lab. If you do not want to limit the number of VMs per lab, select **No**. If you select **Yes**, enter a numeric value indicating the number of VMs that can be created or claimed by a user. 
+1. On the lab's **Configuration and policies** page, select **Virtual machines per lab** from the left navigation.
 
-1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the number of VMs that can be created using SSD. 
+1. On the **Virtual machines per user** screen, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
 
-1. Select **Save**.
+1. If you enable the policy, under **What is the limit**, enter the maximum number of VMs that can be created or claimed.
 
-## Set auto shutdown
-The auto shutdown policy helps minimize lab waste by letting you specify the time that this lab's VMs shut down.
+1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable limiting the number of VMs that use premium SSDs.
 
-1. On the lab's **Configuration and policies** pane, select **Auto shutdown**.
-   
-    ![Auto shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
-
-1. Select **On** to enable this policy, and **Off** to disable it.
-
-1. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
-
-1. Specify **Yes** or **No** for the option to send a notification 15 minutes before the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to postpone the shutdown.
-
-   For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
+1. If you selected **On**, enter the maximum number of VMs that can use premium disks.
 
 1. Select **Save**.
 
-By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto shutdown** setting.
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/max-vms-per-lab.png" alt-text="Screenshot showing Virtual machines per lab.":::
 
-## Set auto shutdown policy
-As a lab owner, you can configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
+If a user tries to create or claim a VM when the lab limit has been met, an error message indicates that the VM can't be created or claimed.
 
-1. On the home page for your lab, select **Configuration and policies**.
-2. Select **Auto shutdown policy** in the **Schedules** section of the left menu.
-3. Select one of the options. The following sections give you more details about these options: The set policy applies only to new VMs created in the lab and not to the already existing VMs. 
+## Set auto-shutdown
 
-    ![Auto shutdown policy options](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
+Auto-shutdown helps minimize lab waste by shutting down lab VMs at a specific time of day.
 
-### User sets a schedule and can opt out
-If you set your lab to this policy, the lab users can override or opt out of the lab schedule. This option grants lab users full control over auto shutdown schedule of their VMs. Lab users see no change in their VM auto shutdown schedule page.
+1. On the lab's **Configuration and policies** page, select **Auto-shutdown** from the left navigation.
 
-![Auto shutdown policy option - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+1. On the **Auto-shutdown** screen, for **Enabled**, select **On** or **Off** to enable or disable the policy.
 
-### User sets a schedule and cannot opt out
-If you set your lab to this policy, lab users can override the lab schedule. However, they can't opt out of auto shutdown policy. This option makes sure that every machine in your lab is under an auto shutdown schedule. Lab users can update auto shutdown schedule of their VMs, and set up shut down notifications.
+1. For **Scheduled shutdown** and **Time zone**, if you enabled auto-shutdown, specify the time and time zone to shut down all lab VMs.
 
-![Auto shutdown policy option - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+1. For **Send notification before auto-shutdown**, select **Yes** or **No** for the option to send a notification before the specified auto-shutdown time.
 
-### User has no control over the schedule set by lab admin
-If you set your lab to this policy, lab users can't override or opt out of the lab schedule. This option offers lab admin the complete control on the schedule for every machine in the lab. Lab users can only set up auto shutdown notifications for their VMs.
+   If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want to post or send the notification.
 
-![Auto shutdown policy option - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+1. Select **Save**.
+
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/auto-shutdown.png" alt-text="Screenshot showing Auto shutdown.":::
+
+By default, auto-shutdown applies to all lab VMs. If allowed by policy, lab users can override auto-shutdown settings for their individual lab VMs. To access auto-shutdown settings for individual VMs:
+
+1. Select the VM from **My virtual machines** on the lab **Overview** page.
+1. On the home page for the VM, in the **Operations** section of the left navigation, select **Auto-shutdown**.
+
+For more information about auto-shutdown and sending notifications, see [Configure auto shutdown for labs and VMs in DevTest Labs](devtest-lab-auto-shutdown.md).
+
+## Set auto-shutdown policy
+
+Lab owners can configure auto-shutdown on all lab VMs centrally, and set a policy to let lab users override the settings for their own VMs. You can set auto-shutdown policy to allow lab users full control, partial control, or no control over their own VMs' auto-shutdown activity.
+
+> [!IMPORTANT]
+> Auto-shutdown policy changes apply only to new lab VMs, not to already-existing VMs.
+
+1. On the lab's **Configuration and policies** page, select **Auto shutdown policy** from the left navigation.
+
+1. Select one of the following options:
+
+   - **User sets a schedule and can opt out**: Lab users can override or opt out of lab auto-shutdown. Lab users can override the lab schedule, and they don't have to set any auto-shutdown for their VMs.
+
+   - **User sets a schedule and cannot opt out**: Lab users can override the lab schedule for their VMs, but they can't opt out of auto-shutdown. This option ensures that every VM in the lab is on some auto-shutdown schedule.
+
+   - **User has no control over the schedule set by lab administrator**: Lab users can't override or opt out of the lab auto-shutdown schedule. Lab users can set up auto-shutdown notifications for their own VMs.
+
+1. Select **Save**.
+
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png" alt-text="Screenshot showing Auto-shutdown policy options.":::
+
+For more information and details about auto-shutdown policy, see [Configure lab auto shutdown policy](devtest-lab-auto-shutdown.md#configure-lab-auto-shutdown-policy).
 
 ## Set autostart
-The autostart policy lets you specify when the VMs in the current lab should be started.  
 
-1. On the lab's **Configuration and policies** pane, select **Autostart**.
-   
-    ![Screen capture shows the automatic start options for a virtual machine.](./media/devtest-lab-set-lab-policy/auto-start.png)
+Autostart policy helps you minimize waste by specifying a specific time of day and days of the week to start up all lab VMs.
 
-2. Select **On** to enable this policy, and **Off** to disable it.
+1. On the lab's **Configuration and policies** page, select **Auto-start** from the left navigation.
 
-3. If you enable this policy, specify the scheduled start time, time zone, and the days of the week for which the time applies. 
+1. Select **Yes** or **No** to enable or disable the policy.
 
-4. Select **Save**.
+1. If you enable this policy, specify the **Scheduled start**, **Time zone**, and **Days of the week** to start up the lab VMs.
 
-Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's management pane and change its **Autostart** setting.
+1. Select **Save**.
 
-## Set expiration date
-You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM is automatically deleted. By default, the VM never expires.
+   :::image type="content" source="./media/devtest-lab-set-lab-policy/auto-start.png" alt-text="Screenshot showing the Autostart selection.":::
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+> [!NOTE]
+> This policy isn't automatically applied to current VMs in the lab. To apply this setting to current VMs, open the VM's page and change its **Auto-start** setting.
+
+For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.md).
 
 ## Next steps
-Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
-* [Understand shared IP addresses](devtest-lab-shared-ip.md) - Explains how shared IP addresses are used in DevTest Labs to minimize the number of public IP addresses required to connect to your lab VMs.
-* [Configure cost management](devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
-  to view the current month's estimated cost-to-date and the projected end-of-month cost.
-* [Create custom image](devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates
-  how to create a custom image from a VHD file.
-* [Configure Marketplace images](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs supports creating VMs based on Azure Marketplace images. This article
-  illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
-* [Create a VM in a lab](devtest-lab-add-vm.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with
-  artifacts in your VM.
+Besides setting policies, here are more ways to control and manage DevTest Labs costs:
+
+- [Set a VM expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) when you create the VM.
+- [Delete labs or lab VMs](devtest-lab-delete-lab-vm.md) when you're finished with them.
+- [View and manage lab costs](devtest-lab-configure-cost-management.md), trends, and targets.
+
