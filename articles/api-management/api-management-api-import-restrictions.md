@@ -116,9 +116,12 @@ OpenAPI version 2 support is limited to JSON format only.
 <!-- Ref: 1795433 Parameter limitations -->
 ["Form" type parameters](https://swagger.io/specification/v2/#parameter-object) are not supported.  You can still use policy to decode and validate `application/x-www-form-urlencoded` and `application/form-data` payloads.
 
-### <a name="open-api-v3"> </a>OpenAPI version 3.0.x
+### <a name="open-api-v3"> </a>OpenAPI version 3.x
 
-The latest supported OpenAPI version 3.0 is 3.0.3.
+API Management supports the following specification versions:
+
+* [OpenAPI 3.0.3](https://swagger.io/specification/)
+* [OpenAPI 3.1.0](https://spec.openapis.org/oas/v3.1.0) (import only)
 
 #### HTTPS URLs
 
