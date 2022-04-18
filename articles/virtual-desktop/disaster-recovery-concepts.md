@@ -69,11 +69,17 @@ The following diagram shows an example of a deployment with redundant infrastruc
 
 In most cases, if a component fails or the primary region is not available, then the only action the customer needs to perform is to turn on the hosts or remove drain mode in the secondary region to be up and running again. This scenario focuses on reducing downtime. However, a redundancy-based disaster recovery plan may cost more due to having to maintain those extra components in the secondary region.
 
-| Benefits     | Potential issues |
-|--------------|---------|
-| Less time spent to recover from a disaster i.e., less time spent on provisioning, configuring, integrating, and validating newly deployed resources. | May incur more costs to maintain additional infrastructure such as: storage accounts, hosts, etc. |
-| No need to implement complex procedures.     | Must spend more time configuring up front.  |
-| Easily test failover.   | Must maintain additional infrastructure.  |
+The potential benefits of this plan are as follows:
+
+- Less time spent recovering from disasters. For example, you'll spend less time on provisioning, configuring, integrating, and validating newly deployed resources.
+- There's no need to use complicated procedures.
+- It's easy to test failover outside of disasters.
+
+The potential drawbacks are as follows:
+
+- May cost more due to having more infrastructure to maintain, such as storage accounts, hosts, and so on.
+- You'll need to spend more time configuring your deployment to accommodate this plan.
+- You need to maintain the extra infrastructure you set up even when you don't need it.
 
 ## Important information for shared host pool recovery
 
@@ -111,11 +117,7 @@ The following diagram shows the example deployment we just described.
 
 :::image type="content" source="media/personal-host-pool-recovery.png" alt-text="A diagram of a deployment using the recommended personal host pool disaster recovery strategy described in the previous paragraph. On the left is the primary region in West US with the host pool with two personal hosts, two local disk user profile data icons, a VNET, and an Azure Backup Vault. On the right is the secondary region, with Azure Site Recovery Vault, two replicated VMs, and two local disk user profile data icons that are grayed out and transparent, indicating that they're absent from this region. It also has its own VNET. Between the two regions is the blue triangle Azure logo labeled Azure AD Joined.":::
 
-| Benefits | Potential issues     |
-|-----------|------------|
-| Less costs and no maintenance required to patch or update since resources are only provisioned when required. | More time may be required to provision, integrate, and validate failover infrastructure than pre-staged multi-region disaster recovery architecture. |
-
-<!--We can't do a one-row table.--->
+The benefits of this plan include a lower overall cost and not requiring maintenance to patch or update due to resources only being provisioned when you need them. However, a potential drawback is that you'll need to spend more time provisioning, integrating, and validating failover infrastructure than you would with a pre-staged, multi-region disaster recovery setup.
 
 ## Important information about personal host pool recovery
 
