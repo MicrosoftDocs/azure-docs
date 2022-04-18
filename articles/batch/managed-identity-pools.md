@@ -39,7 +39,7 @@ To create a Batch pool with a user-assigned managed identity through the Azure p
 1. For **Pool ID**, enter an identifier for your pool.
 1. For **Identity**, change the setting to **User assigned**.
 1. Under **User assigned managed identity**, select **Add**.
-1. Select the user assigned managed identity or identities you want to use Then, select **Add**.
+1. Select the user assigned managed identity or identities you want to use. Then, select **Add**.
 1. Under **Operating System**, select the publisher, offer, and SKU to use.
 1. Optionally, enable the managed identity in the container registry:
     1. For **Container configuration**, change the setting to **Custom**. Then, select your custom configuration.
