@@ -57,7 +57,7 @@ Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on yo
 
 We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
-Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](../virtual-machines/disks-types.md#premium-ssd).
+Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](../virtual-machines/disks-types.md#premium-ssds).
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
@@ -330,7 +330,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.
 
-Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md#alternate-solution-use-a-custom-domain-name).
+Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ### Use ExpressRoute Global Reach to improve your design for disaster recovery
 
@@ -405,7 +405,7 @@ Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to pro
 
 We have identified that you are using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when the limit is reached, we recommend migrating to Managed Disks that do not have account capacity limit. This migration can be done through the portal in less than 5 minutes.
 
-Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](../storage/common/scalability-targets-standard-account.md#premium-performance-page-blob-storage).
+Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](../storage/common/scalability-targets-standard-account.md).
 
 ## Web
 
@@ -419,7 +419,7 @@ Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out yo
 
 Your app's backups are consistently failing due to invalid DB configuration, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup.).
+Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup).
 
 ### Consider scaling up your App Service Plan SKU to avoid memory exhaustion
 
@@ -443,7 +443,7 @@ Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slo
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup.).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 
