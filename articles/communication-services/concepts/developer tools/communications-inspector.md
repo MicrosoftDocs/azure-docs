@@ -38,6 +38,14 @@ Communications Inspector is compatible with the same browsers as the Calling SDK
 
 The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
 
+### Installing Communications Inspector
+
+```bash
+INSERT SNIPPET
+```
+
+### Initialize Communications Inspector
+
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { CommunicationsInspector } from "@azure/communication-tools";
