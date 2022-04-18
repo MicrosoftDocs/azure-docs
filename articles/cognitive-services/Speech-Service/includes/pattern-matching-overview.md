@@ -168,8 +168,6 @@ Sometimes multiple patterns may match the same utterance. In this case, the engi
 
 ## Next steps
 
-> Start with [simple pattern matching](../how-to-use-simple-language-pattern-matching.md).
-
-> Improve your pattern matching by using [custom entities](../how-to-use-custom-entity-pattern-matching.md).
-
-> Look through our [github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+* Start with [simple pattern matching](../how-to-use-simple-language-pattern-matching.md).
+* Improve your pattern matching by using [custom entities](../how-to-use-custom-entity-pattern-matching.md).
+* Look through our [Github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
