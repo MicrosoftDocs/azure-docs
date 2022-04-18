@@ -36,10 +36,12 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
+
+* **11 (Bullseye):
+
    ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+   curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
    sudo apt install ./packages-microsoft-prod.deb
-   ```
 
 > [!TIP]
 > If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'apt' command without 'sudo'.
