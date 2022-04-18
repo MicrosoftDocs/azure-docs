@@ -15,6 +15,7 @@ ms.author: danlep
 # API import restrictions and known issues
 
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
+
 * API Management's behavior during OpenAPI import. 
 * OpenAPI import limitations and how OpenAPI export works.
 * Requirements and limitations for WSDL and WADL import.
@@ -22,16 +23,19 @@ When importing an API, you might encounter some restrictions or need to identify
 ## API Management during OpenAPI import
 
 During OpenAPI import, API Management:
+
 * Checks specifically for query string parameters marked as required.
 * Converts the query string parameters to template parameters. 
 
 If you prefer a different behavior, you can either: 
+
 * Manually change via form-based editor, or 
 * Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger import limitations
 
 If you receive errors while importing your OpenAPI document, make sure you've validated it beforehand by either:
+
 * Using the designer in the Azure portal (Design > Front End > OpenAPI Specification Editor), or 
 * With a third-party tool, such as <a href="https://editor.swagger.io">Swagger Editor</a>.
 
@@ -93,16 +97,24 @@ Inline schema definitions for API operations aren't supported. Schema definition
 * Are defined in the API scope.
 * Can be referenced in API operations request or response scopes.
 
-<!-- Ref: 1851786 Query parameter handling -->
-When importing query parameters, only the default array serialization method (`style: form`, `explode: true`) is supported.  For more details on query parameters in OpenAPI specifications, refer to [the serialization specification](https://swagger.io/docs/specification/serialization/).
-
 #### Ignored definitions
 
 Security definitions are ignored.
 
+#### Definition restrictions
+
+<!-- Ref: 1851786 Query parameter handling -->
+When importing query parameters, only the default array serialization method (`style: form`, `explode: true`) is supported.  For more details on query parameters in OpenAPI specifications, refer to [the serialization specification](https://swagger.io/docs/specification/serialization/).
+
+<!-- Ref: 1795433 Parameter limitations -->
+Parameters [defined in cookies](https://swagger.io/docs/specification/describing-parameters/#cookie-parameters) are not supported.  You can still use policy to decode and validate the contents of cookies.  
+
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
 OpenAPI version 2 support is limited to JSON format only.
+
+<!-- Ref: 1795433 Parameter limitations -->
+["Form" type parameters](https://swagger.io/specification/v2/#parameter-object) are not supported.  You can still use policy to decode and validate `application/x-www-form-urlencoded` and `application/form-data` payloads.
 
 ### <a name="open-api-v3"> </a>OpenAPI version 3.0.x
 
