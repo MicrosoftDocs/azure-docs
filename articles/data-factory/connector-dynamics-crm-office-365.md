@@ -308,7 +308,7 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
 
 > [!IMPORTANT]
 >- When you copy data from Dynamics, explicit column mapping from Dynamics to sink is optional. But we highly recommend the mapping to ensure a deterministic copy result.
->- When the service imports a schema in the authoring UI, it infers the schema. It does so by sampling the top rows from the Dynamics query result to initialize the source column list. In that case, columns with no values in the top rows are omitted. The same behavior applies to preview data and also applies to copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which are honored during copy runtime.
+>- When the service imports a schema in the authoring UI, it infers the schema. It does so by sampling the top rows from the Dynamics query result to initialize the source column list. In that case, columns with no values in the top rows are omitted. The same behavior also applies to data preview and copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which are honored during copy runtime.
 
 #### Example
 
