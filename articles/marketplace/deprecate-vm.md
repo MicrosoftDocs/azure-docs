@@ -48,7 +48,7 @@ After the scheduled deprecation date:
 
 ## Deprecate an image
 
-Note the following when deprecating an image:
+Keep the following things in mind when deprecating an image:
 
 - You can deprecate any image within a plan.
 - Each plan must have at least one image.
@@ -67,7 +67,7 @@ Note the following when deprecating an image:
 
 ## Restore a deprecated image
 
-Note the following when restoring a deprecated image:
+Keep the following things in mind when restoring a deprecated image:
 
 - Publish the offer after restoring an image for it to become available to customers.
 - You can undo or cancel the deprecation anytime up until the scheduled date.
@@ -89,7 +89,7 @@ Note the following when restoring a deprecated image:
 
 ## Deprecate a plan
 
-Note the following when deprecating a plan:
+Keep the following things in ming when deprecating a plan:
 
 - Publish the offer after scheduling the deprecation of a plan.
 - Upon scheduling the deprecation of a plan, free trials are disabled immediately.
@@ -104,7 +104,7 @@ Note the following when deprecating a plan:
 
 ## Restore a deprecated plan
 
-Note the following when restoring a plan:
+Keep the following things in mind when restoring a plan:
 
 - Ensure that there is at least one active image version available on the **Technical Configuration** page of the plan. You can either restore a deprecated image or provide a new one.
 - Publish the offer after restoring a plan for it to become available to customers.
@@ -122,7 +122,7 @@ Note the following when restoring a plan:
 
 On the **Offer Overview** page, you can deprecate the entire offer. This deprecates all plans and images within the offer.
 
-Note the following when deprecating an offer:
+Keep the following things in mind when deprecating an offer:
 
 - The deprecation will be scheduled 90 days into the future and customers will be notified.
 - Test drive and any free trials will be disabled immediately upon scheduling deprecation of an offer.
