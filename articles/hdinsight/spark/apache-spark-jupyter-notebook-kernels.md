@@ -41,7 +41,7 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
  > [!NOTE]  
  > For HDI 4.0, only **PySpark3**, or **Spark** will be available.
  >
- :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark-for-HDI4.0.png " alt-text="Kernels for Jupyter Notebook on Spark" border="true":::
+ :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark-for-HDI4.0.png " alt-text="Kernels for Jupyter Notebook on Spark HDI4.0" border="true":::
  
 
 4. A notebook opens with the kernel you selected.
