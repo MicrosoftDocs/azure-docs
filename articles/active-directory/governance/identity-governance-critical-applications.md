@@ -59,6 +59,8 @@ If this is an existing application in your environment, you may already have doc
 <!-- TODO: do you have the data in your AAD? -->
 <!-- TODO: link to standards and fundamentals for security -->
 
+1. First, if Azure AD is not already sending its audit log to an Azure Monitor deployed in one of your organization's Azure subscriptions, then you should [Configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md) for its audit log.  Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by using Azure Monitor. You can then use Azure Monitor workbooks and custom queries and reports across current and historical audit data.
+
 1. Ensure the users in highly privileged administrative roles in your Azure AD tenant have been reviewed. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
 
 ## Integrate the application with Azure AD to ensure only authorized users cannot access the application
@@ -91,7 +93,6 @@ Once you have established the policies for who should have access to your applic
 
 If the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward.
 
-1. First, if Azure AD is not already sending its audit log to an Azure Monitor deployed in one of your organization's Azure subscriptions, then you should [Configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md) for its audit log.  Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by using Azure Monitor. You can then use Azure Monitor workbooks and custom queries and reports across current and historical audit data.
 
 1. If this is a new application you have not used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the next section.
 
