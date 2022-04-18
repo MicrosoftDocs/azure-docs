@@ -70,7 +70,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 1. Navigate to your Microsoft Purview account in the Azure portal and select **Diagnostic settings**.
 
-    :::image type="content" source="media/purview-solution/diagnostics-settings.png" alt-text="Screenshot of an Microsoft Purview account Diagnostics settings page.":::
+    :::image type="content" source="media/purview-solution/diagnostics-settings.png" alt-text="Screenshot of a Microsoft Purview account Diagnostics settings page.":::
 
 1. Select **+ Add diagnostic setting** and configure the new setting to send logs from Microsoft Purview to Microsoft Sentinel:
 
@@ -82,7 +82,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections).
 
-**To run an Microsoft Purview scan and view data in Microsoft Sentinel**:
+**To run a Microsoft Purview scan and view data in Microsoft Sentinel**:
 
 1. In Microsoft Purview, run a full scan of your resources. For more information, see [Manage data sources in Microsoft Purview](../purview/manage-data-sources.md).
 
@@ -92,7 +92,7 @@ For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microso
 
 The Microsoft Purview solution provides two analytics rule templates out-of-the-box that you can enable, including a generic rule and a customized rule.
 
-- The generic version, *Sensitive Data Discovered in the Last 24 Hours*, monitors for the detection of any classifications found across your data estate during an Microsoft Purview scan.
+- The generic version, *Sensitive Data Discovered in the Last 24 Hours*, monitors for the detection of any classifications found across your data estate during a Microsoft Purview scan.
 - The customized version, *Sensitive Data Discovered in the Last 24 Hours - Customized*, monitors and generates alerts each time the specified classification, such as Social Security Number, has been detected.
 
 Use this procedure to customize the Microsoft Purview analytics rules' queries to detect assets with specific classification, sensitivity label, source region, and more. Combine the data generated with other data in Microsoft Sentinel to enrich your detections and alerts.
