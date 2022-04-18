@@ -5,15 +5,10 @@ description: Details of known issues and restrictions on Open API, WSDL, and WAD
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: vlvinogr
-editor: ''
 
-ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 10/26/2021
+ms.topic: conceptual
+ms.date: 03/02/2022
 ms.author: danlep
 ---
 
@@ -21,8 +16,8 @@ ms.author: danlep
 
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
 * API Management's behavior during OpenAPI import. 
-* Import limitations, organized by the import format of the API. 
-* How OpenAPI export works.
+* OpenAPI import limitations and how OpenAPI export works.
+* Requirements and limitations for WSDL and WADL import.
 
 ## API Management during OpenAPI import
 
@@ -146,6 +141,15 @@ For each operation found in the OpenAPI document, a new operation will be create
         * Length is limited to 300 characters.
     * If `summary` isn't specified (not present, `null`, or empty), display name value will set to `operationId`. 
 
+**Normalization rules for `operationId`**
+- Convert to lower case.
+- Replace each sequence of non-alphanumeric characters with a single dash.
+    - For example, `GET-/foo/{bar}?buzz={quix}` will be transformed into `get-foo-bar-buzz-quix-`.
+- Trim dashes on both sides.
+    - For example, `get-foo-bar-buzz-quix-` will become `get-foo-bar-buzz-quix`
+- Truncate to fit 76 characters, four characters less than maximum limit for a resource name.
+- Use remaining four characters for a de-duplication suffix, if necessary, in the form of `-1, -2, ..., -999`.
+
 ### Update an existing API via OpenAPI import
 
 During import, the existing API operation:
@@ -164,12 +168,6 @@ To make import more predictable, follow these guidelines:
 - Refrain from changing `operationId` after initial import.
 - Never change `operationId` and HTTP method or path template at the same time.
 
-### Export API as OpenAPI
-
-For each operation, its:
-* Azure resource name will be exported as an `operationId`.
-* Display name will be exported as a `summary`.
-
 **Normalization rules for `operationId`**
 - Convert to lower case.
 - Replace each sequence of non-alphanumeric characters with a single dash.
@@ -179,16 +177,26 @@ For each operation, its:
 - Truncate to fit 76 characters, four characters less than maximum limit for a resource name.
 - Use remaining four characters for a de-duplication suffix, if necessary, in the form of `-1, -2, ..., -999`.
 
+### Export API as OpenAPI
+
+For each operation, its:
+* Azure resource name will be exported as an `operationId`.
+* Display name will be exported as a `summary`.
+
+Note that normalization of the `operationId` is done on import, not on export.
+
 ## <a name="wsdl"> </a>WSDL
 
-You can create SOAP pass-through and SOAP-to-REST APIs with WSDL files.
+You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restify-soap-api.md) APIs with WSDL files.
 
 ### SOAP bindings 
 - Only SOAP bindings of "document" and “literal” encoding style are supported.
 - No support for “rpc” style or SOAP-Encoding.
 
-### WSDL:Import
-Not supported. Instead, merge the imports into one document.
+### Imports and includes
+* The `wsdl:import`, `xsd:import`, and `xsd:include` directives aren't supported. Instead, merge the dependencies into one document. 
+
+* For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Messages with multiple parts 
 This message type is not supported.

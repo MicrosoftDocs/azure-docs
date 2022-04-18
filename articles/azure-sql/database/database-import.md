@@ -23,6 +23,9 @@ You can import a SQL Server database into Azure SQL Database or SQL Managed Inst
 > [!IMPORTANT]
 > After importing your database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
+> [!NOTE]
+> [Import and Export using Private Link](database-import-export-private-link.md) is in preview.
+
 ## Using Azure portal
 
 Watch this video to see how to import from a BACPAC file in the Azure portal or continue reading below:
@@ -122,7 +125,7 @@ $importStatus
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
+Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key
@@ -156,8 +159,6 @@ Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $Se
 - Import does not support specifying a backup storage redundancy while creating a new database and creates with the default geo-redundant backup storage redundancy. To workaround, first create an empty database with desired backup storage redundancy using Azure portal or PowerShell and then import the BACPAC into this empty database. 
 - Storage behind a firewall is currently not supported.
 
-> [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.
 
 ## Import using wizards
 

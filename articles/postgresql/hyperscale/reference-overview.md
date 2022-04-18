@@ -1,8 +1,8 @@
 ---
 title: Reference – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Overview of the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference

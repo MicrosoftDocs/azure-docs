@@ -279,8 +279,6 @@ Linux:
 - Memory(*)\\% Used Memory
 - Network Adapter(*)\\Bytes Sent/sec
 - Network Adapter(*)\\Bytes Received/sec
-
-To get the network performance data, you must also have enabled the Wire Data 2.0 solution in your workspace.
  
 ## Security integration
 

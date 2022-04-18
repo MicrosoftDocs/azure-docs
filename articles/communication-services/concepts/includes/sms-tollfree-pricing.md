@@ -37,3 +37,6 @@ The following prices include required communications taxes and fees:
 |Receive messages (per message segment*) |$0.0075 |
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
+
+## Carrier surcharge
+A standard carrier surcharge of $0.0025/sent message segment and $0.0010/received message segment is also applicable. A carrier surcharge is subject to change. See our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/sms-carrier-surcharge.md) for details.

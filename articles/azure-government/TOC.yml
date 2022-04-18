@@ -53,10 +53,10 @@
       href: documentation-government-overview-dod.md
     - name: Export controls
       href: documentation-government-overview-itar.md
-    - name: Justice and public safety
-      href: documentation-government-overview-jps.md
     - name: Power and utilities
       href: documentation-government-overview-nerc.md
+    - name: Public safety and justice
+      href: documentation-government-overview-jps.md
     - name: Worldwide public sector
       href: documentation-government-overview-wwps.md
 - name: How-to guides

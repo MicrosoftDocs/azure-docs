@@ -334,7 +334,7 @@ As a general rule, you can use the following options to set up integration runti
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
 |Power BI tenant    | Azure Runtime          | Azure Purview Managed Identity         |
 
-Use [this guide](azure-purview-connector-overview.md) to read more about each connector and their supported authentication options.
+Use [this guide](azure-purview-connector-overview.md) to read more about each source and their supported authentication options.
 
 ## Other recommendations
 

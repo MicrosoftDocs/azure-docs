@@ -11,7 +11,7 @@ ms.date: 03/01/2022
 ms.author: allensu
 ---
 
-# Using Source Network Address Translation (SNAT) for outbound connections
+# Use Source Network Address Translation (SNAT) for outbound connections
 
 Certain scenarios require virtual machines or compute instances to have outbound connectivity to the internet. The frontend IPs of a public load balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)** to translate virtual machine's private IP into the load balancer's public IP address. SNAT maps the IP address of the backend to the public IP address of your load balancer. SNAT prevents outside sources from having a direct address to the backend instances.  
 
@@ -21,12 +21,14 @@ The following methods are used to enable outbound connectivity in Azure:
 
 | # | Method | Type of port allocation | Production-grade? | Rating |
 | ------------ | ------------ | ------ | ------------ | ------------ |
-| 1 | Using the frontend IP address(es) of a load balancer for outbound via outbound rules | Static, explicit | Yes, but not at scale | OK | 
-| 2 | Associating a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
-| 3 | Assigning a public IP to the virtual machine | Static, explicit | Yes | OK | 
-| 4 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
+| 1 | Use the frontend IP address(es) of a load balancer for outbound via outbound rules | Static, explicit | Yes, but not at scale | OK | 
+| 2 | Associate a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
+| 3 | Assign a public IP to the virtual machine | Static, explicit | Yes | OK | 
+| 4 | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) use | Implicit | No | Worst |
 
-## <a name="outboundrules"></a>1. Using the frontend IP address of a load balancer for outbound via outbound rules
+:::image type="content" source="./media/load-balancer-outbound-connections/outbound-options.png" alt-text="Diagram of Azure outbound options.":::
+
+## <a name="outboundrules"></a>1. Use the frontend IP address of a load balancer for outbound via outbound rules
 
 :::image type="content" source="./media/load-balancer-outbound-connections/public-load-balancer-outbound.png" alt-text="Diagram public load balancer with outbound rules.":::
 
@@ -52,7 +54,7 @@ If you have Virtual Machine Scale Sets in the backend, it's recommended to alloc
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
-## 2. Associating a NAT gateway to the subnet
+## 2. Associate a NAT gateway to the subnet
 
 :::image type="content" source="./media/load-balancer-outbound-connections/nat-gateway.png" alt-text="Diagram of a NAT gateway and public load balancer.":::
 
@@ -62,7 +64,7 @@ Using a NAT gateway is the best method for outbound connectivity. A NAT gateway 
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md).
 
-##  3. Assigning a public IP to the virtual machine
+##  3. Assign a public IP to the virtual machine
 
 :::image type="content" source="./media/load-balancer-outbound-connections/instance-level-public-ip.png" alt-text="Diagram of virtual machines with instance level public IP addresses.":::
 
@@ -120,7 +122,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
 
-## Exhausting ports
+## Port exhaustion
 
 Every connection to the same destination IP and destination port will use a SNAT port. This connection maintains a distinct **traffic flow** from the backend instance or **client** to a **server**. This process gives the server a distinct port on which to address traffic. Without this process, the client machine is unaware of which flow a packet is part of.
 
@@ -146,7 +148,7 @@ For UDP connections, the load balancer uses a **port-restricted cone NAT** algor
 
 A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different.
 
-## Limitations
+## Constraints
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
 

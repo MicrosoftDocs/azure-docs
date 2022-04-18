@@ -42,20 +42,20 @@ When setting up scan, you can choose to scan an entire Google BigQuery project, 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download and install BigQuery's JDBC driver on the machine where your self-hosted integration runtime is running. You can find the driver [here](https://cloud.google.com/bigquery/providers/simba-drivers).
+    * Download and unzip BigQuery's JDBC driver on the machine where your self-hosted integration runtime is running. You can find the driver [here](https://cloud.google.com/bigquery/providers/simba-drivers).
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
 ## Register
 
@@ -88,7 +88,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md).
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md).
 
 1. Navigate to **Sources**.
 
@@ -106,7 +106,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 
         * Select **Basic Authentication** as the Authentication method
         * Provide the email ID of the service account in the User name field. For example, `xyz\@developer.gserviceaccount.com`
-        * Follow below steps to generate the private key, copy the JSON then store it as the value of a Key Vault secret.
+        * Follow below steps to generate the private key, copy the entire JSON key file then store it as the value of a Key Vault secret.
 
         To create a new private key from Google's cloud platform:
         1. In the navigation menu, select IAM & Admin -\> Service Accounts -\> Select a project -\> 
@@ -123,7 +123,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location. 
 
         > [!Note]
-        > The driver should be accessible to all accounts in the VM.Please do not install in a user account.
+        > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
     1. **Dataset**: Specify a list of BigQuery datasets to import.
         For example, dataset1; dataset2. When the list is empty, all available datasets are imported.
@@ -136,7 +136,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
         * contain C or
         * equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of NOT and special characters aren't acceptable.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on your VM to be used by scanning processes. This is dependent on the size of Google BigQuery project to be scanned.
 
@@ -163,7 +163,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
