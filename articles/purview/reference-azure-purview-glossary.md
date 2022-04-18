@@ -97,6 +97,8 @@ An area within Azure Purview where you can manage connections, users, roles, and
 The minimum percentage of matches among the distinct data values in a column that must be found by the scanner for a classification to be applied.
 
 For example, a minimum match threshold of 60% for employee ID requires that 60% of all distinct values among the sampled data in a column match the data pattern set for employee ID. If the scanner samples 128 values in a column and finds 60 distinct values in that column, then at least 36 of the distinct values (60%) must match the employee ID data pattern for the classification to be applied.
+## Policy
+A statement or collection of statements that controls how access to data and data sources should be authorized. 
 ## Object type
 A categorization of assets based upon common data structures. For example, an Azure SQL Server table and Oracle database table both have an object type of table.
 ## On-premises data
@@ -145,6 +147,8 @@ A categorization of the registered sources used in an Azure Purview instance, fo
 An individual who defines the standards for a glossary term. They are responsible for maintaining quality standards, nomenclature, and rules for the assigned entity.
 ## Term template
 A definition of attributes included in a glossary term. Users can either use the system-defined term template or create their own to include custom attributes.
+## Workflow
+An automated process that coordinates the creation and modification of catalog entities, including validation and approval. Workflows define repeatable business processes to achieve high quality data, policy compliance, and user collaboration across an organization.
 
 ## Next steps
 
