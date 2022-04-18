@@ -61,7 +61,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
 A notification appears to confirm that the update settings are successfully changed.
 
-## Configure settings at scale.
+## Configure settings at scale
 
 To configure update settings on your machines at scale, follow these steps:
 
