@@ -60,7 +60,7 @@ A few important points:
     While you certainly could use the same groups for both tools, we recommend against it as users could potentially be redirected to Azure MFA before the tool has synched their data. We recommend setting up Azure AD groups that will be targeted by the Migration Utility for syncing authentication data, and another set of groups that will be used by Staged Rollout for directing targeted users to Azure MFA rather than on-prem.
 - **Phase 2** should be repeated as you migrate your user base. By the end of Phase 2, your entire user base should be using Azure MFA for all workloads federated against Azure AD.
     During the above phases, you can simply remove users from the Staged Rollout folders to take them out of scope of Azure MFA and route them back to your on-premises Azure MFA server for all MFA requests originating from Azure AD.
-- **Phase 3** requires moving all clients that authenticate to the on-prem MFA Server (VPNs, password managers, etc.) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you are required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manager their authentication methods in Azure AD (aka.ms/mfasetup). Once users begin managing their authentication data in Azure AD, those methods will not be synced back to MFA Server. If you roll-back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. Next, removing the ‘supportsMfa’ flag on your domain federation settings instructs Azure AD that MFA is no longer performed on-prem and that ALL MFA requests (regardless of group membership) should be performed by Azure MFA. 
+- **Phase 3** requires moving all clients that authenticate to the on-prem MFA Server (VPNs, password managers, etc.) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you are required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manager their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods will not be synced back to MFA Server. If you roll-back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. Next, removing the ‘supportsMfa’ flag on your domain federation settings instructs Azure AD that MFA is no longer performed on-prem and that ALL MFA requests (regardless of group membership) should be performed by Azure MFA. 
 
 Continue reading for detailed migration steps.
 
@@ -109,7 +109,7 @@ Open MFA Server, click **User Portal**:
 |MFA Server|Azure MFA|
 |:--------:|:-------:|
 |**Settings Tab**||
-|User Portal URL|aka.ms/mfasetup|
+|User Portal URL|[aka.ms/mfasetup](https://aka.ms/mfasetup)|
 |Allow user enrollment|See Combined security information registration documentation|
 |- Prompt for backup phone|See MFA Service settings|
 |- Prompt for third-party OATH token|See MFA Service settings|
@@ -246,45 +246,56 @@ As mentioned in the confirmation message, it can take several minutes for the mi
 Once you have successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for staged rollout for MFA. This tells Azure AD to perform MFA via Azure MFA for users in the targeted groups, rather than sending them on-premises to perform MFA.
 
 1. Create the featureRolloutPolicy
-   1. Navigate to aka.ms/ge and login to Graph Explorer using a Hybrid Identity admin account in the tenant you wish to setup for Staged Rollout.
-   1. Ensure POST is selected targeting the following endpoint: https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies
-   1. The body of your request should contain the following (the highlighted portions can be changed to fit any naming and description needs your organization may need):
+   1. Navigate to [aka.ms/ge](https://aka.ms/ge) and login to Graph Explorer using a Hybrid Identity admin account in the tenant you wish to setup for Staged Rollout.
+   1. Ensure POST is selected targeting the following endpoint: 
+      `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies`
+   1. The body of your request should contain the following (change **MFA rollout policy** to a name and description for your organization):
+      
+      ```msgraph-interactive
+      {
+           "displayName": "MFA rollout policy",
+           "description": "MFA rollout policy",
+           "feature": "multiFactorAuthentication",
+           "isEnabled": true,
+           "isAppliedToOrganization": false
+      }
+      ```
    
       :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/body.png" alt-text="Screenshot of request.":::
 
-   1. Perform a GET with the same endpoint and make note of the “id” value (crossed-out image below)
+   1. Perform a GET with the same endpoint and make note of the **ID** value (crossed out in the following image):
    
       :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/get.png" alt-text="Screenshot of GET command.":::
 
 1. Target the Azure AD group(s) that contain the users you wish to test
-   1. Create a POST request with the following endpoint (note that the highlighted portion below should be replaced with the ID value you copied from step 1d): 
+   1. Create a POST request with the following endpoint (replace {ID of policy} with the **ID** value you copied from step 1d): 
 
       `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies/{ID of policy}/appliesTo/$ref`
 
-   1. The body of the request should contain the following (note that the highlighted portion should be the object ID of the group you wish to target for Staged Rollout):
+   1. The body of the request should contain the following (replace {ID of group} with the object ID of the group you wish to target for staged rollout):
       
       ```msgraph-interactive
       {
-      "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/{id of group}"
+      "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/{ID of group}"
       }
       ```
 
     1. Repeat steps a and b for any other groups you wish to target with staged rollout.
-    1. You can view the current policy in place by doing a get against the following URL:
+    1. You can view the current policy in place by doing a GET against the following URL:
 
        `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies/{policyID}?$expand=appliesTo`
 
-       Note that the above process uses the featureRolloutPolicy resource. The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the Microsoft docs site.
+       Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0). The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the Microsoft docs site.
 
-1. Confirm that the end-user MFA experience is as expected. Here are a few things to check:
-   1. Do users see their methods in aka.ms/mfasetup
-   1. Do users receive phone calls/text messages
+1. Confirm that the end-user MFA experience. Here are a few things to check:
+   1. Do users see their methods in [aka.ms/mfasetup](https://aka.ms/mfasetup)?
+   1. Do users receive phone calls/text messages?
    1. Are they able to successfully authenticate using the above methods?
    1. Do users successfully receive Authenticator notifications? Are they able to approve these notifications? Is authentication successful?
    1. Are users able to authenticate successfully using Hardware OATH tokens?
 
 ### Educate users
-Ensure users know what to expect when they are moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal (aka.ms/mfasetup) to manage their authentication methods rather than the Azure MFA Server registration portal once migrations are complete. Note that any changes made to authentication methods in Azure AD will not propagate back to your on-premises environment. In a situation where you have to rollback to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
+Ensure users know what to expect when they are moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal ([aka.ms/mfasetup](https://aka.ms/mfasetup)) to manage their authentication methods rather than the Azure MFA Server registration portal once migrations are complete. Note that any changes made to authentication methods in Azure AD will not propagate back to your on-premises environment. In a situation where you have to rollback to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
 
 Also note that if you have 3rd party solutions that are dependent on Azure MFA Server for authentication (see Authentication Services section above), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you have migrated these 3rd party solutions, you can move users to the Azure AD combined registration page.
 
@@ -310,7 +321,7 @@ Set-MsolDomainFederationSettings -DomainName <federated domain you wish to make 
 All users, whether they’re targeted by the Staged Rollout tool or not will no longer be redirected to your on-premises federation server for MFA. Note this can take up to 24 hours to take effect.
 
 ### Optional: Disable MFA Server registration portal
-Once you have completed migrating all user data, end users can begin using the Azure AD combined registration pages to manage MFA Methods, rather than the User Portal in Azure MFA Server. You may wish to re-direct your MFA Server Registration Portal URL to aka.ms/mfasetup and/or perhaps prevent users from logging into the MFA Server registration portal altogether. You can do this by unchecking “Allow users to log in” under the ‘Settings’ tab in the User Portal section of MFA Server.
+Once you have completed migrating all user data, end users can begin using the Azure AD combined registration pages to manage MFA Methods, rather than the User Portal in Azure MFA Server. You may wish to re-direct your MFA Server Registration Portal URL to [aka.ms/mfasetup](https://aka.ms/mfasetup) and/or perhaps prevent users from logging into the MFA Server registration portal altogether. You can do this by unchecking “Allow users to log in” under the ‘Settings’ tab in the User Portal section of MFA Server.
 
 ### Decommission Azure MFA Server
 Once you have determined you no longer need the Azure MFA server, you may follow your normal deprecation practices for server deprecation. No special action is required in Azure AD to indicate MFA Server retirement.
