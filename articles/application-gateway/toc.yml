@@ -274,6 +274,8 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
+      - name: HTTP response codes
+        href: http-response-codes.md
       - name: Mutual authentication
         href: mutual-authentication-troubleshooting.md
       - name: Ingress for AKS 
