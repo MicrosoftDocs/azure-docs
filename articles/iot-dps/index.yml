@@ -10,7 +10,7 @@ metadata:
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page
-  ms.date: 03/03/2020
+  ms.date: 04/18/2022
   ms.author: kgremban
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -18,8 +18,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
-  - title: About Azure IoT Hub Device Provisioning Service (DPS)
+  - title: Learn about Device Provisioning Service
     linkLists:
       - linkListType: overview
         links:
@@ -27,22 +26,15 @@ landingContent:
             url: about-iot-dps.md
       - linkListType: concept
         links:
-          - text: Auto-provisioning concepts for Azure IoT
+          - text: Understand auto-provisioning concepts for Azure IoT
             url: ./concepts-roles-operations.md
-      - linkListType: video
-        links:
-          - text: IoT Hub DPS Demo
-            url: https://azure.microsoft.com/resources/videos/iot-hub-dps-demo/
 
-  # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
           - text: Set up a DPS using the Azure Portal
             url: quick-setup-auto-provision.md
-      - linkListType: sample
-        links:
           - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
       - linkListType: how-to-guide
@@ -52,18 +44,35 @@ landingContent:
           - text: How to use custom allocation policies
             url: how-to-use-custom-allocation-policies.md
 
-  # Card
-  - title: Manage access
+  - title: Manage devices for multiple IoT hubs
     linkLists:
+      - linkListType: tutorial
+        links: 
+        - text: Link multiple hubs to DPS
+          url: tutorial-provision-multiple-hubs.md
+        - text: Provision for multitenancy
+          url: how-to-provision-multitenant.md
       - linkListType: how-to-guide
         links:
-          - text: How to manage device enrollments
-            url: how-to-manage-enrollments.md
-          - text: Control access to Azure IoT Hub Device Provisioning Service
-            url: how-to-control-access.md
+          - text: Create custom allocation policies
+            url: how-to-use-custom-allocation-policies.md
 
-  # Card
-  - title: Develop an IoT solution with DPS
+  - title: Secure your IoT solution
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Security practices for device manufacturers
+          url: concepts-device-oem-security-practices.md
+      - linkListType: how-to-guide
+        links:
+        - text: Configure verified CA certificates
+          url: how-to-verify-certificates.md
+        - text: Roll X.509 device certificates
+          url: how-to-roll-certificates.md
+        - text: Control access to DPS
+          url: how-to-control-access.md
+
+  - title: Develop with SDKs and tools
     linkLists:
       - linkListType: reference
         links:
