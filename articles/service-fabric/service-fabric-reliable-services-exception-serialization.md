@@ -111,8 +111,8 @@ var actorProxyFactory = new ActorProxyFactory(
 3. DataContract remoting exception serialization converts Exception to Data Transfer Object(DTO) on the service side and the DTO is converted back to Exception on the client side. Users need to register `ExceptionConvertor` for converting desired exceptions to DTO objects and vice versa.
 Framework implements Convertors for the below list of the exceptions. If user service code depends on exceptions outside the below list for retry implementation, exception handling, etc., then user needs to implement and register convertors for such exceptions.
 
-  * All service fabric exceptions(derived from `FabricException`)
-  * SystemExceptions
+  * All service fabric exceptions(derived from `System.Fabric.FabricException`)
+  * SystemExceptions(derived from `System.SystemException`)
     * System.AccessViolationException
     * System.AppDomainUnloadedException
     * System.ArgumentException
