@@ -15,7 +15,7 @@ metadata:
 landingContent:
 
   # Card (optional)
-  - title: Get started with Update management center
+  - title: About Update management center
     linkLists:
       - linkListType: overview
         links:
@@ -30,5 +30,12 @@ landingContent:
             url: view-updates.md
           - text: Deploy updates to machines
             url: deploy-updates.md
-          - text: Manage multiple machines
-            url: manage-multiple-machines.md
+          - text: Schedule recurring updates for machines
+            url: scheduled-patching.md
+  # Card
+  - title: Get started
+    linkLists:     
+      - linkListType: tutorial
+        links:
+          - text: Check and install on-demand updates
+            url: quickstart-on-demand.md
