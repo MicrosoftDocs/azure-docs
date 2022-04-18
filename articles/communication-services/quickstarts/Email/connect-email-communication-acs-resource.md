@@ -15,21 +15,28 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-## Connect an email domain to an Communication Serivce resource
-1. Click [here](../create-communication-resource.md) to create a Communication Services Resources.
+## Connect an email domain to an Communication Service resource
+1.[Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
 2. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email. 
-![image](https://user-images.githubusercontent.com/35741731/160209067-a7b727b3-5efa-4baf-b1cb-5c79a53d32fa.png)
+:::image type="content" source="./media/email-acs-domains.png" alt-text="image":::
 
 3. Select one of the options below
     - Click **Connect domain** in the upper navigation bar.
     - Click **Connect domain** in the splash screen.
-    ![image](https://user-images.githubusercontent.com/35741731/160209462-1b39370d-a9b0-4668-b979-531052821153.png)
+  :::image type="content" source="./media/email-acs-domains-connect.png" alt-text="image":::
 
-4. Select a verified by filtering 
+4. Select a one of the verified domains by filtering 
     - Subscription
     - Resource Group
     - Email Service
     - Verified Domain
-4. Click Connect
-  
+:::image type="content" source="./media/email-acs-domains-connect-select.png" alt-text="image":::
+5. Click Connect
+:::image type="content" source="./media/email-acs-domains-connected.png" alt-text="image":::
+
+## DisConnect an email domain from the Communication Service resource
+
+1. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
+2.Select the Connected Domains click the ... and click Disconnect.  
+ :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="image":::
 

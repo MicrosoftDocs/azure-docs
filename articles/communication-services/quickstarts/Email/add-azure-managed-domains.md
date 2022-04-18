@@ -25,22 +25,22 @@ ms.custom: private_preview
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Create the Azure Managed Domain.   
     - (Option 1) Click the **1-click add** button under **Add a free Azure subdomain**. Move to the next step.
-    ![image](https://user-images.githubusercontent.com/35741731/162805148-27db800c-67ed-45ce-968e-4e4a58ee88ae.png)
+    :::image type="content" source="./media/email-add-azuredomain.png" alt-text="image":::
 
     - (Option 2) Click **Provision Domains** on the left navigation panel.
-    ![image](https://user-images.githubusercontent.com/35741731/162805308-f94c6014-f500-41b5-a7e8-5129aa8e465b.png)
+    :::image type="content" source="./media/email-add-azuredomain-nav.png" alt-text="image":::
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Azure domain** from the dropdown.
 3. Wait for the deployment to complete.
 
-![image](https://user-images.githubusercontent.com/35741731/162805570-d2e7d767-132d-4e07-98c3-4b1a6f8b6b85.png)
+:::image type="content" source="./media/email-add-azuredomain-progress.png" alt-text="image":::
 
 4. After domain creation is completed, you will see a list view with the created domain.
-![image](https://user-images.githubusercontent.com/35741731/162805744-2e0cd43c-c7f2-483a-88bb-869cb789f5cc.png)
+:::image type="content" source="./media/email-add-azuredomain-created.png" alt-text="image":::
 
 5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
-![image](https://user-images.githubusercontent.com/35741731/162805877-a1f66c24-1530-4c3b-8e8f-e7a5f7bed70a.png)
+:::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="image":::
 
 ## Sender Authentication for Azure Managed Domain
 
@@ -53,19 +53,19 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
 3. Click on the Azure Manged Domain link
-![image](https://user-images.githubusercontent.com/35741731/163031214-731a5023-9647-4554-b4b4-bf5fb7b8e311.png)
+:::image type="content" source="./media/email-provisioned-domains.png" alt-text="image":::
 4. The navigation lands in Azure Managed Domain Overview page where you will able to see Mailfrom and From attributes.
 
-![image](https://user-images.githubusercontent.com/35741731/163033154-3056055f-6137-4b25-a03d-aa1ac7a9776b.png)
+:::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="image":::
 
 5. Click on edit link on MailFrom 
 
-![image](https://user-images.githubusercontent.com/35741731/163031798-3cf09f82-33c1-4aec-93f7-4e33f07610f4.png)
+:::image type="content" source="./media/email-domains-mailfrom.png" alt-text="image":::
 
 6. You will able to modify the Display Name and MailFrom address. 
-![image](https://user-images.githubusercontent.com/35741731/163032218-8b51fb24-d50d-4832-8a07-81eebfb6a928.png)
+:::image type="content" source="./media/email-domains-mailfrom-change.png" alt-text="image":::
 7. Click **Save**. You will see the updated values in the overview page. 
-![image](https://user-images.githubusercontent.com/35741731/163032379-e231c6c2-9eb6-4149-98c8-43fd784dd9eb.png)
+:::image type="content" source="./media/email-domains-overview-updated.png" alt-text="image":::
 
 
 **Your email domain is now ready to send emails.**
