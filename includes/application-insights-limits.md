@@ -25,8 +25,8 @@ There are some limits on the number of metrics and events per application, that 
 | Property value string length | 8,192 | 8,192 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Trace and exception message length | 32,768 | 32,768 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | [Availability tests](../articles/azure-monitor/app/monitor-web-app-availability.md) count per app | 100 | 100 | |
-| [Profiler](../articles/azure-monitor/app/profiler.md) and Snapshot data retention | 2 weeks | [Contact support](https://azure.microsoft.com/support/options/) Maximum retention limit is 6 months | |
+| [Profiler](../articles/azure-monitor/app/profiler.md) and [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data retention | 2 weeks | [Contact support](https://azure.microsoft.com/support/options/) Maximum retention limit is 6 months | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | No limit | No limit | |
-| Snapshot data sent per day | 30 snapshots per day per monitored app | No limit | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md). |
+| [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data sent per day | 30 snapshots per day per monitored app | No limit | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md). |
 
 For more information, see [About pricing and quotas in Application Insights](../articles/azure-monitor/logs/cost-logs.md#application-insights-billing).
