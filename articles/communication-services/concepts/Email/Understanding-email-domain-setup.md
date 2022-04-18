@@ -43,7 +43,7 @@ Please follow the steps [to configure email authentication for your domain.](../
 You can choose the experience that works best for your business. You can start with development by using the Azure managed domain and switch to a custom domain when you are ready to launch your applications. 
 
 ## How to connect a Domain to Send email
-Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [to connect your verified domains](../../quickstarts/Email/connect-email-communication-acs-resource.md) to connect your verified domains. To switch from one verified domain to other you need to [disconnect the domain and connect a different domain](../../quickstarts/Email/connect-email-communication-acs-resource.md).  
+Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [to connect your verified domains](../../quickstarts/Email/connect-email-communication-acs-resource.md). To switch from one verified domain to other you need to [disconnect the domain and connect a different domain](../../quickstarts/Email/connect-email-communication-acs-resource.md).  
 
 ## Next steps
 
