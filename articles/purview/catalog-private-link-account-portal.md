@@ -35,7 +35,7 @@ Using one of the deployment options from this guide, you can deploy a new Micros
    - Deploy new Azure DNS zones using the steps explained further in this guide.
    - Add required DNS records to existing Azure DNS zones using the steps explained further in this guide.
    - After completing the steps in this guide, add required DNS A records in your existing DNS servers manually.
-3. Deploy a [new Microsoft Purview account](#option-1---deploy-a-new-azure-purview-account-with-account-and-portal-private-endpoints) with account and portal private endpoints, or deploy account and portal private endpoints for an [existing Microsoft Purview account](#option-2---enable-account-and-portal-private-endpoint-on-existing-azure-purview-accounts).
+3. Deploy a [new Microsoft Purview account](#option-1---deploy-a-new-microsoft-purview-account-with-account-and-portal-private-endpoints) with account and portal private endpoints, or deploy account and portal private endpoints for an [existing Microsoft Purview account](#option-2---enable-account-and-portal-private-endpoint-on-existing-microsoft-purview-accounts).
 4. [Enable access to Azure Active Directory](#enable-access-to-azure-active-directory) if your private network has network security group rules set to deny for all public internet traffic.
 5. After completing this guide, adjust DNS configurations if needed.
 6. Validate your network and name resolution from management machine to Microsoft Purview. 
