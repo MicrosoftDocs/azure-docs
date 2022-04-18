@@ -42,7 +42,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
    ```
 
 > [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'apt' command without 'sudo'.
+> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
