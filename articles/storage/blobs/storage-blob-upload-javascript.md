@@ -18,32 +18,74 @@ ms.custom: "devx-track-js"
 You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient]() object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
-
-To upload a blob by using a file path, a stream, a binary object or a text string, use the following method:
-
-- [Upload]()
-
-
-To open a stream in Blob Storage, and then write to that stream, use the following method:
-
-- [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwrite)
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
 
 
 ## Upload by using a file path
 
-The following example uploads a blob by using a file path:
+The following example uploads a local file to blob storage with the[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object.The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions?view=azure-node-latest) allow you to pass in your own metadata and [tags](storage-manage-find-blobs.md##blob-index-tags-and-data-management), used for indexing, at upload time:
 
 ```javascript
+// containerName: string
+// blobName: string, includes file extension if provided
+// localFileWithPath: fully qualified path and file name
+// uploadOptions: {metadata, tags}
+async function createBlobFromLocalPath(containerClient, blobName, localFileWithPath, uploadOptions){
 
+  // create blob client from container client
+  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+
+  // upload file to blob storage
+  const uploadBlobResponse = await blockBlobClient.uploadFile(localFileWithPath, uploadOptions);
+
+  // check upload was successful
+  if(!uploadBlobResponse.errorCode){
+    console.log(`${blobName} succeeded`);
+  } 
+}
 ```
 
 ## Upload by using a Stream
 
-The following example uploads a blob by creating a [Stream]() object, and then uploading that stream.
+The following example uploads a blob by creating a JavaScript stream object. 
 
 ```javascript
+// containerName: string
+// blobName: string, includes file extension if provided
+// readableStream: Node.js Readable stream
+// uploadOptions: {
+//    metadata, 
+//    tags, 
+//    tier: accessTier (hot, cool, archive), 
+//    onProgress: fnUpdater
+//  }
+async function createBlobFromLocalPath(containerClient, blobName, readableStream, uploadOptions){
 
+  // Create blob client from container client
+  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+
+  // Size of every buffer allocated, also 
+  // the block size in the uploaded block blob. 
+  // Default value is 8MB
+  const bufferSize = 4 * 1024 * 1024;
+
+  // Max concurrency indicates the max number of 
+  // buffers that can be allocated, positive correlation 
+  // with max uploading concurrency. Default value is 5
+  const maxConcurrency = 20;
+
+  // Upload stream
+  const uploadBlobResponse = await blockBlobClient.uploadStream(readableStream, bufferSize, maxConcurrency, uploadOptions);
+  
+  // Check for errors or get tags from Azure
+  if(uploadBlobResponse.errorCode) {
+    console.log(`${blobName} failed to upload from file: ${errorCode}`);
+  } else {
+    // do something with blob
+    const getTagsResponse = await blockBlobClient.getTags();
+    console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
+  }
+}
 ```
 
 ## Upload by using a BinaryData object

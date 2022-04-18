@@ -15,50 +15,82 @@ ms.custom: devx-track-javascript
 
 # Manage container properties and metadata with JavaScript
 
-Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript]().
+Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## About properties and metadata
 
-- **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you.
+| Type|Description|
+|--|--|
+|[System properties](/javascript/api/@azure/storage-blob/containerproperties?view=azure-node-latest#@azure-storage-blob-containerproperties-lastmodified)|System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you. <br><br>Examples:<br>* lastModified<br>* leaseStatus|
+|**User-defined metadata**|User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.<br><br>Examples:<br>`project`:`metrics-reporting`<br>`manager`:`johnh`|
 
-- **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
-
-Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
+Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
 ## Retrieve container properties
 
 To retrieve container properties, use:
 
-- [ContainerClient.getProperties()](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties)
+- [ContainerClient.getProperties()](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties) which returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties?view=azure-node-latest)
 
-The following code example fetches a container's system properties and writes some property values to a console window:
+The following code example fetches a container's properties and writes the property values to a console window:
 
 ```javascript
-
+async function getContainerProperties(containerClient) {
+  // Get Properties including existing metadata
+  const containerProperties = await containerClient.getProperties();
+  if(!containerProperties.errorCode){
+    console.log(containerProperties);
+  }
+}
 ```
 
 ## Set and retrieve metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, create a map of name-value pairs, and then call one of the following methods to write the values:
+You can specify metadata as one or more name-value pairs container resource. To set metadata, use:
 
-- [ContainerClient.setMetadata](metadata, containerSetMetadataOptions)
+- [ContainerClient.setMetadata](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-setmetadata)
 
 The name of your metadata must conform to the naming conventions for JavaScript identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage comma-separates and concatenates the two values and return HTTP response code 200 (OK).
 
 The following code example sets metadata on a container.
 
 ```javascript
+async function setMetadataOfContainer(containerClient) {
 
+  const currentDate = new Date();
+
+  const metadata = {
+    // values must be strings
+    lastFileReview: currentDate.toString(),
+    reviewer: `johnh`
+  }
+
+  const response = await containerClient.setMetadata(metadata);
+
+  if (!response.errorCode) {
+    console.log(`metadata set successfully`);
+  }
+}
 ```
 
-To retrieve metadata, call:
+To retrieve metadata, use:
 
-- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties)
+- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties) which returns metadata inside the ContainerProperties object.
 
-Then, read the values, as shown in the example below.
+> [!WARNING]
+> The metadata object returned in the response will have its keys in lowercase, even if they originally contained uppercase characters. This differs from the metadata keys returned by the listContainers method of BlobServiceClient using the includeMetadata option, which will retain their original casing.
 
 ```javascript
+// metadata keys are all lowercase
+async function getMetadataOfContainer(containerClient) {
+  const containerPropertiesResponse = await containerClient.getProperties();
 
+  if(!containerPropertiesResponse.errorCode){
+
+    console.log(containerPropertiesResponse.metadata);
+    return containerPropertiesResponse.metadata;
+  }
+}
 ```
 
 ## See also
