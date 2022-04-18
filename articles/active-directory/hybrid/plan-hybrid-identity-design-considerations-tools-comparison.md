@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/18/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 Over the years the directory integration tools have grown and evolved.  
 
 
-- [FIM](/previous-versions/windows/desktop/forefront-2010/ff182370(v=vs.100)) and [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016) are still supported and primarily enable synchronization between on-premises systems.   The [FIM Windows Azure AD Connector](/previous-versions/mim/dn511001(v=ws.10)) is supported in both FIM and MIM, but not recommended for new deployments - customers with on-premises sources such as Notes or SAP HCM should use MIM to populate Active Directory Domain Services (AD DS) and then also use either Azure AD Connect sync or Azure AD Connect cloud provisioning to synchronize from AD DS to Azure AD.
+- [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016) is still supported, and primarily enable synchronization between on-premises systems.  The [FIM Windows Azure AD Connector](/previous-versions/mim/dn511001(v=ws.10)) is deprecated. Customers with on-premises sources such as Notes or SAP HCM should use MIM to either
+    - populate users and groups in Active Directory Domain Services (AD DS) and then use either Azure AD Connect sync or Azure AD Connect cloud provisioning to synchronize those users and groups from AD DS to Azure AD, or
+    - use MIM to populate users and groups that are not needed in AD DS into Azure AD through the [MIM Graph connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph).
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md) incorporates the components and functionality previously released in DirSync and Azure AD Sync, for synchronizing between AD DS forests and Azure AD.  
 - [Azure AD Connect cloud provisioning](../cloud-sync/what-is-cloud-sync.md) is a new Microsoft agent for synching from AD DS to Azure AD, useful for scenarios such as merger and acquisition where the acquired company's AD forests are isolated from the parent company's AD forests.
 
