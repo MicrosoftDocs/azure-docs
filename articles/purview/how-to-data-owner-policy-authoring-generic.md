@@ -25,7 +25,7 @@ Access policies allow a data owner to delegate in Microsoft Purview access manag
 
 Before authoring data policies in Microsoft Purview Studio, you'll need to configure the data sources so that they can enforce those policies.
 
-1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](azure-purview-connector-overview.md#microsoft-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
 1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
 1. [Enable the data use governance toggle on the data source](how-to-enable-data-use-governance.md#enable-data-use-governance). Additional permissions for this step are described in the linked document.
 
