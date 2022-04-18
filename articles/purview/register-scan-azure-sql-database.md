@@ -155,7 +155,7 @@ Select your method of authentication from the tabs below for steps to authentica
 
 1. Select **Create** to complete
 
-1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan.
 
@@ -254,7 +254,7 @@ The service principal needs permission to get metadata for the database, schemas
 
     :::image type="content" source="media/register-scan-azure-sql-database/select-create.png" alt-text="Screenshot that shows the Key Vault Create a secret menu, with the Create button highlighted.":::
 
-1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 
 1. Then, [create a new credential](manage-credentials.md#create-a-new-credential).
 

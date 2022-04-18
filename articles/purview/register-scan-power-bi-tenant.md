@@ -211,7 +211,7 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret.png" alt-text="Screenshot how to generate an Azure Key Vault secret.":::
 
-5. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) 
+5. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account) 
    
 6. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
 
@@ -311,7 +311,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret.png" alt-text="Screenshot how to generate an Azure Key Vault secret.":::
 
-6. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+6. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
    
 7. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
 

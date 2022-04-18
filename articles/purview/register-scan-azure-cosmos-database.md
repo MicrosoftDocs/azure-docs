@@ -102,7 +102,7 @@ You need to get your access key and store in the key vault:
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
 
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan.
 
 ### Creating the scan

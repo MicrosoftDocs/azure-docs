@@ -49,7 +49,7 @@ Follow the instructions in [CREATE DATABASES AND USERS](../mysql/howto-create-us
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to set up your scan.
 
 ### Steps to register

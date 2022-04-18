@@ -24,12 +24,12 @@ A credential is authentication information that Microsoft Purview can use to aut
 
 In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options:
 
-- [Microsoft Purview system-assigned managed identity](#use-azure-purview-system-assigned-managed-identity-to-set-up-scans)
+- [Microsoft Purview system-assigned managed identity](#use-microsoft-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#create-a-user-assigned-managed-identity) (preview)
-- Account Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
-- SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
-- Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
-- Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
+- Account Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
+- SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
+- Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
+- Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 
 Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario. Review the following decision tree to find which credential is most suitable:
 
@@ -52,7 +52,7 @@ If you're using the Microsoft Purview system-assigned managed identity (SAMI) to
 To give Microsoft Purview access to your Azure Key Vault, there are two things you'll need to confirm:
 
 - [Firewall access to the Azure Key Vault](#firewall-access-to-azure-key-vault)
-- [Microsoft Purview permissions on the Azure Key Vault](#azure-purview-permissions-on-the-azure-key-vault)
+- [Microsoft Purview permissions on the Azure Key Vault](#microsoft-purview-permissions-on-the-azure-key-vault)
 
 ### Firewall access to Azure Key Vault
 
@@ -155,7 +155,7 @@ These credential types are supported in Microsoft Purview:
 - Consumer Key: For Salesforce data sources, you can add the **password** and the **consumer secret** in key vault.
 - User-assigned managed identity (preview): You can add user-assigned managed identity credentials. For more information, see the [create a user-assigned managed identity section](#create-a-user-assigned-managed-identity) below.
 
-For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Microsoft Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-azure-purview).
+For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Microsoft Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-microsoft-purview).
 
 After storing your secrets in the key vault:
 

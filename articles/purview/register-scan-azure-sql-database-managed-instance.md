@@ -104,7 +104,7 @@ It is required to get the service principal's application ID and secret:
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan.
 
 #### SQL authentication to register
@@ -118,7 +118,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database Managed Instance
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
 
 ### Steps to register

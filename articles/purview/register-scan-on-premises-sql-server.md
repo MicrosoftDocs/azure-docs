@@ -99,7 +99,7 @@ The account must have access to the **master** database. This is because the `sy
 1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan. Make sure the right authentication method is selected when creating a new credential. If SQL Authentication is applied, select "SQL authentication" as the authentication method. If Windows Authentication is applied, then select "Windows authentication".
 
 ### Steps to register
