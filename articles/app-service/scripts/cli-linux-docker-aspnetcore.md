@@ -26,7 +26,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 ### To create the web app
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-linux-docker\deploy-linux-docker-app-only.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-app-only.sh" id="FullScript":::
 
 ### Configure Web App with a Custom Docker Container from Docker Hub
 
