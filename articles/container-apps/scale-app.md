@@ -35,13 +35,9 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 Azure container Apps supports the following scale triggers:
 
-- [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your microservices.
+- [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your revision.
 - [Event-driven](#event-driven): Event-based triggers such as messages in an Azure Service Bus.
-- **CPU or Memory usage**: Scaling based on the amount of CPU or memory consumed by a container.
-- [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/docs/scalers/) scalers
-
-> [!NOTE]
-> KEDA templates are in YAML, while Azure Container Apps ARM templates are in JSON. Make sure to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing when you convert KEDA rules.
+- [CPU](#CPU) or [Memory](#memory) usage: Scaling based on the amount of CPU or memory consumed by a replica.
 
 ## HTTP
 
@@ -80,7 +76,7 @@ In the following example, the container app scales out up to five replicas and c
 }
 ```
 
-### Add a HTTP scale trigger
+### Add an HTTP scale trigger
 
 1. In Azure portal, select **Revision management** and then select your revision.
 
@@ -96,7 +92,7 @@ In the following example, the container app scales out up to five replicas and c
 
 1. Select **HTTP scaling** and enter a **Rule name** and the number of **Concurrent requests** for your scale rule and then select **Add**.
 
-    :::image type="content" source="media/scalers/http-scale-rule.png" alt-text="A screenshot showing how to add a http scale rule.":::
+    :::image type="content" source="media/scalers/http-scale-rule.png" alt-text="A screenshot showing how to add an http scale rule.":::
 
 1. Select **Create** when you are done.
 
@@ -108,7 +104,7 @@ Container Apps can scale based of a wide variety of event types. Any event suppo
 
 Each event type features different properties in the `metadata` section of the KEDA definition. Use these properties to define a scale rule in Container Apps.
 
-The following example shows how to create a scale rule based on an [Azure Service Bus](https://keda.sh/docs/scalers/azure-service-bus/) trigger. 
+The following example shows how to create a scale rule based on an [Azure Service Bus](https://keda.sh/docs/scalers/azure-service-bus/) trigger.
 
 The container app scales according to the following behavior:
 
@@ -150,9 +146,22 @@ The container app scales according to the following behavior:
 }
 ```
 
-### Add a custom scale trigger
+> [!NOTE]
+> KEDA templates are in YAML, while Azure Container Apps ARM templates are in JSON. Make sure to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing when you convert KEDA rules.
 
-To set up a custom scale trigger, we must create a connection string to authenticate with the different KEDA scalers. Jump to the [next section](#set-up-authentication) to set up authentication if you haven't done so already.
+### Set up a connection string secret
+
+To create a custom scale trigger, we must first create a connection string secret to authenticate with the different custom scalers.
+
+1. In Azure portal, navigate to your container app and then select **Secrets**.
+
+1. Select **Add**, and then enter your secret key/value information.
+
+1. Select **Add** when you are done.
+
+    :::image type="content" source="media/scalers/connection-string.png" alt-text="A screenshot showing how to create a connection string.":::
+
+### Add a custom scale trigger
 
 1. In Azure portal, select **Revision management** and then select your revision.
 
@@ -172,95 +181,7 @@ To set up a custom scale trigger, we must create a connection string to authenti
 
 1. Select **Create** when you are done.
 
-### Set up authentication
-
-Follow these steps to create a connection string to authenticate with KEDA scalers
-
-1. In Azure portal, navigate to your container app and then select **Secrets**.
-
-1. Select **Add**, and then enter your secret key/value information.
-
-1. Select **Add** when you are done.
-
-    :::image type="content" source="media/scalers/connection-string.png" alt-text="A screenshot showing how to create a connection string.":::
-
-## CPU
-
-CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
-
-The following example shows how to create a CPU scaling rule.
-
-```json
-{
-  ...
-  "resources": {
-    ...
-    "properties": {
-      ...
-      "template": {
-        ...
-        "scale": {
-          "minReplicas": "1",
-          "maxReplicas": "10",
-          "rules": [{
-            "name": "cpuScalingRule",
-            "custom": {
-              "type": "cpu",
-              "metadata": {
-                "type": "Utilization",
-                "value": "50"
-              }
-            }
-          }]
-        }
-      }
-    }
-  }
-}
-```
-
-- In this example, the container app scales when CPU usage exceeds 50%.
-- At a minimum, a single replica remains in memory for apps that scale based on CPU utilization.
-
-## Memory
-
-Memory scaling allows your app to scale in or out depending on how much of the memory is being used. Memory scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
-
-The following example shows how to create a memory scaling rule.
-
-```json
-{
-  ...
-  "resources": {
-    ...
-    "properties": {
-      ...
-      "template": {
-        ...
-        "scale": {
-          "minReplicas": "1",
-          "maxReplicas": "10",
-          "rules": [{
-            "name": "memoryScalingRule",
-            "custom": {
-              "type": "memory",
-              "metadata": {
-                "type": "Utilization",
-                "value": "50"
-              }
-            }
-          }]
-        }
-      }
-    }
-  }
-}
-```
-
-- In this example, the container app scales when memory usage exceeds 50%.
-- At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
-
-## KEDA scalers conversion
+### KEDA scalers conversion
 
 Azure container apps supports all the available [scalers](https://keda.sh/docs/scalers/) from KEDA. To convert KEDA templates, it's easier to start with a  Container apps custom JSON template and add the parameters you need based on the scenario and the scale trigger you want to set up.
 
@@ -348,6 +269,82 @@ Now your JSON config file should look like this:
     }]
 }
 ```
+
+## CPU
+
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
+
+The following example shows how to create a CPU scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": "1",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "cpuScalingRule",
+            "custom": {
+              "type": "cpu",
+              "metadata": {
+                "type": "Utilization",
+                "value": "50"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+- In this example, the container app scales when CPU usage exceeds 50%.
+- At a minimum, a single replica remains in memory for apps that scale based on CPU utilization.
+
+## Memory
+
+Memory scaling allows your app to scale in or out depending on how much of the memory is being used. Memory scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
+
+The following example shows how to create a memory scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": "1",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "memoryScalingRule",
+            "custom": {
+              "type": "memory",
+              "metadata": {
+                "type": "Utilization",
+                "value": "50"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+- In this example, the container app scales when memory usage exceeds 50%.
+- At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
 > [!NOTE]
 > Azure Container Apps does not support [ScaledJobs](https://keda.sh/docs/concepts/scaling-jobs/#scaledjob-spec).
