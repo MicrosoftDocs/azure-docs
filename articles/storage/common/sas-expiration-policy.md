@@ -36,9 +36,6 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 When you create a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
 > [!NOTE]
-> Information the user should notice even if skimming
-
-> [!NOTE]
 > Before you can create a SAS expiration policy, you may need to rotate each of your account access keys at least once.
 
 ### [Azure portal](#tab/azure-portal)
