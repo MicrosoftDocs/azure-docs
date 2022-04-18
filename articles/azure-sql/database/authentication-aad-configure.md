@@ -11,7 +11,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 12/15/2021
+ms.date: 04/09/2022
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -82,7 +82,9 @@ Your SQL Managed Instance needs permissions to read Azure AD to successfully acc
 
 To grant your SQL Managed Instance Azure AD read permission using the Azure portal, log in as Global Administrator in Azure AD and follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), in the upper-right corner, select your connection from a drop-down list of possible Active Directories.
+1. In the [Azure portal](https://portal.azure.com), in the upper-right corner select your account, and then choose **Switch directories** to confirm which Active Directory is currently your active directory. Switch directories, if necessary. 
+
+   :::image type="content" source="media/authentication-aad-configure/switch-directory.png" alt-text="Screenshot of the Azure portal showing where to switch your directory":::
 
 2. Choose the correct Active Directory as the default Azure AD.
 
@@ -90,31 +92,33 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/aad.png)
+   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/active-directory-pane.png)
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
-    ![Screenshot of the dialog for granting permissions to a SQL managed instance for accessing Active Directory. The Grant permissions button is selected.](./media/authentication-aad-configure/grant-permissions.png)
+    :::image type="content" source="./media/authentication-aad-configure/grant-permissions.png" alt-text="Screenshot of the dialog for granting permissions to a SQL managed instance for accessing Active Directory. The Grant permissions button is selected.":::
 
 5. After the operation succeeds, the following notification will show up in the top-right corner:
 
-    ![Screenshot of a notification confirming that active directory read permissions have been successfully updated for the managed instance.](./media/authentication-aad-configure/success.png)
+    :::image type="content" source="./media/authentication-aad-configure/success.png" alt-text="Screenshot of a notification confirming that active directory read permissions have been successfully updated for the managed instance.":::
 
 6. Now you can choose your Azure AD admin for your SQL Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
-    ![Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.](./media/authentication-aad-configure/set-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/set-admin.png" alt-text="Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.":::
 
 7. On the Azure AD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
    The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the Azure portal and isn't propagated to SQL Database, SQL Managed Instance, or Azure Synapse.
 
-    ![Add Azure Active Directory admin](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/add-azure-active-directory-admin.png" alt-text="Add Azure Active Directory admin":::
 
 8. At the top of the Active Directory admin page, select **Save**.
 
-    ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
+    :::image type="content" source="./media/authentication-aad-configure/save.png" alt-text="Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.":::
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
+
+    For Azure AD users and groups, the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax. For more information, see [SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
@@ -243,7 +247,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
 2. Search for and select **SQL server**.
 
-    ![Search for and select SQL servers](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
+    :::image type="content" source="./media/authentication-aad-configure/search-for-and-select-sql-servers.png" alt-text="Search for and select SQL servers":::
 
     >[!NOTE]
     > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar.
@@ -252,15 +256,17 @@ The following two procedures show you how to provision an Azure Active Directory
 
 4. In the **Active Directory admin** page, select **Set admin**.
 
-    ![SQL servers set Active Directory admin](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
+    :::image type="content" source="./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png" alt-text="SQL servers set Active Directory admin":::  
 
 5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](authentication-aad-overview.md).) Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server.
 
-    ![Select Azure Active Directory admin](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
+    :::image type="content" source="./media/authentication-aad-configure/select-azure-active-directory-admin.png" alt-text="Select Azure Active Directory admin":::  
 
 6. At the top of the **Active Directory admin** page, select **Save**.
 
-    ![save admin](./media/authentication-aad-configure/save-admin.png)
+    :::image type="content" source="./media/authentication-aad-configure/save-admin.png" alt-text="save admin":::
+
+    For Azure AD users and groups, the **Object ID** is displayed next to the admin name. For applications (service principals), the **Application ID** is displayed.
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
@@ -341,10 +347,15 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 
 ## Configure your client computers
 
+> [!NOTE]
+> [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) uses the Azure Active Directory Authentication Library (ADAL), which will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, migrate applications to [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) and the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). For more information about using Azure AD authentication with SqlClient, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
+>
+> SSMS and SSDT still uses the Azure Active Directory Authentication Library (ADAL). If you want to continue using *ADAL.DLL* in your applications, you can use the links in this section to install the latest SSMS, ODBC, and OLE DB driver that contains the latest *ADAL.DLL* library.
+
 On all client machines, from which your applications or users connect to SQL Database or Azure Synapse using Azure AD identities, you must install the following software:
 
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers).
-- Azure Active Directory Authentication Library for SQL Server (*ADAL.DLL*). Below are the download links to install the latest SSMS, ODBC, and OLE DB driver that contains the *ADAL.DLL* library.
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration) or Azure Active Directory Authentication Library for SQL Server (*ADAL.DLL*). Below are the download links to install the latest SSMS, ODBC, and OLE DB driver that contains the *ADAL.DLL* library.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
   - [OLE DB Driver 18 for SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
@@ -474,9 +485,6 @@ The following procedures show you how to connect to a SQL Database with an Azure
 ### Active Directory integrated authentication
 
 To use integrated Windows authentication, your domain's Active Directory must be federated with Azure Active Directory, or should be a managed domain that is configured for seamless single sign-on for pass-through or password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
-
-> [!NOTE]
-> [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) for integrated Windows authentication is not supported for seamless single sign-on for pass-through and password hash authentication.
 
 Your client application (or a service) connecting to the database must be running on a domain-joined machine under a user's domain credentials.
 

@@ -1571,6 +1571,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-go.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-go",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-ruby.md",
     "redirect_url": "/azure/cosmos-db/table/how-to-use-ruby",
     "redirect_document_id": true

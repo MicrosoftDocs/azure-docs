@@ -129,7 +129,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Application Monitoring for Azure App Service and Node.js](./app/azure-web-apps-nodejs.md)
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](./app/snapshot-debugger-appservice.md)
 - [Profile live Azure App Service apps with Application Insights](./app/profiler.md)
-- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
+- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations)
 
 ### Autoscale
 
@@ -210,7 +210,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ## December, 2021
 
@@ -320,7 +319,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)
 - [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md)
 - [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)
 - [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
@@ -447,7 +445,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ### Virtual Machines
 
@@ -775,7 +772,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Log Analytics tutorial](logs/log-analytics-tutorial.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
 - [Monitor health of Log Analytics workspace in Azure Monitor](logs/monitor-workspace.md)

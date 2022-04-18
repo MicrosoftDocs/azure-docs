@@ -262,7 +262,7 @@ Along with REST APIs, many Azure services also let you programmatically manage r
 * [Go](/azure/go)
 
 Services such as [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library)
-and [Azure Media Services](/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](/azure/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager
 

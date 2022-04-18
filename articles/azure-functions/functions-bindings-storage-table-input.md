@@ -643,9 +643,9 @@ Write-Host "Person entity name: $($PersonEntity.Name)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following function uses a queue trigger to read a single table row as input to a function.
+The following function uses an HTTP trigger to read a single table row as input to a function.
 
-In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the queue message string.
+In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the `{id}` part of the route in the request.
 
 Binding configuration in the _function.json_ file:
 

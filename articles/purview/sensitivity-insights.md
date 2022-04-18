@@ -121,5 +121,4 @@ For more information, see [Automatically label your data in Azure Purview](creat
 Learn more about these Azure Purview insight reports:
 
 - [Glossary insights](glossary-insights.md)
-- [Scan insights](scan-insights.md)
 - [Classification insights](./classification-insights.md)

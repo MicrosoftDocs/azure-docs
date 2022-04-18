@@ -141,6 +141,15 @@ For each operation found in the OpenAPI document, a new operation will be create
         * Length is limited to 300 characters.
     * If `summary` isn't specified (not present, `null`, or empty), display name value will set to `operationId`. 
 
+**Normalization rules for `operationId`**
+- Convert to lower case.
+- Replace each sequence of non-alphanumeric characters with a single dash.
+    - For example, `GET-/foo/{bar}?buzz={quix}` will be transformed into `get-foo-bar-buzz-quix-`.
+- Trim dashes on both sides.
+    - For example, `get-foo-bar-buzz-quix-` will become `get-foo-bar-buzz-quix`
+- Truncate to fit 76 characters, four characters less than maximum limit for a resource name.
+- Use remaining four characters for a de-duplication suffix, if necessary, in the form of `-1, -2, ..., -999`.
+
 ### Update an existing API via OpenAPI import
 
 During import, the existing API operation:
@@ -159,12 +168,6 @@ To make import more predictable, follow these guidelines:
 - Refrain from changing `operationId` after initial import.
 - Never change `operationId` and HTTP method or path template at the same time.
 
-### Export API as OpenAPI
-
-For each operation, its:
-* Azure resource name will be exported as an `operationId`.
-* Display name will be exported as a `summary`.
-
 **Normalization rules for `operationId`**
 - Convert to lower case.
 - Replace each sequence of non-alphanumeric characters with a single dash.
@@ -173,6 +176,14 @@ For each operation, its:
     - For example, `get-foo-bar-buzz-quix-` will become `get-foo-bar-buzz-quix`
 - Truncate to fit 76 characters, four characters less than maximum limit for a resource name.
 - Use remaining four characters for a de-duplication suffix, if necessary, in the form of `-1, -2, ..., -999`.
+
+### Export API as OpenAPI
+
+For each operation, its:
+* Azure resource name will be exported as an `operationId`.
+* Display name will be exported as a `summary`.
+
+Note that normalization of the `operationId` is done on import, not on export.
 
 ## <a name="wsdl"> </a>WSDL
 

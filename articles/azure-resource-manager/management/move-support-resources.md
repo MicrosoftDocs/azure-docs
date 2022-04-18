@@ -1456,7 +1456,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks | Yes | Yes | No |
 > | privatednszonesinternal | No | No | No |
 > | privateendpointredirectmaps | No | No | No |
-> | privateendpoints | No | No | No |
+> | privateendpoints | Yes | Yes | Yes |
 > | privatelinkservices | No | No | No |
 > | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |

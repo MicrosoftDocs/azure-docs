@@ -116,12 +116,21 @@ Subscribing to the partner topic tells Event Grid where you want your partner ev
     1. For **Filter to Event Types**, select types of events that your subscription will receive.
     1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, Hybrid Connections. etc.), Web Hook, or Partner Destination.
     1. Click the **Select an endpoint** link. In this example, let's use Azure Event Hubs destination or endpoint. 
+    
+        :::image type="content" source="./media/subscribe-to-partner-events/select-endpoint.png" lightbox="./media/subscribe-to-partner-events/select-endpoint.png" alt-text="Image showing the configuration of an endpoint for an event subscription.":::            
     1. On the **Select Event Hub** page, select configurations for the endpoint, and then select **Confirm Selection**. 
     
-        :::image type="content" source="./media/subscribe-to-partner-events/select-endpoint.png" lightbox="./media/subscribe-to-partner-events/select-endpoint.png" alt-text="Image showing the configuration of an endpoint for an event subscription.":::        
+        :::image type="content" source="./media/subscribe-to-partner-events/select-event-hub.png" lightbox="./media/subscribe-to-partner-events/select-event-hub.png" alt-text="Image showing the configuration of an Event Hubs endpoint.":::    
     1. Now on the **Create Event Subscription** page, select **Create**. 
     
         :::image type="content" source="./media/subscribe-to-partner-events/create-event-subscription.png" alt-text="Image showing the Create Event Subscription page with example configurations.":::
         
 
+## Next steps 
 
+See the following articles for more details about the Partner Events feature:
+
+- [Partner Events overview for customers](partner-events-overview.md)
+- [Partner Events overview for partners](partner-events-overview-for-partners.md)
+- [Onboard as a partner](onboard-partner.md)
+- [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)
