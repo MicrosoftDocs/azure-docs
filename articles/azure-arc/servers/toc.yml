@@ -106,9 +106,9 @@
   - name: Connect via SSH
     items:
     - name: SSH access to Azure Arc-enabled servers
-      href: ssharc-overview.md
+      href: ssh-arc-overview.md
     - name: Troubleshoot SSH access to Azure Arc enabled servers
-      href: ssharc-troubleshoot.md
+      href: ssh-arc-troubleshoot.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
