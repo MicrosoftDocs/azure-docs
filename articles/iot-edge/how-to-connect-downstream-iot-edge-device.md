@@ -125,7 +125,7 @@ Use the following platform-specific command steps to configure the **root CA cer
 > Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
 
-01. Install the **root CA certificate** on the parent and child IoT Edge devices.
+01. Install the **root CA certificate** on the parent and child IoT Edge devices. Copy the root certificate into the certificate directory and add `.crt` to the end of the file name.
 
     **Debian or Ubuntu:**
 
@@ -153,9 +153,9 @@ Use the following platform-specific command steps to configure the **root CA cer
     sudo update-ca-trust
     ```
 
-    The command should report one certificate was added to `/etc/ssl/certs`.
-
     For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+The command should report one certificate was added to `/etc/ssl/certs`.
 
 ### Update configuration file
 
@@ -167,6 +167,11 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
 >```bash
 >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
 >```
+>
+> You can also use the template file as a reference to add configuration parameters in this section.
+
+> [!IMPORTANT]
+> The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it is applied correctly.
 
 01. Open the IoT Edge configuration file using an editor. For example, use the `nano` editor to open the `/etc/aziot/config.toml` file. Use the `sudo` command to allow write permissions to the file.
 
@@ -174,7 +179,9 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     sudo nano /etc/aziot/config.toml
     ```
 
-01. Find or add the **hostname** section in the config file. Update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device. For example,
+01. Find the **hostname** parameter or add it to the beginning of the configuration file.
+
+    Update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device. For example,
 
     ```toml
     # ==============================================================================
@@ -194,22 +201,11 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     > [!IMPORTANT]
     > You must configure the hostname because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you will get *IP address mismatch* error.
     >
-    >Set the hostname before the edgeHub container is created. If edgeHub is running, changing the hostname in the configuration file won't take affect until the container is recreated.
+    >Set the hostname before the edgeHub container is created. If edgeHub is running, changing the hostname in the configuration file won't take affect until the container is recreated. For more information on how to verify the hostname is applied, see [Verify hostname](#verify-hostname).
 
-01. **If the device is a child device**, find or add the **local gateway hostname** section. Update the `local_gateway_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file. For example,
+01. Find the **Trust bundle cert** parameter or add it to the beginning of the configuration file.
 
-   ```toml
-    # ==============================================================================
-    # Local Gateway Hostname
-    # ==============================================================================
-    #
-    # If this device is running in a nested deployment, uncomment the next line to
-    # set the local gateway hostname of this device.
-    #
-    local_gateway_hostname = "parent-device-vm.westus.cloudapp.azure.com"
-   ```
-
-01. Find or add the **Trust bundle cert** section. Update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device. For example,
+    Update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device. For example,
 
     ```toml
     # ==============================================================================
@@ -220,16 +216,41 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     # uncomment the next line and set the value to a file URI for
     # the path of the file.
     #
-    trust_bundle_cert = "file:///usr/local/share/ca-certificates/<root ca certificate>.pem"
+    trust_bundle_cert = "file:///etc/ssl/certs/trust-bundle.pem"
     ```
-    
+
+01. **If the device is a child device**, find the **local gateway hostname** parameter or add it to the beginning of the configuration file.
+
+    Update the `local_gateway_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file. For example,
+
+    ```toml
+    # ==============================================================================
+    # Local Gateway Hostname
+    # ==============================================================================
+    #
+    # If this device is running in a nested deployment, uncomment the next line to
+    # set the local gateway hostname of this device.
+    #
+    local_gateway_hostname = "parent-device-vm.westus.cloudapp.azure.com"
+    ```
 
 01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device.
 
     ```toml
+    # ==============================================================================
+    # Edge CA certificate
+    # ==============================================================================
+    #
+    # If you have your own Edge CA certificate that you want all module certificates
+    # to be issued by, uncomment one of the sections below and replace the values with
+    # your own.
+    
+    # Edge CA certificate loaded from a file:
+    # ---------------------
+    
     [edge_ca]
-    cert = "file:///<path>/<device CA cert>.pem"
-    pk = "file:///<path>/<device CA key>.pfx"
+    cert = "file:///var/secrets/edge-ca.pem"
+    pk = "file:///var/secrets/edge-ca.key.pem"
     ```
 
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example,
@@ -239,7 +260,42 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     image: "mcr.microsoft.com/azureiotedge-agent:1.2"
     ```
 
-01. Save and close the `config.toml` config file. For example if you are using the `nano` editor, select `Ctrl+O` - *Write Out* and `Ctrl+X` - *Exit*.
+01. Your configuration file structure should look similar to this example.
+
+    ```toml
+    hostname = "iotedge-vm.westus2.cloudapp.azure.com"
+    local_gateway_hostname = "iotedge-parent-vm.westus2.cloudapp.azure.com"
+    trust_bundle_cert = "file:///etc/ssl/certs/azure-iot-test-only.root.ca.cert.pem.pem"
+    
+    [edge_ca]
+    cert = "file:///home/azureUser/certs/iot-edge-device-identity-iotedge-device.cert.pem"
+    pk = "file:///home/azureUser/private/iot-edge-device-identity-iotedge-device.cert.pfx"
+    
+    [provisioning]
+    source = "manual"
+    connection_string = "HostName=my-iot-hub.azure-devices.net;DeviceId=iotedge-device2;SharedAccessKey=<iotedge-device2 SharedAccessKey>>
+    
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.2"
+    
+    [connect]
+    workload_uri = "unix:///var/run/iotedge/workload.sock"
+    management_uri = "unix:///var/run/iotedge/mgmt.sock"
+    
+    [listen]
+    workload_uri = "fd://aziot-edged.workload.socket"
+    management_uri = "fd://aziot-edged.mgmt.socket"
+    
+    [moby_runtime]
+    uri = "unix:///var/run/docker.sock"
+    network = "azure-iot-edge"
+    ```
+
+1. Save and close the `config.toml` config file. For example if you are using the `nano` editor, select `Ctrl+O` - *Write Out*, **Enter**, and `Ctrl+X` - *Exit*.
 
 01. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
 
@@ -260,6 +316,48 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
 
     >[!TIP]
     >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
+
+### Verify hostname
+
+The *hostname* must be a qualified domain name (FQDN) or the IP address of the IoT Edge device because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you will get *IP address mismatch* error.
+
+To verify the *hostname*, you need to inspect the environment variables of the *edgeHub* container.
+
+01. List the running IoT Edge containers.
+
+    ```bash
+    iotedge list
+    ```
+
+    Verify edgeAgent and edgeHub containers are running.
+
+    ```output
+    NAME                        STATUS           DESCRIPTION      CONFIG
+    SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.1
+    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.1
+    ```
+    
+01. Inspect the *edgeHub* container.
+
+    ```bash
+    sudo docker inspect edgeHub
+    ```
+
+01. Find the **EdgeDeviceHostName** parameter in the *Env* section.
+
+    ```json
+            "Env": [
+                "EdgeDeviceHostName=iotedge-parent-vm.westus2.cloudapp.azure.com",
+    ```
+
+01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
+
+    ```bash
+    sudo docker rm -f edgeAgent
+    ```
+
+    The *edgeAgent* and *edgeHub* containers are recreated and started in a few minutes. Once *edgeHub* is running, inspect the container and verify the *EdgeDeviceHostName* parameter.
 
 ## Network isolate downstream devices
 
@@ -486,34 +584,6 @@ The API proxy module was designed to be customized to handle most common gateway
    ```
 
 ---
-
-#### Verify hostname
-
-```bash
-iotedge list
-```
-
-Verify edgeHub is running. For example,
-
-```output
-azureUser@parent-vm:~$ iotedge list
-NAME             STATUS           DESCRIPTION      CONFIG
-edgeAgent        running          Up 2 days        mcr.microsoft.com/azureiotedge-agent:1.2
-```
-
-Verify the hostname
-
-```bash
-docker inspect edgeHub
-```
-
-If it doesn't match config, the *edgeHub* container was running when you modified the config file. To update the hostname, remove the *edgeAgent* container.
-
-```bash
-sudo docker rm -f edgeAgent
-```
-
-Recreate the *edgeHub* container.
 
 ### Deploy modules to lower layer devices
 
