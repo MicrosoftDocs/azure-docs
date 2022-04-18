@@ -7,12 +7,12 @@ ms.author: mahender
 ---
 
 > [!NOTE]
-> Blobs, Queues, and Tables are now considered separate extensions and should be referenced individually. A .NET isolated-process app aiming to use triggers and bindings for blobs and queues should reference:
+> Blob Storage, Queue Storage, and Table Storage now use separate extensions and are referenced individually. For example, to use both Blob Storage and Queue Storage triggers and bindings in your .NET isolated-process app, you should add the following packages to your project:
 >
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]
 > - [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]
 >
-> The Table API extension does not currently support isolated process. If your app needs to use Azure Tables, you will need to use [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the packages for blobs and queues only. When referencing these newer split packages, make sure you are not referencing an older version of the combined storage package, as this will result in conflicts from two definitions of the same bindings. 
+> The Table API extension doesn't currently support isolated process. If your app needs to use Azure Tables, you must use [Microsoft.Azure.Functions.Worker.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the packages for Blob Storage and Queue Storage only. When referencing these newer split packages, make sure you aren't also referencing an older version of the combined storage package, which would cause conflicts between the two definitions of the same bindings.
 
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues

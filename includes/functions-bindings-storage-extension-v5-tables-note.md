@@ -7,7 +7,7 @@ ms.author: mahender
 ---
 
 > [!NOTE]
-> Blobs, Queues, and Tables are now considered separate extensions and must be referenced individually. A .NET in-process app aiming to use triggers and bindings from all three should reference:
+> Blob Storage, Queue Storage, and Table Storage now use separate extensions and are referenced individually. For example, to use the triggers and bindings for all three services in your .NET in-process app, you should add the following packages to your project:
 >
 > - [Microsoft.Azure.WebJobs.Extensions.Storage.Blobs]
 > - [Microsoft.Azure.WebJobs.Extensions.Storage.Queues]
