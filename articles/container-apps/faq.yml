@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Container Apps Frequently Asked Questions
+  title: Azure Container Apps - Frequently asked questions
   description: Find answers to the frequently asked questions about Azure Container Apps.
   keywords: azure container apps, frequently asked questions
   author: craigshoemaker
@@ -8,7 +8,8 @@ metadata:
   ms.service: static-web-apps
   ms.date: 04/18/2022
   ms.author: cshoe
-title: Azure Container Apps Frequently Asked Questions
+title: Azure Container Apps frequently asked questions
+summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
   
 sections:
   - name: Billing
@@ -27,7 +28,7 @@ sections:
       - question: |
           Can I import my Azure Container Apps API from the context of API Management?
         answer: |
-          Yes
+          Yes.
 
   - name: Data management
     questions:
@@ -41,5 +42,5 @@ sections:
       - question: |
           Can I set up GitHub Actions to automatically build and deploy my code to Azure Container Apps?
         answer:
-          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure Portal, navigate to the "Continuous deployment" blade under your container app.
+          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, navigate to the "Continuous deployment" blade under your container app.
           
