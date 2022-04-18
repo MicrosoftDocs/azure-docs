@@ -87,6 +87,8 @@
       href: module-edgeagent-edgehub.md
   - name: IoT Edge for Linux on Windows
     items:
+    - name: Benefits
+      href: iot-edge-for-linux-on-windows-benefits.md
     - name: Updates
       href: iot-edge-for-linux-on-windows-updates.md
     - name: Security
