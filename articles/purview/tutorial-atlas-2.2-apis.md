@@ -159,7 +159,7 @@ You can send DELETE request to the following endpoint
 
 DELETE {{endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
 
-## Custom Attribute (User properties) APIs
+## Custom Attribute APIs
 
 Custom Attributes are key value pairs which can be directly added to an atlas entity.
 
