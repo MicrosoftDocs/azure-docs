@@ -27,7 +27,7 @@ In this article, you'll learn how to replicate data by using:
 > * An ExpressRoute circuit with Microsoft peering.
 
 > [!Important]
-> This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity while the control plane communication between the Azure Migrate appliance and the Azure Migrate service continues to happen over the internet on the Azure Migrate service's public endpoint. <br>
+> This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity.<br>
 > To use private endpoint support end-to-end, create a new Azure Migrate project with private endpoint connectivity. See [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Replicate data by using an ExpressRoute circuit with private peering
