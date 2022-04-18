@@ -16,7 +16,7 @@ ms.author: eur
 - **C++ & C#**: Added support for a required group of words in the Intent Recognizer (simple patter matching). For example: "(set|start|begin) a timer" where either "set", "start" or "begin" must be present for the intent to be recognized.
 - **All programming languages, Speech Synthesis**: Added duration property in word boundary events. Added support for punctuation boundary and sentence boundary
 - **Objective-C/Swift/Java**: Added word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
-- **iOS platform**: Added support for ARMv7 architecture
+- **iOS platform**: Added experimental support for ARMv7 architecture
 
 #### Bug fixes
 - **iOS platform**: Fix to allow building for the target "Any iOS Device", when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
