@@ -65,7 +65,7 @@ Start by creating your Azure resources.
     az appservice plan create -g <myResourceGroupName> -n <myPlanName> --is-linux --sku B1
 
     # Create a web app
-    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime "DOTNETCORE|3.1" --plan <myPlanName>
+    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime "DOTNETCORE|6.0" --plan <myPlanName>
     ```
 
     ### [UMI](#tab/umi)
