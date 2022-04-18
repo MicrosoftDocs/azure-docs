@@ -19,7 +19,7 @@ The goal of this document is to reduce the time it takes for Event Management Pl
 
 ## What are virtual events and event management platforms?
 
-Microsoft empowers event platforms to integrate event capabilities leveraging [Microsoft Teams](https://docs.microsoft.com/microsoftteams/quick-start-meetings-live-events), [Graph](https://docs.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-beta&tabs=http) and [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, leveraging in-platform capabilities and gamification. Learn more about[ Teams Meetings, Webinars and Live Events](https://docs.microsoft.com/en-us/microsoftteams/quick-start-meetings-live-events) which are leveraged throughout this article to enable virtual event scenarios. 
+Microsoft empowers event platforms to integrate event capabilities leveraging [Microsoft Teams](https://docs.microsoft.com/microsoftteams/quick-start-meetings-live-events), [Graph](https://docs.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-beta&tabs=http) and [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, leveraging in-platform capabilities and gamification. Learn more about[ Teams Meetings, Webinars and Live Events](https://docs.microsoft.com/microsoftteams/quick-start-meetings-live-events) which are leveraged throughout this article to enable virtual event scenarios. 
 
 ## What are the building blocks of an event management platform?
 
@@ -51,7 +51,7 @@ For event hosts and organizers, they can join a virtual experience that enables 
 
 Microsoft Graph enables event management platforms to empower organizers to schedule and manage their events directly through the event management platform. For attendees, event management platforms can build custom registration flows right on their platform that register the attendee for the event and generates unique credentials for them to join the Teams hosted event.
 
->[!NOTE] 
+>[!NOTE]
 >For each required Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
 
 ### Scheduling with Microsoft Graph
@@ -62,7 +62,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
     b.	Event Management Company publishes an App that the Microsoft Teams customer installs and runs. [Need link to an example.]
 
->[!NOTE] 
+>[!NOTE]
 >Authorization is required by both developers for testing and organizers who will be using your event platform to set up their events.
 
 2.	Organizer logins to Contoso platform to create an event and generate a registration URL. To enable these capabilities developers should use:
@@ -75,7 +75,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
     c.	By using these APIs, developers are creating a calendar event to show up in the Organizer’s calendar and the Teams online meeting where attendees will join.
 
->[!NOTE] 
+>[!NOTE]
 >Known issue with double calendar entries for organizers when using the Calendar and Online Meeting APIs.
 
 3.	To enable registration for an event, Contoso can use the [External Meeting Registration API](https://docs.microsoft.com/graph/api/resources/externalmeetingregistration?view=graph-rest-beta) to POST. The API requires Contoso to pass in the `meetingId` of the `OnlineMeeting` created above. Registration is optional. You can set options on who can register.
@@ -94,13 +94,13 @@ Attendee experience can be directly embedded into an application or platform usi
 
 3.	Once a resource is created, developers must [generate access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](https://docs.microsoft.com/azure/communication-services/concepts/client-and-server-architecture).
 
-4.	Developers can leverage [headless SDKs](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop) or [UI Library](aka.ms/acsstorybook) using the join link URL to join the Teams meeting through [Teams Interoperability](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop). Details below:
+4.	Developers can leverage [headless SDKs](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop) or [UI Library](https://azure.github.io/communication-ui-library/) using the join link URL to join the Teams meeting through [Teams Interoperability](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop). Details below:
 
 |Headless SDKs                           | UI Library                            |
 |----------------------------------------|---------------------------------------|
 | Developers can leverage the [calling](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-interop?pivots=platform-javascript) and [chat](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/meeting-interop?pivots=platform-javascript) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-meeting-basicexample--basic-example) or pure [call](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example) composites to build their experience. Alternatively, developers can leverage [composable components](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-uicomponents--page) to build a custom Teams interop experience.|
 
 
->[!NOTE] 
+>[!NOTE]
 >Azure Communication Services is a consumption-based service billed through Azure. For more information on pricing visit our resources.
 
