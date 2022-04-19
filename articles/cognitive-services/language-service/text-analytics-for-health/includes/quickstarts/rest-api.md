@@ -43,7 +43,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 > [!NOTE]
 > FHIR support is available in Language API preview.
 
-# [Language](#tab/Language)
+# [Language](#tab/Language API (Preview))
 
 ```bash
 curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-04-01-preview \
