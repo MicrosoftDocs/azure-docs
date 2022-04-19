@@ -16,7 +16,7 @@ ms.date: 03/15/2022
 
 # Set up AutoML to train a natural language processing model with Python (preview)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

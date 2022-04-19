@@ -15,7 +15,7 @@ ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1
 
 # Use the Python interpretability package to explain ML models & predictions (preview)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 

@@ -14,7 +14,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 ---
 # Set up compute targets for model training and deployment
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
 

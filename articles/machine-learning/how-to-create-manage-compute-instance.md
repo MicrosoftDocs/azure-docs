@@ -51,7 +51,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -424,7 +424,7 @@ You can [create a schedule](#schedule) for the compute instance to automatically
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 
 In the examples below, the name of the compute instance is **instance**

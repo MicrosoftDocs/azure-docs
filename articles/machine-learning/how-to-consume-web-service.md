@@ -47,7 +47,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 

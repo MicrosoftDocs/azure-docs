@@ -14,7 +14,7 @@ ms.custom: deploy, sdkv1
 
 # Advanced entry script authoring
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to write entry scripts for specialized use cases.
 

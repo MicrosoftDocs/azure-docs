@@ -18,7 +18,7 @@ ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1
 
 # Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to create a linked service that links your [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) workspace and [Azure Machine Learning workspace](concept-workspace.md). 
 

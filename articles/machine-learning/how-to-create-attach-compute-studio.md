@@ -206,7 +206,7 @@ If you created your compute instance or compute cluster with SSH access enabled,
 
 After a target is created and attached to your workspace, you use it in your [run configuration](how-to-set-up-training-targets.md) with a `ComputeTarget` object:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget
