@@ -112,26 +112,26 @@ Open MFA Server, click **User Portal**:
 |:--------:|:-------:|
 |**Settings Tab**||
 |User Portal URL|[aka.ms/mfasetup](https://aka.ms/mfasetup)|
-|Allow user enrollment|See Combined security information registration documentation|
-|- Prompt for backup phone|See MFA Service settings|
-|- Prompt for third-party OATH token|See MFA Service settings|
-|Allow users to initiate a One-Time Bypass|See Azure AD TAP functionality|
-|Allow users to select method|See MFA Service settings|
-|- Phone call|See Phone call documentation|
-|- Text message|See MFA Service settings|
-|- Mobile app|See MFA Service settings|
-|- OATH token|See OATH token documentation|
+|Allow user enrollment|See [Combined security information registration](concept-registration-mfa-sspr-combined.md)|
+|- Prompt for backup phone|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
+|- Prompt for third-party OATH token|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
+|Allow users to initiate a One-Time Bypass|See [Azure AD TAP functionality](howto-authentication-temporary-access-pass.md)|
+|Allow users to select method|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
+|- Phone call|See [Phone call documentation](howto-mfa-mfasettings.md#phone-call-settings)|
+|- Text message|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
+|- Mobile app|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
+|- OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Allow users to select language|Language settings will be automatically applied to a user based on the locale settings in their browser|
 |Allow users to activate mobile app|See MFA Service settings|
 |- Device limit|Azure AD limits users to 5 cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
 |Use security questions for fallback|Azure AD allows users to choose a fallback method at authentication time should the chosen authentication method fail|
-|- Questions to answer|Security Questions in Azure AD can only be used for SSPR. See more details for Azure AD Custom Security Questions|
-|Allow users to associate third-party OATH token|See OATH token documentation|
-|Use OATH token for fallback|See OATH token documentation|
+|- Questions to answer|Security Questions in Azure AD can only be used for SSPR. See more details for [Azure AD Custom Security Questions](concept-authentication-security-questions.md#custom-security-questions)|
+|Allow users to associate third-party OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
+|Use OATH token for fallback|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Session Timeout||
-|**Security Questions tab**	|Note that security questions in MFA Server were used to gain access to the MFA User Portal. Azure MFA only supports security questions for self-service password reset. See security questions documentation|
+|**Security Questions tab**	|Note that security questions in MFA Server were used to gain access to the MFA User Portal. Azure MFA only supports security questions for self-service password reset. See [security questions documentation](concept-authentication-security-questions.md).|
 |**Passed Sessions tab**|All authentication method registration flows are managed by Azure AD and don’t require configuration|
-|**Trusted Ips**|Azure AD trusted IP|
+|**Trusted Ips**|[Azure AD trusted IPs](howto-mfa-mfasettings.md#trusted-ips)|
 
 Any MFA methods available in Azure MFA Server must be enabled in Azure MFA by using [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings). 
 Users can't try their newly migrated MFA methods unless they are enabled.
@@ -303,16 +303,16 @@ Once you have successfully migrated user data, you can validate the end-user exp
 ### Educate users
 Ensure users know what to expect when they are moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal ([aka.ms/mfasetup](https://aka.ms/mfasetup)) to manage their authentication methods rather than the Azure MFA Server registration portal once migrations are complete. Note that any changes made to authentication methods in Azure AD will not propagate back to your on-premises environment. In a situation where you have to rollback to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
 
-Also note that if you have 3rd party solutions that are dependent on Azure MFA Server for authentication (see Authentication Services section above), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you have migrated these 3rd party solutions, you can move users to the Azure AD combined registration page.
+Also note that if you have third party solutions that are dependent on Azure MFA Server for authentication (see Authentication Services section above), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you have migrated these third party solutions, you can move users to the Azure AD combined registration page.
 
 ### Complete user migration
-Repeat migration steps found in Migrate user data and Validate and Test sections above until all user data is migrated.
+Repeat migration steps found in [Migrate user data](#migrate-user-data) and [Validate and test](#validate-and-test) sections until all user data is migrated.
 
 ### Migrate MFA Server dependencies
-Using the data points you collected above in the Authentication Services section, begin carrying out the various migrations necessary. Once this is completed, consider having users manage their authentication methods in the combined registration portal, rather than in the User Portal on MFA server.
+Using the data points you collected in [Authentication services](#authentication-services), begin carrying out the various migrations necessary. Once this is completed, consider having users manage their authentication methods in the combined registration portal, rather than in the User Portal on MFA server.
 
 ### Update domain federation settings
-Once you have completed user migrations, and moved all of your [authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-prem federation server.
+Once you have completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-prem federation server.
 
 To configure Azure AD to ignore MFA requests to your on-prem federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-beta) and set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta) to `rejectMfaByFederatedIdp`, as shown in the following example.
 
