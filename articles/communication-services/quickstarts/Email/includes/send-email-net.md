@@ -25,8 +25,8 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Email Communication Services Resource created and ready with a provisioned domains [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
-- An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
+- An Azure Email Communication Services Resource created and ready with a provisioned domains [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-acs-resource.md)
 
 ### Prerequisite check
 
