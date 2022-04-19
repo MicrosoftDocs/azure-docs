@@ -22,7 +22,7 @@ The current scope of support includes the lineage extraction from SSIS packages 
 
 On premises SSIS lineage extraction is not supported yet.
 
-Only source and destination are supported for Microsoft Purview SSIS lineage. Transformations under SSIS are not yet supported.
+Only source and destination are supported for Microsoft Purview SSIS lineage running from Data Factory’s SSIS Execute Package activity. Transformations under SSIS are not yet supported.
 
 ### Supported data stores
 
