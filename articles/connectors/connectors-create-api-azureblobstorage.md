@@ -349,7 +349,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 ### Access storage accounts through VNet integration
 
 
-1. Logic app and storage account are in a same region
+- Your logic app and storage account exist in the same region.
 
 You can put the storage account in an Azure virtual network by creating a private endpoint for it, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account, you need to [Set up outbound traffic using VNet integration](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-vnet-integration), which can enable connecting to resources in a virtual network. You can then add the VNet to the trusted list of the storage account. 
 
