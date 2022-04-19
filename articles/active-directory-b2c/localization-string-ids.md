@@ -179,7 +179,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 
 ### Sign-up and self-asserted pages disclaimer links
 
-The following additional IDs will display disclaimer link(s) at the bottom of the self-asserted page.
+The following `UxElement` string IDs will display disclaimer link(s) at the bottom of the self-asserted page. These links are not displayed by default unless specified in the localized strings.
 
 | ID | Example value |
 | **disclaimer_msg_intro** | By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply. |
