@@ -63,7 +63,7 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
 
-## Azure Purview
+## Microsoft Purview
 
 [!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
 
