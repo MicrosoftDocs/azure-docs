@@ -359,7 +359,7 @@ The following example shows how to create a memory scaling rule.
 - Replica quantities are a target amount, not a guarantee.
   - Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
 
-- If you are using Dapr actions to manage states, you should keep in mind that scaling to zero is not supported. Dapr uses virtual actors to manage asynchronous calls which means their in-memory representation is not tied to their identity or lifetime.
+- If you are using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero is not supported. Dapr uses virtual actors to manage asynchronous calls which means their in-memory representation is not tied to their identity or lifetime.
 
 ## Next steps
 
