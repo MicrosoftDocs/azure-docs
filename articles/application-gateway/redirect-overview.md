@@ -27,7 +27,7 @@ A redirect type sets the response status code for the clients to understand the 
 
 -  **Listener redirection**
    
-   Redirects from one listener to another listener. Listener redirection is commonly used to enables HTTP to HTTPS redirection.
+   Redirects from one listener to another listener. Listener redirection is commonly used to enable HTTP to HTTPS redirection.
    
 - **Path-based redirection**
 
