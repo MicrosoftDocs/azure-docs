@@ -46,29 +46,29 @@ The SharePoint List Online connector uses service principal authentication to co
 
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
-        - Specify the following Permission Request XML for SharePoint Online site "Owner" role and "Admin" role respectively.
-            - For "Owner" role, the Permission Request XML is:
+        - Permission Request XML   
+            For "Owner" role, the Permission Request XML is:  
 
-                ```xml
-                <AppPermissionRequests>
-                    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-                </AppPermissionRequests>
-                ```           
+            ```xml
+            <AppPermissionRequests>
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```           
             
-                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Owner role.":::
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Owner role.":::
 
-                > [!NOTE]
-                > You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
+            > [!NOTE]
+            > You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.   
 
-            - For "Admin" role, the Permission Request XML is:
+            For "Admin" role, the Permission Request XML is:  
 
-                ```xml
-                <AppPermissionRequests AllowAppOnlyPolicy="true">
-                    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-                </AppPermissionRequests>
-                ```
-    
-                :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Admin role.":::
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Admin role.":::
 
     3. Click "Trust It" for this app.
 
