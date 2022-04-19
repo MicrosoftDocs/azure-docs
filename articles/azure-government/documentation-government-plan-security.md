@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 03/12/2022
+ms.date: 03/21/2022
 ---
 
 # Azure Government security
@@ -34,7 +34,7 @@ These principles are applicable to both Azure and Azure Government. As described
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures and decrease the overall risk of your cloud environment. Azure has extensive support to safeguard customer data using [data encryption](../security/fundamentals/encryption-overview.md), including various encryption models:
 
 - Server-side encryption that uses service-managed keys, customer-managed keys (CMK) in Azure, or CMK in customer-controlled hardware.
-- Client-side encryption that enables customers to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Azure Active Directory to provide specific individuals with access to Azure Key Vault secrets.
+- Client-side encryption that enables you to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Azure Active Directory to provide specific individuals with access to Azure Key Vault secrets.
 
 Data encryption provides isolation assurances that are tied directly to encryption key access. Since Azure uses strong ciphers for data encryption, only entities with access to encryption keys can have access to data. Deleting or revoking encryption keys renders the corresponding data inaccessible. 
 
@@ -108,7 +108,7 @@ We're now screening all our operators at a Tier 3 Investigation (formerly Nation
 |Cloud screen|Azure </br>Azure Gov|Every two years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
 |US citizenship|Azure Gov|Upon employment|- Verification of US citizenship|
 |Criminal Justice Information Services (CJIS)|Azure Gov|Upon signed CJIS agreement with State|- Adds fingerprint background check against FBI database </br>- Criminal records check and credit check|
-|Tier 3 Investigation|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (Form SF 86 required)|
+|Tier 3 Investigation|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation ([SF 86](https://www.opm.gov/forms/pdf_fill/SF86.pdf))|
 
 For Azure operations personnel, the following access principles apply:
 

@@ -27,6 +27,8 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 - Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4+.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Introducing Opencensus Python SDK
 
 [OpenCensus](https://opencensus.io) is a set of open source libraries to allow collection of distributed tracing, metrics and logging telemetry. Through the use of [Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), you will be able to send this collected telemetry to Application insights. This article walks you through the process of setting up OpenCensus and Azure Monitor Exporters for Python to send your monitoring data to Azure Monitor.

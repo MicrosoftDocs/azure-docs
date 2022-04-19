@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Data modeling in Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes how to work with Time Series Model in Azure Time Series Insights Gen2. It details several common data scenarios.
 
 > [!TIP]

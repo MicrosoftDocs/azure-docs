@@ -76,6 +76,23 @@ landingContent:
           - text: Make API requests with Postman 
             url: how-to-use-postman.md
 
+  - title: DTDL-based industry ontologies
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is an ontology?
+            url: concepts-ontologies.md
+          - text: Adopting DTDL-based industry ontologies
+            url: concepts-ontologies-adopt.md
+      - linkListType: reference
+        links:
+          - text: RealEstateCore smart building ontology
+            url: https://github.com/Azure/opendigitaltwins-building
+          - text: Smart cities ontology
+            url: https://github.com/Azure/opendigitaltwins-smartcities
+          - text: Energy grid ontology
+            url: https://github.com/Azure/opendigitaltwins-energygrid/
+            
   - title: Scenario-based learning with Microsoft Learn
     linkLists:
       - linkListType: learn

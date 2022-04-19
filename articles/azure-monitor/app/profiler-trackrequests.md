@@ -13,6 +13,8 @@ To view profiles for your application on the Performance page, Azure Application
 
 For other applications, such as Azure Cloud Services worker roles and Service Fabric stateless APIs, you need to write code to tell Application Insights where your requests begin and end. After you've written this code, requests telemetry is sent to Application Insights. You can view the telemetry on the Performance page, and profiles are collected for those requests. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 To manually track requests, do the following:
 
   1. Early in the application lifetime, add the following code:  

@@ -2,6 +2,8 @@
 title: Schemas for the Microsoft Defender for Cloud alerts
 description: This article describes the different schemas used by Microsoft Defender for Cloud for security alerts.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
@@ -128,7 +130,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**subscriptionId**|The subscription ID of the compromised resource|
 |**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
 |**relatedEvents**|Constant - empty array|
-|||
+
 
 ### [Workflow automation](#tab/schema-workflow-automation)
 

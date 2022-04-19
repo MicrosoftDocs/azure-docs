@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma, urosmil
 ms.custom: references_regions
-ms.date: 03/07/2022
+ms.date: 04/04/2022
 ---
 
 # Maintenance window
@@ -51,7 +51,7 @@ Once the maintenance window selection is made and service configuration complete
 
 ## Advance notifications
 
-Maintenance notifications can be configured to alert you of upcoming planned maintenance events for your Azure SQL Database. The alerts arrive 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
+Maintenance notifications can be configured to alert you of upcoming planned maintenance events for your Azure SQL Database and Azure SQL Managed Instance. The alerts arrive 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
 ## Feature availability
 
@@ -125,7 +125,7 @@ Choosing a maintenance window other than the default is currently available in t
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
 | West US 3 | Yes | | |
-| | | | | 
+
 
 ## Gateway maintenance
 
@@ -179,8 +179,9 @@ servicehealthresources
 | extend impact = properties.Impact
 | extend impactedService = parse_json(impact[0]).ImpactedService
 | where  impactedService =~ 'SQL Database'
-| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
-| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = todatetime(tolong(properties.ImpactStartTime)), impactMitigationTime = todatetime(tolong(properties.ImpactMitigationTime))
+| where eventType == 'PlannedMaintenance'
+| order by impactStartTime desc
 ```
 
 To check for the maintenance events for all managed instances in your subscription, use the following sample query in Azure Resource Graph Explorer:
@@ -191,8 +192,9 @@ servicehealthresources
 | extend impact = properties.Impact
 | extend impactedService = parse_json(impact[0]).ImpactedService
 | where  impactedService =~ 'SQL Managed Instance'
-| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
-| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = todatetime(tolong(properties.ImpactStartTime)), impactMitigationTime = todatetime(tolong(properties.ImpactMitigationTime))
+| where eventType == 'PlannedMaintenance'
+| order by impactStartTime desc
 ```
 
 For the full reference of the sample queries and how to use them across tools like PowerShell or Azure CLI, visit [Azure Resource Graph sample queries for Azure Service Health](../../service-health/resource-graph-samples.md). 
@@ -206,5 +208,5 @@ For the full reference of the sample queries and how to use them across tools li
 
 * [Maintenance window FAQ](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
-* [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md)
+* [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

@@ -88,7 +88,7 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
-To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query below with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. 
+To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query below with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. If the "in" filter does not work, you can try the "eq" filter. 
 
 ```
 https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&
@@ -137,10 +137,11 @@ By using JSONPath transformation, you can customize the behavior of the Azure AD
 This section covers how you can customize the provisioning app for the following HR scenarios: 
 * [Retrieving additional attributes](#retrieving-additional-attributes)
 * [Retrieving custom attributes](#retrieving-custom-attributes)
-* [Handling worker conversion scenario](#handling-worker-conversion-scenario)
-* [Handling rehire scenario](#handling-rehire-scenario)
+* [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario)
 * [Handling global assignment scenario](#handling-global-assignment-scenario)
 * [Handling concurrent jobs scenario](#handling-concurrent-jobs-scenario)
+* [Retrieving position details](#retrieving-position-details)
+* [Provisioning users in the Onboarding module](#provisioning-users-in-the-onboarding-module)
 
 ### Retrieving additional attributes
 
@@ -192,9 +193,18 @@ Extending this scenario:
 * If you want to map *custom35* attribute from the *User* entity, then use the JSONPath `$.employmentNav.results[0].userNav.custom35`
 * If you want to map *customString35* attribute from the *EmpEmployment* entity, then use the JSONPath `$.employmentNav.results[0].customString35`
 
-### Handling worker conversion scenario
+### Handling worker conversion and rehire scenario
 
-Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. To handle this scenario so that the new employment data shows up when a conversion occurs, you can bulk update the provisioning app schema using the steps listed below:  
+**About worker conversion scenario:** Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. 
+
+**About rehire scenario:** In SuccessFactors, there are two options to process rehires: 
+* Option 1: Create a new person profile in Employee Central
+* Option 2: Reuse existing person profile in Employee Central
+
+If your HR process uses Option 1, then no changes are required to the provisioning schema. 
+If your HR process uses Option 2, then Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. 
+
+To handle both these scenarios so that the new employment data shows up when a conversion or rehire occurs, you can bulk update the provisioning app schema using the steps listed below:  
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -207,33 +217,8 @@ Worker conversion is the process of converting an existing full-time employee to
    >![Screenshot shows the Schema editor with Download select to save a copy of the schema.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
 1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
-1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.userNav != null)]`. Note the whitespace surrounding the `!=` operator, which is important for successful processing of the JSONPath expression. 
-   >![find-replace-conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
-1. Click on the "replace all" option to update the schema. 
-1. Save the schema. 
-1. The above process updates all JSONPath expressions as follows: 
-   * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * New JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
-1. Restart provisioning. 
-
-### Handling rehire scenario
-
-Usually there are two options to process rehires: 
-* Option 1: Create a new person profile in Employee Central
-* Option 2: Reuse existing person profile in Employee Central
-
-If your HR process uses Option 1, then no changes are required to the provisioning schema. 
-If your HR process uses Option 2, then Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. Unlike the conversion scenario, the *User* entity in the previous *EmpEmployment* entity is not set to null. 
-
-To handle this rehire scenario (option 2), so that the latest employment data shows up for rehire profiles, you can bulk update the provisioning app schema using the steps listed below:  
-
-1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
-1. Scroll down and click **Show advanced options**.
-1. Click on the link **Review your schema here** to open the schema editor.   
-1. Click on the **Download** link to save a copy of the schema before editing.   
-1. In the schema editor, press Ctrl-H key to open the find-replace control.
-1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
 1. In the replace text box, copy, and paste the value `$.employmentNav.results[-1:]`. This JSONPath expression returns the latest *EmpEmployment* record.   
+   >![find-replace-conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. Click on the "replace all" option to update the schema. 
 1. Save the schema. 
 1. The above process updates all JSONPath expressions as follows: 
@@ -241,7 +226,6 @@ To handle this rehire scenario (option 2), so that the latest employment data sh
    * New JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. Restart provisioning. 
 
-This schema change also supports the worker conversion scenario. 
 
 ### Handling global assignment scenario
 
@@ -257,7 +241,7 @@ To fetch attributes belonging to the standard assignment and global assignment u
 1. Click on the **Download** link to save a copy of the schema before editing.   
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
 1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
-1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.assignmentClass == 'ST')]`. 
+1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.assignmentClass == 'ST')]`. Note the whitespace surrounding the == operator, which is important for successful processing of the JSONPath expression.
 1. Click on the "replace all" option to update the schema. 
 1. Save the schema. 
 1. The above process updates all JSONPath expressions as follows: 
@@ -339,7 +323,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
     > [!div class="mx-imgBorder"]
     > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
-1. For guidance regarding JSONPath settings, refer to the section [Handling rehire scenario](#handling-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
+1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
 1. Save the mapping. 
 1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
     > [!NOTE]

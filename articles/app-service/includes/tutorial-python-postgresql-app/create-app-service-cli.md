@@ -36,7 +36,7 @@ az group create `
 * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
 * *name* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `msdocs-python-postgres-webapp-rg`)
 
-**Step 2.** Create an *App Service plan* using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+**Step 2.** Create an *App Service plan* using the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -69,7 +69,7 @@ az appservice plan create `
 * *sku* &rarr; Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * *is-linux* &rarr; Selects Linux as the host operating system.
 
-**Step 3.** Create the *App Service web app* using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.
+**Step 3.** Create the *App Service web app* using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -102,7 +102,7 @@ az webapp create `
 ---
 
 * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `msdocs-python-postgres-webapp-\<unique-id>` where `\<unique-id>` is any three characters.
-* *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
+* *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
 * *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-python-postgres-webapp-plan`)
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-python-postgres-webapp-rg`)
 

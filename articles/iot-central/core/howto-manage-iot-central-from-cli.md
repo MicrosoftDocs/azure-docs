@@ -49,7 +49,7 @@ Install-Module Az.IotCentral
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot central app create](/cli/azure/iot/central/app#az_iot_central_app_create) command to create an IoT Central application in your Azure subscription. For example:
+Use the [az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) command to create an IoT Central application in your Azure subscription. For example:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -120,7 +120,7 @@ If you've created your own application template, you can use it to create a new 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot central app list](/cli/azure/iot/central/app#az_iot_central_app_list) command to list your IoT Central applications and view metadata.
+Use the [az iot central app list](/cli/azure/iot/central/app#az-iot-central-app-list) command to list your IoT Central applications and view metadata.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -132,7 +132,7 @@ Use the [Get-AzIotCentralApp](/powershell/module/az.iotcentral/Get-AzIotCentralA
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot central app update](/cli/azure/iot/central/app#az_iot_central_app_update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
+Use the [az iot central app update](/cli/azure/iot/central/app#az-iot-central-app-update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
 
 ```azurecli-interactive
 az iot central app update --name myiotcentralapp \
@@ -156,7 +156,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot central app delete](/cli/azure/iot/central/app#az_iot_central_app_delete) command to delete an IoT Central application. For example:
+Use the [az iot central app delete](/cli/azure/iot/central/app#az-iot-central-app-delete) command to delete an IoT Central application. For example:
 
 ```azurecli-interactive
 az iot central app delete --name myiotcentralapp \
@@ -184,7 +184,7 @@ To enable the managed identity, use either the [Azure portal - Configure a manag
 
 After you enable the managed identity, you can use the CLI to configure the role assignments.
 
-Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to create a role assignment. For example, the following commands first retrieve the principal ID of the managed identity. The second command assigns the `Azure Event Hubs Data Sender` role to the principal ID in the scope of the `MyIoTCentralResourceGroup` resource group:
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment. For example, the following commands first retrieve the principal ID of the managed identity. The second command assigns the `Azure Event Hubs Data Sender` role to the principal ID in the scope of the `MyIoTCentralResourceGroup` resource group:
 
 ```azurecli-interactive
 spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
