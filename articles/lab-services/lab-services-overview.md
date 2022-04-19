@@ -13,7 +13,7 @@ ms.date: 01/04/2022
 
 To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
-The service creates and manages resources in a subscriptions managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
+The service creates and manages resources in a subscription managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
 
 ## Key capabilities
 
