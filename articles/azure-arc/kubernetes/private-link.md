@@ -13,7 +13,7 @@ ms.custom: references_regions
 This document covers when to use and how to set up private connectivity from your Kubernetes clusters hosted on-premises or in other clouds to Azure.
 
 > [!IMPORTANT]
-> Azure Arc private links feature is currently in PREVIEW in all regions where Azure Arc enabled Kubernetes is present, except South East Asia.
+> The Azure Arc Private Link feature is currently in PREVIEW in all regions where Azure Arc enabled Kubernetes is present, except South East Asia.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Advantages
