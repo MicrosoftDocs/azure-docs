@@ -455,7 +455,7 @@ Next, complete the following steps:
    The following error is a commonly reported problem that happens when your logic app and storage account exist in the same region. However, options are available to resolve this limitation as described in the section, [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
 
 
-```
+  ```json
 {
     'status': 403,
     'message': 'This request is not authorized to perform this operation.\\r\\nclientRequestId: a3da2269-7120-44b4-9fe5-ede7a9b0fbb8',
