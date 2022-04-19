@@ -35,27 +35,21 @@ landingContent:
      links:
      - text: Send and receive messages
        url: iot-hub-devguide-messaging.md
-     - text: Use device twins
-       url: iot-hub-devguide-device-twins.md
      - text: Upload files
        url: iot-hub-devguide-file-upload.md
 
  -   title: Process data with Azure services
      linkLists:
-     -  linkListType: concept
-        links:
-        - text: Understand Azure IoT Hub message routing
-          url: iot-hub-devguide-messages-d2c.md
      -  linkListType: tutorial
         links:
         - text: Route telemetry
           url: tutorial-routing.md
-        - text: Run and view routing results
-          url: tutorial-routing-view-message-routing-results.md
-        - text: Visualize data in a web app
-          url: iot-hub-live-data-visualization-in-web-apps.md
         - text: Visualize data in Power BI
           url: iot-hub-live-data-visualization-in-power-bi.md
+     -  linkListType: concept
+        links:
+        - text: Understand Azure IoT Hub message routing
+          url: iot-hub-devguide-messages-d2c.md
 
  - title: Manage and monitor devices remotely
    linkLists:
@@ -67,6 +61,8 @@ landingContent:
      links:
      - text: Invoke direct methods
        url: iot-hub-devguide-direct-methods.md
+     - text: Use device twins
+       url: iot-hub-devguide-device-twins.md
      - text: Monitor IoT Hub
        url: monitor-iot-hub.md 
      - text: Update devices using Device Update for IoT Hub
