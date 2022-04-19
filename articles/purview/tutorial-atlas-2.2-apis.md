@@ -67,7 +67,7 @@ Sample JSON
 
 ### Add/Update an attribute to an existing business metadata 
 
-You can send PUT request to the following endpoint
+You can send PUT request to the following endpoint:
 
 PUT {{endpoint}}/api/atlas/v2/types/typedefs
 
