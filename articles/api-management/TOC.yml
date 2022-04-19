@@ -159,6 +159,8 @@
               href: sap-api.md
             - name: Configure API for SSE
               href: how-to-server-sent-events.md
+            - name: API import restrictions
+              href: api-management-api-import-restrictions.md
             - name: Publish microservices as APIs
               items:
                 - name: Manage microservices deployed in AKS
@@ -174,9 +176,7 @@
             - name: Revisions
               href: api-management-revisions.md
             - name: Backends
-              href: backends.md  
-            - name: API import restrictions
-              href: api-management-api-import-restrictions.md
+              href: backends.md 
             - name: Export APIs to the Power Platform
               href: export-api-power-platform.md
       - name: Cache
@@ -224,16 +224,16 @@
               href: api-management-howto-manage-protocols-ciphers.md
           - name: Set up backend authentication
             items:
-            - name: Mutual Certificate authentication
+            - name: Mutual certificate authentication
               href: api-management-howto-mutual-certificates.md
       - name: Publish APIs
         items:
             - name: Use subscriptions
               items: 
-                  - name: Subscriptions
+                  - name: Subscriptions overview
                     href: api-management-subscriptions.md
                   - name: Create subscriptions
-              href: api-management-howto-create-subscriptions.md
+                    href: api-management-howto-create-subscriptions.md
             - name: Manage users
               items:
                   - name: Manage user accounts
@@ -250,7 +250,7 @@
                     href: api-management-howto-configure-notifications.md
             - name: Monetize APIs
               items:
-                - name: Monetization with Azure API Management
+                - name: Monetization overview
                   href: monetization-overview.md
                 - name: How API Management supports monetization
                   href: monetization-support.md
@@ -316,7 +316,7 @@
                       href: api-management-template-resources.md
       - name: Monitor and manage
         items:
-            - name: Observability features
+            - name: Observability overview
               href: observability.md
             - name: Get API analytics
               href: howto-use-analytics.md
@@ -338,8 +338,6 @@
               href: api-management-howto-migrate.md
             - name: Recover a deleted instance
               href: soft-delete.md
-            - name: Validate service updates
-              href: validate-service-updates.md
             - name: Configuration management
               items:
                     - name: CI/CD using ARM templates
@@ -348,6 +346,8 @@
                       href: automation-manage-api-management.md
                     - name: Configure using Git
                       href: api-management-configuration-repository-git.md
+                    - name: Validate service updates
+                      href: validate-service-updates.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
