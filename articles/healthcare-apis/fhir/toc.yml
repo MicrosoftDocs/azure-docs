@@ -90,7 +90,7 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-  - name: Bulk import data
+  - name: Bulk-import data
     expanded: true
     items:
     - name: Configure bulk-import settings 
