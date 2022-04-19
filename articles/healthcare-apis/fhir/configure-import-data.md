@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/16/2022
+ms.date: 04/19/2022
 ms.author: ranku
 ---
 
@@ -62,6 +62,97 @@ Copy the URL as request URL and do following changes of the JSON as body:
 [ ![Screenshot of the importer configuration code example](media/bulk-import/importer-url-and-body.png) ](media/bulk-import/importer-url-and-body.png#lightbox)
 
 After you've completed this final step, you're ready to import data using $import.
+
+## Troubleshooting
+
+Below are some error codes you may encounter:
+
+### 200 OK, but there's an error with the URL in the response
+
+**Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contains JSON fragments like in the example below:
+
+```json
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "error",
+            "details": {
+                "text": "Given conditional reference '{0}' does not resolve to a resource."
+            },
+            "diagnostics": "Failed to process resource at line: {1}"
+        }
+    ]
+}
+```
+
+**Cause:** NDJSON files contain resources with conditional references, which are currently not supported by $import.
+
+**Solution:** Replace the conditional references to normal references in the NDJSON files.
+
+### 400 Bad Request
+
+**Behavior:** Import operation failed and ```400 Bad Request``` is returned. Response body has this content:
+
+```json
+{
+    "resourceType": "OperationOutcome",
+    "id": "13876ec9-3170-4525-87ec-9e165052d70d",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "processing",
+            "diagnostics": "import operation failed for reason: No such host is known. (example.blob.core.windows.net:443)"
+        }
+    ]
+}
+```
+
+**Solution:** Verify the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server is able to access the storage. If your service is in a VNet, ensure that the storage is in the same VNet or in a VNet that has peering with the FHIR service VNet.
+
+### 403 Forbidden
+
+**Behavior:** Import operation failed and ```403 Forbidden``` is returned. The response body has the following content:
+
+```json
+{
+    "resourceType": "OperationOutcome",
+    "id": "bd545acc-af5d-42d5-82c3-280459125033",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "processing",
+            "diagnostics": "import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature."
+        }
+    ]
+}
+```
+
+**Cause:** We use managed identity for source storage auth. This error may be caused by a missing or wrong role assignment.
+
+**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current)
+
+### 500 Internal Server Error
+
+**Behavior:** Import operation failed and ```500 Internal Server Error``` is returned. Response body has this content:
+
+```json
+{
+    "resourceType": "OperationOutcome",
+    "id": "0d0f007d-9e8e-444e-89ed-7458377d7889",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "processing",
+            "diagnostics": "import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions."
+        }
+    ]
+}
+```
+
+**Cause:** You've reached the storage limit of the FHIR service.
+
+**Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
 ## Next steps
 
