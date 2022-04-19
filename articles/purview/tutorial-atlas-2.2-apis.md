@@ -207,7 +207,7 @@ Sample JSON
 ]
 ```
 
-### Delete Labels to an entity
+### Delete labels to an entity
 
 You can send DELETE request to the following endpoint:
 
