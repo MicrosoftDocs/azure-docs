@@ -27,55 +27,78 @@ ms.custom: private_preview
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Setup Custom Domain.   
     - (Option 1) Click the **Setup** button under **Setup a custom domain**. Move to the next step.
+
+
       :::image type="content" source="./media/email-domains-custom.png" alt-text="image":::
 
     - (Option 2) Click **Provision Domains** on the left navigation panel.
-   :::image type="content" source="./media/email-domains-custom-nav.png" alt-text="image":::
+    
+        :::image type="content" source="./media/email-domains-custom-nav.png" alt-text="image":::
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Custom domain** from the dropdown.
 3. You will be navigating to "Add a custom Domain". 
 4. Enter  your "Domain Name" and re enter domain name
-5. Click **Confirm**.
-   :::image type="content" source="./media/email-domains-custom-add.png" alt-text="image":::
+5. Click **Confirm**.   
+
+    :::image type="content" source="./media/email-domains-custom-add.png" alt-text="image":::
 6. Please ensure that domain name is not misspelled or click edit to correct the domain name and confirm.
 7. Click **Add**.
-:::image type="content" source="./media/email-domains-custom-add-confirm.png" alt-text="image":::
+
+    :::image type="content" source="./media/email-domains-custom-add-confirm.png" alt-text="image":::
 
 8. This will create custom domain configuration for your domain
- :::image type="content" source="./media/email-domains-custom-add-progress.png" alt-text="image":::
 
-9. You can verify the ownership of the domain by clicking **Verify Domain** :::image type="content" source="./media/email-domains-custom-added.png" alt-text="image":::.
+    :::image type="content" source="./media/email-domains-custom-add-progress.png" alt-text="image":::
 
-10. If you would like to resume the verification later you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** link 
-:::image type="content" source="./media/email-domains-custom-configure.png" alt-text="image":::
-11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. :::image type="content" source="./media/email-domains-custom-verify.png" alt-text="image":::
-12.You need add the above TXT record to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. :::image type="content" source="./media/email-domains-custom-verify-done.png" alt-text="image":::
+9. You can verify the ownership of the domain by clicking **Verify Domain** 
+
+    :::image type="content" source="./media/email-domains-custom-added.png" alt-text="image":::.
+
+10. If you would like to resume the verification later you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** link
+
+    :::image type="content" source="./media/email-domains-custom-configure.png" alt-text="image":::
+11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. 
+
+    :::image type="content" source="./media/email-domains-custom-verify.png" alt-text="image":::
+
+12. You need add the above TXT record to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
+
+    :::image type="content" source="./media/email-domains-custom-verify-done.png" alt-text="image":::
 13. Verify that TXT record is created successfully in your DNS and Click **Done**. 
 14. DNS changes will take up to 15 to 30 minutes.  Click **Close**. 
+
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="image":::
-15. Once your domain is verified, you can setup your SPF, DKIM, and DMARC records to authenticate your domains.   :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="image":::
+15. Once your domain is verified, you can setup your SPF, DKIM, and DMARC records to authenticate your domains. 
+
+    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="image":::
 
 
 ### Configure Sender Authentication for  Custom Domain
 1. Navigate to  **Provision Domains** and confirm that  **Domain Status** is in "Verified" state. 
 2. You can setup SPF and DKIM  by clicking **Configure**. You need add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
 
-:::image type="content" source="./media/email-domains-custom-senderauth-spf.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-senderauth-spf.png" alt-text="image":::
 
-:::image type="content" source="./media/email-domains-custom-senderauth-dkim1.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-senderauth-dkim1.png" alt-text="image":::
 
-:::image type="content" source="./media/email-domains-custom-senderauth-dkim2.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-senderauth-dkim2.png" alt-text="image":::
 
-3. Verify that TXT and CNAME records are created successfully in your DNS and Click **Done**.  
-:::image type="content" source="./media/email-domains-custom-senderauth-verify.png" alt-text="image":::
+3. Verify that TXT and CNAME records are created successfully in your DNS and Click **Done**.
+ 
+    :::image type="content" source="./media/email-domains-custom-senderauth-verify.png" alt-text="image":::
 
-4. DNS changes will take up to 15 to 30 minutes.  Click **Close**.                                               :::image type="content" source="./media/email-domains-custom-senderauth-verify-progress.png" alt-text="image":::
-5. Wait for Verification to complete. You can check the Verification Status from **Provision Domains** page. :::image type="content" source="./media/email-domains-custom-verificationstatus.png" alt-text="image":::
+4. DNS changes will take up to 15 to 30 minutes.  Click **Close**.
+
+    :::image type="content" source="./media/email-domains-custom-senderauth-verify-progress.png" alt-text="image":::
+    
+5. Wait for Verification to complete. You can check the Verification Status from **Provision Domains** page. 
+
+    :::image type="content" source="./media/email-domains-custom-verificationstatus.png" alt-text="image":::
+ 
 6. Once your sender authentication configurations are successfully verified, your email domain will be ready to send emails using custom domain.
 
-
-:::image type="content" source="./media/email-domains-custom-ready.png" alt-text="image":::
+   :::image type="content" source="./media/email-domains-custom-ready.png" alt-text="image":::
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
 
@@ -84,22 +107,24 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
 3. Click on the Custom Domain name that you would like to update.
-:::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="image":::
-4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
 
-:::image type="content" source="./media/email-domains-custom-overview.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="image":::
+
+4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
+ 
+    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="image":::
 
 5. Click on edit link on MailFrom 
 
-:::image type="content" source="./media/email-domains-custom-mailfrom.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-mailfrom.png" alt-text="image":::
 
 6. You will able to modify the Display Name and MailFrom address. 
 
-:::image type="content" source="./media/email-domains-custom-mailfrom-change.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-custom-mailfrom-change.png" alt-text="image":::
 
 7. Click **Save**. You will see the updated values in the overview page. 
 
-:::image type="content" source="./media/email-domains-overview-updated.png" alt-text="image":::
+    :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="image":::
 
 **Your email domain is now ready to send emails.**
 
