@@ -73,7 +73,7 @@ For more information about cloud computing cost model in chargeback and showback
 
 - Use [Microsoft Purview collections](concept-best-practices-collections.md) to define metadata access control inside Microsoft Purview Data Map for your organization's business users, data management and governance teams. For more information, see [Access control in Microsoft Purview](./catalog-permissions.md).
 
-- Review [Microsoft Purview limits](./how-to-manage-quotas.md#azure-purview-limits) before deploying any new Microsoft Purview accounts. Currently, the default limit of Microsoft Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying extra instances of Microsoft Purview.  
+- Review [Microsoft Purview limits](./how-to-manage-quotas.md#microsoft-purview-limits) before deploying any new Microsoft Purview accounts. Currently, the default limit of Microsoft Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying extra instances of Microsoft Purview.  
 
 - Review [Microsoft Purview prerequisites](./create-catalog-portal.md#prerequisites) before deploying any new Microsoft Purview accounts in your environment.
   

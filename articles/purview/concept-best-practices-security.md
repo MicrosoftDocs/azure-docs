@@ -320,7 +320,7 @@ It is recommended prioritizing the use of the following credential options for s
 3. Service Principals
 4. Other options such as Account key, SQL Authentication, etc.  
 
-If you use any options rather than managed identities, all credentials must be stored and protected inside an [Azure key vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account). Microsoft Purview requires get/list access to secret on the Azure Key Vault resource. 
+If you use any options rather than managed identities, all credentials must be stored and protected inside an [Azure key vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account). Microsoft Purview requires get/list access to secret on the Azure Key Vault resource. 
 
 As a general rule, you can use the following options to set up integration runtime and credentials to scan data source systems: 
 
