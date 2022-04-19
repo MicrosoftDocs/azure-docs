@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ---
 # Compare vCore and DTU-based purchasing models of Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,13 @@ A virtual core (vCore) represents a logical CPU and offers you the option to cho
 
 In the vCore-based purchasing model for SQL Database, you can choose between the General Purpose and Business Critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
-In the vCore-based purchasing model, you pay for:
+In the vCore-based purchasing model, your costs depend on the choice and usage of:
 
-- Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
-- The type and amount of data and log storage.
-- Backup storage.
-
+- Service tier
+- Hardware configuration
+- Compute resources (the number of vCores and the amount of memory)
+- Reserved database storage
+- Actual backup storage
 
 ## DTU purchasing model
 

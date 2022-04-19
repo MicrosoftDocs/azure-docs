@@ -801,19 +801,19 @@
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
       "branch": "master",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
       "branch": "master",
@@ -860,7 +860,14 @@
       "url": "https://github.com/Azure/azure-webpubsub",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-sql-todo-sample",
+      "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
+      "branch": "docs-snippets",
+      "branch_mapping": {}
     }
+
   ],
   "branch_target_mapping": {
     "live": [
@@ -884,6 +891,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-blob.json",
     ".openpublishing.redirection.azure-sql.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
@@ -891,7 +899,6 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",

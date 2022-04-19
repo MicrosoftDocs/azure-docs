@@ -515,3 +515,4 @@ Learn more about related topics in the following articles:
 - [Azure SQL Database and Azure Synapse Analytics network access controls](./network-access-controls-overview.md)
 - [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
 - [Troubleshoot transient connection errors in SQL Database and SQL Managed Instance](troubleshoot-common-connectivity-issues.md)
+- [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md)
