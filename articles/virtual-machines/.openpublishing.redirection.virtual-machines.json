@@ -2840,6 +2840,11 @@
             "redirect_url": "/azure/virtual-machines/workloads/sap/automation-bom-templates-db",
             "redirect_document_id": false
           },
+                           {
+            "source_path_from_root": "/articles/virtual-machines/maintenance-control.md",
+            "redirect_url": "/azure/virtual-machines/maintenance-configurations",
+            "redirect_document_id": false
+          },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/create-portal-availability-zone.md",
             "redirect_url": "/azure/virtual-machines/create-portal-availability-zone",
