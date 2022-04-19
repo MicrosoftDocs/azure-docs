@@ -71,6 +71,9 @@ In this article, you've learned the FHIR service supports $import operation and 
 >[Converting your data to FHIR](convert-data.md)
 
 >[!div class="nextstepaction"]
+>[Use $import](import-data.md)
+
+>[!div class="nextstepaction"]
 >[Configure export settings and set up a storage account](configure-export-data.md)
 
 >[!div class="nextstepaction"]
