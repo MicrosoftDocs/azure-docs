@@ -106,7 +106,7 @@ disks:
   - { host: 'rh8scs00l84f', LUN: 0, type: 'sap' }
   - { host: 'rh8scs01l84f', LUN: 0, type: 'sap' }
 ```
-s
+
 ### Oracle support
 
 From the v3.4 release it is possible to deploy SAP on Azure systems in a hared Home configuration using an Oracle database backend. For more information on running SAP on Oracle in Azure see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](dbms_guide_oracle.md). 
