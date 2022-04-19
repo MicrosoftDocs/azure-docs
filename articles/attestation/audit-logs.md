@@ -80,3 +80,6 @@ The properties contains additional Azure attestation specific context:
 |    failureCategory                       |     Broad category indicating category of a request failure. Includes categories such as AzureNetworkingPhysical, AzureAuthorization etc.   |
 |    failureDetails                       |     Detailed information about a request failure, if available   |
 |    infoDataReceived                       |     Information about the request received from the client. Includes some HTTP headers, the number of headers received, the conent type and content length    |
+
+## Next steps
+- [How to enable Microsoft Azure Attestation logging ](basic-concepts.md)
