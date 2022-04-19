@@ -66,6 +66,9 @@ A private endpoint is a network interface that uses a private IP address from th
 1. On the **Tags** tab, optionally configure resource tags. Select **Next**.
 1. Select **Create**.
 
+> [!Note]
+> If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, please ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener will not be shown as a _Target sub-resource_.
+
 # [Azure PowerShell](#tab/powershell)
 
 To configure Private link on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
