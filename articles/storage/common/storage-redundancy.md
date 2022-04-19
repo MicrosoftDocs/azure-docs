@@ -77,6 +77,8 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 The Archive tier for Blob Storage is not currently supported for ZRS accounts. Unmanaged disks don't support ZRS or GZRS.
 
+For more information about which regions support ZRS, see [Azure regions with availability zones](../../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+
 #### Standard storage accounts
 
 ZRS is supported for all Azure Storage services through standard general-purpose v2 storage accounts, including:
@@ -87,8 +89,6 @@ ZRS is supported for all Azure Storage services through standard general-purpose
 - Azure Queue storage
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
-
-For more information about which regions support ZRS, see **Services support by region** in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
 
 #### Premium block blob accounts
 
@@ -232,7 +232,7 @@ The following table shows which redundancy options are supported by each Azure S
 
 ### Supported storage account types
 
-The following table shows which redundancy options are supported by each type of storage account. For information for storage account types, see [Storage account overview](storage-account-overview.md).
+The following table shows which redundancy options are supported for each type of storage account. For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
@@ -240,7 +240,9 @@ The following table shows which redundancy options are supported by each type of
 
 <sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
 
-All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied. Data in all tiers, including the archive tier, is copied. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
+All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
+
+Data in all tiers, including the Archive tier, is copied. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
 
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 

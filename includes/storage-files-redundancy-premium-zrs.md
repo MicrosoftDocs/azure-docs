@@ -6,7 +6,7 @@ ms.date: 04/19/2022
 ms.author: tamram
 ---
 
-Premium file shares are available for a subset of Azure regions:
+ZRS for premium file shares is available for a subset of Azure regions:
 
 - (Asia Pacific) Australia East
 - (Asia Pacific) East Asia
