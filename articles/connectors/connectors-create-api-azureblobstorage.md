@@ -295,7 +295,7 @@ If you have problems connecting to your storage account, review [how to access s
 
 You can add network security to an Azure storage account by [restricting access with a firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the data center abstracts the internal IP addresses, so just permitting traffic through IP addresses might not be enough to successfully allow communication across the firewall. The following options are available based on which Azure Blob Storage connector you use.
 
-To access storage accounts behind firewalls using the Azure Blob Storage connector (This connector is available in Logic App Consumption, Logic App Standard, and ISE.):
+To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
 
 - [Access storage accounts with managed identities](#access-blob-storage-with-managed-identities)
 - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
