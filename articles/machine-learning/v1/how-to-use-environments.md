@@ -20,10 +20,11 @@ ms.devlang: azurecli
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) using CLI v1. Use the environments to track and reproduce your projects' software dependencies as they evolve. The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) v1 mirrors most of the functionality of the Python SDK v1. You can use it to create and manage environments.
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](how-to-use-environments.md)
+> * [v2 (current version)](../how-to-manage-environments-v2.md)
 
-> [!TIP]
-> This article contains information on using the Azure CLI extension for Azure Machine Learning v1. This extension isn't the current one. For information on using the CLI v2 (current) extension to manage environments, see [Manage environments with the CLI (v2)](../how-to-manage-environments-v2.md).
+In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) using CLI v1. Use the environments to track and reproduce your projects' software dependencies as they evolve. The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) v1 mirrors most of the functionality of the Python SDK v1. You can use it to create and manage environments.
 
 Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environment` class accounts for local development solutions such as pip and Conda and distributed cloud development through Docker capabilities.
 
