@@ -46,7 +46,7 @@ For a large or very active database, the restore might take several hours. If th
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
 > [!TIP]
-> System updates will take precedence over database restores in progress. All pending restores in case of a system update will be suspended and resumed once the update has been applied. This system behavior might prolong the time of restores and might be especially impactful to long-running restores. To achieve a predictable time of database restores, consider configuring [maintenance window](maintenance-window.md) allowing scheduling of system updates at a specific day/time, and consider running database restores outside of the scheduled maintenance window day/time.
+> For Azure SQL Managed Instance system updates will take precedence over database restores in progress. All pending restores in case of a system update on Managed Instance will be suspended and resumed once the update has been applied. This system behavior might prolong the time of restores and might be especially impactful to long-running restores. To achieve a predictable time of database restores, consider configuring [maintenance window](maintenance-window.md) allowing scheduling of system updates at a specific day/time, and consider running database restores outside of the scheduled maintenance window day/time.
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
