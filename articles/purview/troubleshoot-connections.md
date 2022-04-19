@@ -54,7 +54,7 @@ If public endpoint is restricted on your data sources, to scan Azure data source
 
 For more information about setting up a self-hosted integration runtime, see [Ingestion private endpoints and scanning sources](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources)
 
-For more information how to create a new credential in Microsoft Purview, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+For more information how to create a new credential in Microsoft Purview, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 
 ## Storing your credential in your key vault and using the right secret name and version
 

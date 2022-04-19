@@ -785,10 +785,6 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
-    - name: Troubleshooting
-      items:
-      - name: Error retrieving data in Portal
-        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -832,8 +828,6 @@ items:
               href: app/status-monitor-v2-api-reference.md
         - name: Java
           href: app/java-on-premises.md
-      - name: Troubleshooting
-        href: app/auto-instrumentation-troubleshoot.md
     - name: Application Insights SDKs
       items:
       - name: .NET
