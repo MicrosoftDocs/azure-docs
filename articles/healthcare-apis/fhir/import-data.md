@@ -150,11 +150,11 @@ Below are some of the important fields in the response body:
 ```
 ## Troubleshooting
 
-Below are some error codes you may encounter:
+Below are some error codes you may encounter and the solutions to help you resolve them.
 
 ### 200 OK, but there's an error with the URL in the response
 
-**Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contains JSON fragments like in the example below:
+**Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contain JSON fragments like in the example below:
 
 ```json
 {
